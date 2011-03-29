@@ -153,6 +153,7 @@ class tx_org_installer_extmanager
     $groupBy        ='';
     $orderBy        ='';
     $limit          ='';
+    var_dump($GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit)); 
     $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit); 
     while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))
     {

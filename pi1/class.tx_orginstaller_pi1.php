@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010 - 2011 Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2011 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -36,7 +36,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 1.0.6
+ * @version 1.0.0
  */
 class tx_orginstaller_pi1 extends tslib_pibase 
 {
@@ -95,29 +95,24 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->conf = $conf;
 
 
-    //$this->pi_setPiVarDefaults();
     $this->pi_loadLL();
-
+      // Get values from the flexform
     $this->zz_getFlexValues();
-    // Get values from the flexform
-
-
-    // Set the path to icons
+      // Set the path to icons
     $this->zz_getPathToIcons();
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // What should be installed?
-    
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Install the Organiser
+      
     switch($this->markerArray['###INSTALL_CASE###'])
     {
       case('disabled'):
         $this->install_nothing();
         break;
-      case('install_shop'):
-      case('install_all'):
+      case('enabled'):
         $this->install();
         break;
       default:
@@ -126,9 +121,14 @@ class tx_orginstaller_pi1 extends tslib_pibase
             switch in tx_orginstaller_pi1::main has an undefined value: '.$this->markerArray['###INSTALL_CASE###'].'
           </p>';
     }
-    // What should be installed?
+      // Install the Organiser
 
 
+
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Error
+      
     if($this->bool_error)
     {
       $str_result = '
@@ -139,14 +139,17 @@ class tx_orginstaller_pi1 extends tslib_pibase
           '.$this->htmlReport().'
         </div>';
     }
+      // Error
 
-    if(!$this->bool_error)
-    {
-      $str_result = $this->htmlReport();
-    }
 
+
+      //////////////////////////////////////////////////////////////////////
+      //
+      // RETURN the result
+      
+    $str_result = $this->htmlReport();
     return $this->pi_wrapInBaseClass($str_result);
-    
+      // RETURN the result
   }
 
 

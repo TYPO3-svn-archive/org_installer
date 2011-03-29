@@ -58,7 +58,9 @@ class tx_org_installer_extmanager
 
 
   /**
- * initialPage(): Displays the quick start message.
+ * initialPage(): Displays a prompt with the current state.
+ *                If the user enabled the adding of the installer page,
+ *                the installer page will be added in the database.
  *
  * @return  string    message wrapped in HTML
  * @since 1.0.0
@@ -75,15 +77,12 @@ class tx_org_installer_extmanager
     $str_prompt = null;
     $confArr    = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
     $llStatic   = $confArr['LLstatic'];
-    switch($llStatic) 
-    {
-      case($llStatic == 'German'):
-        $this->str_llStatic = 'de';
-        break;
-      default:
-        $this->str_llStatic = 'en';
-    }
-    $arr_installerPages = $this->get_installerPages();
+
+
+
+      /////////////////////////////////////////////////////////
+      //
+      // Default prompt
 
     $str_prompt = $str_prompt.'
       <div class="typo3-message message-warning">
@@ -92,6 +91,16 @@ class tx_org_installer_extmanager
         </div>
       </div>
     ';
+      // Default prompt
+
+
+
+      /////////////////////////////////////////////////////////
+      //
+      // Get installed installer pages
+
+    $arr_installerPages = $this->get_installerPages();
+      // Get installed installer pages
 
 
 
@@ -138,11 +147,35 @@ class tx_org_installer_extmanager
 
       /////////////////////////////////////////////////////////
       //
-      // Insert page with TypoScript and plugin
+      // Language configuration
+
+    switch($llStatic) 
+    {
+      case($llStatic == 'German'):
+        $this->str_llStatic = 'de';
+        break;
+      default:
+        $this->str_llStatic = 'en';
+    }
+      // Language configuration
+
+
+
+      /////////////////////////////////////////////////////////
+      //
+      // Insert page, TypoScript and plugin
 
     $this->add_installerPage();
     $this->add_installerTS();
     $this->add_installerPlugin();
+      // Insert page, TypoScript and plugin
+
+
+
+      /////////////////////////////////////////////////////////
+      //
+      // RETURN page was added succesfully 
+
     $arr_installerPages = $this->get_installerPages();
     if(!empty($arr_installerPages))
     {
@@ -158,19 +191,23 @@ class tx_org_installer_extmanager
       $str_prompt = str_replace('###TITLE_UID###', $str_installerPages, $str_prompt);
       return $str_prompt;
     }
+      // RETURN page was added succesfully 
 
-      $str_prompt = $str_prompt.'
-        <div class="typo3-message message-ok">
-          <div class="message-body">
-            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageInstall'). '
-          </div>
+
+
+      /////////////////////////////////////////////////////////
+      //
+      // RETURN with an error 
+
+    $str_prompt = $str_prompt.'
+      <div class="typo3-message message-error">
+        <div class="message-body">
+          ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptError'). '
         </div>
-      ';
-      // Insert page with TypoScript and plugin
-
-
-
+      </div>
+    ';
     return $str_prompt;
+      // RETURN with an error 
   }
 
 
@@ -182,9 +219,9 @@ class tx_org_installer_extmanager
 
 
   /**
- * add_installerPage(): Get all pages with module = org_inst AND not deleted
+ * add_installerPage(): Add a page with module 'org_inst' to the root level
  *
- * @return  array   rows with installer pages
+ * @return  void
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -210,9 +247,9 @@ class tx_org_installer_extmanager
 
 
   /**
- * add_installerPlugin(): Get all pages with module = org_inst AND not deleted
+ * add_installerPlugin(): Add the plugin
  *
- * @return  array   rows with installer pages
+ * @return  void
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -242,9 +279,9 @@ class tx_org_installer_extmanager
 
 
   /**
- * add_installerTS(): Get all pages with module = org_inst AND not deleted
+ * add_installerTS(): Add the TypoScript
  *
- * @return  array   rows with installer pages
+ * @return  void
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -323,9 +360,10 @@ page {
 
 
   /**
- * get_maxUidPages(): Get all pages with module = org_inst AND not deleted
+ * get_maxUid(): Get the max uid of the given table
  *
- * @return  array   rows with installer pages
+ * @param    string       $from_table: the table
+ * @return  int   max uid
  * @since 1.0.0
  * @version 1.0.0
  */

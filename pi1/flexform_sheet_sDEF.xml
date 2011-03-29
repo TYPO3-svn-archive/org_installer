@@ -48,7 +48,7 @@
         <TCEforms>
           <exclude>1</exclude>
           <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.backend_user</label>
-          <displayCond>FIELD:install_case:=:install_all,install_shop</displayCond>
+          <displayCond>FIELD:install_case:=:enabled</displayCond>
           <config>
             <type>select</type>
             <foreign_table>be_users</foreign_table>
@@ -59,35 +59,11 @@
           </config>
         </TCEforms>
       </backend_user>
-      <host>
-        <TCEforms>
-          <exclude>1</exclude>
-          <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.host</label>
-          <displayCond>FIELD:install_case:=:install_all</displayCond>
-          <config>
-            <type>input</type>
-            <size>40</size>
-            <eval>trim,nospace</eval>
-          </config>
-        </TCEforms>
-      </host>
-      <website_title>
-        <TCEforms>
-          <exclude>1</exclude>
-          <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.website_title</label>
-          <displayCond>FIELD:install_case:=:install_all</displayCond>
-          <config>
-            <type>input</type>
-            <size>40</size>
-            <eval>trim,nospace</eval>
-          </config>
-        </TCEforms>
-      </website_title>
       <mail_subject>
         <TCEforms>
           <exclude>1</exclude>
           <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.mail_subject</label>
-          <displayCond>FIELD:install_case:=:install_all,install_shop</displayCond>
+          <displayCond>FIELD:install_case:=:enabled</displayCond>
           <config>
             <type>input</type>
             <size>40</size>
@@ -99,7 +75,7 @@
         <TCEforms>
           <exclude>1</exclude>
           <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.mail_default_sender</label>
-          <displayCond>FIELD:install_case:=:install_all,install_shop</displayCond>
+          <displayCond>FIELD:install_case:=:enabled</displayCond>
           <config>
             <type>input</type>
             <size>40</size>

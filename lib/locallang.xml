@@ -22,6 +22,9 @@
         <br />
         After enabling you will get the next prompt.
       ]]></label>
+      <label index="promptError"><![CDATA[
+        Sorry, there is an undefined error. 
+      ]]></label>
       <label index="promptInstallPageAdded"><![CDATA[
         The page "Organiser Installer" is added. It is placed on the top level of your page tree. See
         <br />

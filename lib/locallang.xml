@@ -19,8 +19,8 @@
             a preconfigured plugin
           </li>
         </ol>
-         <br />
-       You have only to adapt the configuration to your needs.
+        <br />
+        After enabling you will get the next prompt.
       ]]></label>
       <label index="promptInstallPageOk"><![CDATA[
         The page "Organiser Installer" is arranged. It is placed on the top level of your page tree.<br />

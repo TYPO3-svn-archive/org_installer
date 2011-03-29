@@ -71,44 +71,44 @@ class tx_org_installer_extmanager
 //.message-warning
 //.message-error
 
-      $str_prompt = null;
+    $str_prompt       = null;
+    $confArr          = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
+    $bool_installPage = $this->bool_installPage();
 
-      $str_prompt = $str_prompt.'
-        <div class="typo3-message message-warning">
-          <div class="message-body">
-            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptSaveTwice'). '
-          </div>
+    $str_prompt = $str_prompt.'
+      <div class="typo3-message message-warning">
+        <div class="message-body">
+          ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptSaveTwice'). '
         </div>
-        ';
+      </div>
+    ';
 
-    $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
-    if(strtolower($confArr['installPage']) == 'no')
+
+      // There is an installer page already
+    if($bool_installPage)
     {
       $str_prompt = $str_prompt.'
-        <div class="typo3-message message-information">
+        <div class="typo3-message message-ok">
           <div class="message-body">
-            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptEnableInstallPage'). '
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageOk'). '
           </div>
         </div>
         ';
     }
-    if(strtolower($confArr['installPage']) != 'no')
+      // There isn't any installer page
+    if(!$bool_installPage)
     {
-      $bool_installPage = $this->bool_installPage();
-
-        // There is an installer page already
-      if($bool_installPage)
+      if(strtolower($confArr['installPage']) == 'no')
       {
         $str_prompt = $str_prompt.'
-          <div class="typo3-message message-ok">
+          <div class="typo3-message message-information">
             <div class="message-body">
-              ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageOk'). '
+              ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptEnableInstallPage'). '
             </div>
           </div>
-          ';
+        ';
       }
-        // There isn't any installer page
-      if(!$bool_installPage)
+      if(strtolower($confArr['installPage']) != 'no')
       {
         $str_prompt = $str_prompt.'
           <div class="typo3-message message-ok">
@@ -116,7 +116,7 @@ class tx_org_installer_extmanager
               ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageInstall'). '
             </div>
           </div>
-          ';
+        ';
       }
     }
 

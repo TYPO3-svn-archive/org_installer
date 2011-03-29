@@ -28,8 +28,8 @@
 * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
 * @package    TYPO3
 * @subpackage    org
-* @version 0.3.1
-* @since 0.3.1
+* @version 1.0.0
+* @since 1.0.0
 */
 
 
@@ -60,8 +60,8 @@ class tx_org_installer_extmanager
  * initialPage(): Displays the quick start message.
  *
  * @return  string    message wrapped in HTML
- * @since 0.3.1
- * @version 0.3.1
+ * @since 1.0.0
+ * @version 1.0.0
  */
   function initialPage()
   {
@@ -71,9 +71,9 @@ class tx_org_installer_extmanager
 //.message-warning
 //.message-error
 
-    $str_prompt       = null;
-    $confArr          = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
-    $bool_installPage = $this->bool_installPage();
+    $str_prompt         = null;
+    $confArr            = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
+    $arr_installedPages = $this->get_installedPages();
 
     $str_prompt = $str_prompt.'
       <div class="typo3-message message-warning">
@@ -84,40 +84,44 @@ class tx_org_installer_extmanager
     ';
 
 
-      // There is an installer page already
-    if($bool_installPage)
+      // RETURN There is one installer page at least
+    if(!empty($arr_installedPages))
+    {
+      $str_installedPages = implode(', ', $arr_installedPages);
+      $str_prompt = $str_prompt.'
+        <div class="typo3-message message-ok">
+          <div class="message-body">
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageExist'). '
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallNextSteps'). '
+          </div>
+        </div>
+      ';
+      $str_prompt = str_replace('###TITLE_UID###', $str_installedPages, $str_prompt);
+      return $str_prompt;
+    }
+      // RETURN There is one installer page at least
+
+
+
+    if(strtolower($confArr['installPage']) == 'no')
+    {
+      $str_prompt = $str_prompt.'
+        <div class="typo3-message message-information">
+          <div class="message-body">
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptEnableInstallPage'). '
+          </div>
+        </div>
+      ';
+    }
+    if(strtolower($confArr['installPage']) != 'no')
     {
       $str_prompt = $str_prompt.'
         <div class="typo3-message message-ok">
           <div class="message-body">
-            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageOk'). '
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageInstall'). '
           </div>
         </div>
-        ';
-    }
-      // There isn't any installer page
-    if(!$bool_installPage)
-    {
-      if(strtolower($confArr['installPage']) == 'no')
-      {
-        $str_prompt = $str_prompt.'
-          <div class="typo3-message message-information">
-            <div class="message-body">
-              ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptEnableInstallPage'). '
-            </div>
-          </div>
-        ';
-      }
-      if(strtolower($confArr['installPage']) != 'no')
-      {
-        $str_prompt = $str_prompt.'
-          <div class="typo3-message message-ok">
-            <div class="message-body">
-              ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageInstall'). '
-            </div>
-          </div>
-        ';
-      }
+      ';
     }
 
 
@@ -133,34 +137,29 @@ class tx_org_installer_extmanager
 
 
   /**
- * bool_installPage(): Displays the quick start message.
+ * get_installedPages(): Get all pages with module = org_inst AND not deleted
  *
- * @return  string    message wrapped in HTML
- * @since 0.3.1
- * @version 0.3.1
+ * @return  array   rows with installed pages
+ * @since 1.0.0
+ * @version 1.0.0
  */
-  function bool_installPage()
+  function get_installedPages()
   {
-    $query = '
-      SELECT uid, title
-      FROM `pages`
-      WHERE deleted =0
-      AND module = "org_inst"
-    ';
+    $rows           = null;
     $select_fields  = 'uid, title';
     $from_table     = 'pages';
     $where_clause   = 'deleted = 0 AND module = "org_inst"';
     $groupBy        ='';
     $orderBy        ='';
     $limit          ='';
-    var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
-    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit); 
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
+    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit);
     while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))
     {
-      var_dump($row);
+      $rows[] = $row['title'] . '[' . $row['uid'] . ']';
       //$params['items'][] = array($row['itemValue'], $row['itemKey']);
     }
-    return true;
+    return $rows;
   }
 
 

@@ -25,6 +25,7 @@
       <label index="promptInstallPageAdded"><![CDATA[
         The page "Organiser Installer" is added. It is placed on the top level of your page tree. See
         <br />
+        <br />
         <ol style="list-style:outside;">
           ###TITLE_UID###
         </ol>
@@ -32,7 +33,9 @@
         You can move it everywhere, if you like.<br />
       ]]></label>
       <label index="promptInstallPageExist"><![CDATA[
-        There is one existing page "Organiser Installer" at least. See<br />
+        There is one existing page "Organiser Installer" at least. See
+        <br />
+        <br />
         <ol style="list-style:outside;">
           ###TITLE_UID###
         </ol>

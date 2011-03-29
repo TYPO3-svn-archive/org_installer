@@ -47,7 +47,8 @@
  */
 class tx_org_installer_extmanager
 {
-
+  var $int_pageUid  = null;
+  var $str_llStatic = 'en';
 
 
 
@@ -71,8 +72,17 @@ class tx_org_installer_extmanager
 //.message-warning
 //.message-error
 
-    $str_prompt         = null;
-    $confArr            = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
+    $str_prompt = null;
+    $confArr    = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
+    $llStatic   = $confArr['LLstatic'];
+    switch($llStatic) 
+    {
+      case($llStatic == 'German'):
+        $this->str_llStatic = 'de';
+        break;
+      default:
+        $this->str_llStatic = 'en';
+    }
     $arr_installerPages = $this->get_installerPages();
 
     $str_prompt = $str_prompt.'
@@ -131,6 +141,8 @@ class tx_org_installer_extmanager
       // Insert page with TypoScript and plugin
 
     $this->add_installerPage();
+    $this->add_installerTS();
+    $this->add_installerPlugin();
     $arr_installerPages = $this->get_installerPages();
     if(!empty($arr_installerPages))
     {
@@ -178,12 +190,93 @@ class tx_org_installer_extmanager
  */
   function add_installerPage()
   {
-    $int_maxUidPages        = $this->get_maxUidPages();
-    $int_newUidPages        = $int_maxUidPages++;
-    $table                  = 'pages';
-    $fields_values['uid']   = $int_newUidPages;
-    $fields_values['title'] = 'Organiser Installer';
-    $fields_values['modul'] = 'org_inst';
+    $table                    = 'pages';
+    $int_maxUid               = $this->get_maxUid($table);
+    $this->int_pageUid        = $int_maxUid + 1;
+    $fields_values['uid']     = $this->int_pageUid;
+    $fields_values['title']   = 'Organiser Installer';
+    $fields_values['module']  = 'org_inst';
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
+    //exit;
+    $GLOBALS['TYPO3_DB']->exec_INSERTquery($table,$fields_values,$no_quote_fields=FALSE);
+  }
+
+
+
+
+
+
+
+
+
+  /**
+ * add_installerPlugin(): Get all pages with module = org_inst AND not deleted
+ *
+ * @return  array   rows with installer pages
+ * @since 1.0.0
+ * @version 1.0.0
+ */
+  function add_installerPlugin()
+  {
+    $table      = 'tt_content';
+    $int_maxUid = $this->get_maxUid($table);
+    $int_maxUid = $int_maxUid + 1;
+    
+    $fields_values['uid']                 = $int_maxUid;
+    $fields_values['pid']                 = $this->int_pageUid;
+    $fields_values['CType']               = 'list';
+    $fields_values['title']               = '[Organiser Installer]';
+    $fields_values['header_layout']       = '100';
+    $fields_values['list_type']           = 'org_installer_pi1';
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
+    //exit;
+    $GLOBALS['TYPO3_DB']->exec_INSERTquery($table,$fields_values,$no_quote_fields=FALSE);
+  }
+
+
+
+
+
+
+
+
+
+  /**
+ * add_installerTS(): Get all pages with module = org_inst AND not deleted
+ *
+ * @return  array   rows with installer pages
+ * @since 1.0.0
+ * @version 1.0.0
+ */
+  function add_installerTS()
+  {
+    $table      = 'sys_template';
+    $int_maxUid = $this->get_maxUid($table);
+    $int_maxUid = $int_maxUid + 1;
+    
+    $fields_values['uid']                 = $int_maxUid;
+    $fields_values['pid']                 = $this->int_pageUid;
+    $fields_values['title']               = 'Organiser_Installer_' . sprintf('%03d', $int_maxUid);
+    $fields_values['root']                = '1';
+    $fields_values['clear']               = '3';
+    $fields_values['include_static_file'] = 'EXT:css_styled_content/static/';
+    $fields_values['config']              = '
+config {
+  baseURL            = ' . t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST') . '/
+  language           = ' . $this->str_llStatic . '
+  htmlTag_langKey    = ' . $this->str_llStatic . '
+  metaCharset        = UTF-8
+  tx_realurl_enable  = 0
+  no_cache           = 1
+}
+page = PAGE
+page {
+  typeNum = 0
+  10 < styles.content.get
+}
+';
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
+    //exit;
     $GLOBALS['TYPO3_DB']->exec_INSERTquery($table,$fields_values,$no_quote_fields=FALSE);
   }
 
@@ -236,11 +329,10 @@ class tx_org_installer_extmanager
  * @since 1.0.0
  * @version 1.0.0
  */
-  function get_maxUidPages()
+  function get_maxUid($from_table)
   {
     $rows           = null;
     $select_fields  = 'max(uid) AS maxUid';
-    $from_table     = 'pages';
     $where_clause   = null;
     $groupBy        = null;
     $orderBy        = null;

@@ -141,6 +141,14 @@ class tx_org_installer_extmanager
  */
   function bool_installPage()
   {
+    $query = '
+      SELECT uid, title
+      FROM `pages`
+      WHERE deleted =0
+      AND module = "org_inst"
+    ';
+    
+    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy='',$orderBy='',$limit=''); 
     return true;
   }
 

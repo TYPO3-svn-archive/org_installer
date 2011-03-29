@@ -4,5 +4,5 @@ quick_install=0
   # cat=basic/enable/100; type=options[English,German]; label= Language:My preferred language
 LLstatic = English
 
-  # cat=basic/enable/200; type=options[No,Yes (recommended)]; label= Installer page:Install an initial page for installing
+  # cat=basic/enable/200; type=options[No,Yes (recommended)]; label= Installer page:Install an initial page for installing on the root level
 installPage = No

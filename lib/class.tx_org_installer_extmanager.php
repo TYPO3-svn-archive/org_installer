@@ -73,7 +73,7 @@ class tx_org_installer_extmanager
 
     $str_prompt         = null;
     $confArr            = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
-    $arr_installedPages = $this->get_installedPages();
+    $arr_installerPages = $this->get_installerPages();
 
     $str_prompt = $str_prompt.'
       <div class="typo3-message message-warning">
@@ -84,10 +84,14 @@ class tx_org_installer_extmanager
     ';
 
 
+
+      /////////////////////////////////////////////////////////
+      //
       // RETURN There is one installer page at least
-    if(!empty($arr_installedPages))
+
+    if(!empty($arr_installerPages))
     {
-      $str_installedPages = implode(null, $arr_installedPages);
+      $str_installerPages = implode(null, $arr_installerPages);
       $str_prompt = $str_prompt.'
         <div class="typo3-message message-ok">
           <div class="message-body">
@@ -96,12 +100,16 @@ class tx_org_installer_extmanager
           </div>
         </div>
       ';
-      $str_prompt = str_replace('###TITLE_UID###', $str_installedPages, $str_prompt);
+      $str_prompt = str_replace('###TITLE_UID###', $str_installerPages, $str_prompt);
       return $str_prompt;
     }
       // RETURN There is one installer page at least
 
 
+
+      /////////////////////////////////////////////////////////
+      //
+      // RETURN There shouldn't install any installer page
 
     if(strtolower($confArr['installPage']) == 'no')
     {
@@ -112,9 +120,19 @@ class tx_org_installer_extmanager
           </div>
         </div>
       ';
+      return $str_prompt;
     }
-    if(strtolower($confArr['installPage']) != 'no')
-    {
+      // RETURN There shouldn't install any installer page
+
+
+
+      /////////////////////////////////////////////////////////
+      //
+      // Insert page with TypoScript and plugin
+
+    $this->add_installerPage();
+    $arr_installerPages = $this->get_installerPages();
+
       $str_prompt = $str_prompt.'
         <div class="typo3-message message-ok">
           <div class="message-body">
@@ -122,7 +140,8 @@ class tx_org_installer_extmanager
           </div>
         </div>
       ';
-    }
+      // Insert page with TypoScript and plugin
+
 
 
     return $str_prompt;
@@ -137,13 +156,39 @@ class tx_org_installer_extmanager
 
 
   /**
- * get_installedPages(): Get all pages with module = org_inst AND not deleted
+ * add_installerPage(): Get all pages with module = org_inst AND not deleted
  *
- * @return  array   rows with installed pages
+ * @return  array   rows with installer pages
  * @since 1.0.0
  * @version 1.0.0
  */
-  function get_installedPages()
+  function add_installerPage()
+  {
+    $int_maxUidPages        = $this->get_maxUidPages();
+    $int_newUidPages        = $int_maxUidPages++;
+    $table                  = 'pages';
+    $fields_values['uid']   = $int_newUidPages;
+    $fields_values['title'] = 'Organiser Installer';
+    $fields_values['modul'] = 'org_inst';
+    $GLOBALS['TYPO3_DB']->exec_INSERTquery($table,$fields_values,$no_quote_fields=FALSE);
+  }
+
+
+
+
+
+
+
+
+
+  /**
+ * get_installerPages(): Get all pages with module = org_inst AND not deleted
+ *
+ * @return  array   rows with installer pages
+ * @since 1.0.0
+ * @version 1.0.0
+ */
+  function get_installerPages()
   {
     $rows           = null;
     $select_fields  = 'uid, title';

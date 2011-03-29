@@ -28,12 +28,8 @@
       ]]></label>
       <label index="promptInstallPageExist"><![CDATA[
         There is one existing page "Organiser Installer" at least. See<br />
-        <br />
-        <br />
         <ol style="list-style:outside;">
-          <li>
-            Title and uid of your page is: ###TITLE_UID###
-          </li>
+          ###TITLE_UID###
         </ol>
         <br />
       ]]></label>

@@ -73,8 +73,6 @@ class tx_org_installer_extmanager
 
       $str_prompt = null;
 
-      $str_prompt = null;
-
       $str_prompt = $str_prompt.'
         <div class="typo3-message message-warning">
           <div class="message-body">
@@ -96,6 +94,8 @@ class tx_org_installer_extmanager
     }
     if(strtolower($confArr['installPage']) != 'no')
     {
+        // There is an installer page already
+        // There isn't any installer page
       $str_prompt = 'Yes';
     }
 

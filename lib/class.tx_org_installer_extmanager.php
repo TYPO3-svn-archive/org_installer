@@ -229,6 +229,36 @@ class tx_org_installer_extmanager
 
 
 
+  /**
+ * get_maxUidPages(): Get all pages with module = org_inst AND not deleted
+ *
+ * @return  array   rows with installer pages
+ * @since 1.0.0
+ * @version 1.0.0
+ */
+  function get_maxUidPages()
+  {
+    $rows           = null;
+    $select_fields  = 'max(uid) AS maxUid';
+    $from_table     = 'pages';
+    $where_clause   = null;
+    $groupBy        = null;
+    $orderBy        = null;
+    $limit          = null;
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
+    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit);
+    $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
+    return $row['maxUid'];
+  }
+
+
+
+
+
+
+
+
+
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/lib/class.tx_org_installer_extmanager.php'])

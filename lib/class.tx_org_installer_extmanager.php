@@ -147,8 +147,18 @@ class tx_org_installer_extmanager
       WHERE deleted =0
       AND module = "org_inst"
     ';
-    
-    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy='',$orderBy='',$limit=''); 
+    $select_fields  = 'SELECT uid, title';
+    $from_table     = 'pages';
+    $where_clause   = 'deleted = 0 AND module = "org_inst"';
+    $groupBy        ='';
+    $orderBy        ='';
+    $limit          ='';
+    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit); 
+    while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))
+    {
+      var_dump($row);
+      //$params['items'][] = array($row['itemValue'], $row['itemKey']);
+    }
     return true;
   }
 

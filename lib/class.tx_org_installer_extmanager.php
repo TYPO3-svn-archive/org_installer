@@ -73,23 +73,26 @@ class tx_org_installer_extmanager
 
       $str_prompt = null;
 
+      $str_prompt = null;
+
       $str_prompt = $str_prompt.'
-<div class="typo3-message message-information">
-  <div class="message-body">
-    ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:initialPage'). '
-  </div>
-</div>
-<div class="typo3-message message-information">
-  <div class="message-body">
-    ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptGeneralInfo'). '
-  </div>
-</div>
-';
+        <div class="typo3-message message-warning">
+          <div class="message-body">
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptSaveTwice'). '
+          </div>
+        </div>
+        ';
 
     $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
     if(strtolower($confArr['installPage']) == 'no')
     {
-      $str_prompt = 'No';
+      $str_prompt = $str_prompt.'
+        <div class="typo3-message message-information">
+          <div class="message-body">
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptEnableInstallPage'). '
+          </div>
+        </div>
+        ';
     }
     if(strtolower($confArr['installPage']) != 'no')
     {

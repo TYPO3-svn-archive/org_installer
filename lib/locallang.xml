@@ -6,24 +6,24 @@
   </meta>
   <data type="array">
     <languageKey index="default" type="array">
-      <label index="initialPage"><![CDATA[
-        If you like to start with the Organiser immediately, start with the default configuration of the extension manager.
-        You have to take care of two items:
+      <label index="promptEnableInstallPage"><![CDATA[
+        Please enable the "Installer page" below.
+        The Organiser Installer will install a page on the top level with
         <br />
         <br />
         <ol style="list-style:outside;">
           <li>
-            Linking from a record of one Organiser table to a record of another Organiser table is possible only, if the records are store in the same directory.
+            a preconfigured TypoScript template and
           </li>
           <li>
-            "Store record configuration" has set to [EASY]. Please check below.
+            a preconfigured plugin
           </li>
         </ol>
          <br />
-       Have fun!
+       You have only to adapt the configuration to your needs.
       ]]></label>
-      <label index="promptGeneralInfo"><![CDATA[
-        All alignments in the extension manager effect the TYPO3 backend only.
+      <label index="promptSaveTwice"><![CDATA[
+        Please save your changing twice! Prompts will have a chance for updating.
       ]]></label>
     </languageKey>
     <languageKey index="de" type="array">
@@ -43,8 +43,8 @@
         <br />
         Viele Spa&szlig;!
       ]]></label>
-      <label index="promptGeneralInfo"><![CDATA[
-        Alle Einstellungen im Extension Manager beeinflussen ausschlie&szlig;lich das TYPO3-Backend.
+      <label index="promptSaveTwice"><![CDATA[
+        Speichere Deine &Auml;nderungen bitte zwei Mal. Mitteilungen werden dann korrekt aktualisiert.
       ]]></label>
     </languageKey>
   </data>

@@ -228,8 +228,8 @@ class tx_org_installer_extmanager
     $fields_values['title']               = '[Organiser Installer]';
     $fields_values['header_layout']       = '100';
     $fields_values['list_type']           = 'org_installer_pi1';
-    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
-    //exit;
+    var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
+    exit;
     $GLOBALS['TYPO3_DB']->exec_INSERTquery($table,$fields_values,$no_quote_fields=FALSE);
   }
 

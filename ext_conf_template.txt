@@ -1,0 +1,5 @@
+  # cat=basic/enable/10;              type=user[EXT:org_installer/lib/class.tx_org_installer_extmanager.php:tx_org_installer_extmanager->initialPage]; label=Install initial page
+initialPage=0
+
+  # cat=basic/enable/100;             type=options[English,German]; label= Localise special backend labels: Language for special backend labels like TypoScript static templates and the link handler.
+LLstatic = English

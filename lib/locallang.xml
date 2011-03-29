@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+  <meta type="array">
+    <type>module</type>
+    <description>Language labels for plugin &quot;tx_org_installer_extmanager&quot;</description>
+  </meta>
+  <data type="array">
+    <languageKey index="default" type="array">
+      <label index="initialPage"><![CDATA[
+        If you like to start with the Organiser immediately, start with the default configuration of the extension manager.
+        You have to take care of two items:
+        <br />
+        <br />
+        <ol style="list-style:outside;">
+          <li>
+            Linking from a record of one Organiser table to a record of another Organiser table is possible only, if the records are store in the same directory.
+          </li>
+          <li>
+            "Store record configuration" has set to [EASY]. Please check below.
+          </li>
+        </ol>
+         <br />
+       Have fun!
+      ]]></label>
+      <label index="promptGeneralInfo"><![CDATA[
+        All alignments in the extension manager effect the TYPO3 backend only.
+      ]]></label>
+    </languageKey>
+    <languageKey index="de" type="array">
+      <label index="initialPage"><![CDATA[
+        Wenn Du mit dem Organiser sofort starten m&ouml;chtest, dann arbeite mit den Standardeinstellungen des Extension
+        Managers. Du musst nur zwei Dinge beachten:
+        <br />
+        <br />
+        <ol style="list-style:outside;">
+          <li>
+            Du kannst im Backend nur zwischen Datens&auml;tzen von Organiser Tabellen verlinken, die im selben Verzeichnis liegen.
+          </li>
+          <li>
+            "Store record configuration" muss auf [EASY] gesetzt sein (siehe unten).
+          </li>
+        </ol>
+        <br />
+        Viele Spa&szlig;!
+      ]]></label>
+      <label index="promptGeneralInfo"><![CDATA[
+        Alle Einstellungen im Extension Manager beeinflussen ausschlie&szlig;lich das TYPO3-Backend.
+      ]]></label>
+    </languageKey>
+  </data>
+</T3locallang>

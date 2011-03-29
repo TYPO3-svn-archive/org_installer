@@ -16,7 +16,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'category' => 'plugin',
 	'shy' => 0,
 	'version' => '0.1.0',
-	'dependencies' => 'org',
+	'dependencies' => 'css_styled_content,org',
 	'conflicts' => '',
 	'priority' => '',
 	'loadOrder' => '',
@@ -34,7 +34,8 @@ $EM_CONF[$_EXTKEY] = array(
 	'CGLcompliance_note' => '',
 	'constraints' => array(
 		'depends' => array(
-      			'org'     => '1.0.0-0.0.0-',
+      'css_styled_content'  => '1.0.0-0.0.0',
+      'org'                 => '1.0.0-0.0.0-',
 		),
 		'conflicts' => array(
 		),

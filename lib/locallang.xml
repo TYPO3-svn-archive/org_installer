@@ -22,6 +22,28 @@
          <br />
        You have only to adapt the configuration to your needs.
       ]]></label>
+      <label index="promptInstallPageOk"><![CDATA[
+        The page "Organiser Installer" is arranged. It is placed on the top level of your page tree.<br />
+        You can move it to everywhere, if you like.<br />
+        Your next steps are:
+        <br />
+        <br />
+        <ol style="list-style:outside;">
+          <li>
+            You don't need to change anything of the configuration in the TypoScript template of 
+            the page "Organiser Installer". But if you want, change it.
+          </li>
+          <li>
+            Please choose the installation mode in the "Organiser Installer" plugin of
+            the "Organiser Installer" page.
+          </li>
+          <li>
+            Please start the installation in the TYPO3 frontend by visiting the "Organiser Installer" page.
+          </li>
+        </ol>
+        <br />
+        Have fun!
+      ]]></label>
       <label index="promptSaveTwice"><![CDATA[
         Please save your changing twice! Prompts will have a chance for updating.
       ]]></label>

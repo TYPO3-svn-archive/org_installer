@@ -94,13 +94,54 @@ class tx_org_installer_extmanager
     }
     if(strtolower($confArr['installPage']) != 'no')
     {
+      $bool_installPage = $this->bool_installPage();
+
         // There is an installer page already
+      if($bool_installPage)
+      {
+        $str_prompt = $str_prompt.'
+          <div class="typo3-message message-ok">
+            <div class="message-body">
+              ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageOk'). '
+            </div>
+          </div>
+          ';
+      }
         // There isn't any installer page
-      $str_prompt = 'Yes';
+      if(!$bool_installPage)
+      {
+        $str_prompt = $str_prompt.'
+          <div class="typo3-message message-ok">
+            <div class="message-body">
+              ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageInstall'). '
+            </div>
+          </div>
+          ';
+      }
     }
 
 
     return $str_prompt;
+  }
+
+
+
+
+
+
+
+
+
+  /**
+ * bool_installPage(): Displays the quick start message.
+ *
+ * @return  string    message wrapped in HTML
+ * @since 0.3.1
+ * @version 0.3.1
+ */
+  function bool_installPage()
+  {
+    return true;
   }
 
 

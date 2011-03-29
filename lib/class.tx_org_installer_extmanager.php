@@ -132,6 +132,20 @@ class tx_org_installer_extmanager
 
     $this->add_installerPage();
     $arr_installerPages = $this->get_installerPages();
+    if(!empty($arr_installerPages))
+    {
+      $str_installerPages = implode(null, $arr_installerPages);
+      $str_prompt = $str_prompt.'
+        <div class="typo3-message message-ok">
+          <div class="message-body">
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageAdded'). '
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallNextSteps'). '
+          </div>
+        </div>
+      ';
+      $str_prompt = str_replace('###TITLE_UID###', $str_installerPages, $str_prompt);
+      return $str_prompt;
+    }
 
       $str_prompt = $str_prompt.'
         <div class="typo3-message message-ok">

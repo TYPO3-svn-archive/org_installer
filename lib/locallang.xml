@@ -22,8 +22,13 @@
         <br />
         After enabling you will get the next prompt.
       ]]></label>
-      <label index="promptInstallPageArranged"><![CDATA[
-        The page "Organiser Installer" is arranged. It is placed on the top level of your page tree.<br />
+      <label index="promptInstallPageAdded"><![CDATA[
+        The page "Organiser Installer" is added. It is placed on the top level of your page tree. See
+        <br />
+        <ol style="list-style:outside;">
+          ###TITLE_UID###
+        </ol>
+        <br />
         You can move it everywhere, if you like.<br />
       ]]></label>
       <label index="promptInstallPageExist"><![CDATA[

@@ -86,6 +86,17 @@ class tx_org_installer_extmanager
 </div>
 ';
 
+    $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
+    if(strtolower($confArr['installPage']) == 'no')
+    {
+      $str_prompt = 'No';
+    }
+    if(strtolower($confArr['installPage']) != 'no')
+    {
+      $str_prompt = 'Yes';
+    }
+
+
     return $str_prompt;
   }
 

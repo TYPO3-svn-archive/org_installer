@@ -147,14 +147,13 @@ class tx_org_installer_extmanager
       WHERE deleted =0
       AND module = "org_inst"
     ';
-    $select_fields  = 'SELECT uid, title';
+    $select_fields  = 'uid, title';
     $from_table     = 'pages';
     $where_clause   = 'deleted = 0 AND module = "org_inst"';
     $groupBy        ='';
     $orderBy        ='';
     $limit          ='';
     var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
-    exit; 
     $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit); 
     while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))
     {

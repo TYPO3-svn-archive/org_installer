@@ -9,7 +9,7 @@ $LOCAL_LANG = array(
     'sheet_install.install_case.1'          => 'enabled',
     'sheet_install.backend_user'            => 'Backend user (will be the owner of all new pages)',
     'sheet_install.mail_subject'            => 'Subject of confirmation mails - required',
-    'sheet_install.mail_default_sender'     => 'E-mail of the shop owner (is the sender of e-mails to customers) - required',
+    'sheet_install.mail_default_sender'     => 'E-mail-address of the sender (to customers) - required',
   ),
   'de' => array(
     'sheet_install'                         => 'Installation',
@@ -19,7 +19,7 @@ $LOCAL_LANG = array(
     'sheet_install.install_case.0'          => 'Deaktiviert',
     'sheet_install.install_case.1'          => 'Aktiviert',
     'sheet_install.mail_subject'            => 'Betreff der Bestaetigungs-Mails - Pflichtfeld',
-    'sheet_install.mail_default_sender'     => 'Mail des Eigentuemers des Shops (das ist auch die Absender-Mail fuer Mails an Kunden) - Pflichtfeld',
+    'sheet_install.mail_default_sender'     => 'Mail-Adresse des Website-Betreibers (an Kunden) - Pflichtfeld',
   ),
 );
 ?>

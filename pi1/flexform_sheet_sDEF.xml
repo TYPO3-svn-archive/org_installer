@@ -40,6 +40,7 @@
             </items>
             <default>disabled</default>
             <maxitems>1</maxitems>
+            <minitems>1</minitems>
             <size>1</size>
           </config>
         </TCEforms>
@@ -68,6 +69,7 @@
             <type>input</type>
             <size>40</size>
             <eval>trim,required</eval>
+            <default>TYPO3 Organiser - confirmation</default>
           </config>
         </TCEforms>
       </mail_subject>
@@ -80,9 +82,9 @@
             <type>input</type>
             <size>40</size>
             <eval>trim,nospace,required</eval>
+            <default>mail@typo3-organiser.com</default>
           </config>
         </TCEforms>
-      </mail_default_sender>
-    </el>
+      </mail_default_sender>    </el>
   </ROOT>
 </T3DataStructure>

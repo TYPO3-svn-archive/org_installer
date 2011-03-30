@@ -183,6 +183,7 @@
       <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Pllugin.</label>
       <label index="begin_h1">Organiser Installation</label>
       <label index="error_all_h1"><![CDATA[Organiser Installation nicht durchgeführt!]]></label>
+
       <label index="confirm_header"><![CDATA[Installation durchführen]]></label>
       <label index="confirm_prompt_createBeGroup">Backend Gruppe erstellen</label>
       <label index="confirm_prompt_createPages">Seitenbaum bauen</label>
@@ -195,6 +196,7 @@
       <label index="confirm_prompt_createContent">Erstelle Seiteninhalte</label>
       <label index="confirm_prompt_consolidate">Daten konsolidieren</label>
       <label index="confirm_button">Installieren</label>
+
       <label index="ext_header"><![CDATA[Abhängigkeiten von Erweiterungen]]></label>
       <label index="ext_error">Der Organiser Installer meldet eine fehlende Erweiterung.</label>
       <label index="ext_help">Bitte installiere: </label>
@@ -316,23 +318,24 @@
       <label index="content_create_header">Seiteninhalt</label>
       <label index="content_create_prompt"><![CDATA[Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.]]></label>
       <label index="content_shipping_header">Versand</label>
-      <label index="content_shipping_bodytext">Hier finden Sie Angaben zum Versand
+      <label index="content_shipping_bodytext"><![CDATA[Hier finden Sie Angaben zum Versand
 * innerhalb Deutschlands
 * auf Deutsche Inseln
 * innerhalb Europas
-* Rest der Welt</label>
+* Rest der Welt]]></label>
       <label index="content_terms_header"><![CDATA[AGB - Allgemeine Geschäftsbedingungen]]></label>
       <label index="content_terms_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.]]></label>
       <label index="content_header_header">[Kopfzeile]</label>
       <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Organiser: Startseite"&gt;Organiser&lt;/link&gt;</label>
       <label index="content_footer_header">[Fusszeile]</label>
       <label index="content_footer_bodytext">Die Fusszeile kannst Du hier bearbeiten: Bibliotheken > Fusszeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
+
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
-      <label index="consolidate_prompt_content_rm">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### wurde gel&ouml;scht.</label>
+      <label index="consolidate_prompt_content_rm"><![CDATA[Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### wurde gel&ouml;scht.]]></label>
       <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgeblendet.</label>
-      <label index="consolidate_prompt_template_rm">Bisherige Templates auf der Seite ###TITLE_PID### wurden gel&auml;scht.</label>
+      <label index="consolidate_prompt_template_rm"><![CDATA[Bisherige Templates auf der Seite ###TITLE_PID### wurden gel&auml;scht.]]></label>
       <label index="end_header">Installation beenden!</label>
       <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schliesse das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
       <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Organiser Installer, wenn Du ihn nicht mehr brauchst!</label>

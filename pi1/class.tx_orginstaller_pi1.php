@@ -116,7 +116,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
       //
       // Install the Organiser
       
-    switch($this->markerArray['###INSTALL_CASE###'])
+    switch($this->arr_piFlexform['data']['sDEF']['lDEF']['install_case'])
     {
       case('disabled'):
         $this->install_nothing();
@@ -127,7 +127,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
       default:
         $this->arrReport[] = '
           <p>
-            switch in tx_orginstaller_pi1::main has an undefined value: '.$this->markerArray['###INSTALL_CASE###'].'
+            switch in ' . __METHOD__ . ' has an undefined value: ' . 
+            $this->arr_piFlexform['data']['sDEF']['lDEF']['install_case'] . '
           </p>';
     }
       // Install the Organiser
@@ -507,7 +508,6 @@ class tx_orginstaller_pi1 extends tslib_pibase
    */
   private function createBeGroup()
   {
-    
     $this->markerArray['###GROUP_TITLE###'] = 'organiser';
 
 

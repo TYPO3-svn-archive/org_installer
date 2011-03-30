@@ -152,7 +152,7 @@
       <label index="content_terms_header">Terms and conditions</label>
       <label index="content_terms_bodytext">Our terms and conditions: This is a shop for demonstration only. You can't order anything. We sell nothing.</label>
       <label index="content_header_header">[Header]</label>
-      <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Organiser: Home"&gt;Organiser&lt;/link&gt;</label>
+      <label index="content_header_bodytext"><![CDATA[&lt;link ###PID### - internal-link "Organiser: Home"&gt;Organiser&lt;/link&gt;]]></label>
       <label index="content_footer_header">[Footer]</label>
       <label index="content_footer_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
       <label index="consolidate_header">Consolidating</label>
@@ -178,16 +178,16 @@
     </languageKey>
     <languageKey index="de" type="array">
       <label index="tt_content.list_type_pi1">Organiser - Installer</label>
-      <label index="back">Zurück</label>
+      <label index="back"><![CDATA[Zurück]]></label>
       <label index="plugin_warn">Willst Du den Organiser Installer wirklich nicht benutzen?</label>
       <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Pllugin.</label>
       <label index="begin_h1">Organiser Installation</label>
-      <label index="error_all_h1">Organiser Installation nicht durchgeführt!</label>
-      <label index="confirm_header">Installation durchführen</label>
+      <label index="error_all_h1"><![CDATA[Organiser Installation nicht durchgeführt!]]></label>
+      <label index="confirm_header"><![CDATA[Installation durchführen]]></label>
       <label index="confirm_prompt_createBeGroup">Backend Gruppe erstellen</label>
       <label index="confirm_prompt_createPages">Seitenbaum bauen</label>
-      <label index="confirm_prompt_createContent">Inhalt für Kopf- und Fußzeile erstellen.</label>
-      <label index="confirm_prompt_createTs">TypoScript für Browser, Wt-Cart und Powermail erstellen.</label>
+      <label index="confirm_prompt_createContent"><![CDATA[Inhalt für Kopf- und Fußzeile erstellen.]]></label>
+      <label index="confirm_prompt_createTs"><![CDATA[TypoScript für Browser, Wt-Cart und Powermail erstellen.]]></label>
       <label index="confirm_prompt_createPlugins">Plugins Browser, Wt-Cart und Powermail erstellen.</label>
       <label index="confirm_prompt_createPowermail">Konfiguriere Powermail</label>
       <label index="confirm_prompt_createProducts">Erstelle sechs Beispielprodukte</label>
@@ -195,14 +195,14 @@
       <label index="confirm_prompt_createContent">Erstelle Seiteninhalte</label>
       <label index="confirm_prompt_consolidate">Daten konsolidieren</label>
       <label index="confirm_button">Installieren</label>
-      <label index="ext_header">Abhängigkeiten von Erweiterungen</label>
+      <label index="ext_header"><![CDATA[Abhängigkeiten von Erweiterungen]]></label>
       <label index="ext_error">Der Organiser Installer meldet eine fehlende Erweiterung.</label>
       <label index="ext_help">Bitte installiere: </label>
       <label index="ext_ok">ist installiert.</label>
       <label index="grp_create_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
-      <label index="grp_create_prompt">Benutzergruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) wurde erstellt. Wenn Du sie nicht brauchst, lösche sie.</label>
+      <label index="grp_create_prompt"><![CDATA[Benutzergruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) wurde erstellt. Wenn Du sie nicht brauchst, lösche sie.]]></label>
       <label index="grp_ok_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
-      <label index="grp_ok_prompt">Organiser Installer räumt der Gruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) volle Rechte an allen Seiten und Verzeichnissen des Organisers ein.</label>
+      <label index="grp_ok_prompt"><![CDATA[Organiser Installer räumt der Gruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) volle Rechte an allen Seiten und Verzeichnissen des Organisers ein.]]></label>
       <label index="grp_warn_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
       <label index="grp_warn_prompt">Der Organiser Installer konnte die Gruppe "###GROUP_TITLE###" nicht erstellen. Macht aber weiter nichts.</label>
       <label index="page_create_header">Seiten und Verzeichnisse</label>
@@ -226,48 +226,48 @@
       <label index="sysfolder_title_staff">Personal</label>
 
       <label index="ts_create_header">TypoScript</label>
-      <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.</label>
+      <label index="ts_create_prompt"><![CDATA[Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.]]></label>
 
       <label index="plugin_create_header">Plugins</label>
-      <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
-      <label index="plugin_headquarters_header">[Browser für Organiser Standorte]</label>
+      <label index="plugin_create_prompt"><![CDATA[Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.]]></label>
+      <label index="plugin_headquarters_header"><![CDATA[[Browser für Organiser Standorte]]]></label>
       <label index="plugin_headquarters_label">Organiser Standorte</label>
-      <label index="plugin_locations_header">[Browser für Organiser Veranstaltungsorte]</label>
+      <label index="plugin_locations_header"><![CDATA[[Browser für Organiser Veranstaltungsorte]]]></label>
       <label index="plugin_locations_label">Organiser Veranstaltungsorte</label>
-      <label index="plugin_organiser_header">[Browser für Organiser Kalender]</label>
+      <label index="plugin_organiser_header"><![CDATA[[Browser für Organiser Kalender]]]></label>
       <label index="plugin_organiser_label">Organiser Kalender</label>
-      <label index="plugin_news_header">[Browser für Organiser Nachrichten]</label>
+      <label index="plugin_news_header"><![CDATA[[Browser für Organiser Nachrichten]]]></label>
       <label index="plugin_news_label">Organiser Nachrichten</label>
-      <label index="plugin_powermail_header">[Powermail für Organiser]</label>
-      <label index="plugin_powermail_thanks">Herzlichen Dank für Ihre Anmeldung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Anmeldungen sind zwecklos!</label>
-      <label index="plugin_staff_header">[Browser für Organiser Personal]</label>
+      <label index="plugin_powermail_header"><![CDATA[[Powermail für Organiser]]]></label>
+      <label index="plugin_powermail_thanks"><![CDATA[Herzlichen Dank für Ihre Anmeldung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Anmeldungen sind zwecklos!]]></label>
+      <label index="plugin_staff_header"><![CDATA[[Browser für Organiser Personal]]]></label>
       <label index="plugin_staff_label">Organiser Personal</label>
       <label index="plugin_tickets_header">Tickets</label>
 
-      <label index="record_create_header">Datensätze</label>
-      <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" im Ordner ###TITLE_PID### eingefügt.</label>
-      <label index="record_create_mm_prompt">###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.</label>
-      <label index="record_qs_cat_title_books">Bücher</label>
+      <label index="record_create_header"><![CDATA[Datensätze]]></label>
+      <label index="record_create_prompt"><![CDATA[Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" im Ordner ###TITLE_PID### eingefügt.]]></label>
+      <label index="record_create_mm_prompt"><![CDATA[###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.]]></label>
+      <label index="record_qs_cat_title_books"><![CDATA[Bücher]]></label>
       <label index="record_qs_cat_title_clothes">Kleidung</label>
       <label index="record_qs_cat_title_cups">Tassen</label>
       <label index="record_qs_prod_title_book">Geheime Bilder</label>
-      <label index="record_qs_prod_title_capGreen">Basecap (grün)</label>
+      <label index="record_qs_prod_title_capGreen"><![CDATA[Basecap (grün)]]></label>
       <label index="record_qs_prod_title_capRed">Basecap (rot)</label>
       <label index="record_qs_prod_title_capBlue">Basecap (blau)</label>
       <label index="record_qs_prod_title_cup">Tasse</label>
       <label index="record_qs_prod_title_pullover">Pullover</label>
-      <label index="record_qs_prod_short_book">Noch nie veröffentlicht: Bilder der TYPO3 VIPs</label>
-      <label index="record_qs_prod_short_capGreen">Basecap in grün und mit TYPO3-Logo</label>
+      <label index="record_qs_prod_short_book"><![CDATA[Noch nie veröffentlicht: Bilder der TYPO3 VIPs]]></label>
+      <label index="record_qs_prod_short_capGreen"><![CDATA[Basecap in grün und mit TYPO3-Logo]]></label>
       <label index="record_qs_prod_short_capRed">Basecap in rot und mit TYPO3-Logo</label>
       <label index="record_qs_prod_short_capBlue">Basecap in blau und with TYPO3 logo</label>
       <label index="record_qs_prod_short_cup">Tasse mit TYPO3-Logo</label>
       <label index="record_qs_prod_short_pullover">Pullover mit TYPO3-Logo und Kopf.</label>
-      <label index="record_qs_prod_description_book">Hast Du jemals Kaspar mit einem Basecap aus diesem Shop herumlaufen sehen? Nein, hast Du nicht! Aber jetzt kannst Du ihn sehen. Dieses Buch zeigt 4.293 Fotos der TYPO3 VIPs. 3.923 Fotos sind noch nie veröffentlich worden. Das Buch hat 1.423 Seiten. Die Schriftgrösse ist 5 Punkt. Gewicht: 8,74 Kilogramm. Der Preis: wirklich billig!</label>
+      <label index="record_qs_prod_description_book"><![CDATA[Hast Du jemals Kaspar mit einem Basecap aus diesem Shop herumlaufen sehen? Nein, hast Du nicht! Aber jetzt kannst Du ihn sehen. Dieses Buch zeigt 4.293 Fotos der TYPO3 VIPs. 3.923 Fotos sind noch nie veröffentlich worden. Das Buch hat 1.423 Seiten. Die Schriftgrösse ist 5 Punkt. Gewicht: 8,74 Kilogramm. Der Preis: wirklich billig!]]></label>
       <label index="record_qs_prod_description_capGreen">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
       <label index="record_qs_prod_description_capRed">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
       <label index="record_qs_prod_description_capBlue">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
-      <label index="record_qs_prod_description_cup">Die Tasse hat eine spezielle Beschichtung auf der Innenseite. Jedes warme Getränk wird dadurch mit besonderer Intelligenz kontaminiert. Trink Deinen Kaffee oder Tee aus dieser Tasse, und Du wirst nie wieder irgendein Problem mit TYPO3 oder dessen Extensions haben! Wenn Du willst, lassen wir vor dem Versand Kaspar Kaffee aus der Tasse trinken. Die Tasse wird dann nicht nicht gereinigt. Keine Zusatzkosten!</label>
-      <label index="record_qs_prod_description_pullover">Dieser Pullover hat nicht nur ein TYPO3-Logo sondern auch einen Kopf. Wenn Du diesen Pullover und den Kopf anstelle Deines Kopfes anziehst, wirst Du nie weider durch die Benutzung von TYPO3 Kopfschmerzen bekommen. Und alle Deine Freunde werden glauben, dass Du viel klüger aussiehst als jeder andere!</label>
+      <label index="record_qs_prod_description_cup"><![CDATA[Die Tasse hat eine spezielle Beschichtung auf der Innenseite. Jedes warme Getränk wird dadurch mit besonderer Intelligenz kontaminiert. Trink Deinen Kaffee oder Tee aus dieser Tasse, und Du wirst nie wieder irgendein Problem mit TYPO3 oder dessen Extensions haben! Wenn Du willst, lassen wir vor dem Versand Kaspar Kaffee aus der Tasse trinken. Die Tasse wird dann nicht nicht gereinigt. Keine Zusatzkosten!]]></label>
+      <label index="record_qs_prod_description_pullover"><![CDATA[Dieser Pullover hat nicht nur ein TYPO3-Logo sondern auch einen Kopf. Wenn Du diesen Pullover und den Kopf anstelle Deines Kopfes anziehst, wirst Du nie weider durch die Benutzung von TYPO3 Kopfschmerzen bekommen. Und alle Deine Freunde werden glauben, dass Du viel klüger aussiehst als jeder andere!]]></label>
       <label index="record_qs_prod_price_book">99.99</label>
       <label index="record_qs_prod_price_capGreen">1.99</label>
       <label index="record_qs_prod_price_capRed">1.99</label>
@@ -293,7 +293,7 @@
       <label index="record_qs_prod_image_cup">cup_###TIMESTAMP###.jpg</label>
       <label index="record_qs_prod_image_pullover">pullover_###TIMESTAMP###.jpg</label>
       <label index="record_qs_prod_caption_book">Buch (4.293 Fotos)</label>
-      <label index="record_qs_prod_caption_capGreen">Basecap (grün)</label>
+      <label index="record_qs_prod_caption_capGreen"><![CDATA[Basecap (grün)]]></label>
       <label index="record_qs_prod_caption_capRed">Basecap (rot)</label>
       <label index="record_qs_prod_caption_capBlue">Basecap (blau)</label>
       <label index="record_qs_prod_caption_cup">Tasse mit spezieller TYPO3-Innenbeschichtung</label>
@@ -314,15 +314,15 @@
       <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>
       <label index="files_create_prompt_error">Datei "###SRCE###" konnte nicht nach "###DEST###" kopiert werden.</label>
       <label index="content_create_header">Seiteninhalt</label>
-      <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
+      <label index="content_create_prompt"><![CDATA[Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.]]></label>
       <label index="content_shipping_header">Versand</label>
       <label index="content_shipping_bodytext">Hier finden Sie Angaben zum Versand
 * innerhalb Deutschlands
 * auf Deutsche Inseln
 * innerhalb Europas
 * Rest der Welt</label>
-      <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_terms_bodytext">Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.</label>
+      <label index="content_terms_header"><![CDATA[AGB - Allgemeine Geschäftsbedingungen]]></label>
+      <label index="content_terms_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.]]></label>
       <label index="content_header_header">[Kopfzeile]</label>
       <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Organiser: Startseite"&gt;Organiser&lt;/link&gt;</label>
       <label index="content_footer_header">[Fusszeile]</label>

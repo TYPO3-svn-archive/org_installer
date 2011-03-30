@@ -131,7 +131,7 @@
             Konfiguriere im Plugin die Installation des Organisers.
           </li>
           <li>
-            Starte die Installtion, in dem Du die Seite "Organiser Installer" im TYPO3 Frontend aufrufst.
+            Starte die Installation, in dem Du die Seite "Organiser Installer" im TYPO3 Frontend aufrufst.
           </li>
         </ol>
         <br />
@@ -139,7 +139,7 @@
         kannst Du Die dort vorgenommene Konfiguration Deinen W&uuml;nschen entsprechend anpassen.
         <br />
         <br />
-        Dann viel Spa&szlig;!
+        Viel Spa&szlig;!
       ]]></label>
       <label index="promptSaveTwice"><![CDATA[
         Speichere Deine &Auml;nderungen bitte zwei Mal. Mitteilungen werden dann korrekt aktualisiert.

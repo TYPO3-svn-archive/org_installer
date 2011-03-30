@@ -115,7 +115,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
       //////////////////////////////////////////////////////////////////////
       //
       // Install the Organiser
-    switch($this->arr_piFlexform['data']['sDEF']['lDEF']['install_case']['vDef'])
+
+    switch($this->arr_piFlexform['data']['sDEF']['lDEF']['install_case']['vDEF'])
     {
       case('disabled'):
         $this->install_nothing();
@@ -127,7 +128,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
         $this->arrReport[] = '
           <p>
             switch in ' . __METHOD__ . ' has an undefined value: ' . 
-            $this->arr_piFlexform['data']['sDEF']['lDEF']['install_case']['vDef'] . '
+            $this->arr_piFlexform['data']['sDEF']['lDEF']['install_case']['vDEF'] . '
           </p>';
     }
       // Install the Organiser
@@ -661,7 +662,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -679,7 +680,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -697,7 +698,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -715,7 +716,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -733,7 +734,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -751,7 +752,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -781,7 +782,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -961,7 +962,7 @@ mod {
     $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -1004,7 +1005,7 @@ mod {
     $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -1044,7 +1045,7 @@ mod {
     $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -1085,7 +1086,7 @@ mod {
     $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -1125,7 +1126,7 @@ mod {
     $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -1166,7 +1167,7 @@ mod {
     $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
@@ -1278,7 +1279,7 @@ mod {
     $arr_ts[$int_uid]['tstamp']           = $timestamp;
     $arr_ts[$int_uid]['sorting']          = 256;
     $arr_ts[$int_uid]['crdate']           = $timestamp;
-    $arr_ts[$int_uid]['cruser_id']        = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_ts[$int_uid]['cruser_id']        = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_ts[$int_uid]['title']            = 'page_'.$str_pageTitle.'_'.$str_uid;
     if($this->bool_topLevel)
     {
@@ -1495,7 +1496,7 @@ plugin.org {
     $arr_ts[$int_uid]['tstamp']               = $timestamp;
     $arr_ts[$int_uid]['sorting']              = 256;
     $arr_ts[$int_uid]['crdate']               = $timestamp;
-    $arr_ts[$int_uid]['cruser_id']            = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_ts[$int_uid]['cruser_id']            = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_ts[$int_uid]['include_static_file']  = ''.
       'EXT:org/static/shopping_cart/801/,'.
       'EXT:powermail/static/pi1/,'.
@@ -1641,7 +1642,7 @@ plugin.tx_powermail_pi1 {
     $arr_plugin[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
     $arr_plugin[$int_uid]['tstamp']        = $timestamp;
     $arr_plugin[$int_uid]['crdate']        = $timestamp;
-    $arr_plugin[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_plugin[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_plugin[$int_uid]['sorting']       = 128;
     $arr_plugin[$int_uid]['CType']         = 'list';
     $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_organiser_header');
@@ -2042,7 +2043,7 @@ plugin.tx_powermail_pi1 {
     $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_plugin[$int_uid]['tstamp']        = $timestamp;
     $arr_plugin[$int_uid]['crdate']        = $timestamp;
-    $arr_plugin[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_plugin[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_plugin[$int_uid]['sorting']       = 256 * 1;
     $arr_plugin[$int_uid]['CType']         = 'list';
     $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_tickets_header');
@@ -2063,7 +2064,7 @@ plugin.tx_powermail_pi1 {
     $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_plugin[$int_uid]['tstamp']                     = $timestamp;
     $arr_plugin[$int_uid]['crdate']                     = $timestamp;
-    $arr_plugin[$int_uid]['cruser_id']                  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_plugin[$int_uid]['cruser_id']                  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_plugin[$int_uid]['sorting']                    = 256 * 2;
     $arr_plugin[$int_uid]['CType']                      = 'powermail_pi1';
     $arr_plugin[$int_uid]['header']                     = $this->pi_getLL('plugin_powermail_header');
@@ -2072,9 +2073,9 @@ plugin.tx_powermail_pi1 {
     $arr_plugin[$int_uid]['sectionIndex']               = 1;
     $arr_plugin[$int_uid]['tx_powermail_title']         = 'order';
 
-    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDef'];
-    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDef'];
-    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDef'];
+    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDEF'];
+    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'];
+    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'];
 // Will updated by $this->consolidatePluginPowermail()
 //    $arr_plugin[$int_uid]['tx_powermail_sender']        = $str_sender;
 //    $arr_plugin[$int_uid]['tx_powermail_sendername']    = $str_sendername;
@@ -2174,7 +2175,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_contactData');
     $arr_records[$int_uid]['sorting']       = 256 * 1;
     $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
@@ -2188,7 +2189,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_order');
     $arr_records[$int_uid]['sorting']       = 256 * 2;
     $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
@@ -2246,7 +2247,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_firstname');
     $arr_records[$int_uid]['sorting']       = 256 * 1;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
@@ -2276,7 +2277,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_surname');
     $arr_records[$int_uid]['sorting']       = 256 * 2;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
@@ -2305,7 +2306,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_email');
     $arr_records[$int_uid]['sorting']       = 256 * 3;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
@@ -2337,7 +2338,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_phone');
     $arr_records[$int_uid]['sorting']       = 256 * 4;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
@@ -2353,7 +2354,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_note');
     $arr_records[$int_uid]['sorting']       = 256 * 5;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
@@ -2390,7 +2391,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_terms');
     $arr_records[$int_uid]['sorting']       = 256 * 6;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
@@ -2422,7 +2423,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_submit');
     $arr_records[$int_uid]['sorting']       = 256 * 7;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
@@ -2495,7 +2496,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_qs_cat_title_books');
     // Books
 
@@ -2506,7 +2507,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_qs_cat_title_clothes');
     // Clothes
 
@@ -2517,7 +2518,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_qs_cat_title_cups');
     // Cups
 
@@ -2565,7 +2566,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
-    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_book');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_book');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_book');
@@ -2594,7 +2595,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
-    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_capBlue');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_capBlue');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_capBlue');
@@ -2623,7 +2624,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
-    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_capGreen');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_capGreen');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_capGreen');
@@ -2652,7 +2653,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
-    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_capRed');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_capRed');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_capRed');
@@ -2681,7 +2682,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
-    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_cup');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_cup');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_cup');
@@ -2710,7 +2711,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
-    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_records[$int_uid]['cruser_id']      = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_pullover');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_pullover');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_pullover');
@@ -2935,7 +2936,7 @@ plugin.tx_powermail_pi1 {
     $arr_content[$int_uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_shipping')];
     $arr_content[$int_uid]['tstamp']       = $timestamp;
     $arr_content[$int_uid]['crdate']       = $timestamp;
-    $arr_content[$int_uid]['cruser_id']    = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_content[$int_uid]['cruser_id']    = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_content[$int_uid]['sorting']      = 256 * 1;
     $arr_content[$int_uid]['CType']        = 'text';
     $arr_content[$int_uid]['header']       = $this->pi_getLL('content_shipping_header');
@@ -2956,7 +2957,7 @@ plugin.tx_powermail_pi1 {
     $arr_content[$int_uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_terms')];
     $arr_content[$int_uid]['tstamp']       = $timestamp;
     $arr_content[$int_uid]['crdate']       = $timestamp;
-    $arr_content[$int_uid]['cruser_id']    = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDef'];
+    $arr_content[$int_uid]['cruser_id']    = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_content[$int_uid]['sorting']      = 256 * 1;
     $arr_content[$int_uid]['CType']        = 'text';
     $arr_content[$int_uid]['header']       = $this->pi_getLL('content_terms_header');
@@ -3303,7 +3304,7 @@ TCEMAIN {
     $where           = 'uid = '.$int_uid;
     $no_quote_fields = false;
 
-    list($str_emailName) = explode('@', $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDef']);
+    list($str_emailName) = explode('@', $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDEF']);
     $str_emailName       = $str_emailName.'@###DOMAIN###';
       // General Values
 
@@ -3324,8 +3325,8 @@ plugin.org {
   }
   powermail {
     noreply     = ' . $str_emailName . '
-    sender.name = ' . $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDef'] . '
-    sender.mail = ' . $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDef'] . '
+    sender.name = ' . $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'] . '
+    sender.mail = ' . $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDEF'] . '
   }
 }
   // plugin.org

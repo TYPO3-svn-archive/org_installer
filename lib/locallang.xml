@@ -105,7 +105,6 @@
           ###TITLE_UID###
         </ol>
         <br />
-        Wenn Du m&ouml;chtest, kannst Du die Seite woanders hinschieben.<br />
       ]]></label>
       <label index="promptInstallPageExist"><![CDATA[
         Es gibt bereits eine Seite "Organiser Installer". Siehe
@@ -134,6 +133,9 @@
             Starte die Installation, in dem Du die Seite "Organiser Installer" im TYPO3 Frontend aufrufst.
           </li>
         </ol>
+        <br />
+        Wenn Du m&ouml;chtest, kannst Du die Seite woanders hinschieben.
+        <br />
         <br />
         Im TypoScript Template brauchst Du nichts zu &auml;ndern. Aber wenn Du willst,
         kannst Du Die dort vorgenommene Konfiguration Deinen W&uuml;nschen entsprechend anpassen.

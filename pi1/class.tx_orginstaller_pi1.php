@@ -539,6 +539,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
         </p>';
       $str_grp_prompt = $this->cObj->substituteMarkerArray($str_grp_prompt, $this->markerArray);
       $this->arrReport[] = $str_grp_prompt;
+      return;
     }
       // There is a group available
 

@@ -19,7 +19,7 @@ $LOCAL_LANG = array(
     'sheet_install.install_case'            => 'Installation',
     'sheet_install.install_case.0'          => 'deaktiviert',
     'sheet_install.install_case.1'          => 'aktiviert',
-    'sheet_install.backend_user'            => 'Backend User (Eigentuemer der neuen Seiten und Sys-Ordner)',
+    'sheet_install.backend_user'            => 'Backend User (Eigentuemer der neuen Seiten und Verzeichnisse)',
     'sheet_install.mail_subject'            => 'Betreff der Bestaetigungs-Mails - Pflichtfeld',
     'sheet_install.mail_default_sender'     => 'Mail-Adresse des Website-Betreibers (an Kunden) - Pflichtfeld',
   ),

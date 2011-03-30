@@ -589,6 +589,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
         </p>';
       $str_grp_prompt = $this->cObj->substituteMarkerArray($str_grp_prompt, $this->markerArray);
       $this->arrReport[] = $str_grp_prompt;
+      return;
     }
 
     $this->markerArray['###GROUP_UID###'] = false;
@@ -642,6 +643,16 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $no_quote_fields = false;
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General Values
+
+
+
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Pages top level
+
+    $this->arr_pageUids[$this->pi_getLL('page_title_organiser')] = $GLOBALS['TSFE']->id;
+    $this->arr_pageTitles[$GLOBALS['TSFE']->id] = $this->pi_getLL('page_title_organiser');
+      // Pages top level
 
 
 
@@ -1200,10 +1211,20 @@ mod {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###'] = $fields_values['title'];
       $this->markerArray['###UID###']   = $fields_values['uid'];
-      $str_page_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('page_create_prompt').'
-        </p>';
+      if($fields_values['dokType'] == 254)
+      {
+        $str_page_prompt = '
+          <p>
+            '.$this->arr_icons['ok'].' '.$this->pi_getLL('sysf_create_prompt').'
+          </p>';
+      }
+      if($fields_values['dokType'] != 254)
+      {
+        $str_page_prompt = '
+          <p>
+            '.$this->arr_icons['ok'].' '.$this->pi_getLL('page_create_prompt').'
+          </p>';
+      }
       $str_page_prompt = $this->cObj->substituteMarkerArray($str_page_prompt, $this->markerArray);
       $this->arrReport[] = $str_page_prompt;
     }

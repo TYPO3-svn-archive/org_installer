@@ -40,7 +40,7 @@
       <label index="page_title_headquarters">headquarters</label>
       <label index="page_title_locations">locations</label>
       <label index="page_title_news">news</label>
-      <label index="page_title_root">organiser</label>
+      <label index="page_title_organiser">organiser</label>
       <label index="page_title_staff">organiser</label>
       <label index="page_title_tickets">tickets</label>
       <label index="page_title_terms">terms and conditions</label>
@@ -206,11 +206,12 @@
       <label index="grp_warn_prompt">Der Organiser Installer konnte die Gruppe "###GROUP_TITLE###" nicht erstellen. Macht aber weiter nichts.</label>
       <label index="page_create_header">Seiten und Verzeichnisse</label>
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
+      <label index="sysf_create_prompt">Das Verzeichnis "###TITLE###" (uid ###UID###) wurde erstellt.</label>
 
       <label index="page_title_headquarters">Standorte</label>
       <label index="page_title_locations">Veranstalter</label>
       <label index="page_title_news">Nachrichten</label>
-      <label index="page_title_root">Organiser</label>
+      <label index="page_title_organiser">Organiser</label>
       <label index="page_title_staff">Personal</label>
       <label index="page_title_tickets">Karten</label>
       <label index="page_title_terms">AGB</label>
@@ -329,7 +330,7 @@
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
-      <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgblendet.</label>
+      <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgeblendet.</label>
       <label index="end_header">Installation beenden!</label>
       <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schliesse das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
       <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Organiser Installer, wenn Du ihn nicht mehr brauchst!</label>

@@ -46,7 +46,6 @@
       <label index="page_title_terms">terms and conditions</label>
 
       <label index="sysfolder_title_calendar">calendar</label>
-      <label index="sysfolder_title_department">department</label>
       <label index="sysfolder_title_events">events</label>
       <label index="sysfolder_title_headquarters">headquarters and departments</label>
       <label index="sysfolder_title_locations">locations</label>
@@ -59,18 +58,18 @@
 
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
-      <label index="plugin_headquarters_header">[Browser for TYPO3 Organiser Locations]</label>
-      <label index="plugin_headquarters_label">TYPO3 Organiser Headquarters</label>
-      <label index="plugin_locations_header">[Browser for TYPO3 Organiser Headquarters]</label>
-      <label index="plugin_locations_label">TYPO3 Organiser Locations</label>
-      <label index="plugin_organiser_header">[Browser for TYPO3 Organiser Calendar]</label>
-      <label index="plugin_organiser_label">TYPO3 Organiser Calender</label>
-      <label index="plugin_news_header">[Browser for TYPO3 Organiser News]</label>
-      <label index="plugin_news_label">TYPO3 Organiser News</label>
-      <label index="plugin_powermail_header">[Powermail for Quickshop]</label>
+      <label index="plugin_headquarters_header">[Browser for Organiser Headquarters]</label>
+      <label index="plugin_headquarters_label">Organiser Headquarters</label>
+      <label index="plugin_locations_header">[Browser for Organiser Locations]</label>
+      <label index="plugin_locations_label">Organiser Locations</label>
+      <label index="plugin_organiser_header">[Browser for Organiser Calendar]</label>
+      <label index="plugin_organiser_label">Organiser Calender</label>
+      <label index="plugin_news_header">[Browser for Organiser News]</label>
+      <label index="plugin_news_label">Organiser News</label>
+      <label index="plugin_powermail_header">[Powermail for Organiser]</label>
       <label index="plugin_powermail_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo site for the TYPO3 Organiser - any reservation hasn't any effect.</label>
-      <label index="plugin_staff_header">[Browser for TYPO3 Organiser Staff]</label>
-      <label index="plugin_staff_label">TYPO3 Organiser Staff</label>
+      <label index="plugin_staff_header">[Browser for Organiser Staff]</label>
+      <label index="plugin_staff_label">Organiser Staff</label>
       <label index="plugin_tickets_header">Tickets</label>
 
       <label index="record_create_header">Records</label>
@@ -159,7 +158,9 @@
       <label index="consolidate_header">Consolidating</label>
       <label index="consolidate_prompt_page">Page ###TITLE_PID### (###FIELD###) is updated.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) in page ###TITLE_PID### is updated.</label>
+      <label index="consolidate_prompt_content_rm">Element ###TITLE### (###FIELD###) in page ###TITLE_PID### is deleted.</label>
       <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
+      <label index="consolidate_prompt_template_rm">Former templates on the page ###TITLE_PID### are deleted.</label>
       <label index="end_header">Finish the installation</label>
       <label index="end_reloadBe_prompt">TYPO3 backend: Please close the edit area and reload the page tree.</label>
       <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Organiser Installer, if you don't need it any longer.</label>
@@ -185,8 +186,8 @@
       <label index="confirm_header">Installation durchführen</label>
       <label index="confirm_prompt_createBeGroup">Backend Gruppe erstellen</label>
       <label index="confirm_prompt_createPages">Seitenbaum bauen</label>
-      <label index="confirm_prompt_createContent">Inhalt fuer Kopf- und Fußzeile erstellen.</label>
-      <label index="confirm_prompt_createTs">TypoScript fuer Browser, Wt-Cart und Powermail erstellen.</label>
+      <label index="confirm_prompt_createContent">Inhalt für Kopf- und Fußzeile erstellen.</label>
+      <label index="confirm_prompt_createTs">TypoScript für Browser, Wt-Cart und Powermail erstellen.</label>
       <label index="confirm_prompt_createPlugins">Plugins Browser, Wt-Cart und Powermail erstellen.</label>
       <label index="confirm_prompt_createPowermail">Konfiguriere Powermail</label>
       <label index="confirm_prompt_createProducts">Erstelle sechs Beispielprodukte</label>
@@ -217,7 +218,6 @@
       <label index="page_title_terms">AGB</label>
 
       <label index="sysfolder_title_calendar">Kalender</label>
-      <label index="sysfolder_title_department">Abteilung</label>
       <label index="sysfolder_title_events">Veranstaltungen</label>
       <label index="sysfolder_title_headquarters">Standorte und Abteilungen</label>
       <label index="sysfolder_title_locations">Veranstalter</label>
@@ -226,48 +226,48 @@
       <label index="sysfolder_title_staff">Personal</label>
 
       <label index="ts_create_header">TypoScript</label>
-      <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefuegt.</label>
+      <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.</label>
 
       <label index="plugin_create_header">Plugins</label>
-      <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefuegt.</label>
-      <label index="plugin_headquarters_header">[Browser für TYPO3 Organiser Veranstaltungsorte]</label>
-      <label index="plugin_headquarters_label">TYPO3 Organiser Standorte</label>
-      <label index="plugin_locations_header">[Browser für TYPO3 Organiser Standorte]</label>
-      <label index="plugin_locations_label">TYPO3 Organiser Veranstaltungsorte</label>
-      <label index="plugin_organiser_header">[Browser für TYPO3 Organiser Kalender]</label>
-      <label index="plugin_organiser_label">TYPO3 Organiser Kalender</label>
-      <label index="plugin_news_header">[Browser für TYPO3 Organiser Nachrichten]</label>
-      <label index="plugin_news_label">TYPO3 Organiser Nachrichten</label>
-      <label index="plugin_powermail_header">[Powermail für Quickshop]</label>
-      <label index="plugin_powermail_thanks">Herzlichen Dank für Ihre Anmeldung. Sie werden so schnell wie moeglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Anmeldungen sind zwecklos!</label>
-      <label index="plugin_staff_header">[Browser für TYPO3 Organiser Personal]</label>
-      <label index="plugin_staff_label">TYPO3 Organiser Personal</label>
+      <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
+      <label index="plugin_headquarters_header">[Browser für Organiser Standorte]</label>
+      <label index="plugin_headquarters_label">Organiser Standorte</label>
+      <label index="plugin_locations_header">[Browser für Organiser Veranstaltungsorte]</label>
+      <label index="plugin_locations_label">Organiser Veranstaltungsorte</label>
+      <label index="plugin_organiser_header">[Browser für Organiser Kalender]</label>
+      <label index="plugin_organiser_label">Organiser Kalender</label>
+      <label index="plugin_news_header">[Browser für Organiser Nachrichten]</label>
+      <label index="plugin_news_label">Organiser Nachrichten</label>
+      <label index="plugin_powermail_header">[Powermail für Organiser]</label>
+      <label index="plugin_powermail_thanks">Herzlichen Dank für Ihre Anmeldung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Anmeldungen sind zwecklos!</label>
+      <label index="plugin_staff_header">[Browser für Organiser Personal]</label>
+      <label index="plugin_staff_label">Organiser Personal</label>
       <label index="plugin_tickets_header">Tickets</label>
 
-      <label index="record_create_header">Datensaetze</label>
-      <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" im Ordner ###TITLE_PID### eingefuegt.</label>
-      <label index="record_create_mm_prompt">###COUNT### Datensaetze wurden in die Tabelle "###TABLE###" eingefuegt.</label>
-      <label index="record_qs_cat_title_books">Buecher</label>
+      <label index="record_create_header">Datensätze</label>
+      <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" im Ordner ###TITLE_PID### eingefügt.</label>
+      <label index="record_create_mm_prompt">###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.</label>
+      <label index="record_qs_cat_title_books">Bücher</label>
       <label index="record_qs_cat_title_clothes">Kleidung</label>
       <label index="record_qs_cat_title_cups">Tassen</label>
       <label index="record_qs_prod_title_book">Geheime Bilder</label>
-      <label index="record_qs_prod_title_capGreen">Basecap (gruen)</label>
+      <label index="record_qs_prod_title_capGreen">Basecap (grün)</label>
       <label index="record_qs_prod_title_capRed">Basecap (rot)</label>
       <label index="record_qs_prod_title_capBlue">Basecap (blau)</label>
       <label index="record_qs_prod_title_cup">Tasse</label>
       <label index="record_qs_prod_title_pullover">Pullover</label>
-      <label index="record_qs_prod_short_book">Noch nie veroeffentlicht: Bilder der TYPO3 VIPs</label>
-      <label index="record_qs_prod_short_capGreen">Basecap in gruen und mit TYPO3-Logo</label>
+      <label index="record_qs_prod_short_book">Noch nie veröffentlicht: Bilder der TYPO3 VIPs</label>
+      <label index="record_qs_prod_short_capGreen">Basecap in grün und mit TYPO3-Logo</label>
       <label index="record_qs_prod_short_capRed">Basecap in rot und mit TYPO3-Logo</label>
       <label index="record_qs_prod_short_capBlue">Basecap in blau und with TYPO3 logo</label>
       <label index="record_qs_prod_short_cup">Tasse mit TYPO3-Logo</label>
       <label index="record_qs_prod_short_pullover">Pullover mit TYPO3-Logo und Kopf.</label>
-      <label index="record_qs_prod_description_book">Hast Du jemals Kaspar mit einem Basecap aus diesem Shop herumlaufen sehen? Nein, hast Du nicht! Aber jetzt kannst Du ihn sehen. Dieses Buch zeigt 4.293 Fotos der TYPO3 VIPs. 3.923 Fotos sind noch nie veroeffentlich worden. Das Buch hat 1.423 Seiten. Die Schriftgroesse ist 5 Punkt. Gewicht: 8,74 Kilogramm. Der Preis: wirklich billig!</label>
+      <label index="record_qs_prod_description_book">Hast Du jemals Kaspar mit einem Basecap aus diesem Shop herumlaufen sehen? Nein, hast Du nicht! Aber jetzt kannst Du ihn sehen. Dieses Buch zeigt 4.293 Fotos der TYPO3 VIPs. 3.923 Fotos sind noch nie veröffentlich worden. Das Buch hat 1.423 Seiten. Die Schriftgrösse ist 5 Punkt. Gewicht: 8,74 Kilogramm. Der Preis: wirklich billig!</label>
       <label index="record_qs_prod_description_capGreen">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
       <label index="record_qs_prod_description_capRed">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
       <label index="record_qs_prod_description_capBlue">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
-      <label index="record_qs_prod_description_cup">Die Tasse hat eine spezielle Beschichtung auf der Innenseite. Jedes warme Getraenk wird dadurch mit besonderer Intelligenz kontaminiert. Trink Deinen Kaffee oder Tee aus dieser Tasse, und Du wirst nie wieder irgendein Problem mit TYPO3 oder dessen Extensions haben! Wenn Du willst, lassen wir vor dem Versand Kaspar Kaffee aus der Tasse trinken. Die Tasse wird dann nicht nicht gereinigt. Keine Zusatzkosten!</label>
-      <label index="record_qs_prod_description_pullover">Dieser Pullover hat nicht nur ein TYPO3-Logo sondern auch einen Kopf. Wenn Du diesen Pullover und den Kopf anstelle Deines Kopfes anziehst, wirst Du nie weider durch die Benutzung von TYPO3 Kopfschmerzen bekommen. Und alle Deine Freunde werden glauben, dass Du viel klueger aussiehst als jeder andere!</label>
+      <label index="record_qs_prod_description_cup">Die Tasse hat eine spezielle Beschichtung auf der Innenseite. Jedes warme Getränk wird dadurch mit besonderer Intelligenz kontaminiert. Trink Deinen Kaffee oder Tee aus dieser Tasse, und Du wirst nie wieder irgendein Problem mit TYPO3 oder dessen Extensions haben! Wenn Du willst, lassen wir vor dem Versand Kaspar Kaffee aus der Tasse trinken. Die Tasse wird dann nicht nicht gereinigt. Keine Zusatzkosten!</label>
+      <label index="record_qs_prod_description_pullover">Dieser Pullover hat nicht nur ein TYPO3-Logo sondern auch einen Kopf. Wenn Du diesen Pullover und den Kopf anstelle Deines Kopfes anziehst, wirst Du nie weider durch die Benutzung von TYPO3 Kopfschmerzen bekommen. Und alle Deine Freunde werden glauben, dass Du viel klüger aussiehst als jeder andere!</label>
       <label index="record_qs_prod_price_book">99.99</label>
       <label index="record_qs_prod_price_capGreen">1.99</label>
       <label index="record_qs_prod_price_capRed">1.99</label>
@@ -293,7 +293,7 @@
       <label index="record_qs_prod_image_cup">cup_###TIMESTAMP###.jpg</label>
       <label index="record_qs_prod_image_pullover">pullover_###TIMESTAMP###.jpg</label>
       <label index="record_qs_prod_caption_book">Buch (4.293 Fotos)</label>
-      <label index="record_qs_prod_caption_capGreen">Basecap (gruen)</label>
+      <label index="record_qs_prod_caption_capGreen">Basecap (grün)</label>
       <label index="record_qs_prod_caption_capRed">Basecap (rot)</label>
       <label index="record_qs_prod_caption_capBlue">Basecap (blau)</label>
       <label index="record_qs_prod_caption_cup">Tasse mit spezieller TYPO3-Innenbeschichtung</label>
@@ -314,15 +314,15 @@
       <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>
       <label index="files_create_prompt_error">Datei "###SRCE###" konnte nicht nach "###DEST###" kopiert werden.</label>
       <label index="content_create_header">Seiteninhalt</label>
-      <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefuegt.</label>
+      <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
       <label index="content_shipping_header">Versand</label>
       <label index="content_shipping_bodytext">Hier finden Sie Angaben zum Versand
 * innerhalb Deutschlands
 * auf Deutsche Inseln
 * innerhalb Europas
 * Rest der Welt</label>
-      <label index="content_terms_header">AGB - Allgemeine Geschaeftsbedingungen</label>
-      <label index="content_terms_bodytext">Unsere Allgemeine Geschaeftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.</label>
+      <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
+      <label index="content_terms_bodytext">Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.</label>
       <label index="content_header_header">[Kopfzeile]</label>
       <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Organiser: Startseite"&gt;Organiser&lt;/link&gt;</label>
       <label index="content_footer_header">[Fusszeile]</label>
@@ -330,7 +330,9 @@
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
+      <label index="consolidate_prompt_content_rm">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### wurde gel&ouml;scht.</label>
       <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgeblendet.</label>
+      <label index="consolidate_prompt_template_rm">Bisherige Templates auf der Seite ###TITLE_PID### wurden gel&auml;scht.</label>
       <label index="end_header">Installation beenden!</label>
       <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schliesse das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
       <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Organiser Installer, wenn Du ihn nicht mehr brauchst!</label>

@@ -1320,9 +1320,6 @@ mod {
     if($this->bool_topLevel)
     {
       $arr_ts[$int_uid]['config']                    = '
-
-
-
   ////////////////////////////////////////////////////////////////////////////////////////////
   //
   // INDEX
@@ -1391,9 +1388,6 @@ page {
     if(!$this->bool_topLevel)
     {
       $arr_ts[$int_uid]['config']                    = '
-
-
-
   ////////////////////////////////////////////////////////////////////////////////////////////
   //
   // INDEX
@@ -1427,9 +1421,6 @@ config {
 
 
 
-
-
-
   ////////////////////////////////////////////////////////////////////////////////////////////
   //
   // page (default)
@@ -1459,14 +1450,11 @@ page {
     }
 
     $arr_ts[$int_uid]['constants']           = '
-
-
-
 plugin.org {
   sysfolder {
     calendar    = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_calendar')] . '
-    department  = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_department')] . '
-    event       = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_event')] . '
+    department  = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_headquarters')] . '
+    event       = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_events')] . '
     headquarter = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_headquarters')] . '
     location    = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_locations')] . '
     news        = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_news')] . '
@@ -1520,7 +1508,6 @@ plugin.org {
       'EXT:powermail/static/pi1/,'.
       'EXT:powermail/static/css_basic/';
     $arr_ts[$int_uid]['constants']            = '
-
   ////////////////////////////////////////
   //
   // Will be override by $this->consolidateTsWtCart()
@@ -1528,9 +1515,6 @@ plugin.org {
 ';
 
     $arr_ts[$int_uid]['config']               = '
-
-
-
   ////////////////////////////////////////
   //
   // Index
@@ -2094,9 +2078,10 @@ plugin.tx_powermail_pi1 {
     $arr_plugin[$int_uid]['list_type']                  = '';
     $arr_plugin[$int_uid]['sectionIndex']               = 1;
     $arr_plugin[$int_uid]['tx_powermail_title']         = 'order';
-    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $this->markerArray['###MAIL_DEFAULT_SENDER###'];
-    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $this->markerArray['###MAIL_SUBJECT###'];
-    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $this->markerArray['###MAIL_SUBJECT###'];
+
+    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender'];
+    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject'];
+    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject'];
 // Will updated by $this->consolidatePluginPowermail()
 //    $arr_plugin[$int_uid]['tx_powermail_sender']        = $str_sender;
 //    $arr_plugin[$int_uid]['tx_powermail_sendername']    = $str_sendername;
@@ -3142,8 +3127,8 @@ plugin.tx_powermail_pi1 {
 mod.tx_linkhandler {
   fe_users.onlyPids             = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_staff')] . '
   tx_org_cal.onlyPids           = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_calendar')] . '
-  tx_org_department.onlyPids    = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_department')] . '
-  tx_org_event.onlyPids         = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_event')] . '
+  tx_org_department.onlyPids    = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_headquarters')] . '
+  tx_org_event.onlyPids         = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_events')] . '
   tx_org_headquarters.onlyPids  = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_headquarters')] . '
   tx_org_location.onlyPids      = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_locations')] . '
   tx_org_news.onlyPids          = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_news')] . '
@@ -3199,7 +3184,7 @@ TCEMAIN {
 
       //////////////////////////////////////////////////////////////////////
       //
-      // Hide the installer plugin
+      // Hide and delete the installer plugin
 
       // General Values
     $timestamp       = time();
@@ -3209,20 +3194,21 @@ TCEMAIN {
     $no_quote_fields = false;
       // General Values
 
-    $arr_content[$int_uid]['tstamp'] = $timestamp;
-    $arr_content[$int_uid]['hidden'] = 1;
+    $arr_content[$int_uid]['tstamp']  = $timestamp;
+    $arr_content[$int_uid]['hidden']  = 1;
+    $arr_content[$int_uid]['deleted'] = 1;
 
     foreach($arr_content as $fields_values)
     {
         //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
         // Message
-      $this->markerArray['###FIELD###']     = '"hidden"';
+      $this->markerArray['###FIELD###']     = '"deleted"';
       $this->markerArray['###TITLE###']     = '"'.$this->pi_getLL('plugin_powermail_header').'"';
       $this->markerArray['###TITLE_PID###'] = '"'.$GLOBALS['TSFE']->page['title'].'" (uid '.$GLOBALS['TSFE']->id.')';
       $str_consolidate_prompt = '
         <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_content').'
+          '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_content_rm').'
         </p>';
       $str_consolidate_prompt = $this->cObj->substituteMarkerArray($str_consolidate_prompt, $this->markerArray);
       $this->arrReport[] = $str_consolidate_prompt;
@@ -3247,8 +3233,9 @@ TCEMAIN {
     $no_quote_fields = false;
       // General Values
   
-    $arr_content[$int_uid]['tstamp'] = $timestamp;
-    $arr_content[$int_uid]['hidden'] = 1;
+    $arr_content[$int_uid]['tstamp']  = $timestamp;
+    $arr_content[$int_uid]['hidden']  = 1;
+    $arr_content[$int_uid]['deleted'] = 1;
     
     foreach($arr_content as $fields_values)
     {
@@ -3384,7 +3371,6 @@ TCEMAIN {
     
     $arr_ts[$int_uid]['tstamp']    = $timestamp;
     $arr_ts[$int_uid]['constants'] = '
-
   ////////////////////////////////////////
   //
   // plugin.org
@@ -3395,8 +3381,8 @@ plugin.org {
   }
   powermail {
     noreply     = ' . $str_emailName . '
-    sender.name = ' . $this->markerArray['###'.strtoupper('mail_subject').'###'] . '
-    sender.mail = ' . $this->markerArray['###'.strtoupper('mail_default_sender').'###'] . '
+    sender.name = ' . $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject'] . '
+    sender.mail = ' . $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender'] . '
   }
 }
   // plugin.org
@@ -3596,9 +3582,10 @@ plugin.org {
 
 
    /**
-   * Shop will be installed - with or without template
+   * zz_getFlexValues(): Allocates flexform values to $this->arr_piFlexform
    *
-   * @return    The content that is displayed on the website
+   * @return    void
+   * @version 1.0.0
    */
   private function zz_getFlexValues()
   {
@@ -3606,11 +3593,7 @@ plugin.org {
     $this->pi_initPIflexForm();
 
       // Get values from the flexform
-    $this->arr_piFlexform                = $this->cObj->data['pi_flexform'];
-    foreach($this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value)
-    {
-      $this->markerArray['###'.strtoupper($key).'###'] = $arr_value['vDEF'];
-    }
+    $this->arr_piFlexform = $this->cObj->data['pi_flexform'];
   }
 
 

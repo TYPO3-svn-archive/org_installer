@@ -306,7 +306,7 @@ class tx_org_installer_extmanager
     
     $fields_values['uid']                 = $int_maxUid;
     $fields_values['pid']                 = $this->int_pageUid;
-    $fields_values['title']               = 'Organiser_Installer_' . sprintf('%03d', $int_maxUid);
+    $fields_values['title']               = 'page_organiserinstaller_' . sprintf('%03d', $int_maxUid);
     $fields_values['root']                = '1';
     $fields_values['clear']               = '3';
     $fields_values['include_static_file'] = 'EXT:css_styled_content/static/';

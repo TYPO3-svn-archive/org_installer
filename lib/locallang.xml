@@ -75,6 +75,72 @@
       ]]></label>
     </languageKey>
     <languageKey index="de" type="array">
+      <label index="promptDeleteInstallPage"><![CDATA[
+        Wenn Du eine neue Seite "Organiser Installer" m&ouml;chtest, l&ouml;sche bitte zuerst die vorhandene Seite.
+      ]]></label>
+      <label index="promptEnableInstallPage"><![CDATA[
+        Bitte aktiviere die "Installer page" unten. 
+        Der Organiser Installer f&uuml;gt eine neue Seite auf oberster Ebene ein mit
+        <br />
+        <br />
+        <ol style="list-style:outside;">
+          <li>
+            einem vorkonfigurierten TypoScript Template und
+          </li>
+          <li>
+            dem Installations Plugin.
+          </li>
+        </ol>
+        <br />
+        Nach der Aktivierung unten erh&auml;tst Du eine neue Miteilung. 
+      ]]></label>
+      <label index="promptError"><![CDATA[
+        Tschuldigung, es gibt einen nicht definierten Fehler.
+      ]]></label>
+      <label index="promptInstallPageAdded"><![CDATA[
+        Die Seite "Organiser Installer" ist auf oberster Ebene im Seitenbaum eingef&uuml;gt. Siehe
+        <br />
+        <br />
+        <ol style="list-style:outside;">
+          ###TITLE_UID###
+        </ol>
+        <br />
+        Wenn Du m&ouml;chtest, kannst Du die Seite woanders hinschieben.<br />
+      ]]></label>
+      <label index="promptInstallPageExist"><![CDATA[
+        Es gibt bereits eine Seite "Organiser Installer". Siehe
+        <br />
+        <br />
+        <ol style="list-style:outside;">
+          ###TITLE_UID###
+        </ol>
+        <br />
+      ]]></label>
+      <label index="promptInstallNextSteps"><![CDATA[
+        Die n&auml;chsten Schritte sind:
+        <br />
+        <br />
+        <ol style="list-style:outside;">
+          <li>
+            Lade den Seitenbaum neu.
+          </li>
+          <li>
+            Gehe zur Seite "Organiser Installer".
+          </li>
+          <li>
+            Konfiguriere im Plugin die Installation des Organisers.
+          </li>
+          <li>
+            Starte die Installtion, in dem Du die Seite "Organiser Installer" im TYPO3 Frontend aufrufst.
+          </li>
+        </ol>
+        <br />
+        Im TypoScript Template brauchst Du nichts zu &auml;ndern. Aber wenn Du willst,
+        kannst Du Die dort vorgenommene Konfiguration Deinen W&uuml;nschen entsprechend anpassen.
+        <br />
+        <br />
+        Dann viel Spa&szlig;!
+      ]]></label>
       <label index="promptSaveTwice"><![CDATA[
         Speichere Deine &Auml;nderungen bitte zwei Mal. Mitteilungen werden dann korrekt aktualisiert.
       ]]></label>

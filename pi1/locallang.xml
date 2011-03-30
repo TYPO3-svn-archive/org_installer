@@ -36,15 +36,23 @@
       <label index="grp_warn_prompt">Organiser Installer couldn't create the group "###GROUP_TITLE###". It doesn't matter.</label>
       <label index="page_create_header">Pages and Directories</label>
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###)is created.</label>
-      <label index="page_title_root">quick shop</label>
-      <label index="page_title_cart">shopping cart</label>
-      <label index="page_title_shipping">shipping</label>
+
+      <label index="page_title_headquarters">headquarters</label>
+      <label index="page_title_locations">locations</label>
+      <label index="page_title_news">news</label>
+      <label index="page_title_root">organiser</label>
+      <label index="page_title_staff">organiser</label>
+      <label index="page_title_tickets">tickets</label>
       <label index="page_title_terms">terms and conditions</label>
-      <label index="page_title_info">legal info</label>
-      <label index="page_title_lib">libraries</label>
-      <label index="page_title_lib_header">header</label>
-      <label index="page_title_lib_footer">footer</label>
-      <label index="page_title_products">Quick Shop - Products</label>
+
+      <label index="sysfolder_title_calendar">calendar</label>
+      <label index="sysfolder_title_events">events</label>
+      <label index="sysfolder_title_headquarters">headquarters and departments</label>
+      <label index="sysfolder_title_locations">locations</label>
+      <label index="sysfolder_title_news">news</label>
+      <label index="sysfolder_title_organiser">organiser</label>
+      <label index="sysfolder_title_staff">organiser</label>
+
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>
       <label index="plugin_create_header">Plugins</label>
@@ -196,15 +204,23 @@
       <label index="grp_warn_prompt">Der Organiser Installer konnte die Gruppe "###GROUP_TITLE###" nicht erstellen. Macht aber weiter nichts.</label>
       <label index="page_create_header">Seiten und Verzeichnisse</label>
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
+
+      <label index="page_title_headquarters">Standorte</label>
+      <label index="page_title_locations">Veranstalter</label>
+      <label index="page_title_news">Nachrichten</label>
       <label index="page_title_root">Organiser</label>
-      <label index="page_title_cart">Warenkorb</label>
-      <label index="page_title_shipping">Versand</label>
+      <label index="page_title_staff">Personal</label>
+      <label index="page_title_tickets">Karten</label>
       <label index="page_title_terms">AGB</label>
-      <label index="page_title_info">Impressum</label>
-      <label index="page_title_lib">Bibliotheken</label>
-      <label index="page_title_lib_header">Kopf</label>
-      <label index="page_title_lib_footer">Fuß</label>
-      <label index="page_title_products">Quick Shop - Produkte</label>
+
+      <label index="sysfolder_title_calendar">Kalender</label>
+      <label index="sysfolder_title_events">Veranstaltungen</label>
+      <label index="sysfolder_title_headquarters">Standorte und Abteilungen</label>
+      <label index="sysfolder_title_locations">Veranstalter</label>
+      <label index="sysfolder_title_news">Nachrichten</label>
+      <label index="sysfolder_title_organiser">Organiser</label>
+      <label index="sysfolder_title_staff">Personal</label>
+
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefuegt.</label>
       <label index="plugin_create_header">Plugins</label>

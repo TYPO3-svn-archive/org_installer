@@ -261,23 +261,35 @@ class tx_orginstaller_pi1 extends tslib_pibase
   private function install()
   {
     
-    // RETURN if there is any problem with dependencies
+      ////////////////////////////////////////////////
+      //
+      // RETURN one extension is missing
+
     $this->checkExtensions();
     if($this->bool_error)
     {
       return;
     }
-    // RETURN if there is any problem with dependencies
+      // RETURN one extension is missing
 
-    // RETURN if there is any problem with creation of BE-group
+
+
+      ////////////////////////////////////////////////
+      //
+      // RETURN form isn't confirmed
+
     $bool_confirm = $this->confirmation();
     if(!$bool_confirm)
     {
       return;
     }
+      // RETURN form isn't confirmed
+
+
 
     $this->createBeGroup();
     $this->createPages();
+//:TODO:
     $this->createTyposcript();
     $this->createPlugins();
     $this->createRecordsPowermail();
@@ -307,26 +319,25 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
 
   /**
-   * Shop will be installed - with or without template
+   * confirmation(): Get the initial confirmation form
    *
-   * @param    string       $str_installCase: install_all or install_shop
-   * @return    The content that is displayed on the website
+   * @return    boolean   true: form is confirmed, false: form has to be confirmed
    */
   private function confirmation()
   {
-    // RETURN  if form is confirmed
+      // RETURN form is confirmed
     if($this->piVars['confirm'])
     {
       return true;
     }
-    // RETURN  if form is confirmed
+      // RETURN form is confirmed
 
 
 
-    // Get the cHash. Important in case of realUrl and no_cache=0
+      // Get the cHash. Important in case of realUrl and no_cache=0
     $cHash_calc = $this->get_cHash('&tx_orginstaller_pi1[confirm]=1');
 
-    // Confirmation form
+      // Confirmation form
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('confirm_header').'
@@ -361,8 +372,9 @@ class tx_orginstaller_pi1 extends tslib_pibase
             <input type="submit" name="submit" value=" '.$this->pi_getLL('confirm_button').' " />
           </fieldset>
         </form>
-      </div>';
-    // Confirmation form
+      </div>
+    ';
+      // Confirmation form
 
     return false;
   }
@@ -380,177 +392,89 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
 
   /**
-   * Shop will be installed - with or without template
+   * checkExtensions(): Check for needed extensions
    *
    * @param    string       $str_installCase: install_all or install_shop
    * @return    The content that is displayed on the website
    */
   private function checkExtensions()
   {
-    // RETURN  if form is confirmed
+      ///////////////////////////////////////////////
+      //
+      // RETURN  form is confirmed
+
     if($this->piVars['confirm'])
     {
       return false;
     }
-    // RETURN  if form is confirmed
+      // RETURN  form is confirmed
+
+
+
+      ///////////////////////////////////////////////
+      //
+      // prompt header
 
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('ext_header').'
       </h2>
       ';
+      // prompt header
 
-    // Shop and Template 
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
+
+
+      ///////////////////////////////////////////////
+      //
+      // needed extensions
+
+    $i = 0;
+    $arr_extensions[$i]['extKey']   = 'browser';
+    $arr_extensions[$i]['extTitle'] = 'Browser - the TYPO3-Frontend-Engine (browser)';
+    $i++;
+    $arr_extensions[$i]['extKey']   = 'linkhandler';
+    $arr_extensions[$i]['extTitle'] = 'AOE link handler (linkhandler)';
+    $i++;
+    $arr_extensions[$i]['extKey']   = 'org';
+    $arr_extensions[$i]['extTitle'] = 'Organiser (org)';
+    $i++;
+    $arr_extensions[$i]['extKey']   = 'powermail';
+    $arr_extensions[$i]['extTitle'] = 'Powermail (powermail)';
+    $i++;
+    $arr_extensions[$i]['extKey']   = 'wt_cart';
+    $arr_extensions[$i]['extTitle'] = 'Shopping Cart for TYPO3 (wt_cart)';
+      // needed extensions
+    
+    
+    
+      ///////////////////////////////////////////////
+      //
+      // LOOP extensions
+
+    foreach($arr_extensions as $key => $arr_extension)
     {
-      $str_extKey = 'automaketemplate';
-      $str_extTitle = 'Template Auto-parser ('.$str_extKey.')';
-      // RETURN without automaketemplate
-      if(!t3lib_extMgm::isLoaded($str_extKey))
+        // extension is missing
+      if(!t3lib_extMgm::isLoaded($arr_extension['extKey']))
       {
         $this->arrReport[] = '
           <p>
-            '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-            '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
+            ' . $this->arr_icons['error'] . $this->pi_getLL('ext_error') . '<br />
+            ' . $this->arr_icons['info']  . $this->pi_getLL('ext_help')  . ' ' . $arr_extension['extTitle'] . '
           </p>';
         $this->bool_error = true;
       }
-      // RETURN without automaketemplate
 
-      // automaketemplate is loaded
-      if(t3lib_extMgm::isLoaded($str_extKey))
+        // extension is ok
+      if(t3lib_extMgm::isLoaded($arr_extension['extKey']))
       {
         $this->arrReport[] = '
           <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
+            ' . $this->arr_icons['ok'] . ' ' . $arr_extension['extTitle'] . ' ' . $this->pi_getLL('ext_ok') . '
           </p>';
       }
-      // automaketemplate is loaded
-  
-      $str_extKey = 'base_quickshop';
-      $str_extTitle = 'Organiser - Template ('.$str_extKey.')';
-      // RETURN without base_quickshop
-      if(!t3lib_extMgm::isLoaded($str_extKey))
-      {
-        $this->arrReport[] = '
-          <p>
-            '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-            '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-          </p>';
-        $this->bool_error = true;
-      }
-      // RETURN without base_quickshop
+    }
+      // LOOP extensions
 
-      // base_quickshop is loaded
-      if(t3lib_extMgm::isLoaded($str_extKey))
-      {
-        $this->arrReport[] = '
-          <p>
-            '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-          </p>';
-      }
-      // base_quickshop is loaded
-    }
-    // Shop and Template 
-
-
-    $str_extKey = 'browser';
-    $str_extTitle = 'Browser - the TYPO3-Frontend-Engine ('.$str_extKey.')';
-    // RETURN without browser
-    if(!t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-          '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-        </p>';
-      $this->bool_error = true;
-    }
-    // RETURN without browser
-
-    // browser is loaded
-    if(t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-        </p>';
-    }
-    // browser is loaded
-    
-    $str_extKey = 'powermail';
-    $str_extTitle = 'Powermail ('.$str_extKey.')';
-    // RETURN without browser
-    if(!t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-          '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-        </p>';
-      $this->bool_error = true;
-    }
-    // RETURN without browser
-
-    // browser is loaded
-    if(t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-        </p>';
-    }
-    // browser is loaded
-    
-    $str_extKey = 'quick_shop';
-    $str_extTitle = 'Organiser ('.$str_extKey.')';
-    // RETURN without quick_shop
-    if(!t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-          '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-        </p>';
-      $this->bool_error = true;
-    }
-    // RETURN without quick_shop
-
-    // quick_shop is loaded
-    if(t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-        </p>';
-    }
-    // quick_shop is loaded
-    
-
-    $str_extKey = 'wt_cart';
-    $str_extTitle = 'Shopping Cart for TYPO3 ('.$str_extKey.')';
-    // RETURN without browser
-    if(!t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-          '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-        </p>';
-      $this->bool_error = true;
-    }
-    // RETURN without browser
-
-    // browser is loaded
-    if(t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-        </p>';
-    }
-    // browser is loaded
-    
   }
 
 
@@ -567,23 +491,24 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
 
   /**
-   * Shop will be installed - with or without template
+   * createBeGroup(): Create the backend-group organiser, if it is new
    *
-   * @param    string       $str_installCase: install_all or install_shop
-   * @return    The content that is displayed on the website
+   * @return  void
    */
   private function createBeGroup()
   {
     
-    $this->markerArray['###GROUP_TITLE###'] = 'quick_shop';
+    $this->markerArray['###GROUP_TITLE###'] = 'organiser';
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // There is a group available
 
+
+      //////////////////////////////////////////////////////////////////////
+      //
+      // There is a group available
+  
     $select_fields = '`uid`, `title`';
     $from_table    = '`be_groups`';
-    $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "quick_shop"';
+    $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "organiser"';
     $groupBy       = '';
     $orderBy       = '';
     $limit         = '0,1';
@@ -610,29 +535,28 @@ class tx_orginstaller_pi1 extends tslib_pibase
         </p>';
       $str_grp_prompt = $this->cObj->substituteMarkerArray($str_grp_prompt, $this->markerArray);
       $this->arrReport[] = $str_grp_prompt;
-      return false;
     }
-    // There is a group available
+      // There is a group available
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // There isn't any group available
-
+      //////////////////////////////////////////////////////////////////////
+      //
+      // There isn't any group available
+  
     $timestamp = time();
     
     $table                   = '`be_groups`';
     $fields_values['uid']    = null;
     $fields_values['pid']    = 0;
     $fields_values['tstamp'] = $timestamp;
-    $fields_values['title']  = 'quick_shop';
+    $fields_values['title']  = 'organiser';
     $fields_values['crdate'] = $timestamp;
     $no_quote_fields         = false;
     $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-    // There isn't any group available
+      // There isn't any group available
 
-    $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "quick_shop" AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
+    $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "organiser" AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
     
     $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
     if(is_array($rows) && count($rows) > 0)
@@ -655,7 +579,6 @@ class tx_orginstaller_pi1 extends tslib_pibase
         </p>';
       $str_grp_prompt = $this->cObj->substituteMarkerArray($str_grp_prompt, $this->markerArray);
       $this->arrReport[] = $str_grp_prompt;
-      return false;
     }
 
     $this->markerArray['###GROUP_UID###'] = false;
@@ -669,7 +592,6 @@ class tx_orginstaller_pi1 extends tslib_pibase
       </p>';
     $str_grp_prompt = $this->cObj->substituteMarkerArray($str_grp_prompt, $this->markerArray);
     $this->arrReport[] = $str_grp_prompt;
-    return false;
   }
 
 
@@ -700,28 +622,28 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // General Values
-
+      //////////////////////////////////////////////////////////////////////
+      //
+      // General Values
+  
     $str_date        = date('Y-m-d G:i:s');
     $timestamp       = time();
     $table           = 'pages';
     $no_quote_fields = false;
     $int_uid         = $this->zz_getMaxDbUid($table);
-    // General Values
+      // General Values
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Pages first level
-
-    // Shopping Cart
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Pages first level
+  
+      // News
     $int_uid = $int_uid + 1;
     $arr_pages[$int_uid]['uid']           = $int_uid;
-    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id; 
-    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_cart');
+    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_news');
     $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
@@ -731,13 +653,15 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
     $arr_pages[$int_uid]['urlType']       = 1;
     $arr_pages[$int_uid]['sorting']       = 256 * 1;
-    // Shopping Cart
+    $this->arr_pageUids[$this->pi_getLL('page_title_news')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_news');
+      // News
 
-    // Shipping
+      // Staff
     $int_uid = $int_uid + 1;
     $arr_pages[$int_uid]['uid']           = $int_uid;
     $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_shipping');
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_staff');
     $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
@@ -747,9 +671,65 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
     $arr_pages[$int_uid]['urlType']       = 1;
     $arr_pages[$int_uid]['sorting']       = 256 * 2;
-    // Shipping
+    $this->arr_pageUids[$this->pi_getLL('page_title_staff')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_staff');
+      // Staff
 
-    // Terms and Conditions
+      // Headquarters
+    $int_uid = $int_uid + 1;
+    $arr_pages[$int_uid]['uid']           = $int_uid;
+    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_headquarters');
+    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
+    $arr_pages[$int_uid]['crdate']        = $timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 3;
+    $this->arr_pageUids[$this->pi_getLL('page_title_headquarters')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_headquarters');
+      // Headquarters
+
+      // Locations
+    $int_uid = $int_uid + 1;
+    $arr_pages[$int_uid]['uid']           = $int_uid;
+    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_locations');
+    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
+    $arr_pages[$int_uid]['crdate']        = $timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 4;
+    $this->arr_pageUids[$this->pi_getLL('page_title_locations')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_locations');
+      // Locations
+
+      // Tickets
+    $int_uid = $int_uid + 1;
+    $arr_pages[$int_uid]['uid']           = $int_uid;
+    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id; 
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_tickets');
+    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
+    $arr_pages[$int_uid]['crdate']        = $timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 5;
+    $this->arr_pageUids[$this->pi_getLL('page_title_tickets')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_tickets');
+      // Tickets
+
+      // Terms and Conditions
     $int_uid = $int_uid + 1;
     $arr_pages[$int_uid]['uid']           = $int_uid;
     $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
@@ -762,61 +742,28 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
     $arr_pages[$int_uid]['urlType']       = 1;
-    $arr_pages[$int_uid]['sorting']       = 256 * 2;
-    // Terms and Conditions
+    $arr_pages[$int_uid]['sorting']       = 256 * 6;
+    $this->arr_pageUids[$this->pi_getLL('page_title_terms')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_terms');
+      // Terms and Conditions
 
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-    {
-      // Legal info
-      $int_uid = $int_uid + 1;
-      $arr_pages[$int_uid]['uid']           = $int_uid;
-      $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-      $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_info');
-      $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
-      $arr_pages[$int_uid]['crdate']        = $timestamp;
-      $arr_pages[$int_uid]['tstamp']        = $timestamp;
-      $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-      $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-      $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-      $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-      $arr_pages[$int_uid]['urlType']       = 1;
-      $arr_pages[$int_uid]['sorting']       = 256 * 3;
-      // Legal info
+### SYSFOLDER
 
-      // Libraries
-      $int_uid = $int_uid + 1;
-      $arr_pages[$int_uid]['uid']           = $int_uid;
-      $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-      $arr_pages[$int_uid]['crdate']        = $timestamp;
-      $arr_pages[$int_uid]['tstamp']        = $timestamp;
-      $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_lib');
-      $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
-      $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-      $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-      $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-      $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-      $arr_pages[$int_uid]['urlType']       = 1;
-      $arr_pages[$int_uid]['sorting']       = 256 * 4;
-      $arr_pages[$int_uid]['TSconfig']      = '
+    $int_uid_organiser    = $int_uid              + 1;
+    $int_uid_calendar     = $int_uid_organiser    + 1;
+    $int_uid_events       = $int_uid_calendar     + 1;
+    $int_uid_headquarters = $int_uid_events       + 1;
+    $int_uid_locations    = $int_uid_headquarters + 1;
+    $int_uid_news         = $int_uid_locations    + 1;
+    $int_uid_staff        = $int_uid_news         + 1;
 
-// ORGANISER INSTALLER at '.$str_date.' -- BEGIN
 
-TCEMAIN {
-  clearCacheCmd = pages
-}
 
-// ORGANISER INSTALLER at '.$str_date.' -- END
-
-';
-      // Libraries
-
-    }
-
-    // Products
-    $int_uid = $int_uid + 1;
-    $arr_pages[$int_uid]['uid']           = $int_uid;
+      // sysfolder organiser
+    $int_uid = $int_uid_organiser;
+    $arr_pages[$int_uid]['uid']           = $int_uid_organiser;
     $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_products');
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_organiser');
     $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
     $arr_pages[$int_uid]['crdate']        = $timestamp;
     $arr_pages[$int_uid]['tstamp']        = $timestamp;
@@ -824,48 +771,133 @@ TCEMAIN {
     $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-    $arr_pages[$int_uid]['module']        = 'quick_shop';
+    $arr_pages[$int_uid]['module']        = 'org';
     $arr_pages[$int_uid]['urlType']       = 1;
-    $arr_pages[$int_uid]['sorting']       = 256 * 5;
-      $arr_pages[$int_uid]['TSconfig']      = '
+    $arr_pages[$int_uid]['sorting']       = 256 * 7;
+    $arr_pages[$int_uid]['TSconfig']      = '
 
 // Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
 
 
 
-  ////////////////////////////////////////////////////////////////////////
+  ///////////////////////////
   //
   // INDEX
-  // =====
-  // TCAdefaults
+
+  // TCEFORM
+  //    organiser tables
+  // LINKHANDLER
+  //    mod.tx_linkhandler
+  //    RTE.default.tx_linkhandler
   // TCEMAIN
+  //    clearCacheCmd
+  //    permissions
+  // MOD
+  //    web_layout
 
 
 
-  ////////////////////////////////////////////////////////////////////////
-  //
-  // TCAdefaults
+  // PID
+  // [' . $int_uid_organiser . '] organiser
+  //    [' . $int_uid_calendar . '] calendar
+  //    [' . $int_uid_news . '] news
+  //    [' . $int_uid_staff . '] staff
+  //    [' . $int_uid_headquarters . '] headquarters and departments
+  //    [' . $int_uid_events . '] events
+  //    [' . $int_uid_locations . '] locations
 
-  // Default values for new records
-TCAdefaults {
-    // Default values for organiser calendar
-  tx_quickshop_products {
-      // Width in Pixel
-    imagewidth    = 200
-      // 26: Beside text, left
-    imageorient   =  26
-      // 1: All images have 1 column
-    imagecols     =   1
-      // 1: Click enlarge is enabled
-    image_zoom    =   1
-      // 1: Every image get its own div-tag
-    image_noRows  =   1
-      // 1: reduced, 2: normal
-    tax           =   2
+  // organiser tables
+TCEFORM {
+  fe_users {
+    tx_org_news {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_news . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_news . '
+    }
+    tx_org_department {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_headquarters . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_headquarters . '
+    }
   }
+  tx_org_cal_all_tables {
+    fe_user {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_staff . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_staff . '
+    }
+    tx_org_cal {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_calendar . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_calendar . '
+    }
+    tx_org_calentrance < .tx_org_cal
+    tx_org_calspecial  < .tx_org_cal
+    tx_org_caltype     < .tx_org_cal
+    tx_org_department {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_headquarters . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_headquarters . '
+    }
+    tx_org_departmentcat < .tx_org_department
+    tx_org_event {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_events . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_events . '
+    }
+    tx_org_headquarters {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_headquarters . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_headquarters . '
+    }
+    tx_org_news {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_news . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_news . '
+    }
+    tx_org_newscat < .tx_org_news
+    tx_org_location {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_locations . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_locations . '
+    }
+  }
+  tx_org_cal          < .tx_org_cal_all_tables
+  tx_org_calentrance  < .tx_org_cal_all_tables
+  tx_org_calspecial   < .tx_org_cal_all_tables
+  tx_org_caltype      < .tx_org_cal_all_tables
+  tx_org_department   < .tx_org_cal_all_tables
+  tx_org_department {
+    manager {
+      PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_staff . '
+      PAGE_TSCONFIG_ID      = ' . $int_uid_staff . '
+    }
+    fe_users < .manager
+  }
+  tx_org_event        < .tx_org_cal_all_tables
+  tx_org_headquarters < .tx_org_cal_all_tables
+  tx_org_location     < .tx_org_cal_all_tables
+  tx_org_news         < .tx_org_cal_all_tables
+  tx_org_newscat      < .tx_org_cal_all_tables
 }
-  // Default values for new records
-  // TCAdefaults
+  // organiser tables
+  // TCEFORM
+
+
+
+
+  /////////////////////////////////////
+  //
+  // LINKHANDLER
+
+  // mod.tx_linkhandler
+mod.tx_linkhandler {
+  fe_users.onlyPids             = ' . $int_uid_staff . '
+  tx_org_cal.onlyPids           = ' . $int_uid_calendar . '
+  tx_org_department.onlyPids    = ' . $int_uid_headquarters . '
+  tx_org_event.onlyPids         = ' . $int_uid_events . '
+  tx_org_headquarters.onlyPids  = ' . $int_uid_headquarters . '
+  tx_org_location.onlyPids      = ' . $int_uid_locations . '
+  tx_org_news.onlyPids          = ' . $int_uid_news . '
+}
+
+  // Remove RTE default configuration
+RTE.default.tx_linkhandler >
+  // Copy configuration from mod to RTE
+RTE.default.tx_linkhandler < mod.tx_linkhandler
+
+  // LINKHANDLER
 
 
 
@@ -875,15 +907,283 @@ TCAdefaults {
 
 TCEMAIN {
   clearCacheCmd = pages
+  permissions {
+    // ' . $this->markerArray['###GROUP_UID###'] . ': ' . $this->markerArray['###GROUP_TITLE###'] . '
+    groupid = ' . $this->markerArray['###GROUP_UID###'] . '
+    group   = show,edit,delete,new,editcontent
+  }
 }
   // TCEMAIN
+  
+  
+  
+  ///////////////////////////
+  //
+  // MOD
+  
+mod {
+  web_list {
+      // Deny all tables!
+    allowedNewTables = xxx
+  }
+}
+  // MOD
 
 
+// Created by ORGANISER INSTALLER at '.$str_date.' -- END
+
+';
+    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_organiser')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_organiser');
+      // sysfolder organiser
+
+
+
+      // sysfolder calendar
+    $int_uid = $int_uid_calendar;
+    $arr_pages[$int_uid]['uid']           = $int_uid_calendar;
+    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_calendar');
+    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
+    $arr_pages[$int_uid]['crdate']        = $timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['module']        = 'org_cal';
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 1;
+    $arr_pages[$int_uid]['TSconfig']      = '
 
 // Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
 
+
+
+mod {
+  web_list {
+    allowedNewTables (
+      tx_org_cal, 
+      tx_org_calentrance, 
+      tx_org_calspecial, 
+      tx_org_caltype, 
+      tx_org_tax
+    )
+  }
+}
+
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- END
+
 ';
-    // Products
+    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_calendar')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_calendar');
+      // sysfolder calendar
+
+
+
+      // sysfolder events
+    $int_uid = $int_uid_events;
+    $arr_pages[$int_uid]['uid']           = $int_uid_events;
+    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_events');
+    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
+    $arr_pages[$int_uid]['crdate']        = $timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['module']        = 'org_event';
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 2;
+    $arr_pages[$int_uid]['TSconfig']      = '
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
+
+
+
+mod {
+  web_list {
+    allowedNewTables (
+      tx_org_event
+    )
+  }
+}
+
+
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- END
+
+';
+    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_events')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_events');
+      // sysfolder events
+
+
+
+      // sysfolder headquarters
+    $int_uid = $int_uid_headquarters;
+    $arr_pages[$int_uid]['uid']           = $int_uid_headquarters;
+    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_headquarters');
+    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
+    $arr_pages[$int_uid]['crdate']        = $timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['module']        = 'org_headq';
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 3;
+    $arr_pages[$int_uid]['TSconfig']      = '
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
+
+
+
+mod {
+  web_list {
+    allowedNewTables (
+      tx_org_headquarters,
+      tx_org_department,
+    )
+  }
+}
+
+
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- END
+
+';
+    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_headquarters')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_headquarters');
+      // sysfolder headquarters
+
+
+
+      // sysfolder locations
+    $int_uid = $int_uid_locations;
+    $arr_pages[$int_uid]['uid']           = $int_uid_locations;
+    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_locations');
+    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
+    $arr_pages[$int_uid]['crdate']        = $timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['module']        = 'org_locat';
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 4;
+    $arr_pages[$int_uid]['TSconfig']      = '
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
+
+
+
+mod {
+  web_list {
+    allowedNewTables (
+      tx_org_location
+    )
+  }
+}
+
+
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- END
+
+';
+    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_locations')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_locations');
+      // sysfolder locations
+
+
+
+      // sysfolder news
+    $int_uid = $int_uid_news;
+    $arr_pages[$int_uid]['uid']           = $int_uid_news;
+    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_news');
+    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
+    $arr_pages[$int_uid]['crdate']        = $timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['module']        = 'org_news';
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 5;
+    $arr_pages[$int_uid]['TSconfig']      = '
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
+
+
+
+mod {
+  web_list {
+    allowedNewTables (
+      tx_org_news,
+      tx_org_newscat
+    )
+  }
+}
+
+
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- END
+
+';
+    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_news')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_news');
+      // sysfolder news
+
+
+
+      // sysfolder staff
+    $int_uid = $int_uid_staff;
+    $arr_pages[$int_uid]['uid']           = $int_uid_staff;
+    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_staff');
+    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
+    $arr_pages[$int_uid]['crdate']        = $timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['module']        = 'org_staff';
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 6;
+    $arr_pages[$int_uid]['TSconfig']      = '
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
+
+
+
+mod {
+  web_list {
+    allowedNewTables (
+      fe_users,
+      fe_groups
+    )
+  }
+}
+
+
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- END
+
+';
+    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_staff')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_staff');
+      // sysfolder staff
+
+
 
     foreach($arr_pages as $fields_values)
     {
@@ -901,78 +1201,6 @@ TCEMAIN {
     // Pages first level
 
 
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Pages second level
-
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-    {
-      $select_fields = '`uid`';
-      $from_table    = '`'.$table.'`';
-      $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "'.$this->pi_getLL('page_title_lib').'" AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
-      $groupBy       = '';
-      $orderBy       = '';
-      $limit         = '0,1';
-      $uidIndexField = '';
-      
-      $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
-      if(is_array($rows) && count($rows) > 0)
-      {
-        $this->markerArray['###PAGE_LIB_UID###'] = $rows[0]['uid'];
-      }
-//var_dump($rows);
-//return;
-      // Page header
-      $int_uid = $int_uid + 1;
-      $arr_pages[$int_uid]['uid']           = $int_uid;
-      $arr_pages[$int_uid]['pid']           = $this->markerArray['###PAGE_LIB_UID###'];
-      $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_lib_header');
-      $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
-      $arr_pages[$int_uid]['crdate']        = $timestamp;
-      $arr_pages[$int_uid]['tstamp']        = $timestamp;
-      $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-      $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-      $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-      $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-      $arr_pages[$int_uid]['urlType']       = 1;
-      $arr_pages[$int_uid]['sorting']       = 256 * ($int_uid + 1);
-      // Page header
-
-      // Page footer
-      $int_uid = $int_uid + 1;
-      $arr_pages[$int_uid]['uid']           = $int_uid;
-      $arr_pages[$int_uid]['pid']           = $this->markerArray['###PAGE_LIB_UID###'];
-      $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_lib_footer');
-      $arr_pages[$int_uid]['crdate']        = $timestamp;
-      $arr_pages[$int_uid]['tstamp']        = $timestamp;
-      $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
-      $arr_pages[$int_uid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-      $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-      $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-      $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-      $arr_pages[$int_uid]['urlType']       = 1;
-      $arr_pages[$int_uid]['sorting']       = 256 * ($int_uid + 1);
-      // Page footer
-
-      foreach($arr_pages as $fields_values)
-      {
-        $GLOBALS['TYPO3_DB']->exec_INSERTquery($from_table, $fields_values, $no_quote_fields);
-        $this->markerArray['###TITLE###'] = $this->pi_getLL('page_title_lib').' > '.$fields_values['title'];
-        $this->markerArray['###UID###']   = $fields_values['uid'];
-        $str_page_prompt = '
-          <p>
-            '.$this->arr_icons['ok'].' '.$this->pi_getLL('page_create_prompt').'
-          </p>';
-        $str_page_prompt = $this->cObj->substituteMarkerArray($str_page_prompt, $this->markerArray);
-        $this->arrReport[] = $str_page_prompt;
-      }
-      unset($arr_pages);
-    }
-    
-    // Pages second level
-    
-    $this->zz_getPageUids($timestamp);
 
     return false;
   }
@@ -3173,84 +3401,6 @@ TCEMAIN {
 
 
 
-   /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
-  private function zz_getPageUids($timestamp)
-  {
-    $this->arr_pageUids[$GLOBALS['TSFE']->page['title']] = $GLOBALS['TSFE']->id;
-    $this->arr_pageTitles[$GLOBALS['TSFE']->id] = $GLOBALS['TSFE']->page['title'];
-
-
-    $select_fields = '`uid`, `title`';
-    $from_table    = '`pages`';
-    $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
-    $groupBy       = '';
-    $orderBy       = '';
-    $limit         = '';
-    $uidIndexField = '';
-      
-    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
-    foreach($rows as $row)
-    {
-      if($row['title'] == $this->pi_getLL('page_title_cart'))
-      {
-        $this->arr_pageUids[$this->pi_getLL('page_title_cart')] = $row['uid'];
-        $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_cart');
-      }
-      if($row['title'] == $this->pi_getLL('page_title_products'))
-      {
-        $this->arr_pageUids[$this->pi_getLL('page_title_products')] = $row['uid'];
-        $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_products');
-      }
-      if($row['title'] == $this->pi_getLL('page_title_shipping'))
-      {
-        $this->arr_pageUids[$this->pi_getLL('page_title_shipping')] = $row['uid'];
-        $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_shipping');
-      }
-      if($row['title'] == $this->pi_getLL('page_title_terms'))
-      {
-        $this->arr_pageUids[$this->pi_getLL('page_title_terms')] = $row['uid'];
-        $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_terms');
-      }
-
-      // Install ALL
-      if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-      {
-        if($row['title'] == $this->pi_getLL('page_title_info'))
-        {
-          $this->arr_pageUids[$this->pi_getLL('page_title_info')] = $row['uid'];
-          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_info');
-        }
-        if($row['title'] == $this->pi_getLL('page_title_lib_header'))
-        {
-          $this->arr_pageUids[$this->pi_getLL('page_title_lib_header')] = $row['uid'];
-          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_lib_header');
-        }
-        if($row['title'] == $this->pi_getLL('page_title_lib_footer'))
-        {
-          $this->arr_pageUids[$this->pi_getLL('page_title_lib_footer')] = $row['uid'];
-          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_lib_footer');
-        }
-      }
-      // Install ALL
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
    /**
    * Shop will be installed - with or without template
@@ -3286,29 +3436,15 @@ TCEMAIN {
    */
   private function zz_getFlexValues()
   {
-    // Init methods for pi_flexform
+      // Init methods for pi_flexform
     $this->pi_initPIflexForm();
 
-    // Get values from the flexform
+      // Get values from the flexform
     $this->arr_piFlexform                = $this->cObj->data['pi_flexform'];
     foreach($this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value)
     {
       $this->markerArray['###'.strtoupper($key).'###'] = $arr_value['vDEF'];
     }
-
-    $this->markerArray['###INSTALL_CASE###'] = $this->markerArray['###INSTALL_CASE###'];
-    
-    // Set the URL
-    if(!isset($this->markerArray['###URL###']))
-    {
-      $this->markerArray['###HOST###'] = t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST');
-    }
-    if(!$this->markerArray['###HOST###'])
-    {
-      $this->markerArray['###HOST###'] = t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST');
-    }
-    // Set the URL
-
   }
 
 

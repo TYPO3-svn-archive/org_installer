@@ -82,7 +82,7 @@
             <type>input</type>
             <size>40</size>
             <eval>trim,nospace,required</eval>
-            <default>mail@typo3-organiser.com</default>
+            <default>mail@my-domain.com</default>
           </config>
         </TCEforms>
       </mail_default_sender>    </el>

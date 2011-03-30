@@ -6,6 +6,9 @@
   </meta>
   <data type="array">
     <languageKey index="default" type="array">
+      <label index="promptDeleteInstallPage"><![CDATA[
+        If you like to install a new installer page, please delete the current installer page first.
+      ]]></label>
       <label index="promptEnableInstallPage"><![CDATA[
         Please enable the "Installer page" below.
         The Organiser Installer will install a page on the top level with

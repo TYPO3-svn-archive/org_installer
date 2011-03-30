@@ -119,6 +119,13 @@ class tx_org_installer_extmanager
           </div>
         </div>
       ';
+      $str_prompt = $str_prompt.'
+        <div class="typo3-message message-information">
+          <div class="message-body">
+            ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptDeleteInstallPage'). '
+          </div>
+        </div>
+      ';
       $str_prompt = str_replace('###TITLE_UID###', $str_installerPages, $str_prompt);
       return $str_prompt;
     }
@@ -225,7 +232,7 @@ class tx_org_installer_extmanager
  * @since 1.0.0
  * @version 1.0.0
  */
-  function add_installerPage()
+  private function add_installerPage()
   {
     $table                    = 'pages';
     $int_maxUid               = $this->get_maxUid($table);
@@ -253,7 +260,7 @@ class tx_org_installer_extmanager
  * @since 1.0.0
  * @version 1.0.0
  */
-  function add_installerPlugin()
+  private function add_installerPlugin()
   {
     $table      = 'tt_content';
     $int_maxUid = $this->get_maxUid($table);
@@ -285,7 +292,7 @@ class tx_org_installer_extmanager
  * @since 1.0.0
  * @version 1.0.0
  */
-  function add_installerTS()
+  private function add_installerTS()
   {
     $table      = 'sys_template';
     $int_maxUid = $this->get_maxUid($table);
@@ -332,7 +339,7 @@ page {
  * @since 1.0.0
  * @version 1.0.0
  */
-  function get_installerPages()
+  private function get_installerPages()
   {
     $rows           = null;
     $select_fields  = 'uid, title';
@@ -367,7 +374,7 @@ page {
  * @since 1.0.0
  * @version 1.0.0
  */
-  function get_maxUid($from_table)
+  private function get_maxUid($from_table)
   {
     $rows           = null;
     $select_fields  = 'max(uid) AS maxUid';

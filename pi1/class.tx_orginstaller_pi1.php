@@ -59,10 +59,19 @@ class tx_orginstaller_pi1 extends tslib_pibase
   // [array] Array with images, wrapped as HTML <img ...>
   
   private $markerArray       = false;
-  // [array] Array with variables like group id, page ids ...
+
+  // [boolean] Is the installer page on the top level
+  private $bool_topLevel     = false;
+  // [array] Array with information about the used pages. Uid is the key, title is the value.
   private $arr_pageUids      = false;
-  // [array] Uids of the current and the generated pages records. Titles are the keys.
+  // [array] Array with information about the used pages. Title is the key, uid is the value.
   private $arr_pageTitles    = false;
+
+  // [array] Array with information about the used sysfolders. Uid is the key, title is the value.
+  private $arr_sysfUids      = false;
+  // [array] Array with information about the used sysfolders. Title is the key, uid is the value.
+  private $arr_sysfTitles    = false;
+
   // [array] Titles of the current and the generated pages records. Uids are the keys.
   private $arr_tsUids      = false;
   // [array] Uids of the generated sys_templates records
@@ -287,15 +296,16 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
 
 
+    $this->init_boolTopLevel();
     $this->createBeGroup();
     $this->createPages();
-//:TODO:
     $this->createTyposcript();
     $this->createPlugins();
     $this->createRecordsPowermail();
-    $this->createRecordsShop();
-    $this->createFilesShop();
-    $this->createContent();
+//:TODO:
+//    $this->createRecordsShop();
+//    $this->createFilesShop();
+//    $this->createContent();
     $this->consolidatePageCurrent();
     $this->consolidatePluginPowermail();
     $this->consolidateTsWtCart();
@@ -933,8 +943,8 @@ mod {
 // Created by ORGANISER INSTALLER at '.$str_date.' -- END
 
 ';
-    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_organiser')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_organiser');
+    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_organiser')] = $int_uid;
+    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_organiser');
       // sysfolder organiser
 
 
@@ -976,8 +986,8 @@ mod {
 // Created by ORGANISER INSTALLER at '.$str_date.' -- END
 
 ';
-    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_calendar')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_calendar');
+    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_calendar')] = $int_uid;
+    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_calendar');
       // sysfolder calendar
 
 
@@ -1016,8 +1026,8 @@ mod {
 // Created by ORGANISER INSTALLER at '.$str_date.' -- END
 
 ';
-    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_events')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_events');
+    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_events')] = $int_uid;
+    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_events');
       // sysfolder events
 
 
@@ -1057,8 +1067,8 @@ mod {
 // Created by ORGANISER INSTALLER at '.$str_date.' -- END
 
 ';
-    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_headquarters')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_headquarters');
+    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_headquarters')] = $int_uid;
+    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_headquarters');
       // sysfolder headquarters
 
 
@@ -1097,8 +1107,8 @@ mod {
 // Created by ORGANISER INSTALLER at '.$str_date.' -- END
 
 ';
-    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_locations')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_locations');
+    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_locations')] = $int_uid;
+    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_locations');
       // sysfolder locations
 
 
@@ -1138,8 +1148,8 @@ mod {
 // Created by ORGANISER INSTALLER at '.$str_date.' -- END
 
 ';
-    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_news')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_news');
+    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_news')] = $int_uid;
+    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_news');
       // sysfolder news
 
 
@@ -1179,8 +1189,8 @@ mod {
 // Created by ORGANISER INSTALLER at '.$str_date.' -- END
 
 ';
-    $this->arr_pageUids[$this->pi_getLL('sysfolder_title_staff')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('sysfolder_title_staff');
+    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_staff')] = $int_uid;
+    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_staff');
       // sysfolder staff
 
 
@@ -1219,10 +1229,10 @@ mod {
 
 
    /**
-   * Shop will be installed - with or without template
+   * createTyposcript()
    *
-   * @return    The content that is displayed on the website
-   * @version 1.0.6
+   * @return    void
+   * @version 1.0.0
    */
   private function createTyposcript()
   {
@@ -1241,208 +1251,327 @@ mod {
 
     $int_uid = $this->zz_getMaxDbUid($table);
 
-    // Root page
-    $int_uid          = $int_uid +1;
-    $str_uid          = sprintf ('%03d', $int_uid);
-    $this->str_tsRoot = 'page_quickshop_'.$str_uid;
-    $str_pageTitle    = strtolower($GLOBALS['TSFE']->page['title']);
-    $str_pageTitle    = str_replace(' ', '', $str_pageTitle);
-    $this->arr_tsUids[$this->str_tsRoot]           = $int_uid;
+      // Root page
+    $int_uid                              = $int_uid +1;
+    $str_uid                              = sprintf ('%03d', $int_uid);
+    $str_pageTitle                        = strtolower($GLOBALS['TSFE']->page['title']);
+    $str_pageTitle                        = str_replace(' ', '', $str_pageTitle);
+    $this->str_tsRoot                     = 'page_'.$str_pageTitle.'_'.$str_uid;
+    $this->arr_tsUids[$this->str_tsRoot]  = $int_uid;
     
-    // Root page: install_all
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
+    $arr_ts[$int_uid]['uid']              = $int_uid;
+    $arr_ts[$int_uid]['pid']              = $GLOBALS['TSFE']->id;
+    $arr_ts[$int_uid]['tstamp']           = $timestamp;
+    $arr_ts[$int_uid]['sorting']          = 256;
+    $arr_ts[$int_uid]['crdate']           = $timestamp;
+    $arr_ts[$int_uid]['cruser_id']        = $this->markerArray['###BE_USER###'];
+    $arr_ts[$int_uid]['title']            = 'page_'.$str_pageTitle.'_'.$str_uid;
+    if($this->bool_topLevel)
     {
-      
-      $arr_ts[$int_uid]['title']                     = 'page_'.$str_pageTitle.'_'.$str_uid;
-      $arr_ts[$int_uid]['sitetitle']                 = $this->markerArray['###WEBSITE_TITLE###'];
-      $arr_ts[$int_uid]['root']                      = 1;
-      $arr_ts[$int_uid]['clear']                     = 3;  // Clear all
-      $arr_ts[$int_uid]['include_static_file']       = ''.
-        'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,'.
-        'EXT:browser/static/,EXT:quick_shop/static/';
-      $arr_ts[$int_uid]['includeStaticAfterBasedOn'] = 1;
-      $arr_ts[$int_uid]['config']                    = ''.
-'config {
-  baseURL            = '.$this->markerArray['###HOST###'].'/
-  metaCharset        = UTF-8
-  tx_realurl_enable  = 0
-  no_cache           = 1
-  language           = '.$GLOBALS['TSFE']->lang.'
-  htmlTag_langKey    = '.$GLOBALS['TSFE']->lang.'
-}
+      $arr_ts[$int_uid]['sitetitle']      = 'TYPO3 Organiser';
+      $arr_ts[$int_uid]['root']           = 1;
+      $arr_ts[$int_uid]['clear']          = 3;  // Clear all
+    }
+    if(!$this->bool_topLevel)
+    {
+      $arr_ts[$int_uid]['root']           = 0;
+      $arr_ts[$int_uid]['clear']          = 0;
+    }
+    $arr_ts[$int_uid]['description']          = ''.
+      '// Created by ORGANISER INSTALLER at '.$str_date;
+    $arr_ts[$int_uid]['include_static_file']  = ''.
+      'EXT:css_styled_content/static/,'.
+      'EXT:wt_cart/files/static/,'.
+      'EXT:linkhandler/static/link_handler/,'.
+      'EXT:browser/static/,'.
+      'EXT:org/static/base/,'.
+      'EXT:org/static/calendar/201/,'.
+      'EXT:org/static/calendar/211/,'.
+      'EXT:org/static/department/601/,'.
+      'EXT:org/static/headquarters/501,'.
+      'EXT:org/static/location/701,'.
+      'EXT:org/static/news/401,'.
+      'EXT:org/static/news/411,'.
+      'EXT:org/static/shopping_cart/811/,'.
+      'EXT:org/static/staff/101/,'.
+      'EXT:org/static/staff/111/,'.
+      'EXT:browser/pi4/static/';
+    if($this->bool_topLevel)
+    {
+      $arr_ts[$int_uid]['config']                    = '
 
 
-  ////////////////////////////////////////////////////////
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
   //
-  // ajax page object
-  
-  // Add this snippet into the setup of the TypoScript 
-  // template of your page.
-  // Use \'page\', if the name of your page object is \'page\'
-  // (this is a default but there isn\'t any rule)
-   
+  // INDEX
+  // 
+  // config
+  // page (default)
+  // page (AJAX)
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // config
+
+config {
+  baseURL                   = ' . t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST') . '/
+  extTarget                 = _blank
+  language                  = '.$GLOBALS['TSFE']->lang.'
+  //locale_all                = en_GB
+  metaCharset               = UTF-8
+  doctype                   = xhtml_strict
+  xhtml_cleaning            = all
+  htmlTag_langKey           = '.$GLOBALS['TSFE']->lang.'
+
+  admPanel                  = 1
+  disablePrefixComment      = 1
+  spamProtectEmailAddresses = 5
+  spamProtectEmailAddresses_atSubst       = <span style="display:none;">spamfilter</span><span class="dummy">@</span>
+  spamProtectEmailAddresses_lastDotSubst  = <span style="display:none;">spamfilter</span><span class="dummy">.</span>
+}
+  // config
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // page (default)
+
+page >
+page = PAGE
+page {
+  config {
+    headerComment (
+        TYPO3 Organiser is brought to you by die-netzmacher.de
+    )
+  }
+  typeNum = 0
+  10 < styles.content.get
+}
+  // page (default)
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // page (AJAX)
+
 [globalString = GP:tx_browser_pi1|segment=single] || [globalString = GP:tx_browser_pi1|segment=list] || [globalString = GP:tx_browser_pi1|segment=searchform]
   page >
   page < plugin.tx_browser_pi1.javascript.ajax.page
+  
 [global]
-  // ajax page object
-
-';
-      $str_libraries                               = '
-      libraries = '.$this->arr_pageUids[$this->pi_getLL('page_title_lib')].'
-      libraries {
-        header       = '.$this->arr_pageUids[$this->pi_getLL('page_title_lib_header')].'
-        footer       = '.$this->arr_pageUids[$this->pi_getLL('page_title_lib_footer')].'
-      }
+  // page (AJAX)
 ';
     }
-    // Root page: install_all
-    // Root page: install_shop
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_shop')
+    if(!$this->bool_topLevel)
     {
-      $arr_ts[$int_uid]['title']                      = '+page_'.$str_pageTitle.'_'.$str_uid;
-      $arr_ts[$int_uid]['root']                       = 0;
-      $arr_ts[$int_uid]['clear']                      = 0;  // Clear nothing
-      $arr_ts[$int_uid]['includeStaticAfterBasedOn']  = 0;
-      $arr_ts[$int_uid]['config']                     = ''.
-'config {
-  no_cache = 1
+      $arr_ts[$int_uid]['config']                    = '
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // INDEX
+  // 
+  // config
+  // page (default)
+  // page (AJAX)
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // config
+
+config {
+  extTarget                 = _blank
+  language                  = '.$GLOBALS['TSFE']->lang.'
+  //locale_all                = en_GB
+  metaCharset               = UTF-8
+  doctype                   = xhtml_strict
+  xhtml_cleaning            = all
+  htmlTag_langKey           = '.$GLOBALS['TSFE']->lang.'
+
+  admPanel                  = 1
+  disablePrefixComment      = 1
+  spamProtectEmailAddresses = 5
+  spamProtectEmailAddresses_atSubst       = <span style="display:none;">spamfilter</span><span class="dummy">@</span>
+  spamProtectEmailAddresses_lastDotSubst  = <span style="display:none;">spamfilter</span><span class="dummy">.</span>
+}
+  // config
+
+
+
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // page (default)
+
+page {
+  config {
+    headerComment (
+        TYPO3 Organiser is brought to you by die-netzmacher.de
+    )
+  }
+}
+  // page (default)
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // page (AJAX)
+
+[globalString = GP:tx_browser_pi1|segment=single] || [globalString = GP:tx_browser_pi1|segment=list] || [globalString = GP:tx_browser_pi1|segment=searchform]
+  page >
+  page < plugin.tx_browser_pi1.javascript.ajax.page
+  
+[global]
+  // page (AJAX)
+';
+    }
+
+    $arr_ts[$int_uid]['constants']           = '
+
+
+
+plugin.org {
+  sysfolder {
+    calendar    = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_calendar')] . '
+    department  = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_department')] . '
+    event       = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_event')] . '
+    headquarter = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_headquarters')] . '
+    location    = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_locations')] . '
+    news        = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_news')] . '
+    staff       = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_staff')] . '
+  }
+  pages {
+    calendar          = ' . $this->arr_pageUids[$this->pi_getLL('page_title_calendar')] . '
+    calendar_expired  = ' . $this->arr_pageUids[$this->pi_getLL('page_title_calendar')] . '
+    staff             = ' . $this->arr_pageUids[$this->pi_getLL('page_title_staff')] . '
+    location          = ' . $this->arr_pageUids[$this->pi_getLL('page_title_locations')] . '
+    news              = ' . $this->arr_pageUids[$this->pi_getLL('page_title_news')] . '
+    shopping_cart     = ' . $this->arr_pageUids[$this->pi_getLL('page_title_tickets')] . '
+    terms             = ' . $this->arr_pageUids[$this->pi_getLL('page_title_terms')] . '
+  }
+  url {
+    default {
+      calendar      = /
+      shopping_cart = ' . $this->pi_getLL('page_title_tickets') . '/
+      terms         = ' . $this->pi_getLL('page_title_terms') . '/
+    }
+    de {
+      calendar      = /
+      shopping_cart = ' . $this->pi_getLL('page_title_tickets') . '/
+      terms         = ' . $this->pi_getLL('page_title_terms') . '/
+    }
+  }
 }
 ';
-      $str_libraries                                  = '';
-    }
-    // Root page: install_shop
+      // Root page
 
-    $arr_ts[$int_uid]['uid']                 = $int_uid;
-    $arr_ts[$int_uid]['pid']                 = $GLOBALS['TSFE']->id;
-    $arr_ts[$int_uid]['tstamp']              = $timestamp;
-    $arr_ts[$int_uid]['sorting']             = 256;
-    $arr_ts[$int_uid]['crdate']              = $timestamp;
-    $arr_ts[$int_uid]['cruser_id']           = $this->markerArray['###BE_USER###'];
 
-      // Root page: constants
-      // 110114, dwildt, #12236 and #12237
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-    {
-      $arr_ts[$int_uid]['constants']           = ''.
-'myConst {
-  //host = '.$this->markerArray['###HOST###'].'/
-  pages {
-    quick_shop = '.$this->arr_pageUids[$GLOBALS['TSFE']->page['title']].'
-    quick_shop {
-      cart     = '.$this->arr_pageUids[$this->pi_getLL('page_title_cart')].'
-      shipping = '.$this->arr_pageUids[$this->pi_getLL('page_title_shipping')].'
-      terms    = '.$this->arr_pageUids[$this->pi_getLL('page_title_terms')].$str_libraries.'
-    }
-  }
-  paths {
-    res  = EXT:base_quickshop/res/
-    html = EXT:base_quickshop/res/html/
-    css  = EXT:base_quickshop/res/html/css/
-  }
-  files {
-    html {
-      template = index.html
-      css      = basic.css
-      favicon  = images/favicon.ico
-    }
-  }
-  dims {
-    header_image {
-      maxW = 210
-      maxH = 420
-    }
-  }
-  words {
-    // HTML a href title tag for menu item rootpage
-    title_tag_quick_shop_page = '.$this->pi_getLL('phrases_ts_titleTag_quickshop_page').'
-  }
-}';
-    }
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_shop')
-    {
-      $arr_ts[$int_uid]['constants']           = ''.
-'myConst {
-  //host = '.$this->markerArray['###HOST###'].'/
-  pages {
-    quick_shop = '.$this->arr_pageUids[$GLOBALS['TSFE']->page['title']].'
-    quick_shop {
-      cart     = '.$this->arr_pageUids[$this->pi_getLL('page_title_cart')].'
-      shipping = '.$this->arr_pageUids[$this->pi_getLL('page_title_shipping')].'
-      terms    = '.$this->arr_pageUids[$this->pi_getLL('page_title_terms')].$str_libraries.'
-    }
-  }
-  dims {
-    header_image {
-      maxW = 210
-      maxH = 420
-    }
-  }
-  words {
-    // HTML a href title tag for menu item rootpage
-    title_tag_quick_shop_page = '.$this->pi_getLL('phrases_ts_titleTag_quickshop_page').'
-  }
-}';
-    }
-      // 110114, dwildt, #12236 and #12237
-      // Root page: constants
 
-    $arr_ts[$int_uid]['description']               = ''.
-      '// Created by ORGANISER INSTALLER at '.$str_date;
-      
-    $arr_ts[$int_uid]['include_static_file']       = ''.
-      'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,'.
-      'EXT:browser/static/,EXT:quick_shop/static/';
-
-    // Root page
-
-    // Cart page
+      // Cart page
     $int_uid = $int_uid +1;
     $str_uid = sprintf ('%03d', $int_uid);
 
-    $str_pageTitle      = strtolower($this->pi_getLL('page_title_cart'));
+    $str_pageTitle      = strtolower($this->pi_getLL('page_title_tickets'));
     $str_pageTitle      = str_replace(' ', '', $str_pageTitle);
     $this->str_tsWtCart = '+page_'.$str_pageTitle.'_'.$str_uid;
     
-    $this->arr_tsUids[$this->str_tsWtCart]   = $int_uid;
-    $arr_ts[$int_uid]['title']               = '+page_'.$str_pageTitle.'_'.$str_uid;
-    $arr_ts[$int_uid]['uid']                 = $int_uid;
-    $arr_ts[$int_uid]['pid']                 = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_ts[$int_uid]['tstamp']              = $timestamp;
-    $arr_ts[$int_uid]['sorting']             = 256;
-    $arr_ts[$int_uid]['crdate']              = $timestamp;
-    $arr_ts[$int_uid]['cruser_id']           = $this->markerArray['###BE_USER###'];
-    $arr_ts[$int_uid]['include_static_file'] = 'EXT:wt_cart/files/static/';
-    // See $this->consolidateTsWtCart()
-    //$arr_ts[$int_uid]['constants']           = '';
-    $arr_ts[$int_uid]['config']           = ''.
-'page {
-  includeCSS {
-    // remove the cart default css
-    file3456     >
-  }
-}
+    $this->arr_tsUids[$this->str_tsWtCart]    = $int_uid;
+    $arr_ts[$int_uid]['title']                = '+page_'.$str_pageTitle.'_'.$str_uid;
+    $arr_ts[$int_uid]['uid']                  = $int_uid;
+    $arr_ts[$int_uid]['pid']                  = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
+    $arr_ts[$int_uid]['tstamp']               = $timestamp;
+    $arr_ts[$int_uid]['sorting']              = 256;
+    $arr_ts[$int_uid]['crdate']               = $timestamp;
+    $arr_ts[$int_uid]['cruser_id']            = $this->markerArray['###BE_USER###'];
+    $arr_ts[$int_uid]['include_static_file']  = ''.
+      'EXT:org/static/shopping_cart/801/,'.
+      'EXT:powermail/static/pi1/,'.
+      'EXT:powermail/static/css_basic/';
+    $arr_ts[$int_uid]['constants']            = '
 
-plugin {
-  tx_powermail_pi1 {
-    email {
-      sender_mail {
-        sender {
-          name {
-            value = Quick Shop
-          }
-          email {
-            value = ' . $this->markerArray['###MAIL_DEFAULT_SENDER###'] . '
-          }
-        }
-      }
+  ////////////////////////////////////////
+  //
+  // Will be override by $this->consolidateTsWtCart()
+
+';
+
+    $arr_ts[$int_uid]['config']               = '
+
+
+
+  ////////////////////////////////////////
+  //
+  // Index
+  //
+  // plugin.tx_wtcart_pi1
+  // plugin.tx_powermail_pi1
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_wtcart_pi1
+
+plugin.tx_wtcart_pi1 {
+  
+  _LOCAL_LANG {
+    de {
+      wtcart_ll_title = Anmeldung
+      wtcart_ll_price = Preis
+      wtcart_ll_empty (
+          Wenn Du Dich anmelden m&ouml;chtest, w&auml;hle das n&auml;chste Treffen
+          <ul>
+            <li>
+              <a title="Anmelden!" href="{$plugin.org.url.de.calendar}">
+                im Kalender &raquo;</a>
+            </li>
+          </ul>
+          aus. Dort kannst Du Dich online anmelden.<br />
+          <br />
+          Es gibt keine allgemeinen Geschäftsbedingungen. Wenn Du dazu mehr wissen möchtest, klicke auf
+          <ul>
+            <li>
+              <a title="Allgemeinen Geschäftsbedingungen" href="{$plugin.org.url.de.terms}">
+                AGB &raquo;</a>.
+            </li>
+          </ul>
+)
     }
   }
 }
-';
-    // Cart page
+  // plugin.tx_wtcart_pi1
+  
+  
 
-    // INSERT
+  ////////////////////////////////////////
+  //
+  // plugin.tx_powermail_pi1
+
+plugin.tx_powermail_pi1 {
+  _LOCAL_LANG {
+    de {
+      locallangmarker_confirmation_submit = Anmelden
+    }
+  }
+}
+  // plugin.tx_powermail_pi1
+
+
+
+';
+      // Cart page
+
+      // LOOP insert the typoscript records
     foreach($arr_ts as $fields_values)
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
@@ -1458,10 +1587,8 @@ plugin {
       $this->arrReport[] = $str_ts_prompt;
     }
     unset($arr_ts);
+      // LOOP insert the typoscript records
     
-    // INSERT
-    
-    return false;
   }
 
 
@@ -1478,10 +1605,10 @@ plugin {
 
 
    /**
-   * Shop will be installed - with or without template
+   * createPlugins(): Add the needed plugins to tt_content
    *
-   * @return    The content that is displayed on the website
-   * @version 1.0.4
+   * @return    void
+   * @version 1.0.0
    */
   private function createPlugins()
   {
@@ -1496,23 +1623,21 @@ plugin {
       //
       // General values
 
-    $timestamp       = time();
-    $table           = 'tt_content';
-    $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
-    $int_uid         = $this->zz_getMaxDbUid($table);
+    $timestamp        = time();
+    $table            = 'tt_content';
+    $no_quote_fields  = false;
+    $str_date         = date('Y-m-d G:i:s');
+    $int_uid          = $this->zz_getMaxDbUid($table);
       // General values
 
 
 
       //////////////////////////////////////////////////////////////////////
       //
-      // Plugin browser on root page
+      // Plugin browser on current page
 
-    $int_uid = $int_uid +1;
-    $str_uid = sprintf ('%03d', $int_uid);
-
-    $this->arr_pluginUids[$this->pi_getLL('plugin_browser_header')]  = $int_uid;
+    $int_uid                                                          = $int_uid + 1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_organiser_header')] = $int_uid;
     
     $arr_plugin[$int_uid]['uid']           = $int_uid;
     $arr_plugin[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
@@ -1521,8 +1646,9 @@ plugin {
     $arr_plugin[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
     $arr_plugin[$int_uid]['sorting']       = 128;
     $arr_plugin[$int_uid]['CType']         = 'list';
-    $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_browser_header');
-    $arr_plugin[$int_uid]['pages']         = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
+    $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_organiser_header');
+    $arr_plugin[$int_uid]['pages']         = $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_organiser')];
+    $arr_plugin[$int_uid]['recursive']     = 250;
     $arr_plugin[$int_uid]['header_layout'] = 100;  // hidden
     $arr_plugin[$int_uid]['list_type']     = 'browser_pi1';
     $arr_plugin[$int_uid]['sectionIndex']  = 1;
@@ -1530,38 +1656,6 @@ plugin {
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
-        <sheet index="viewList">
-            <language index="lDEF">
-                <field index="title">
-                    <value index="vDEF">Quick Shop</value>
-                </field>
-                <field index="limit">
-                    <value index="vDEF">3</value>
-                </field>
-                <field index="navigation">
-                    <value index="vDEF">3</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="socialmedia">
-            <language index="lDEF">
-                <field index="enabled">
-                    <value index="vDEF">enabled_wi_individual_template</value>
-                </field>
-                <field index="tablefieldTitle_list">
-                    <value index="vDEF">tx_quickshop_products.title</value>
-                </field>
-                <field index="bookmarks_list">
-                    <value index="vDEF">facebook,hype,twitter</value>
-                </field>
-                <field index="tablefieldTitle_single">
-                    <value index="vDEF">tx_quickshop_products.title</value>
-                </field>
-                <field index="bookmarks_single">
-                    <value index="vDEF">facebook,google,hype,live,misterwong,technorati,twitter,yahoomyweb</value>
-                </field>
-            </language>
-        </sheet>
         <sheet index="sDEF">
             <language index="lDEF">
                 <field index="views">
@@ -1571,14 +1665,24 @@ plugin {
                     <value index="vDEF">1</value>
                 </field>
                 <field index="viewsList">
-                    <value index="vDEF">1</value>
+                    <value index="vDEF">201</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="viewList">
+            <language index="lDEF">
+                <field index="title">
+                    <value index="vDEF">' . $this->pi_getLL('plugin_organiser_label') . '</value>
+                </field>
+                <field index="titleWrap">
+                    <value index="vDEF">&lt;h1 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h1&gt;</value>
                 </field>
             </language>
         </sheet>
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:quick_shop/res/v1.4/default.tmpl</value>
+                    <value index="vDEF">EXT:org/res/html/calendar/201/default.tmpl</value>
                 </field>
             </language>
         </sheet>
@@ -1587,8 +1691,263 @@ plugin {
                 <field index="mode">
                     <value index="vDEF">list_and_single</value>
                 </field>
-                <field index="ajaxChecklist">
+                <field index="list_transition">
+                    <value index="vDEF">collapse</value>
+                </field>
+                <field index="single_transition">
+                    <value index="vDEF">collapse</value>
+                </field>
+                <field index="list_on_single">
+                    <value index="vDEF">single</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="socialmedia">
+            <language index="lDEF">
+                <field index="enabled">
+                    <value index="vDEF">enabled_wi_individual_template</value>
+                </field>
+                <field index="tablefieldTitle_list">
+                    <value index="vDEF">tx_org_cal.title</value>
+                </field>
+                <field index="bookmarks_list">
+                    <value index="vDEF">hype</value>
+                </field>
+                <field index="tablefieldTitle_single">
+                    <value index="vDEF">tx_org_cal.title</value>
+                </field>
+                <field index="bookmarks_single">
+                    <value index="vDEF">hype</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>';
+      // Plugin browser on root page
+
+
+
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Plugin browser on news page
+
+    $int_uid                                                      = $int_uid + 1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_news_header')]  = $int_uid;
+
+    $arr_plugin[$int_uid]                = $arr_plugin[$int_uid -1];
+    $arr_plugin[$int_uid]['uid']         = $int_uid;
+    $arr_plugin[$int_uid]['pid']         = $this->arr_pageUids[$this->pi_getLL('page_title_news')];
+    $arr_plugin[$int_uid]['header']      = $this->pi_getLL('plugin_news_header');
+    $arr_plugin[$int_uid]['pi_flexform'] = ''.
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="views">
+                    <value index="vDEF">selected</value>
+                </field>
+                <field index="viewsHandleFromTemplateOnly">
                     <value index="vDEF">1</value>
+                </field>
+                <field index="viewsList">
+                    <value index="vDEF">401</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="viewList">
+            <language index="lDEF">
+                <field index="title">
+                    <value index="vDEF">' . $this->pi_getLL('plugin_news_label') . '</value>
+                </field>
+                <field index="titleWrap">
+                    <value index="vDEF">&lt;h1 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h1&gt;</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="templating">
+            <language index="lDEF">
+                <field index="template">
+                    <value index="vDEF">EXT:org/res/html/news/401/default.tmpl</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="javascript">
+            <language index="lDEF">
+                <field index="mode">
+                    <value index="vDEF">list_and_single</value>
+                </field>
+                <field index="list_transition">
+                    <value index="vDEF">collapse</value>
+                </field>
+                <field index="single_transition">
+                    <value index="vDEF">collapse</value>
+                </field>
+                <field index="list_on_single">
+                    <value index="vDEF">single</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="socialmedia">
+            <language index="lDEF">
+                <field index="enabled">
+                    <value index="vDEF">enabled_wi_individual_template</value>
+                </field>
+                <field index="tablefieldTitle_list">
+                    <value index="vDEF">tx_org_news.title</value>
+                </field>
+                <field index="bookmarks_list">
+                    <value index="vDEF">hype</value>
+                </field>
+                <field index="tablefieldTitle_single">
+                    <value index="vDEF">tx_org_news.title</value>
+                </field>
+                <field index="bookmarks_single">
+                    <value index="vDEF">hype</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>';
+      // Plugin browser on news page
+
+
+
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Plugin browser on staff page
+
+    $int_uid                                                      = $int_uid + 1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_staff_header')]  = $int_uid;
+
+    $arr_plugin[$int_uid]                = $arr_plugin[$int_uid -1];
+    $arr_plugin[$int_uid]['uid']         = $int_uid;
+    $arr_plugin[$int_uid]['pid']         = $this->arr_pageUids[$this->pi_getLL('page_title_staff')];
+    $arr_plugin[$int_uid]['header']      = $this->pi_getLL('plugin_staff_header');
+    $arr_plugin[$int_uid]['pi_flexform'] = ''.
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="views">
+                    <value index="vDEF">selected</value>
+                </field>
+                <field index="viewsHandleFromTemplateOnly">
+                    <value index="vDEF">1</value>
+                </field>
+                <field index="viewsList">
+                    <value index="vDEF">101</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="viewList">
+            <language index="lDEF">
+                <field index="title">
+                    <value index="vDEF">' . $this->pi_getLL('plugin_staff_label') . '</value>
+                </field>
+                <field index="titleWrap">
+                    <value index="vDEF">&lt;h1 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h1&gt;</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="templating">
+            <language index="lDEF">
+                <field index="template">
+                    <value index="vDEF">EXT:org/res/html/staff/101/default.tmpl</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="javascript">
+            <language index="lDEF">
+                <field index="mode">
+                    <value index="vDEF">list_and_single</value>
+                </field>
+                <field index="list_transition">
+                    <value index="vDEF">collapse</value>
+                </field>
+                <field index="single_transition">
+                    <value index="vDEF">collapse</value>
+                </field>
+                <field index="list_on_single">
+                    <value index="vDEF">single</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="socialmedia">
+            <language index="lDEF">
+                <field index="enabled">
+                    <value index="vDEF">enabled_wi_individual_template</value>
+                </field>
+                <field index="tablefieldTitle_list">
+                    <value index="vDEF">fe_users.name</value>
+                </field>
+                <field index="bookmarks_list">
+                    <value index="vDEF">hype</value>
+                </field>
+                <field index="tablefieldTitle_single">
+                    <value index="vDEF">fe_users.name</value>
+                </field>
+                <field index="bookmarks_single">
+                    <value index="vDEF">hype</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>';
+      // Plugin browser on staff page
+
+
+
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Plugin browser on headquarters page
+
+    $int_uid                                                      = $int_uid + 1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_headquarters_header')]  = $int_uid;
+
+    $arr_plugin[$int_uid]                = $arr_plugin[$int_uid -1];
+    $arr_plugin[$int_uid]['uid']         = $int_uid;
+    $arr_plugin[$int_uid]['pid']         = $this->arr_pageUids[$this->pi_getLL('page_title_headquarters')];
+    $arr_plugin[$int_uid]['header']      = $this->pi_getLL('plugin_headquarters_header');
+    $arr_plugin[$int_uid]['pi_flexform'] = ''.
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="views">
+                    <value index="vDEF">selected</value>
+                </field>
+                <field index="viewsHandleFromTemplateOnly">
+                    <value index="vDEF">1</value>
+                </field>
+                <field index="viewsList">
+                    <value index="vDEF">501</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="viewList">
+            <language index="lDEF">
+                <field index="title">
+                    <value index="vDEF">' . $this->pi_getLL('plugin_headquarters_label') . '</value>
+                </field>
+                <field index="titleWrap">
+                    <value index="vDEF">&lt;h1 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h1&gt;</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="templating">
+            <language index="lDEF">
+                <field index="template">
+                    <value index="vDEF">EXT:org/res/html/headquarters/501/default.tmpl</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="javascript">
+            <language index="lDEF">
+                <field index="mode">
+                    <value index="vDEF">list_and_single</value>
                 </field>
                 <field index="list_transition">
                     <value index="vDEF">collapse</value>
@@ -1603,7 +1962,74 @@ plugin {
         </sheet>
     </data>
 </T3FlexForms>';
-      // Plugin browser on root page
+      // Plugin browser on headquarters page
+
+
+
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Plugin browser on locations page
+
+    $int_uid                                                      = $int_uid + 1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_locations_header')]  = $int_uid;
+
+    $arr_plugin[$int_uid]                = $arr_plugin[$int_uid -1];
+    $arr_plugin[$int_uid]['uid']         = $int_uid;
+    $arr_plugin[$int_uid]['pid']         = $this->arr_pageUids[$this->pi_getLL('page_title_locations')];
+    $arr_plugin[$int_uid]['header']      = $this->pi_getLL('plugin_locations_header');
+    $arr_plugin[$int_uid]['pi_flexform'] = ''.
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="views">
+                    <value index="vDEF">selected</value>
+                </field>
+                <field index="viewsHandleFromTemplateOnly">
+                    <value index="vDEF">1</value>
+                </field>
+                <field index="viewsList">
+                    <value index="vDEF">701</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="viewList">
+            <language index="lDEF">
+                <field index="title">
+                    <value index="vDEF">' . $this->pi_getLL('plugin_locations_label') . '</value>
+                </field>
+                <field index="titleWrap">
+                    <value index="vDEF">&lt;h1 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h1&gt;</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="templating">
+            <language index="lDEF">
+                <field index="template">
+                    <value index="vDEF">EXT:org/res/html/location/701/default.tmpl</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="javascript">
+            <language index="lDEF">
+                <field index="mode">
+                    <value index="vDEF">list_and_single</value>
+                </field>
+                <field index="list_transition">
+                    <value index="vDEF">collapse</value>
+                </field>
+                <field index="single_transition">
+                    <value index="vDEF">collapse</value>
+                </field>
+                <field index="list_on_single">
+                    <value index="vDEF">single</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>';
+      // Plugin browser on locations page
 
 
 
@@ -1611,19 +2037,17 @@ plugin {
       //
       // Plugin wtcart on cart page
 
-    $int_uid = $int_uid +1;
-    $str_uid = sprintf ('%03d', $int_uid);
-
-    $this->arr_pluginUids[$this->pi_getLL('plugin_wtcart_header')]  = $int_uid;
+    $int_uid                                                        = $int_uid + 1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_tickets_header')] = $int_uid;
     
     $arr_plugin[$int_uid]['uid']           = $int_uid;
-    $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_plugin[$int_uid]['tstamp']        = $timestamp;
     $arr_plugin[$int_uid]['crdate']        = $timestamp;
     $arr_plugin[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_plugin[$int_uid]['sorting']       = 256;
+    $arr_plugin[$int_uid]['sorting']       = 256 * 1;
     $arr_plugin[$int_uid]['CType']         = 'list';
-    $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_wtcart_header');
+    $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_tickets_header');
     $arr_plugin[$int_uid]['list_type']     = 'wt_cart_pi1';
     $arr_plugin[$int_uid]['sectionIndex']  = 1;
       // Plugin wtcart on cart page
@@ -1634,17 +2058,15 @@ plugin {
       //
       // Plugin powermail on cart page
 
-    $int_uid = $int_uid +1;
-    $str_uid = sprintf ('%03d', $int_uid);
-
-    $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')]  = $int_uid;
+    $int_uid                                                          = $int_uid +1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')] = $int_uid;
 
     $arr_plugin[$int_uid]['uid']                        = $int_uid;
-    $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_plugin[$int_uid]['tstamp']                     = $timestamp;
     $arr_plugin[$int_uid]['crdate']                     = $timestamp;
     $arr_plugin[$int_uid]['cruser_id']                  = $this->markerArray['###BE_USER###'];
-    $arr_plugin[$int_uid]['sorting']                    = 512;
+    $arr_plugin[$int_uid]['sorting']                    = 256 * 2;
     $arr_plugin[$int_uid]['CType']                      = 'powermail_pi1';
     $arr_plugin[$int_uid]['header']                     = $this->pi_getLL('plugin_powermail_header');
     $arr_plugin[$int_uid]['header_layout']              = 100;  // hidden
@@ -1667,7 +2089,7 @@ plugin {
     $arr_plugin[$int_uid]['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CART###'."\n".'###POWERMAIL_ALL###';
     $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CART###'."\n".'###POWERMAIL_ALL###';
     $arr_plugin[$int_uid]['tx_powermail_redirect']      = false;
-    $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 4;
+    $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 2;
     $arr_plugin[$int_uid]['tx_powermail_users']         = 0;
     $arr_plugin[$int_uid]['tx_powermail_preview']       = 0;
       // Plugin powermail on cart page
@@ -1676,7 +2098,7 @@ plugin {
 
       //////////////////////////////////////////////////////////////////////
       //
-      // INSERT all plugins
+      // LOOP insertall plugins
 
     foreach($arr_plugin as $fields_values)
     {
@@ -1692,10 +2114,10 @@ plugin {
       $this->arrReport[] = $str_plugin_prompt;
     }
     unset($arr_plugin);
+      // LOOP insertall plugins
 
-      // INSERT all plugins
 
-    return false;
+
   }
 
 
@@ -1712,9 +2134,13 @@ plugin {
 
 
    /**
-   * Shop will be installed - with or without template
+   * createRecordsPowermail(): Create the records for powermail.
+   *                           Records are
+   *                           * fieldsets
+   *                           * fields
    *
-   * @return    The content that is displayed on the website
+   * @return    void
+   * @version 1.0.0
    */
   private function createRecordsPowermail()
   {
@@ -1725,86 +2151,58 @@ plugin {
     
     
     
-    //////////////////////////////////////////////////////////////////////
-    //
-    // General values for fieldsets
-
+      //////////////////////////////////////////////////////////////////////
+      //
+      // General values for fieldsets
+  
     $timestamp       = time();
     $table           = 'tx_powermail_fieldsets';
     $no_quote_fields = false;
     $int_uid         = $this->zz_getMaxDbUid($table);
     $max_uid         = $int_uid;
-    // General values for fieldsets
+      // General values for fieldsets
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fieldsets records in page cart
-
-    // Billing Address
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')]  = $int_uid;
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Powermail fieldsets records in page cart
+  
+      // Contact Data
+    $int_uid                                                                    = $int_uid + 1;
+    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')] = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_billingAddress');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
-    $arr_records[$int_uid]['felder']        = '5';
-    // Billing Address
-
-    // Delivery Address
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_deliveryAddress');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
-    $arr_records[$int_uid]['felder']        = '5';
-    // Delivery Address
-
-    // Contact Data
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_contactData');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
+    $arr_records[$int_uid]['sorting']       = 256 * 1;
     $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
-    $arr_records[$int_uid]['felder']        = '3';
-    // Contact Data
+    $arr_records[$int_uid]['felder']        = '5';
+      // Contact Data
 
-    // Order
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')]  = $int_uid;
+      // Order
+    $int_uid                                                              = $int_uid + 1;
+    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')] = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_order');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
+    $arr_records[$int_uid]['sorting']       = 256 * 2;
     $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
     $arr_records[$int_uid]['felder']        = '5';
-    // Order
-    // Powermail fieldsets records in page cart
+      // Order
+      // Powermail fieldsets records in page cart
     
     
     
-    //////////////////////////////////////////////////////////////////////
-    //
-    // INSERT fieldset records
-
+      //////////////////////////////////////////////////////////////////////
+      //
+      // INSERT fieldset records
+  
     foreach($arr_records as $fields_values)
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
@@ -1820,66 +2218,39 @@ plugin {
       $this->arrReport[] = $str_record_prompt;
     }
     unset($arr_records);
-    // INSERT fieldset records
+      // INSERT fieldset records
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // General values for fields
+      //////////////////////////////////////////////////////////////////////
+      //
+      // General values for fields
 
     $timestamp       = time();
     $table           = 'tx_powermail_fields';
     $no_quote_fields = false;
     $int_uid         = $this->zz_getMaxDbUid($table);
     $max_uid         = $int_uid;
-    // General values for fields
+      // General values for fields
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fields records in page cart - for fieldset billing address
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Powermail fields
 
-    // Surname
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surnameBilling')]  = $int_uid;
+      // first name
+    $int_uid                                                                          = $int_uid + 1;
+    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstname')]  = $int_uid;
+
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_surnameBilling');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
-    $arr_records[$int_uid]['formtype']      = 'text';
-    $arr_records[$int_uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Surname
-
-    // First Name
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstnameBilling')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_firstnameBilling');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
+    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_firstname');
+    $arr_records[$int_uid]['sorting']       = 256 * 1;
+    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
     $arr_records[$int_uid]['formtype']      = 'text';
     $arr_records[$int_uid]['flexform']      = ''.
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
@@ -1896,19 +2267,20 @@ plugin {
 </T3FlexForms>
 
 ';
-    // First Name
+      // first name
 
-    // Street
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_streetBilling')]  = $int_uid;
+      // Surname
+    $int_uid                                                                = $int_uid + 1;
+    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surname')] = $int_uid;
+
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_streetBilling');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
+    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_surname');
+    $arr_records[$int_uid]['sorting']       = 256 * 2;
+    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
     $arr_records[$int_uid]['formtype']      = 'text';
     $arr_records[$int_uid]['flexform']      = ''.
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
@@ -1924,163 +2296,19 @@ plugin {
     </data>
 </T3FlexForms>
 ';
-    // Street
+      // Surname
 
-    // Zip
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_zipBilling')]  = $int_uid;
+      // E-mail
+    $int_uid                                                              = $int_uid + 1;
+    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_email')] = $int_uid;
+
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_zipBilling');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
-    $arr_records[$int_uid]['formtype']      = 'text';
-    $arr_records[$int_uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Zip
-
-    // Location
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_locationBilling')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_locationBilling');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
-    $arr_records[$int_uid]['formtype']      = 'text';
-    $arr_records[$int_uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Location
-    // Powermail fields records in page cart - for fieldset billing address
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fields records in page cart - for fieldset delivery address
-
-    // Surname
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surnameDelivery')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_surnameDelivery');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$int_uid]['formtype']      = 'text';
-    $arr_records[$int_uid]['flexform']      = false;
-    // Surname
-
-    // First Name
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstnameDelivery')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_firstnameDelivery');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$int_uid]['formtype']      = 'text';
-    $arr_records[$int_uid]['flexform']      = false;
-    // First Name
-
-    // Street
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_streetDelivery')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_streetDelivery');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$int_uid]['formtype']      = 'text';
-    $arr_records[$int_uid]['flexform']      = false;
-    // Street
-
-    // Zip
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_zipDelivery')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_zipDelivery');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$int_uid]['formtype']      = 'text';
-    $arr_records[$int_uid]['flexform']      = false;
-    // Zip
-
-    // Location
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_locationDelivery')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_locationDelivery');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$int_uid]['formtype']      = 'text';
-    $arr_records[$int_uid]['flexform']      = false;
-    // Location
-    // Powermail fields records in page cart - for fieldset delivery address
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fields records in page cart - for fieldset contact
-
-    // E-mail
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_email')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_email');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
+    $arr_records[$int_uid]['sorting']       = 256 * 3;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
     $arr_records[$int_uid]['formtype']      = 'text';
     $arr_records[$int_uid]['flexform']      = ''.
@@ -2100,56 +2328,36 @@ plugin {
     </data>
 </T3FlexForms>
 ';
-    // E-mail
+      // E-mail
 
-    // Phone
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_phone')]  = $int_uid;
+      // Phone
+    $int_uid                                                                = $int_uid + 1;
+    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_phone')]   = $int_uid;
+
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_phone');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
+    $arr_records[$int_uid]['sorting']       = 256 * 4;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
     $arr_records[$int_uid]['formtype']      = 'text';
     $arr_records[$int_uid]['flexform']      = false;
-    // Phone
+      // Phone
 
-    // Fax
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_fax')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_fax');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
-    $arr_records[$int_uid]['formtype']      = 'text';
-    $arr_records[$int_uid]['flexform']      = false;
-    // Fax
-    // Powermail fields records in page cart - for fieldset contact
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fields records in page cart - for fieldset order
-
-    // Note
-    $int_uid = $int_uid +1;
+      // Note
+    $int_uid                                                              = $int_uid + 1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_note')]  = $int_uid;
+    
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_note');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
+    $arr_records[$int_uid]['sorting']       = 256 * 5;
+    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
     $arr_records[$int_uid]['formtype']      = 'textarea';
     $arr_records[$int_uid]['flexform']      = ''.
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
@@ -2169,79 +2377,23 @@ plugin {
 </T3FlexForms>
 
 ';
-    // Note
+      // Note
 
-    // Payment
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_methodOfPayment')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_methodOfPayment');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
-    $arr_records[$int_uid]['formtype']      = 'radio';
-    $arr_records[$int_uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="options">
-                    <value index="vDEF">'.$this->pi_getLL('phrases_powermail_payment').'</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Payment
-
-    // Shipping
-    $int_uid = $int_uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_methodOfShipping')]  = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_records[$int_uid]['tstamp']        = $timestamp;
-    $arr_records[$int_uid]['crdate']        = $timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_methodOfShipping');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
-    $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
-    $arr_records[$int_uid]['formtype']      = 'radio';
-    $arr_records[$int_uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="options">
-                    <value index="vDEF">'.$this->pi_getLL('phrases_powermail_shipping').'</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Shipping
-
-    // Terms and Conditions
+      // Terms and Conditions
     $int_terms = $this->arr_pageUids[$this->pi_getLL('page_title_terms')];
     $str_terms = htmlspecialchars($this->pi_getLL('phrases_powermail_termsAccepted'));
     $str_terms = str_replace('###PID###', $int_terms, $str_terms);
 
-    $int_uid = $int_uid +1;
+    $int_uid                                                              = $int_uid + 1;
+    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_terms')] = $int_uid;
 
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_terms')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_terms');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
+    $arr_records[$int_uid]['sorting']       = 256 * 6;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
     $arr_records[$int_uid]['formtype']      = 'check';
     $arr_records[$int_uid]['flexform']      = ''.
@@ -2261,30 +2413,31 @@ plugin {
     </data>
 </T3FlexForms>
 ';
-    // Terms and Conditions
+      // Terms and Conditions
 
-    // Submit
-    $int_uid = $int_uid +1;
+      // Submit
+    $int_uid                                                                = $int_uid + 1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_submit')]  = $int_uid;
+
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_tickets')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_field_title_submit');
-    $arr_records[$int_uid]['sorting']       = 256 * ($int_uid - $max_uid);
+    $arr_records[$int_uid]['sorting']       = 256 * 7;
     $arr_records[$int_uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
     $arr_records[$int_uid]['formtype']      = 'submit';
     $arr_records[$int_uid]['flexform']      = '';
-    // Submit
-    // Powermail fields records in page cart - for fieldset order
+      // Submit
+      // Powermail fields records in page cart - for fieldset order
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // INSERT field records
-
+      //////////////////////////////////////////////////////////////////////
+      //
+      // INSERT field records
+  
     foreach($arr_records as $fields_values)
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
@@ -2300,9 +2453,8 @@ plugin {
       $this->arrReport[] = $str_record_prompt;
     }
     unset($arr_records);
-    // INSERT field records
+      // INSERT field records
 
-    return false;
   }
 
 
@@ -2900,9 +3052,10 @@ plugin {
 
 
    /**
-   * Shop will be installed - with or without template
+   * consolidatePageCurrent(): Consolidate the current page
    *
-   * @return    The content that is displayed on the website
+   * @return    void
+   * @version 1.0.0
    */
   private function consolidatePageCurrent()
   {
@@ -2913,30 +3066,79 @@ plugin {
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // General Values
-
+      //////////////////////////////////////////////////////////////////////
+      //
+      // General Values
+  
     $str_date        = date('Y-m-d G:i:s');
     $timestamp       = time();
     $table           = 'pages';
     $where           = 'uid = '.$GLOBALS['TSFE']->id;
     $no_quote_fields = false;
-    // General Values
+      // General Values
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // UPDATE TSconfig and media
+      //////////////////////////////////////////////////////////////////////
+      //
+      // UPDATE TSconfig and media
 
     $int_uid = $GLOBALS['TSFE']->id;
-    $arr_pages[$int_uid]['tstamp']   = $timestamp;
-    //$arr_pages[$int_uid]['title']    = $this->pi_getLL('page_title_root');
-    $arr_pages[$int_uid]['media']    = 'typo3_quickshop_'.$timestamp.'.jpg';
-    $arr_pages[$int_uid]['TSconfig'] = '
+
+    $arr_pages[$int_uid]['tstamp']        = $timestamp;
+    $arr_pages[$int_uid]['module']        = null;
+    if($this->bool_topLevel)
+    {
+      $arr_pages[$int_uid]['is_siteroot'] = 1;
+    }
+    if(!$this->bool_topLevel)
+    {
+      $arr_pages[$int_uid]['is_siteroot'] = 0;
+    }
+    $arr_pages[$int_uid]['TSconfig']      = '
 
 // ORGANISER INSTALLER at '.$str_date.' -- BEGIN
+
+
+
+  ///////////////////////////
+  //
+  // INDEX
+
+  // LINKHANDLER
+  //    mod.tx_linkhandler
+  //    RTE.default.tx_linkhandler
+  // TCEMAIN
+  //    permissions
+
+
+
+  /////////////////////////////////////
+  //
+  // LINKHANDLER
+
+  // mod.tx_linkhandler
+mod.tx_linkhandler {
+  fe_users.onlyPids             = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_staff')] . '
+  tx_org_cal.onlyPids           = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_calendar')] . '
+  tx_org_department.onlyPids    = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_department')] . '
+  tx_org_event.onlyPids         = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_event')] . '
+  tx_org_headquarters.onlyPids  = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_headquarters')] . '
+  tx_org_location.onlyPids      = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_locations')] . '
+  tx_org_news.onlyPids          = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_news')] . '
+}
+
+  // Remove RTE default configuration
+RTE.default.tx_linkhandler >
+  // Copy configuration from mod to RTE
+RTE.default.tx_linkhandler < mod.tx_linkhandler
+
+  // LINKHANDLER
+
+
+  /////////////////////////////////////
+  //
+  // TCEMAIN
 
 TCEMAIN {
   permissions {
@@ -2945,17 +3147,20 @@ TCEMAIN {
     group   = show,edit,delete,new,editcontent
   }
 }
+  // TCEMAIN
+
+
 
 // ORGANISER INSTALLER at '.$str_date.' -- END
 
 ';
 
-    // UPDATE
+      // UPDATE
     foreach($arr_pages as $fields_values)
     {
-      //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
+        //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
-      // Message
+        // Message
       $this->markerArray['###FIELD###']     = 'title, media, TSconfig';
       $this->markerArray['###TITLE_PID###'] = '"'.$GLOBALS['TSFE']->page['title'].'" (uid '.$GLOBALS['TSFE']->id.')';
       $str_consolidate_prompt = '
@@ -2964,80 +3169,33 @@ TCEMAIN {
         </p>';
       $str_consolidate_prompt = $this->cObj->substituteMarkerArray($str_consolidate_prompt, $this->markerArray);
       $this->arrReport[] = $str_consolidate_prompt;
-      // Message
+        // Message
     }
     unset($arr_pages);
-    // UPDATE
-    
-    // UPDATE TSconfig and media
+      // UPDATE
 
 
 
       //////////////////////////////////////////////////////////////////////
       //
-      // Copy header image to upload folder
+      // Hide the installer plugin
 
-      // General values
-    $str_fileSrce = 'quick_shop_header_image_210px.jpg';
-    $str_fileDest = 'typo3_quickshop_'.$timestamp.'.jpg';
-      // 100911, dwildt, #9686
-      //$str_pathSrce = t3lib_extMgm::siteRelPath('base_quickshop').'res/images/';
-    $str_pathSrce = t3lib_extMgm::siteRelPath('quick_shop').'res/images/';
-    $str_pathDest = 'uploads/media/';
-      // General values
-
-    // Copy
-    $bool_success = copy($str_pathSrce.$str_fileSrce, $str_pathDest.$str_fileDest);
-    // Copy
-
-    // Message
-    if ($bool_success)
-    {
-      $this->markerArray['###DEST###'] = $str_fileDest;
-      $this->markerArray['###PATH###'] = $str_pathDest;
-      $str_file_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('files_create_prompt').'
-        </p>';
-      $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-      $this->arrReport[] = $str_file_prompt;
-    }
-    if (!$bool_success)
-    {
-      $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
-      $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
-      $str_file_prompt = '
-        <p>
-          '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
-        </p>';
-      $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-      $this->arrReport[] = $str_file_prompt;
-    }
-    // Message
-    // Copy product images to upload folder
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Hide the installer plugin
-
-    // General Values
+      // General Values
     $timestamp       = time();
     $table           = 'tt_content';
     $int_uid         = $this->cObj->data['uid'];
     $where           = 'uid = '.$int_uid;
     $no_quote_fields = false;
-    // General Values
+      // General Values
 
     $arr_content[$int_uid]['tstamp'] = $timestamp;
     $arr_content[$int_uid]['hidden'] = 1;
 
     foreach($arr_content as $fields_values)
     {
-      //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
+        //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
-      // Message
+        // Message
       $this->markerArray['###FIELD###']     = '"hidden"';
       $this->markerArray['###TITLE###']     = '"'.$this->pi_getLL('plugin_powermail_header').'"';
       $this->markerArray['###TITLE_PID###'] = '"'.$GLOBALS['TSFE']->page['title'].'" (uid '.$GLOBALS['TSFE']->id.')';
@@ -3047,53 +3205,46 @@ TCEMAIN {
         </p>';
       $str_consolidate_prompt = $this->cObj->substituteMarkerArray($str_consolidate_prompt, $this->markerArray);
       $this->arrReport[] = $str_consolidate_prompt;
-      // Message
+        // Message
     }
     unset($arr_content);
-    // UPDATE sender and sendername
+      // Hide the installer plugin
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Hide other Templates in case of install_all
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Hide other TypoScript templates
 
-    // Root page: install_all
-// #9686
-//    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-//    {
       // General Values
-      unset($arr_content);
-      $timestamp       = time();
-      $table           = 'sys_template';
-      $int_uid         = $this->arr_tsUids[$this->str_tsRoot];
-      $pid             = $GLOBALS['TSFE']->id;
-      $where           = 'pid = '.$pid.' AND uid NOT LIKE '.$int_uid;
-      $no_quote_fields = false;
+    unset($arr_content);
+    $timestamp       = time();
+    $table           = 'sys_template';
+    $int_uid         = $this->arr_tsUids[$this->str_tsRoot];
+    $pid             = $GLOBALS['TSFE']->id;
+    $where           = 'pid = '.$pid.' AND uid NOT LIKE '.$int_uid;
+    $no_quote_fields = false;
       // General Values
   
-      $arr_content[$int_uid]['tstamp'] = $timestamp;
-      $arr_content[$int_uid]['hidden'] = 1;
-      
-      foreach($arr_content as $fields_values)
-      {
+    $arr_content[$int_uid]['tstamp'] = $timestamp;
+    $arr_content[$int_uid]['hidden'] = 1;
+    
+    foreach($arr_content as $fields_values)
+    {
         //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
-        $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
+      $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
         // Message
-        $this->markerArray['###TITLE_PID###'] = '"'.$GLOBALS['TSFE']->page['title'].'" (uid '.$GLOBALS['TSFE']->id.')';
-        $str_consolidate_prompt = '
-          <p>
-            '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_template').'
-          </p>';
-        $str_consolidate_prompt = $this->cObj->substituteMarkerArray($str_consolidate_prompt, $this->markerArray);
-        $this->arrReport[] = $str_consolidate_prompt;
+      $this->markerArray['###TITLE_PID###'] = '"'.$GLOBALS['TSFE']->page['title'].'" (uid '.$GLOBALS['TSFE']->id.')';
+      $str_consolidate_prompt = '
+        <p>
+          '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_template').'
+        </p>';
+      $str_consolidate_prompt = $this->cObj->substituteMarkerArray($str_consolidate_prompt, $this->markerArray);
+      $this->arrReport[] = $str_consolidate_prompt;
         // Message
-      }
-      unset($arr_content);
-//    }
-    // Hide other Templates in case of install_all
-
-    return false;
+    }
+    unset($arr_content);
+      // Hide other TypoScript templates
 
   }
 
@@ -3109,22 +3260,19 @@ TCEMAIN {
 
 
    /**
-   * Shop will be installed - with or without template
+   * consolidatePluginPowermail(): Consolidate the powermail plugin
    *
-   * @return    The content that is displayed on the website
+   * @return    void
+   * @version 1.0.0
    */
   private function consolidatePluginPowermail()
   {
-//    $this->arrReport[] = '
-//      <h2>
-//       '.$this->pi_getLL('consolidate_header').'
-//      </h2>';
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // General Values
+      //////////////////////////////////////////////////////////////////////
+      //
+      // General Values
 
     $str_date        = date('Y-m-d G:i:s');
     $timestamp       = time();
@@ -3132,19 +3280,19 @@ TCEMAIN {
     $int_uid         = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
     $where           = 'uid = '.$int_uid;
     $no_quote_fields = false;
-    // General Values
+      // General Values
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // UPDATE sender and sendername
+      //////////////////////////////////////////////////////////////////////
+      //
+      // UPDATE sender and sendername
 
     $str_sender     = ''.
       'uid'.$this->arr_recordUids[$this->pi_getLL('record_pm_field_title_email')];
     $str_sendername = ''.
-      'uid'.$this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstnameBilling')].
+      'uid'.$this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstname')].
       ','.
-      'uid'.$this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surnameBilling')];
+      'uid'.$this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surname')];
 
     $arr_plugin[$int_uid]['tstamp']                  = $timestamp;
     $arr_plugin[$int_uid]['tx_powermail_sender']     = $str_sender;
@@ -3154,22 +3302,20 @@ TCEMAIN {
     {
       //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
-      // Message
+        // Message
       $this->markerArray['###FIELD###']     = '"tx_powermail_sender, tx_powermail_sendername"';
       $this->markerArray['###TITLE###']     = '"'.$this->pi_getLL('plugin_powermail_header').'"';
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_cart').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_cart')].')';
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_tickets').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_tickets')].')';
       $str_consolidate_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_content').'
         </p>';
       $str_consolidate_prompt = $this->cObj->substituteMarkerArray($str_consolidate_prompt, $this->markerArray);
       $this->arrReport[] = $str_consolidate_prompt;
-      // Message
+        // Message
     }
     unset($arr_plugin);
-    // UPDATE sender and sendername
-
-    return false;
+      // UPDATE sender and sendername
 
   }
 
@@ -3185,23 +3331,19 @@ TCEMAIN {
 
 
    /**
-   * Shop will be installed - with or without template
+   * consolidateTsWtCart(): Consolidate the TypoScript of wt_cart
    *
-   * @return    The content that is displayed on the website
-   * @version 1.0.5
+   * @return    void
+   * @version 1.0.0
    */
   private function consolidateTsWtCart()
   {
-//    $this->arrReport[] = '
-//      <h2>
-//       '.$this->pi_getLL('consolidate_header').'
-//      </h2>';
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // General Values
+      //////////////////////////////////////////////////////////////////////
+      //
+      // General Values
 
     $str_date        = date('Y-m-d G:i:s');
     $timestamp       = time();
@@ -3212,86 +3354,89 @@ TCEMAIN {
 
     list($str_emailName) = explode('@', $this->markerArray['###MAIL_DEFAULT_SENDER###']);
     $str_emailName       = $str_emailName.'@###DOMAIN###';
-    // General Values
+      // General Values
 
 
       //////////////////////////////////////////////////////////////////////
       //
       // UPDATE constants
-  
+    
     $arr_ts[$int_uid]['tstamp']    = $timestamp;
-    $arr_ts[$int_uid]['constants'] = ''.
-'plugin {
+    $arr_ts[$int_uid]['constants'] = '
 
-  wtcart {
-    gpvar {
-      qty  = tx_quick_shop_qty
-      puid = tx_browser_pi1|showUid
-    }
-    db {
-      table = tx_quickshop_products
-    }
-    powermailContent {
-      uid = '.$this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')].'
-    }
-    debug = 0
+  ////////////////////////////////////////
+  //
+  // plugin.org
+
+plugin.org {
+  tx_wtcart_pi1 {
+    powermailContentUid = '. $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')] .'
   }
-
   powermail {
-    allow {
-      email2receiver = 1
-      email2sender   = 1
-    }
-    email {
-      noreply  = '.$str_emailName.'
-    }
-    format {
-      datetime = %H:%M %d.%m.%Y
-      format {
-        .date  = %d.%m.%Y
-      }
-    }
-    label {
-      allowTags =
-    }
-    clear {
-      session = 1
-    }
-    hiddenfields {
-      show = 1,1,1,1,1
-    }
-    field {
-      checkboxJS = 1
-    }
-    _LOCAL_LANG {
-      de {
-        locallangmarker_confirmation_submit = Bestellung abschicken
-      }
-    }
+    noreply     = ' . $str_emailName . '
+    sender.name = ' . $this->markerArray['###'.strtoupper('mail_subject').'###'] . '
+    sender.mail = ' . $this->markerArray['###'.strtoupper('mail_default_sender').'###'] . '
   }
 }
+  // plugin.org
 ';
+
     foreach($arr_ts as $fields_values)
     {
       //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
-      // Message
+        // Message
       $this->markerArray['###FIELD###']     = '"constants"';
       $this->markerArray['###TITLE###']     = '"'.$this->str_tsWtCart.'"';
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_cart').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_cart')].')';
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_tickets').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_tickets')].')';
       $str_consolidate_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_content').'
         </p>';
       $str_consolidate_prompt = $this->cObj->substituteMarkerArray($str_consolidate_prompt, $this->markerArray);
       $this->arrReport[] = $str_consolidate_prompt;
-      // Message
+        // Message
     }
     unset($arr_ts);
       // UPDATE constants
 
-    return false;
+  }
 
+
+
+
+
+
+
+
+
+  /**
+ * init_boolTopLevel(): If current page is on the top level, $this->bool_topLevel will become true.
+ *                      If not, false.
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ */
+  private function init_boolTopLevel()
+  {
+    $select_fields  = 'pid';
+    $from_table     = 'pages';
+    $where_clause   = 'uid = ' . $GLOBALS['TSFE']->id;
+    $groupBy        = null;
+    $orderBy        = null;
+    $limit          = null;
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
+    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit);
+    $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
+    
+    if($row['pid'] < 1)
+    {
+      $this->bool_topLevel = true;
+    }
+    if($row['pid'] >= 1)
+    {
+      $this->bool_topLevel = false;
+    }
   }
 
 

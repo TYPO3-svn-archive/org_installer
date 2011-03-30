@@ -115,6 +115,12 @@ class tx_org_installer_extmanager
         <div class="typo3-message message-ok">
           <div class="message-body">
             ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallPageExist'). '
+          </div>
+        </div>
+      ';
+      $str_prompt = $str_prompt.'
+        <div class="typo3-message message-information">
+          <div class="message-body">
             ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptInstallNextSteps'). '
           </div>
         </div>

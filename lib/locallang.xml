@@ -36,7 +36,6 @@
           ###TITLE_UID###
         </ol>
         <br />
-        You can move it everywhere, if you like.<br />
       ]]></label>
       <label index="promptInstallPageExist"><![CDATA[
         There is one existing page "Organiser Installer" at least. See
@@ -62,11 +61,16 @@
           <li>
             Please start the installation by visiting the "Organiser Installer" page in the TYPO3 frontend.
           </li>
-          <li>
-            You don't need to change anything of the configuration in the TypoScript template of 
-            the page "Organiser Installer". But if you want, change it before starting the installation.
-          </li>
         </ol>
+        <br />
+        You can move the page everywhere, if you like.
+        <br />
+        <br />
+        You don't need to change anything of the configuration in the TypoScript template of 
+        the page "Organiser Installer". But if you want, change it before starting the installation:
+        <br />
+        language and baseUrl are configurable among others.
+        <br />
         <br />
         Have fun!
       ]]></label>
@@ -138,7 +142,9 @@
         <br />
         <br />
         Im TypoScript Template brauchst Du nichts zu &auml;ndern. Aber wenn Du willst,
-        kannst Du Die dort vorgenommene Konfiguration Deinen W&uuml;nschen entsprechend anpassen.
+        kannst Du Die dort vorgenommene Konfiguration Deinen W&uuml;nschen entsprechend anpassen:
+        <br />
+        Unter anderem sind die Sprache und die BaseUrl konfigurierbar.
         <br />
         <br />
         Viel Spa&szlig;!

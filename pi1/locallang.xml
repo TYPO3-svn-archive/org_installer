@@ -17,7 +17,7 @@
       <label index="confirm_prompt_createBeGroup">Create a backend group</label>
       <label index="confirm_prompt_createPages">Create a page tree</label>
       <label index="confirm_prompt_createContent">Create content for the header and footer</label>
-      <label index="confirm_prompt_createTs">Create TypoScript for the browser, wt_cart and powermail</label>
+      <label index="confirm_prompt_createTs">Create TypoScript for the browser, organiser, wt_cart and powermail</label>
       <label index="confirm_prompt_createPlugins">Create the plugins browser, wt_cart and powermail</label>
       <label index="confirm_prompt_createPowermail">Create configuration records for powermail</label>
       <label index="confirm_prompt_createOrganiser">Create TYPO3 Organiser sample records</label>
@@ -566,7 +566,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="confirm_prompt_createBeGroup">Backend Gruppe erstellen</label>
       <label index="confirm_prompt_createPages">Seitenbaum bauen</label>
       <label index="confirm_prompt_createContent"><![CDATA[Inhalt für Kopf- und Fußzeile erstellen.]]></label>
-      <label index="confirm_prompt_createTs"><![CDATA[TypoScript f&uuml;r Browser, Wt-Cart und Powermail erstellen.]]></label>
+      <label index="confirm_prompt_createTs"><![CDATA[TypoScript f&uuml;r Browser, Organiser, Wt-Cart und Powermail erstellen.]]></label>
       <label index="confirm_prompt_createPlugins">Plugins Browser, Wt-Cart und Powermail erstellen.</label>
       <label index="confirm_prompt_createPowermail">Konfiguriere Powermail</label>
       <label index="confirm_prompt_createOrganiser"><![CDATA[Erstelle TYPO3 Organiser Beispieldatens&auml;tze]]></label>

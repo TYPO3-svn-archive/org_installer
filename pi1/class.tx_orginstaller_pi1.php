@@ -313,6 +313,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->createRecordsPowermail();
     $this->createContent();
     $this->createRecordsOrganiser();
+    $this->createFilesFeUser();
     $this->createFilesOrganiser();
     $this->consolidatePageCurrent();
     $this->consolidatePluginPowermail();
@@ -3859,25 +3860,25 @@ plugin.tx_powermail_pi1 {
     $table   = 'tx_org_cal_mm_tx_org_caltype';
 
       // egg roll -> policy, society
-    $int_uid                              = $int_uid +1;
-    $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_cal.uid.eggroll###'];
-    $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_caltype.uid.policy###'];
+//    $int_uid                              = $int_uid +1;
+//    $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_cal.uid.eggroll###'];
+//    $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_caltype.uid.policy###'];
     $int_uid                              = $int_uid +1;
     $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_cal.uid.eggroll###'];
     $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_caltype.uid.society###'];
 
       // t3 dev days -> society, TYPO3
-    $int_uid                              = $int_uid +1;
-    $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_cal.uid.t3devdays###'];
-    $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_caltype.uid.society###'];
+//    $int_uid                              = $int_uid +1;
+//    $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_cal.uid.t3devdays###'];
+//    $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_caltype.uid.society###'];
     $int_uid                              = $int_uid +1;
     $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_cal.uid.t3devdays###'];
     $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_caltype.uid.typo3###'];
 
       // TYPO3 organiser -> society, TYPO3
-    $int_uid                              = $int_uid +1;
-    $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_cal.uid.t3organiser###'];
-    $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_caltype.uid.society###'];
+//    $int_uid                              = $int_uid +1;
+//    $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_cal.uid.t3organiser###'];
+//    $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_caltype.uid.society###'];
     $int_uid                              = $int_uid +1;
     $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_cal.uid.t3organiser###'];
     $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_caltype.uid.typo3###'];

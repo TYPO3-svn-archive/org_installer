@@ -566,16 +566,16 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="confirm_prompt_createBeGroup">Backend Gruppe erstellen</label>
       <label index="confirm_prompt_createPages">Seitenbaum bauen</label>
       <label index="confirm_prompt_createContent"><![CDATA[Inhalt für Kopf- und Fußzeile erstellen.]]></label>
-      <label index="confirm_prompt_createTs"><![CDATA[TypoScript für Browser, Wt-Cart und Powermail erstellen.]]></label>
+      <label index="confirm_prompt_createTs"><![CDATA[TypoScript f&uuml;r Browser, Wt-Cart und Powermail erstellen.]]></label>
       <label index="confirm_prompt_createPlugins">Plugins Browser, Wt-Cart und Powermail erstellen.</label>
       <label index="confirm_prompt_createPowermail">Konfiguriere Powermail</label>
-      <label index="confirm_prompt_createProducts">Erstelle sechs Beispielprodukte</label>
+      <label index="confirm_prompt_createOrganiser"><![CDATA[Erstelle TYPO3 Organiser Beispieldatens&auml;tze]]></label>
       <label index="confirm_prompt_createFiles">Erstelle die Produkt-Bilder</label>
       <label index="confirm_prompt_createContent">Erstelle Seiteninhalte</label>
       <label index="confirm_prompt_consolidate">Daten konsolidieren</label>
       <label index="confirm_button">Installieren</label>
 
-      <label index="ext_header"><![CDATA[Abhängigkeiten von Erweiterungen]]></label>
+      <label index="ext_header"><![CDATA[Abh&auml;ngigkeiten von Erweiterungen]]></label>
       <label index="ext_error">Der Organiser Installer meldet eine fehlende Erweiterung.</label>
       <label index="ext_help">Bitte installiere: </label>
       <label index="ext_ok">ist installiert.</label>

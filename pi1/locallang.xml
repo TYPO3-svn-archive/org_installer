@@ -592,6 +592,18 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
       <label index="sysf_create_prompt">Das Verzeichnis "###TITLE###" (uid ###UID###) wurde erstellt.</label>
 
+
+
+<label index="comment.pages"><![CDATA[
+
+  /***************************************************************************************
+  *
+  * pages
+  *
+  ***************************************************************************************/
+
+]]></label>
+
       <label index="page_title_calendar">Kalender</label>
       <label index="page_title_headquarters">Standorte</label>
       <label index="page_title_locations">Veranstaltungsort</label>
@@ -600,6 +612,18 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="page_title_staff">Personal</label>
       <label index="page_title_tickets">Karten</label>
       <label index="page_title_terms">AGB</label>
+
+
+
+<label index="comment.pages.sysfolder"><![CDATA[
+
+  /***************************************************************************************
+  *
+  * pages (type sysfolder)
+  *
+  ***************************************************************************************/
+
+]]></label>
 
       <label index="sysfolder_title_calendar">Kalender</label>
       <label index="sysfolder_title_events">Veranstaltungen</label>
@@ -611,6 +635,18 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt"><![CDATA[Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.]]></label>
+
+
+
+<label index="comment.tt_content.plugins"><![CDATA[
+
+  /***************************************************************************************
+  *
+  * tt_content plugins
+  *
+  ***************************************************************************************/
+
+]]></label>
 
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt"><![CDATA[Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.]]></label>
@@ -633,6 +669,56 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="record_create_mm_prompt"><![CDATA[###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.]]></label>
 
 
+
+
+<label index="comment.category.records"><![CDATA[
+
+  /***************************************************************************************
+  *
+  * Organiser: category records
+  *
+  ***************************************************************************************/
+
+]]></label>
+
+      <label index="record_fe_groups_title_policy">Politik</label>
+      <label index="record_fe_groups_title_society">Gesellschaft</label>
+      <label index="record_fe_groups_title_typo3">TYPO3</label>
+      <label index="record_tx_org_calentrance_title_entranceFree">Eintritt frei</label>
+      <label index="record_tx_org_calentrance_value_entranceFree">0.00</label>
+      <label index="record_tx_org_calentrance_title_mereMortals">Normalsterbliche</label>
+      <label index="record_tx_org_calentrance_value_mereMortals">490.00</label>
+      <label index="record_tx_org_calentrance_title_sponsor">Sponsoren</label>
+      <label index="record_tx_org_calentrance_value_sponsor">290.00</label>
+      <label index="record_tx_org_caltype_title_policy">Politik</label>
+      <label index="record_tx_org_caltype_title_society">Gesellschaft</label>
+      <label index="record_tx_org_caltype_title_typo3">TYPO3</label>
+      <label index="record_tx_org_departmentcat_title_policy">Politik</label>
+      <label index="record_tx_org_departmentcat_title_society">Gesellschaft</label>
+      <label index="record_tx_org_departmentcat_title_typo3">TYPO3</label>
+      <label index="record_tx_org_newscat_title_policy">Politik</label>
+      <label index="record_tx_org_newscat_title_society">Gesellschaft</label>
+      <label index="record_tx_org_newscat_title_typo3">TYPO3</label>
+      <label index="record_tx_org_tax_title_000">0% (steuerfrei)</label>
+      <label index="record_tx_org_tax_value_000">0.00</label>
+      <label index="record_tx_org_tax_title_007">007% (James Bond Steuersatz)</label>
+      <label index="record_tx_org_tax_value_007">0.07</label>
+      <label index="record_tx_org_tax_title_019">19% (Steuersatz Normalsterblicher)</label>
+      <label index="record_tx_org_tax_value_019">0.19</label>
+
+
+
+<label index="comment.powermail.records"><![CDATA[
+
+  /***************************************************************************************
+  *
+  * Powermail records
+  *
+  ***************************************************************************************/
+
+]]></label>
+
+
       <label index="record_pm_fSets_title_contactData">Kontaktdaten</label>
       <label index="record_pm_fSets_title_order">Bestellung</label>
 
@@ -643,6 +729,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="record_pm_field_title_note">Bemerkung</label>
       <label index="record_pm_field_title_terms">AGB</label>
       <label index="record_pm_field_title_submit">Bestellen</label>
+
 
       <label index="files_create_header">Dateien</label>
       <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>

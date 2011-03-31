@@ -3091,7 +3091,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['datetime']      = $this->pi_getLL('record_tx_org_cal_t3devdays_datetime');
     $arr_records[$int_uid]['bodytext']      = $this->pi_getLL('record_tx_org_cal_t3devdays_bodytext');
     $arr_records[$int_uid]['image']         = $str_image;
-    $arr_records[$int_uid]['imagelink']     = $this->pi_getLL('record_tx_org_cal_t3devdays_imagelink');
+    $arr_records[$int_uid]['image_link']    = $this->pi_getLL('record_tx_org_cal_t3devdays_image_link');
     $arr_records[$int_uid]['imageorient']   = $this->pi_getLL('record_tx_org_cal_t3devdays_imageorient');
     $arr_records[$int_uid]['imagecols']     = '1';
     $arr_records[$int_uid]['image_zoom']    = '1';
@@ -3153,7 +3153,7 @@ plugin.tx_powermail_pi1 {
       // Add records to database
     foreach($arr_records as $fields_values)
     {
-var_dump(__METHOD__, $GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
+      //var_dump(__METHOD__ . ' ('. __LINE__ . ')', $GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
       $this->markerArray['###TABLE###']     = $table;

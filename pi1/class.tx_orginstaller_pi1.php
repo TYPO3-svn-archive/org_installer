@@ -1263,7 +1263,15 @@ mod {
        '.$this->pi_getLL('ts_create_header').'
       </h2>';
     
-    
+    switch($GLOBALS['TSFE']->lang) 
+    {
+      case('de'):
+        $str_locale_all = 'de_DE';
+        break;
+      default:
+        $str_locale_all = 'en_GB';
+        break;
+    }
     
     
     $table           = 'sys_template';
@@ -1338,7 +1346,7 @@ config {
   baseURL                   = ' . t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST') . '/
   extTarget                 = _blank
   language                  = ' . $GLOBALS['TSFE']->lang . '
-  locale_all                = ' . setlocale (LC_ALL, $GLOBALS['TSFE']->lang) . '
+  locale_all                = ' . $str_locale_all . '
   metaCharset               = UTF-8
   doctype                   = xhtml_strict
   xhtml_cleaning            = all
@@ -1488,7 +1496,7 @@ page {
 config {
   extTarget                 = _blank
   language                  = '.$GLOBALS['TSFE']->lang.'
-  locale_all                = ' . setlocale (LC_ALL, $GLOBALS['TSFE']->lang) . '
+  locale_all                = ' . $str_locale_all . '
   metaCharset               = UTF-8
   doctype                   = xhtml_strict
   xhtml_cleaning            = all
@@ -1546,7 +1554,7 @@ plugin.org {
   pages {
     calendar          = ' . $this->arr_pageUids[$this->pi_getLL('page_title_calendar')] . '
     calendar_expired  = ' . $this->arr_pageUids[$this->pi_getLL('page_title_calendar')] . '
-    headquarter       = ' . $this->arr_sysfUids[$this->pi_getLL('page_title_headquarters')] . '
+    headquarter       = ' . $this->arr_pageUids[$this->pi_getLL('page_title_headquarters')] . '
     staff             = ' . $this->arr_pageUids[$this->pi_getLL('page_title_staff')] . '
     location          = ' . $this->arr_pageUids[$this->pi_getLL('page_title_locations')] . '
     news              = ' . $this->arr_pageUids[$this->pi_getLL('page_title_news')] . '

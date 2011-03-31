@@ -558,7 +558,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="tt_content.list_type_pi1">Organiser - Installer</label>
       <label index="back"><![CDATA[Zurück]]></label>
       <label index="plugin_warn">Willst Du den Organiser Installer wirklich nicht benutzen?</label>
-      <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Pllugin.</label>
+      <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Plugin.</label>
       <label index="begin_h1">Organiser Installation</label>
       <label index="error_all_h1"><![CDATA[Organiser Installation nicht durchgeführt!]]></label>
 

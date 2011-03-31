@@ -570,7 +570,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="confirm_prompt_createPlugins">Plugins Browser, Wt-Cart und Powermail erstellen.</label>
       <label index="confirm_prompt_createPowermail">Konfiguriere Powermail</label>
       <label index="confirm_prompt_createOrganiser"><![CDATA[Erstelle TYPO3 Organiser Beispieldatens&auml;tze]]></label>
-      <label index="confirm_prompt_createFiles">Erstelle die Produkt-Bilder</label>
+      <label index="confirm_prompt_createFiles">Erstelle Bilder und Datein</label>
       <label index="confirm_prompt_createContent">Erstelle Seiteninhalte</label>
       <label index="confirm_prompt_consolidate">Daten konsolidieren</label>
       <label index="confirm_button">Installieren</label>

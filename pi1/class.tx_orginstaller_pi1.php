@@ -3153,7 +3153,7 @@ plugin.tx_powermail_pi1 {
       // Add records to database
     foreach($arr_records as $fields_values)
     {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
+var_dump(__METHOD__, $GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
       $this->markerArray['###TABLE###']     = $table;
@@ -3715,7 +3715,7 @@ plugin.tx_powermail_pi1 {
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-      $this->markerArray['###TITLE###']     = $fields_values['title'];
+      $this->markerArray['###TITLE###']     = $fields_values['name'];
       $this->markerArray['###TABLE###']     = $table;
       $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
@@ -4173,6 +4173,89 @@ plugin.tx_powermail_pi1 {
    * @return    void
    * @version 1.0.0
    */
+  private function createFilesFeUser()
+  {
+    $this->arrReport[] = '
+      <h2>
+       '.$this->pi_getLL('files_create_header').'
+      </h2>';
+    
+    
+    
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Copy files from res to upload folder
+  
+      // General values
+    $str_t3docRoot  = t3lib_div::getIndpEnv('TYPO3_DOCUMENT_ROOT') . '/';
+    $str_pathSrce   = $str_t3docRoot . t3lib_extMgm::siteRelPath($this->extKey).'res/files/fe_users/';
+    $str_pathDest   = $str_t3docRoot . 'uploads/pics/';
+      // General values
+
+      // LOOP res directory
+    $obj_dir = dir($str_pathSrce);
+    while (false !== ($str_entry = $obj_dir->read())) 
+    {
+        // SWITCH entry
+      switch($str_entry)
+      {
+        case('.'):
+        case('.svn'):
+        case('..'):
+          // file false
+          // do nothing
+          break;
+        default:
+          // file true
+          $str_fileSrce = $str_pathSrce . $str_entry;
+          $str_fileDest = $str_pathDest . $str_entry;
+          $str_fileDest = str_replace('timestamp', $this->timestamp, $str_fileDest);
+          $bool_success = copy($str_fileSrce, $str_fileDest);
+          if ($bool_success)
+          {
+            $this->markerArray['###DEST###'] = $str_fileDest;
+            $this->markerArray['###PATH###'] = $str_pathDest;
+            $str_file_prompt = '
+              <p>
+                '.$this->arr_icons['ok'].' '.$this->pi_getLL('files_create_prompt').'
+              </p>';
+            $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+            $this->arrReport[] = $str_file_prompt;
+          }
+          if (!$bool_success)
+          {
+            $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
+            $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
+            $str_file_prompt = '
+              <p>
+                '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
+              </p>';
+            $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+            $this->arrReport[] = $str_file_prompt;
+          }
+          // file true
+      }
+        // SWITCH entry
+    }
+      // LOOP res directory
+    $obj_dir->close();
+      // Copy files from res to upload folder
+  }
+
+
+
+
+
+
+
+
+
+   /**
+   * createFilesOrganiser(): 
+   *
+   * @return    void
+   * @version 1.0.0
+   */
   private function createFilesOrganiser()
   {
     $this->arrReport[] = '
@@ -4188,7 +4271,7 @@ plugin.tx_powermail_pi1 {
   
       // General values
     $str_t3docRoot  = t3lib_div::getIndpEnv('TYPO3_DOCUMENT_ROOT') . '/';
-    $str_pathSrce   = $str_t3docRoot . t3lib_extMgm::siteRelPath($this->extKey).'res/files/';
+    $str_pathSrce   = $str_t3docRoot . t3lib_extMgm::siteRelPath($this->extKey).'res/files/tx_org/';
     $str_pathDest   = $str_t3docRoot . 'uploads/tx_org/';
       // General values
 
@@ -4197,76 +4280,45 @@ plugin.tx_powermail_pi1 {
     while (false !== ($str_entry = $obj_dir->read())) 
     {
         // SWITCH entry
-      if(is_file($str_entry))
+      switch($str_entry)
       {
-        $str_fileSrce = $str_entry;
-        $str_fileDest = $str_entry;
-        $str_fileDest = str_replace('timestamp', $this->timestamp, $str_fileDest);
-        $bool_success = copy($str_pathSrce.$str_fileSrce, $str_pathDest.$str_fileDest);
-        if ($bool_success)
-        {
-          $this->markerArray['###DEST###'] = $str_fileDest;
-          $this->markerArray['###PATH###'] = $str_pathDest;
-          $str_file_prompt = '
-            <p>
-              '.$this->arr_icons['ok'].' '.$this->pi_getLL('files_create_prompt').'
-            </p>';
-          $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-          $this->arrReport[] = $str_file_prompt;
-        }
-        if (!$bool_success)
-        {
-          $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
-          $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
-          $str_file_prompt = '
-            <p>
-              '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
-            </p>';
-          $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-          $this->arrReport[] = $str_file_prompt;
-        }
+        case('.'):
+        case('.svn'):
+        case('..'):
+          // file false
+          // do nothing
+          break;
+        default:
+          // file true
+          $str_fileSrce = $str_pathSrce . $str_entry;
+          $str_fileDest = $str_pathDest . $str_entry;
+          $str_fileDest = str_replace('timestamp', $this->timestamp, $str_fileDest);
+          $bool_success = copy($str_fileSrce, $str_fileDest);
+          if ($bool_success)
+          {
+            $this->markerArray['###DEST###'] = $str_fileDest;
+            $this->markerArray['###PATH###'] = $str_pathDest;
+            $str_file_prompt = '
+              <p>
+                '.$this->arr_icons['ok'].' '.$this->pi_getLL('files_create_prompt').'
+              </p>';
+            $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+            $this->arrReport[] = $str_file_prompt;
+          }
+          if (!$bool_success)
+          {
+            $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
+            $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
+            $str_file_prompt = '
+              <p>
+                '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
+              </p>';
+            $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+            $this->arrReport[] = $str_file_prompt;
+          }
+          // file true
       }
-//      switch($str_entry)
-//      {
-//          // file false
-//        case('.'):
-//        case('..'):
-//          // do nothing
-//          break;
-//          // file false
-//          // file true
-//        default:
-////          $str_fileSrce = $str_pathSrce . $str_entry;
-////          $str_fileDest = $str_pathDest . $str_entry;
-//          $str_fileSrce = $str_entry;
-//          $str_fileDest = $str_entry;
-//          $str_fileDest = str_replace('timestamp', $this->timestamp, $str_fileDest);
-//          $bool_success = copy($str_pathSrce.$str_fileSrce, $str_pathDest.$str_fileDest);
-//          if ($bool_success)
-//          {
-//            $this->markerArray['###DEST###'] = $str_fileDest;
-//            $this->markerArray['###PATH###'] = $str_pathDest;
-//            $str_file_prompt = '
-//              <p>
-//                '.$this->arr_icons['ok'].' '.$this->pi_getLL('files_create_prompt').'
-//              </p>';
-//            $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-//            $this->arrReport[] = $str_file_prompt;
-//          }
-//          if (!$bool_success)
-//          {
-//            $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
-//            $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
-//            $str_file_prompt = '
-//              <p>
-//                '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
-//              </p>';
-//            $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-//            $this->arrReport[] = $str_file_prompt;
-//          }
-//          // file true
-//      }
-//        // SWITCH entry
+        // SWITCH entry
     }
       // LOOP res directory
     $obj_dir->close();

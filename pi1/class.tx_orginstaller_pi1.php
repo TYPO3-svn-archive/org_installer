@@ -125,6 +125,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
     switch($this->arr_piFlexform['data']['sDEF']['lDEF']['install_case']['vDEF'])
     {
+      case(null):
       case('disabled'):
         $this->install_nothing();
         break;

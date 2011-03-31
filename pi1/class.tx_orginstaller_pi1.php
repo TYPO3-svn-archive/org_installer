@@ -2296,7 +2296,7 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
+      $this->markerArray['###TABLE###']     = $table;
       $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
@@ -2530,7 +2530,7 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
+      $this->markerArray['###TABLE###']     = $table;
       $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
@@ -2560,6 +2560,13 @@ plugin.tx_powermail_pi1 {
    */
   private function createRecordsOrganiser()
   {
+    $this->arrReport[] = '
+      <h2>
+       '.$this->pi_getLL('record_create_header').'
+      </h2>';
+    
+    
+    
       // order of methods is important:
       // categories have be handled before records!
     $this->createRecords_categories_sysfolder_calendar();
@@ -2650,8 +2657,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -2712,8 +2719,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -2777,8 +2784,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -2859,8 +2866,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -2941,8 +2948,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -3022,8 +3029,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -3149,8 +3156,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -3252,8 +3259,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -3363,8 +3370,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -3483,8 +3490,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -3576,8 +3583,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -3709,8 +3716,8 @@ plugin.tx_powermail_pi1 {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
+      $this->markerArray['###TABLE###']     = $table;
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_sysfTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
       $str_record_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
@@ -4200,8 +4207,10 @@ plugin.tx_powermail_pi1 {
           // file false
           // file true
         default:
-          $str_fileSrce = $str_pathSrce . $str_entry;
-          $str_fileDest = $str_pathDest . $str_entry;
+//          $str_fileSrce = $str_pathSrce . $str_entry;
+//          $str_fileDest = $str_pathDest . $str_entry;
+          $str_fileSrce = $str_entry;
+          $str_fileDest = $str_entry;
           $str_fileDest = str_replace('timestamp', $this->timestamp, $str_fileDest);
           $bool_success = copy($str_pathSrce.$str_fileSrce, $str_pathDest.$str_fileDest);
           if ($bool_success)

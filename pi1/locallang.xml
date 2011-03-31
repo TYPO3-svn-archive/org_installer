@@ -137,7 +137,7 @@
       <label index="record_fe_users_bobama_telephone">++1 202-456-1111</label>
       <label index="record_fe_users_bobama_email">barack.obama@whitehouse.gov</label>
       <label index="record_fe_users_bobama_www">http://www.whitehouse.gov/</label>
-      <label index="record_fe_users_bobama_image">barack_obama_timestamp.jpg</label>
+      <label index="record_fe_users_bobama_image">barack.obama_timestamp.jpg</label>
       <label index="record_fe_users_bobama_tx_org_imagecaption">Barack O.</label>
       <label index="record_fe_users_bobama_tx_org_imageseo">Barack Obama: US President</label>
       <label index="record_fe_users_bobama_tx_org_vita"><![CDATA[Barack H. Obama is the 44th President of the United States.
@@ -204,6 +204,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_fe_users_sschaffstein_telephone">++49 69 2475218 0</label>
       <label index="record_fe_users_sschaffstein_email">soeren@typo3.org</label>
       <label index="record_fe_users_sschaffstein_www">http://association.typo3.org/press/press-contact/</label>
+      <label index="record_fe_users_sschaffstein_image">soeren.schaffstein_timestamp.gif</label>
+      <label index="record_fe_users_sschaffstein_tx_org_imagecaption"><![CDATA[S&ouml;ren Sch.]]></label>
+      <label index="record_fe_users_sschaffstein_tx_org_imageseo"><![CDATA[S&ouml;ren Schaffstein TYPO3 press]]></label>
 
 
 

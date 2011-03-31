@@ -2629,7 +2629,6 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['cruser_id'] = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_calentrance_title_entranceFree');
     $arr_records[$int_uid]['value']     = $this->pi_getLL('record_tx_org_calentrance_value_entranceFree');
-    $arr_records[$int_uid]['tax']       = 1;
       // entranceFree
 
       // mereMortals
@@ -3653,6 +3652,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['telephone']     = $this->pi_getLL('record_fe_users_bobama_telephone');
     $arr_records[$int_uid]['email']         = $this->pi_getLL('record_fe_users_bobama_email');
     $arr_records[$int_uid]['www']           = $this->pi_getLL('record_fe_users_bobama_www');
+    $arr_records[$int_uid]['image']         = $str_image;
     $arr_records[$int_uid]['tx_org_imagecaption'] = $this->pi_getLL('record_fe_users_bobama_tx_org_imagecaption');
     $arr_records[$int_uid]['tx_org_imageseo']     = $this->pi_getLL('record_fe_users_bobama_tx_org_imageseo');
     $arr_records[$int_uid]['tx_org_vita']   = $this->pi_getLL('record_fe_users_bobama_tx_org_vita');
@@ -3682,11 +3682,15 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['telephone']     = $this->pi_getLL('record_fe_users_dwildt_telephone');
     $arr_records[$int_uid]['email']         = $this->pi_getLL('record_fe_users_dwildt_email');
     $arr_records[$int_uid]['www']           = $this->pi_getLL('record_fe_users_dwildt_www');
+    $arr_records[$int_uid]['image']         = $str_image;
     $arr_records[$int_uid]['tx_org_imagecaption'] = $this->pi_getLL('record_fe_users_dwildt_tx_org_imagecaption');
     $arr_records[$int_uid]['tx_org_imageseo']     = $this->pi_getLL('record_fe_users_dwildt_tx_org_imageseo');
       // dwildt
 
       // sschaffstein
+    $str_image = $this->pi_getLL('record_fe_users_sschaffstein_image');
+    $str_image = str_replace('timestamp', $this->timestamp, $str_image);
+
     $int_uid                                = $int_uid + 1;
     $this->arr_recordUids['###fe_users.uid.sschaffstein###']
                                             = $int_uid;
@@ -3707,6 +3711,7 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['telephone']     = $this->pi_getLL('record_fe_users_sschaffstein_telephone');
     $arr_records[$int_uid]['email']         = $this->pi_getLL('record_fe_users_sschaffstein_email');
     $arr_records[$int_uid]['www']           = $this->pi_getLL('record_fe_users_sschaffstein_www');
+    $arr_records[$int_uid]['image']         = $str_image;
     $arr_records[$int_uid]['tx_org_imagecaption'] = $this->pi_getLL('record_fe_users_sschaffstein_tx_org_imagecaption');
     $arr_records[$int_uid]['tx_org_imageseo']     = $this->pi_getLL('record_fe_users_sschaffstein_tx_org_imageseo');
       // sschaffstein
@@ -4297,7 +4302,7 @@ plugin.tx_powermail_pi1 {
           $bool_success = copy($str_fileSrce, $str_fileDest);
           if ($bool_success)
           {
-            $this->markerArray['###DEST###'] = $str_fileDest;
+            $this->markerArray['###DEST###'] = $str_entry;
             $this->markerArray['###PATH###'] = $str_pathDest;
             $str_file_prompt = '
               <p>
@@ -4970,6 +4975,7 @@ plugin.org {
     $randval = mt_rand();
     $randval = md5($randval);
     
+    return $randval;
   }
 
 

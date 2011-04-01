@@ -548,7 +548,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="content_create_header">Page content</label>
       <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="content_terms_header">Terms and conditions</label>
-      <label index="content_terms_bodytext">Our terms and conditions: This is a website for demonstration only. You can order a lot of tickets, but you will receive nothing.</label>
+      <label index="content_terms_bodytext">Our terms and conditions: This is a website for demonstration the TYPO3 Organiser only. You can order a lot of tickets, but you will receive nothing.</label>
 
       <label index="consolidate_header">Consolidating</label>
       <label index="consolidate_prompt_page">Page ###TITLE_PID### (###FIELD###) is updated.</label>
@@ -757,7 +757,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="content_create_prompt"><![CDATA[Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.]]></label>
 
       <label index="content_terms_header"><![CDATA[AGB - Allgemeine Geschäftsbedingungen]]></label>
-      <label index="content_terms_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.]]></label>
+      <label index="content_terms_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist eine Demonstration des TYPO3 Organisers. Du kannst soviele Tickets, bestellen wie Du m&ouml;chtest. Wir werden kein einziges versenden :( ]]></label>
 
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>

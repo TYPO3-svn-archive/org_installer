@@ -1206,7 +1206,6 @@ mod {
       // sysfolder staff
 
 
-
     foreach($arr_pages as $fields_values)
     {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
@@ -3581,6 +3580,33 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['image_noRows']  = '1';
       // flow
 
+      // organiser
+    $str_image = $this->pi_getLL('record_tx_org_news_organiser_image');
+    $str_image = str_replace('timestamp', $this->timestamp, $str_image);
+
+    $int_uid                                = $int_uid + 1;
+    $this->arr_recordUids['###tx_org_news.uid.organiser###']
+                                            = $int_uid;
+    $arr_records[$int_uid]['uid']           = $int_uid;
+    $arr_records[$int_uid]['pid']           = $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_news')];
+    $arr_records[$int_uid]['tstamp']        = $this->timestamp;
+    $arr_records[$int_uid]['crdate']        = $this->timestamp;
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_records[$int_uid]['type']          = $this->pi_getLL('record_tx_org_news_organiser_type');
+    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_tx_org_news_organiser_title');
+    $arr_records[$int_uid]['datetime']      = $this->pi_getLL('record_tx_org_news_organiser_datetime');
+    $arr_records[$int_uid]['bodytext']      = $this->pi_getLL('record_tx_org_news_organiser_bodytext');
+    $arr_records[$int_uid]['image']         = $str_image;
+    $arr_records[$int_uid]['imageorient']   = $this->pi_getLL('record_tx_org_news_organiser_imageorient');
+    $arr_records[$int_uid]['imagecaption']  = $this->pi_getLL('record_tx_org_news_organiser_imagecaption');
+    $arr_records[$int_uid]['imageseo']      = $this->pi_getLL('record_tx_org_news_organiser_imageseo');
+    $arr_records[$int_uid]['imagewidth']    = $this->pi_getLL('record_tx_org_news_organiser_imagewidth');
+    $arr_records[$int_uid]['image_link']    = $this->pi_getLL('record_tx_org_news_organiser_image_link');
+    $arr_records[$int_uid]['imagecols']     = '1';
+    $arr_records[$int_uid]['image_zoom']    = '1';
+    $arr_records[$int_uid]['image_noRows']  = '1';
+      // organiser
+
       // president
     $int_uid                                = $int_uid + 1;
     $this->arr_recordUids['###tx_org_news.uid.president###']
@@ -4155,6 +4181,11 @@ plugin.tx_powermail_pi1 {
       // flow -> typo3
     $int_uid                              = $int_uid +1;
     $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_news.uid.flow###'];
+    $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_newscat.uid.typo3###'];
+
+      // organiser -> typo3
+    $int_uid                              = $int_uid +1;
+    $arr_records[$int_uid]['uid_local']   = $this->arr_recordUids['###tx_org_news.uid.organiser###'];
     $arr_records[$int_uid]['uid_foreign'] = $this->arr_recordUids['###tx_org_newscat.uid.typo3###'];
 
       // healthreform -> policy

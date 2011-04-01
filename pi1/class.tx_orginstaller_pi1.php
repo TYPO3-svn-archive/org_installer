@@ -576,8 +576,24 @@ class tx_orginstaller_pi1 extends tslib_pibase
         default:
           // do nothing;
     }
-
-echo intval($int_memory_limit);
+      // Smaller than 60M
+    if ($int_memory_limit < (60 * 1048576))
+    {
+      $this->arrReport[] = '
+        <p>
+            ' . $this->arr_icons['ok'] . ' ' . $this->pi_getLL('condition_ok_org_memorylimit') . '
+        </p>';
+      $this->bool_error = false;
+    }
+      // Bigger than 60M
+    if ($int_memory_limit >= (60 * 1048576))
+    {
+      $this->arrReport[] = '
+        <p>
+          ' . $this->arr_icons['warn'] . ' ' . $this->pi_getLL('condition_error') . '<br />
+          ' . $this->arr_icons['info'] . ' ' . $this->pi_getLL('condition_help')  . ' ' . $this->pi_getLL('condition_help_org_memorylimit') . '
+        </p>';
+    }
 
   }
 

@@ -379,6 +379,10 @@ P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Oba
       <label index="record_tx_org_headquarters_typo3_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516" style="color:#0000FF;text-align:left">Gr&ouml;&szlig;ere Kartenansicht</a></small>]]></label>
       <label index="record_tx_org_headquarters_typo3_fax">+41 41 511 00 39</label>
       <label index="record_tx_org_headquarters_typo3_email">info@typo3.org</label>
+      <label index="record_tx_org_headquarters_president_image">typo3_logo_timestamp.jpg</label>
+      <label index="record_tx_org_headquarters_president_imageseo">TYPO3 Association</label>
+      <label index="record_tx_org_headquarters_president_imageorient">0</label>
+      <label index="record_tx_org_headquarters_president_imagewidth"></label>
 
 
 

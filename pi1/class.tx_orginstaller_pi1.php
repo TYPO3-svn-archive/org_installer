@@ -3354,6 +3354,9 @@ plugin.tx_powermail_pi1 {
       // president
 
       // typo3
+    $str_image = $this->pi_getLL('record_tx_org_headquarters_typo3_image');
+    $str_image = str_replace('timestamp', $this->timestamp, $str_image);
+
     $int_uid                                = $int_uid + 1;
     $this->arr_recordUids['###tx_org_headquarters.uid.typo3###']
                                             = $int_uid;
@@ -3371,6 +3374,13 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['mail_city']     = $this->pi_getLL('record_tx_org_headquarters_typo3_mail_city');
     $arr_records[$int_uid]['mail_url']      = $this->pi_getLL('record_tx_org_headquarters_typo3_mail_url');
     $arr_records[$int_uid]['mail_embeddedcode'] = $this->pi_getLL('record_tx_org_headquarters_typo3_mail_embeddedcode');
+    $arr_records[$int_uid]['image']         = $str_image;
+    $arr_records[$int_uid]['imageorient']   = $this->pi_getLL('record_tx_org_headquarters_typo3_imageorient');
+    $arr_records[$int_uid]['imageseo']      = $this->pi_getLL('record_tx_org_headquarters_typo3_imageseo');
+    $arr_records[$int_uid]['imagewidth']    = $this->pi_getLL('record_tx_org_headquarters_typo3_imageseo');
+    $arr_records[$int_uid]['imagecols']     = '1';
+    $arr_records[$int_uid]['image_zoom']    = '1';
+    $arr_records[$int_uid]['image_noRows']  = '1';
       // typo3
 
       // Add records to database

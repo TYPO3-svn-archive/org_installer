@@ -4513,6 +4513,7 @@ plugin.tx_powermail_pi1 {
     $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_calendar');
     $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
     $arr_pages[$int_uid]['module']        = null;
+    $arr_pages[$int_uid]['nav_hide']      = 1;
     if($this->bool_topLevel)
     {
       $arr_pages[$int_uid]['is_siteroot'] = 1;

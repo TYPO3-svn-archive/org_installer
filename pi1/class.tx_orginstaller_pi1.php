@@ -560,7 +560,22 @@ class tx_orginstaller_pi1 extends tslib_pibase
     }
       // condition "Store record configuration" 
 
-echo return_bytes(ini_get('memory_limit'));
+    $int_memory_limit = substr (ini_get('memory_limit'), 1);
+    switch ($int_memory_limit)
+    {
+        case 'M': 
+        case 'm':
+          $int_memory_limit = $int_memory_limit * 1048576;
+        case 'K':
+        case 'k': 
+          $int_memory_limit = $int_memory_limit * 1024;
+        case 'G':
+        case 'g':
+          $int_memory_limit = $int_memory_limit * 1073741824;
+        default:
+          // do nothing;
+    }
+echo $int_memory_limit;
 
   }
 

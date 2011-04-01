@@ -11,11 +11,11 @@
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Organiser Installer',
+	'title' => 'Org: Installer',
 	'description' => 'The installer installs the TYPO3 Organiser, a template and sample records. Installation is out of the box. It is a one click installation.',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '0.1.0',
+	'version' => '0.9.9',
 	'dependencies' => 'css_styled_content,org',
 	'conflicts' => '',
 	'priority' => '',

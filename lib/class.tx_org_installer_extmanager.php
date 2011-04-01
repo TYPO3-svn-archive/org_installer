@@ -143,7 +143,7 @@ class tx_org_installer_extmanager
       //
       // RETURN There shouldn't install any installer page
 
-    if(strtolower($confArr['installPage']) == 'no')
+    if(strtolower($confArr['installPage']) == 'no' OR empty(strtolower($confArr['installPage'])))
     {
       $str_prompt = $str_prompt.'
         <div class="typo3-message message-information">

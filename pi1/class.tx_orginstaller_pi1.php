@@ -294,6 +294,19 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
       ////////////////////////////////////////////////
       //
+      // RETURN a condition failes
+
+    $this->checkConditions();
+    if($this->bool_error)
+    {
+      return;
+    }
+      // RETURN a condition failes
+
+
+
+      ////////////////////////////////////////////////
+      //
       // RETURN form isn't confirmed
 
     $bool_confirm = $this->confirmation();
@@ -401,9 +414,6 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
 
 
-
-
-
   /**
    * checkExtensions(): Check for needed extensions
    *
@@ -487,6 +497,70 @@ class tx_orginstaller_pi1 extends tslib_pibase
       }
     }
       // LOOP extensions
+
+  }
+
+
+
+
+
+
+
+
+
+
+  /**
+   * checkConditions(): Check 
+   *
+   * @return    boolean    true: error, false: ok 
+   */
+  private function checkConditions()
+  {
+
+
+
+      ///////////////////////////////////////////////
+      //
+      // prompt header
+
+    $this->arrReport[] = '
+      <h2>
+       '.$this->pi_getLL('condition_header').'
+      </h2>
+      ';
+      // prompt header
+
+
+
+      ///////////////////////////////////////////////
+      //
+      // condition "Store record configuration" 
+
+    $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org']);
+    switch($confArr['store_records']) 
+    {
+        // IN CASE OF CHANGINGS: BE AWARE OF THE ORGANISER INSTALLER!
+      case('Multi grouped: record groups in different directories'):
+      case('Easy 2: same as easy 1 but with storage pid'):
+      case('Easy 1: all in the same directory'):
+      default:
+        $this->arrReport[] = '
+          <p>
+            ' . $this->arr_icons['warn'] . ' ' . $this->pi_getLL('condition_error') . '<br />
+            ' . $this->arr_icons['info'] . ' ' . $this->pi_getLL('condition_help')  . ' ' . $this->pi_getLL('condition_help_org_clearpresented') . '
+          </p>';
+        $this->bool_error = false;
+        break;
+      case('Clear presented: each record group in one directory at most'):
+        $this->arrReport[] = '
+          <p>
+            ' . $this->arr_icons['ok'] . ' ' . $this->pi_getLL('condition_ok_org_clearpresented') . '
+          </p>';
+        break;
+    }
+      // condition "Store record configuration" 
+
+echo (int) ini_get('memory_limit');
 
   }
 

@@ -576,7 +576,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
         default:
           // do nothing;
     }
-echo $int_memory_limit;
+
+echo intval($int_memory_limit);
 
   }
 

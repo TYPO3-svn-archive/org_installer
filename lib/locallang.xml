@@ -10,7 +10,11 @@
         If you like to install a new installer page, please delete the current installer page first.
       ]]></label>
       <label index="promptEnableInstallPage"><![CDATA[
-        Please enable the "Installer page" below.
+        Please select your preferred language below. Save the changing.
+        <br />
+        <br />
+        Enable the "Installer page" below, after saving the language changes.
+        <br />
         The Organiser Installer will install a page on the top level with
         <br />
         <br />

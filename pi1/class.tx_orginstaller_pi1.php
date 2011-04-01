@@ -566,7 +566,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
       //
       // condition "memory_limit" 
 
-    $int_minMByte     = 40;
+    $int_minMByte     = 60;
     $str_menory_limit = ini_get('memory_limit');
     $str_unit         = substr ($str_menory_limit, -1);
     $int_memory_limit = (int) $str_menory_limit;
@@ -2273,10 +2273,22 @@ plugin.tx_powermail_pi1 {
       // Plugin wtcart on cart page
 
 
-
+//:TODO:
       //////////////////////////////////////////////////////////////////////
       //
       // Plugin powermail on cart page
+
+    $str_mail_default_sender = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDEF'];
+    if (empty($str_mail_default_sender))
+    {
+      $str_mail_default_sender = 'mail@my-domain.com';
+    }
+    $str_mail_subject = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'];
+    if (empty($str_mail_subject))
+    {
+      $str_mail_subject = 'TYPO3 Organiser - confirmation';
+    }
+
 
     $int_uid                                                          = $int_uid +1;
     $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')] = $int_uid;
@@ -2294,11 +2306,10 @@ plugin.tx_powermail_pi1 {
     $arr_plugin[$int_uid]['sectionIndex']               = 1;
     $arr_plugin[$int_uid]['tx_powermail_title']         = 'order';
 
-    $arr_plugin[$int_uid]['tx_powermail_recipient']     = 
-      $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDEF'] . '
-      TYPO3 Organiser';
-    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'];
-    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'];
+    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $str_mail_default_sender . '
+TYPO3 Organiser'; // Without any space left
+    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $str_mail_subject;
+    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $str_mail_subject;
 // Will updated by $this->consolidatePluginPowermail()
 //    $arr_plugin[$int_uid]['tx_powermail_sender']        = $str_sender;
 //    $arr_plugin[$int_uid]['tx_powermail_sendername']    = $str_sendername;
@@ -4360,7 +4371,7 @@ plugin.tx_powermail_pi1 {
   {
     $this->arrReport[] = '
       <h2>
-       '.$this->pi_getLL('files_create_header').'
+       '.$this->pi_getLL('files_create_header').' fe_user
       </h2>';
     
     
@@ -4443,7 +4454,7 @@ plugin.tx_powermail_pi1 {
   {
     $this->arrReport[] = '
       <h2>
-       '.$this->pi_getLL('files_create_header').'
+       '.$this->pi_getLL('files_create_header').' tx_org
       </h2>';
     
     

@@ -560,38 +560,44 @@ class tx_orginstaller_pi1 extends tslib_pibase
     }
       // condition "Store record configuration" 
 
-    $str_unit         = substr (ini_get('memory_limit'), -1);
-    $int_memory_limit = (int) ini_get('memory_limit');
+    $str_menory_limit = ini_get('memory_limit');
+    $str_unit         = substr ($str_menory_limit, -1);
+    $int_memory_limit = (int) $str_menory_limit;
     switch ($str_unit)
     {
         case 'M': 
         case 'm':
-          $int_memory_limit = $int_memory_limit * 1048576;
+          $int_memory_limit = (int) ($int_memory_limit * 1048576);
         case 'K':
         case 'k': 
-          $int_memory_limit = $int_memory_limit * 1024;
+          $int_memory_limit = (int) ($int_memory_limit * 1024);
         case 'G':
         case 'g':
-          $int_memory_limit = $int_memory_limit * 1073741824;
+          $int_memory_limit = (int) ($int_memory_limit * 1073741824);
         default:
           // do nothing;
     }
+var_dump ($int_memory_limit, (int) (60 * 1048576));
       // Smaller than 60M
-    if ($int_memory_limit < (60 * 1048576))
+    if ($int_memory_limit < (int) (60 * 1048576))
     {
+      $prompt = $this->arr_icons['info'] . ' ' . $this->pi_getLL('condition_help')  . ' ' . $this->pi_getLL('condition_help_org_memorylimit');
+      $prompt = str_replace('###MEMORY_LIMIT###', $str_menory_limit, $prompt);
       $this->arrReport[] = '
         <p>
-            ' . $this->arr_icons['ok'] . ' ' . $this->pi_getLL('condition_ok_org_memorylimit') . '
+          ' . $this->arr_icons['warn'] . ' ' . $this->pi_getLL('condition_error') . '<br />
+          ' . $prompt . '
         </p>';
       $this->bool_error = false;
     }
       // Bigger than 60M
-    if ($int_memory_limit >= (60 * 1048576))
+    if ($int_memory_limit >= (int) (60 * 1048576))
     {
+      $prompt = $this->arr_icons['ok'] . ' ' . $this->pi_getLL('condition_ok_org_memorylimit');
+      $prompt = str_replace('###MEMORY_LIMIT###', $str_menory_limit, $prompt);
       $this->arrReport[] = '
         <p>
-          ' . $this->arr_icons['warn'] . ' ' . $this->pi_getLL('condition_error') . '<br />
-          ' . $this->arr_icons['info'] . ' ' . $this->pi_getLL('condition_help')  . ' ' . $this->pi_getLL('condition_help_org_memorylimit') . '
+            ' . $prompt . '
         </p>';
     }
 

@@ -34,11 +34,11 @@
       <label index="condition_header">Check conditions</label>
       <label index="condition_error">The Organiser Installer is missing a condition.</label>
       <label index="condition_help">To do: </label>
-      <label index="condition_help_org_clearpresented"><![CDATA[Erweiterung Organiser: Setze im Extension Manager den Parameter "Store record configuration" auf [Clear presented]. Andernfalls funktioniert die Verlinkung von Oragniser Datens&auml;tzen im Backend nicht korrekt.]]></label>
-      <label index="condition_help_org_memorylimit"><![CDATA[PHP ini: memory_limit mit ###MEMORY_LIMIT### ist unterhalb von 60 MegaByte. Wenn Du nach der Installation des Organisers im Frontend eine leere Seite siehst, solltest Du memory_limit erh&ouml;hen.]]></label>
+      <label index="condition_help_org_clearpresented"><![CDATA[Extension Organiser (org): Please set "Store record configuration" to [Clear presented] in the extension manager. Otherwise links between Organiser records won't be working proper in the backend.]]></label>
+      <label index="condition_help_org_memorylimit"><![CDATA[PHP ini: memory_limit ###MEMORY_LIMIT### is below of ###MIN_LIMIT###M. If you will receive an empty page after installation, increase it!]]></label>
       <label index="condition_ok">is ok.</label>
-      <label index="condition_ok_org_clearpresented"><![CDATA[Erweiterung Organiser - "Store record configuration": [Clear presented].]]></label>
-      <label index="condition_ok_org_memorylimit"><![CDATA[PHP ini: memory_limit sollte mit ###MEMORY_LIMIT### ausreichen. Wenn Du aber nach der Installation des Organisers im Frontend eine leere Seite siehst, solltest Du memory_limit erh&ouml;hen.]]></label>
+      <label index="condition_ok_org_clearpresented"><![CDATA[Extension Organiser (org): "Store record configuration" is set to [Clear presented].]]></label>
+      <label index="condition_ok_org_memorylimit"><![CDATA[PHP ini: memory_limit is ###MEMORY_LIMIT###. This seems ok. But if you will receive an empty page after installation, increase it!]]></label>
 
       <label index="grp_create_header">Backend Group "###GROUP_TITLE###"</label>
       <label index="grp_create_prompt">Group "###GROUP_TITLE###" (uid ###GROUP_UID###) is created. If you doesn't need it, please delete it.</label>
@@ -613,11 +613,11 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="condition_header">Bedingungen</label>
       <label index="condition_error"><![CDATA[Es sind nicht alle Bedingungen f&uuml;r den Organiser Installer erf&uuml;llt.]]></label>
       <label index="condition_help">Das ist zu tun: </label>
-      <label index="condition_help_org_clearpresented"><![CDATA[Erweiterung Organiser: Setze im Extension Manager den Parameter "Store record configuration" auf [Clear presented]. Andernfalls funktioniert die Verlinkung von Oragniser Datens&auml;tzen im Backend nicht korrekt.]]></label>
-      <label index="condition_help_org_memorylimit"><![CDATA[PHP ini: memory_limit mit ###MEMORY_LIMIT### ist unterhalb von 60 MegaByte. Wenn Du nach der Installation des Organisers im Frontend eine leere Seite siehst, solltest Du memory_limit erh&ouml;hen.]]></label>
+      <label index="condition_help_org_clearpresented"><![CDATA[Erweiterung Organiser (org): Setze im Extension Manager den Parameter "Store record configuration" auf [Clear presented]. Andernfalls funktioniert die Verlinkung von Organiser Datens&auml;tzen im Backend nicht korrekt.]]></label>
+      <label index="condition_help_org_memorylimit"><![CDATA[PHP ini: memory_limit ist mit ###MEMORY_LIMIT### unterhalb von ###MIN_LIMIT###M. Wenn Du nach der Installation des Organisers im Frontend eine leere Seite siehst, solltest Du memory_limit erh&ouml;hen.]]></label>
       <label index="condition_ok">ist ok.</label>
-      <label index="condition_ok_org_clearpresented"><![CDATA[Erweiterung Organiser - "Store record configuration": [Clear presented].]]></label>
-      <label index="condition_ok_org_memorylimit"><![CDATA[PHP ini: memory_limit sollte mit ###MEMORY_LIMIT### ausreichen. Wenn Du aber nach der Installation des Organisers im Frontend eine leere Seite siehst, solltest Du memory_limit erh&ouml;hen.]]></label>
+      <label index="condition_ok_org_clearpresented"><![CDATA[Erweiterung Organiser (org): "Store record configuration" ist auf [Clear presented] gesetzt.]]></label>
+      <label index="condition_ok_org_memorylimit"><![CDATA[PHP ini: memory_limit sollte mit ###MEMORY_LIMIT### ausreichen. Wenn Du aber nach der Installation im Frontend eine leere Seite siehst, solltest Du memory_limit erh&ouml;hen.]]></label>
 
       <label index="grp_create_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
       <label index="grp_create_prompt"><![CDATA[Benutzergruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) wurde erstellt. Wenn Du sie nicht brauchst, lösche sie.]]></label>

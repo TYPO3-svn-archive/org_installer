@@ -560,6 +560,13 @@ class tx_orginstaller_pi1 extends tslib_pibase
     }
       // condition "Store record configuration" 
 
+
+
+      ///////////////////////////////////////////////
+      //
+      // condition "memory_limit" 
+
+    $int_minMByte     = 40;
     $str_menory_limit = ini_get('memory_limit');
     $str_unit         = substr ($str_menory_limit, -1);
     $int_memory_limit = (int) $str_menory_limit;
@@ -568,18 +575,20 @@ class tx_orginstaller_pi1 extends tslib_pibase
         case 'M': 
         case 'm':
           $int_memory_limit = (int) ($int_memory_limit * 1048576);
+          break;
         case 'K':
         case 'k': 
           $int_memory_limit = (int) ($int_memory_limit * 1024);
+          break;
         case 'G':
         case 'g':
           $int_memory_limit = (int) ($int_memory_limit * 1073741824);
+          break;
         default:
           // do nothing;
     }
-var_dump ($int_memory_limit, (int) (60 * 1048576));
-      // Smaller than 60M
-    if ($int_memory_limit < (int) (60 * 1048576))
+      // Smaller than min MByte
+    if ($int_memory_limit < (int) ($int_minMByte * 1048576))
     {
       $prompt = $this->arr_icons['info'] . ' ' . $this->pi_getLL('condition_help')  . ' ' . $this->pi_getLL('condition_help_org_memorylimit');
       $prompt = str_replace('###MEMORY_LIMIT###', $str_menory_limit, $prompt);
@@ -590,8 +599,9 @@ var_dump ($int_memory_limit, (int) (60 * 1048576));
         </p>';
       $this->bool_error = false;
     }
-      // Bigger than 60M
-    if ($int_memory_limit >= (int) (60 * 1048576))
+      // Smaller than min MByte
+      // Bigger than min MByte
+    if ($int_memory_limit >= (int) ($int_minMByte * 1048576))
     {
       $prompt = $this->arr_icons['ok'] . ' ' . $this->pi_getLL('condition_ok_org_memorylimit');
       $prompt = str_replace('###MEMORY_LIMIT###', $str_menory_limit, $prompt);
@@ -600,6 +610,8 @@ var_dump ($int_memory_limit, (int) (60 * 1048576));
             ' . $prompt . '
         </p>';
     }
+      // Bigger than min MByte
+      // condition "memory_limit" 
 
   }
 

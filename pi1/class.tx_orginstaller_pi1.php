@@ -560,7 +560,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     }
       // condition "Store record configuration" 
 
-echo (int) ini_get('memory_limit');
+echo return_bytes(ini_get('memory_limit'));
 
   }
 

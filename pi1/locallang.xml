@@ -38,7 +38,7 @@
       <label index="condition_help_org_memorylimit"><![CDATA[PHP ini: memory_limit ###MEMORY_LIMIT### is below of ###MIN_LIMIT###M. If you will receive an empty page after installation, increase it!]]></label>
       <label index="condition_ok">is ok.</label>
       <label index="condition_ok_org_clearpresented"><![CDATA[Extension Organiser (org): "Store record configuration" is set to [Clear presented].]]></label>
-      <label index="condition_ok_org_memorylimit"><![CDATA[PHP ini: memory_limit is ###MEMORY_LIMIT###. This seems ok. But if you will receive an empty page after installation, increase it!]]></label>
+      <label index="condition_ok_org_memorylimit"><![CDATA[PHP ini: memory_limit is ###MEMORY_LIMIT###. This seems to be ok. But if you will receive an empty page after installation, increase it!]]></label>
 
       <label index="grp_create_header">Backend Group "###GROUP_TITLE###"</label>
       <label index="grp_create_prompt">Group "###GROUP_TITLE###" (uid ###GROUP_UID###) is created. If you doesn't need it, please delete it.</label>

@@ -40,7 +40,7 @@
 
       <label index="page_create_header">Pages and Directories</label>
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###)is created.</label>
-      <label index="sysf_create_prompt">The SysFolder "###TITLE###" (uid ###UID###) is created.</label>
+      <label index="sysf_create_prompt">SysFolder "###TITLE###" (uid ###UID###) is created.</label>
 
 
 
@@ -54,7 +54,7 @@
 
 ]]></label>
 
-      <label index="page_title_calendar">Calendar</label>
+      <label index="page_title_calendar">calendar</label>
       <label index="page_title_headquarters">headquarters</label>
       <label index="page_title_locations">locations</label>
       <label index="page_title_news">news</label>

@@ -3593,9 +3593,11 @@ plugin.tx_powermail_pi1 {
     $arr_records[$int_uid]['crdate']        = $this->timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['type']          = $this->pi_getLL('record_tx_org_news_organiser_type');
+    $arr_records[$int_uid]['newsurl']       = $this->pi_getLL('record_tx_org_news_organiser_newsurl');
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_tx_org_news_organiser_title');
+    $arr_records[$int_uid]['subtitle']      = $this->pi_getLL('record_tx_org_news_organiser_subtitle');
     $arr_records[$int_uid]['datetime']      = $this->pi_getLL('record_tx_org_news_organiser_datetime');
-    $arr_records[$int_uid]['bodytext']      = $this->pi_getLL('record_tx_org_news_organiser_bodytext');
+    $arr_records[$int_uid]['teaser_short']  = $this->pi_getLL('record_tx_org_news_organiser_teaser_short');
     $arr_records[$int_uid]['image']         = $str_image;
     $arr_records[$int_uid]['imageorient']   = $this->pi_getLL('record_tx_org_news_organiser_imageorient');
     $arr_records[$int_uid]['imagecaption']  = $this->pi_getLL('record_tx_org_news_organiser_imagecaption');

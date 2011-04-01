@@ -58,7 +58,7 @@
       <label index="page_title_locations">locations</label>
       <label index="page_title_news">news</label>
       <label index="page_title_organiser">organiser</label>
-      <label index="page_title_staff">organiser</label>
+      <label index="page_title_staff">staff</label>
       <label index="page_title_tickets">tickets</label>
       <label index="page_title_terms">terms and conditions</label>
 
@@ -81,7 +81,7 @@
       <label index="sysfolder_title_locations">locations</label>
       <label index="sysfolder_title_news">news</label>
       <label index="sysfolder_title_organiser">organiser</label>
-      <label index="sysfolder_title_staff">organiser</label>
+      <label index="sysfolder_title_staff">staff</label>
 
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>

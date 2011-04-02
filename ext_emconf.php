@@ -35,7 +35,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'constraints' => array(
 		'depends' => array(
 			'css_styled_content' => '1.0.0-0.0.0',
-			'org' => '1.0.0-0.0.0-',
+			'org' => '1.0.0-0.0.0',
 		),
 		'conflicts' => array(
 		),

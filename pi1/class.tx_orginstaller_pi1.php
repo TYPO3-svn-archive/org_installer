@@ -2899,7 +2899,7 @@ TYPO3 Organiser'; // Without any space left
     $arr_records[$int_uid]['crdate']    = $this->timestamp;
     $arr_records[$int_uid]['cruser_id'] = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_tax_title_000');
-    $arr_records[$int_uid]['value']     = $this->pi_getLL('record_tx_org_tax_title_000');
+    $arr_records[$int_uid]['value']     = $this->pi_getLL('record_tx_org_tax_value_000');
       // 000
 
       // 007
@@ -2909,7 +2909,7 @@ TYPO3 Organiser'; // Without any space left
                                         = $int_uid;
     $arr_records[$int_uid]['uid']       = $int_uid;
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_tax_title_007');
-    $arr_records[$int_uid]['value']     = $this->pi_getLL('record_tx_org_tax_title_007');
+    $arr_records[$int_uid]['value']     = $this->pi_getLL('record_tx_org_tax_value_007');
       // 007
 
       // 019
@@ -2919,7 +2919,7 @@ TYPO3 Organiser'; // Without any space left
                                         = $int_uid;
     $arr_records[$int_uid]['uid']       = $int_uid;
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_tax_title_019');
-    $arr_records[$int_uid]['value']     = $this->pi_getLL('record_tx_org_tax_title_019');
+    $arr_records[$int_uid]['value']     = $this->pi_getLL('record_tx_org_tax_value_019');
       // 019
 
       // Add records to database
@@ -4387,7 +4387,7 @@ TYPO3 Organiser'; // Without any space left
       // General values
 
       // LOOP res directory
-    $obj_dir = dir($str_pathSrce);
+    $obj_dir = 	dir($str_pathSrce);
     while (false !== ($str_entry = $obj_dir->read())) 
     {
         // SWITCH entry

@@ -168,7 +168,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_fe_users_dwildt_image">dirk.wildt_timestamp.jpg</label>
       <label index="record_fe_users_dwildt_tx_org_imagecaption">Dirk W.</label>
       <label index="record_fe_users_dwildt_tx_org_imageseo">Dirk Wildt TYPO3 Oganiser</label>
-      <label index="record_fe_users_bobama_tx_org_vita"><![CDATA[
+      <label index="record_fe_users_dwildt_tx_org_vita"><![CDATA[
         <table cellspacing="0" cellpadding="0" border="0" summary="Vita Dirk Wildt" class="vita_wildt">
           <caption>Dirk Wildt</caption>
           <tbody>
@@ -251,9 +251,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_tx_org_tax_title_000">0% (without tax)</label>
       <label index="record_tx_org_tax_value_000">0.00</label>
       <label index="record_tx_org_tax_title_007">007% (James Bonds tax rate)</label>
-      <label index="record_tx_org_tax_value_007">0.07</label>
+      <label index="record_tx_org_tax_value_007">7.00</label>
       <label index="record_tx_org_tax_title_019">19% (mere mortals tax rate)</label>
-      <label index="record_tx_org_tax_value_019">0.19</label>
+      <label index="record_tx_org_tax_value_019">19.00</label>
 
 
 <label index="comment.tx_org_cal.records"><![CDATA[
@@ -739,9 +739,9 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="record_tx_org_tax_title_000">0% (steuerfrei)</label>
       <label index="record_tx_org_tax_value_000">0.00</label>
       <label index="record_tx_org_tax_title_007">007% (James Bond Steuersatz)</label>
-      <label index="record_tx_org_tax_value_007">0.07</label>
+      <label index="record_tx_org_tax_value_007">7.00</label>
       <label index="record_tx_org_tax_title_019">19% (Steuersatz Normalsterblicher)</label>
-      <label index="record_tx_org_tax_value_019">0.19</label>
+      <label index="record_tx_org_tax_value_019">19.00</label>
 
 
 

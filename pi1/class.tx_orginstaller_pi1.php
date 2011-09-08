@@ -975,7 +975,7 @@ TCEFORM {
     }
   }
   tx_org_cal_all_tables {
-    fe_user {
+    fe_users {
       PAGE_TSCONFIG_IDLIST  = ' . $int_uid_organiser . ',' . $int_uid_staff . '
       PAGE_TSCONFIG_ID      = ' . $int_uid_staff . '
     }

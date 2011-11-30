@@ -2655,8 +2655,8 @@ plugin.tx_powermail_pi1 {
     }
 
 
-    $int_uid                                                          = $int_uid +1;
-    $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_calendar_header')] = $int_uid;
+    $int_uid                                                                    = $int_uid +1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_calendar_header')]  = $int_uid;
 
     $arr_plugin[$int_uid]['uid']                        = $int_uid;
     $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_cart_calendar')];
@@ -2685,8 +2685,9 @@ TYPO3 Organiser Tickets'; // Without any space left
     $arr_plugin[$int_uid]['tx_powermail_recip_id']      = false;
     $arr_plugin[$int_uid]['tx_powermail_recip_field']   = false;
     $arr_plugin[$int_uid]['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_calendar_thanks');
-    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = $this->pi_getLL('plugin_powermail_calendar_mail_sender');
-    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = $this->pi_getLL('plugin_powermail_calendar_mail_receiver');
+// Will updated by $this->consolidatePluginPowermail()
+//    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = null;
+//    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = null;
     $arr_plugin[$int_uid]['tx_powermail_redirect']      = false;
     $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 2;
     $arr_plugin[$int_uid]['tx_powermail_users']         = 0;
@@ -2741,8 +2742,9 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_plugin[$int_uid]['tx_powermail_recip_id']      = false;
     $arr_plugin[$int_uid]['tx_powermail_recip_field']   = false;
     $arr_plugin[$int_uid]['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_downloads_thanks');
-    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = $this->pi_getLL('plugin_powermail_downloads_mail_sender');
-    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = $this->pi_getLL('plugin_powermail_downloads_mail_receiver');
+// Will updated by $this->consolidatePluginPowermail()
+//    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = null;
+//    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = null;
     $arr_plugin[$int_uid]['tx_powermail_redirect']      = false;
     $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 2;
     $arr_plugin[$int_uid]['tx_powermail_users']         = 0;
@@ -6243,26 +6245,27 @@ TCEMAIN {
     $no_quote_fields = false;
       // General Values
 
-      // UPDATE sender and sendername
-    $str_sender     = ''.
-      'uid'.$this->arr_recordUids['###calendar.tx_powermail_fields.uid.email###'];
+      // UPDATE tstamp, sender, sendername, mailsender, mailreceiver
     $uidFirstname   = $this->arr_recordUids['###calendar.tx_powermail_fields.uid.firstname###'];
     $uidSurname     = $this->arr_recordUids['###calendar.tx_powermail_fields.uid.surname###'];
+
+    $str_sender     = ''.
+      'uid'.$this->arr_recordUids['###calendar.tx_powermail_fields.uid.email###'];
     $str_sendername = 'uid' . $uidFirstname . ',' . 'uid' . $uidSurname;
-
-    $mailsender = $arr_plugin[$int_uid]['tx_powermail_mailsender'];
-    $mailsender = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailsender );
-    $mailsender = str_replace( '###SURNAME###',    $uidSurname,    $mailsender );
-    $arr_plugin[$int_uid]['tx_powermail_mailsender'] = $mailsender;
-
-    $mailreceiver = $arr_plugin[$int_uid]['tx_powermail_mailreceiver'];
-    $mailreceiver = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailreceiver );
-    $mailreceiver = str_replace( '###SURNAME###',    $uidSurname,    $mailreceiver );
-    $arr_plugin[$int_uid]['tx_powermail_mailreceiver'] = $mailreceiver;
 
     $arr_plugin[$int_uid]['tstamp']                  = $this->timestamp;
     $arr_plugin[$int_uid]['tx_powermail_sender']     = $str_sender;
     $arr_plugin[$int_uid]['tx_powermail_sendername'] = $str_sendername;
+
+    $mailsender = $this->pi_getLL('plugin_powermail_calendar_mail_sender');
+    $mailsender = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailsender );
+    $mailsender = str_replace( '###SURNAME###',    $uidSurname,    $mailsender );
+    $arr_plugin[$int_uid]['tx_powermail_mailsender'] = $mailsender;
+
+    $mailreceiver = $this->pi_getLL('plugin_powermail_calendar_mail_receiver');
+    $mailreceiver = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailreceiver );
+    $mailreceiver = str_replace( '###SURNAME###',    $uidSurname,    $mailreceiver );
+    $arr_plugin[$int_uid]['tx_powermail_mailreceiver'] = $mailreceiver;
 
     foreach($arr_plugin as $fields_values)
     {
@@ -6298,30 +6301,28 @@ TCEMAIN {
     $no_quote_fields = false;
       // General Values
 
-      // UPDATE sender and sendername
-    $str_sender     = ''.
-      'uid'.$this->arr_recordUids['###downloads.tx_powermail_fields.uid.email###'];
+      // UPDATE tstamp, sender, sendername, mailsender, mailreceiver
     $uidFirstname   = $this->arr_recordUids['###downloads.tx_powermail_fields.uid.firstname###'];
     $uidSurname     = $this->arr_recordUids['###downloads.tx_powermail_fields.uid.surname###'];
+
+    $str_sender     = ''.
+      'uid'.$this->arr_recordUids['###downloads.tx_powermail_fields.uid.email###'];
     $str_sendername = 'uid' . $uidFirstname . ',' . 'uid' . $uidSurname;
 
     $arr_plugin[$int_uid]['tstamp']                  = $this->timestamp;
     $arr_plugin[$int_uid]['tx_powermail_sender']     = $str_sender;
     $arr_plugin[$int_uid]['tx_powermail_sendername'] = $str_sendername;
 
-    $mailsender = $arr_plugin[$int_uid]['tx_powermail_mailsender'];
+    $mailsender = $this->pi_getLL('plugin_powermail_downloads_mail_sender');
     $mailsender = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailsender );
     $mailsender = str_replace( '###SURNAME###',    $uidSurname,    $mailsender );
     $arr_plugin[$int_uid]['tx_powermail_mailsender'] = $mailsender;
 
-    $mailreceiver = $arr_plugin[$int_uid]['tx_powermail_mailreceiver'];
+    $mailreceiver = $this->pi_getLL('plugin_powermail_downloads_mail_receiver');
     $mailreceiver = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailreceiver );
     $mailreceiver = str_replace( '###SURNAME###',    $uidSurname,    $mailreceiver );
     $arr_plugin[$int_uid]['tx_powermail_mailreceiver'] = $mailreceiver;
 
-    $arr_plugin[$int_uid]['tstamp']                  = $this->timestamp;
-    $arr_plugin[$int_uid]['tx_powermail_sender']     = $str_sender;
-    $arr_plugin[$int_uid]['tx_powermail_sendername'] = $str_sendername;
 
     foreach($arr_plugin as $fields_values)
     {

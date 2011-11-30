@@ -465,6 +465,9 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_extensions[$i]['extKey']   = 'powermail';
     $arr_extensions[$i]['extTitle'] = 'Powermail (powermail)';
     $i++;
+    $arr_extensions[$i]['extKey']   = 'static_info_tables';
+    $arr_extensions[$i]['extTitle'] = 'Static Info Tables (static_info_tables)';
+    $i++;
     $arr_extensions[$i]['extKey']   = 'wt_cart';
     $arr_extensions[$i]['extTitle'] = 'Shopping Cart for TYPO3 (wt_cart)';
       // needed extensions
@@ -946,7 +949,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
     $arr_pages[$int_uid]['urlType']       = 1;
-    $arr_pages[$int_uid]['sorting']       = 256 * 8;
+    $arr_pages[$int_uid]['sorting']       = 256 * 9;
     $this->arr_pageUids[$this->pi_getLL('page_title_terms_downloads')] = $int_uid;
     $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_terms_downloads');
       // Terms and Conditions Downloads
@@ -978,7 +981,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
     $arr_pages[$int_uid]['module']        = 'org';
     $arr_pages[$int_uid]['urlType']       = 1;
-    $arr_pages[$int_uid]['sorting']       = 256 * 7;
+    $arr_pages[$int_uid]['sorting']       = 256 * 10;
     $arr_pages[$int_uid]['TSconfig']      = '
 
 // Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
@@ -1931,11 +1934,11 @@ plugin.org {
     $int_uid = $int_uid +1;
     $str_uid = sprintf ('%03d', $int_uid);
 
-    $str_pageTitle      = strtolower($this->pi_getLL('page_title_cart_calendar'));
-    $str_pageTitle      = str_replace(' ', '', $str_pageTitle);
-    $this->str_tsWtCart = '+page_'.$str_pageTitle.'_'.$str_uid;
+    $str_pageTitle              = strtolower($this->pi_getLL('page_title_cart_calendar'));
+    $str_pageTitle              = str_replace(' ', '', $str_pageTitle);
+    $this->str_tsWtCartCalendar = '+page_'.$str_pageTitle.'_'.$str_uid;
 
-    $this->arr_tsUids[$this->str_tsWtCart]    = $int_uid;
+    $this->arr_tsUids[$this->str_tsWtCartCalendar]    = $int_uid;
     $arr_ts[$int_uid]['title']                = '+page_'.$str_pageTitle.'_'.$str_uid;
     $arr_ts[$int_uid]['uid']                  = $int_uid;
     $arr_ts[$int_uid]['pid']                  = $this->arr_pageUids[$this->pi_getLL('page_title_cart_calendar')];
@@ -2022,11 +2025,11 @@ plugin.tx_powermail_pi1 {
     $int_uid = $int_uid +1;
     $str_uid = sprintf ('%03d', $int_uid);
 
-    $str_pageTitle      = strtolower($this->pi_getLL('page_title_cart_downloads'));
-    $str_pageTitle      = str_replace(' ', '', $str_pageTitle);
-    $this->str_tsWtCart = '+page_'.$str_pageTitle.'_'.$str_uid;
+    $str_pageTitle                = strtolower($this->pi_getLL('page_title_cart_downloads'));
+    $str_pageTitle                = str_replace(' ', '', $str_pageTitle);
+    $this->str_tsWtCartDownloads  = '+page_'.$str_pageTitle.'_'.$str_uid;
 
-    $this->arr_tsUids[$this->str_tsWtCart]    = $int_uid;
+    $this->arr_tsUids[$this->str_tsWtCartDownloads] = $int_uid;
     $arr_ts[$int_uid]['title']                = '+page_'.$str_pageTitle.'_'.$str_uid;
     $arr_ts[$int_uid]['uid']                  = $int_uid;
     $arr_ts[$int_uid]['pid']                  = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
@@ -2344,7 +2347,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/news/301/default.tmpl</value>
+                    <value index="vDEF">EXT:org/res/html/downloads/301/default.tmpl</value>
                 </field>
             </language>
         </sheet>
@@ -2688,8 +2691,8 @@ TYPO3 Organiser Tickets'; // Without any space left
     $arr_plugin[$int_uid]['tx_powermail_recip_id']      = false;
     $arr_plugin[$int_uid]['tx_powermail_recip_field']   = false;
     $arr_plugin[$int_uid]['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_calendar_thanks');
-    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CART###'."\n".'###POWERMAIL_ALL###';
-    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CART###'."\n".'###POWERMAIL_ALL###';
+    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = $this->pi_getLL('plugin_powermail_calendar_mail_sender');
+    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = $this->pi_getLL('plugin_powermail_calendar_mail_receiver');
     $arr_plugin[$int_uid]['tx_powermail_redirect']      = false;
     $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 2;
     $arr_plugin[$int_uid]['tx_powermail_users']         = 0;
@@ -2744,8 +2747,8 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_plugin[$int_uid]['tx_powermail_recip_id']      = false;
     $arr_plugin[$int_uid]['tx_powermail_recip_field']   = false;
     $arr_plugin[$int_uid]['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_downloads_thanks');
-    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CART###'."\n".'###POWERMAIL_ALL###';
-    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CART###'."\n".'###POWERMAIL_ALL###';
+    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = $this->pi_getLL('plugin_powermail_downloads_mail_sender');
+    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = $this->pi_getLL('plugin_powermail_downloads_mail_receiver');
     $arr_plugin[$int_uid]['tx_powermail_redirect']      = false;
     $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 2;
     $arr_plugin[$int_uid]['tx_powermail_users']         = 0;
@@ -2851,7 +2854,7 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_order');
     $arr_records[$int_uid]['sorting']       = 256 * 2;
     $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_calendar_header')];
-    $arr_records[$int_uid]['felder']        = '5';
+    $arr_records[$int_uid]['felder']        = '2';
       // Order
       // Powermail fieldsets records in page cart calendar
 
@@ -2872,7 +2875,7 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_contactData');
     $arr_records[$int_uid]['sorting']       = 256 * 1;
     $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
-    $arr_records[$int_uid]['felder']        = '5';
+    $arr_records[$int_uid]['felder']        = '9';
       // Contact Data
 
       // Order
@@ -2886,7 +2889,7 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_order');
     $arr_records[$int_uid]['sorting']       = 256 * 2;
     $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
-    $arr_records[$int_uid]['felder']        = '5';
+    $arr_records[$int_uid]['felder']        = '2';
       // Order
       // Powermail fieldsets records in page cart downloads
     
@@ -6241,10 +6244,19 @@ TCEMAIN {
       // UPDATE sender and sendername
     $str_sender     = ''.
       'uid'.$this->arr_recordUids['###calendar.tx_powermail_fields.uid.email###'];
-    $str_sendername = ''.
-      'uid'.$this->arr_recordUids['###calendar.tx_powermail_fields.uid.firstname###'].
-      ','.
-      'uid'.$this->arr_recordUids['###calendar.tx_powermail_fields.uid.surname###'];
+    $uidFirstname   = $this->arr_recordUids['###calendar.tx_powermail_fields.uid.firstname###'];
+    $uidSurname     = $this->arr_recordUids['###calendar.tx_powermail_fields.uid.surname###'];
+    $str_sendername = 'uid' . $uidFirstname . ',' . 'uid' . $uidSurname;
+
+    $mailsender = $arr_plugin[$int_uid]['tx_powermail_mailsender'];
+    $mailsender = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailsender );
+    $mailsender = str_replace( '###SURNAME###',    $uidSurname,    $mailsender );
+    $arr_plugin[$int_uid]['tx_powermail_mailsender'] = $mailsender;
+
+    $mailreceiver = $arr_plugin[$int_uid]['tx_powermail_mailreceiver'];
+    $mailreceiver = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailreceiver );
+    $mailreceiver = str_replace( '###SURNAME###',    $uidSurname,    $mailreceiver );
+    $arr_plugin[$int_uid]['tx_powermail_mailreceiver'] = $mailreceiver;
 
     $arr_plugin[$int_uid]['tstamp']                  = $this->timestamp;
     $arr_plugin[$int_uid]['tx_powermail_sender']     = $str_sender;
@@ -6287,10 +6299,23 @@ TCEMAIN {
       // UPDATE sender and sendername
     $str_sender     = ''.
       'uid'.$this->arr_recordUids['###downloads.tx_powermail_fields.uid.email###'];
-    $str_sendername = ''.
-      'uid'.$this->arr_recordUids['###downloads.tx_powermail_fields.uid.firstname###'].
-      ','.
-      'uid'.$this->arr_recordUids['###downloads.tx_powermail_fields.uid.surname###'];
+    $uidFirstname   = $this->arr_recordUids['###downloads.tx_powermail_fields.uid.firstname###'];
+    $uidSurname     = $this->arr_recordUids['###downloads.tx_powermail_fields.uid.surname###'];
+    $str_sendername = 'uid' . $uidFirstname . ',' . 'uid' . $uidSurname;
+
+    $arr_plugin[$int_uid]['tstamp']                  = $this->timestamp;
+    $arr_plugin[$int_uid]['tx_powermail_sender']     = $str_sender;
+    $arr_plugin[$int_uid]['tx_powermail_sendername'] = $str_sendername;
+
+    $mailsender = $arr_plugin[$int_uid]['tx_powermail_mailsender'];
+    $mailsender = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailsender );
+    $mailsender = str_replace( '###SURNAME###',    $uidSurname,    $mailsender );
+    $arr_plugin[$int_uid]['tx_powermail_mailsender'] = $mailsender;
+
+    $mailreceiver = $arr_plugin[$int_uid]['tx_powermail_mailreceiver'];
+    $mailreceiver = str_replace( '###FIRSTNAME###',  $uidFirstname,  $mailreceiver );
+    $mailreceiver = str_replace( '###SURNAME###',    $uidSurname,    $mailreceiver );
+    $arr_plugin[$int_uid]['tx_powermail_mailreceiver'] = $mailreceiver;
 
     $arr_plugin[$int_uid]['tstamp']                  = $this->timestamp;
     $arr_plugin[$int_uid]['tx_powermail_sender']     = $str_sender;
@@ -6344,7 +6369,7 @@ TCEMAIN {
       // General Values
     $str_date        = date('Y-m-d G:i:s');
     $table           = 'sys_template';
-    $int_uid         = $this->arr_tsUids[$this->str_tsWtCart];
+    $int_uid         = $this->arr_tsUids[$this->str_tsWtCartCalendar];
     $where           = 'uid = '.$int_uid;
     $no_quote_fields = false;
 
@@ -6380,7 +6405,7 @@ plugin.org {
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
         // Message
       $this->markerArray['###FIELD###']     = '"constants"';
-      $this->markerArray['###TITLE###']     = '"'.$this->str_tsWtCart.'"';
+      $this->markerArray['###TITLE###']     = '"'.$this->str_tsWtCartCalendar.'"';
       $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_cart_calendar').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_cart_calendar')].')';
       $str_consolidate_prompt = '
         <p>
@@ -6403,7 +6428,7 @@ plugin.org {
       // General Values
     $str_date        = date('Y-m-d G:i:s');
     $table           = 'sys_template';
-    $int_uid         = $this->arr_tsUids[$this->str_tsWtCart];
+    $int_uid         = $this->arr_tsUids[$this->str_tsWtCartDownloads];
     $where           = 'uid = '.$int_uid;
     $no_quote_fields = false;
 
@@ -6439,7 +6464,7 @@ plugin.org {
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
         // Message
       $this->markerArray['###FIELD###']     = '"constants"';
-      $this->markerArray['###TITLE###']     = '"'.$this->str_tsWtCart.'"';
+      $this->markerArray['###TITLE###']     = '"'.$this->str_tsWtCartDownloads.'"';
       $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_cart_downloads').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')].')';
       $str_consolidate_prompt = '
         <p>

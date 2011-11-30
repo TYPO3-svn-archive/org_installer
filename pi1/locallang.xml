@@ -131,8 +131,39 @@
       <label index="plugin_news_label">TYPO3 Organiser News</label>
       <label index="plugin_powermail_calendar_header">[Powermail for Organiser Tickets]</label>
       <label index="plugin_powermail_calendar_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo site for the TYPO3 Organiser - any reservation hasn't any effect.</label>
+      <label index="plugin_powermail_calendar_mail_receiver"><![CDATA[[Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
+Thanks for your order.
+You have sent this data:
+###POWERMAIL_TYPOSCRIPT_CART###
+###POWERMAIL_ALL###
+We won't send nothing. This is an online shop for demonstration only.
+Kind regards
+TYPO3-Organiser]]></label>
+      <label index="plugin_powermail_calendar_mail_sender"><![CDATA[[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
+Thanks for your order.
+You have sent this data:
+###POWERMAIL_TYPOSCRIPT_CART###
+###POWERMAIL_ALL###
+We won't send nothing. This is an online shop for demonstration only.
+Kind regards
+TYPO3-Organiser]]></label>
       <label index="plugin_powermail_downloads_header">[Powermail for Organiser Downloads]</label>
       <label index="plugin_powermail_downloads_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo site for the TYPO3 Organiser - any order hasn't any effect.</label>
+      <label index="plugin_powermail_downloads_mail_receiver">Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
+herzlichen Dank für Ihre Bestellung.
+Sie haben uns folgende Daten gesendet:
+###POWERMAIL_TYPOSCRIPT_CART###
+###POWERMAIL_ALL###
+Wir versenden leider nichts. Es handelt sich um einen Demo-Shop.
+Viele Grüße
+TYPO3-Organiser
+</label>
+      <label index="plugin_powermail_downloads_mail_sender">Hallo,
+folgende Bestellung wurde gesendet:
+###POWERMAIL_TYPOSCRIPT_CART###
+###POWERMAIL_ALL###
+Viele Grüße
+TYPO3-Organiser</label>
       <label index="plugin_staff_header">[Browser for Organiser Staff]</label>
       <label index="plugin_staff_label">TYPO3 Organiser Staff</label>
       <label index="plugin_cart_calendar_header">Cart Tickets</label>
@@ -799,6 +830,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="page_title_calendar">Kalender</label>
       <label index="page_title_cart_calendar">Shop Karten</label>
       <label index="page_title_cart_downloads">Shop Downloads</label>
+      <label index="page_title_downloads">Downloads</label>
       <label index="page_title_headquarters">Standorte</label>
       <label index="page_title_locations">Veranstaltungsort</label>
       <label index="page_title_news">Nachrichten</label>
@@ -820,6 +852,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 ]]></label>
 
       <label index="sysfolder_title_calendar">Kalender</label>
+      <label index="sysfolder_title_downloads">Downloads</label>
       <label index="sysfolder_title_events">Veranstaltungen</label>
       <label index="sysfolder_title_headquarters">Standorte und Abteilungen</label>
       <label index="sysfolder_title_locations">Veranstaltungsort</label>
@@ -856,12 +889,40 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="plugin_news_label">TYPO3 Organiser Nachrichten</label>
       <label index="plugin_powermail_calendar_header"><![CDATA[[Powermail für Organiser Tickets]]]></label>
       <label index="plugin_powermail_calendar_thanks"><![CDATA[Herzlichen Dank für Ihre Anmeldung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Anmeldungen sind zwecklos!]]></label>
+      <label index="plugin_powermail_calendar_mail_receiver"><![CDATA[[Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
+herzlichen Dank für Ihre Bestellung.
+Sie haben an uns folgende Daten gesendet:
+###POWERMAIL_TYPOSCRIPT_CART###
+###POWERMAIL_ALL###
+Wir versenden leider nichts. Es handelt sich um einen Demo-Shop.
+Viele Grüße
+TYPO3-Organiser]]></label>
+      <label index="plugin_powermail_calendar_mail_sender"><![CDATA[[Hallo,
+folgende Bestellung wurde gesendet:
+###POWERMAIL_TYPOSCRIPT_CART###
+###POWERMAIL_ALL###
+Viele Grüße
+TYPO3-Organiser]]></label>
       <label index="plugin_powermail_downloads_header"><![CDATA[[Powermail für Organiser Downloads]]]></label>
       <label index="plugin_powermail_downloads_thanks"><![CDATA[Herzlichen Dank für Ihre Bestellung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Bestellungen sind zwecklos!]]></label>
+      <label index="plugin_powermail_downloads_mail_receiver"><![CDATA[[Hallo ###FIRSTNAME### ###UID###SURNAME######,
+herzlichen Dank für Ihre Bestellung.
+Sie haben an uns folgende Daten gesendet:
+###POWERMAIL_TYPOSCRIPT_CART###
+###POWERMAIL_ALL###
+Wir versenden leider nichts. Es handelt sich um einen Demo-Shop.
+Viele Grüße
+TYPO3-Organiser]]></label>
+      <label index="plugin_powermail_downloads_mail_sender"><![CDATA[[Hallo,
+folgende Bestellung wurde gesendet:
+###POWERMAIL_TYPOSCRIPT_CART###
+###POWERMAIL_ALL###
+Viele Grüße
+TYPO3-Organiser]]></label>
       <label index="plugin_staff_header"><![CDATA[[Browser für Organiser Personal]]]></label>
       <label index="plugin_staff_label">TYPO3 Organiser Personal</label>
       <label index="plugin_cart_calendar_header">Warenkorb Tickets</label>
-      <label index="plugin_cart_downloads_header">Warenkorb Tickets</label>
+      <label index="plugin_cart_downloads_header">Warenkorb Downloads</label>
 
       <label index="record_create_header"><![CDATA[Datensätze]]></label>
       <label index="record_create_prompt"><![CDATA[Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" im Ordner ###TITLE_PID### eingefügt.]]></label>
@@ -949,8 +1010,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 
       <label index="content_terms_calendar_header"><![CDATA[AGB Tickets - Allgemeine Geschäftsbedingungen]]></label>
       <label index="content_terms_calendar_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist eine Demonstration des TYPO3 Organisers. Du kannst soviele Tickets bestellen wie Du m&ouml;chtest. Wir werden kein einziges versenden :( ]]></label>
-      <label index="content_terms_download_header"><![CDATA[AGB Downloads - Allgemeine Geschäftsbedingungen]]></label>
-      <label index="content_terms_download_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist eine Demonstration des TYPO3 Organisers. Du kannst soviele Dokumente und Medien bestellen wie Du m&ouml;chtest. Wir werden kein einziges versenden :( ]]></label>
+      <label index="content_terms_downloads_header"><![CDATA[AGB Downloads - Allgemeine Geschäftsbedingungen]]></label>
+      <label index="content_terms_downloads_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist eine Demonstration des TYPO3 Organisers. Du kannst soviele Dokumente und Medien bestellen wie Du m&ouml;chtest. Wir werden kein einziges versenden :( ]]></label>
 
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>

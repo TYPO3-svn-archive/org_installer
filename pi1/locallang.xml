@@ -357,7 +357,7 @@ The sixth edition of the TYPO3 Developer Days will take place:]]></label>
   </li>
 </ul>
 Die  Entwickler -&nbsp; die Netzmacher GbR - stellen den TYPO3-Organiser zum  ersten Mal in der &Ouml;ffentlichkeit am Beispiel mehrere Referenzseiten vor.
-Mit dem Organiser kannst Du Deine Nachrichten und Veranstaltungen mit Ticket-Verkauf mit einer einzigen TYPO3-Erweiterung verwalten - und dar&uuml;ber hinaus auch Dein Personal, deine Standorte und Veranstaltungsorte. Organiser ist die TYPO3-Erweiterung f&uuml;r Verb&auml;nde, Veranstalter und Theater-Betriebe.&nbsp;   
+Mit dem Organiser kannst Du Deine Nachrichten und Veranstaltungen mit Ticket-Verkauf mit einer einzigen TYPO3-Erweiterung verwalten - und darüber hinaus auch Dein Personal, deine Standorte und Veranstaltungsorte. Organiser ist die TYPO3-Erweiterung für Verb&auml;nde, Veranstalter und Theater-Betriebe.&nbsp;
 Organiser hat auf Basis von TYPO3 Quick Shop einen flexiblen Web-Shop integriert, mit dem Karten reserviert und auch gekauft werden k&ouml;nnen. Er kann leicht an andere Anforderungen angepasst werden.
 <ul>
   <li>
@@ -380,7 +380,7 @@ P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Oba
 
 ]]></label>
 
-      <label index="record_tx_org_department_netzmacher_title"><![CDATA[Die Netzmacher GbR - B&uuml;ro Erfurt]]></label>
+      <label index="record_tx_org_department_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
       <label index="record_tx_org_department_netzmacher_telephone">++49 361 21655226</label>
       <label index="record_tx_org_department_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_department_netzmacher_url">http://die-netzmacher.de/</label>
@@ -409,9 +409,9 @@ P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Oba
 
       <label index="record_tx_org_downloads_cd1_type">shipping</label>
       <label index="record_tx_org_downloads_cd1_title"><![CDATA[CD: TYPO3-Party - Release 1.0]]></label>
-      <label index="record_tx_org_downloads_cd1_subtitle"><![CDATA[TYPO3 1: Der Gr&uuml;nder-Groove]]></label>
+      <label index="record_tx_org_downloads_cd1_subtitle"><![CDATA[TYPO3 1: Der Gründer-Groove]]></label>
       <label index="record_tx_org_downloads_cd1_datetime">1038524460</label>
-      <label index="record_tx_org_downloads_cd1_bodytext"><![CDATA[Auf dieser CD h&ouml;rst Du den Sound der Geschichte. Die Aufnahmen stammen fast ausschlie&szlig;lich von der Party zum Release von  TYPO3 1.0. Nicht nur die Band sondern auch das damalige TYPO3-Core-Entwickler-Team passten in ein kleinen Bus. Das Cover zeigt den Bus kurz vor der Abreise nach Norwegen - damals wurde Casper noch mit dem Auto pers&ouml;nlich abgeholt. Der Kleinbus verf&uuml;gte nur &uuml;ber ein Kasetten-Abspiel-Ger&auml;t. Das ging nach 1.500 Kilometern kurz hinter Oslo kaputt.]]></label>
+      <label index="record_tx_org_downloads_cd1_bodytext"><![CDATA[Auf dieser CD h&ouml;rst Du den Sound der Geschichte. Die Aufnahmen stammen fast ausschlie&szlig;lich von der Party zum Release von  TYPO3 1.0. Nicht nur die Band sondern auch das damalige TYPO3-Core-Entwickler-Team passten in ein kleinen Bus. Das Cover zeigt den Bus kurz vor der Abreise nach Norwegen - damals wurde Casper noch mit dem Auto pers&ouml;nlich abgeholt. Der Kleinbus verfügte nur über ein Kasetten-Abspiel-Ger&auml;t. Das ging nach 1.500 Kilometern kurz hinter Oslo kaputt.]]></label>
       <label index="record_tx_org_downloads_cd1_teasershort"><![CDATA[Der Sound der Geschichte - schon fast vergessen: die Party zum Release von TYPO3 1.0. Caspar kam aus Norwegen mit dem Auto. Die Aufnahmen von damals halten die Erinnerungen wach.]]></label>
       <label index="record_tx_org_downloads_cd1_tx_org_downloadscat">1</label>
       <label index="record_tx_org_downloads_cd1_tx_org_downloadsmedia">1</label>
@@ -536,7 +536,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
 
 ]]></label>
 
-      <label index="record_tx_org_headquarters_netzmacher_title"><![CDATA[Die Netzmacher GbR - B&uuml;ro Erfurt]]></label>
+      <label index="record_tx_org_headquarters_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
       <label index="record_tx_org_headquarters_netzmacher_mail_address"><![CDATA[Gro&szlig;e Arche 5]]></label>
       <label index="record_tx_org_headquarters_netzmacher_mail_postcode">D-99084</label>
       <label index="record_tx_org_headquarters_netzmacher_mail_city">Erfurt</label>
@@ -586,7 +586,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
 
 ]]></label>
 
-      <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher GbR - B&uuml;ro Erfurt]]></label>
+      <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
       <label index="record_tx_org_location_netzmacher_url">http://die-netzmacher.de/</label>
       <label index="record_tx_org_location_netzmacher_mail_address"><![CDATA[Gro&szlig;e Arche 5]]></label>
       <label index="record_tx_org_location_netzmacher_mail_postcode">D-99084</label>
@@ -654,7 +654,7 @@ It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]><
       <label index="record_tx_org_news_organiser_title">TYPO3-Organiser kommt am 1. April</label>
       <label index="record_tx_org_news_organiser_subtitle">TYPO3: Alles aus einer Hand</label>
       <label index="record_tx_org_news_organiser_datetime">1296514800</label>
-      <label index="record_tx_org_news_organiser_teaser_short"><![CDATA[Der TYPO3-Organiser kommt am 1. April 2011. Das haben heute die Entwickler angek&uuml;ndigt und auch erstmals Screenshots von Frontend, Backend und dem Extension-Manager ver&ouml;ffentlicht. ]]></label>
+      <label index="record_tx_org_news_organiser_teaser_short"><![CDATA[Der TYPO3-Organiser kommt am 1. April 2011. Das haben heute die Entwickler angekündigt und auch erstmals Screenshots von Frontend, Backend und dem Extension-Manager ver&ouml;ffentlicht. ]]></label>
       <label index="record_tx_org_news_organiser_image">t3n_timestamp.png</label>
       <label index="record_tx_org_news_organiser_imagecaption">FLOW3 Blogexample</label>
       <label index="record_tx_org_news_organiser_imageseo">t3n Magazin</label>
@@ -760,7 +760,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
       <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
-      <label index="phrases_powermail_termsAccepted"><![CDATA[I'm according with the &lt;link ###PID### _blank&gt;Terms and Conditions&lt;/link&gt;.|Terms and Conditions accepted]]></label>
+      <label index="phrases_powermail_termsAccepted"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Organiser Homepage</label>
 
       <label index="tx_powermail_fieldsets">Powermail Fieldsets</label>
@@ -782,7 +782,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="confirm_prompt_createBeGroup">Backend Gruppe erstellen</label>
       <label index="confirm_prompt_createPages">Seitenbaum bauen</label>
       <label index="confirm_prompt_createContent"><![CDATA[Inhalt für Kopf- und Fußzeile erstellen.]]></label>
-      <label index="confirm_prompt_createTs"><![CDATA[TypoScript f&uuml;r Browser, Organiser, Wt-Cart und Powermail erstellen.]]></label>
+      <label index="confirm_prompt_createTs"><![CDATA[TypoScript für Browser, Organiser, Wt-Cart und Powermail erstellen.]]></label>
       <label index="confirm_prompt_createPlugins">Plugins Browser, Wt-Cart und Powermail erstellen.</label>
       <label index="confirm_prompt_createPowermail">Konfiguriere Powermail</label>
       <label index="confirm_prompt_createOrganiser"><![CDATA[Erstelle TYPO3 Organiser Beispieldatens&auml;tze]]></label>
@@ -797,7 +797,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="ext_ok">ist installiert.</label>
 
       <label index="condition_header">Bedingungen</label>
-      <label index="condition_error"><![CDATA[Es sind nicht alle Bedingungen f&uuml;r den Organiser Installer erf&uuml;llt.]]></label>
+      <label index="condition_error"><![CDATA[Es sind nicht alle Bedingungen für den Organiser Installer erfüllt.]]></label>
       <label index="condition_help">Das ist zu tun: </label>
       <label index="condition_help_org_clearpresented"><![CDATA[Erweiterung Organiser (org): Setze im Extension Manager den Parameter "Store record configuration" auf [Clear presented]. Andernfalls funktioniert die Verlinkung von Organiser Datens&auml;tzen im Backend nicht korrekt.]]></label>
       <label index="condition_help_org_memorylimit"><![CDATA[PHP ini: memory_limit ist mit ###MEMORY_LIMIT### unterhalb von ###MIN_LIMIT###M. Wenn Du nach der Installation des Organisers im Frontend eine leere Seite siehst, solltest Du memory_limit erh&ouml;hen.]]></label>
@@ -1028,7 +1028,7 @@ TYPO3-Organiser]]></label>
 
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
       <label index="phrases_powermail_shipping">Versand innerhalb Deutschlands|Inland|*</label>
-      <label index="phrases_powermail_termsAccepted"><![CDATA[Ich akzeptiere die &lt;link ###PID### _blank&gt;AGB&lt;/link&gt;.|AGB akzeptiert]]></label>
+      <label index="phrases_powermail_termsAccepted"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Organiser Startseite</label>
 
       <label index="tx_powermail_fieldsets">Powermail Feldgruppen</label>

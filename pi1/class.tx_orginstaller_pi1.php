@@ -4771,8 +4771,10 @@ TYPO3 Organiser Downloads'; // Without any space left
       // netzmacher
 
       // t3devdays
-    $str_image = $this->pi_getLL('record_tx_org_location_t3devdays_image');
-    $str_image = str_replace('timestamp', $this->timestamp, $str_image);
+    $str_image    = $this->pi_getLL('record_tx_org_location_t3devdays_image');
+    $str_image    = str_replace('timestamp', $this->timestamp, $str_image);
+    $str_document = $this->pi_getLL('record_tx_org_location_t3devdays_documents');
+    $str_document = str_replace('timestamp', $this->timestamp, $str_document);
 
     $int_uid                                = $int_uid + 1;
     $this->arr_recordUids['###tx_org_location.uid.t3devdays###']
@@ -4801,7 +4803,7 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['image_zoom']    = '1';
     $arr_records[$int_uid]['image_noRows']  = '1';
 //:TODO: document importieren
-    $arr_records[$int_uid]['documents']         = $this->pi_getLL('record_tx_org_location_t3devdays_documents');
+    $arr_records[$int_uid]['documents']         = $str_document;
     $arr_records[$int_uid]['documentscaption']  = $this->pi_getLL('record_tx_org_location_t3devdays_documentscaption');
     $arr_records[$int_uid]['documentslayout']   = $this->pi_getLL('record_tx_org_location_t3devdays_documentslayout');
     $arr_records[$int_uid]['documentssize']     = $this->pi_getLL('record_tx_org_location_t3devdays_documentssize');

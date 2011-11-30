@@ -1572,20 +1572,19 @@ mod {
     $arr_ts[$int_uid]['description']          = ''.
       '// Created by ORGANISER INSTALLER at '.$str_date;
     $arr_ts[$int_uid]['include_static_file']  = ''.
-      'EXT:css_styled_content/static,' .
-      'EXT:wt_cart/files/static,' .
-      'EXT:linkhandler/static/link_handler,' .
-      'EXT:browser/static,' .
-      'EXT:org/static/base,' .
-      'EXT:org/static/calendar/201,' .
-      'EXT:org/static/department/601,' .
-      'EXT:org/static/downloads/301,' .
-      'EXT:org/static/downloads/302,' .
-      'EXT:org/static/headquarters/501,'.
-      'EXT:org/static/location/701,'.
-      'EXT:org/static/news/401,'.
-      'EXT:org/static/staff/101,' .
-      'EXT:browser/pi4/static,';
+      'EXT:css_styled_content/static/,' .
+      'EXT:wt_cart/files/static/,' .
+      'EXT:linkhandler/static/link_handler/,' .
+      'EXT:browser/static/,' .
+      'EXT:org/static/base/,' .
+      'EXT:org/static/calendar/201/,' .
+      'EXT:org/static/department/601/,' .
+      'EXT:org/static/downloads/301/,' .
+      'EXT:org/static/headquarters/501/,' .
+      'EXT:org/static/location/701/,' .
+      'EXT:org/static/news/401/,' .
+      'EXT:org/static/staff/101/,' .
+      'EXT:browser/pi4/static/';
     if($this->bool_topLevel)
     {
       $arr_ts[$int_uid]['config']                    = '
@@ -1942,9 +1941,9 @@ plugin.org {
     $arr_ts[$int_uid]['crdate']               = $this->timestamp;
     $arr_ts[$int_uid]['cruser_id']            = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_ts[$int_uid]['include_static_file']  = ''.
-      'EXT:org/static/shopping_cart/801,' .
-      'EXT:powermail/static/pi1,' .
-      'EXT:powermail/static/css_basic,';
+      'EXT:org/static/shopping_cart/801/,' .
+      'EXT:powermail/static/pi1/,' .
+      'EXT:powermail/static/css_basic/';
     $arr_ts[$int_uid]['constants']            = '
   ////////////////////////////////////////
   //
@@ -2033,9 +2032,9 @@ plugin.tx_powermail_pi1 {
     $arr_ts[$int_uid]['crdate']               = $this->timestamp;
     $arr_ts[$int_uid]['cruser_id']            = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_ts[$int_uid]['include_static_file']  = ''.
-      'EXT:org/static/shopping_cart/821,' .
-      'EXT:powermail/static/pi1,' .
-      'EXT:powermail/static/css_basic,';
+      'EXT:org/static/shopping_cart/821/,' .
+      'EXT:powermail/static/pi1/,' .
+      'EXT:powermail/static/css_basic/';
     $arr_ts[$int_uid]['constants']            = '
   ////////////////////////////////////////
   //

@@ -290,9 +290,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_tx_org_departmentcat_title_policy">policy</label>
       <label index="record_tx_org_departmentcat_title_society">society</label>
       <label index="record_tx_org_departmentcat_title_typo3">TYPO3</label>
-      <label index="record_tx_org_downloadscat_title_development">TYPO3 development</label>
-      <label index="record_tx_org_downloadscat_title_flyer">TYPO3 flyer</label>
-      <label index="record_tx_org_downloadscat_title_music">TYPO3 music</label>
+      <label index="record_tx_org_downloadscat_title_development">TYPO3 developers</label>
+      <label index="record_tx_org_downloadscat_title_flyer">TYPO3 integrators</label>
+      <label index="record_tx_org_downloadscat_title_music">TYPO3 community</label>
       <label index="record_tx_org_downloadsmedia_title_cd">CD</label>
       <label index="record_tx_org_downloadsmedia_title_flyer">flyer</label>
       <label index="record_tx_org_downloadsmedia_title_manuals">manual</label>
@@ -956,9 +956,9 @@ TYPO3-Organiser]]></label>
       <label index="record_tx_org_departmentcat_title_policy">Politik</label>
       <label index="record_tx_org_departmentcat_title_society">Gesellschaft</label>
       <label index="record_tx_org_departmentcat_title_typo3">TYPO3</label>
-      <label index="record_tx_org_downloadscat_title_flyer">TYPO3-Flyer</label>
-      <label index="record_tx_org_downloadscat_title_development">TYPO3-Entwicklung</label>
-      <label index="record_tx_org_downloadscat_title_music">TYPO3-Musik</label>
+      <label index="record_tx_org_downloadscat_title_development">TYPO3-Entwickler</label>
+      <label index="record_tx_org_downloadscat_title_flyer">TYPO3-Integratoren</label>
+      <label index="record_tx_org_downloadscat_title_music">TYPO3-Community</label>
       <label index="record_tx_org_downloadsmedia_title_cd">CD</label>
       <label index="record_tx_org_downloadsmedia_title_flyer">Flyer</label>
       <label index="record_tx_org_downloadsmedia_title_manuals">Benutzerandbuch</label>

@@ -4338,8 +4338,8 @@ TYPO3 Organiser Downloads'; // Without any space left
       // cd3
 
       // flyer1
-    $str_thumbnail = $this->pi_getLL('record_tx_org_downloads_flyer1_thumbnail');
-    $str_thumbnail = str_replace('timestamp', $this->timestamp, $str_thumbnail);
+    $str_document = $this->pi_getLL('record_tx_org_downloads_flyer1_thumbnail');
+    $str_document = str_replace('timestamp', $this->timestamp, $str_document);
 
     $int_uid                                                = $int_uid + 1;
     $this->arr_recordUids['###tx_org_downloads.uid.flyer1###'] = $int_uid;
@@ -4357,14 +4357,14 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['tx_org_downloadscat']   = $this->pi_getLL('record_tx_org_downloads_flyer1_tx_org_downloadscat');
     $arr_records[$int_uid]['tx_org_downloadsmedia'] = $this->pi_getLL('record_tx_org_downloads_flyer1_tx_org_downloadsmedia');
     $arr_records[$int_uid]['linkicon_width']        = $this->pi_getLL('record_tx_org_downloads_flyer1_linkicon_width');
-    $arr_records[$int_uid]['thumbnail']             = $str_thumbnail;
+    $arr_records[$int_uid]['documents']             = $str_document;
     $arr_records[$int_uid]['thumbnail_height']      = $this->pi_getLL('record_tx_org_downloads_flyer1_thumbnail_height');
     $arr_records[$int_uid]['thumbnail_width']       = $this->pi_getLL('record_tx_org_downloads_flyer1_thumbnail_width');
       // flyer1
 
       // flyer2
-    $str_thumbnail = $this->pi_getLL('record_tx_org_downloads_flyer2_thumbnail');
-    $str_thumbnail = str_replace('timestamp', $this->timestamp, $str_thumbnail);
+    $str_document = $this->pi_getLL('record_tx_org_downloads_flyer2_thumbnail');
+    $str_document = str_replace('timestamp', $this->timestamp, $str_document);
 
     $int_uid                                                = $int_uid + 1;
     $this->arr_recordUids['###tx_org_downloads.uid.flyer2###'] = $int_uid;
@@ -4382,14 +4382,14 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['tx_org_downloadscat']   = $this->pi_getLL('record_tx_org_downloads_flyer2_tx_org_downloadscat');
     $arr_records[$int_uid]['tx_org_downloadsmedia'] = $this->pi_getLL('record_tx_org_downloads_flyer2_tx_org_downloadsmedia');
     $arr_records[$int_uid]['linkicon_width']        = $this->pi_getLL('record_tx_org_downloads_flyer2_linkicon_width');
-    $arr_records[$int_uid]['thumbnail']             = $str_thumbnail;
+    $arr_records[$int_uid]['documents']             = $str_document;
     $arr_records[$int_uid]['thumbnail_height']      = $this->pi_getLL('record_tx_org_downloads_flyer2_thumbnail_height');
     $arr_records[$int_uid]['thumbnail_width']       = $this->pi_getLL('record_tx_org_downloads_flyer2_thumbnail_width');
       // flyer2
 
       // manual1
-    $str_thumbnail = $this->pi_getLL('record_tx_org_downloads_manual1_thumbnail');
-    $str_thumbnail = str_replace('timestamp', $this->timestamp, $str_thumbnail);
+    $str_document = $this->pi_getLL('record_tx_org_downloads_manual1_thumbnail');
+    $str_document = str_replace('timestamp', $this->timestamp, $str_document);
 
     $int_uid                                                = $int_uid + 1;
     $this->arr_recordUids['###tx_org_downloads.uid.manual1###'] = $int_uid;
@@ -4407,14 +4407,14 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['tx_org_downloadscat']   = $this->pi_getLL('record_tx_org_downloads_manual1_tx_org_downloadscat');
     $arr_records[$int_uid]['tx_org_downloadsmedia'] = $this->pi_getLL('record_tx_org_downloads_manual1_tx_org_downloadsmedia');
     $arr_records[$int_uid]['linkicon_width']        = $this->pi_getLL('record_tx_org_downloads_manual1_linkicon_width');
-    $arr_records[$int_uid]['thumbnail']             = $str_thumbnail;
+    $arr_records[$int_uid]['documents']             = $str_document;
     $arr_records[$int_uid]['thumbnail_height']      = $this->pi_getLL('record_tx_org_downloads_manual1_thumbnail_height');
     $arr_records[$int_uid]['thumbnail_width']       = $this->pi_getLL('record_tx_org_downloads_manual1_thumbnail_width');
       // manual1
 
       // manual2
-    $str_thumbnail = $this->pi_getLL('record_tx_org_downloads_manual2_thumbnail');
-    $str_thumbnail = str_replace('timestamp', $this->timestamp, $str_thumbnail);
+    $str_document = $this->pi_getLL('record_tx_org_downloads_manual2_thumbnail');
+    $str_document = str_replace('timestamp', $this->timestamp, $str_document);
 
     $int_uid                                                = $int_uid + 1;
     $this->arr_recordUids['###tx_org_downloads.uid.manual2###'] = $int_uid;
@@ -4432,14 +4432,14 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['tx_org_downloadscat']   = $this->pi_getLL('record_tx_org_downloads_manual2_tx_org_downloadscat');
     $arr_records[$int_uid]['tx_org_downloadsmedia'] = $this->pi_getLL('record_tx_org_downloads_manual2_tx_org_downloadsmedia');
     $arr_records[$int_uid]['linkicon_width']        = $this->pi_getLL('record_tx_org_downloads_manual2_linkicon_width');
-    $arr_records[$int_uid]['thumbnail']             = $str_thumbnail;
+    $arr_records[$int_uid]['documents']             = $str_document;
     $arr_records[$int_uid]['thumbnail_height']      = $this->pi_getLL('record_tx_org_downloads_manual2_thumbnail_height');
     $arr_records[$int_uid]['thumbnail_width']       = $this->pi_getLL('record_tx_org_downloads_manual2_thumbnail_width');
       // manual2
 
       // manual3
-    $str_thumbnail = $this->pi_getLL('record_tx_org_downloads_manual3_thumbnail');
-    $str_thumbnail = str_replace('timestamp', $this->timestamp, $str_thumbnail);
+    $str_document = $this->pi_getLL('record_tx_org_downloads_manual3_thumbnail');
+    $str_document = str_replace('timestamp', $this->timestamp, $str_document);
 
     $int_uid                                                = $int_uid + 1;
     $this->arr_recordUids['###tx_org_downloads.uid.manual3###'] = $int_uid;
@@ -4457,7 +4457,7 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['tx_org_downloadscat']   = $this->pi_getLL('record_tx_org_downloads_manual3_tx_org_downloadscat');
     $arr_records[$int_uid]['tx_org_downloadsmedia'] = $this->pi_getLL('record_tx_org_downloads_manual3_tx_org_downloadsmedia');
     $arr_records[$int_uid]['linkicon_width']        = $this->pi_getLL('record_tx_org_downloads_manual3_linkicon_width');
-    $arr_records[$int_uid]['thumbnail']             = $str_thumbnail;
+    $arr_records[$int_uid]['documents']             = $str_document;
     $arr_records[$int_uid]['thumbnail_height']      = $this->pi_getLL('record_tx_org_downloads_manual3_thumbnail_height');
     $arr_records[$int_uid]['thumbnail_width']       = $this->pi_getLL('record_tx_org_downloads_manual3_thumbnail_width');
       // manual3

@@ -131,7 +131,7 @@
       <label index="plugin_news_label">TYPO3 Organiser News</label>
       <label index="plugin_powermail_calendar_header">[Powermail for Organiser Tickets]</label>
       <label index="plugin_powermail_calendar_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo site for the TYPO3 Organiser - any reservation hasn't any effect.</label>
-      <label index="plugin_powermail_calendar_mail_receiver"><![CDATA[[Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
+      <label index="plugin_powermail_calendar_mail_receiver"><![CDATA[Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
 Thanks for your order.
 You have sent this data:
 ###POWERMAIL_TYPOSCRIPT_CART###
@@ -139,7 +139,7 @@ You have sent this data:
 We won't send nothing. This is an online shop for demonstration only.
 Kind regards
 TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_calendar_mail_sender"><![CDATA[[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
+      <label index="plugin_powermail_calendar_mail_sender"><![CDATA[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
 Thanks for your order.
 You have sent this data:
 ###POWERMAIL_TYPOSCRIPT_CART###
@@ -883,19 +883,19 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt"><![CDATA[Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.]]></label>
-      <label index="plugin_downloads_header"><![CDATA[[Browser für Organiser Downloads]]]></label>
+      <label index="plugin_downloads_header"><![CDATA[Browser für Organiser Downloads]]]></label>
       <label index="plugin_downloads_label">TYPO3 Organiser Downloads</label>
-      <label index="plugin_headquarters_header"><![CDATA[[Browser für Organiser Standorte]]]></label>
+      <label index="plugin_headquarters_header"><![CDATA[Browser für Organiser Standorte]]]></label>
       <label index="plugin_headquarters_label">TYPO3 Organiser Standorte</label>
-      <label index="plugin_locations_header"><![CDATA[[Browser für Organiser Veranstaltungsorte]]]></label>
+      <label index="plugin_locations_header"><![CDATA[Browser für Organiser Veranstaltungsorte]]]></label>
       <label index="plugin_locations_label">TYPO3 Organiser Veranstaltungsorte</label>
-      <label index="plugin_organiser_header"><![CDATA[[Browser für Organiser Kalender]]]></label>
+      <label index="plugin_organiser_header"><![CDATA[Browser für Organiser Kalender]]]></label>
       <label index="plugin_organiser_label">TYPO3 Organiser Kalender</label>
-      <label index="plugin_news_header"><![CDATA[[Browser für Organiser Nachrichten]]]></label>
+      <label index="plugin_news_header"><![CDATA[Browser für Organiser Nachrichten]]]></label>
       <label index="plugin_news_label">TYPO3 Organiser Nachrichten</label>
-      <label index="plugin_powermail_calendar_header"><![CDATA[[Powermail für Organiser Tickets]]]></label>
+      <label index="plugin_powermail_calendar_header"><![CDATA[Powermail für Organiser Tickets]]]></label>
       <label index="plugin_powermail_calendar_thanks"><![CDATA[Herzlichen Dank für Ihre Anmeldung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Anmeldungen sind zwecklos!]]></label>
-      <label index="plugin_powermail_calendar_mail_receiver"><![CDATA[[Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
+      <label index="plugin_powermail_calendar_mail_receiver"><![CDATA[Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
 herzlichen Dank für Ihre Bestellung.
 Sie haben an uns folgende Daten gesendet:
 ###POWERMAIL_TYPOSCRIPT_CART###
@@ -903,15 +903,15 @@ Sie haben an uns folgende Daten gesendet:
 Wir versenden leider nichts. Es handelt sich um einen Demo-Shop.
 Viele Grüße
 TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_calendar_mail_sender"><![CDATA[[Hallo,
+      <label index="plugin_powermail_calendar_mail_sender"><![CDATA[Hallo,
 folgende Bestellung wurde gesendet:
 ###POWERMAIL_TYPOSCRIPT_CART###
 ###POWERMAIL_ALL###
 Viele Grüße
 TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_downloads_header"><![CDATA[[Powermail für Organiser Downloads]]]></label>
+      <label index="plugin_powermail_downloads_header"><![CDATA[Powermail für Organiser Downloads]]]></label>
       <label index="plugin_powermail_downloads_thanks"><![CDATA[Herzlichen Dank für Ihre Bestellung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Bestellungen sind zwecklos!]]></label>
-      <label index="plugin_powermail_downloads_mail_receiver"><![CDATA[[Hallo ###FIRSTNAME### ###UID###SURNAME######,
+      <label index="plugin_powermail_downloads_mail_receiver"><![CDATA[Hallo ###FIRSTNAME### ###UID###SURNAME######,
 herzlichen Dank für Ihre Bestellung.
 Sie haben an uns folgende Daten gesendet:
 ###POWERMAIL_TYPOSCRIPT_CART###
@@ -919,13 +919,13 @@ Sie haben an uns folgende Daten gesendet:
 Wir versenden leider nichts. Es handelt sich um einen Demo-Shop.
 Viele Grüße
 TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_downloads_mail_sender"><![CDATA[[Hallo,
+      <label index="plugin_powermail_downloads_mail_sender"><![CDATA[Hallo,
 folgende Bestellung wurde gesendet:
 ###POWERMAIL_TYPOSCRIPT_CART###
 ###POWERMAIL_ALL###
 Viele Grüße
 TYPO3-Organiser]]></label>
-      <label index="plugin_staff_header"><![CDATA[[Browser für Organiser Personal]]]></label>
+      <label index="plugin_staff_header"><![CDATA[Browser für Organiser Personal]]]></label>
       <label index="plugin_staff_label">TYPO3 Organiser Personal</label>
       <label index="plugin_cart_calendar_header">Warenkorb Tickets</label>
       <label index="plugin_cart_downloads_header">Warenkorb Downloads</label>

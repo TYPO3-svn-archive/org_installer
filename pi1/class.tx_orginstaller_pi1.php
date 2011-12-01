@@ -3750,6 +3750,7 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['tstamp']    = $this->timestamp;
     $arr_records[$int_uid]['crdate']    = $this->timestamp;
     $arr_records[$int_uid]['cruser_id'] = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_records[$int_uid]['type']      = $this->pi_getLL('record_tx_org_downloadscat_type_development');
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_downloadscat_title_development');
       // development
 
@@ -3760,6 +3761,7 @@ TYPO3 Organiser Downloads'; // Without any space left
                                         = $int_uid;
     $arr_records[$int_uid]['uid']       = $int_uid;
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_downloadscat_title_flyer');
+    $arr_records[$int_uid]['type']      = $this->pi_getLL('record_tx_org_downloadscat_type_flyer');
       // flyer
 
       // music
@@ -3769,6 +3771,7 @@ TYPO3 Organiser Downloads'; // Without any space left
                                         = $int_uid;
     $arr_records[$int_uid]['uid']       = $int_uid;
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_downloadscat_title_music');
+    $arr_records[$int_uid]['type']      = $this->pi_getLL('record_tx_org_downloadscat_type_music');
       // music
 
       // Add records to database
@@ -3814,6 +3817,7 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['crdate']    = $this->timestamp;
     $arr_records[$int_uid]['cruser_id'] = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_downloadsmedia_title_cd');
+    $arr_records[$int_uid]['type']      = $this->pi_getLL('record_tx_org_downloadsmedia_type_cd');
       // cd
 
       // flyer
@@ -3823,6 +3827,7 @@ TYPO3 Organiser Downloads'; // Without any space left
                                         = $int_uid;
     $arr_records[$int_uid]['uid']       = $int_uid;
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_downloadsmedia_title_flyer');
+    $arr_records[$int_uid]['type']      = $this->pi_getLL('record_tx_org_downloadsmedia_type_cd');
       // flyer
 
       // manuals
@@ -3832,6 +3837,7 @@ TYPO3 Organiser Downloads'; // Without any space left
                                         = $int_uid;
     $arr_records[$int_uid]['uid']       = $int_uid;
     $arr_records[$int_uid]['title']     = $this->pi_getLL('record_tx_org_downloadsmedia_title_manuals');
+    $arr_records[$int_uid]['type']      = $this->pi_getLL('record_tx_org_downloadsmedia_type_cd');
       // manuals
 
       // Add records to database

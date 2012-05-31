@@ -2029,36 +2029,37 @@ plugin.tx_powermail_pi1 {
 
 
 
-      // Cart downloads page
-    $int_uid = $int_uid +1;
-    $str_uid = sprintf ('%03d', $int_uid);
-
-    $str_pageTitle                = strtolower($this->pi_getLL('page_title_cart_downloads'));
-    $str_pageTitle                = str_replace(' ', '', $str_pageTitle);
-    $this->str_tsWtCartDownloads  = '+page_'.$str_pageTitle.'_'.$str_uid;
-
-    $this->arr_tsUids[$this->str_tsWtCartDownloads] = $int_uid;
-    $arr_ts[$int_uid]['title']                = '+page_'.$str_pageTitle.'_'.$str_uid;
-    $arr_ts[$int_uid]['uid']                  = $int_uid;
-    $arr_ts[$int_uid]['pid']                  = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-    $arr_ts[$int_uid]['tstamp']               = $this->timestamp;
-    $arr_ts[$int_uid]['sorting']              = 256;
-    $arr_ts[$int_uid]['crdate']               = $this->timestamp;
-    $arr_ts[$int_uid]['cruser_id']            = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_ts[$int_uid]['include_static_file']  = ''.
-      'EXT:org/static/shopping_cart/821/,' .
-      'EXT:powermail/static/pi1/,' .
-      'EXT:powermail/static/css_basic/';
-    $arr_ts[$int_uid]['constants']            = '
-  ////////////////////////////////////////
-  //
-  // Will override by $this->consolidateTsWtCart()
-
-';
-
-    $arr_ts[$int_uid]['config']               = '
-';
-      // Cart downloads page
+//  Browser 4.0 is neeeded
+//      // Cart downloads page
+//    $int_uid = $int_uid +1;
+//    $str_uid = sprintf ('%03d', $int_uid);
+//
+//    $str_pageTitle                = strtolower($this->pi_getLL('page_title_cart_downloads'));
+//    $str_pageTitle                = str_replace(' ', '', $str_pageTitle);
+//    $this->str_tsWtCartDownloads  = '+page_'.$str_pageTitle.'_'.$str_uid;
+//
+//    $this->arr_tsUids[$this->str_tsWtCartDownloads] = $int_uid;
+//    $arr_ts[$int_uid]['title']                = '+page_'.$str_pageTitle.'_'.$str_uid;
+//    $arr_ts[$int_uid]['uid']                  = $int_uid;
+//    $arr_ts[$int_uid]['pid']                  = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+//    $arr_ts[$int_uid]['tstamp']               = $this->timestamp;
+//    $arr_ts[$int_uid]['sorting']              = 256;
+//    $arr_ts[$int_uid]['crdate']               = $this->timestamp;
+//    $arr_ts[$int_uid]['cruser_id']            = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_ts[$int_uid]['include_static_file']  = ''.
+//      'EXT:org/static/shopping_cart/821/,' .
+//      'EXT:powermail/static/pi1/,' .
+//      'EXT:powermail/static/css_basic/';
+//    $arr_ts[$int_uid]['constants']            = '
+//  ////////////////////////////////////////
+//  //
+//  // Will override by $this->consolidateTsWtCart()
+//
+//';
+//
+//    $arr_ts[$int_uid]['config']               = '
+//';
+//      // Cart downloads page
 
 
 
@@ -2318,6 +2319,9 @@ plugin.tx_powermail_pi1 {
 
 
 
+// Browser 4.0 is needed
+if( 1 == 0 )
+{
       //////////////////////////////////////////////////////////////////////
       //
       // Plugin browser on downloads page
@@ -2401,7 +2405,7 @@ plugin.tx_powermail_pi1 {
     </data>
 </T3FlexForms>';
       // Plugin browser on downloads page
-
+}
 
 
       //////////////////////////////////////////////////////////////////////
@@ -2723,60 +2727,61 @@ TYPO3 Organiser Tickets'; // Without any space left
 
 
 
-      //////////////////////////////////////////////////////////////////////
-      //
-      // Plugin powermail on page cart downloads
-
-    $str_mail_default_sender = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDEF'];
-    if (empty($str_mail_default_sender))
-    {
-      $str_mail_default_sender = 'mail@my-domain.com';
-    }
-    $str_mail_subject = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'];
-    if (empty($str_mail_subject))
-    {
-      $str_mail_subject = 'TYPO3 Organiser - confirmation';
-    }
-
-
-    $int_uid                                                          = $int_uid +1;
-    $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')] = $int_uid;
-
-    $arr_plugin[$int_uid]['uid']                        = $int_uid;
-    $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-    $arr_plugin[$int_uid]['tstamp']                     = $this->timestamp;
-    $arr_plugin[$int_uid]['crdate']                     = $this->timestamp;
-    $arr_plugin[$int_uid]['cruser_id']                  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_plugin[$int_uid]['sorting']                    = 256 * 2;
-    $arr_plugin[$int_uid]['CType']                      = 'powermail_pi1';
-    $arr_plugin[$int_uid]['header']                     = $this->pi_getLL('plugin_powermail_downloads_header');
-    $arr_plugin[$int_uid]['header_layout']              = 100;  // hidden
-    $arr_plugin[$int_uid]['list_type']                  = '';
-    $arr_plugin[$int_uid]['sectionIndex']               = 1;
-    $arr_plugin[$int_uid]['tx_powermail_title']         = 'order';
-
-    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $str_mail_default_sender . '
-TYPO3 Organiser Downloads'; // Without any space left
-    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $str_mail_subject;
-    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $str_mail_subject;
-// Will updated by $this->consolidatePluginPowermail()
-//    $arr_plugin[$int_uid]['tx_powermail_sender']        = $str_sender;
-//    $arr_plugin[$int_uid]['tx_powermail_sendername']    = $str_sendername;
-    $arr_plugin[$int_uid]['tx_powermail_confirm']       = 1;
-    $arr_plugin[$int_uid]['tx_powermail_pages']         = false;
-    $arr_plugin[$int_uid]['tx_powermail_multiple']      = 0;
-    $arr_plugin[$int_uid]['tx_powermail_recip_table']   = 0;
-    $arr_plugin[$int_uid]['tx_powermail_recip_id']      = false;
-    $arr_plugin[$int_uid]['tx_powermail_recip_field']   = false;
-    $arr_plugin[$int_uid]['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_downloads_thanks');
-// Will updated by $this->consolidatePluginPowermail()
-//    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = null;
-//    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = null;
-    $arr_plugin[$int_uid]['tx_powermail_redirect']      = false;
-    $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 2;
-    $arr_plugin[$int_uid]['tx_powermail_users']         = 0;
-    $arr_plugin[$int_uid]['tx_powermail_preview']       = 0;
-      // Plugin powermail on page cart downloads
+//  Browser 4.0 is neeeded
+//      //////////////////////////////////////////////////////////////////////
+//      //
+//      // Plugin powermail on page cart downloads
+//
+//    $str_mail_default_sender = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDEF'];
+//    if (empty($str_mail_default_sender))
+//    {
+//      $str_mail_default_sender = 'mail@my-domain.com';
+//    }
+//    $str_mail_subject = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'];
+//    if (empty($str_mail_subject))
+//    {
+//      $str_mail_subject = 'TYPO3 Organiser - confirmation';
+//    }
+//
+//
+//    $int_uid                                                          = $int_uid +1;
+//    $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')] = $int_uid;
+//
+//    $arr_plugin[$int_uid]['uid']                        = $int_uid;
+//    $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+//    $arr_plugin[$int_uid]['tstamp']                     = $this->timestamp;
+//    $arr_plugin[$int_uid]['crdate']                     = $this->timestamp;
+//    $arr_plugin[$int_uid]['cruser_id']                  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_plugin[$int_uid]['sorting']                    = 256 * 2;
+//    $arr_plugin[$int_uid]['CType']                      = 'powermail_pi1';
+//    $arr_plugin[$int_uid]['header']                     = $this->pi_getLL('plugin_powermail_downloads_header');
+//    $arr_plugin[$int_uid]['header_layout']              = 100;  // hidden
+//    $arr_plugin[$int_uid]['list_type']                  = '';
+//    $arr_plugin[$int_uid]['sectionIndex']               = 1;
+//    $arr_plugin[$int_uid]['tx_powermail_title']         = 'order';
+//
+//    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $str_mail_default_sender . '
+//TYPO3 Organiser Downloads'; // Without any space left
+//    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $str_mail_subject;
+//    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $str_mail_subject;
+//// Will updated by $this->consolidatePluginPowermail()
+////    $arr_plugin[$int_uid]['tx_powermail_sender']        = $str_sender;
+////    $arr_plugin[$int_uid]['tx_powermail_sendername']    = $str_sendername;
+//    $arr_plugin[$int_uid]['tx_powermail_confirm']       = 1;
+//    $arr_plugin[$int_uid]['tx_powermail_pages']         = false;
+//    $arr_plugin[$int_uid]['tx_powermail_multiple']      = 0;
+//    $arr_plugin[$int_uid]['tx_powermail_recip_table']   = 0;
+//    $arr_plugin[$int_uid]['tx_powermail_recip_id']      = false;
+//    $arr_plugin[$int_uid]['tx_powermail_recip_field']   = false;
+//    $arr_plugin[$int_uid]['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_downloads_thanks');
+//// Will updated by $this->consolidatePluginPowermail()
+////    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = null;
+////    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = null;
+//    $arr_plugin[$int_uid]['tx_powermail_redirect']      = false;
+//    $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 2;
+//    $arr_plugin[$int_uid]['tx_powermail_users']         = 0;
+//    $arr_plugin[$int_uid]['tx_powermail_preview']       = 0;
+//      // Plugin powermail on page cart downloads
 
 
 
@@ -3759,6 +3764,8 @@ if( 1 == 0 )
    */
   private function createRecords_categories_sysfolder_downloads()
   {
+//  Browser 4.0 is neeeded
+return;    
       //////////////////////////////////////////////////////////////////////
       //
       // tx_org_downloadscat
@@ -4287,7 +4294,8 @@ if( 1 == 0 )
    */
   private function createRecords_records_sysfolder_downloads()
   {
-
+//  Browser 4.0 is neeeded
+return;
       //////////////////////////////////////////////////////////////////////
       //
       // tx_org_downloads

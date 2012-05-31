@@ -2276,6 +2276,12 @@ plugin.tx_powermail_pi1 {
                 <field index="template">
                     <value index="vDEF">EXT:org/res/html/news/401/default.tmpl</value>
                 </field>
+                <field index="css.browser">
+                    <value index="vDEF">ts</value>
+                </field>
+                <field index="css.jqui">
+                    <value index="vDEF">smoothness</value>
+                </field>
             </language>
         </sheet>
         <sheet index="javascript">
@@ -2310,6 +2316,13 @@ plugin.tx_powermail_pi1 {
                 </field>
                 <field index="bookmarks_single">
                     <value index="vDEF">hype</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="development">
+            <language index="lDEF">
+                <field index="handle_marker">
+                    <value index="vDEF">remove_empty_markers</value>
                 </field>
             </language>
         </sheet>
@@ -2374,6 +2387,12 @@ if( 1 == 0 )
                 <field index="template">
                     <value index="vDEF">EXT:org/res/html/downloads/301/default.tmpl</value>
                 </field>
+                <field index="css.browser">
+                    <value index="vDEF">ts</value>
+                </field>
+                <field index="css.jqui">
+                    <value index="vDEF">smoothness</value>
+                </field>
             </language>
         </sheet>
         <sheet index="javascript">
@@ -2399,6 +2418,13 @@ if( 1 == 0 )
                 </field>
                 <field index="bookmarks_single">
                     <value index="vDEF">facebook,google,hype,twitter,yahoomyweb</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="development">
+            <language index="lDEF">
+                <field index="handle_marker">
+                    <value index="vDEF">remove_empty_markers</value>
                 </field>
             </language>
         </sheet>
@@ -2451,6 +2477,12 @@ if( 1 == 0 )
                 <field index="template">
                     <value index="vDEF">EXT:org/res/html/staff/101/default.tmpl</value>
                 </field>
+                <field index="css.browser">
+                    <value index="vDEF">ts</value>
+                </field>
+                <field index="css.jqui">
+                    <value index="vDEF">smoothness</value>
+                </field>
             </language>
         </sheet>
         <sheet index="javascript">
@@ -2485,6 +2517,13 @@ if( 1 == 0 )
                 </field>
                 <field index="bookmarks_single">
                     <value index="vDEF">hype</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="development">
+            <language index="lDEF">
+                <field index="handle_marker">
+                    <value index="vDEF">remove_empty_markers</value>
                 </field>
             </language>
         </sheet>
@@ -2537,6 +2576,12 @@ if( 1 == 0 )
                 <field index="template">
                     <value index="vDEF">EXT:org/res/html/headquarters/501/default.tmpl</value>
                 </field>
+                <field index="css.browser">
+                    <value index="vDEF">ts</value>
+                </field>
+                <field index="css.jqui">
+                    <value index="vDEF">smoothness</value>
+                </field>
             </language>
         </sheet>
         <sheet index="javascript">
@@ -2552,6 +2597,13 @@ if( 1 == 0 )
                 </field>
                 <field index="list_on_single">
                     <value index="vDEF">single</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="development">
+            <language index="lDEF">
+                <field index="handle_marker">
+                    <value index="vDEF">remove_empty_markers</value>
                 </field>
             </language>
         </sheet>
@@ -2604,6 +2656,12 @@ if( 1 == 0 )
                 <field index="template">
                     <value index="vDEF">EXT:org/res/html/location/701/default.tmpl</value>
                 </field>
+                <field index="css.browser">
+                    <value index="vDEF">ts</value>
+                </field>
+                <field index="css.jqui">
+                    <value index="vDEF">smoothness</value>
+                </field>
             </language>
         </sheet>
         <sheet index="javascript">
@@ -2619,6 +2677,13 @@ if( 1 == 0 )
                 </field>
                 <field index="list_on_single">
                     <value index="vDEF">single</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="development">
+            <language index="lDEF">
+                <field index="handle_marker">
+                    <value index="vDEF">remove_empty_markers</value>
                 </field>
             </language>
         </sheet>

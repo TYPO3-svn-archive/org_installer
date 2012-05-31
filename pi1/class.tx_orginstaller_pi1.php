@@ -873,6 +873,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_locations');
       // Locations
 
+//  Browser 4.0 is neeeded
 //      // Downloads
 //    $int_uid = $int_uid + 1;
 //    $arr_pages[$int_uid]['uid']           = $int_uid;
@@ -909,6 +910,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_cart_calendar');
       // Cart tickets
 
+//  Browser 4.0 is neeeded
 //      // Cart downloads
 //    $int_uid = $int_uid + 1;
 //    $arr_pages[$int_uid]['uid']           = $int_uid;
@@ -1224,54 +1226,55 @@ mod {
 
 
 
-      // sysfolder downloads
-    $int_uid = $int_uid_downloads;
-    $arr_pages[$int_uid]['uid']           = $int_uid_downloads;
-    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
-    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_downloads');
-    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
-    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
-    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-    $arr_pages[$int_uid]['module']        = 'org_dwnlds';
-    $arr_pages[$int_uid]['urlType']       = 1;
-    $arr_pages[$int_uid]['sorting']       = 256 * 2;
-    $arr_pages[$int_uid]['TSconfig']      = '
-
-// Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
-
-
-
-mod {
-  web_list {
-    allowedNewTables (
-      tx_org_downloads,
-      tx_org_downloadscat,
-      tx_org_downloadsmedia
-    )
-  }
-}
-
-TCAdefaults {
-  tx_org_downloads {
-    documents_display_label = 0
-    linkicon_width          = 40
-    thumbnail_width         = 200m
-    thumbnail_height        = 600m
-    type                    = download_shipping
-  }
-}
-
-
-// Created by ORGANISER INSTALLER at '.$str_date.' -- END
-
-';
-    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_downloads')] = $int_uid;
-    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_downloads');
-      // sysfolder downloads
+//  Browser 4.0 is neeeded
+//      // sysfolder downloads
+//    $int_uid = $int_uid_downloads;
+//    $arr_pages[$int_uid]['uid']           = $int_uid_downloads;
+//    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
+//    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_downloads');
+//    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
+//    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
+//    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
+//    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+//    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+//    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+//    $arr_pages[$int_uid]['module']        = 'org_dwnlds';
+//    $arr_pages[$int_uid]['urlType']       = 1;
+//    $arr_pages[$int_uid]['sorting']       = 256 * 2;
+//    $arr_pages[$int_uid]['TSconfig']      = '
+//
+//// Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
+//
+//
+//
+//mod {
+//  web_list {
+//    allowedNewTables (
+//      tx_org_downloads,
+//      tx_org_downloadscat,
+//      tx_org_downloadsmedia
+//    )
+//  }
+//}
+//
+//TCAdefaults {
+//  tx_org_downloads {
+//    documents_display_label = 0
+//    linkicon_width          = 40
+//    thumbnail_width         = 200m
+//    thumbnail_height        = 600m
+//    type                    = download_shipping
+//  }
+//}
+//
+//
+//// Created by ORGANISER INSTALLER at '.$str_date.' -- END
+//
+//';
+//    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_downloads')] = $int_uid;
+//    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_downloads');
+//      // sysfolder downloads
 
 
 
@@ -1706,17 +1709,18 @@ page {
       value = |
       noTrimWrap = | | |
     }
-    60 = TEXT
-    60 {
-      typolink {
-        parameter = {$plugin.org.pages.downloads}
-      }
-    }
-    61 = TEXT
-    61 {
-      value = |
-      noTrimWrap = | | |
-    }
+//  Browser 4.0 is neeeded
+//    60 = TEXT
+//    60 {
+//      typolink {
+//        parameter = {$plugin.org.pages.downloads}
+//      }
+//    }
+//    61 = TEXT
+//    61 {
+//      value = |
+//      noTrimWrap = | | |
+//    }
     70 = TEXT
     70 {
       typolink {
@@ -1728,17 +1732,18 @@ page {
       value = |
       noTrimWrap = | | |
     }
-    80 = TEXT
-    80 {
-      typolink {
-        parameter = {$plugin.org.pages.shopping_cart_downloads}
-      }
-    }
-    81 = TEXT
-    81 {
-      value = |
-      noTrimWrap = | | |
-    }
+//  Browser 4.0 is neeeded
+//    80 = TEXT
+//    80 {
+//      typolink {
+//        parameter = {$plugin.org.pages.shopping_cart_downloads}
+//      }
+//    }
+//    81 = TEXT
+//    81 {
+//      value = |
+//      noTrimWrap = | | |
+//    }
     90 = TEXT
     90 {
       typolink {

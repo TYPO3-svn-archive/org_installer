@@ -873,23 +873,23 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_locations');
       // Locations
 
-      // Downloads
-    $int_uid = $int_uid + 1;
-    $arr_pages[$int_uid]['uid']           = $int_uid;
-    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_downloads');
-    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
-    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
-    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-    $arr_pages[$int_uid]['urlType']       = 1;
-    $arr_pages[$int_uid]['sorting']       = 256 * 5;
-    $this->arr_pageUids[$this->pi_getLL('page_title_downloads')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_downloads');
-      // Downloads
+//      // Downloads
+//    $int_uid = $int_uid + 1;
+//    $arr_pages[$int_uid]['uid']           = $int_uid;
+//    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
+//    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_downloads');
+//    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
+//    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
+//    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
+//    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+//    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+//    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+//    $arr_pages[$int_uid]['urlType']       = 1;
+//    $arr_pages[$int_uid]['sorting']       = 256 * 5;
+//    $this->arr_pageUids[$this->pi_getLL('page_title_downloads')] = $int_uid;
+//    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_downloads');
+//      // Downloads
 
       // Cart tickets
     $int_uid = $int_uid + 1;
@@ -909,23 +909,23 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_cart_calendar');
       // Cart tickets
 
-      // Cart downloads
-    $int_uid = $int_uid + 1;
-    $arr_pages[$int_uid]['uid']           = $int_uid;
-    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_cart_downloads');
-    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
-    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
-    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-    $arr_pages[$int_uid]['urlType']       = 1;
-    $arr_pages[$int_uid]['sorting']       = 256 * 7;
-    $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_cart_downloads');
-      // Cart downloads
+//      // Cart downloads
+//    $int_uid = $int_uid + 1;
+//    $arr_pages[$int_uid]['uid']           = $int_uid;
+//    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
+//    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_cart_downloads');
+//    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
+//    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
+//    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
+//    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+//    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+//    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+//    $arr_pages[$int_uid]['urlType']       = 1;
+//    $arr_pages[$int_uid]['sorting']       = 256 * 7;
+//    $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')] = $int_uid;
+//    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_cart_downloads');
+//      // Cart downloads
 
       // Terms and Conditions Calendar
     $int_uid = $int_uid + 1;

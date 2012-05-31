@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2011 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2011-2012 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -124,6 +124,14 @@ class tx_orginstaller_pi1 extends tslib_pibase
       //
       // Install the Organiser
 
+      // Init flexform value, if flexform wasn't saved any time
+    if( ! isset ( $this->arr_piFlexform['data'] ) )
+    {
+      $this->arr_piFlexform['data']['sDEF']['lDEF']['install_case']['vDEF'] = 'disabled';
+    }
+      // Init flexform value, if flexform wasn't saved any time
+
+      // Handle the flexform value
     switch($this->arr_piFlexform['data']['sDEF']['lDEF']['install_case']['vDEF'])
     {
       case(null):
@@ -140,6 +148,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
             $this->arr_piFlexform['data']['sDEF']['lDEF']['install_case']['vDEF'] . '
           </p>';
     }
+      // Handle the flexform value
       // Install the Organiser
 
 
@@ -1764,7 +1773,6 @@ page {
 [globalString = GP:tx_browser_pi1|segment=single] || [globalString = GP:tx_browser_pi1|segment=list] || [globalString = GP:tx_browser_pi1|segment=searchform]
   page >
   page < plugin.tx_browser_pi1.javascript.ajax.page
-  
 [global]
   // page (AJAX)
 
@@ -1849,7 +1857,6 @@ page {
 [globalString = GP:tx_browser_pi1|segment=single] || [globalString = GP:tx_browser_pi1|segment=list] || [globalString = GP:tx_browser_pi1|segment=searchform]
   page >
   page < plugin.tx_browser_pi1.javascript.ajax.page
-  
 [global]
   // page (AJAX)
 
@@ -2162,6 +2169,12 @@ plugin.tx_powermail_pi1 {
                 <field index="template">
                     <value index="vDEF">EXT:org/res/html/calendar/201/default.tmpl</value>
                 </field>
+                <field index="css.browser">
+                    <value index="vDEF">ts</value>
+                </field>
+                <field index="css.jqui">
+                    <value index="vDEF">smoothness</value>
+                </field>
             </language>
         </sheet>
         <sheet index="javascript">
@@ -2196,6 +2209,13 @@ plugin.tx_powermail_pi1 {
                 </field>
                 <field index="bookmarks_single">
                     <value index="vDEF">hype</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="development">
+            <language index="lDEF">
+                <field index="handle_marker">
+                    <value index="vDEF">remove_empty_markers</value>
                 </field>
             </language>
         </sheet>

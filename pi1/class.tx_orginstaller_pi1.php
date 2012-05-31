@@ -2714,24 +2714,25 @@ if( 1 == 0 )
 
 
 
-      //////////////////////////////////////////////////////////////////////
-      //
-      // Plugin wtcart on page cart downloads
-
-    $int_uid                                                                = $int_uid + 1;
-    $this->arr_pluginUids[$this->pi_getLL('plugin_cart_downloads_header')]  = $int_uid;
-
-    $arr_plugin[$int_uid]['uid']           = $int_uid;
-    $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-    $arr_plugin[$int_uid]['tstamp']        = $this->timestamp;
-    $arr_plugin[$int_uid]['crdate']        = $this->timestamp;
-    $arr_plugin[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_plugin[$int_uid]['sorting']       = 256 * 1;
-    $arr_plugin[$int_uid]['CType']         = 'list';
-    $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_cart_downloads_header');
-    $arr_plugin[$int_uid]['list_type']     = 'wt_cart_pi1';
-    $arr_plugin[$int_uid]['sectionIndex']  = 1;
-      // Plugin wtcart on page cart downloads
+//  Browser 4.0 is neeeded
+//      //////////////////////////////////////////////////////////////////////
+//      //
+//      // Plugin wtcart on page cart downloads
+//
+//    $int_uid                                                                = $int_uid + 1;
+//    $this->arr_pluginUids[$this->pi_getLL('plugin_cart_downloads_header')]  = $int_uid;
+//
+//    $arr_plugin[$int_uid]['uid']           = $int_uid;
+//    $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+//    $arr_plugin[$int_uid]['tstamp']        = $this->timestamp;
+//    $arr_plugin[$int_uid]['crdate']        = $this->timestamp;
+//    $arr_plugin[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_plugin[$int_uid]['sorting']       = 256 * 1;
+//    $arr_plugin[$int_uid]['CType']         = 'list';
+//    $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_cart_downloads_header');
+//    $arr_plugin[$int_uid]['list_type']     = 'wt_cart_pi1';
+//    $arr_plugin[$int_uid]['sectionIndex']  = 1;
+//      // Plugin wtcart on page cart downloads
 
 
 
@@ -2953,38 +2954,39 @@ TYPO3 Organiser Tickets'; // Without any space left
 
 
 
-      //////////////////////////////////////////////////////////////////////
-      //
-      // Powermail fieldsets records in page cart downloads
-
-      // Contact Data
-    $int_uid                                                                        = $int_uid + 1;
-    $this->arr_recordUids['###downloads.tx_powermail_fieldsets.uid.contactData###'] = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-    $arr_records[$int_uid]['tstamp']        = $this->timestamp;
-    $arr_records[$int_uid]['crdate']        = $this->timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_contactData');
-    $arr_records[$int_uid]['sorting']       = 256 * 1;
-    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
-    $arr_records[$int_uid]['felder']        = '9';
-      // Contact Data
-
-      // Order
-    $int_uid                                                                  = $int_uid + 1;
-    $this->arr_recordUids['###downloads.tx_powermail_fieldsets.uid.order###'] = $int_uid;
-    $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-    $arr_records[$int_uid]['tstamp']        = $this->timestamp;
-    $arr_records[$int_uid]['crdate']        = $this->timestamp;
-    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_order');
-    $arr_records[$int_uid]['sorting']       = 256 * 2;
-    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
-    $arr_records[$int_uid]['felder']        = '2';
-      // Order
-      // Powermail fieldsets records in page cart downloads
+//  Browser 4.0 is neeeded
+//      //////////////////////////////////////////////////////////////////////
+//      //
+//      // Powermail fieldsets records in page cart downloads
+//
+//      // Contact Data
+//    $int_uid                                                                        = $int_uid + 1;
+//    $this->arr_recordUids['###downloads.tx_powermail_fieldsets.uid.contactData###'] = $int_uid;
+//    $arr_records[$int_uid]['uid']           = $int_uid;
+//    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+//    $arr_records[$int_uid]['tstamp']        = $this->timestamp;
+//    $arr_records[$int_uid]['crdate']        = $this->timestamp;
+//    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_contactData');
+//    $arr_records[$int_uid]['sorting']       = 256 * 1;
+//    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
+//    $arr_records[$int_uid]['felder']        = '9';
+//      // Contact Data
+//
+//      // Order
+//    $int_uid                                                                  = $int_uid + 1;
+//    $this->arr_recordUids['###downloads.tx_powermail_fieldsets.uid.order###'] = $int_uid;
+//    $arr_records[$int_uid]['uid']           = $int_uid;
+//    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+//    $arr_records[$int_uid]['tstamp']        = $this->timestamp;
+//    $arr_records[$int_uid]['crdate']        = $this->timestamp;
+//    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_order');
+//    $arr_records[$int_uid]['sorting']       = 256 * 2;
+//    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
+//    $arr_records[$int_uid]['felder']        = '2';
+//      // Order
+//      // Powermail fieldsets records in page cart downloads
     
     
     

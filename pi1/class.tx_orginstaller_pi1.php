@@ -947,23 +947,24 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_terms_calendar');
       // Terms and Conditions Calendar
 
-      // Terms and Conditions Downloads
-    $int_uid = $int_uid + 1;
-    $arr_pages[$int_uid]['uid']           = $int_uid;
-    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_terms_downloads');
-    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
-    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
-    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
-    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-    $arr_pages[$int_uid]['urlType']       = 1;
-    $arr_pages[$int_uid]['sorting']       = 256 * 9;
-    $this->arr_pageUids[$this->pi_getLL('page_title_terms_downloads')] = $int_uid;
-    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_terms_downloads');
-      // Terms and Conditions Downloads
+//  Browser 4.0 is neeeded
+//      // Terms and Conditions Downloads
+//    $int_uid = $int_uid + 1;
+//    $arr_pages[$int_uid]['uid']           = $int_uid;
+//    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
+//    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_terms_downloads');
+//    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
+//    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
+//    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
+//    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+//    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+//    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+//    $arr_pages[$int_uid]['urlType']       = 1;
+//    $arr_pages[$int_uid]['sorting']       = 256 * 9;
+//    $this->arr_pageUids[$this->pi_getLL('page_title_terms_downloads')] = $int_uid;
+//    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_terms_downloads');
+//      // Terms and Conditions Downloads
 
 ### SYSFOLDER
 
@@ -1750,17 +1751,18 @@ page {
         parameter = {$plugin.org.pages.terms}
       }
     }
-    91 = TEXT
-    91 {
-      value = |
-      noTrimWrap = | | |
-    }
-    92 = TEXT
-    92 {
-      typolink {
-        parameter = {$plugin.org.pages.terms_downloads}
-      }
-    }
+//  Browser 4.0 is neeeded
+//    91 = TEXT
+//    91 {
+//      value = |
+//      noTrimWrap = | | |
+//    }
+//    92 = TEXT
+//    92 {
+//      typolink {
+//        parameter = {$plugin.org.pages.terms_downloads}
+//      }
+//    }
   }
     // content
   20 < styles.content.get
@@ -3149,7 +3151,9 @@ TYPO3 Organiser Downloads'; // Without any space left
       // Powermail fields for cart calendar
 
 
-
+//  Browser 4.0 is neeeded
+if( 1 == 0 )
+{
       //////////////////////////////////////////////////////////////////////
       //
       // Powermail fields for cart downloads
@@ -3451,7 +3455,7 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['flexform']      = '';
       // Submit
       // Powermail fields for cart downloads
-
+}
 
 
       //////////////////////////////////////////////////////////////////////
@@ -5990,24 +5994,25 @@ TYPO3 Organiser Downloads'; // Without any space left
 
 
 
-      //////////////////////////////////////////////////////////////////////
-      //
-      // Content for page terms and conditions downloads
-
-    $int_uid                                                                  = $int_uid + 1;
-    $this->arr_contentUids[$this->pi_getLL('content_terms_downloads_header')] = $int_uid;
-
-    $arr_content[$int_uid]['uid']          = $int_uid;
-    $arr_content[$int_uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_terms_downloads')];
-    $arr_content[$int_uid]['tstamp']       = $this->timestamp;
-    $arr_content[$int_uid]['crdate']       = $this->timestamp;
-    $arr_content[$int_uid]['cruser_id']    = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-    $arr_content[$int_uid]['sorting']      = 256 * 1;
-    $arr_content[$int_uid]['CType']        = 'text';
-    $arr_content[$int_uid]['header']       = $this->pi_getLL('content_terms_downloads_header');
-    $arr_content[$int_uid]['bodytext']     = $this->pi_getLL('content_terms_downloads_bodytext');
-    $arr_content[$int_uid]['sectionIndex'] = 1;
-      // Content for page terms and conditions downloads
+//  Browser 4.0 is neeeded
+//      //////////////////////////////////////////////////////////////////////
+//      //
+//      // Content for page terms and conditions downloads
+//
+//    $int_uid                                                                  = $int_uid + 1;
+//    $this->arr_contentUids[$this->pi_getLL('content_terms_downloads_header')] = $int_uid;
+//
+//    $arr_content[$int_uid]['uid']          = $int_uid;
+//    $arr_content[$int_uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_terms_downloads')];
+//    $arr_content[$int_uid]['tstamp']       = $this->timestamp;
+//    $arr_content[$int_uid]['crdate']       = $this->timestamp;
+//    $arr_content[$int_uid]['cruser_id']    = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+//    $arr_content[$int_uid]['sorting']      = 256 * 1;
+//    $arr_content[$int_uid]['CType']        = 'text';
+//    $arr_content[$int_uid]['header']       = $this->pi_getLL('content_terms_downloads_header');
+//    $arr_content[$int_uid]['bodytext']     = $this->pi_getLL('content_terms_downloads_bodytext');
+//    $arr_content[$int_uid]['sectionIndex'] = 1;
+//      // Content for page terms and conditions downloads
 
 
 

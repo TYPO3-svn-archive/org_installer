@@ -88,13 +88,15 @@ class tx_org_installer_extmanager
       //
       // Default prompt
 
-    $str_prompt = $str_prompt.'
-      <div class="typo3-message message-warning">
-        <div class="message-body">
-          ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptSaveTwice'). '
-        </div>
-      </div>
-    ';
+      // 120613, dwildt-
+//    $str_prompt = $str_prompt.'
+//      <div class="typo3-message message-warning">
+//        <div class="message-body">
+//          ' . $GLOBALS['LANG']->sL('LLL:EXT:org_installer/lib/locallang.xml:promptSaveTwice'). '
+//        </div>
+//      </div>
+//    ';
+      // 120613, dwildt-
       // Default prompt
 
 

@@ -2,7 +2,7 @@
 <T3locallang>
   <meta type="array">
     <type>module</type>
-    <description>Language labels for plugin &quot;tx_org_installer_extmanager&quot;</description>
+    <description>Language labels for plugin &quot;tx_quickshop_installer_extmanager&quot;</description>
   </meta>
   <data type="array">
     <languageKey index="default" type="array">

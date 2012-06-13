@@ -6,7 +6,7 @@
   </meta>
   <data type="array">
     <languageKey index="default" type="array">
-      <label index="tt_content.list_type_pi1">Organiser - Installer</label>
+      <label index="tt_content.list_type_pi1">Organiser - 1-Click-Installer</label>
       <label index="back">Back</label>
       <label index="plugin_warn">Do you don't want, that Organiser Installer installs the Organiser?</label>
       <label index="plugin_help">If you want, please select the option "Installation: Organiser ..." in the TYPO3 backend plugin.</label>
@@ -777,7 +777,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="tx_quickshop_products_category_mm">Quick Shop MM Relations</label>
     </languageKey>
     <languageKey index="de" type="array">
-      <label index="tt_content.list_type_pi1">Organiser - Installer</label>
+      <label index="tt_content.list_type_pi1">Organiser - 1-Klick-Installer</label>
       <label index="back"><![CDATA[Zurück]]></label>
       <label index="plugin_warn">Willst Du den Organiser Installer wirklich nicht benutzen?</label>
       <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Plugin.</label>

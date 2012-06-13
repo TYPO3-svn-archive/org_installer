@@ -76,6 +76,8 @@ class tx_org_installer_extmanager
 
     $str_prompt = null;
     $confArr    = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
+    $confArr    = $_POST['data'];
+//var_dump( $_POST['data'] );
     $llStatic   = $confArr['LLstatic'];
 
 

@@ -75,9 +75,11 @@ class tx_org_installer_extmanager
 //.message-error
 
     $str_prompt = null;
-    $confArr    = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
+    // 120613, dwildt, 1-
+    //$confArr    = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
+    // 120613, dwildt, 1+
     $confArr    = $_POST['data'];
-var_dump( $_POST['data'] );
+    //var_dump( $_POST['data'] );
     $llStatic   = $confArr['LLstatic'];
 
 

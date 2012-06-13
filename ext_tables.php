@@ -5,6 +5,17 @@ if (!defined ('TYPO3_MODE'))  die ('Access denied.');
 
     ///////////////////////////////////////////////////////////
     //
+    // INDEX
+
+    // Plugin general configuration
+    // Plugin 1 configuration
+    // Add pagetree icons
+
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
     // Plugin general configuration
   
   t3lib_div::loadTCA('tt_content');
@@ -43,7 +54,8 @@ if (!defined ('TYPO3_MODE'))  die ('Access denied.');
 
 $TCA['pages']['columns']['module']['config']['items'][] = 
   array('Org: Installer', 'org_inst', t3lib_extMgm::extRelPath($_EXTKEY).'ext_icons/ext_icon_blink.gif');
-$ICON_TYPES['org_inst'] = 
-  array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icons/ext_icon_blink.gif');
+//$ICON_TYPES['org_inst'] = 
+//  array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icons/ext_icon_blink.gif');
+t3lib_SpriteManager::addTcaTypeIcon('pages', 'contains-org_inst', '../typo3conf/ext/org_installer/ext_icons/ext_icon_blink.gif');
   // Add pagetree icons
 ?>

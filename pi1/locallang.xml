@@ -910,7 +910,7 @@ Viele Grüße
 TYPO3-Organiser]]></label>
       <label index="plugin_powermail_downloads_header"><![CDATA[Powermail für Organiser Downloads]]]></label>
       <label index="plugin_powermail_downloads_thanks"><![CDATA[Herzlichen Dank für Ihre Bestellung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Bestellungen sind zwecklos!]]></label>
-      <label index="plugin_powermail_downloads_mail_receiver"><![CDATA[Hallo ###FIRSTNAME### ###UID###SURNAME######,
+      <label index="plugin_powermail_downloads_mail_receiver"><![CDATA[Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
 herzlichen Dank für Ihre Bestellung.
 Sie haben an uns folgende Daten gesendet:
 ###POWERMAIL_TYPOSCRIPT_CART###

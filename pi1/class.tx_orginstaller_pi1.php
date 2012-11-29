@@ -103,7 +103,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
    * @param    array        $conf: The TypoScript configuration array
    * @return    The content that is displayed on the website
    */
-  public function main($content, $conf)
+  public function main( $content, $conf )
   {
 
     $this->conf = $conf;
@@ -432,6 +432,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
    */
   private function checkExtensions()
   {
+    $arr_extensions = null;
+    
       ///////////////////////////////////////////////
       //
       // RETURN  form is confirmed
@@ -487,7 +489,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
       //
       // LOOP extensions
 
-    foreach($arr_extensions as $key => $arr_extension)
+    foreach($arr_extensions as $arr_extension)
     {
         // extension is missing
       if(!t3lib_extMgm::isLoaded($arr_extension['extKey']))
@@ -696,6 +698,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
       // There isn't any group available
   
     $table                   = '`be_groups`';
+    $fields_values           = array( );
     $fields_values['uid']    = null;
     $fields_values['pid']    = 0;
     $fields_values['tstamp'] = $this->timestamp;
@@ -758,7 +761,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
 
   /**
-   * Shop will be installed - with or without template
+   * Organiser will be installed - with or without template
    *
    * @param    string       $str_installCase: install_all or install_shop
    * @return    The content that is displayed on the website
@@ -779,6 +782,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
       //
       // General Values
   
+    $arr_pages       = null;
     $str_date        = date('Y-m-d G:i:s');
     $table           = 'pages';
     $no_quote_fields = false;
@@ -873,24 +877,23 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_locations');
       // Locations
 
-//  Browser 4.0 is neeeded
-//      // Downloads
-//    $int_uid = $int_uid + 1;
-//    $arr_pages[$int_uid]['uid']           = $int_uid;
-//    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-//    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_downloads');
-//    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
-//    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
-//    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
-//    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-//    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-//    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-//    $arr_pages[$int_uid]['urlType']       = 1;
-//    $arr_pages[$int_uid]['sorting']       = 256 * 5;
-//    $this->arr_pageUids[$this->pi_getLL('page_title_downloads')] = $int_uid;
-//    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_downloads');
-//      // Downloads
+      // Downloads
+    $int_uid = $int_uid + 1;
+    $arr_pages[$int_uid]['uid']           = $int_uid;
+    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_downloads');
+    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
+    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 5;
+    $this->arr_pageUids[$this->pi_getLL('page_title_downloads')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_downloads');
+      // Downloads
 
       // Cart tickets
     $int_uid = $int_uid + 1;
@@ -910,24 +913,23 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_cart_calendar');
       // Cart tickets
 
-//  Browser 4.0 is neeeded
-//      // Cart downloads
-//    $int_uid = $int_uid + 1;
-//    $arr_pages[$int_uid]['uid']           = $int_uid;
-//    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-//    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_cart_downloads');
-//    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
-//    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
-//    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
-//    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-//    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-//    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-//    $arr_pages[$int_uid]['urlType']       = 1;
-//    $arr_pages[$int_uid]['sorting']       = 256 * 7;
-//    $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')] = $int_uid;
-//    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_cart_downloads');
-//      // Cart downloads
+      // Cart downloads
+    $int_uid = $int_uid + 1;
+    $arr_pages[$int_uid]['uid']           = $int_uid;
+    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_cart_downloads');
+    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
+    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 7;
+    $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_cart_downloads');
+      // Cart downloads
 
       // Terms and Conditions Calendar
     $int_uid = $int_uid + 1;
@@ -947,24 +949,23 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_terms_calendar');
       // Terms and Conditions Calendar
 
-//  Browser 4.0 is neeeded
-//      // Terms and Conditions Downloads
-//    $int_uid = $int_uid + 1;
-//    $arr_pages[$int_uid]['uid']           = $int_uid;
-//    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
-//    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_terms_downloads');
-//    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
-//    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
-//    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
-//    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-//    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-//    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-//    $arr_pages[$int_uid]['urlType']       = 1;
-//    $arr_pages[$int_uid]['sorting']       = 256 * 9;
-//    $this->arr_pageUids[$this->pi_getLL('page_title_terms_downloads')] = $int_uid;
-//    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_terms_downloads');
-//      // Terms and Conditions Downloads
+      // Terms and Conditions Downloads
+    $int_uid = $int_uid + 1;
+    $arr_pages[$int_uid]['uid']           = $int_uid;
+    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_terms_downloads');
+    $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
+    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 9;
+    $this->arr_pageUids[$this->pi_getLL('page_title_terms_downloads')] = $int_uid;
+    $this->arr_pageTitles[$int_uid] = $this->pi_getLL('page_title_terms_downloads');
+      // Terms and Conditions Downloads
 
 ### SYSFOLDER
 
@@ -1227,55 +1228,54 @@ mod {
 
 
 
-//  Browser 4.0 is neeeded
-//      // sysfolder downloads
-//    $int_uid = $int_uid_downloads;
-//    $arr_pages[$int_uid]['uid']           = $int_uid_downloads;
-//    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
-//    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_downloads');
-//    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
-//    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
-//    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
-//    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-//    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
-//    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
-//    $arr_pages[$int_uid]['module']        = 'org_dwnlds';
-//    $arr_pages[$int_uid]['urlType']       = 1;
-//    $arr_pages[$int_uid]['sorting']       = 256 * 2;
-//    $arr_pages[$int_uid]['TSconfig']      = '
-//
-//// Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
-//
-//
-//
-//mod {
-//  web_list {
-//    allowedNewTables (
-//      tx_org_downloads,
-//      tx_org_downloadscat,
-//      tx_org_downloadsmedia
-//    )
-//  }
-//}
-//
-//TCAdefaults {
-//  tx_org_downloads {
-//    documents_display_label = 0
-//    linkicon_width          = 40
-//    thumbnail_width         = 200m
-//    thumbnail_height        = 600m
-//    type                    = download_shipping
-//  }
-//}
-//
-//
-//// Created by ORGANISER INSTALLER at '.$str_date.' -- END
-//
-//';
-//    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_downloads')] = $int_uid;
-//    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_downloads');
-//      // sysfolder downloads
+      // sysfolder downloads
+    $int_uid = $int_uid_downloads;
+    $arr_pages[$int_uid]['uid']           = $int_uid_downloads;
+    $arr_pages[$int_uid]['pid']           = $int_uid_organiser;
+    $arr_pages[$int_uid]['title']         = $this->pi_getLL('sysfolder_title_downloads');
+    $arr_pages[$int_uid]['dokType']       = 254;  // 254: sysfolder
+    $arr_pages[$int_uid]['crdate']        = $this->timestamp;
+    $arr_pages[$int_uid]['tstamp']        = $this->timestamp;
+    $arr_pages[$int_uid]['perms_userid']  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
+    $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
+    $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+    $arr_pages[$int_uid]['module']        = 'org_dwnlds';
+    $arr_pages[$int_uid]['urlType']       = 1;
+    $arr_pages[$int_uid]['sorting']       = 256 * 2;
+    $arr_pages[$int_uid]['TSconfig']      = '
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- BEGIN
+
+
+
+mod {
+  web_list {
+    allowedNewTables (
+      tx_org_downloads,
+      tx_org_downloadscat,
+      tx_org_downloadsmedia
+    )
+  }
+}
+
+TCAdefaults {
+  tx_org_downloads {
+    documents_display_label = 0
+    linkicon_width          = 40
+    thumbnail_width         = 200m
+    thumbnail_height        = 600m
+    type                    = download_shipping
+  }
+}
+
+
+// Created by ORGANISER INSTALLER at '.$str_date.' -- END
+
+';
+    $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_downloads')] = $int_uid;
+    $this->arr_sysfTitles[$int_uid] = $this->pi_getLL('sysfolder_title_downloads');
+      // sysfolder downloads
 
 
 
@@ -1564,6 +1564,7 @@ mod {
     $this->str_tsRoot                     = 'page_'.$str_pageTitle.'_'.$str_uid;
     $this->arr_tsUids[$this->str_tsRoot]  = $int_uid;
     
+    $arr_ts                               = array( );
     $arr_ts[$int_uid]['uid']              = $int_uid;
     $arr_ts[$int_uid]['pid']              = $GLOBALS['TSFE']->id;
     $arr_ts[$int_uid]['tstamp']           = $this->timestamp;
@@ -1710,18 +1711,17 @@ page {
       value = |
       noTrimWrap = | | |
     }
-//  Browser 4.0 is neeeded
-//    60 = TEXT
-//    60 {
-//      typolink {
-//        parameter = {$plugin.org.pages.downloads}
-//      }
-//    }
-//    61 = TEXT
-//    61 {
-//      value = |
-//      noTrimWrap = | | |
-//    }
+    60 = TEXT
+    60 {
+      typolink {
+        parameter = {$plugin.org.pages.downloads}
+      }
+    }
+    61 = TEXT
+    61 {
+      value = |
+      noTrimWrap = | | |
+    }
     70 = TEXT
     70 {
       typolink {
@@ -1733,36 +1733,34 @@ page {
       value = |
       noTrimWrap = | | |
     }
-//  Browser 4.0 is neeeded
-//    80 = TEXT
-//    80 {
-//      typolink {
-//        parameter = {$plugin.org.pages.shopping_cart_downloads}
-//      }
-//    }
-//    81 = TEXT
-//    81 {
-//      value = |
-//      noTrimWrap = | | |
-//    }
+    80 = TEXT
+    80 {
+      typolink {
+        parameter = {$plugin.org.pages.shopping_cart_downloads}
+      }
+    }
+    81 = TEXT
+    81 {
+      value = |
+      noTrimWrap = | | |
+    }
     90 = TEXT
     90 {
       typolink {
         parameter = {$plugin.org.pages.terms}
       }
     }
-//  Browser 4.0 is neeeded
-//    91 = TEXT
-//    91 {
-//      value = |
-//      noTrimWrap = | | |
-//    }
-//    92 = TEXT
-//    92 {
-//      typolink {
-//        parameter = {$plugin.org.pages.terms_downloads}
-//      }
-//    }
+    91 = TEXT
+    91 {
+      value = |
+      noTrimWrap = | | |
+    }
+    92 = TEXT
+    92 {
+      typolink {
+        parameter = {$plugin.org.pages.terms_downloads}
+      }
+    }
   }
     // content
   20 < styles.content.get
@@ -2038,37 +2036,36 @@ plugin.tx_powermail_pi1 {
 
 
 
-//  Browser 4.0 is neeeded
-//      // Cart downloads page
-//    $int_uid = $int_uid +1;
-//    $str_uid = sprintf ('%03d', $int_uid);
-//
-//    $str_pageTitle                = strtolower($this->pi_getLL('page_title_cart_downloads'));
-//    $str_pageTitle                = str_replace(' ', '', $str_pageTitle);
-//    $this->str_tsWtCartDownloads  = '+page_'.$str_pageTitle.'_'.$str_uid;
-//
-//    $this->arr_tsUids[$this->str_tsWtCartDownloads] = $int_uid;
-//    $arr_ts[$int_uid]['title']                = '+page_'.$str_pageTitle.'_'.$str_uid;
-//    $arr_ts[$int_uid]['uid']                  = $int_uid;
-//    $arr_ts[$int_uid]['pid']                  = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-//    $arr_ts[$int_uid]['tstamp']               = $this->timestamp;
-//    $arr_ts[$int_uid]['sorting']              = 256;
-//    $arr_ts[$int_uid]['crdate']               = $this->timestamp;
-//    $arr_ts[$int_uid]['cruser_id']            = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_ts[$int_uid]['include_static_file']  = ''.
-//      'EXT:org/static/shopping_cart/821/,' .
-//      'EXT:powermail/static/pi1/,' .
-//      'EXT:powermail/static/css_basic/';
-//    $arr_ts[$int_uid]['constants']            = '
-//  ////////////////////////////////////////
-//  //
-//  // Will override by $this->consolidateTsWtCart()
-//
-//';
-//
-//    $arr_ts[$int_uid]['config']               = '
-//';
-//      // Cart downloads page
+      // Cart downloads page
+    $int_uid = $int_uid +1;
+    $str_uid = sprintf ('%03d', $int_uid);
+
+    $str_pageTitle                = strtolower($this->pi_getLL('page_title_cart_downloads'));
+    $str_pageTitle                = str_replace(' ', '', $str_pageTitle);
+    $this->str_tsWtCartDownloads  = '+page_'.$str_pageTitle.'_'.$str_uid;
+
+    $this->arr_tsUids[$this->str_tsWtCartDownloads] = $int_uid;
+    $arr_ts[$int_uid]['title']                = '+page_'.$str_pageTitle.'_'.$str_uid;
+    $arr_ts[$int_uid]['uid']                  = $int_uid;
+    $arr_ts[$int_uid]['pid']                  = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+    $arr_ts[$int_uid]['tstamp']               = $this->timestamp;
+    $arr_ts[$int_uid]['sorting']              = 256;
+    $arr_ts[$int_uid]['crdate']               = $this->timestamp;
+    $arr_ts[$int_uid]['cruser_id']            = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_ts[$int_uid]['include_static_file']  = ''.
+      'EXT:org/static/shopping_cart/821/,' .
+      'EXT:powermail/static/pi1/,' .
+      'EXT:powermail/static/css_basic/';
+    $arr_ts[$int_uid]['constants']            = '
+  ////////////////////////////////////////
+  //
+  // Will override by $this->consolidateTsWtCart()
+
+';
+
+    $arr_ts[$int_uid]['config']               = '
+';
+      // Cart downloads page
 
 
 
@@ -2126,9 +2123,11 @@ plugin.tx_powermail_pi1 {
       //
       // General values
 
+    $arr_plugin       = array( );
     $table            = 'tt_content';
     $no_quote_fields  = false;
-    $str_date         = date('Y-m-d G:i:s');
+    // 121129, dwildt, 1-
+    //$str_date         = date('Y-m-d G:i:s');
     $int_uid          = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -2341,9 +2340,6 @@ plugin.tx_powermail_pi1 {
 
 
 
-// Browser 4.0 is needed
-if( 1 == 0 )
-{
       //////////////////////////////////////////////////////////////////////
       //
       // Plugin browser on downloads page
@@ -2440,7 +2436,7 @@ if( 1 == 0 )
     </data>
 </T3FlexForms>';
       // Plugin browser on downloads page
-}
+
 
 
       //////////////////////////////////////////////////////////////////////
@@ -2723,25 +2719,24 @@ if( 1 == 0 )
 
 
 
-//  Browser 4.0 is neeeded
-//      //////////////////////////////////////////////////////////////////////
-//      //
-//      // Plugin wtcart on page cart downloads
-//
-//    $int_uid                                                                = $int_uid + 1;
-//    $this->arr_pluginUids[$this->pi_getLL('plugin_cart_downloads_header')]  = $int_uid;
-//
-//    $arr_plugin[$int_uid]['uid']           = $int_uid;
-//    $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-//    $arr_plugin[$int_uid]['tstamp']        = $this->timestamp;
-//    $arr_plugin[$int_uid]['crdate']        = $this->timestamp;
-//    $arr_plugin[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_plugin[$int_uid]['sorting']       = 256 * 1;
-//    $arr_plugin[$int_uid]['CType']         = 'list';
-//    $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_cart_downloads_header');
-//    $arr_plugin[$int_uid]['list_type']     = 'wt_cart_pi1';
-//    $arr_plugin[$int_uid]['sectionIndex']  = 1;
-//      // Plugin wtcart on page cart downloads
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Plugin wtcart on page cart downloads
+
+    $int_uid                                                                = $int_uid + 1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_cart_downloads_header')]  = $int_uid;
+
+    $arr_plugin[$int_uid]['uid']           = $int_uid;
+    $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+    $arr_plugin[$int_uid]['tstamp']        = $this->timestamp;
+    $arr_plugin[$int_uid]['crdate']        = $this->timestamp;
+    $arr_plugin[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_plugin[$int_uid]['sorting']       = 256 * 1;
+    $arr_plugin[$int_uid]['CType']         = 'list';
+    $arr_plugin[$int_uid]['header']        = $this->pi_getLL('plugin_cart_downloads_header');
+    $arr_plugin[$int_uid]['list_type']     = 'wt_cart_pi1';
+    $arr_plugin[$int_uid]['sectionIndex']  = 1;
+      // Plugin wtcart on page cart downloads
 
 
 
@@ -2802,61 +2797,60 @@ TYPO3 Organiser Tickets'; // Without any space left
 
 
 
-//  Browser 4.0 is neeeded
-//      //////////////////////////////////////////////////////////////////////
-//      //
-//      // Plugin powermail on page cart downloads
-//
-//    $str_mail_default_sender = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDEF'];
-//    if (empty($str_mail_default_sender))
-//    {
-//      $str_mail_default_sender = 'mail@my-domain.com';
-//    }
-//    $str_mail_subject = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'];
-//    if (empty($str_mail_subject))
-//    {
-//      $str_mail_subject = 'TYPO3 Organiser - confirmation';
-//    }
-//
-//
-//    $int_uid                                                          = $int_uid +1;
-//    $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')] = $int_uid;
-//
-//    $arr_plugin[$int_uid]['uid']                        = $int_uid;
-//    $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-//    $arr_plugin[$int_uid]['tstamp']                     = $this->timestamp;
-//    $arr_plugin[$int_uid]['crdate']                     = $this->timestamp;
-//    $arr_plugin[$int_uid]['cruser_id']                  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_plugin[$int_uid]['sorting']                    = 256 * 2;
-//    $arr_plugin[$int_uid]['CType']                      = 'powermail_pi1';
-//    $arr_plugin[$int_uid]['header']                     = $this->pi_getLL('plugin_powermail_downloads_header');
-//    $arr_plugin[$int_uid]['header_layout']              = 100;  // hidden
-//    $arr_plugin[$int_uid]['list_type']                  = '';
-//    $arr_plugin[$int_uid]['sectionIndex']               = 1;
-//    $arr_plugin[$int_uid]['tx_powermail_title']         = 'order';
-//
-//    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $str_mail_default_sender . '
-//TYPO3 Organiser Downloads'; // Without any space left
-//    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $str_mail_subject;
-//    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $str_mail_subject;
-//// Will updated by $this->consolidatePluginPowermail()
-////    $arr_plugin[$int_uid]['tx_powermail_sender']        = $str_sender;
-////    $arr_plugin[$int_uid]['tx_powermail_sendername']    = $str_sendername;
-//    $arr_plugin[$int_uid]['tx_powermail_confirm']       = 1;
-//    $arr_plugin[$int_uid]['tx_powermail_pages']         = false;
-//    $arr_plugin[$int_uid]['tx_powermail_multiple']      = 0;
-//    $arr_plugin[$int_uid]['tx_powermail_recip_table']   = 0;
-//    $arr_plugin[$int_uid]['tx_powermail_recip_id']      = false;
-//    $arr_plugin[$int_uid]['tx_powermail_recip_field']   = false;
-//    $arr_plugin[$int_uid]['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_downloads_thanks');
-//// Will updated by $this->consolidatePluginPowermail()
-////    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = null;
-////    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = null;
-//    $arr_plugin[$int_uid]['tx_powermail_redirect']      = false;
-//    $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 2;
-//    $arr_plugin[$int_uid]['tx_powermail_users']         = 0;
-//    $arr_plugin[$int_uid]['tx_powermail_preview']       = 0;
-//      // Plugin powermail on page cart downloads
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Plugin powermail on page cart downloads
+
+    $str_mail_default_sender = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_default_sender']['vDEF'];
+    if (empty($str_mail_default_sender))
+    {
+      $str_mail_default_sender = 'mail@my-domain.com';
+    }
+    $str_mail_subject = $this->arr_piFlexform['data']['sDEF']['lDEF']['mail_subject']['vDEF'];
+    if (empty($str_mail_subject))
+    {
+      $str_mail_subject = 'TYPO3 Organiser - confirmation';
+    }
+
+
+    $int_uid                                                          = $int_uid +1;
+    $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')] = $int_uid;
+
+    $arr_plugin[$int_uid]['uid']                        = $int_uid;
+    $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+    $arr_plugin[$int_uid]['tstamp']                     = $this->timestamp;
+    $arr_plugin[$int_uid]['crdate']                     = $this->timestamp;
+    $arr_plugin[$int_uid]['cruser_id']                  = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_plugin[$int_uid]['sorting']                    = 256 * 2;
+    $arr_plugin[$int_uid]['CType']                      = 'powermail_pi1';
+    $arr_plugin[$int_uid]['header']                     = $this->pi_getLL('plugin_powermail_downloads_header');
+    $arr_plugin[$int_uid]['header_layout']              = 100;  // hidden
+    $arr_plugin[$int_uid]['list_type']                  = '';
+    $arr_plugin[$int_uid]['sectionIndex']               = 1;
+    $arr_plugin[$int_uid]['tx_powermail_title']         = 'order';
+
+    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $str_mail_default_sender . '
+TYPO3 Organiser Downloads'; // Without any space left
+    $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $str_mail_subject;
+    $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $str_mail_subject;
+// Will updated by $this->consolidatePluginPowermail()
+//    $arr_plugin[$int_uid]['tx_powermail_sender']        = $str_sender;
+//    $arr_plugin[$int_uid]['tx_powermail_sendername']    = $str_sendername;
+    $arr_plugin[$int_uid]['tx_powermail_confirm']       = 1;
+    $arr_plugin[$int_uid]['tx_powermail_pages']         = false;
+    $arr_plugin[$int_uid]['tx_powermail_multiple']      = 0;
+    $arr_plugin[$int_uid]['tx_powermail_recip_table']   = 0;
+    $arr_plugin[$int_uid]['tx_powermail_recip_id']      = false;
+    $arr_plugin[$int_uid]['tx_powermail_recip_field']   = false;
+    $arr_plugin[$int_uid]['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_downloads_thanks');
+// Will updated by $this->consolidatePluginPowermail()
+//    $arr_plugin[$int_uid]['tx_powermail_mailsender']    = null;
+//    $arr_plugin[$int_uid]['tx_powermail_mailreceiver']  = null;
+    $arr_plugin[$int_uid]['tx_powermail_redirect']      = false;
+    $arr_plugin[$int_uid]['tx_powermail_fieldsets']     = 2;
+    $arr_plugin[$int_uid]['tx_powermail_users']         = 0;
+    $arr_plugin[$int_uid]['tx_powermail_preview']       = 0;
+      // Plugin powermail on page cart downloads
 
 
 
@@ -2920,6 +2914,7 @@ TYPO3 Organiser Tickets'; // Without any space left
       //
       // General values for fieldsets
   
+    $arr_records     = array( );
     $table           = 'tx_powermail_fieldsets';
     $no_quote_fields = false;
     $int_uid         = $this->zz_getMaxDbUid($table);
@@ -2963,39 +2958,38 @@ TYPO3 Organiser Tickets'; // Without any space left
 
 
 
-//  Browser 4.0 is neeeded
-//      //////////////////////////////////////////////////////////////////////
-//      //
-//      // Powermail fieldsets records in page cart downloads
-//
-//      // Contact Data
-//    $int_uid                                                                        = $int_uid + 1;
-//    $this->arr_recordUids['###downloads.tx_powermail_fieldsets.uid.contactData###'] = $int_uid;
-//    $arr_records[$int_uid]['uid']           = $int_uid;
-//    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-//    $arr_records[$int_uid]['tstamp']        = $this->timestamp;
-//    $arr_records[$int_uid]['crdate']        = $this->timestamp;
-//    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_contactData');
-//    $arr_records[$int_uid]['sorting']       = 256 * 1;
-//    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
-//    $arr_records[$int_uid]['felder']        = '9';
-//      // Contact Data
-//
-//      // Order
-//    $int_uid                                                                  = $int_uid + 1;
-//    $this->arr_recordUids['###downloads.tx_powermail_fieldsets.uid.order###'] = $int_uid;
-//    $arr_records[$int_uid]['uid']           = $int_uid;
-//    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
-//    $arr_records[$int_uid]['tstamp']        = $this->timestamp;
-//    $arr_records[$int_uid]['crdate']        = $this->timestamp;
-//    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_order');
-//    $arr_records[$int_uid]['sorting']       = 256 * 2;
-//    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
-//    $arr_records[$int_uid]['felder']        = '2';
-//      // Order
-//      // Powermail fieldsets records in page cart downloads
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Powermail fieldsets records in page cart downloads
+
+      // Contact Data
+    $int_uid                                                                        = $int_uid + 1;
+    $this->arr_recordUids['###downloads.tx_powermail_fieldsets.uid.contactData###'] = $int_uid;
+    $arr_records[$int_uid]['uid']           = $int_uid;
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+    $arr_records[$int_uid]['tstamp']        = $this->timestamp;
+    $arr_records[$int_uid]['crdate']        = $this->timestamp;
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_contactData');
+    $arr_records[$int_uid]['sorting']       = 256 * 1;
+    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
+    $arr_records[$int_uid]['felder']        = '9';
+      // Contact Data
+
+      // Order
+    $int_uid                                                                  = $int_uid + 1;
+    $this->arr_recordUids['###downloads.tx_powermail_fieldsets.uid.order###'] = $int_uid;
+    $arr_records[$int_uid]['uid']           = $int_uid;
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart_downloads')];
+    $arr_records[$int_uid]['tstamp']        = $this->timestamp;
+    $arr_records[$int_uid]['crdate']        = $this->timestamp;
+    $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_records[$int_uid]['title']         = $this->pi_getLL('record_pm_fSets_title_order');
+    $arr_records[$int_uid]['sorting']       = 256 * 2;
+    $arr_records[$int_uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
+    $arr_records[$int_uid]['felder']        = '2';
+      // Order
+      // Powermail fieldsets records in page cart downloads
     
     
     
@@ -3232,9 +3226,6 @@ TYPO3 Organiser Tickets'; // Without any space left
       // Powermail fields for cart calendar
 
 
-//  Browser 4.0 is neeeded
-if( 1 == 0 )
-{
       //////////////////////////////////////////////////////////////////////
       //
       // Powermail fields for cart downloads
@@ -3536,7 +3527,7 @@ if( 1 == 0 )
     $arr_records[$int_uid]['flexform']      = '';
       // Submit
       // Powermail fields for cart downloads
-}
+
 
 
       //////////////////////////////////////////////////////////////////////
@@ -3632,6 +3623,7 @@ if( 1 == 0 )
       // tx_org_calentrance
 
       // General values
+    $arr_records     = array( );
     $table           = 'tx_org_calentrance';
     $no_quote_fields = false;
     $str_date        = date('Y-m-d G:i:s');
@@ -3840,13 +3832,12 @@ if( 1 == 0 )
    */
   private function createRecords_categories_sysfolder_downloads()
   {
-//  Browser 4.0 is neeeded
-return;    
       //////////////////////////////////////////////////////////////////////
       //
       // tx_org_downloadscat
 
       // General values
+    $arr_records     = array( );
     $table           = 'tx_org_downloadscat';
     $no_quote_fields = false;
     $str_date        = date('Y-m-d G:i:s');
@@ -3998,9 +3989,10 @@ return;
       // tx_org_departmentcat
 
       // General values
+    $arr_records     = array( );
     $table           = 'tx_org_departmentcat';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -4079,9 +4071,10 @@ return;
       // tx_org_newscat
 
       // General values
+    $arr_records     = array( );
     $table           = 'tx_org_newscat';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -4161,9 +4154,10 @@ return;
       // fe_groups
 
       // General values
+    $arr_records     = array( );
     $table           = 'fe_groups';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -4242,9 +4236,10 @@ return;
       // tx_org_cal
 
       // General values
+    $arr_records     = array( );
     $table           = 'tx_org_cal';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -4370,16 +4365,15 @@ return;
    */
   private function createRecords_records_sysfolder_downloads()
   {
-//  Browser 4.0 is neeeded
-return;
       //////////////////////////////////////////////////////////////////////
       //
       // tx_org_downloads
 
       // General values
+    $arr_records     = array( );
     $table           = 'tx_org_downloads';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -4630,9 +4624,10 @@ return;
       // tx_org_department
 
       // General values
+    $arr_records     = array( );
     $table           = 'tx_org_department';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -4715,7 +4710,7 @@ return;
       // General values
     $table           = 'tx_org_headquarters';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -4853,9 +4848,10 @@ return;
       // tx_org_location
 
       // General values
+    $arr_records     = array( );
     $table           = 'tx_org_location';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -4975,9 +4971,10 @@ return;
       // tx_org_news
 
       // General values
+    $arr_records     = array( );
     $table           = 'tx_org_news';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -5097,9 +5094,10 @@ return;
       // fe_users
 
       // General values
+    $arr_records     = array( );
     $table           = 'fe_users';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -5244,6 +5242,7 @@ return;
       // fe_users_mm_tx_org_news
 
       // General values
+    $arr_records     = array( );
     $int_uid = 0; // Counter only
     $table   = 'fe_users_mm_tx_org_news';
 
@@ -6049,9 +6048,10 @@ return;
       //
       // General values
 
+    $arr_content     = array( );
     $table           = 'tt_content';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -6078,25 +6078,24 @@ return;
 
 
 
-//  Browser 4.0 is neeeded
-//      //////////////////////////////////////////////////////////////////////
-//      //
-//      // Content for page terms and conditions downloads
-//
-//    $int_uid                                                                  = $int_uid + 1;
-//    $this->arr_contentUids[$this->pi_getLL('content_terms_downloads_header')] = $int_uid;
-//
-//    $arr_content[$int_uid]['uid']          = $int_uid;
-//    $arr_content[$int_uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_terms_downloads')];
-//    $arr_content[$int_uid]['tstamp']       = $this->timestamp;
-//    $arr_content[$int_uid]['crdate']       = $this->timestamp;
-//    $arr_content[$int_uid]['cruser_id']    = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
-//    $arr_content[$int_uid]['sorting']      = 256 * 1;
-//    $arr_content[$int_uid]['CType']        = 'text';
-//    $arr_content[$int_uid]['header']       = $this->pi_getLL('content_terms_downloads_header');
-//    $arr_content[$int_uid]['bodytext']     = $this->pi_getLL('content_terms_downloads_bodytext');
-//    $arr_content[$int_uid]['sectionIndex'] = 1;
-//      // Content for page terms and conditions downloads
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Content for page terms and conditions downloads
+
+    $int_uid                                                                  = $int_uid + 1;
+    $this->arr_contentUids[$this->pi_getLL('content_terms_downloads_header')] = $int_uid;
+
+    $arr_content[$int_uid]['uid']          = $int_uid;
+    $arr_content[$int_uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_terms_downloads')];
+    $arr_content[$int_uid]['tstamp']       = $this->timestamp;
+    $arr_content[$int_uid]['crdate']       = $this->timestamp;
+    $arr_content[$int_uid]['cruser_id']    = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    $arr_content[$int_uid]['sorting']      = 256 * 1;
+    $arr_content[$int_uid]['CType']        = 'text';
+    $arr_content[$int_uid]['header']       = $this->pi_getLL('content_terms_downloads_header');
+    $arr_content[$int_uid]['bodytext']     = $this->pi_getLL('content_terms_downloads_bodytext');
+    $arr_content[$int_uid]['sectionIndex'] = 1;
+      // Content for page terms and conditions downloads
 
 
 
@@ -6153,6 +6152,8 @@ return;
       //
       // General Values
   
+    $arr_pages       = array( );
+    $arr_content     = array( );
     $str_date        = date('Y-m-d G:i:s');
     $table           = 'pages';
     $where           = 'uid = '.$GLOBALS['TSFE']->id;
@@ -6358,7 +6359,8 @@ TCEMAIN {
       // Powermail for cart calendar
 
       // General Values
-    $str_date        = date('Y-m-d G:i:s');
+    $arr_plugin      = array( );
+//    $str_date        = date('Y-m-d G:i:s');
     $table           = 'tt_content';
     $int_uid         = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_calendar_header')];
     $where           = 'uid = '.$int_uid;
@@ -6414,7 +6416,7 @@ TCEMAIN {
       // Powermail for cart downloads
 
       // General Values
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $table           = 'tt_content';
     $int_uid         = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_downloads_header')];
     $where           = 'uid = '.$int_uid;
@@ -6490,7 +6492,8 @@ TCEMAIN {
       // Cart calendar
 
       // General Values
-    $str_date        = date('Y-m-d G:i:s');
+    $arr_ts          = array( );
+//    $str_date        = date('Y-m-d G:i:s');
     $table           = 'sys_template';
     $int_uid         = $this->arr_tsUids[$this->str_tsWtCartCalendar];
     $where           = 'uid = '.$int_uid;
@@ -6549,7 +6552,7 @@ plugin.org {
       // Cart downloads
 
       // General Values
-    $str_date        = date('Y-m-d G:i:s');
+//    $str_date        = date('Y-m-d G:i:s');
     $table           = 'sys_template';
     $int_uid         = $this->arr_tsUids[$this->str_tsWtCartDownloads];
     $where           = 'uid = '.$int_uid;
@@ -6667,7 +6670,7 @@ plugin.org {
 
     // Set the URL (wrap the Link)
     $this->local_cObj = t3lib_div::makeInstance('tslib_cObj');
-    $action               = $this->local_cObj->stdWrap('#', $lConfCObj);
+//    $action               = $this->local_cObj->stdWrap('#', $lConfCObj);
 //var_dump($action, $lConfCObj);
 //        <form name="form_confirm" action="'.$action.'" method="POST">
 

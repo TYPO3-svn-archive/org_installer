@@ -149,15 +149,14 @@ Kind regards
 TYPO3-Organiser]]></label>
       <label index="plugin_powermail_downloads_header">[Powermail for Organiser Downloads]</label>
       <label index="plugin_powermail_downloads_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo site for the TYPO3 Organiser - any order hasn't any effect.</label>
-      <label index="plugin_powermail_downloads_mail_receiver">Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
-herzlichen Dank für Ihre Bestellung.
-Sie haben uns folgende Daten gesendet:
+      <label index="plugin_powermail_downloads_mail_receiver"><![CDATA[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
+Thanks for your order.
+You have sent this data:
 ###POWERMAIL_TYPOSCRIPT_CART###
 ###POWERMAIL_ALL###
-Wir versenden leider nichts. Es handelt sich um einen Demo-Shop.
-Viele Grüße
-TYPO3-Organiser
-</label>
+We won't send nothing. This is an online shop for demonstration only.
+Kind regards
+TYPO3-Organiser]]></label>
       <label index="plugin_powermail_downloads_mail_sender">Hallo,
 folgende Bestellung wurde gesendet:
 ###POWERMAIL_TYPOSCRIPT_CART###

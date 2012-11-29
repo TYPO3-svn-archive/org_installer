@@ -156,10 +156,12 @@ We won't send nothing. This is an online shop for demonstration only.
 Kind regards
 TYPO3-Organiser]]></label>
       <label index="plugin_powermail_downloads_mail_sender"><![CDATA[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
-folgende Bestellung wurde gesendet:
+Thanks for your order.
+You have sent this data:
 ###POWERMAIL_TYPOSCRIPT_CART###
 ###POWERMAIL_ALL###
-Viele Grüße
+We won't send nothing. This is an online shop for demonstration only.
+Kind regards
 TYPO3-Organiser]]></label>
       <label index="plugin_staff_header">[Browser for Organiser Staff]</label>
       <label index="plugin_staff_label">TYPO3 Organiser Staff</label>
@@ -914,10 +916,12 @@ folgende Bestellung wurde gesendet:
 ###POWERMAIL_ALL###
 Viele Grüße
 TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_downloads_mail_sender"><![CDATA[Hallo ###UID###FIRSTNAME###### ###UID###SURNAME######,
-folgende Bestellung wurde gesendet:
+      <label index="plugin_powermail_downloads_mail_sender"><![CDATA[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
+herzlichen Dank für Ihre Bestellung.
+Sie haben an uns folgende Daten gesendet:
 ###POWERMAIL_TYPOSCRIPT_CART###
 ###POWERMAIL_ALL###
+Wir versenden leider nichts. Es handelt sich um einen Demo-Shop.
 Viele Grüße
 TYPO3-Organiser]]></label>
       <label index="plugin_staff_header"><![CDATA[Browser für Organiser Personal]]]></label>

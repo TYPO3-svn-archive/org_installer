@@ -1,3 +1,8 @@
+2.1.2
+  2012-11-29
+  Improvement
+  * 00000: Update for Organiser 2.1.7
+
 2.1.1
   2012-06-13
   * 00000: Ext-Manager reads $_POST['data']

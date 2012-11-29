@@ -1892,6 +1892,15 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     }
 
     $arr_ts[$int_uid]['constants']           = '
+plugin.tx_browser_pi1 {
+  jQuery {
+    plugin {
+      jstree {
+        plugins = category_menu
+      }
+    }
+  }
+}
 plugin.org {
   sysfolder {
     calendar                = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_calendar')] . '

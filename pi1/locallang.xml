@@ -745,6 +745,9 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 
       <label index="content_create_header">Page content</label>
       <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
+
+      <label index="content_wtcartfixed_header"><![CDATA[Please use wt_cart 1.4.6 fixed!]]></label>
+      <label index="content_wtcartfixed_bodytext"><![CDATA[Prompt for TYPO3 integrators: You need <a href="http://typo3-browser-forum.de/wt_cart-1_4_6_fixed.t3x" title="wt_cart 1.4.6 fixed as *.t3x">wt_cart 1.4.6 fixed</a> for ordering tickets!]]></label>
       <label index="content_terms_calendar_header">Terms and conditions for tickets</label>
       <label index="content_terms_calendar_bodytext">Our terms and conditions: This is a website for demonstration the TYPO3 Organiser only. You can order a lot of tickets, but you will receive nothing.</label>
       <label index="content_terms_downloads_header">Terms and conditions for downloads</label>
@@ -1019,6 +1022,8 @@ TYPO3-Organiser]]></label>
       <label index="content_create_header">Seiteninhalt</label>
       <label index="content_create_prompt"><![CDATA[Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.]]></label>
 
+      <label index="content_wtcartfixed_header"><![CDATA[Verwende bitte wt_cart 1.4.6 fixed!]]></label>
+      <label index="content_wtcartfixed_bodytext"><![CDATA[Hinweis für TYPO3-Integratoren: Um Karten erfolgreich bestellen zu können, muss <a href="http://typo3-browser-forum.de/wt_cart-1_4_6_fixed.t3x" title="wt_cart 1.4.6 fixed als *.t3x">wt_cart 1.4.6 fixed</a> installiert sein.]]></label>
       <label index="content_terms_calendar_header"><![CDATA[AGB Tickets - Allgemeine Geschäftsbedingungen]]></label>
       <label index="content_terms_calendar_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist eine Demonstration des TYPO3 Organisers. Du kannst soviele Tickets bestellen wie Du m&ouml;chtest. Wir werden kein einziges versenden :( ]]></label>
       <label index="content_terms_downloads_header"><![CDATA[AGB Downloads - Allgemeine Geschäftsbedingungen]]></label>

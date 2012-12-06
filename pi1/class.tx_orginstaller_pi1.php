@@ -2576,7 +2576,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/_default/main.tmpll</value>
+                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -6051,6 +6051,29 @@ TYPO3 Organiser Downloads'; // Without any space left
 //    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
+
+
+
+      //////////////////////////////////////////////////////////////////////
+      //
+      // Content for page calendar
+
+    $int_uid                                                              = $int_uid + 1;
+    $this->arr_contentUids[$this->pi_getLL('content_wtcartfixed_header')] = $int_uid;
+
+    $arr_content[$int_uid]['uid']          = $int_uid;
+    $arr_content[$int_uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_calendar')];
+    $arr_content[$int_uid]['tstamp']       = $this->timestamp;
+    $arr_content[$int_uid]['crdate']       = $this->timestamp;
+    $arr_content[$int_uid]['cruser_id']    = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
+    //$arr_content[$int_uid]['sorting']      = 256 * 1;
+    $arr_content[$int_uid]['sorting']      = 1;
+    $arr_content[$int_uid]['CType']        = 'text';
+    $arr_content[$int_uid]['header']       = $this->pi_getLL('content_wtcartfixed_header');
+    $arr_content[$int_uid]['bodytext']     = $this->pi_getLL('content_wtcartfixed_bodytext');
+    $arr_content[$int_uid]['header_layout'] = 100; // Don't display header
+    $arr_content[$int_uid]['sectionIndex'] = 1;
+      // Content for page calendar
 
 
 

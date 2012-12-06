@@ -465,7 +465,10 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
     $i = 0;
     $arr_extensions[$i]['extKey']   = 'browser';
-    $arr_extensions[$i]['extTitle'] = 'Browser - the TYPO3-Frontend-Engine (browser)';
+    $arr_extensions[$i]['extTitle'] = 'Browser - TYPO3 without PHP (browser)';
+    $i++;
+    $arr_extensions[$i]['extKey']   = 'cps_devlib';
+    $arr_extensions[$i]['extTitle'] = 'Developer library (cps_devlib)';
     $i++;
     $arr_extensions[$i]['extKey']   = 'linkhandler';
     $arr_extensions[$i]['extTitle'] = 'AOE link handler (linkhandler)';
@@ -475,6 +478,9 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $i++;
     $arr_extensions[$i]['extKey']   = 'powermail';
     $arr_extensions[$i]['extTitle'] = 'Powermail (powermail)';
+    $i++;
+    $arr_extensions[$i]['extKey']   = 'cps_tcatree';
+    $arr_extensions[$i]['extTitle'] = 'Record tree for TCA (cps_tcatree)';
     $i++;
     $arr_extensions[$i]['extKey']   = 'static_info_tables';
     $arr_extensions[$i]['extTitle'] = 'Static Info Tables (static_info_tables)';
@@ -1890,15 +1896,6 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     }
 
     $arr_ts[$int_uid]['constants']           = '
-plugin.tx_browser_pi1 {
-  jQuery {
-    plugin {
-      jstree {
-        plugins = category_menu
-      }
-    }
-  }
-}
 plugin.org {
   sysfolder {
     calendar                = ' . $this->arr_sysfUids[$this->pi_getLL('sysfolder_title_calendar')] . '
@@ -2295,7 +2292,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="javascript">
             <language index="lDEF">
                 <field index="mode">
-                    <value index="vDEF">list_and_single</value>
+                    <value index="vDEF">disabled</value>
                 </field>
                 <field index="list_transition">
                     <value index="vDEF">collapse</value>

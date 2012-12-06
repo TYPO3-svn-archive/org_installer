@@ -2183,7 +2183,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/calendar/201/default.tmpl</value>
+                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2282,7 +2282,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/news/401/default.tmpl</value>
+                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2390,7 +2390,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/downloads/301/default.tmpl</value>
+                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2480,7 +2480,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/staff/101/default.tmpl</value>
+                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2579,7 +2579,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/headquarters/501/default.tmpl</value>
+                    <value index="vDEF">EXT:org/res/html/_default/main.tmpll</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2659,7 +2659,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/location/701/default.tmpl</value>
+                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>

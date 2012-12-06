@@ -1,24 +1,33 @@
-2.1.2
-  2012-11-29
+2.2.0
+  2012-12-06
   Improvement
-  * 00000: Update for Organiser 2.1.7
-           Update for the download module
+  * #43690: Update for Browser 4.2 and Organiser 2.2
+            Effected file:
+            class.tx_orginstaller_pi1.php
+  Bugfix
+  * #34952: Powermail buggy constant
+
+2.1.2
+  2012-12-30
+  Improvement
+  * #32167: Update for Organiser 2.1.7
+            Update for the download module
 
 2.1.1
   2012-06-13
-  * 00000: Ext-Manager reads $_POST['data']
-           Effected file: lib/class.tx_org_installer_extmanager.php
-  * 00000: $ICON_TYPES -> t3lib_SpriteManager::addTcaTypeIcon( ... )
-           Effected file: ext_tables.php
+  * #00000: Ext-Manager reads $_POST['data']
+            Effected file: lib/class.tx_org_installer_extmanager.php
+  * #00000: $ICON_TYPES -> t3lib_SpriteManager::addTcaTypeIcon( ... )
+            Effected file: ext_tables.php
 
 2.1.0
   2012-05-31
   Improvement
-  * 00000: Update for Browser version 3.7.9 (record browser)
-           Effected file:
-           class.tx_orginstaller_pi1.php
-           * createPlugins
-           * createTyposcript
+  * #00000: Update for Browser version 3.7.9 (record browser)
+            Effected file:
+            class.tx_orginstaller_pi1.php
+            * createPlugins
+            * createTyposcript
   
 2.0.11
   11-12-12

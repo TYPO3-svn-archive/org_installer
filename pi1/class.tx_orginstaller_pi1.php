@@ -2285,7 +2285,7 @@ plugin.tx_powermail_pi1 {
                     <value index="vDEF">ts</value>
                 </field>
                 <field index="css.jqui">
-                    <value index="vDEF">smoothness</value>
+                    <value index="vDEF">hot_sneaks</value>
                 </field>
             </language>
         </sheet>
@@ -2393,7 +2393,7 @@ plugin.tx_powermail_pi1 {
                     <value index="vDEF">ts</value>
                 </field>
                 <field index="css.jqui">
-                    <value index="vDEF">smoothness</value>
+                    <value index="vDEF">swanky_purse</value>
                 </field>
             </language>
         </sheet>
@@ -2483,7 +2483,7 @@ plugin.tx_powermail_pi1 {
                     <value index="vDEF">ts</value>
                 </field>
                 <field index="css.jqui">
-                    <value index="vDEF">smoothness</value>
+                    <value index="vDEF">le_frog</value>
                 </field>
             </language>
         </sheet>
@@ -2582,7 +2582,7 @@ plugin.tx_powermail_pi1 {
                     <value index="vDEF">ts</value>
                 </field>
                 <field index="css.jqui">
-                    <value index="vDEF">smoothness</value>
+                    <value index="vDEF">start</value>
                 </field>
             </language>
         </sheet>
@@ -2662,7 +2662,7 @@ plugin.tx_powermail_pi1 {
                     <value index="vDEF">ts</value>
                 </field>
                 <field index="css.jqui">
-                    <value index="vDEF">smoothness</value>
+                    <value index="vDEF">sunny</value>
                 </field>
             </language>
         </sheet>

@@ -1658,6 +1658,7 @@ page {
   includeCSS {
     organiser = EXT:org/res/html/org.css
   }
+  wrap = <div id="content">|</div>
     // menue
   10 = COA
   10 {
@@ -2285,7 +2286,7 @@ plugin.tx_powermail_pi1 {
                     <value index="vDEF">ts</value>
                 </field>
                 <field index="css.jqui">
-                    <value index="vDEF">hot_sneaks</value>
+                    <value index="vDEF">eggplant</value>
                 </field>
             </language>
         </sheet>
@@ -2582,7 +2583,7 @@ plugin.tx_powermail_pi1 {
                     <value index="vDEF">ts</value>
                 </field>
                 <field index="css.jqui">
-                    <value index="vDEF">start</value>
+                    <value index="vDEF">dot_luv</value>
                 </field>
             </language>
         </sheet>

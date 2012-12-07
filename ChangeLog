@@ -4,6 +4,9 @@
   * #43690: Update for Browser 4.2 and Organiser 2.2
             Effected file:
             class.tx_orginstaller_pi1.php
+  * #00000: page is wrpped with <div id="content">|</div>
+            Effected file:
+            class.tx_orginstaller_pi1.php
   Bugfix
   * #34952: Powermail buggy constant
 

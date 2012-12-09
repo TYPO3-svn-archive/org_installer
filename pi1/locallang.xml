@@ -126,7 +126,7 @@
       <label index="plugin_locations_header">[Browser for Organiser Locations]</label>
       <label index="plugin_locations_label">TYPO3 Organiser Locations</label>
       <label index="plugin_organiser_header">[Browser for Organiser Calendar]</label>
-      <label index="plugin_organiser_label">TYPO3 Organiser Calender</label>
+      <label index="plugin_organiser_label">TYPO3 Organiser Calendar</label>
       <label index="plugin_news_header">[Browser for Organiser News]</label>
       <label index="plugin_news_label">TYPO3 Organiser News</label>
       <label index="plugin_powermail_calendar_header">[Powermail for Organiser Tickets]</label>

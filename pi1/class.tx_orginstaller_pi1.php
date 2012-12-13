@@ -36,7 +36,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 2.1.0
+ * @version 3.0.0
  * @since   1.0.0
  */
 class tx_orginstaller_pi1 extends tslib_pibase 
@@ -88,6 +88,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
     // [int] current timestamp
   private $timestamp          = null;
 
+    // [INTEGER] TYPO3 version. Sample: 4.7.7 -> 4007007
+  private $typo3Version = null;
 
 
 
@@ -118,8 +120,11 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->timestamp = time();
     
 
+      // Set the global var $typo3Version
+    $this->set_typo3Version( );
 
-
+    
+    
       //////////////////////////////////////////////////////////////////////
       //
       // Install the Organiser
@@ -1603,10 +1608,39 @@ mod {
       'EXT:org/static/headquarters/501/,' .
       'EXT:org/static/location/701/,' .
       'EXT:org/static/news/401/,' .
-      'EXT:org/static/staff/101/,' .
-      'EXT:browser/pi4/static/';
+      'EXT:org/static/staff/101/';
+      // #00000, 121212, dwildt, +
+    switch( true )
+    {
+      case( $this->typo3Version < 4007000 ):
+        $arr_ts[$int_uid]['include_static_file']  = $arr_ts[$int_uid]['include_static_file'] . ',EXT:org/static/base/typo3/4.6/';
+        break;
+      default:
+        // do nothing
+        break;
+    }
+      // #00000, 121212, dwildt, +
+    $arr_ts[$int_uid]['include_static_file']  = $arr_ts[$int_uid]['include_static_file'] . ',EXT:browser/pi4/static/';
+
     if($this->bool_topLevel)
     {
+        // #00000, 121212, dwildt, +
+      switch( true )
+      {
+        case( $this->typo3Version < 4007000 ):
+          $html5conf = '' .
+'  doctype                   = xhtml_strict
+';
+          break;
+        default:
+          $html5conf = '' .
+'  doctype                   = html5
+  xmlprologue               = none
+';
+          break;
+      }
+        // #00000, 121212, dwildt, +
+
       $arr_ts[$int_uid]['config']                    = '
   ////////////////////////////////////////////////////////////////////////////////////////////
   //
@@ -1628,7 +1662,7 @@ config {
   language                  = ' . $GLOBALS['TSFE']->lang . '
   locale_all                = ' . $str_locale_all . '
   metaCharset               = UTF-8
-  doctype                   = xhtml_strict
+' . $html5conf . '
   xhtml_cleaning            = all
   htmlTag_langKey           = '.$GLOBALS['TSFE']->lang.'
 
@@ -6793,7 +6827,57 @@ plugin.org {
 
 
 
-   /**
+  
+  
+  
+/**
+ * set_typo3Version(): 
+ *
+ * @return  void
+ * @version 3.0.0
+ * @since 3.0.0
+ */
+  private function set_typo3Version( )
+  {
+      // #43108, 121212, dwildt, +
+      // RETURN : typo3Version is set
+    if( $this->typo3Version !== null )
+    {
+      return;
+    }
+      // RETURN : typo3Version is set
+    
+      // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+    list( $main, $sub, $bugfix ) = explode( '.', TYPO3_version );
+    $version = ( ( int ) $main ) * 1000000;
+    $version = $version + ( ( int ) $sub ) * 1000;
+    $version = $version + ( ( int ) $bugfix ) * 1;
+    $this->typo3Version = $version;
+      // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+
+    if( $this->typo3Version < 3000000 ) 
+    {
+      $prompt = '<h1>ERROR</h1>
+        <h2>Unproper TYPO3 version</h2>
+        <ul>
+          <li>
+            TYPO3 version is smaller than 3.0.0
+          </li>
+          <li>
+            constant TYPO3_version: ' . TYPO3_version . '
+          </li>
+          <li>
+            integer $this->typo3Version: ' . ( int ) $this->typo3Version . '
+          </li>
+        </ul>
+          ';
+      die ( $prompt );
+    }
+  }
+
+  
+  
+  /**
    * zz_getFlexValues(): Allocates flexform values to $this->arr_piFlexform
    *
    * @return    void
@@ -6845,7 +6929,7 @@ plugin.org {
  * @param  string    $str_params: URL parameter string like &tx_browser_pi1[showUid]=12&&tx_browser_pi1[cat]=1
  * @return  string    $cHash_md5: md5 value like d218cfedf9
  */
-  function get_cHash($str_params)
+  private function get_cHash($str_params)
   {
     $cHash_array  = t3lib_div::cHashParams($str_params);
     $cHash_md5    = t3lib_div::shortMD5(serialize($cHash_array));

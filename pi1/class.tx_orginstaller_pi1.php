@@ -4315,9 +4315,9 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['type']          = $this->pi_getLL('record_tx_org_cal_t3organiser_type');
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_tx_org_cal_t3organiser_title');
-    $nextMonth = time() + (30 * 24 * 60 * 60);
-                       // 30 Tage; 24 Stunden; 60 Minuten; 60 Sekunden
-    $arr_records[$int_uid]['datetime']      = $nextMonth;
+    $in3Months = time() + (90 * 24 * 60 * 60);
+                       // 90 Tage; 24 Stunden; 60 Minuten; 60 Sekunden
+    $arr_records[$int_uid]['datetime']      = $in3Months;
     $arr_records[$int_uid]['bodytext']      = $this->pi_getLL('record_tx_org_cal_t3organiser_bodytext');
     $arr_records[$int_uid]['image']         = $str_image;
     $arr_records[$int_uid]['imagewidth']    = $this->pi_getLL('record_tx_org_cal_t3organiser_imagewidth');
@@ -4350,9 +4350,9 @@ TYPO3 Organiser Downloads'; // Without any space left
     $arr_records[$int_uid]['cruser_id']     = $this->arr_piFlexform['data']['sDEF']['lDEF']['backend_user']['vDEF'];
     $arr_records[$int_uid]['type']          = $this->pi_getLL('record_tx_org_cal_eggroll_type');
     $arr_records[$int_uid]['title']         = $this->pi_getLL('record_tx_org_cal_eggroll_title');
-    $nextYear = time() + (365 * 24 * 60 * 60);
-                       // 365 Tage; 24 Stunden; 60 Minuten; 60 Sekunden
-    $arr_records[$int_uid]['datetime']      = $nextYear;
+    $nextMonth = time() + (30 * 24 * 60 * 60);
+                       // 30 Tage; 24 Stunden; 60 Minuten; 60 Sekunden
+    $arr_records[$int_uid]['datetime']      = $nextMonth;
     $arr_records[$int_uid]['calurl']        = $this->pi_getLL('record_tx_org_cal_eggroll_calurl');
     $arr_records[$int_uid]['teaser_short']  = $this->pi_getLL('record_tx_org_cal_eggroll_teaser_short');
       // eggroll

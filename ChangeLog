@@ -1,3 +1,10 @@
+3.0.1
+  2012-12-18
+  Improvement
+  * #44137: Update for Organiser 3.0.1 +++ Removed Org HTML templates
+            Effected file:
+            class.tx_orginstaller_pi1.php
+
 3.0.0
   2012-12-12
   Improvement

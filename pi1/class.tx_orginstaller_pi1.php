@@ -36,7 +36,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 3.0.0
+ * @version 3.0.1
  * @since   1.0.0
  */
 class tx_orginstaller_pi1 extends tslib_pibase 
@@ -2139,7 +2139,7 @@ plugin.tx_powermail_pi1 {
    * createPlugins(): Add the needed plugins to tt_content
    *
    * @return    void
-   * @version 2.1.0
+   * @version 3.0.1
    * @since   1.0.0
    */
   private function createPlugins()
@@ -2215,7 +2215,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
+                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2314,7 +2314,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
+                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2422,7 +2422,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
+                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2512,7 +2512,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
+                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2611,7 +2611,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
+                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
@@ -2691,7 +2691,7 @@ plugin.tx_powermail_pi1 {
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:org/res/html/_default/main.tmpl</value>
+                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>

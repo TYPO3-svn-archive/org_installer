@@ -6,40 +6,131 @@
   </meta>
   <data type="array">
     <languageKey index="default" type="array">
-      <label index="tt_content.list_type_pi1">Organiser - 1-Click-Installer</label>
       <label index="back">Back</label>
-      <label index="plugin_warn">Do you don't want, that Organiser Installer installs the Organiser?</label>
-      <label index="plugin_help">If you want, please select the option "Installation: Organiser ..." in the TYPO3 backend plugin.</label>
       <label index="begin_h1">Organiser Installation</label>
-      <label index="error_all_h1">Organiser Installation is failing</label>
-
       <label index="confirm_header">Start the Installation</label>
       <label index="confirm_prompt_createBeGroup">Create a backend group</label>
       <label index="confirm_prompt_createPages">Create a page tree</label>
       <label index="confirm_prompt_createContent">Create content for the header and footer</label>
-      <label index="confirm_prompt_createTs">Create TypoScript for the browser, organiser, wt_cart and powermail</label>
-      <label index="confirm_prompt_createPlugins">Create the plugins browser, wt_cart and powermail</label>
+      <label index="confirm_prompt_createTs">Create TypoScript for the browser, caddy and powermail</label>
+      <label index="confirm_prompt_createPlugins">Create the plugins browser, caddy and powermail</label>
       <label index="confirm_prompt_createPowermail">Create configuration records for powermail</label>
-      <label index="confirm_prompt_createOrganiser">Create TYPO3 Organiser sample records</label>
-      <label index="confirm_prompt_createFiles">Create images and files</label>
+      <label index="confirm_prompt_createProducts">Create six example items</label>
+      <label index="confirm_prompt_createFiles">Create product images</label>
       <label index="confirm_prompt_createContent">Create page content</label>
       <label index="confirm_prompt_consolidate">Consolidating</label>
       <label index="confirm_button">Install it!</label>
+      <label index="consolidate_header">Consolidating</label>
+      <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) in page ###TITLE_PID### is updated.</label>
+      <label index="consolidate_prompt_page">Page ###TITLE_PID### (###FIELD###) is updated.</label>
+      <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
+      <label index="content_caddy_header">[fade_deliveryorderaddress.jss]</label>
+      <label index="content_caddy_bodytext"><![CDATA[
+<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
 
-      <label index="ext_header">Check extension dependencies</label>
+  /**
+   *
+   * Copyright (c) 2013 Dirk Wildt
+   * http://wildt.at.die-netzmacher.de/
+   *
+
+   * Version 0.0.3
+   *
+   * Slider for delivery address
+   */
+
+
+
+  $( document ).ready( function( )
+  {
+      // HTML unique class of the fieldset delivery address
+    var fieldset_delivery_address  = ".###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###";
+
+      // RETURN there isn't any HTML element with the defined class
+    if( ! $( fieldset_delivery_address ).length )
+    {
+      return;
+    }
+
+      // Hide all fields (divs) of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'div' )
+      .slideUp( 'fast' );
+    var bool_visible = false;
+
+      // Display the legend of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'legend' )
+      .css( "visibility", "visible" )
+      .css( "cursor", "pointer" )
+      .slideDown( 'fast' );
+
+      // Method for toogle the display of the delivery address
+      // The user has clicked on the legend
+    $( fieldset_delivery_address ).children( 'legend' ).bind(
+      'click',
+      function( e )
+      {
+          // delivery address is visible
+        if( bool_visible )
+        {
+            // Hide all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideUp( 'fast' );
+        }
+          // delivery address is visible
+          // delivery address is hidden
+        else
+        {
+            // Display all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideDown( 'fast' );
+        }
+          // delivery address is hidden
+        bool_visible = ! bool_visible;
+      }
+    );
+      // The user has clicked on the legend
+      // Method for toogle the display of the delivery address
+
+  });
+
+</script>
+]]></label>
+      <label index="content_create_header">Page content</label>
+      <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
+      <label index="content_footer_header">[Footer]</label>
+      <label index="content_footer_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
+      <label index="content_header_header">[Header]</label>
+      <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Organiser: Home"&gt;Organiser&lt;/link&gt;</label>
+      <label index="content_legalinfo_header">Legal info</label>
+      <label index="content_legalinfo_bodytext"><![CDATA[<p>Your legal info</p>
+<h2>Good to know</h2>
+<ul><li>If you provide a website without a legal info or an unproper legal info, you can get trouble with lawyers.</li><li>If you link to <a href="http://die-netzmacher.de/" title="Die Netzmacher - the developer of the Organiser" target="_blank">Die Netzmacher</a> - the developer of the Organiser -, we would be happy.</li></ul>]]></label>
+      <label index="content_revocation_header">Power of Revocation</label>
+      <label index="content_revocation_bodytext"><![CDATA[<p>Your right of revocation</p>
+<h2>Good to know</h2>
+<ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
+<h2>Helpful links</h2>
+<ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
+      <label index="content_shipping_header">Delivery</label>
+      <label index="content_shipping_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
+<ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
+      <label index="content_terms_header">Terms and conditions</label>
+      <label index="content_terms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
+<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
+      <label index="end_button">Reload this page</label>
+      <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Organiser Installer, if you don't need it any longer.</label>
+      <label index="end_header">Finish the installation</label>
+      <label index="end_h1">Organiser Installation was successful.</label>
+      <label index="end_reloadBe_prompt">TYPO3 backend: Please close the edit area and reload the page tree.</label>
+      <label index="error_all_h1">Organiser Installation is failing</label>
       <label index="ext_error">The Organiser Installer is missing an extension.</label>
+      <label index="ext_header">Check extension dependencies</label>
       <label index="ext_help">Please install: </label>
       <label index="ext_ok">is loaded.</label>
-
-      <label index="condition_header">Check conditions</label>
-      <label index="condition_error">The Organiser Installer is missing a condition.</label>
-      <label index="condition_help">To do: </label>
-      <label index="condition_help_org_clearpresented"><![CDATA[Extension Organiser (org): Please set "Store record configuration" to [Clear presented] in the extension manager. Otherwise links between Organiser records won't be working proper in the backend.]]></label>
-      <label index="condition_help_org_memorylimit"><![CDATA[PHP ini: memory_limit ###MEMORY_LIMIT### is below of ###MIN_LIMIT###M. If you will receive an empty page after installation, increase it!]]></label>
-      <label index="condition_ok">is ok.</label>
-      <label index="condition_ok_org_clearpresented"><![CDATA[Extension Organiser (org): "Store record configuration" is set to [Clear presented].]]></label>
-      <label index="condition_ok_org_memorylimit"><![CDATA[PHP ini: memory_limit is ###MEMORY_LIMIT###. This seems to be ok. But if you will receive an empty page after installation, increase it!]]></label>
-
+      <label index="files_create_header">Files</label>
+      <label index="files_create_prompt">File "###DEST###" is created at "###PATH###".</label>
+      <label index="files_create_prompt_error">File "###SRCE###" couldn't copied to "###DEST###".</label>
       <label index="grp_create_header">Backend Group "###GROUP_TITLE###"</label>
       <label index="grp_create_prompt">Group "###GROUP_TITLE###" (uid ###GROUP_UID###) is created. If you doesn't need it, please delete it.</label>
       <label index="grp_ok_header">Backend Group "###GROUP_TITLE###"</label>
@@ -48,1011 +139,527 @@
       <label index="grp_warn_prompt">Organiser Installer couldn't create the group "###GROUP_TITLE###". It doesn't matter.</label>
 
       <label index="page_create_header">Pages and Directories</label>
-      <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###)is created.</label>
-      <label index="sysf_create_prompt">SysFolder "###TITLE###" (uid ###UID###) is created.</label>
+      <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###) is created.</label>
+      <label index="pageOrg_title">Organiser</label>
+      <label index="pageOrgCaddy_title">Caddy</label>
+      <label index="pageOrgCaddyDelivery_title">Shipping</label>
+      <label index="pageOrgCaddyCaddymini_title">Caddy mini</label>
+      <label index="pageOrgCaddyRevocation_title">Revocation</label>
+      <label index="pageOrgCaddyTerms_title">Terms</label>
+      <label index="pageOrgData_title">Data</label>
+      <label index="pageOrgDataCal_title">Calendar</label>
+      <label index="pageOrgDataDownloads_title">Documents</label>
+      <label index="pageOrgDataEvents_title">Events</label>
+      <label index="pageOrgDataHeadquarters_title">Headquarters</label>
+      <label index="pageOrgDataLocations_title">Locations</label>
+      <label index="pageOrgDataNews_title">News</label>
+      <label index="pageOrgDataStaff_title">Staff</label>
+      <label index="pageOrgDownloads_title">Documents</label>
+      <label index="pageOrgEvents_title">Events</label>
+      <label index="pageOrgHeadquarters_title">Headquarters</label>
+      <label index="pageOrgLegalinfo_title">Legal info</label>
+      <label index="pageOrgLibrary_title">Libraries</label>
+      <label index="pageOrgLibraryHeader_title">Kopf</label>
+      <label index="pageOrgLibraryHeaderLogo_title">Logo</label>
+      <label index="pageOrgLibraryHeaderSlider_title">Slider</label>
+      <label index="pageOrgLibraryFooter_title">Footer</label>
+      <label index="pageOrgLocations_title">Locations</label>
+      <label index="pageOrgNews_title">Items</label>
+      <label index="pageOrgStaff_title">Staff</label>
+      <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
+      <label index="phrases_pm_fields_delivery_prependix2x">D-</label>
+      <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
+      <label index="phrases_powermail_revocationAccepted1x"><![CDATA[I know the <link ###PID### _blank>right of revocation</link>.|Right of revocation: I know it]]></label>
+      <label index="phrases_powermail_revocationAccepted2x"><![CDATA[I know the <a href="index.php/?id=###PID###" target="_blank">right of revocation</a>.|Right of revocation: I know it]]></label>
+      <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
+      <label index="phrases_powermail_termsAccepted1x"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
+      <label index="phrases_powermail_termsAccepted2x"><![CDATA[I'm according with the <a href="index.php/?id=###PID###" target="_blank">Terms and Conditions</a>.|Terms and Conditions accepted]]></label>
+      <label index="phrases_ts_titleTag_org_page">Organiser Homepage</label>
+      <label index="plugin_browser_header">[Browser for Organiser]</label>
+      <label index="plugin_browser_mycomment">* [jQuery &amp; AJAX] &gt; AJAX [disabled]
+   * incompatibility of tree view filter and AJAX</label>
+      <label index="plugin_caddy_header">Caddy</label>
+      <label index="plugin_caddy_note_note_1x"></label>
+      <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
 
+  1. Field labels of the delivery address
 
-
-<label index="comment.pages"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * pages
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="page_title_calendar">calendar</label>
-      <label index="page_title_cart_calendar">shop tickets</label>
-      <label index="page_title_cart_downloads">shop downloads</label>
-      <label index="page_title_downloads">downloads</label>
-      <label index="page_title_headquarters">headquarters</label>
-      <label index="page_title_locations">locations</label>
-      <label index="page_title_news">news</label>
-      <label index="page_title_organiser">organiser</label>
-      <label index="page_title_staff">staff</label>
-      <label index="page_title_terms_calendar">terms and conditions tickets</label>
-      <label index="page_title_terms_downloads">terms and conditions downloads</label>
-
-      <label index="page_title_url_cart_calendar">shop_tickets</label>
-      <label index="page_title_url_cart_downloads">shop_downloads</label>
-      <label index="page_title_url_terms_calendar">terms_and_conditions_tickets</label>
-      <label index="page_title_url_terms_downloads">terms_and_conditions_downloads</label>
-
-
-
-<label index="comment.pages.sysfolder"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * pages (type sysfolder)
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-
-      <label index="sysfolder_title_calendar">calendar</label>
-      <label index="sysfolder_title_downloads">downloads</label>
-      <label index="sysfolder_title_events">events</label>
-      <label index="sysfolder_title_headquarters">headquarters and departments</label>
-      <label index="sysfolder_title_locations">locations</label>
-      <label index="sysfolder_title_news">news</label>
-      <label index="sysfolder_title_organiser">organiser</label>
-      <label index="sysfolder_title_staff">staff</label>
-
-      <label index="ts_create_header">TypoScript</label>
-      <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>
-
-
-
-<label index="comment.tt_content.plugins"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * tt_content plugins
-  *
-  ***************************************************************************************/
-
-]]></label>
-
+1. Field labels of the delivery address
+  * The lables differ form the labels of the invoice address
+    * Reason: If lables are the same ther is a bug in the confirmation form.
+      The value of the invoice address will overriden 
+      by the value of the delivery address.]]></label>
+      <label index="plugin_caddymini_header">[Mini Caddy]</label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
-      <label index="plugin_downloads_header">[Browser for Organiser Downloads]</label>
-      <label index="plugin_downloads_label">TYPO3 Organiser Downloads</label>
-      <label index="plugin_headquarters_header">[Browser for Organiser Headquarters]</label>
-      <label index="plugin_headquarters_label">TYPO3 Organiser Headquarters</label>
-      <label index="plugin_locations_header">[Browser for Organiser Locations]</label>
-      <label index="plugin_locations_label">TYPO3 Organiser Locations</label>
-      <label index="plugin_organiser_header">[Browser for Organiser Calendar]</label>
-      <label index="plugin_organiser_label">TYPO3 Organiser Calendar</label>
-      <label index="plugin_news_header">[Browser for Organiser News]</label>
-      <label index="plugin_news_label">TYPO3 Organiser News</label>
-      <label index="plugin_powermail_calendar_header">[Powermail for Organiser Tickets]</label>
-      <label index="plugin_powermail_calendar_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo site for the TYPO3 Organiser - any reservation hasn't any effect.</label>
-      <label index="plugin_powermail_calendar_mail_receiver"><![CDATA[Hallo,
-there is a new order with this data:
-###POWERMAIL_TYPOSCRIPT_CART###
-###POWERMAIL_ALL###
-We won't send nothing. This is an online shop for demonstration only.
-Kind regards
-TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_calendar_mail_sender"><![CDATA[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
-Thanks for your order.
-You have sent this data:
-###POWERMAIL_TYPOSCRIPT_CART###
-###POWERMAIL_ALL###
-We won't send nothing. This is an online shop for demonstration only.
-Kind regards
-TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_downloads_header">[Powermail for Organiser Downloads]</label>
-      <label index="plugin_powermail_downloads_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo site for the TYPO3 Organiser - any order hasn't any effect.</label>
-      <label index="plugin_powermail_downloads_mail_receiver"><![CDATA[Hallo,
-there is a new order with this data:
-###POWERMAIL_TYPOSCRIPT_CART###
-###POWERMAIL_ALL###
-We won't send nothing. This is an online shop for demonstration only.
-Kind regards
-TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_downloads_mail_sender"><![CDATA[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
-Thanks for your order.
-You have sent this data:
-###POWERMAIL_TYPOSCRIPT_CART###
-###POWERMAIL_ALL###
-We won't send nothing. This is an online shop for demonstration only.
-Kind regards
-TYPO3-Organiser]]></label>
-      <label index="plugin_staff_header">[Browser for Organiser Staff]</label>
-      <label index="plugin_staff_label">TYPO3 Organiser Staff</label>
-      <label index="plugin_cart_calendar_header">Cart Tickets</label>
-      <label index="plugin_cart_downloads_header">Cart Downloads</label>
-
+      <label index="plugin_help">If you want, please select the option "Installation: Organiser ..." in the TYPO3 backend plugin.</label>
+      <label index="plugin_powermail_body_r1x"><![CDATA[<p>Dear Quick-Shop-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+###POWERMAIL_TYPOSCRIPT_CADDY###
+###POWERMAIL_ALL###]]></label>
+      <label index="plugin_powermail_body_r2x"><![CDATA[<p>Dear Quick-Shop-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="plugin_powermail_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Quick-Shop.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
+###POWERMAIL_TYPOSCRIPT_CADDY###
+###POWERMAIL_ALL###]]></label>
+      <label index="plugin_powermail_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Quick-Shop.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="plugin_powermail_header">[Powermail for Caddy]</label>
+      <label index="plugin_powermail_subject_r1x">New Organiser order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_r2x">New Organiser order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="plugin_powermail_subject_s1x">[TEST] Your Organiser order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_s2x">[TEST] Your Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="plugin_powermail_thanks1x"><![CDATA[<h1>Thanks!</h1>
+<p>Thanks for your order.</p>
+<p>We sent a confirmation to your e-mail.</p>
+<h2>Good to know</h2>
+<p>This is a demo shop only.</p>
+<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
+<p>Thanks, that you are interested in TYPO3 Organiser! ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
+      <label index="plugin_powermail_thanks2x"><![CDATA[<h1>Thanks {billingaddressfirstname} {billingaddresslastname}!</h1>
+<p>Thanks for your order.</p>
+<p>You get a confirmation to your e-mail {contactdataemail}.</p>
+<h2>Good to know</h2>
+<p>This is a demo shop only.</p>
+<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
+<p>Thanks, that you are interested in TYPO3 Organiser! {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
+      <label index="plugin_warn">Do you don't want, that Organiser Installer installs the Organiser?</label>
       <label index="record_create_header">Records</label>
-      <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the folder ###TITLE_PID###.</label>
+      <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the page/folder ###TITLE_PID###.</label>
       <label index="record_create_mm_prompt">###COUNT### records are added to the table "###TABLE###".</label>
-
-
-
-<label index="comment.fe_users.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Organiser: fe_users records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="record_fe_users_bobama_username">bobama</label>
-      <label index="record_fe_users_bobama_name">Barack Obama</label>
-      <label index="record_fe_users_bobama_first_name">Barack</label>
-      <label index="record_fe_users_bobama_last_name">Obama</label>
-      <label index="record_fe_users_bobama_telephone">++1 202-456-1111</label>
-      <label index="record_fe_users_bobama_email">barack.obama@whitehouse.gov</label>
-      <label index="record_fe_users_bobama_www">http://www.whitehouse.gov/</label>
-      <label index="record_fe_users_bobama_image">barack.obama_timestamp.jpg</label>
-      <label index="record_fe_users_bobama_tx_org_imagecaption">Barack O.</label>
-      <label index="record_fe_users_bobama_tx_org_imageseo">Barack Obama: US President</label>
-      <label index="record_fe_users_bobama_tx_org_vita"><![CDATA[Barack H. Obama is the 44th President of the United States.
-His story is the American story - values from the heartland, a  middle-class upbringing in a strong family, hard work and education as  the means of getting ahead, and the conviction that a life so blessed  should be lived in service to others.
-With a father from Kenya and a mother from Kansas, President Obama  was born in Hawaii on August 4, 1961. He was raised with help from his  grandfather, who served in Patton's army, and his grandmother, who  worked her way up from the secretarial pool to middle management at a  bank.
-After working his way through college with the help of scholarships  and student loans, President Obama moved to Chicago, where he worked  with a group of churches to help rebuild communities devastated by the  closure of local steel plants.
-He went on to attend law school, where he became the first African-American president of the <i>Harvard Law Review</i>.  Upon graduation, he returned to Chicago to help lead a voter  registration drive, teach constitutional law at the University of  Chicago, and remain active in his community.
-President Obama's years of public service are based around his  unwavering belief in the ability to unite people around a politics of  purpose. In the Illinois State Senate, he passed the first major ethics  reform in 25 years, cut taxes for working families, and expanded health  care for children and their parents. As a United States Senator, he  reached across the aisle to pass groundbreaking lobbying reform, lock up  the world's most dangerous weapons, and bring transparency to  government by putting federal spending online.
-He was elected the 44th President of the United States on November 4,  2008, and sworn in on January 20, 2009. He and his wife, Michelle, are  the proud parents of two daughters, Malia, 12, and Sasha, 9.]]></label>
-      
-      <label index="record_fe_users_dwildt_username">dwildt</label>
-      <label index="record_fe_users_dwildt_name">Dirk Wildt</label>
-      <label index="record_fe_users_dwildt_first_name">Dirk</label>
-      <label index="record_fe_users_dwildt_last_name">Wildt</label>
-      <label index="record_fe_users_dwildt_telephone">++49 361 74789004</label>
-      <label index="record_fe_users_dwildt_email">wildt@die-netzmacher.de</label>
-      <label index="record_fe_users_dwildt_www">http://wildt.at.die-netzmacher.de/</label>
-      <label index="record_fe_users_dwildt_image">dirk.wildt_timestamp.jpg</label>
-      <label index="record_fe_users_dwildt_tx_org_imagecaption">Dirk W.</label>
-      <label index="record_fe_users_dwildt_tx_org_imageseo">Dirk Wildt TYPO3 Oganiser</label>
-      <label index="record_fe_users_dwildt_tx_org_vita"><![CDATA[
-        <table cellspacing="0" cellpadding="0" border="0" summary="Vita Dirk Wildt" class="vita_wildt">
-          <caption>Dirk Wildt</caption>
-          <tbody>
-            <tr>
-                <th id="row1849-0" scope="row" class="td-0">2009</th>
-                <td headers="row1849-0" class="td-1">Gesellschafter<br><a title="Die Netzmacher" href="http://die-netzmacher.de">Die Netzmacher GbR</a><br>Internetdienstleistungen</td>
-            </tr>
-            <tr>
-                <th id="row1849-1" scope="row" class="td-0">2002 - 2008</th>
-                <td headers="row1849-1" class="td-1">Einzelunternehmer<br><a target="blank" title="think-visually" href="http://think-visually.com">think visually!</a><br>Internetdienstleistungen</td>
-            </tr>
-            <tr>
-                <th id="row1849-2" scope="row" class="td-0">2000 - 2002</th>
-                <td headers="row1849-2" class="td-1">Finanzcontroller<br><a target="blank" title="g.e.b.b." href="http://www.gebb.de">g.e.b.b.</a><br>Verteidigungsindustrie / Militär</td>
-            </tr>
-            <tr>
-                <th id="row1849-3" scope="row" class="td-0">1999 - 2000</th>
-                <td headers="row1849-3" class="td-1">Finanzcontroller<br><a target="blank" title="tagesspiegel.de" href="http://www.tagesspiegel.de/">GMZ (Tagesspiegel-Gruppe)</a><br>Verlagswesen</td>
-            </tr>
-            <tr>
-                <th id="row1849-4" scope="row" class="td-0">1997 - 1999</th>
-                <td headers="row1849-4" class="td-1">Pressesprecher<br><a target="blank" title="Senatsverwaltung für Finanzen, Berlin" href="http://www.berlin.de/sen/finanzen/">Senatsverwaltung für Finanzen, Berlin</a><br>Öffentlicher Dienst</td>
-            </tr>
-            <tr>
-                <th id="row1849-5" scope="row" class="td-0">1996 - 1997</th>
-                <td headers="row1849-5" class="td-1">Finanzcontroller<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
-            </tr>
-            <tr>
-                <th id="row1849-6" scope="row" class="td-0">1989 - 1996</th>
-                <td headers="row1849-6" class="td-1">Redakteur<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
-            </tr>
-            <tr>
-                <th id="row1849-7" scope="row" class="td-0">1983 - 1989</th>
-                <td headers="row1849-7" class="td-1">Freischaffender Pressefotograf<br>u.a. Spiegel, stern, Zeit, taz, die tageszeitung, Hamburger Morgenpost<br>Verlagswesen</td>
-            </tr>
-          </tbody>
-        </table>]]></label>
-      
-      <label index="record_fe_users_sschaffstein_username">sschaffstein</label>
-      <label index="record_fe_users_sschaffstein_name"><![CDATA[S&ouml;ren Schaffstein]]></label>
-      <label index="record_fe_users_sschaffstein_first_name"><![CDATA[S&ouml;ren]]></label>
-      <label index="record_fe_users_sschaffstein_last_name">Schaffstein</label>
-      <label index="record_fe_users_sschaffstein_telephone">++49 69 2475218 0</label>
-      <label index="record_fe_users_sschaffstein_email">soeren@typo3.org</label>
-      <label index="record_fe_users_sschaffstein_www">http://association.typo3.org/press/press-contact/</label>
-      <label index="record_fe_users_sschaffstein_image">soeren.schaffstein_timestamp.gif</label>
-      <label index="record_fe_users_sschaffstein_tx_org_imagecaption"><![CDATA[S&ouml;ren Sch.]]></label>
-      <label index="record_fe_users_sschaffstein_tx_org_imageseo"><![CDATA[S&ouml;ren Schaffstein TYPO3 press]]></label>
-
-
-
-<label index="comment.category.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Organiser: category records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="record_fe_groups_title_policy">policy</label>
-      <label index="record_fe_groups_title_society">society</label>
-      <label index="record_fe_groups_title_typo3">TYPO3</label>
-      <label index="record_tx_org_calentrance_title_entranceFree">entrance free</label>
-      <label index="record_tx_org_calentrance_value_entranceFree">0.00</label>
-      <label index="record_tx_org_calentrance_title_mereMortals">mere mortals</label>
-      <label index="record_tx_org_calentrance_value_mereMortals">490.00</label>
-      <label index="record_tx_org_calentrance_title_sponsor">sponsor</label>
-      <label index="record_tx_org_calentrance_value_sponsor">290.00</label>
-      <label index="record_tx_org_caltype_title_policy">policy</label>
-      <label index="record_tx_org_caltype_title_society">society</label>
-      <label index="record_tx_org_caltype_title_typo3">TYPO3</label>
-      <label index="record_tx_org_departmentcat_title_policy">policy</label>
-      <label index="record_tx_org_departmentcat_title_society">society</label>
-      <label index="record_tx_org_departmentcat_title_typo3">TYPO3</label>
-      <label index="record_tx_org_downloadscat_title_development">TYPO3 developers</label>
-      <label index="record_tx_org_downloadscat_type_development">cat_image</label>
-      <label index="record_tx_org_downloadscat_title_flyer">TYPO3 integrators</label>
-      <label index="record_tx_org_downloadscat_type_flyer">cat_image</label>
-      <label index="record_tx_org_downloadscat_title_music">TYPO3 community</label>
-      <label index="record_tx_org_downloadscat_type_music">cat_image</label>
-      <label index="record_tx_org_downloadsmedia_title_cd">CD</label>
-      <label index="record_tx_org_downloadsmedia_type_cd">cat_image</label>
-      <label index="record_tx_org_downloadsmedia_title_flyer">flyer</label>
-      <label index="record_tx_org_downloadsmedia_type_flyer">cat_image</label>
-      <label index="record_tx_org_downloadsmedia_title_manuals">manual</label>
-      <label index="record_tx_org_downloadsmedia_type_manuals">cat_image</label>
-      <label index="record_tx_org_newscat_title_policy">policy</label>
-      <label index="record_tx_org_newscat_title_society">society</label>
-      <label index="record_tx_org_newscat_title_typo3">TYPO3</label>
-      <label index="record_tx_org_tax_title_000">0% (without tax)</label>
-      <label index="record_tx_org_tax_value_000">0.00</label>
-      <label index="record_tx_org_tax_title_007">007% (James Bonds tax rate)</label>
-      <label index="record_tx_org_tax_value_007">7.00</label>
-      <label index="record_tx_org_tax_title_019">19% (mere mortals tax rate)</label>
-      <label index="record_tx_org_tax_value_019">19.00</label>
-
-
-<label index="comment.tx_org_cal.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Organiser: tx_org_cal records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="record_tx_org_cal_eggroll_type">calurl</label>
-      <label index="record_tx_org_cal_eggroll_title">2011 White House Easter Egg Roll</label>
-      <label index="record_tx_org_cal_eggroll_datetime">1301868000</label>
-      <label index="record_tx_org_cal_eggroll_calurl">http://www.whitehouse.gov/eastereggroll</label>
-      <label index="record_tx_org_cal_eggroll_teaser_short"><![CDATA[The President and First Lady announced today that this year's White House Easter Egg Roll will be held on Monday, April 25, 2011 with the theme of "Get Up and Go!" promoting health and wellness.]]></label>
-
-      <label index="record_tx_org_cal_t3devdays_type">0</label>
-      <label index="record_tx_org_cal_t3devdays_title">TYPO3 Developer Days 2011</label>
-      <label index="record_tx_org_cal_t3devdays_datetime">1310025600</label>
-      <label index="record_tx_org_cal_t3devdays_bodytext"><![CDATA[We invite you to this year's Developer Days. This will be a great time to learn more about the powerful system and is your chance to connect yourself with other developers from all around the world.
-Conference Activities
-<ul>
-  <li>
-    Workshops and presentations on a variety of TYPO3 topics
-  </li>
-  <li>
-    Ability to meet the TYPO3 community
-  </li>
-  <li>
-    Social event (free to attendees of the conference; individual tickets available for others)
-  </li>
-  <li>
-    Some surprises as every year :-)
-  </li>
-</ul>
-The sixth edition of the TYPO3 Developer Days will take place:]]></label>
-      <label index="record_tx_org_cal_t3devdays_image">t3dd11_header_front_timestamp.jpg</label>
-      <label index="record_tx_org_cal_t3devdays_imagelink">http://t3dd11.typo3.org/</label>
-      <label index="record_tx_org_cal_t3devdays_imageorient">0</label>
-      
-      <label index="record_tx_org_cal_t3organiser_type">0</label>
-      <label index="record_tx_org_cal_t3organiser_title">First night: TYPO3 Organiser</label>
-      <label index="record_tx_org_cal_t3organiser_datetime">1301679000</label>
-      <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Thema
-<ul>
-  <li>
-    Premiere: TYPO3-Organiser - die all-in-one-Extension (<link record:fe_users:###fe_users.uid.dwildt### - internal-link>Dirk Wildt</link>)
-  </li>
-</ul>
-Die  Entwickler -&nbsp; die Netzmacher GbR - stellen den TYPO3-Organiser zum  ersten Mal in der &Ouml;ffentlichkeit am Beispiel mehrere Referenzseiten vor.
-Mit dem Organiser kannst Du Deine Nachrichten und Veranstaltungen mit Ticket-Verkauf mit einer einzigen TYPO3-Erweiterung verwalten - und darüber hinaus auch Dein Personal, deine Standorte und Veranstaltungsorte. Organiser ist die TYPO3-Erweiterung für Verb&auml;nde, Veranstalter und Theater-Betriebe.&nbsp;
-Organiser hat auf Basis von TYPO3 Quick Shop einen flexiblen Web-Shop integriert, mit dem Karten reserviert und auch gekauft werden k&ouml;nnen. Er kann leicht an andere Anforderungen angepasst werden.
-<ul>
-  <li>
-    Website: <link http://typo3-organiser.de/ _blank>typo3-organiser.de</link>
-  </li>
-</ul>
-P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Obama</link> kann diesmal nicht kommen]]></label>
-      <label index="record_tx_org_cal_t3organiser_image">ext_icon_org_210px_timestamp.png</label>
-      <label index="record_tx_org_cal_t3organiser_imagewidth">140</label>
-      <label index="record_tx_org_cal_t3organiser_imageorient">26</label>
-
-
-<label index="comment.tx_org_department.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Organiser: tx_org_department records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="record_tx_org_department_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
-      <label index="record_tx_org_department_netzmacher_telephone">++49 361 74789004</label>
-      <label index="record_tx_org_department_netzmacher_email">info@die-netzmacher.de</label>
-      <label index="record_tx_org_department_netzmacher_url">http://die-netzmacher.de/</label>
-
-      <label index="record_tx_org_department_president_title">White House - President</label>
-      <label index="record_tx_org_department_president_telephone">++1 202-456-1111</label>
-      <label index="record_tx_org_department_president_email">president@whitehouse.gov</label>
-      <label index="record_tx_org_department_president_url">http://www.whitehouse.gov/</label>
-
-      <label index="record_tx_org_department_t3press_title">TYPO3 press</label>
-      <label index="record_tx_org_department_t3press_telephone">++49 69 2475218 0</label>
-      <label index="record_tx_org_department_t3press_email">soeren@typo3.org</label>
-      <label index="record_tx_org_department_t3press_url">http://association.typo3.org/press/press-contact/</label>
-
-
-
-<label index="comment.tx_org_downloads.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Organiser: tx_org_downloads records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="record_tx_org_downloads_cd1_type">shipping</label>
-      <label index="record_tx_org_downloads_cd1_title"><![CDATA[CD: TYPO3-Party - Release 1.0]]></label>
-      <label index="record_tx_org_downloads_cd1_subtitle"><![CDATA[TYPO3 1: Der Gründer-Groove]]></label>
-      <label index="record_tx_org_downloads_cd1_datetime">1038524460</label>
-      <label index="record_tx_org_downloads_cd1_bodytext"><![CDATA[Auf dieser CD h&ouml;rst Du den Sound der Geschichte. Die Aufnahmen stammen fast ausschlie&szlig;lich von der Party zum Release von  TYPO3 1.0. Nicht nur die Band sondern auch das damalige TYPO3-Core-Entwickler-Team passten in ein kleinen Bus. Das Cover zeigt den Bus kurz vor der Abreise nach Norwegen - damals wurde Casper noch mit dem Auto pers&ouml;nlich abgeholt. Der Kleinbus verfügte nur über ein Kasetten-Abspiel-Ger&auml;t. Das ging nach 1.500 Kilometern kurz hinter Oslo kaputt.]]></label>
-      <label index="record_tx_org_downloads_cd1_teasershort"><![CDATA[Der Sound der Geschichte - schon fast vergessen: die Party zum Release von TYPO3 1.0. Caspar kam aus Norwegen mit dem Auto. Die Aufnahmen von damals halten die Erinnerungen wach.]]></label>
-      <label index="record_tx_org_downloads_cd1_tx_org_downloadscat">1</label>
-      <label index="record_tx_org_downloads_cd1_tx_org_downloadsmedia">1</label>
-      <label index="record_tx_org_downloads_cd1_linkicon_width">40</label>
-      <label index="record_tx_org_downloads_cd1_thumbnail">cd_typo3_music_1_timestamp.jpg</label>
-      <label index="record_tx_org_downloads_cd1_thumbnail_height">600m</label>
-      <label index="record_tx_org_downloads_cd1_thumbnail_width">200m</label>
-
-      <label index="record_tx_org_downloads_cd2_type">shipping</label>
-      <label index="record_tx_org_downloads_cd2_title"><![CDATA[CD: Aus dem Leoparden-Gummistiefel]]></label>
-      <label index="record_tx_org_downloads_cd2_subtitle"><![CDATA[TYPO3 4: Der Klang des Hier-und-Jetzt]]></label>
-      <label index="record_tx_org_downloads_cd2_datetime">1259451480</label>
-      <label index="record_tx_org_downloads_cd2_bodytext"><![CDATA[Wenn Du wissen willst, wie sich die Entwicklung von TYPO3 4 anhört, dann zieh' Dir die Musik-Sammlung und Sounds dieser CD 'rein. Projektleiter Ernesto Baschny hat dabei das Mikro nicht nur an klackernde Tastaturen, surrende Festplatten und rauschende Lüfter seiner Team-Mitglieder gehalten, sondern sogar in manchen Schuh. Einer der geilsten Höhepunkte ist der Mitschnitt aus dem Innenleben eines Leoparden-Gummistiefels. Das Stiefel-Paar hat es dann auch auf das Cover geschafft und ist dort abgebildet - samt TYPO3-Entwicklerin Aura.]]></label>
-      <label index="record_tx_org_downloads_cd2_teasershort"><![CDATA[Das aktuelle TYPO3 4 funktioniert nicht nur, sondern hört sich auch heiß an. Eine der verschwitztesten Aufnahmen: aus dem Inneren eines Leoparden-Gummistiefels einer TYPO3-Entwicklerin.]]></label>
-      <label index="record_tx_org_downloads_cd2_tx_org_downloadscat">1</label>
-      <label index="record_tx_org_downloads_cd2_tx_org_downloadsmedia">1</label>
-      <label index="record_tx_org_downloads_cd2_linkicon_width">40</label>
-      <label index="record_tx_org_downloads_cd2_thumbnail">cd_typo3_music_2_timestamp.jpg</label>
-      <label index="record_tx_org_downloads_cd2_thumbnail_height">600m</label>
-      <label index="record_tx_org_downloads_cd2_thumbnail_width">200m</label>
-
-      <label index="record_tx_org_downloads_cd3_type">shipping</label>
-      <label index="record_tx_org_downloads_cd3_title"><![CDATA[CD: TYPO3 Fluid - Wassermusik]]></label>
-      <label index="record_tx_org_downloads_cd3_subtitle"><![CDATA[TYPO3 5: Ich möcht' Blasen blubbern lassen]]></label>
-      <label index="record_tx_org_downloads_cd3_datetime">1354147080</label>
-      <label index="record_tx_org_downloads_cd3_bodytext"><![CDATA[Das TYPO3 der Zukunft wird flüssig. Dafür sorgt die neue Template-Engine fluid. Dann hört sich TYPO3 total anders an - nämlich wie unter Wasser. Bei einer der letzten Sessions der TYPO3-5-Band guckte dann auch Nina Hagen vorbei und sang ihren Song, &quot;... ich möcht' ein Fisch im Wasser sein, ... und paar Blasen blubbern lassen ...&quot;. Patrick Lobacher hat Ninas Einlage, spontan begleitet von Kontrabass und Fagott,   mitgeschnitten.
-Viele neue TYPO3-Titel sind auf der CD. Natürlich ziert Nina das Cover.
-Die CD muss noch gepresst werden und ist voraussichtlich ab Ende 2012 lieferbar.]]></label>
-      <label index="record_tx_org_downloads_cd3_teasershort"><![CDATA[Das neue TYPO3 wird mit Fluid noch flüssiger. Grund für Nina Hagen, die Grand-Dame des Punk, vor der TYPO3-5-Band ihr Fisch-Lied neu zu interpretieren. Ab Ende 2012 lieferbar.]]></label>
-      <label index="record_tx_org_downloads_cd3_tx_org_downloadscat">1</label>
-      <label index="record_tx_org_downloads_cd3_tx_org_downloadsmedia">1</label>
-      <label index="record_tx_org_downloads_cd3_linkicon_width">40</label>
-      <label index="record_tx_org_downloads_cd3_thumbnail">cd_typo3_music_3_timestamp.jpg</label>
-      <label index="record_tx_org_downloads_cd3_thumbnail_height">600m</label>
-      <label index="record_tx_org_downloads_cd3_thumbnail_width">200m</label>
-
-      <label index="record_tx_org_downloads_flyer1_type">download_shipping</label>
-      <label index="record_tx_org_downloads_flyer1_title"><![CDATA[Flyer: TYPO3-Organiser]]></label>
-      <label index="record_tx_org_downloads_flyer1_subtitle"><![CDATA[Kurz und bündig und zum Weiterverteilen]]></label>
-      <label index="record_tx_org_downloads_flyer1_datetime">1322570940</label>
-      <label index="record_tx_org_downloads_flyer1_bodytext"><![CDATA[Atemberaubendes Tempo: Du kannst TYPO3 mit Nachrichten, Kalender, Online-Ticketsystem, Personalverwaltung und Veranstaltungsorten in 15 bis 30 Minuten erweitern. Du kannst danach sofort Deine Daten veröffentlichen.
-Dieser Flyer stellt die Extension kurz vor.
-Du kannst den Flyer herunterladen und auch ein paar Exemplare bestellen - und an Deine Freunde verteilen.]]></label>
-      <label index="record_tx_org_downloads_flyer1_teasershort"><![CDATA[Dieser Flyer stellt die Extension Organiser vor: kurz und knapp. Zum Herunterladen und Bestellen. So kannst Du den Flyer persönlich an Deine Freunde verteilen.]]></label>
-      <label index="record_tx_org_downloads_flyer1_tx_org_downloadscat">1</label>
-      <label index="record_tx_org_downloads_flyer1_tx_org_downloadsmedia">1</label>
-      <label index="record_tx_org_downloads_flyer1_linkicon_width">40</label>
-      <label index="record_tx_org_downloads_flyer1_thumbnail">flyer_typo3_organiser_timestamp.pdf</label>
-      <label index="record_tx_org_downloads_flyer1_thumbnail_height">600m</label>
-      <label index="record_tx_org_downloads_flyer1_thumbnail_width">200m</label>
-
-      <label index="record_tx_org_downloads_flyer2_type">download_shipping</label>
-      <label index="record_tx_org_downloads_flyer2_title"><![CDATA[Flyer: TYPO3-Quick-Shop]]></label>
-      <label index="record_tx_org_downloads_flyer2_subtitle"><![CDATA[Kurz und bündig und zum Weiterverteilen]]></label>
-      <label index="record_tx_org_downloads_flyer2_datetime">1291034940</label>
-      <label index="record_tx_org_downloads_flyer2_bodytext"><![CDATA[Einen Shop mit einem Klick installieren?
-Dieser Flyer stellt die Extension Quick Shop kurz vor.
-Du kannst den Flyer herunterladen und auch ein paar Exemplare bestellen - und an Deine Freunde verteilen.]]></label>
-      <label index="record_tx_org_downloads_flyer2_teasershort"><![CDATA[Dieser Flyer stellt die Extension Quick Shop vor: kurz und knapp. Zum Herunterladen und Bestellen. So kannst Du den Flyer persönlich an Deine Freunde verteilen.]]></label>
-      <label index="record_tx_org_downloads_flyer2_tx_org_downloadscat">1</label>
-      <label index="record_tx_org_downloads_flyer2_tx_org_downloadsmedia">1</label>
-      <label index="record_tx_org_downloads_flyer2_linkicon_width">40</label>
-      <label index="record_tx_org_downloads_flyer2_thumbnail">flyer_typo3_quickshop_timestamp.pdf</label>
-      <label index="record_tx_org_downloads_flyer2_thumbnail_height">600m</label>
-      <label index="record_tx_org_downloads_flyer2_thumbnail_width">200m</label>
-
-      <label index="record_tx_org_downloads_manual1_type">download_shipping</label>
-      <label index="record_tx_org_downloads_manual1_title"><![CDATA[Handbuch: TYPO3 Grüne Autos]]></label>
-      <label index="record_tx_org_downloads_manual1_subtitle"><![CDATA[Das Lern-Tutorial: Deine eigene Datenbank in drei Stunden]]></label>
-      <label index="record_tx_org_downloads_manual1_datetime">1259497860</label>
-      <label index="record_tx_org_downloads_manual1_bodytext"><![CDATA[Das Tutorial zeigt am Beispiel von Grüne Autos Schritt für Schritt, wie TYPO3-Entwickler komplexe Datenbanken in nur drei Stunden selbst programmieren können.
-Grüne Autos basiert auf dem Browser - TYPO3 ohne PHP. Der Browser ermöglicht die Entwicklung von TYPO3-Erweiterungen ohne eine einzige Zeile PHP. Der Aufwand für Entwickler reduziert sich auf bis zu ein Achtel, die Enwicklung geht bis zu acht Mal schneller.]]></label>
-      <label index="record_tx_org_downloads_manual1_teasershort"><![CDATA[Das Tutorial zeigt Schritt für Schritt, wie Du mit TYPO3 eine eigene Datenbank in nur drei Stunden selbst programmieren kannst.]]></label>
-      <label index="record_tx_org_downloads_manual1_tx_org_downloadscat">1</label>
-      <label index="record_tx_org_downloads_manual1_tx_org_downloadsmedia">1</label>
-      <label index="record_tx_org_downloads_manual1_linkicon_width">40</label>
-      <label index="record_tx_org_downloads_manual1_thumbnail">manual-typo3-gruene-autos-demo_timestamp.pdf</label>
-      <label index="record_tx_org_downloads_manual1_thumbnail_height">600m</label>
-      <label index="record_tx_org_downloads_manual1_thumbnail_width">200m</label>
-
-      <label index="record_tx_org_downloads_manual2_type">download_shipping</label>
-      <label index="record_tx_org_downloads_manual2_title"><![CDATA[Handbuch: TYPO3-Browser]]></label>
-      <label index="record_tx_org_downloads_manual2_subtitle"><![CDATA[TYPO3-Extension-Entwicklung ohne PHP]]></label>
-      <label index="record_tx_org_downloads_manual2_datetime">1227918420</label>
-      <label index="record_tx_org_downloads_manual2_bodytext"><![CDATA[Du kannst TYPO3 entwickeln ohne eine Zeile PHP schreiben zu müssen. Diese Form der Extension-Entwicklung ermöglicht die TYPO3-Erweiterung Browser. Sie nimmt Dir nicht nur eine Menge Arbeit ab, sondern beschleunigt die Entwicklungszeit auf bis das Achtfache.
-Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen.
-<h3>Links</h3>
-<ul><li>Homepage: http://typo3-browser.de/</li></ul>]]></label>
-      <label index="record_tx_org_downloads_manual2_teasershort"><![CDATA[TYPO3 entwickeln ohne PHP. Dieses Handbuch zeigt Dir, wie es geht.]]></label>
-      <label index="record_tx_org_downloads_manual2_tx_org_downloadscat">1</label>
-      <label index="record_tx_org_downloads_manual2_tx_org_downloadsmedia">1</label>
-      <label index="record_tx_org_downloads_manual2_linkicon_width">40</label>
-      <label index="record_tx_org_downloads_manual2_thumbnail">manual-typo3-browser-demo_timestamp.pdf</label>
-      <label index="record_tx_org_downloads_manual2_thumbnail_height">600m</label>
-      <label index="record_tx_org_downloads_manual2_thumbnail_width">200m</label>
-
-      <label index="record_tx_org_downloads_manual3_type">download_shipping</label>
-      <label index="record_tx_org_downloads_manual3_title"><![CDATA[Handbuch: TYPO3-Quick-Shop]]></label>
-      <label index="record_tx_org_downloads_manual3_subtitle"><![CDATA[Der schnellste Shop in der Geschichte von TYPO3]]></label>
-      <label index="record_tx_org_downloads_manual3_datetime">1291033080</label>
-      <label index="record_tx_org_downloads_manual3_bodytext"><![CDATA[Quick Shop ist der erste Shop in der Geschichte von TYPO3, der mit einem  Klick installiert werden kann. Und es ist der erste Shop vollkommen  ohne PHP. Du kannst Quick Shop sofort out-of-the-box nutzen. Mehr dazu  unter <link http://typo3-quick-shop.de/handbuecher/#c484 _self internal-link "Opens internal link in current window">Quick Shop Installer</link>. Du kannst einen Shop wie Quick Shop auch selbst bauen.
-Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen.
-<h3>Links</h3>
-<ul><li>Homepage: http://typo3-quick-shop.de/</li></ul>]]></label>
-      <label index="record_tx_org_downloads_manual3_teasershort"><![CDATA[Quick Shop ist der erste Shop in der Geschichte von TYPO3, der mit einem Klick installiert werden kann - inklusive Beispielprodukten.]]></label>
-      <label index="record_tx_org_downloads_manual3_tx_org_downloadscat">1</label>
-      <label index="record_tx_org_downloads_manual3_tx_org_downloadsmedia">1</label>
-      <label index="record_tx_org_downloads_manual3_linkicon_width">40</label>
-      <label index="record_tx_org_downloads_manual3_thumbnail">manual-typo3-quick-shop-demo_timestamp.pdf</label>
-      <label index="record_tx_org_downloads_manual3_thumbnail_height">600m</label>
-      <label index="record_tx_org_downloads_manual3_thumbnail_width">200m</label>
-
-
-
-<label index="comment.tx_org_headquarters.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Organiser: tx_org_headquarters records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="record_tx_org_headquarters_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_address"><![CDATA[Borntalweg 4]]></label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_postcode">D-99092</label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_city">Erfurt</label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_url">http://die-netzmacher.de/</label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
-      <label index="record_tx_org_headquarters_netzmacher_telephone">++49 361 74789004</label>
-      <label index="record_tx_org_headquarters_netzmacher_email">info@die-netzmacher.de</label>
-      <label index="record_tx_org_headquarters_netzmacher_image">die_netzmacher_600px_timestamp.jpg</label>
-      <label index="record_tx_org_headquarters_netzmacher_imageseo">Die Netzmacher TYPO3</label>
-      <label index="record_tx_org_headquarters_netzmacher_imageorient">0</label>
-
-      <label index="record_tx_org_headquarters_president_title">The White House</label>
-      <label index="record_tx_org_headquarters_president_mail_address">1600 Pennsylvania Avenue Northwest</label>
-      <label index="record_tx_org_headquarters_president_mail_postcode">DC 20500-0003</label>
-      <label index="record_tx_org_headquarters_president_mail_city">Washington D.C., United States</label>
-      <label index="record_tx_org_headquarters_president_mail_url">http://www.whitehouse.gov/</label>
-      <label index="record_tx_org_headquarters_president_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519" style="color:#0000FF;text-align:left">Gr&ouml;&szlig;ere Kartenansicht</a></small>]]></label>
-      <label index="record_tx_org_headquarters_president_telephone">++1 202-456-1111</label>
-      <label index="record_tx_org_headquarters_president_email">barack.obama@whitehouse.gov</label>
-      <label index="record_tx_org_headquarters_president_image">white_house_timestamp.jpg</label>
-      <label index="record_tx_org_headquarters_president_imageseo">White House</label>
-      <label index="record_tx_org_headquarters_president_imageorient">26</label>
-      <label index="record_tx_org_headquarters_president_imagewidth">140</label>
-
-      <label index="record_tx_org_headquarters_typo3_title">TYPO3 Association</label>
-      <label index="record_tx_org_headquarters_typo3_mail_address">Sihlbruggstrasse 105</label>
-      <label index="record_tx_org_headquarters_typo3_mail_postcode">CH-6340</label>
-      <label index="record_tx_org_headquarters_typo3_mail_city">Baar</label>
-      <label index="record_tx_org_headquarters_typo3_mail_url">http://association.typo3.org//</label>
-      <label index="record_tx_org_headquarters_typo3_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516" style="color:#0000FF;text-align:left">Gr&ouml;&szlig;ere Kartenansicht</a></small>]]></label>
-      <label index="record_tx_org_headquarters_typo3_fax">+41 41 511 00 39</label>
-      <label index="record_tx_org_headquarters_typo3_email">info@typo3.org</label>
-      <label index="record_tx_org_headquarters_typo3_image">typo3_logo_timestamp.jpg</label>
-      <label index="record_tx_org_headquarters_typo3_imageseo">TYPO3 Association</label>
-      <label index="record_tx_org_headquarters_typo3_imageorient">0</label>
-      <label index="record_tx_org_headquarters_typo3_imagewidth"></label>
-
-
-
-<label index="comment.tx_org_location.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Organiser: tx_org_location records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
-      <label index="record_tx_org_location_netzmacher_url">http://die-netzmacher.de/</label>
-      <label index="record_tx_org_location_netzmacher_mail_address"><![CDATA[Borntalweg 4]]></label>
-      <label index="record_tx_org_location_netzmacher_mail_postcode">D-99092</label>
-      <label index="record_tx_org_location_netzmacher_mail_city">Erfurt</label>
-      <label index="record_tx_org_location_netzmacher_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
-      <label index="record_tx_org_location_netzmacher_telephone">++49 361 74789004</label>
-      <label index="record_tx_org_location_netzmacher_email">info@die-netzmacher.de</label>
-      <label index="record_tx_org_location_netzmacher_image">die_netzmacher_600px_01_timestamp.jpg</label>
-      <label index="record_tx_org_location_netzmacher_imageseo">Die Netzmacher TYPO3</label>
-      <label index="record_tx_org_location_netzmacher_imageorient">26</label>
-      <label index="record_tx_org_location_netzmacher_imagewidth">140</label>
-      <label index="record_tx_org_location_netzmacher_image_link">http://die-netzmacher.de/</label>
-
-      <label index="record_tx_org_location_t3devdays_title">Campus Sursee</label>
-      <label index="record_tx_org_location_t3devdays_url">http://www.campus-sursee.ch/</label>
-      <label index="record_tx_org_location_t3devdays_mail_address"></label>
-      <label index="record_tx_org_location_t3devdays_mail_postcode">CH-6210</label>
-      <label index="record_tx_org_location_t3devdays_mail_city">Sursee</label>
-      <label index="record_tx_org_location_t3devdays_mail_url">http://www.campus-sursee.ch/anreise.html</label>
-      <label index="record_tx_org_location_t3devdays_mail_embeddedcode"></label>
-      <label index="record_tx_org_location_t3devdays_telephone">++41 41 9262626</label>
-      <label index="record_tx_org_location_t3devdays_email">office@campus-sursee.ch</label>
-      <label index="record_tx_org_location_t3devdays_image">campus_sursee_01_timestamp.jpg,campus_sursee_04_timestamp.jpg,campus_sursee_05_timestamp.jpg</label>
-      <label index="record_tx_org_location_t3devdays_imageseo"></label>
-      <label index="record_tx_org_location_t3devdays_imageorient">8</label>
-      <label index="record_tx_org_location_t3devdays_imagewidth">200</label>
-      <label index="record_tx_org_location_t3devdays_image_link"></label>
-      <label index="record_tx_org_location_t3devdays_documents">situationsplan_neu_timestamp.pdf</label>
-      <label index="record_tx_org_location_t3devdays_documentscaption">Situationsplan</label>
-      <label index="record_tx_org_location_t3devdays_documentslayout">2</label>
-      <label index="record_tx_org_location_t3devdays_documentssize">1</label>
-
-
-
-<label index="comment.tx_org_news.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Organiser: tx_org_news records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="record_tx_org_news_flow_type">news</label>
-      <label index="record_tx_org_news_flow_title">Get into the TYPO3 FLOW!</label>
-      <label index="record_tx_org_news_flow_datetime">1301523660</label>
-      <label index="record_tx_org_news_flow_bodytext"><![CDATA[Discover FLOW3 with our Getting Started Tutorial.
-Just follow the step-by-step instructions for building your first FLOW3 application and learn new programming paradigms and patterns along the way. 
-<b><link http://flow3.typo3.org/documentation/tutorials/getting-started/>Get started with FLOW3</link></b>
-<h2>About FLOW3</h2>
-It can change the way you work. It gives you fast results. It is a reliable foundation for complex applications. And it  is backed by one of the biggest PHP communities.
-We created FLOW3 as the foundation for the upcoming major&nbsp;version of TYPO3&nbsp;(code name Phoenix). Now you can use our  framework too, to build your own applications where code libraries lack an overall concept&nbsp;or a CMS would not fit the bill.
-FLOW3 brings new concepts to the PHP world. Domain-Driven Design, Dependency Injection and Aspect-Oriented  Programming are some of them. And besides some <link http://flow3.typo3.org/about/features/ - linkInt>great features</link> we offer <link http://flow3.typo3.org/about/principles/>a new view</link> on the &quot;how&quot; of software development. 
-It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]></label>
-      <label index="record_tx_org_news_flow_image">BlogExampleWithAnnotation-320px_02_timestamp.png</label>
-      <label index="record_tx_org_news_flow_imagecaption">FLOW3 Blogexample</label>
-      <label index="record_tx_org_news_flow_imageseo">FLOW3 Blogexample</label>
-      <label index="record_tx_org_news_flow_imageorient">26</label>
-      <label index="record_tx_org_news_flow_imagewidth">140</label>
-      <label index="record_tx_org_news_flow_image_link"></label>
-
-      <label index="record_tx_org_news_organiser_type">newsurl</label>
-      <label index="record_tx_org_news_organiser_newsurl">http://t3n.de/socialnews/TYPO3/TYPO3-Organiser-kommt-am-1-April-Alles-aus-einer-Hand/</label>
-      <label index="record_tx_org_news_organiser_title">TYPO3-Organiser kommt am 1. April</label>
-      <label index="record_tx_org_news_organiser_subtitle">TYPO3: Alles aus einer Hand</label>
-      <label index="record_tx_org_news_organiser_datetime">1296514800</label>
-      <label index="record_tx_org_news_organiser_teaser_short"><![CDATA[Der TYPO3-Organiser kommt am 1. April 2011. Das haben heute die Entwickler angekündigt und auch erstmals Screenshots von Frontend, Backend und dem Extension-Manager ver&ouml;ffentlicht. ]]></label>
-      <label index="record_tx_org_news_organiser_image">t3n_timestamp.png</label>
-      <label index="record_tx_org_news_organiser_imagecaption">FLOW3 Blogexample</label>
-      <label index="record_tx_org_news_organiser_imageseo">t3n Magazin</label>
-      <label index="record_tx_org_news_organiser_imageorient">0</label>
-      <label index="record_tx_org_news_organiser_imagewidth"></label>
-      <label index="record_tx_org_news_organiser_image_link">http://t3n.de/socialnews/TYPO3/TYPO3-Organiser-kommt-am-1-April-Alles-aus-einer-Hand/</label>
-
-      <label index="record_tx_org_news_president_type">news</label>
-      <label index="record_tx_org_news_president_title">Health Reform</label>
-      <label index="record_tx_org_news_president_subtitle">A Phone Call from the President</label>
-      <label index="record_tx_org_news_president_datetime">1298847600</label>
-      <label index="record_tx_org_news_president_bodytext"><![CDATA[<i>Posted by Kalpen Modi on March 22, 2011 at 04:00 PM EDT</i>
-One year ago tomorrow, President Obama signed the Affordable Care Act into law. It was a historic day, and the law is already making a difference in the lives of millions of Americans like Erick Moberg.
-Erick is currently a senior at Michigan State University and his dream is to attend medical school at his grandfather's alma mater in Missouri. Erick was always interested in medicine, but he was inspired after speaking to the doctors who treated his mother when she had quadruple bypass surgery.
-After he graduates this spring, Erick will be taking a year to enhance his skills and prepare his application. Under the old insurance rules, he would have been forced off his parent's health insurance plan. But now, thanks to the Affordable Care Act, Erick will be able to stay on his mother's plan.
-We interviewed Erick, and as he told his story, he received a surprise phone call from President Obama.
-Erick is just one example of the millions of Americans who are being helped by the new law. After just one year, Americans are enjoying:
-New coverage options
-<ul>
-  <li>
-    Children with pre-existing conditions cannot be denied coverage in new health plans.
-  </li>
-  <li>
-    Adults who have been locked out of the insurance marketplace because of a pre-existing condition can now buy coverage through a new Pre-Existing Condition Plan.
-  </li>
-</ul>
-Better quality coverage
-<ul>
-  <li>
-    People with insurance are free from worrying about losing their insurance due to a mistake on an application, or having it capped unexpectedly if someone is in an accident or becomes sick.
-  </li>
-  <li>
-    All Americans in new insurance plans will receive preventive services without being charged a deductible, co-payment, or co-insurance.
-  </li>
-</ul>
-Lower Costs
-<ul>
-  <li>
-    Seniors have the freedom to get the care they need, including free preventive care, lower cost prescription drugs, and Medicare they can count on. Nearly 4 million Americans who hit the Medicare prescription drug coverage gap known as the "donut hole" received $250 tax-free rebates, and will receive a 50% discount on brand name prescription drugs if they hit the donut hole this year.
-  </li>
-  <li>
-    Up to 4 million small businesses could receive tax credits to make employees' health coverage more affordable.
-  </li>
-  <li>
-    Insurance companies can no longer overcharge consumers just to boost profits and CEO salaries.
-  </li>
-</ul>
-Visit http://www.HealthCare.gov to learn more about the new law and the work we're doing to deliver the benefits of reform to the American people. For step-by-step instructions on the young adult coverage provision that helped Erick, you can also visit www.facebook.com/YoungAdultCoverage.
-Note: you also can visit our 50 States, 50 Stories map to listen to more stories of people the law has helped.
-<i>Kalpen Modi is Associate Director of the White House Office of Public Engagement</i>]]></label>
-
-
-
-<label index="comment.powermail.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Powermail records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-
-      <label index="record_pm_fSets_title_contactData">contact data</label>
+      <label index="record_qs_cat_title_books">books</label>
+      <label index="record_qs_cat_title_blue">blue</label>
+      <label index="record_qs_cat_title_clothes">clothes</label>
+      <label index="record_qs_cat_title_cups">cups</label>
+      <label index="record_qs_cat_title_green">green</label>
+      <label index="record_qs_cat_title_red">red</label>
+      <label index="record_qs_prod_sku_book">1001</label>
+      <label index="record_qs_prod_sku_capGreen">2001</label>
+      <label index="record_qs_prod_sku_capRed">2002</label>
+      <label index="record_qs_prod_sku_capBlue">2003</label>
+      <label index="record_qs_prod_sku_cup">3001</label>
+      <label index="record_qs_prod_sku_pullover">4001</label>
+      <label index="record_qs_prod_title_book">Secret Images</label>
+      <label index="record_qs_prod_title_capGreen">Base cap (green)</label>
+      <label index="record_qs_prod_title_capRed">Base cap (red)</label>
+      <label index="record_qs_prod_title_capBlue">Base cap (blue)</label>
+      <label index="record_qs_prod_title_cup">Cup</label>
+      <label index="record_qs_prod_title_pullover">Pullover</label>
+      <label index="record_qs_prod_short_book">Never seen: Images of the TYPO3 Vip. Because of the weight you can get maximum 3 books per order.</label>
+      <label index="record_qs_prod_short_capGreen">Base cap in green and with TYPO3 logo</label>
+      <label index="record_qs_prod_short_capRed">Base cap in red and with TYPO3 logo</label>
+      <label index="record_qs_prod_short_capBlue">Base cap in blue and with TYPO3 logo</label>
+      <label index="record_qs_prod_short_cup">Cup with TYPO3 logo. The cup is cheap :) but you have to roder 2 cups per order at least.</label>
+      <label index="record_qs_prod_short_pullover">Pullover with TYPO3 logo and an head on the top.</label>
+      <label index="record_qs_prod_description_book"><![CDATA[Did you ever seen Kaspar with a base cap of this shop?
+You didn't.
+But now you can.
+This book is illustrated with 4.293 photos of the TYPO3 Vip. 3.923 photos have never been published. The book has 1.423 pages. The font size is 5 point. The weight is 8,74 kilogramm. The price is really, really cheap.
+Because of the weight:
+<ul><li>3 books maximum per order!</li></ul>]]></label>
+      <label index="record_qs_prod_description_capGreen">You are able to look like clever and smart - but with this base cap only.</label>
+      <label index="record_qs_prod_description_capRed">You are able to look like clever and smart - but with this base cap only.</label>
+      <label index="record_qs_prod_description_capBlue">You are able to look like clever and smart - but with this base cap only.</label>
+      <label index="record_qs_prod_description_cup"><![CDATA[The cup has a special skin inside. The skin will extend every warm drink with cleverness. If you are drinking your coffee out of this cup, you will never have any problem with TYPO3 or its extensions!
+If you like, <strong>Kaspar will drink coffee out of this cup</strong>.
+We won't clean up the cup. You don't have to pay for this special service.
+Because of the price:
+<ul><li>You have to order two cups at least.</li></ul>]]></label>
+      <label index="record_qs_prod_description_pullover">This pullover has a TYPO3 logo and an head on the top. If you are using this pullover and this head instead of your head, you will never have headdache after using TYPO3. And all of your friends will believe, that you are looking like more clever and more smart than everybody!</label>
+      <label index="record_qs_prod_price_book">99.99</label>
+      <label index="record_qs_prod_price_capGreen">1.99</label>
+      <label index="record_qs_prod_price_capRed">1.99</label>
+      <label index="record_qs_prod_price_capBlue">1.99</label>
+      <label index="record_qs_prod_price_cup">19.99</label>
+      <label index="record_qs_prod_price_pullover">31.99</label>
+      <label index="record_qs_prod_tax_book">1</label>
+      <label index="record_qs_prod_tax_capGreen">2</label>
+      <label index="record_qs_prod_tax_capRed">2</label>
+      <label index="record_qs_prod_tax_capBlue">2</label>
+      <label index="record_qs_prod_tax_cup">2</label>
+      <label index="record_qs_prod_tax_pullover">2</label>
+      <label index="record_qs_prod_inStock_book">1</label>
+      <label index="record_qs_prod_inStock_capGreen">1</label>
+      <label index="record_qs_prod_inStock_capRed">1</label>
+      <label index="record_qs_prod_inStock_capBlue">1</label>
+      <label index="record_qs_prod_inStock_cup">1</label>
+      <label index="record_qs_prod_inStock_pullover">1</label>
+      <label index="record_qs_prod_image_book">book_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_capGreen">capGreen_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_capRed">capRed_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_capBlue">capBlue_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_cup">cup_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_pullover">pullover_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_caption_book">Book (4.293 photos)</label>
+      <label index="record_qs_prod_caption_capGreen">Base cap (green)</label>
+      <label index="record_qs_prod_caption_capRed">Base cap (red)</label>
+      <label index="record_qs_prod_caption_capBlue">Base cap (blue)</label>
+      <label index="record_qs_prod_caption_cup">Cup with TYPO3 skin inside</label>
+      <label index="record_qs_prod_caption_pullover">Pullover with brain</label>
+      <label index="record_pm_fSets_title_billingAddress">billing address</label>
       <label index="record_pm_fSets_title_order">order</label>
-
-      <label index="record_pm_field_title_company">company</label>
-      <label index="record_pm_field_title_country">country</label>
+      <label index="record_pm_fSets_title_contactData">contact data</label>
+      <label index="record_pm_fSets_title_deliveryAddress">delivery address</label>
+      <label index="record_pm_field_title_companyBilling">Company</label>
+      <label index="record_pm_field_title_countryBilling">Country</label>
+      <label index="record_pm_field_title_surnameBilling">surname</label>
+      <label index="record_pm_field_title_firstnameBilling">first name</label>
+      <label index="record_pm_field_title_streetBilling">street and number</label>
+      <label index="record_pm_field_title_zipBilling">zip</label>
+      <label index="record_pm_field_title_locationBilling">location</label>
+      <label index="record_pm_field_title_companyDelivery">Company</label>
+      <label index="record_pm_field_title_countryDelivery">Country</label>
+      <label index="record_pm_field_title_surnameDelivery">surname</label>
+      <label index="record_pm_field_title_firstnameDelivery">first name</label>
+      <label index="record_pm_field_title_streetDelivery">street and number</label>
+      <label index="record_pm_field_title_zipDelivery">zip</label>
+      <label index="record_pm_field_title_locationDelivery">location</label>
       <label index="record_pm_field_title_email">e-mail</label>
-      <label index="record_pm_field_title_firstname">first name</label>
-      <label index="record_pm_field_title_note">note</label>
       <label index="record_pm_field_title_phone">phone</label>
-      <label index="record_pm_field_title_submit">Confirm</label>
-      <label index="record_pm_field_title_surname">surname</label>
-      <label index="record_pm_field_title_street">street and number</label>
+      <label index="record_pm_field_title_fax">fax</label>
+      <label index="record_pm_field_title_note">note</label>
+      <label index="record_pm_field_title_methodOfPayment">payment</label>
+      <label index="record_pm_field_title_methodOfShipping">shipping</label>
       <label index="record_pm_field_title_terms">terms and conditions</label>
-      <label index="record_pm_field_title_zip_city">zip-code and city</label>
-
-      <label index="files_create_header">Files</label>
-      <label index="files_create_prompt">File "###DEST###" is created at "###PATH###".</label>
-      <label index="files_create_prompt_error">File "###SRCE###" couldn't copied to "###DEST###".</label>
-
-      <label index="content_create_header">Page content</label>
-      <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
-
-      <label index="content_wtcartfixed_header"><![CDATA[Please use wt_cart 1.4.6 fixed!]]></label>
-      <label index="content_wtcartfixed_bodytext"><![CDATA[Prompt for TYPO3 integrators: You need <a href="http://typo3-browser-forum.de/wt_cart-1_4_6_fixed.t3x" title="wt_cart 1.4.6 fixed as *.t3x">wt_cart 1.4.6 fixed</a> for ordering tickets!]]></label>
-      <label index="content_terms_calendar_header">Terms and conditions for tickets</label>
-      <label index="content_terms_calendar_bodytext">Our terms and conditions: This is a website for demonstration the TYPO3 Organiser only. You can order a lot of tickets, but you will receive nothing.</label>
-      <label index="content_terms_downloads_header">Terms and conditions for downloads</label>
-      <label index="content_terms_downloads_bodytext">Our terms and conditions: This is a website for demonstration the TYPO3 Organiser only. You can order a lot of files or media, but you will receive nothing.</label>
-
-      <label index="consolidate_header">Consolidating</label>
-      <label index="consolidate_prompt_page">Page ###TITLE_PID### (###FIELD###) is updated.</label>
-      <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) in page ###TITLE_PID### is updated.</label>
-      <label index="consolidate_prompt_content_rm">Element ###TITLE### (###FIELD###) in page ###TITLE_PID### is deleted.</label>
-      <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
-      <label index="consolidate_prompt_template_rm">Former templates on the page ###TITLE_PID### are deleted.</label>
-
-      <label index="end_header">Finish the installation</label>
-      <label index="end_reloadBe_prompt">TYPO3 backend: Please close the edit area and reload the page tree.</label>
-      <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Organiser Installer, if you don't need it any longer.</label>
-      <label index="end_h1">Organiser Installation was successful.</label>
-      <label index="end_button">Reload this page</label>
-
-      <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
-      <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
-      <label index="phrases_powermail_termsAccepted"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
-      <label index="phrases_ts_titleTag_quickshop_page">Organiser Homepage</label>
-
+      <label index="record_pm_field_title_revocation">revocation</label>
+      <label index="record_pm_field_title_submit">Test Organiser without commitment!</label>
+      <label index="record_pm_form_title_caddyorder">Caddy orderform</label>
+      <label index="ts_create_header">TypoScript</label>
+      <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>
+      <label index="tt_content.list_type_pi1">Organiser - 1-Click-Installer</label>
+      <label index="tx_powermail_domain_model_fields">Powermail Fields</label>
+      <label index="tx_powermail_domain_model_forms">Powermail Forms</label>
+      <label index="tx_powermail_domain_model_pages">Powermail Pages</label>
       <label index="tx_powermail_fieldsets">Powermail Fieldsets</label>
       <label index="tx_powermail_fields">Powermail Fields</label>
-
-      <label index="tx_quickshop_categories">Quick Shop Categories</label>
-      <label index="tx_quickshop_products">Quick Shop Products</label>
-      <label index="tx_quickshop_products_category_mm">Quick Shop MM Relations</label>
+      <label index="tx_org_caltype">Organiser Categories</label>
+      <label index="tx_org_news">Organiser Items</label>
+      <label index="tx_org_news_category_mm">Organiser MM Relations</label>
     </languageKey>
     <languageKey index="de" type="array">
-      <label index="tt_content.list_type_pi1">Organiser - 1-Klick-Installer</label>
-      <label index="back"><![CDATA[Zurück]]></label>
-      <label index="plugin_warn">Willst Du den Organiser Installer wirklich nicht benutzen?</label>
-      <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Plugin.</label>
+      <label index="back">Zurück</label>
       <label index="begin_h1">Organiser Installation</label>
-      <label index="error_all_h1"><![CDATA[Organiser Installation nicht durchgeführt!]]></label>
-
-      <label index="confirm_header"><![CDATA[Installation durchführen]]></label>
+      <label index="confirm_header">Installation durchführen</label>
       <label index="confirm_prompt_createBeGroup">Backend Gruppe erstellen</label>
       <label index="confirm_prompt_createPages">Seitenbaum bauen</label>
-      <label index="confirm_prompt_createContent"><![CDATA[Inhalt für Kopf- und Fußzeile erstellen.]]></label>
-      <label index="confirm_prompt_createTs"><![CDATA[TypoScript für Browser, Organiser, Wt-Cart und Powermail erstellen.]]></label>
-      <label index="confirm_prompt_createPlugins">Plugins Browser, Wt-Cart und Powermail erstellen.</label>
+      <label index="confirm_prompt_createContent">Inhalt für Kopf- und Fußzeile erstellen.</label>
+      <label index="confirm_prompt_createTs">TypoScript für Browser, Caddy und Powermail erstellen.</label>
+      <label index="confirm_prompt_createPlugins">Plugins Browser, Caddy und Powermail erstellen.</label>
       <label index="confirm_prompt_createPowermail">Konfiguriere Powermail</label>
-      <label index="confirm_prompt_createOrganiser"><![CDATA[Erstelle TYPO3 Organiser Beispieldatens&auml;tze]]></label>
-      <label index="confirm_prompt_createFiles">Erstelle Bilder und Dateien</label>
+      <label index="confirm_prompt_createProducts">Erstelle sechs Beispielprodukte</label>
+      <label index="confirm_prompt_createFiles">Erstelle die Produkt-Bilder</label>
       <label index="confirm_prompt_createContent">Erstelle Seiteninhalte</label>
       <label index="confirm_prompt_consolidate">Daten konsolidieren</label>
       <label index="confirm_button">Installieren</label>
+      <label index="content_caddy_header">[fade_Lieferadresse.jss]</label>
+      <label index="content_caddy_bodytext"><![CDATA[
+<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
 
-      <label index="ext_header"><![CDATA[Abh&auml;ngigkeiten von Erweiterungen]]></label>
+  /**
+   *
+   * Copyright (c) 2013 Dirk Wildt
+   * http://wildt.at.die-netzmacher.de/
+   *
+
+   * Version 0.0.3
+   *
+   * Slider for delivery address
+   */
+
+
+
+  $( document ).ready( function( )
+  {
+      // HTML unique class of the fieldset delivery address
+    var fieldset_delivery_address  = ".###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###";
+
+      // RETURN there isn't any HTML element with the defined class
+    if( ! $( fieldset_delivery_address ).length )
+    {
+      return;
+    }
+
+      // Hide all fields (divs) of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'div' )
+      .slideUp( 'fast' );
+    var bool_visible = false;
+
+      // Display the legend of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'legend' )
+      .css( "visibility", "visible" )
+      .css( "cursor", "pointer" )
+      .slideDown( 'fast' );
+
+      // Method for toogle the display of the delivery address
+      // The user has clicked on the legend
+    $( fieldset_delivery_address ).children( 'legend' ).bind(
+      'click',
+      function( e )
+      {
+          // delivery address is visible
+        if( bool_visible )
+        {
+            // Hide all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideUp( 'fast' );
+        }
+          // delivery address is visible
+          // delivery address is hidden
+        else
+        {
+            // Display all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideDown( 'fast' );
+        }
+          // delivery address is hidden
+        bool_visible = ! bool_visible;
+      }
+    );
+      // The user has clicked on the legend
+      // Method for toogle the display of the delivery address
+
+  });
+
+</script>
+]]></label>
+      <label index="content_create_header">Seiteninhalt</label>
+      <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
+      <label index="content_footer_header">[Fußzeile]</label>
+      <label index="content_footer_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
+      <label index="content_header_header">[Kopfzeile]</label>
+      <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Organiser: Startseite"&gt;Organiser&lt;/link&gt;</label>
+      <label index="content_legalinfo_header">Impressum</label>
+      <label index="content_legalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
+<h2>Gut zu wissen</h2>
+<ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Organiser" target="_blank">Netzmacher</a> als Entwickler des Organiser erw&auml;hnst, freuen wir uns.</li></ul>]]></label>
+      <label index="content_revocation_header">Widerrufsrecht</label>
+      <label index="content_revocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
+<h2>Gut zu wissen</h2>
+<ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
+<h2>Hilfreiche Links</h2>
+<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>      
+      <label index="content_shipping_header">Versand</label>
+      <label index="content_shipping_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
+<ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
+      <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
+      <label index="content_terms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
+<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
+      <label index="consolidate_header">Konsolidierung</label>
+      <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
+      <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
+      <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgeblendet.</label>
+      <label index="end_button">Seite neu laden</label>
+      <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Organiser Installer, wenn Du ihn nicht mehr brauchst!</label>
+      <label index="end_header">Installation beenden!</label>
+      <label index="end_h1">Die Installation war erfolgreich!</label>
+      <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schließe das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
+      <label index="error_all_h1">Organiser Installation nicht durchgeführt!</label>
+      <label index="files_create_header">Dateien</label>
+      <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>
+      <label index="files_create_prompt_error">Datei "###SRCE###" konnte nicht nach "###DEST###" kopiert werden.</label>
       <label index="ext_error">Der Organiser Installer meldet eine fehlende Erweiterung.</label>
+      <label index="ext_header">Abhängigkeiten von Erweiterungen</label>
       <label index="ext_help">Bitte installiere: </label>
       <label index="ext_ok">ist installiert.</label>
-
-      <label index="condition_header">Bedingungen</label>
-      <label index="condition_error"><![CDATA[Es sind nicht alle Bedingungen für den Organiser Installer erfüllt.]]></label>
-      <label index="condition_help">Das ist zu tun: </label>
-      <label index="condition_help_org_clearpresented"><![CDATA[Erweiterung Organiser (org): Setze im Extension Manager den Parameter "Store record configuration" auf [Clear presented]. Andernfalls funktioniert die Verlinkung von Organiser Datens&auml;tzen im Backend nicht korrekt.]]></label>
-      <label index="condition_help_org_memorylimit"><![CDATA[PHP ini: memory_limit ist mit ###MEMORY_LIMIT### unterhalb von ###MIN_LIMIT###M. Wenn Du nach der Installation des Organisers im Frontend eine leere Seite siehst, solltest Du memory_limit erh&ouml;hen.]]></label>
-      <label index="condition_ok">ist ok.</label>
-      <label index="condition_ok_org_clearpresented"><![CDATA[Erweiterung Organiser (org): "Store record configuration" ist auf [Clear presented] gesetzt.]]></label>
-      <label index="condition_ok_org_memorylimit"><![CDATA[PHP ini: memory_limit sollte mit ###MEMORY_LIMIT### ausreichen. Wenn Du aber nach der Installation im Frontend eine leere Seite siehst, solltest Du memory_limit erh&ouml;hen.]]></label>
-
       <label index="grp_create_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
-      <label index="grp_create_prompt"><![CDATA[Benutzergruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) wurde erstellt. Wenn Du sie nicht brauchst, lösche sie.]]></label>
+      <label index="grp_create_prompt">Benutzergruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) wurde erstellt. Wenn Du sie nicht brauchst, lösche sie.</label>
       <label index="grp_ok_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
-      <label index="grp_ok_prompt"><![CDATA[Organiser Installer räumt der Gruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) volle Rechte an allen Seiten und Verzeichnissen des Organisers ein.]]></label>
+      <label index="grp_ok_prompt">Organiser Installer räumt der Gruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) volle Rechte an allen Seiten und Verzeichnissen des Organisers ein.</label>
       <label index="grp_warn_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
       <label index="grp_warn_prompt">Der Organiser Installer konnte die Gruppe "###GROUP_TITLE###" nicht erstellen. Macht aber weiter nichts.</label>
       <label index="page_create_header">Seiten und Verzeichnisse</label>
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
-      <label index="sysf_create_prompt">Das Verzeichnis "###TITLE###" (uid ###UID###) wurde erstellt.</label>
-
-
-
-<label index="comment.pages"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * pages
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="page_title_calendar">Kalender</label>
-      <label index="page_title_cart_calendar">Shop Karten</label>
-      <label index="page_title_cart_downloads">Shop Downloads</label>
-      <label index="page_title_downloads">Downloads</label>
-      <label index="page_title_headquarters">Standorte</label>
-      <label index="page_title_locations">Veranstaltungsort</label>
-      <label index="page_title_news">Nachrichten</label>
-      <label index="page_title_organiser">Organiser</label>
-      <label index="page_title_staff">Personal</label>
-      <label index="page_title_terms_calendar">AGB Karten</label>
-      <label index="page_title_terms_downloads">AGB Downloads</label>
-
-
-
-<label index="comment.pages.sysfolder"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * pages (type sysfolder)
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="sysfolder_title_calendar">Kalender</label>
-      <label index="sysfolder_title_downloads">Downloads</label>
-      <label index="sysfolder_title_events">Veranstaltungen</label>
-      <label index="sysfolder_title_headquarters">Standorte und Abteilungen</label>
-      <label index="sysfolder_title_locations">Veranstaltungsort</label>
-      <label index="sysfolder_title_news">Nachrichten</label>
-      <label index="sysfolder_title_organiser">Organiser</label>
-      <label index="sysfolder_title_staff">Personal</label>
-
-      <label index="ts_create_header">TypoScript</label>
-      <label index="ts_create_prompt"><![CDATA[Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.]]></label>
-
-
-
-<label index="comment.tt_content.plugins"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * tt_content plugins
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="plugin_create_header">Plugins</label>
-      <label index="plugin_create_prompt"><![CDATA[Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.]]></label>
-      <label index="plugin_downloads_header"><![CDATA[Browser für Organiser Downloads]]]></label>
-      <label index="plugin_downloads_label">TYPO3 Organiser Downloads</label>
-      <label index="plugin_headquarters_header"><![CDATA[Browser für Organiser Standorte]]]></label>
-      <label index="plugin_headquarters_label">TYPO3 Organiser Standorte</label>
-      <label index="plugin_locations_header"><![CDATA[Browser für Organiser Veranstaltungsorte]]]></label>
-      <label index="plugin_locations_label">TYPO3 Organiser Veranstaltungsorte</label>
-      <label index="plugin_organiser_header"><![CDATA[Browser für Organiser Kalender]]]></label>
-      <label index="plugin_organiser_label">TYPO3 Organiser Kalender</label>
-      <label index="plugin_news_header"><![CDATA[Browser für Organiser Nachrichten]]]></label>
-      <label index="plugin_news_label">TYPO3 Organiser Nachrichten</label>
-      <label index="plugin_powermail_calendar_header"><![CDATA[Powermail für Organiser Tickets]]]></label>
-      <label index="plugin_powermail_calendar_thanks"><![CDATA[Herzlichen Dank für Ihre Anmeldung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Anmeldungen sind zwecklos!]]></label>
-      <label index="plugin_powermail_calendar_mail_receiver"><![CDATA[Hallo,
-folgende Bestellung wurde gesendet:
-###POWERMAIL_TYPOSCRIPT_CART###
-###POWERMAIL_ALL###
-Viele Grüße
-TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_calendar_mail_sender"><![CDATA[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
-herzlichen Dank für Ihre Bestellung.
-Sie haben an uns folgende Daten gesendet:
-###POWERMAIL_TYPOSCRIPT_CART###
-###POWERMAIL_ALL###
-Wir versenden leider nichts. Es handelt sich um einen Demo-Shop.
-Viele Grüße
-TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_downloads_header"><![CDATA[Powermail für Organiser Downloads]]]></label>
-      <label index="plugin_powermail_downloads_thanks"><![CDATA[Herzlichen Dank für Ihre Bestellung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Website mit dem TYPO3 Organiser: Bestellungen sind zwecklos!]]></label>
-      <label index="plugin_powermail_downloads_mail_receiver"><![CDATA[Hallo,
-folgende Bestellung wurde gesendet:
-###POWERMAIL_TYPOSCRIPT_CART###
-###POWERMAIL_ALL###
-Viele Grüße
-TYPO3-Organiser]]></label>
-      <label index="plugin_powermail_downloads_mail_sender"><![CDATA[Hallo ###UID###FIRSTNAME######### ###UID###SURNAME######,
-herzlichen Dank für Ihre Bestellung.
-Sie haben an uns folgende Daten gesendet:
-###POWERMAIL_TYPOSCRIPT_CART###
-###POWERMAIL_ALL###
-Wir versenden leider nichts. Es handelt sich um einen Demo-Shop.
-Viele Grüße
-TYPO3-Organiser]]></label>
-      <label index="plugin_staff_header"><![CDATA[Browser für Organiser Personal]]]></label>
-      <label index="plugin_staff_label">TYPO3 Organiser Personal</label>
-      <label index="plugin_cart_calendar_header">Warenkorb Tickets</label>
-      <label index="plugin_cart_downloads_header">Warenkorb Downloads</label>
-
-      <label index="record_create_header"><![CDATA[Datensätze]]></label>
-      <label index="record_create_prompt"><![CDATA[Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" im Ordner ###TITLE_PID### eingefügt.]]></label>
-      <label index="record_create_mm_prompt"><![CDATA[###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.]]></label>
-
-
-
-
-<label index="comment.category.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Organiser: category records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-      <label index="record_fe_groups_title_policy">Politik</label>
-      <label index="record_fe_groups_title_society">Gesellschaft</label>
-      <label index="record_fe_groups_title_typo3">TYPO3</label>
-      <label index="record_tx_org_calentrance_title_entranceFree">Eintritt frei</label>
-      <label index="record_tx_org_calentrance_value_entranceFree">0.00</label>
-      <label index="record_tx_org_calentrance_title_mereMortals">Normalsterbliche</label>
-      <label index="record_tx_org_calentrance_value_mereMortals">490.00</label>
-      <label index="record_tx_org_calentrance_title_sponsor">Sponsoren</label>
-      <label index="record_tx_org_calentrance_value_sponsor">290.00</label>
-      <label index="record_tx_org_caltype_title_policy">Politik</label>
-      <label index="record_tx_org_caltype_title_society">Gesellschaft</label>
-      <label index="record_tx_org_caltype_title_typo3">TYPO3</label>
-      <label index="record_tx_org_departmentcat_title_policy">Politik</label>
-      <label index="record_tx_org_departmentcat_title_society">Gesellschaft</label>
-      <label index="record_tx_org_departmentcat_title_typo3">TYPO3</label>
-      <label index="record_tx_org_downloadscat_title_development">TYPO3-Entwickler</label>
-      <label index="record_tx_org_downloadscat_type_development">cat_image</label>
-      <label index="record_tx_org_downloadscat_title_flyer">TYPO3-Integratoren</label>
-      <label index="record_tx_org_downloadscat_type_flyer">cat_image</label>
-      <label index="record_tx_org_downloadscat_title_music">TYPO3-Community</label>
-      <label index="record_tx_org_downloadscat_type_music">cat_image</label>
-      <label index="record_tx_org_downloadsmedia_title_cd">CD</label>
-      <label index="record_tx_org_downloadsmedia_type_cd">cat_image</label>
-      <label index="record_tx_org_downloadsmedia_title_flyer">Flyer</label>
-      <label index="record_tx_org_downloadsmedia_type_flyer">cat_image</label>
-      <label index="record_tx_org_downloadsmedia_title_manuals">Benutzerandbuch</label>
-      <label index="record_tx_org_downloadsmedia_type_manuals">cat_image</label>
-      <label index="record_tx_org_newscat_title_policy">Politik</label>
-      <label index="record_tx_org_newscat_title_society">Gesellschaft</label>
-      <label index="record_tx_org_newscat_title_typo3">TYPO3</label>
-      <label index="record_tx_org_tax_title_000">0% (steuerfrei)</label>
-      <label index="record_tx_org_tax_value_000">0.00</label>
-      <label index="record_tx_org_tax_title_007">007% (James Bond Steuersatz)</label>
-      <label index="record_tx_org_tax_value_007">7.00</label>
-      <label index="record_tx_org_tax_title_019">19% (Steuersatz Normalsterblicher)</label>
-      <label index="record_tx_org_tax_value_019">19.00</label>
-
-
-
-<label index="comment.powermail.records"><![CDATA[
-
-  /***************************************************************************************
-  *
-  * Powermail records
-  *
-  ***************************************************************************************/
-
-]]></label>
-
-
-      <label index="record_pm_fSets_title_contactData">Kontaktdaten</label>
-      <label index="record_pm_fSets_title_order">Bestellung</label>
-
-      <label index="record_pm_field_title_company">Firma</label>
-      <label index="record_pm_field_title_country">Land</label>
-      <label index="record_pm_field_title_surname">Nachname</label>
-      <label index="record_pm_field_title_email">Mail</label>
-      <label index="record_pm_field_title_firstname">Vorname</label>
-      <label index="record_pm_field_title_note">Bemerkung</label>
-      <label index="record_pm_field_title_phone">Telefon</label>
-      <label index="record_pm_field_title_street"><![CDATA[Stra&szlig;e und Nr.]]></label>
-      <label index="record_pm_field_title_submit">Bestellen</label>
-      <label index="record_pm_field_title_terms">AGB</label>
-      <label index="record_pm_field_title_zip_city">PLZ und Stadt</label>
-
-
-      <label index="files_create_header">Dateien</label>
-      <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>
-      <label index="files_create_prompt_error">Datei "###SRCE###" konnte nicht nach "###DEST###" kopiert werden.</label>
-
-      <label index="content_create_header">Seiteninhalt</label>
-      <label index="content_create_prompt"><![CDATA[Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.]]></label>
-
-      <label index="content_wtcartfixed_header"><![CDATA[Verwende bitte wt_cart 1.4.6 fixed!]]></label>
-      <label index="content_wtcartfixed_bodytext"><![CDATA[Hinweis für TYPO3-Integratoren: Um Karten erfolgreich bestellen zu können, muss <a href="http://typo3-browser-forum.de/wt_cart-1_4_6_fixed.t3x" title="wt_cart 1.4.6 fixed als *.t3x">wt_cart 1.4.6 fixed</a> installiert sein.]]></label>
-      <label index="content_terms_calendar_header"><![CDATA[AGB Tickets - Allgemeine Geschäftsbedingungen]]></label>
-      <label index="content_terms_calendar_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist eine Demonstration des TYPO3 Organisers. Du kannst soviele Tickets bestellen wie Du m&ouml;chtest. Wir werden kein einziges versenden :( ]]></label>
-      <label index="content_terms_downloads_header"><![CDATA[AGB Downloads - Allgemeine Geschäftsbedingungen]]></label>
-      <label index="content_terms_downloads_bodytext"><![CDATA[Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist eine Demonstration des TYPO3 Organisers. Du kannst soviele Dokumente und Medien bestellen wie Du m&ouml;chtest. Wir werden kein einziges versenden :( ]]></label>
-
-      <label index="consolidate_header">Konsolidierung</label>
-      <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
-      <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
-      <label index="consolidate_prompt_content_rm"><![CDATA[Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### wurde gel&ouml;scht.]]></label>
-      <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgeblendet.</label>
-      <label index="consolidate_prompt_template_rm"><![CDATA[Bisherige Templates auf der Seite ###TITLE_PID### wurden gel&auml;scht.]]></label>
-
-      <label index="end_header">Installation beenden!</label>
-      <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schliesse das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
-      <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Organiser Installer, wenn Du ihn nicht mehr brauchst!</label>
-      <label index="end_h1">Die Installation war erfolgreich!</label>
-      <label index="end_button">Seite neu laden</label>
-
+      <label index="pageOrg_title">Organiser</label>
+      <label index="pageOrgCaddy_title">Warenkorb</label>
+      <label index="pageOrgCaddyCaddymini_title">Mini-Warenkorb</label>
+      <label index="pageOrgCaddyDelivery_title">Versand</label>
+      <label index="pageOrgCaddyRevocation_title">Widerrufsrecht</label>
+      <label index="pageOrgCaddyTerms_title">AGB</label>
+      <label index="pageOrgData_title">Daten</label>
+      <label index="pageOrgDataCal_title">Kalender</label>
+      <label index="pageOrgDataDownloads_title">Dokumente</label>
+      <label index="pageOrgDataEvents_title">Veranstaltungen</label>
+      <label index="pageOrgDataHeadquarters_title">Standorte</label>
+      <label index="pageOrgDataLocations_title">Veranstaltungsorte</label>
+      <label index="pageOrgDataNews_title">Nachrichten</label>
+      <label index="pageOrgDataStaff_title">Personal</label>
+      <label index="pageOrgDownloads_title">Dokumente</label>
+      <label index="pageOrgEvents_title">Veranstaltungen</label>
+      <label index="pageOrgHeadquarters_title">Standorte</label>
+      <label index="pageOrgLegalinfo_title">Impressum</label>
+      <label index="pageOrgLibrary_title">Bibliotheken</label>
+      <label index="pageOrgLibraryHeader_title">Kopf</label>
+      <label index="pageOrgLibraryHeaderLogo_title">Logo</label>
+      <label index="pageOrgLibraryHeaderSlider_title">Slider</label>
+      <label index="pageOrgLibraryFooter_title">Fuß</label>
+      <label index="pageOrgLocations_title">Veranstaltungsorte</label>
+      <label index="pageOrgNews_title">Nachrichten</label>
+      <label index="pageOrgStaff_title">Personal</label>
+      <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
+      <label index="phrases_pm_fields_delivery_prependix2x">L-</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
+      <label index="phrases_powermail_revocationAccepted1x"><![CDATA[Ich habe die <link ###PID### _blank>Widerrufsbelehrung</link> gelesen.|Widerrufsbelehrung gelesen]]></label>
+      <label index="phrases_powermail_revocationAccepted2x"><![CDATA[Ich habe die <a href="index.php/?id=###PID###" target="_blank">Widerrufsbelehrung</a> gelesen.|Widerrufsbelehrung gelesen]]></label>
       <label index="phrases_powermail_shipping">Versand innerhalb Deutschlands|Inland|*</label>
-      <label index="phrases_powermail_termsAccepted"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
-      <label index="phrases_ts_titleTag_quickshop_page">Organiser Startseite</label>
+      <label index="phrases_powermail_termsAccepted1x"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
+      <label index="phrases_powermail_termsAccepted2x"><![CDATA[Ich akzeptiere die <a href="index.php/?id=###PID###" target="_blank">AGB</a>.|AGB akzeptiert]]></label>
+      <label index="phrases_ts_titleTag_org_page">Organiser Startseite</label>
+      <label index="plugin_browser_header">[Browser für Organiser]</label>
+      <label index="plugin_browser_mycomment">* [jQuery &amp; AJAX] &gt; AJAX [disabled]
+   * Unverträglichkeit von Baummenü-Filter (Tree View) und AJAX</label>
+      <label index="plugin_caddy_header">Warenkorb</label>
+      <label index="plugin_caddy_note_note_1x"></label>
+      <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
 
+  1. Lieferschein-Feldbezeichnungen
+
+1. Lieferschein-Feldbezeichnungen
+  * Die Bezeichnungen sind andere als bei der Rechnungsadresse
+    * Grund: Bei gleichen Bezeichnungen wird im Betsätigungsformular
+      der Wert des Feldes Rechnungsadresse mit dem Wert des Feldes
+      Lieferadresse überschrieben.]]></label>
+      <label index="plugin_caddymini_header">[Mini-Warenkorb]</label>
+      <label index="plugin_create_header">Plugins</label>
+      <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
+      <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Pllugin.</label>
+      <label index="plugin_powermail_body_r1x"><![CDATA[<p>Lieber Quick-Shop-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+###POWERMAIL_TYPOSCRIPT_CADDY###      
+###POWERMAIL_ALL###]]></label>
+      <label index="plugin_powermail_body_r2x"><![CDATA[<p>Lieber Quick-Shop-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="plugin_powermail_body_s1x"><![CDATA[Hallo,<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Quick-Shop interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
+###POWERMAIL_TYPOSCRIPT_CADDY###
+###POWERMAIL_ALL###]]></label>
+      <label index="plugin_powermail_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Quick-Shop interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="plugin_powermail_header">[Powermail für Caddy]</label>
+      <label index="plugin_powermail_subject_r1x">Neue Quick-Shop-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_r2x">Neue Quick-Shop-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="plugin_powermail_subject_s1x">[TEST] Deine Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_s2x">[TEST] Deine Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="plugin_powermail_thanks1x"><![CDATA[<h1>Danke!</h1>
+<p>Herzlichen Dank für Deine Bestellung.</p>
+<p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
+<h2>Besondere Hinweise</h2>
+<p>Dies ist ein Demo-Shop</p>
+<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
+      <label index="plugin_powermail_thanks2x"><![CDATA[<h1>Danke {billingaddressfirstname} {billingaddresslastname}!</h1>
+<p>Herzlichen Dank für Deine Bestellung.</p>
+<p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse {contactdataemail}.</p>
+<h2>Besondere Hinweise</h2>
+<p>Dies ist ein Demo-Shop</p>
+<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich für TYPO3-Quick-Shop interessierst. 
+{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
+      <label index="plugin_warn">Willst Du den Organiser Installer wirklich nicht benutzen?</label>
+      <label index="record_create_header">Datensätze</label>
+      <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" in der Seite/im Ordner ###TITLE_PID### eingefügt.</label>
+      <label index="record_create_mm_prompt">###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.</label>
+      <label index="record_qs_cat_title_blue">Blau</label>
+      <label index="record_qs_cat_title_books">Bücher</label>
+      <label index="record_qs_cat_title_clothes">Kleidung</label>
+      <label index="record_qs_cat_title_cups">Tassen</label>
+      <label index="record_qs_cat_title_green">Grün</label>
+      <label index="record_qs_cat_title_red">Rot</label>
+      <label index="record_qs_prod_sku_book">1001</label>
+      <label index="record_qs_prod_sku_capGreen">2001</label>
+      <label index="record_qs_prod_sku_capRed">2002</label>
+      <label index="record_qs_prod_sku_capBlue">2003</label>
+      <label index="record_qs_prod_sku_cup">3001</label>
+      <label index="record_qs_prod_sku_pullover">4001</label>
+      <label index="record_qs_prod_title_book">Geheime Bilder</label>
+      <label index="record_qs_prod_title_capGreen">Basecap (grün)</label>
+      <label index="record_qs_prod_title_capRed">Basecap (rot)</label>
+      <label index="record_qs_prod_title_capBlue">Basecap (blau)</label>
+      <label index="record_qs_prod_title_cup">Tasse</label>
+      <label index="record_qs_prod_title_pullover">Pullover</label>
+      <label index="record_qs_prod_short_book">Noch nie veröffentlicht: Bilder der TYPO3 VIPs. Auf Grund des schweren Gewichts können nur 3 Stück pro Bestellung versendet werden.</label>
+      <label index="record_qs_prod_short_capGreen">Basecap in grün und mit TYPO3-Logo</label>
+      <label index="record_qs_prod_short_capRed">Basecap in rot und mit TYPO3-Logo</label>
+      <label index="record_qs_prod_short_capBlue">Basecap in blau und with TYPO3 logo</label>
+      <label index="record_qs_prod_short_cup">Tasse mit TYPO3-Logo. Wegen des niedrigen Preises :) musst Du pro Bestellung mindestens 2 Tassen ordern :(</label>
+      <label index="record_qs_prod_short_pullover">Pullover mit TYPO3-Logo und Kopf.</label>
+      <label index="record_qs_prod_description_book"><![CDATA[Hast Du jemals Kaspar mit einem Basecap aus diesem Shop herumlaufen sehen?
+Nein, hast Du nicht!
+Aber jetzt kannst Du ihn sehen.
+Dieses Buch zeigt 4.293 Fotos der TYPO3 VIPs. 3.923 Fotos sind noch nie veröffentlich worden. Das Buch hat 1.423 Seiten. Die Schriftgröße ist 5 Punkt. Gewicht: 8,74 Kilogramm. Der Preis: wirklich billig!
+Wegen des schweren Gewichts:
+<ul><li>Höchstens 3 Stück pro Bestellung</li></ul>]]></label>
+      <label index="record_qs_prod_description_capGreen">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
+      <label index="record_qs_prod_description_capRed">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
+      <label index="record_qs_prod_description_capBlue">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
+      <label index="record_qs_prod_description_cup"><![CDATA[Die Tasse hat eine spezielle Beschichtung auf der Innenseite. Jedes warme Getränk wird dadurch mit besonderer Intelligenz kontaminiert. Trink Deinen Kaffee oder Tee aus dieser Tasse, und Du wirst nie wieder irgendein Problem mit TYPO3 oder dessen Extensions haben!
+Wenn Du willst, <strong>lassen wir Kaspar aus der Tasse Kaffee trinken</strong>, bevor wir diese versenden. Die Tasse wird nicht gereinigt!
+Keine Zusatzkosten!
+Wegen des sagenhaft niedrigen Preises:
+<ul><li>Du musst mindestens zwei Tassen bestellen.</li></ul>]]></label>
+      <label index="record_qs_prod_description_pullover">Dieser Pullover hat nicht nur ein TYPO3-Logo sondern auch einen Kopf. Wenn Du diesen Pullover und den Kopf anstelle Deines Kopfes anziehst, wirst Du nie weider durch die Benutzung von TYPO3 Kopfschmerzen bekommen. Und alle Deine Freunde werden glauben, dass Du viel klüger aussiehst als jeder andere!</label>
+      <label index="record_qs_prod_price_book">99.99</label>
+      <label index="record_qs_prod_price_capGreen">1.99</label>
+      <label index="record_qs_prod_price_capRed">1.99</label>
+      <label index="record_qs_prod_price_capBlue">1.99</label>
+      <label index="record_qs_prod_price_cup">19.99</label>
+      <label index="record_qs_prod_price_pullover">31.99</label>
+      <label index="record_qs_prod_tax_book">1</label>
+      <label index="record_qs_prod_tax_capGreen">2</label>
+      <label index="record_qs_prod_tax_capRed">2</label>
+      <label index="record_qs_prod_tax_capBlue">2</label>
+      <label index="record_qs_prod_tax_cup">2</label>
+      <label index="record_qs_prod_tax_pullover">2</label>
+      <label index="record_qs_prod_inStock_book">1</label>
+      <label index="record_qs_prod_inStock_capGreen">1</label>
+      <label index="record_qs_prod_inStock_capRed">1</label>
+      <label index="record_qs_prod_inStock_capBlue">1</label>
+      <label index="record_qs_prod_inStock_cup">1</label>
+      <label index="record_qs_prod_inStock_pullover">1</label>
+      <label index="record_qs_prod_image_book">book_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_capGreen">capGreen_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_capRed">capRed_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_capBlue">capBlue_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_cup">cup_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_image_pullover">pullover_###TIMESTAMP###.jpg</label>
+      <label index="record_qs_prod_caption_book">Buch (4.293 Fotos)</label>
+      <label index="record_qs_prod_caption_capGreen">Basecap (grün)</label>
+      <label index="record_qs_prod_caption_capRed">Basecap (rot)</label>
+      <label index="record_qs_prod_caption_capBlue">Basecap (blau)</label>
+      <label index="record_qs_prod_caption_cup">Tasse mit spezieller TYPO3-Innenbeschichtung</label>
+      <label index="record_qs_prod_caption_pullover">Pullover mit Hirn</label>
+      <label index="record_pm_fSets_title_billingAddress">Rechnungsadresse</label>
+      <label index="record_pm_fSets_title_order">Bestellung</label>
+      <label index="record_pm_fSets_title_contactData">Kontaktdaten</label>
+      <label index="record_pm_fSets_title_deliveryAddress">Lieferadresse</label>
+      <label index="record_pm_field_title_companyBilling">Firma</label>
+      <label index="record_pm_field_title_countryBilling">Land</label>
+      <label index="record_pm_field_title_surnameBilling">Nachname</label>
+      <label index="record_pm_field_title_firstnameBilling">Vorname</label>
+      <label index="record_pm_field_title_streetBilling">Straße und Hausnummer</label>
+      <label index="record_pm_field_title_zipBilling">Postleitzahl</label>
+      <label index="record_pm_field_title_locationBilling">Ort</label>
+      <label index="record_pm_field_title_companyDelivery">Firma</label>
+      <label index="record_pm_field_title_countryDelivery">Land</label>
+      <label index="record_pm_field_title_surnameDelivery">Nachname</label>
+      <label index="record_pm_field_title_firstnameDelivery">Vorname</label>
+      <label index="record_pm_field_title_streetDelivery">Straße und Hausnummer</label>
+      <label index="record_pm_field_title_zipDelivery">Postleitzahl</label>
+      <label index="record_pm_field_title_locationDelivery">Ort</label>
+      <label index="record_pm_field_title_email">Mail</label>
+      <label index="record_pm_field_title_phone">Telefon</label>
+      <label index="record_pm_field_title_fax">Fax</label>
+      <label index="record_pm_field_title_note">Bemerkung</label>
+      <label index="record_pm_field_title_methodOfPayment">Zahlungsart</label>
+      <label index="record_pm_field_title_methodOfShipping">Versandart</label>
+      <label index="record_pm_field_title_terms">AGB</label>
+      <label index="record_pm_field_title_revocation">Widerrufsbelehrung</label>
+      <label index="record_pm_field_title_submit">Organiser unverbindlich testen!</label>
+      <label index="record_pm_form_title_caddyorder">Caddy Bestellformular</label>
+      <label index="ts_create_header">TypoScript</label>
+      <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.</label>
+      <label index="tt_content.list_type_pi1">Organiser - 1-Klick-Installer</label>
+      <label index="tx_powermail_domain_model_fields">Powermail Felder</label>
+      <label index="tx_powermail_domain_model_forms">Powermail Formulare</label>
+      <label index="tx_powermail_domain_model_pages">Powermail Seiten</label>
       <label index="tx_powermail_fieldsets">Powermail Feldgruppen</label>
-      <label index="tx_powermail_fields">Powermail Fielder</label>
-
-      <label index="tx_quickshop_categories">Quick Shop Kategorien</label>
-      <label index="tx_quickshop_products">Quick Shop Produkte</label>
-      <label index="tx_quickshop_products_category_mm">Quick Shop MM Relationen</label>
+      <label index="tx_powermail_fields">Powermail Felder</label>
+      <label index="tx_org_caltype">Organiser Kategorien</label>
+      <label index="tx_org_news">Organiser Artikel</label>
+      <label index="tx_org_news_category_mm">Organiser MM Relationen</label>
     </languageKey>
   </data>
 </T3locallang>

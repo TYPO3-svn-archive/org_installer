@@ -155,6 +155,11 @@
       <label index="pageOrgDataNews_title">News</label>
       <label index="pageOrgDataStaff_title">Staff</label>
       <label index="pageOrgDownloads_title">Documents</label>
+      <label index="pageOrgDownloadsCaddy_title">Caddy</label>
+      <label index="pageOrgDownloadsCaddyDelivery_title">Shipping</label>
+      <label index="pageOrgDownloadsCaddyCaddymini_title">Caddy mini</label>
+      <label index="pageOrgDownloadsCaddyRevocation_title">Revocation</label>
+      <label index="pageOrgDownloadsCaddyTerms_title">Terms</label>
       <label index="pageOrgEvents_title">Events</label>
       <label index="pageOrgHeadquarters_title">Headquarters</label>
       <label index="pageOrgLegalinfo_title">Legal info</label>
@@ -482,6 +487,11 @@ Because of the price:
       <label index="pageOrgDataNews_title">Nachrichten</label>
       <label index="pageOrgDataStaff_title">Personal</label>
       <label index="pageOrgDownloads_title">Dokumente</label>
+      <label index="pageOrgDownloadsCaddy_title">Warenkorb</label>
+      <label index="pageOrgDownloadsCaddyCaddymini_title">Mini-Warenkorb</label>
+      <label index="pageOrgDownloadsCaddyDelivery_title">Versand</label>
+      <label index="pageOrgDownloadsCaddyRevocation_title">Widerrufsrecht</label>
+      <label index="pageOrgDownloadsCaddyTerms_title">AGB</label>
       <label index="pageOrgEvents_title">Veranstaltungen</label>
       <label index="pageOrgHeadquarters_title">Standorte</label>
       <label index="pageOrgLegalinfo_title">Impressum</label>

@@ -350,11 +350,13 @@ class tx_orginstaller_pi1_pages
   {
     $pageTitle    = 'pageOrgCaddyDelivery_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageOrgCaddy_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
             (
               'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
+              'pid'           => $pid,
               'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),
@@ -387,11 +389,13 @@ class tx_orginstaller_pi1_pages
   {
     $pageTitle    = 'pageOrgCaddyRevocation_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageOrgCaddy_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
             (
               'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
+              'pid'           => $pid,
               'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),
@@ -425,11 +429,13 @@ class tx_orginstaller_pi1_pages
   {
     $pageTitle    = 'pageOrgCaddyTerms_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageOrgCaddy_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
             (
               'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
+              'pid'           => $pid,
               'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),
@@ -1228,11 +1234,13 @@ mod {
   {
     $pageTitle    = 'pageOrgDownloadsCaddyDelivery_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageOrgDownloadsCaddy_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
             (
               'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
+              'pid'           => $pid,
               'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),
@@ -1265,11 +1273,13 @@ mod {
   {
     $pageTitle    = 'pageOrgDownloadsCaddyRevocation_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageOrgDownloadsCaddy_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
             (
               'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
+              'pid'           => $pid,
               'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),
@@ -1303,11 +1313,13 @@ mod {
   {
     $pageTitle    = 'pageOrgDownloadsCaddyTerms_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageOrgDownloadsCaddy_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
             (
               'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
+              'pid'           => $pid,
               'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),

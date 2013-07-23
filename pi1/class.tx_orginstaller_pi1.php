@@ -178,7 +178,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
           $this->bool_error = true;
         }
         break;
-      case( 'install_shop' ):
+      case( 'install_org' ):
       case( 'install_all' ):
         if( ! $this->install( ) )
         {

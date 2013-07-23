@@ -1170,6 +1170,7 @@ mod {
               'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
+              'module'        => 'caddy',
               'urlType'       => 1,
               'sorting'       => $sorting
             );

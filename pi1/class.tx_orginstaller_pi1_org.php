@@ -867,306 +867,6 @@ class tx_orginstaller_pi1_org
   **********************************************/
 
 /**
- * recordBasecapBlue( )
- *
- * @param	integer		$uid      : uid of the current field
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function recordBasecapBlue( $uid )
-  {
-    $record = null;
-
-    $llLabel = 'record_qs_prod_title_capBlue';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $llLabel = 'record_qs_prod_image_capBlue';
-    $llImage = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']        = $llTitle;
-    $record['sku']          = $this->pObj->pi_getLL('record_qs_prod_sku_capBlue');
-    $record['short']        = $this->pObj->pi_getLL('record_qs_prod_short_capBlue');
-    $record['description']  = $this->pObj->pi_getLL('record_qs_prod_description_capBlue');
-    $record['category']     = 1;
-    $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_capBlue');
-    $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_capBlue');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_capBlue');
-    $record['image']        = $llImageWiTimestamp;
-    $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_capBlue');
-    $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_capBlue');
-    $record['imagewidth']   = '600';
-      // 0: above, center
-    $record['imageorient']  = '0';
-    $record['imagecols']    = '1';
-    $record['image_zoom']   = '1';
-    $record['image_noRows'] = '1';
-
-    return $record;
-  }
-
-/**
- * recordBasecapGreen( )
- *
- * @param	integer		$uid      : uid of the current field
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function recordBasecapGreen( $uid )
-  {
-    $record = null;
-
-    $llLabel = 'record_qs_prod_title_capGreen';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $llLabel = 'record_qs_prod_image_capGreen';
-    $llImage = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']        = $llTitle;
-    $record['sku']          = $this->pObj->pi_getLL('record_qs_prod_sku_capGreen');
-    $record['short']        = $this->pObj->pi_getLL('record_qs_prod_short_capGreen');
-    $record['description']  = $this->pObj->pi_getLL('record_qs_prod_description_capGreen');
-    $record['category']     = 1;
-    $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_capGreen');
-    $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_capGreen');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_capGreen');
-    $record['image']        = $llImageWiTimestamp;
-    $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_capGreen');
-    $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_capGreen');
-    $record['imagewidth']   = '200';
-      // 26: in text, left
-    $record['imageorient']  = '26';
-    $record['imagecols']    = '1';
-    $record['image_zoom']   = '1';
-    $record['image_noRows'] = '1';
-
-    return $record;
-  }
-
-/**
- * recordBasecapRed( )
- *
- * @param	integer		$uid      : uid of the current field
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function recordBasecapRed( $uid )
-  {
-    $record = null;
-
-    $llLabel = 'record_qs_prod_title_capRed';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $llLabel = 'record_qs_prod_image_capRed';
-    $llImage = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']        = $llTitle;
-    $record['sku']          = $this->pObj->pi_getLL('record_qs_prod_sku_capRed');
-    $record['short']        = $this->pObj->pi_getLL('record_qs_prod_short_capRed');
-    $record['description']  = $this->pObj->pi_getLL('record_qs_prod_description_capRed');
-    $record['category']     = 1;
-    $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_capRed');
-    $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_capRed');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_capRed');
-    $record['image']        = $llImageWiTimestamp;
-    $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_capRed');
-    $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_capRed');
-    $record['imagewidth']   = '200';
-      // 26: in text, left
-    $record['imageorient']  = '26';
-    $record['imagecols']    = '1';
-    $record['image_zoom']   = '1';
-    $record['image_noRows'] = '1';
-
-    return $record;
-  }
-
-/**
- * recordBook( )
- *
- * @param	integer		$uid      : uid of the current field
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function recordBook( $uid )
-  {
-    $record = null;
-
-    $llLabel = 'record_qs_prod_title_book';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $llLabel = 'record_qs_prod_image_book';
-    $llImage = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']        = $llTitle;
-    $record['sku']          = $this->pObj->pi_getLL('record_qs_prod_sku_book');
-    $record['short']        = $this->pObj->pi_getLL('record_qs_prod_short_book');
-    $record['description']  = $this->pObj->pi_getLL('record_qs_prod_description_book');
-    $record['category']     = 1;
-    $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_book');
-    $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_book');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_book');
-    $record['image']        = $llImageWiTimestamp;
-    $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_book');
-    $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_book');
-    $record['imagewidth']   = '140';
-      // 8: below, center
-    $record['imageorient']  = '8';
-    $record['imagecols']    = '1';
-    $record['image_zoom']   = '1';
-    $record['image_noRows'] = '1';
-    $record['quantity_min'] = '0';
-    $record['quantity_max'] = '3';
-
-    return $record;
-  }
-
-/**
- * recordCup( )
- *
- * @param	integer		$uid      : uid of the current field
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function recordCup( $uid )
-  {
-    $record = null;
-
-    $llLabel = 'record_qs_prod_title_cup';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $llLabel = 'record_qs_prod_image_cup';
-    $llImage = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']        = $llTitle;
-    $record['sku']          = $this->pObj->pi_getLL('record_qs_prod_sku_cup');
-    $record['short']        = $this->pObj->pi_getLL('record_qs_prod_short_cup');
-    $record['description']  = $this->pObj->pi_getLL('record_qs_prod_description_cup');
-    $record['category']     = 1;
-    $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_cup');
-    $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_cup');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_cup');
-    $record['image']        = $llImageWiTimestamp;
-    $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_cup');
-    $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_cup');
-    $record['imagewidth']   = '200';
-      // 26: in text, left
-    $record['imageorient']  = '26';
-    $record['imagecols']    = '1';
-    $record['image_zoom']   = '1';
-    $record['image_noRows'] = '1';
-    $record['quantity_min'] = '2';
-    $record['quantity_max'] = '0';
-
-    return $record;
-  }
-
-/**
- * recordPullover( )
- *
- * @param	integer		$uid      : uid of the current field
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function recordPullover( $uid )
-  {
-    $record = null;
-
-    $llLabel = 'record_qs_prod_title_pullover';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $llLabel = 'record_qs_prod_image_pullover';
-    $llImage = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']        = $llTitle;
-    $record['sku']          = $this->pObj->pi_getLL('record_qs_prod_sku_pullover');
-    $record['short']        = $this->pObj->pi_getLL('record_qs_prod_short_pullover');
-    $record['description']  = $this->pObj->pi_getLL('record_qs_prod_description_pullover');
-    $record['category']     = 1;
-    $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_pullover');
-    $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_pullover');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_pullover');
-    $record['image']        = $llImageWiTimestamp;
-    $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_pullover');
-    $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_pullover');
-    $record['imagewidth']   = '200';
-      // 17: in text, right
-    $record['imageorient']  = '17';
-    $record['imagecols']    = '1';
-    $record['image_zoom']   = '1';
-    $record['image_noRows'] = '1';
-
-    return $record;
-  }
-
-
-
- /***********************************************
-  *
-  * Records
-  *
-  **********************************************/
-
-/**
  * record( )
  *
  * @return	array		$records : the records
@@ -1176,8 +876,8 @@ class tx_orginstaller_pi1_org
  */
   private function record( )
   {
-      // staff must be first, because id are needed by cal
-//    $this->recordStaff( );
+      // staff must be first, because ids are needed by cal
+    $this->recordStaff( );
     $this->recordCal( );
 //    $this->recordDownloads( );
 //    $this->recordHeadquarters( );
@@ -1222,7 +922,7 @@ class tx_orginstaller_pi1_org
  */
   private function recordCalEggroll( $uid )
   {
-    $record   = null;
+    $record = array( );
 
     $llLabel  = 'record_tx_org_cal_eggroll_title';
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
@@ -1235,7 +935,7 @@ class tx_orginstaller_pi1_org
     
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_eggroll_bodytext');
 
-    $datetime = strtotime( '+1 week' );
+    $datetime = strtotime( '1 April next year' );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
@@ -1268,7 +968,7 @@ class tx_orginstaller_pi1_org
  */
   private function recordCalT3Devdays( $uid )
   {
-    $record   = null;
+    $record = array( );
 
     $llLabel  = 'record_tx_org_cal_t3devdays_title';
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
@@ -1281,7 +981,7 @@ class tx_orginstaller_pi1_org
     
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3devdays_bodytext');
 
-    $datetime = strtotime( '1 April next year' );
+    $datetime = strtotime( '+3 months' );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
@@ -1291,8 +991,8 @@ class tx_orginstaller_pi1_org
     $record['type']         = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_type');
     $record['title']        = $llTitle;
     $record['datetime']     = $datetime;
-    $record['calurl']       = $this->pObj->pi_getLL('record_tx_org_cal_eggroll_calurl');
-    $record['teaser_short'] = $this->pObj->pi_getLL('record_tx_org_cal_eggroll_teaser_short');
+    $record['calurl']       = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_calurl');
+    $record['teaser_short'] = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_teaser_short');
 
     return $record;
   }
@@ -1308,7 +1008,7 @@ class tx_orginstaller_pi1_org
  */
   private function recordCalT3Organiser( $uid )
   {
-    $record   = null;
+    $record = array( );
 
     $llLabel  = 'record_tx_org_cal_t3organiser_title';
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
@@ -1327,7 +1027,7 @@ class tx_orginstaller_pi1_org
     $uidUser  = $this->arr_recordUids[ $strUser ];
     $bodytext = str_replace( $strUser, $uidUser, $bodytext );
 
-    $datetime = strtotime( '+3 months' );
+    $datetime = strtotime( '+1 week' );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
@@ -1345,6 +1045,299 @@ class tx_orginstaller_pi1_org
     $record['imagecols']    = '1';
     $record['image_zoom']   = '1';
     $record['image_noRows'] = '1';
+
+    return $record;
+  }
+
+/**
+ * recordStaff( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaff( )
+  {
+      // group must be first, because ids are needed by user
+    $this->recordStaffGroup( );
+    $this->recordStaffUser( );
+  }
+
+/**
+ * recordStaffGroup( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaffGroup( )
+  {
+    $table    = 'fe_groups';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+      // category policy
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordStaffGroupPolicy( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordStaffGroupSociety( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordStaffGroupTYPO3( $uid );
+
+
+    $this->sqlInsert( $records, $table );
+  }
+  
+/**
+ * recordStaffGroupPolicy( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaffGroupPolicy( $uid )
+  {
+    $record = null;
+    
+    $this->arr_recordUids['###fe_groups.uid.policy###'] = $uid;
+
+    $llLabel = 'record_fe_groups_title_policy';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+
+    return $record;
+  }
+  
+/**
+ * recordStaffGroupSociety( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaffGroupSociety( $uid )
+  {
+    $record = null;
+    
+    $this->arr_recordUids['###fe_groups.uid.society###'] = $uid;
+
+    $llLabel = 'record_fe_groups_title_society';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+
+    return $record;
+  }
+  
+/**
+ * recordStaffGroupTYPO3( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaffGroupTYPO3( $uid )
+  {
+    $record = null;
+    
+    $this->arr_recordUids['###fe_groups.uid.typo3###'] = $uid;
+
+    $llLabel = 'record_fe_groups_title_typo3';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+
+    return $record;
+  }
+
+/**
+ * recordStaffUser( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaffUser( )
+  {
+    $table    = 'fe_users';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordStaffUserObama( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordStaffUserSchaffstein( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordStaffUserWildt( $uid );
+
+    $this->sqlInsert( $records, $table );
+  }
+  
+/**
+ * recordStaffUserObama( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaffUserObama( $uid )
+  {
+    $record = array( );
+
+    $this->arr_recordUids['###fe_users.uid.bobama###'] = $uid;
+
+    $llLabel  = 'record_fe_users_bobama_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $usergroup  = $this->arr_recordUids['###fe_groups.uid.policy###'] . ', ' 
+                . $this->arr_recordUids['###fe_groups.uid.society###'];
+
+    $record['uid']                  = $uid;
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
+    $record['tstamp']               = time( );
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['usergroup']            = $usergroup;
+    $record['username']             = $this->pi_getLL('record_fe_users_bobama_username');
+    $record['name']                 = $this->pi_getLL('record_fe_users_bobama_name');
+    $record['first_name']           = $this->pi_getLL('record_fe_users_bobama_first_name');
+    $record['last_name']            = $this->pi_getLL('record_fe_users_bobama_last_name');
+    $record['password']             = $this->zz_getPassword();
+    $record['telephone']            = $this->pi_getLL('record_fe_users_bobama_telephone');
+    $record['email']                = $this->pi_getLL('record_fe_users_bobama_email');
+    $record['www']                  = $this->pi_getLL('record_fe_users_bobama_www');
+    $record['image']                = $llImageWiTimestamp;
+    $record['tx_org_imagecaption']  = $this->pi_getLL('record_fe_users_bobama_tx_org_imagecaption');
+    $record['tx_org_imageseo']      = $this->pi_getLL('record_fe_users_bobama_tx_org_imageseo');
+    $record['tx_org_vita']          = $this->pi_getLL('record_fe_users_bobama_tx_org_vita');
+
+    return $record;
+  }
+
+/**
+ * recordStaffUserSchaffstein( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaffUserSchaffstein( $uid )
+  {
+    $record = array( );
+
+    $this->arr_recordUids['###fe_users.uid.sschaffstein###'] = $uid;
+
+    $llLabel  = 'record_fe_users_sschaffstein_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $usergroup  = $this->arr_recordUids['###fe_groups.uid.policy###'] . ', ' 
+                . $this->arr_recordUids['###fe_groups.uid.society###'];
+
+    $record['uid']                  = $uid;
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
+    $record['tstamp']               = time( );
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['usergroup']            = $usergroup;
+    $record['username']             = $this->pi_getLL('record_fe_users_sschaffstein_username');
+    $record['name']                 = $this->pi_getLL('record_fe_users_sschaffstein_name');
+    $record['first_name']           = $this->pi_getLL('record_fe_users_sschaffstein_first_name');
+    $record['last_name']            = $this->pi_getLL('record_fe_users_sschaffstein_last_name');
+    $record['password']             = $this->zz_getPassword();
+    $record['telephone']            = $this->pi_getLL('record_fe_users_sschaffstein_telephone');
+    $record['email']                = $this->pi_getLL('record_fe_users_sschaffstein_email');
+    $record['www']                  = $this->pi_getLL('record_fe_users_sschaffstein_www');
+    $record['image']                = $llImageWiTimestamp;
+    $record['tx_org_imagecaption']  = $this->pi_getLL('record_fe_users_sschaffstein_tx_org_imagecaption');
+    $record['tx_org_imageseo']      = $this->pi_getLL('record_fe_users_sschaffstein_tx_org_imageseo');
+    $record['tx_org_vita']          = $this->pi_getLL('record_fe_users_sschaffstein_tx_org_vita');
+
+    return $record;
+  }
+  
+/**
+ * recordStaffUserWildt( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaffUserWildt( $uid )
+  {
+    $record = array( );
+
+    $this->arr_recordUids['###fe_users.uid.dwildt###'] = $uid;
+
+    $llLabel  = 'record_fe_users_dwildt_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $usergroup  = $this->arr_recordUids['###fe_groups.uid.policy###'] . ', ' 
+                . $this->arr_recordUids['###fe_groups.uid.society###'];
+
+    $record['uid']                  = $uid;
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
+    $record['tstamp']               = time( );
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['usergroup']            = $usergroup;
+    $record['username']             = $this->pi_getLL('record_fe_users_dwildt_username');
+    $record['name']                 = $this->pi_getLL('record_fe_users_dwildt_name');
+    $record['first_name']           = $this->pi_getLL('record_fe_users_dwildt_first_name');
+    $record['last_name']            = $this->pi_getLL('record_fe_users_dwildt_last_name');
+    $record['password']             = $this->zz_getPassword();
+    $record['telephone']            = $this->pi_getLL('record_fe_users_dwildt_telephone');
+    $record['email']                = $this->pi_getLL('record_fe_users_dwildt_email');
+    $record['www']                  = $this->pi_getLL('record_fe_users_dwildt_www');
+    $record['image']                = $llImageWiTimestamp;
+    $record['tx_org_imagecaption']  = $this->pi_getLL('record_fe_users_dwildt_tx_org_imagecaption');
+    $record['tx_org_imageseo']      = $this->pi_getLL('record_fe_users_dwildt_tx_org_imageseo');
+    $record['tx_org_vita']          = $this->pi_getLL('record_fe_users_dwildt_tx_org_vita');
 
     return $record;
   }
@@ -1672,6 +1665,23 @@ class tx_orginstaller_pi1_org
     $csvResult = $uid . ',' . $sorting;
 
     return $csvResult;
+  }
+  
+/**
+ * zz_getPassword: Get a random value
+ *
+ * @return    string  random value
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function zz_getPassword( )
+  {
+    mt_srand( ( double ) microtime( ) * 1000000 );
+    $randval = mt_rand( );
+    $randval = md5( $randval );
+    
+    return $randval;
   }
 }
 

@@ -183,8 +183,31 @@
       <label index="phrases_powermail_termsAccepted2x"><![CDATA[I'm according with the <a href="index.php/?id=###PID###" target="_blank">Terms and Conditions</a>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_org_page">Organiser Homepage</label>
       <label index="pluginBrowserPageOrg_header">[Browser for Organiser Calendar]</label>
-      <label index="pluginBrowserPageOrg_ffListTitle">Organiser Kalender</label>
+      <label index="pluginBrowserPageOrg_ffListTitle">Organiser Calendar</label>
       <label index="pluginBrowserPageOrg_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 201: +Org Calendar
+  * [Templating]
+    * HTML: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in list views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in single views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgDownloads_header">[Browser for Organiser Downloads]</label>
+      <label index="pluginBrowserPageOrgDownloads_ffListTitle">Organiser Downloads</label>
+      <label index="pluginBrowserPageOrgDownloads_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
   * Recursiv: Infinite
@@ -205,9 +228,9 @@
       * table.field: tx_org_cal.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgDownloads_header">[Browser for Organiser Calendar]</label>
-      <label index="pluginBrowserPageOrgDownloads_ffListTitle">Organiser Kalender</label>
-      <label index="pluginBrowserPageOrgDownloads_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgHeadquarters_header">[Browser for Organiser Headquarters]</label>
+      <label index="pluginBrowserPageOrgHeadquarters_ffListTitle">Organiser Headquarters</label>
+      <label index="pluginBrowserPageOrgHeadquarters_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
   * Recursiv: Infinite
@@ -215,7 +238,76 @@
   * [General]
     * Views: [Configured]
     * Views: Display only views of the current template (recommended) [X]
-    * Views: Enabled list views ...: 201: +Org Kalender
+    * Views: Enabled list views ...: 501: +Org Headquarters
+  * [Templating]
+    * HTML: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in list views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in single views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgLocations_header">[Browser for Organiser Locations]</label>
+      <label index="pluginBrowserPageOrgLocations_ffListTitle">Organiser Locations</label>
+      <label index="pluginBrowserPageOrgLocations_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 701: +Org Locations]
+  * [Templating]
+    * HTML: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in list views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in single views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgNews_header">[Browser for Organiser News]</label>
+      <label index="pluginBrowserPageOrgNews_ffListTitle">Organiser News</label>
+      <label index="pluginBrowserPageOrgNews_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 401: +Org News]
+  * [Templating]
+    * HTML: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in list views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in single views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgStaff_header">[Browser for Organiser Staff]</label>
+      <label index="pluginBrowserPageOrgStaff_ffListTitle">Organiser Staff</label>
+      <label index="pluginBrowserPageOrgStaff_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 101: +Org Staff]
   * [Templating]
     * HTML: [Browser: Main (browser) ]
     * CSS jQuery UI (User Interface): [UI: Blitzer]
@@ -582,8 +674,8 @@ Because of the price:
       * table.field: tx_org_cal.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgDownloads_header">[Browser für Organiser Kalender]</label>
-      <label index="pluginBrowserPageOrgDownloads_ffListTitle">Organiser Kalender</label>
+      <label index="pluginBrowserPageOrgDownloads_header">[Browser für Organiser Downloads]</label>
+      <label index="pluginBrowserPageOrgDownloads_ffListTitle">Organiser Downloads</label>
       <label index="pluginBrowserPageOrgDownloads_ffMycomment"><![CDATA[
 * [Verhalten]
   * Datensatzsammlung: Daten
@@ -593,6 +685,98 @@ Because of the price:
     * Views: [Konfiguriert]
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
     * Views: Listen, die ... verarbeitet werden: 301: +Org Downloads
+  * [Templating]
+    * HTML-Vorlage: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Listenansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in der Detailansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgHeadquarters_header">[Browser für Organiser Standorte]</label>
+      <label index="pluginBrowserPageOrgHeadquarters_ffListTitle">Organiser Standorte</label>
+      <label index="pluginBrowserPageOrgHeadquarters_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 501: +Org Headquarters
+  * [Templating]
+    * HTML-Vorlage: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Listenansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in der Detailansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgLocations_header">[Browser für Organiser Veranstaltungsorte]</label>
+      <label index="pluginBrowserPageOrgLocations_ffListTitle">Organiser Veranstaltungsorte</label>
+      <label index="pluginBrowserPageOrgLocations_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 701: +Org Locations
+  * [Templating]
+    * HTML-Vorlage: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Listenansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in der Detailansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgNews_header">[Browser für Organiser Nachrichten]</label>
+      <label index="pluginBrowserPageOrgNews_ffListTitle">Organiser Nachrichten</label>
+      <label index="pluginBrowserPageOrgNews_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 401: +Org News
+  * [Templating]
+    * HTML-Vorlage: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Listenansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in der Detailansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgStaff_header">[Browser für Organiser Personal]</label>
+      <label index="pluginBrowserPageOrgStaff_ffListTitle">Organiser Personal</label>
+      <label index="pluginBrowserPageOrgStaff_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 101: +Org Staff
   * [Templating]
     * HTML-Vorlage: [Browser: Main (browser) ]
     * CSS jQuery UI (User Interface): [UI: Blitzer]

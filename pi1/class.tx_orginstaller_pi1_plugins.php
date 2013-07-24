@@ -121,17 +121,17 @@ class tx_orginstaller_pi1_plugins
     $uid = $uid + 1;
     $records[$uid] = $this->browserPageOrgDownloads( $uid );
 
-//    $uid = $uid + 1;
-//    $records[$uid] = $this->browserPageOrgEvents( $uid );
-//
-//    $uid = $uid + 1;
-//    $records[$uid] = $this->browserPageOrgHeadquarters( $uid );
-//
-//    $uid = $uid + 1;
-//    $records[$uid] = $this->browserPageOrgLocations( $uid );
-//
-//    $uid = $uid + 1;
-//    $records[$uid] = $this->browserPageOrgStaff( $uid );
+    $uid = $uid + 1;
+    $records[$uid] = $this->browserPageOrgHeadquarters( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->browserPageOrgLocations( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->browserPageOrgNews( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->browserPageOrgStaff( $uid );
 
     $uid = $uid + 1;
     $records[$uid] = $this->caddyPageOrg( $uid );
@@ -163,7 +163,7 @@ class tx_orginstaller_pi1_plugins
 
     $ffJavascript = 'list_and_single';
     $ffjQueryUi   = 'blitzer';
-    $ffMode       = 201;  // 201: cal
+    $ffMode       = 201;  // calendar
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffListTitle' ) );
     
@@ -210,7 +210,7 @@ class tx_orginstaller_pi1_plugins
 
     $ffJavascript = 'list_and_single';
     $ffjQueryUi   = 'blitzer';
-    $ffMode       = 201;  // 201: cal
+    $ffMode       = 301;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffListTitle' ) );
     
@@ -223,6 +223,194 @@ class tx_orginstaller_pi1_plugins
 
     $record['uid']           = $uid;
     $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ];
+    $record['tstamp']        = time( );
+    $record['crdate']        = time( );
+    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']       = 128;
+    $record['CType']         = 'list';
+    $record['list_type']     = 'browser_pi1';
+    $record['header']        = $llHeader;
+    $record['header_layout'] = 100;  // hidden
+    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record['recursive']     = 250;
+    $record['sectionIndex']  = 1;
+    $record['pi_flexform']   = $pi_flexform;
+
+    return $record;
+  }
+
+/**
+ * browserPageOrgHeadquarters( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function browserPageOrgHeadquarters( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_header' );
+    $this->pObj->arr_pluginUids['pluginBrowserPageOrgHeadquarters_header'] = $uid;
+
+    $ffJavascript = 'list_and_single';
+    $ffjQueryUi   = 'blitzer';
+    $ffMode       = 501;
+    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffMycomment' ) );
+    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffListTitle' ) );
+    
+    $pi_flexform = $this->zzGetFlexformBrowser( );
+    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+
+    $record['uid']           = $uid;
+    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ];
+    $record['tstamp']        = time( );
+    $record['crdate']        = time( );
+    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']       = 128;
+    $record['CType']         = 'list';
+    $record['list_type']     = 'browser_pi1';
+    $record['header']        = $llHeader;
+    $record['header_layout'] = 100;  // hidden
+    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record['recursive']     = 250;
+    $record['sectionIndex']  = 1;
+    $record['pi_flexform']   = $pi_flexform;
+
+    return $record;
+  }
+
+/**
+ * browserPageOrgLocations( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function browserPageOrgLocations( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_header' );
+    $this->pObj->arr_pluginUids['pluginBrowserPageOrgLocations_header'] = $uid;
+
+    $ffJavascript = 'list_and_single';
+    $ffjQueryUi   = 'blitzer';
+    $ffMode       = 701;
+    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffMycomment' ) );
+    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffListTitle' ) );
+    
+    $pi_flexform = $this->zzGetFlexformBrowser( );
+    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+
+    $record['uid']           = $uid;
+    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgLocations_title' ];
+    $record['tstamp']        = time( );
+    $record['crdate']        = time( );
+    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']       = 128;
+    $record['CType']         = 'list';
+    $record['list_type']     = 'browser_pi1';
+    $record['header']        = $llHeader;
+    $record['header_layout'] = 100;  // hidden
+    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record['recursive']     = 250;
+    $record['sectionIndex']  = 1;
+    $record['pi_flexform']   = $pi_flexform;
+
+    return $record;
+  }
+
+/**
+ * browserPageOrgNews( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function browserPageOrgNews( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_header' );
+    $this->pObj->arr_pluginUids['pluginBrowserPageOrgNews_header'] = $uid;
+
+    $ffJavascript = 'list_and_single';
+    $ffjQueryUi   = 'blitzer';
+    $ffMode       = 401;
+    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffMycomment' ) );
+    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffListTitle' ) );
+    
+    $pi_flexform = $this->zzGetFlexformBrowser( );
+    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+
+    $record['uid']           = $uid;
+    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgNews_title' ];
+    $record['tstamp']        = time( );
+    $record['crdate']        = time( );
+    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']       = 128;
+    $record['CType']         = 'list';
+    $record['list_type']     = 'browser_pi1';
+    $record['header']        = $llHeader;
+    $record['header_layout'] = 100;  // hidden
+    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record['recursive']     = 250;
+    $record['sectionIndex']  = 1;
+    $record['pi_flexform']   = $pi_flexform;
+
+    return $record;
+  }
+
+/**
+ * browserPageOrgStaff( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function browserPageOrgStaff( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_header' );
+    $this->pObj->arr_pluginUids['pluginBrowserPageOrgStaff_header'] = $uid;
+
+    $ffJavascript = 'list_and_single';
+    $ffjQueryUi   = 'blitzer';
+    $ffMode       = 101;
+    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffMycomment' ) );
+    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffListTitle' ) );
+    
+    $pi_flexform = $this->zzGetFlexformBrowser( );
+    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+
+    $record['uid']           = $uid;
+    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ];
     $record['tstamp']        = time( );
     $record['crdate']        = time( );
     $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];

@@ -328,8 +328,6 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->createPages( );
     $this->createTyposcript( );
     $this->createPlugins( );
-$prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';    
-die( $prompt );
 
     $this->arrReport[ ] = '
       <h2>
@@ -337,6 +335,8 @@ die( $prompt );
       </h2>';
 
     $this->createRecordsPowermail( );
+$prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';    
+die( $prompt );
     $this->createRecordsOrg( );
     $this->createFilesShop( );
     $this->createContent( );
@@ -950,8 +950,8 @@ die( $prompt );
   private function initPowermailVersion( )
   {
     $arrResult = $this->zz_getExtensionVersion( 'powermail' );
-    $this->powermailPageOrgCaddyVersionInt = $arrResult['int'];
-    $this->powermailPageOrgCaddyVersionStr = $arrResult['str'];
+    $this->powermailVersionInt = $arrResult['int'];
+    $this->powermailVersionStr = $arrResult['str'];
   }
 
 

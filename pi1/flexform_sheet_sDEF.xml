@@ -39,7 +39,7 @@
               </numIndex>
               <numIndex index="2" type="array">
                 <numIndex index="0">LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.install_case.2</numIndex>
-                <numIndex index="1">install_shop</numIndex>
+                <numIndex index="1">install_org</numIndex>
               </numIndex>
             </items>
             <default>disabled</default>

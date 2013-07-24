@@ -645,8 +645,8 @@ RTE.default.tx_linkhandler < mod.tx_linkhandler
 TCEMAIN {
   clearCacheCmd = pages
   permissions {
-    // ' . $this->markerArray['###GROUP_UID###'] . ': ' . $this->markerArray['###GROUP_TITLE###'] . '
-    groupid = ' . $this->markerArray['###GROUP_UID###'] . '
+    // ' . $this->pObj->markerArray['###GROUP_UID###'] . ': ' . $this->pObj->markerArray['###GROUP_TITLE###'] . '
+    groupid = ' . $this->pObj->markerArray['###GROUP_UID###'] . '
     group   = show,edit,delete,new,editcontent
   }
 }

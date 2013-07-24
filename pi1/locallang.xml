@@ -142,6 +142,7 @@
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###) is created.</label>
       <label index="pageOrg_title">Organiser</label>
       <label index="pageOrgCaddy_title">Caddy</label>
+      <label index="pageOrgCaddy_titleUrl">Caddy</label>
       <label index="pageOrgCaddyDelivery_title">Shipping</label>
       <label index="pageOrgCaddyCaddymini_title">Caddy mini</label>
       <label index="pageOrgCaddyRevocation_title">Revocation</label>
@@ -156,6 +157,7 @@
       <label index="pageOrgDataStaff_title">Staff</label>
       <label index="pageOrgDownloads_title">Documents</label>
       <label index="pageOrgDownloadsCaddy_title">Caddy</label>
+      <label index="pageOrgDownloadsCaddy_titleUrl">Caddy</label>
       <label index="pageOrgDownloadsCaddyDelivery_title">Shipping</label>
       <label index="pageOrgDownloadsCaddyCaddymini_title">Caddy mini</label>
       <label index="pageOrgDownloadsCaddyRevocation_title">Revocation</label>
@@ -474,6 +476,7 @@ Because of the price:
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
       <label index="pageOrg_title">Organiser</label>
       <label index="pageOrgCaddy_title">Warenkorb</label>
+      <label index="pageOrgCaddy_titleUrl">Warenkorb</label>
       <label index="pageOrgCaddyCaddymini_title">Mini-Warenkorb</label>
       <label index="pageOrgCaddyDelivery_title">Versand</label>
       <label index="pageOrgCaddyRevocation_title">Widerrufsrecht</label>
@@ -488,6 +491,7 @@ Because of the price:
       <label index="pageOrgDataStaff_title">Personal</label>
       <label index="pageOrgDownloads_title">Dokumente</label>
       <label index="pageOrgDownloadsCaddy_title">Warenkorb</label>
+      <label index="pageOrgDownloadsCaddy_titleUrl">Warenkorb</label>
       <label index="pageOrgDownloadsCaddyCaddymini_title">Mini-Warenkorb</label>
       <label index="pageOrgDownloadsCaddyDelivery_title">Versand</label>
       <label index="pageOrgDownloadsCaddyRevocation_title">Widerrufsrecht</label>

@@ -675,7 +675,7 @@ plugin.tx_powermail_pi1 {
 page.10.subparts.menue.20 >
 ';
         break;
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
         // Do nothing
         break;
     }
@@ -730,7 +730,7 @@ plugin.tx_powermail {
 page.10.subparts.menue.20 >
 ';
         break;
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
         // Do nothing
         break;
     }

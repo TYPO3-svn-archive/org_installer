@@ -133,6 +133,21 @@ class tx_orginstaller_pi1 extends tslib_pibase
   public  $arr_fileUids      = false;
     // [array] Uids of the generated tt_content records - here: page content only
   public  $arr_contentUids      = false;
+  
+    // [object]
+  public $consolidate = null;
+    // [object]
+  public $content = null;
+    // [object]
+  public $org = null;
+    // [object]
+  public $pages = null;
+    // [object]
+  public $plugins = null;
+    // [object]
+  public $powermail = null;
+    // [object]
+  public $typoscript = null;
 
   public  $powermailVersionInt = null;
   public  $powermailVersionStr = null;
@@ -229,7 +244,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
   /**
  * Shop will be installed - with or without template
  *
- * @param	string		$str_installCase: install_all or install_shop
+ * @param	string		$str_installCase: install_all or install_org
  * @return	The		content that is displayed on the website
  */
   private function confirmation()
@@ -311,9 +326,9 @@ class tx_orginstaller_pi1 extends tslib_pibase
   {
     $this->createBeGroup( );
     $this->createPages( );
+    $this->createTyposcript( );
 $prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';    
 die( $prompt );
-    $this->createTyposcript( );
     $this->createPlugins( );
 
     $this->arrReport[ ] = '
@@ -330,7 +345,7 @@ die( $prompt );
 /**
  * Shop will be installed - with or without template
  *
- * @param	string		$str_installCase: install_all or install_shop
+ * @param	string		$str_installCase: install_all or install_org
  * @return	The		content that is displayed on the website
  */
   private function createBeGroup()

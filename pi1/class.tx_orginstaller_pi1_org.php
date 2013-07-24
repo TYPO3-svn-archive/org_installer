@@ -201,7 +201,7 @@ class tx_orginstaller_pi1_org
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -228,7 +228,7 @@ class tx_orginstaller_pi1_org
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -255,7 +255,7 @@ class tx_orginstaller_pi1_org
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];

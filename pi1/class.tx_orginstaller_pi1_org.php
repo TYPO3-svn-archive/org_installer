@@ -183,7 +183,7 @@ class tx_orginstaller_pi1_org
     $records[$uid] = $this->categoryCalEntranceSponsors( $uid );
 
 
-    $this->sqlInsert( $records, 'tx_org_caltype' );
+    $this->sqlInsert( $records, $table );
   }
   
 /**

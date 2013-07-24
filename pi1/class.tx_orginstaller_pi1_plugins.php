@@ -187,7 +187,7 @@ class tx_orginstaller_pi1_plugins
     $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
     $record['recursive']     = 250;
     $record['sectionIndex']  = 1;
-    $record['pi_flexform']   = $this->zzGetFlexformBrowser( );
+    $record['pi_flexform']   = $pi_flexform;
 
     return $record;
   }
@@ -234,7 +234,7 @@ class tx_orginstaller_pi1_plugins
     $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
     $record['recursive']     = 250;
     $record['sectionIndex']  = 1;
-    $record['pi_flexform']   = $this->zzGetFlexformBrowser( );
+    $record['pi_flexform']   = $pi_flexform;
 
     return $record;
   }

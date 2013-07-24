@@ -624,7 +624,7 @@ P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Oba
       <label index="content_shipping_header">Versand</label>
       <label index="content_shipping_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
 <ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
-      <label index="content_terms_header">AGB - Allgemeine Gesch&auml;ftsbedingungen</label>
+      <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
       <label index="content_terms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
       <label index="consolidate_header">Konsolidierung</label>

@@ -172,7 +172,7 @@ class tx_orginstaller_pi1_consolidate
     $llHeader = $this->pObj->pi_getLL( 'content_caddy_header' );
       // values
 
-    $pmFieldsetUid = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
+    $pmFieldsetUid = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_fSets_title_deliveryAddress' );
     switch( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
@@ -479,10 +479,10 @@ class tx_orginstaller_pi1_consolidate
 
       // values
     $llHeader       = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
-    $uidEmail       = $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ];
+    $uidEmail       = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_field_title_email' );
     $customerEmail  = 'uid' . $uidEmail;
-    $uidFirstname   = $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ];
-    $uidSurname     = $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameBilling' ];
+    $uidFirstname   = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_field_title_firstnameBilling' );
+    $uidSurname     = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_field_title_surnameBilling' );
     $customerName   = 'uid' . $uidFirstname . ',uid' . $uidSurname;
       // values
 
@@ -507,7 +507,7 @@ class tx_orginstaller_pi1_consolidate
     $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
 
     $llHeader         = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
-    $uidForm          = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
+    $uidForm          = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_form_title_caddyorder' );
     $receiverSubject  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_r2x' );
     $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_r2x' ) );
     list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );

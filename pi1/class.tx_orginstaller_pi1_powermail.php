@@ -118,7 +118,9 @@ class tx_orginstaller_pi1_powermail
   public  $extKey        = 'org_installer';
 
   public  $pObj = null;
+  private $pid  = null;
 
+  private $arr_recordUids   = null;
   private $fieldsLabelTable = null;
   private $fieldsValueType  = null;
 
@@ -139,14 +141,17 @@ class tx_orginstaller_pi1_powermail
 /**
  * main( )
  *
+ * @param       integer     $pid  : uid of the page with the powermail records
  * @return	void
  * @access public
  * @version 3.0.0
  * @since   0.0.1
  */
-  public function main( )
+  public function main( $pid )
   {
     $records = array( );
+    
+    $this->pid = ( int ) $pid;
 
     $records = $this->forms( );
     $this->sqlInsert( $records, 'tx_powermail_domain_model_forms' );
@@ -181,16 +186,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_streetBilling' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_streetBilling' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_streetBilling' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']        = $this->pid;
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -212,16 +217,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_locationBilling' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_locationBilling' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_locationBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -243,16 +248,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_companyBilling' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_companyBilling' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_companyBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -274,16 +279,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_countryBilling' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_countryBilling' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_countryBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -305,16 +310,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_firstnameBilling' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -368,16 +373,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_surnameBilling' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameBilling' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_surnameBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
     $versionInt = $this->pObj->powermailVersionInt;
@@ -430,16 +435,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_zipBilling' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_zipBilling' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_zipBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -469,16 +474,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_email' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_email' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -536,16 +541,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_fax' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_fax' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_fax' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -567,16 +572,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_phone' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_phone' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_phone' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -606,16 +611,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_streetDelivery' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_streetDelivery' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_streetDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -637,16 +642,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_locationDelivery' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_locationDelivery' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_locationDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -668,16 +673,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_companyDelivery' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_companyDelivery' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_companyDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -699,16 +704,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_countryDelivery' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -730,16 +735,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_firstnameDelivery' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameDelivery' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_firstnameDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -761,16 +766,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_surnameDelivery' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameDelivery' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_surnameDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -792,16 +797,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_zipDelivery' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_zipDelivery' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_zipDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -831,16 +836,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_note' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_note' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_note' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_order' ];
     $record[ $this->fieldsLabelType ]  = 'textarea';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -927,16 +932,16 @@ class tx_orginstaller_pi1_powermail
     $str_revocation = str_replace('###PID###', $int_revocation, $str_revocation);
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_revocation' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_revocation' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_revocation' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_order' ];
     $record[ $this->fieldsLabelType ]  = 'check';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -993,16 +998,16 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_submit' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_submit' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_submit' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_order' ];
     $record[ $this->fieldsLabelType ]  = 'submit';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -1055,16 +1060,16 @@ class tx_orginstaller_pi1_powermail
     $str_terms = str_replace('###PID###', $int_terms, $str_terms);
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_terms' );
-    $this->pObj->arr_recordUids[ 'record_pm_field_title_terms' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_field_title_terms' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']       = $this->pid;
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
-    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
+    $record[ $this->fieldsLabelFieldset ]  = $this->arr_recordUids[ 'record_pm_fSets_title_order' ];
     $record[ $this->fieldsLabelType ]  = 'check';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -1468,10 +1473,10 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_billingAddress' );
-    $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']        = $this->pid;
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -1498,10 +1503,10 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_contactData' );
-    $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_fSets_title_contactData' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']        = $this->pid;
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -1528,10 +1533,10 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_deliveryAddress' );
-    $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']        = $this->pid;
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -1558,10 +1563,10 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_order' );
-    $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_fSets_title_order' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']        = $this->pid;
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -1734,61 +1739,7 @@ class tx_orginstaller_pi1_powermail
  */
   private function fieldsetsSetValuesByVersion2x( )
   {
-    $this->fieldsetsValueForm = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
-  }
-
-
-
- /***********************************************
-  *
-  * Sql
-  *
-  **********************************************/
-
-/**
- * sqlInsert( )
- *
- * @param	array		$records  : TypoScript records for pages
- * @param	string		$table    : name of the current table
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function sqlInsert( $records, $table )
-  {
-    foreach( ( array ) $records as $record )
-    {
-      //var_dump(__METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );
-
-      if( $error )
-      {
-        $query  = $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record );
-        $prompt = 'SQL-ERROR<br />' . PHP_EOL .
-                  'query: ' . $query . '.<br />' . PHP_EOL .
-                  'error: ' . $error . '.<br />' . PHP_EOL .
-                  'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
-                __METHOD__ . ' (' . __LINE__ . ')';
-        die( $prompt );
-      }
-
-        // prompt
-      $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
-      $pageTitle = $this->pObj->pi_getLL( $pageTitle );
-      $marker['###TITLE###']      = $record['title'];
-      $marker['###TABLE###']      = $this->pObj->pi_getLL( $table );
-      $marker['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $record['pid'] . ')';
-      $prompt = '
-        <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'record_create_prompt' ) . '
-        </p>';
-      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
-      $this->pObj->arrReport[ ] = $prompt;
-        // prompt
-    }
+    $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
   }
 
 
@@ -1813,10 +1764,10 @@ class tx_orginstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_caddyorder' );
-    $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ] = $uid;
+    $this->arr_recordUids[ 'record_pm_form_title_caddyorder' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']        = $this->pid;
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -1900,6 +1851,90 @@ class tx_orginstaller_pi1_powermail
     $records[$uid] = $this->formCaddyOrder( $uid );
 
     return $records;
+  }
+
+
+
+ /***********************************************
+  *
+  * Get
+  *
+  **********************************************/
+
+/**
+ * getValue( $field ) : Returns the value of the given field
+ *
+ * @param	string		$field  : label of the field
+ * @return	string          $value  : value of the field
+ * @access public
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  public function getValue( $field )
+  {
+      // DIE  : field isn't set
+    if( ! isset( $this->arr_recordUids[ $field ] ) )
+    {
+      $prompt = __METHOD__ . ' #' . __LINE__ . ': field isn\'t set "' . $field . '"';
+      die ( $prompt );
+    }
+      // DIE  : field isn't set
+    
+    return $this->arr_recordUids[ $field ];
+  }
+
+
+
+ /***********************************************
+  *
+  * Sql
+  *
+  **********************************************/
+
+/**
+ * sqlInsert( )
+ *
+ * @param	array		$records  : TypoScript records for pages
+ * @param	string		$table    : name of the current table
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function sqlInsert( $records, $table )
+  {
+    foreach( ( array ) $records as $record )
+    {
+      //var_dump(__METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
+      $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
+      if( $error )
+      {
+        $query  = $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record );
+        $prompt = 'SQL-ERROR<br />' . PHP_EOL .
+                  'query: ' . $query . '.<br />' . PHP_EOL .
+                  'error: ' . $error . '.<br />' . PHP_EOL .
+                  'Sorry for the trouble.<br />' . PHP_EOL .
+                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                __METHOD__ . ' (' . __LINE__ . ')';
+        die( $prompt );
+      }
+
+        // prompt
+      $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
+      $pageTitle = $this->pObj->pi_getLL( $pageTitle );
+      $marker['###TITLE###']      = $record['title'];
+      $marker['###TABLE###']      = $this->pObj->pi_getLL( $table );
+      $marker['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $record['pid'] . ')';
+      $prompt = '
+        <p>
+          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'record_create_prompt' ) . '
+        </p>';
+      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
+      $this->pObj->arrReport[ ] = $prompt;
+        // prompt
+    }
   }
 
 

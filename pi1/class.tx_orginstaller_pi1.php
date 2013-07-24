@@ -328,8 +328,6 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->createPages( );
     $this->createTyposcript( );
     $this->createPlugins( );
-$prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';    
-die( $prompt );
 
     $this->arrReport[ ] = '
       <h2>
@@ -337,6 +335,8 @@ die( $prompt );
       </h2>';
 
     $this->createRecordsPowermail( );
+$prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';    
+die( $prompt );
     $this->createRecordsOrg( );
     $this->createFilesShop( );
     $this->createContent( );
@@ -590,10 +590,43 @@ die( $prompt );
   private function createRecordsPowermail( )
   {
     require_once( 'class.tx_orginstaller_pi1_powermail.php' );
-    $this->powermail       = t3lib_div::makeInstance( 'tx_orginstaller_pi1_powermail' );
-    $this->powermail->pObj = $this;
 
-    $this->powermail->main( );
+    $this->createRecordsPowermailPageOrgCaddy( );
+    $this->createRecordsPowermailPageOrgDownloadsCaddy( );
+  }
+
+/**
+ * createRecordsPowermailPageOrgCaddy( ) :
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createRecordsPowermailPageOrgCaddy( )
+  {
+    $this->powermailPageOrgCaddy       = t3lib_div::makeInstance( 'tx_orginstaller_pi1_powermail' );
+    $this->powermailPageOrgCaddy->pObj = $this;
+
+    $pid = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $this->powermailPageOrgCaddy->main( $pid );
+  }
+
+/**
+ * createRecordsPowermailPageOrgDownloadsCaddy( ) :
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createRecordsPowermailPageOrgDownloadsCaddy( )
+  {
+    $this->powermailPageOrgDownloadsCaddy       = t3lib_div::makeInstance( 'tx_orginstaller_pi1_powermail' );
+    $this->powermailPageOrgDownloadsCaddy->pObj = $this;
+
+    $pid = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
+    $this->powermailPageOrgDownloadsCaddy->main( $pid );
   }
 
 /**
@@ -917,8 +950,8 @@ die( $prompt );
   private function initPowermailVersion( )
   {
     $arrResult = $this->zz_getExtensionVersion( 'powermail' );
-    $this->powermailVersionInt = $arrResult['int'];
-    $this->powermailVersionStr = $arrResult['str'];
+    $this->powermailPageOrgCaddyVersionInt = $arrResult['int'];
+    $this->powermailPageOrgCaddyVersionStr = $arrResult['str'];
   }
 
 

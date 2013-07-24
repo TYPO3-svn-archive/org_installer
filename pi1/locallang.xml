@@ -398,6 +398,83 @@
       <label index="record_fe_groups_title_policy">policy</label>
       <label index="record_fe_groups_title_society">society</label>
       <label index="record_fe_groups_title_typo3">TYPO3</label>
+      <label index="record_fe_users_bobama_username">bobama</label>
+      <label index="record_fe_users_bobama_name">Barack Obama</label>
+      <label index="record_fe_users_bobama_first_name">Barack</label>
+      <label index="record_fe_users_bobama_last_name">Obama</label>
+      <label index="record_fe_users_bobama_telephone">++1 202-456-1111</label>
+      <label index="record_fe_users_bobama_email">barack.obama@whitehouse.gov</label>
+      <label index="record_fe_users_bobama_www">http://www.whitehouse.gov/</label>
+      <label index="record_fe_users_bobama_image">barack.obama_timestamp.jpg</label>
+      <label index="record_fe_users_bobama_tx_org_imagecaption">Barack O.</label>
+      <label index="record_fe_users_bobama_tx_org_imageseo">Barack Obama: US President</label>
+      <label index="record_fe_users_bobama_tx_org_vita"><![CDATA[Barack H. Obama is the 44th President of the United States.
+His story is the American story - values from the heartland, a  middle-class upbringing in a strong family, hard work and education as  the means of getting ahead, and the conviction that a life so blessed  should be lived in service to others.
+With a father from Kenya and a mother from Kansas, President Obama  was born in Hawaii on August 4, 1961. He was raised with help from his  grandfather, who served in Patton's army, and his grandmother, who  worked her way up from the secretarial pool to middle management at a  bank.
+After working his way through college with the help of scholarships  and student loans, President Obama moved to Chicago, where he worked  with a group of churches to help rebuild communities devastated by the  closure of local steel plants.
+He went on to attend law school, where he became the first African-American president of the <i>Harvard Law Review</i>.  Upon graduation, he returned to Chicago to help lead a voter  registration drive, teach constitutional law at the University of  Chicago, and remain active in his community.
+President Obama's years of public service are based around his  unwavering belief in the ability to unite people around a politics of  purpose. In the Illinois State Senate, he passed the first major ethics  reform in 25 years, cut taxes for working families, and expanded health  care for children and their parents. As a United States Senator, he  reached across the aisle to pass groundbreaking lobbying reform, lock up  the world's most dangerous weapons, and bring transparency to  government by putting federal spending online.
+He was elected the 44th President of the United States on November 4,  2008, and sworn in on January 20, 2009. He and his wife, Michelle, are  the proud parents of two daughters, Malia, 12, and Sasha, 9.]]></label>
+      
+      <label index="record_fe_users_dwildt_username">dwildt</label>
+      <label index="record_fe_users_dwildt_name">Dirk Wildt</label>
+      <label index="record_fe_users_dwildt_first_name">Dirk</label>
+      <label index="record_fe_users_dwildt_last_name">Wildt</label>
+      <label index="record_fe_users_dwildt_telephone">++49 361 74789004</label>
+      <label index="record_fe_users_dwildt_email">wildt@die-netzmacher.de</label>
+      <label index="record_fe_users_dwildt_www">http://wildt.at.die-netzmacher.de/</label>
+      <label index="record_fe_users_dwildt_image">dirk.wildt_timestamp.jpg</label>
+      <label index="record_fe_users_dwildt_tx_org_imagecaption">Dirk W.</label>
+      <label index="record_fe_users_dwildt_tx_org_imageseo">Dirk Wildt TYPO3 Oganiser</label>
+      <label index="record_fe_users_dwildt_tx_org_vita"><![CDATA[
+        <table cellspacing="0" cellpadding="0" border="0" summary="Vita Dirk Wildt" class="vita_wildt">
+          <caption>Dirk Wildt</caption>
+          <tbody>
+            <tr>
+                <th id="row1849-0" scope="row" class="td-0">2009</th>
+                <td headers="row1849-0" class="td-1">Gesellschafter<br><a title="Die Netzmacher" href="http://die-netzmacher.de">Die Netzmacher GbR</a><br>Internetdienstleistungen</td>
+            </tr>
+            <tr>
+                <th id="row1849-1" scope="row" class="td-0">2002 - 2008</th>
+                <td headers="row1849-1" class="td-1">Einzelunternehmer<br><a target="blank" title="think-visually" href="http://think-visually.com">think visually!</a><br>Internetdienstleistungen</td>
+            </tr>
+            <tr>
+                <th id="row1849-2" scope="row" class="td-0">2000 - 2002</th>
+                <td headers="row1849-2" class="td-1">Finanzcontroller<br><a target="blank" title="g.e.b.b." href="http://www.gebb.de">g.e.b.b.</a><br>Verteidigungsindustrie / Militär</td>
+            </tr>
+            <tr>
+                <th id="row1849-3" scope="row" class="td-0">1999 - 2000</th>
+                <td headers="row1849-3" class="td-1">Finanzcontroller<br><a target="blank" title="tagesspiegel.de" href="http://www.tagesspiegel.de/">GMZ (Tagesspiegel-Gruppe)</a><br>Verlagswesen</td>
+            </tr>
+            <tr>
+                <th id="row1849-4" scope="row" class="td-0">1997 - 1999</th>
+                <td headers="row1849-4" class="td-1">Pressesprecher<br><a target="blank" title="Senatsverwaltung für Finanzen, Berlin" href="http://www.berlin.de/sen/finanzen/">Senatsverwaltung für Finanzen, Berlin</a><br>Öffentlicher Dienst</td>
+            </tr>
+            <tr>
+                <th id="row1849-5" scope="row" class="td-0">1996 - 1997</th>
+                <td headers="row1849-5" class="td-1">Finanzcontroller<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
+            </tr>
+            <tr>
+                <th id="row1849-6" scope="row" class="td-0">1989 - 1996</th>
+                <td headers="row1849-6" class="td-1">Redakteur<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
+            </tr>
+            <tr>
+                <th id="row1849-7" scope="row" class="td-0">1983 - 1989</th>
+                <td headers="row1849-7" class="td-1">Freischaffender Pressefotograf<br>u.a. Spiegel, stern, Zeit, taz, die tageszeitung, Hamburger Morgenpost<br>Verlagswesen</td>
+            </tr>
+          </tbody>
+        </table>]]></label>
+      
+      <label index="record_fe_users_sschaffstein_username">sschaffstein</label>
+      <label index="record_fe_users_sschaffstein_name"><![CDATA[S&ouml;ren Schaffstein]]></label>
+      <label index="record_fe_users_sschaffstein_first_name"><![CDATA[S&ouml;ren]]></label>
+      <label index="record_fe_users_sschaffstein_last_name">Schaffstein</label>
+      <label index="record_fe_users_sschaffstein_telephone">++49 69 2475218 0</label>
+      <label index="record_fe_users_sschaffstein_email">soeren@typo3.org</label>
+      <label index="record_fe_users_sschaffstein_www">http://association.typo3.org/press/press-contact/</label>
+      <label index="record_fe_users_sschaffstein_image">soeren.schaffstein_timestamp.gif</label>
+      <label index="record_fe_users_sschaffstein_tx_org_imagecaption"><![CDATA[S&ouml;ren Sch.]]></label>
+      <label index="record_fe_users_sschaffstein_tx_org_imageseo"><![CDATA[S&ouml;ren Schaffstein TYPO3 press]]></label>
       <label index="record_pm_fSets_title_billingAddress">billing address</label>
       <label index="record_pm_fSets_title_order">order</label>
       <label index="record_pm_fSets_title_contactData">contact data</label>

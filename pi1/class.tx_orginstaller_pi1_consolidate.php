@@ -219,11 +219,11 @@ class tx_orginstaller_pi1_consolidate
   private function pageCaddyPluginCaddy( )
   {
     $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'plugin_caddy_header' ];
+    $uid      = $this->pObj->arr_pluginUids[ 'pluginCaddyPageOrgCaddy_header' ];
     $pmX      = $this->powermailVersionAppendix( );
 
       // values
-    $llHeader = $this->pObj->pi_getLL( 'plugin_caddy_header' );
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgCaddy_header' );
       // values
 
     $records[$uid]['header']      = $llHeader;
@@ -392,10 +392,10 @@ class tx_orginstaller_pi1_consolidate
   private function pageCaddyPluginCaddyMini( )
   {
     $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'plugin_caddymini_header' ];
+    $uid      = $this->pObj->arr_pluginUids[ 'pluginCaddyminiPageOrgCaddyCaddymini_header' ];
 
       // values
-    $llHeader   = $this->pObj->pi_getLL( 'plugin_caddymini_header' );
+    $llHeader   = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgCaddyCaddymini_header' );
     $pidOfCaddy = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
       // values
 
@@ -475,10 +475,10 @@ class tx_orginstaller_pi1_consolidate
   private function pageCaddyPluginPowermail1x( )
   {
     $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
 
       // values
-    $llHeader       = $this->pObj->pi_getLL( 'plugin_powermail_header' );
+    $llHeader       = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
     $uidEmail       = $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ];
     $customerEmail  = 'uid' . $uidEmail;
     $uidFirstname   = $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ];
@@ -504,18 +504,18 @@ class tx_orginstaller_pi1_consolidate
   private function pageCaddyPluginPowermail2x( )
   {
     $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
 
-    $llHeader         = $this->pObj->pi_getLL( 'plugin_powermail_header' );
+    $llHeader         = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
     $uidForm          = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
-    $receiverSubject  = $this->pObj->pi_getLL( 'plugin_powermail_subject_r2x' );
-    $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_powermail_body_r2x' ) );
+    $receiverSubject  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_r2x' );
+    $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_r2x' ) );
     list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
     unset( $name );
     $senderEmail      = 'noreply@' . $domain;
-    $senderSubject    = $this->pObj->pi_getLL( 'plugin_powermail_subject_s2x' );
-    $senderBody       = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_powermail_body_s2x' ) );
-    $thxBody          = htmlspecialchars( $this->pObj->pi_getLL('plugin_powermail_thanks2x') );
+    $senderSubject    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_s2x' );
+    $senderBody       = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_s2x' ) );
+    $thxBody          = htmlspecialchars( $this->pObj->pi_getLL('pluginPowermailPageOrgCaddy_thanks2x') );
 
     $records[$uid]['header']      = $llHeader;
     $records[$uid]['pi_flexform'] = null .

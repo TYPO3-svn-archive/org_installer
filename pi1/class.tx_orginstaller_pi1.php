@@ -327,9 +327,9 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->createBeGroup( );
     $this->createPages( );
     $this->createTyposcript( );
+    $this->createPlugins( );
 $prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';    
 die( $prompt );
-    $this->createPlugins( );
 
     $this->arrReport[ ] = '
       <h2>

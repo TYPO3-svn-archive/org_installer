@@ -33,12 +33,12 @@
  *
  *              SECTION: Records
  *  113:     private function records( )
- *  146:     private function browser( $uid )
- *  273:     private function caddy( $uid )
- *  306:     private function caddymini( $uid )
- *  339:     private function powermail( $uid )
- *  378:     private function powermail1x( $uid )
- *  434:     private function powermail2x( $uid )
+ *  146:     private function browserPageOrg( $uid )
+ *  273:     private function caddyPageOrg( $uid )
+ *  306:     private function caddyminiPageOrgCaddy( $uid )
+ *  339:     private function powermailPageOrgCaddy( $uid )
+ *  378:     private function powermailPageOrgCaddy1x( $uid )
+ *  434:     private function powermailPageOrgCaddy2x( $uid )
  *
  *              SECTION: Sql
  *  474:     private function sqlInsert( $records )
@@ -117,25 +117,25 @@ class tx_orginstaller_pi1_plugins
 
       // browser plugin
     $uid = $uid + 1;
-    $records[$uid] = $this->browser( $uid );
+    $records[$uid] = $this->browserPageOrg( $uid );
 
       // caddy plugin
     $uid = $uid + 1;
-    $records[$uid] = $this->caddy( $uid );
+    $records[$uid] = $this->caddyPageOrg( $uid );
 
       // mini caddy plugin
     $uid = $uid + 1;
-    $records[$uid] = $this->caddymini( $uid );
+    $records[$uid] = $this->caddyminiPageOrgCaddy( $uid );
 
       // powermail plugin
     $uid = $uid + 1;
-    $records[$uid] = $this->powermail( $uid );
+    $records[$uid] = $this->powermailPageOrgCaddy( $uid );
 
     return $records;
   }
 
 /**
- * browser( )
+ * browserPageOrg( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -143,14 +143,16 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function browser( $uid )
+  private function browserPageOrg( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'plugin_browser_header' );
-    $this->pObj->arr_pluginUids['plugin_browser_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrg_header' );
+    $this->pObj->arr_pluginUids['pluginBrowserPageOrg_header'] = $uid;
 
-    $myComment  = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_browser_mycomment' ) );
+    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffListTitle' ) );
+    $ffMode       = 201;  // 201: cal
+    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffMycomment' ) );
 
     $record['uid']           = $uid;
     $record['pid']           = $GLOBALS['TSFE']->id;
@@ -160,24 +162,45 @@ class tx_orginstaller_pi1_plugins
     $record['sorting']       = 128;
     $record['CType']         = 'list';
     $record['header']        = $llHeader;
-    $record['pages']         = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData' ];
     $record['header_layout'] = 100;  // hidden
     $record['list_type']     = 'browser_pi1';
     $record['sectionIndex']  = 1;
     $record['pi_flexform']   = ''.
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="myComment">
+                    <value index="vDEF">' . $ffMycomment . '</value>
+                </field>
+                <field index="views">
+                    <value index="vDEF">selected</value>
+                </field>
+                <field index="viewsHandleFromTemplateOnly">
+                    <value index="vDEF">1</value>
+                </field>
+                <field index="viewsList">
+                    <value index="vDEF">' . $ffMode . '</value>
+                </field>
+            </language>
+        </sheet>
         <sheet index="viewList">
             <language index="lDEF">
                 <field index="title">
-                    <value index="vDEF">Organiser</value>
+                    <value index="vDEF">' . $ffListTitle . '</value>
                 </field>
-                <field index="limit">
-                    <value index="vDEF">3</value>
+                <field index="titleWrap">
+                    <value index="vDEF">&lt;h2 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h2&gt;</value>
                 </field>
-                <field index="navigation">
-                    <value index="vDEF">3</value>
+            </language>
+        </sheet>
+        <sheet index="templating">
+            <language index="lDEF">
+                <field index="template">
+                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
                 </field>
             </language>
         </sheet>
@@ -190,68 +213,13 @@ class tx_orginstaller_pi1_plugins
                     <value index="vDEF">tx_org_cal.title</value>
                 </field>
                 <field index="bookmarks_list">
-                    <value index="vDEF">facebook,hype,twitter</value>
+                    <value index="vDEF">facebook,google,twitter</value>
                 </field>
                 <field index="tablefieldTitle_single">
                     <value index="vDEF">tx_org_cal.title</value>
                 </field>
                 <field index="bookmarks_single">
-                    <value index="vDEF">facebook,google,hype,live,misterwong,technorati,twitter,yahoomyweb</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="views">
-                    <value index="vDEF">selected</value>
-                </field>
-                <field index="viewsHandleFromTemplateOnly">
-                    <value index="vDEF">1</value>
-                </field>
-                <field index="viewsList">
-                    <value index="vDEF">1</value>
-                </field>
-                <field index="myComment">
-                    <value index="vDEF">' . $myComment . '</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="templating">
-            <language index="lDEF">
-                <field index="template">
-                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
-                </field>
-                <field index="css.browser">
-                    <value index="vDEF">ts</value>
-                </field>
-                <field index="css.jqui">
-                    <value index="vDEF">smoothness</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="javascript">
-            <language index="lDEF">
-                <field index="mode">
-                    <value index="vDEF">disabled</value>
-                </field>
-                <field index="ajaxChecklist">
-                    <value index="vDEF">1</value>
-                </field>
-                <field index="list_transition">
-                    <value index="vDEF">collapse</value>
-                </field>
-                <field index="single_transition">
-                    <value index="vDEF">collapse</value>
-                </field>
-                <field index="list_on_single">
-                    <value index="vDEF">single</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="development">
-            <language index="lDEF">
-                <field index="handle_marker">
-                    <value index="vDEF">remove_empty_markers</value>
+                    <value index="vDEF">facebook,google,twitter</value>
                 </field>
             </language>
         </sheet>
@@ -262,7 +230,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * caddy( )
+ * caddyPageOrg( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -270,12 +238,12 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function caddy( $uid )
+  private function caddyPageOrg( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'plugin_caddy_header' );
-    $this->pObj->arr_pluginUids['plugin_caddy_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgCaddy_header' );
+    $this->pObj->arr_pluginUids['pluginCaddyPageOrgCaddy_header'] = $uid;
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
@@ -294,7 +262,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * caddymini( )
+ * caddyminiPageOrgCaddy( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -303,12 +271,12 @@ class tx_orginstaller_pi1_plugins
  * @since   3.0.5
  * @internal  #i0007
  */
-  private function caddymini( $uid )
+  private function caddyminiPageOrgCaddy( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'plugin_caddymini_header' );
-    $this->pObj->arr_pluginUids['plugin_caddymini_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgCaddyCaddymini_header' );
+    $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgCaddyCaddymini_header'] = $uid;
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ];
@@ -328,7 +296,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * powermail( )
+ * powermailPageOrgCaddy( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -336,7 +304,7 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function powermail( $uid )
+  private function powermailPageOrgCaddy( $uid )
   {
     switch( true )
     {
@@ -348,10 +316,10 @@ class tx_orginstaller_pi1_plugins
         die( $prompt );
         break;
       case( $this->pObj->powermailVersionInt < 2000000 ):
-        $record = $this->powermail1x( $uid );
+        $record = $this->powermailPageOrgCaddy1x( $uid );
         break;
       case( $this->pObj->powermailVersionInt < 3000000 ):
-        $record = $this->powermail2x( $uid );
+        $record = $this->powermailPageOrgCaddy2x( $uid );
         break;
       case( $this->pObj->powermailVersionInt >= 3000000 ):
       default:
@@ -367,7 +335,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * powermail1x( )
+ * powermailPageOrgCaddy1x( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -375,12 +343,12 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function powermail1x( $uid )
+  private function powermailPageOrgCaddy1x( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'plugin_powermail_header' );
-    $this->pObj->arr_pluginUids['plugin_powermail_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
+    $this->pObj->arr_pluginUids['pluginPowermailPageOrgCaddy_header'] = $uid;
 
     $emailRecipient = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###']
                     . PHP_EOL
@@ -400,8 +368,8 @@ class tx_orginstaller_pi1_plugins
     $record['sectionIndex']               = 1;
     $record['tx_powermail_title']         = 'org';
     $record['tx_powermail_recipient']     = $emailRecipient;
-    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_r1x' );
-    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_s1x' );
+    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_r1x' );
+    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_s1x' );
 // Will updated by consolidate->pageCaddyPluginPowermail
 //    $record['tx_powermail_sender']        = $str_sender;
 //    $record['tx_powermail_sendername']    = $str_sendername;
@@ -411,9 +379,9 @@ class tx_orginstaller_pi1_plugins
     $record['tx_powermail_recip_table']   = 0;
     $record['tx_powermail_recip_id']      = null;
     $record['tx_powermail_recip_field']   = null;
-    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL( 'plugin_powermail_thanks1x' );
-    $record['tx_powermail_mailsender']    = $this->pObj->pi_getLL( 'plugin_powermail_body_s1x' );
-    $record['tx_powermail_mailreceiver']  = $this->pObj->pi_getLL( 'plugin_powermail_body_r1x' );
+    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_thanks1x' );
+    $record['tx_powermail_mailsender']    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_s1x' );
+    $record['tx_powermail_mailreceiver']  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_r1x' );
     $record['tx_powermail_redirect']      = null;
     $record['tx_powermail_fieldsets']     = 4;
     $record['tx_powermail_users']         = 0;
@@ -423,7 +391,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * powermail2x( )
+ * powermailPageOrgCaddy2x( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -431,12 +399,12 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function powermail2x( $uid )
+  private function powermailPageOrgCaddy2x( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'plugin_powermail_header' );
-    $this->pObj->arr_pluginUids['plugin_powermail_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
+    $this->pObj->arr_pluginUids['pluginPowermailPageOrgCaddy_header'] = $uid;
 
     $record['uid']                        = $uid;
     $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];

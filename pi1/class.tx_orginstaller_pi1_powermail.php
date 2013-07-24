@@ -1721,7 +1721,7 @@ class tx_orginstaller_pi1_powermail
  */
   private function fieldsetsSetValuesByVersion1x( )
   {
-    $this->fieldsetsValueForm = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $this->fieldsetsValueForm = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
   }
 
 /**

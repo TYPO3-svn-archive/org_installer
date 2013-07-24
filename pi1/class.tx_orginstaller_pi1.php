@@ -328,6 +328,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->createPages( );
     $this->createTyposcript( );
     $this->createPlugins( );
+$prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';    
+die( $prompt );
 
     $this->arrReport[ ] = '
       <h2>
@@ -335,8 +337,6 @@ class tx_orginstaller_pi1 extends tslib_pibase
       </h2>';
 
     $this->createRecordsPowermail( );
-$prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';    
-die( $prompt );
     $this->createRecordsOrg( );
     $this->createFilesShop( );
     $this->createContent( );

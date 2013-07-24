@@ -661,7 +661,7 @@ plugin.caddy {
 
     $record['title']                = $llTitle;
     $record['uid']                  = $uid;
-    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
     $record['tstamp']               = time( );
     $record['sorting']              = 256;
     $record['crdate']               = time( );

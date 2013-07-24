@@ -638,7 +638,7 @@ plugin.caddy {
   }
   
 /**
- * recordOrgCaddyDownloads( )
+ * recordOrgDownloadsCaddy( )
  *
  * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
@@ -646,13 +646,12 @@ plugin.caddy {
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function recordOrgCaddyDownloads( $uid )
+  private function recordOrgDownloadsCaddy( $uid )
   {
     $record = null;
 
-    $strUid = sprintf( '%03d', $uid );
-
-    $title    = 'pageOrgCaddyDownloads_title';
+    $strUid   = sprintf( '%03d', $uid );
+    $title    = 'pageOrgDownloadsCaddy_title';
     $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
     $llTitle  = str_replace( ' ', null, $llTitle );
     $llTitle  = '+page_' . $llTitle . '_' . $strUid;
@@ -790,7 +789,7 @@ plugin.caddy {
 
       // TypoScript for the caddy page downloads
     $uid = $uid + 1;
-    $records[$uid] = $this->recordOrgCaddyDownloads( $uid );
+    $records[$uid] = $this->recordOrgDownloadsCaddy( $uid );
 
     return $records;
   }

@@ -473,8 +473,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_fe_users_sschaffstein_email">soeren@typo3.org</label>
       <label index="record_fe_users_sschaffstein_www">http://association.typo3.org/press/press-contact/</label>
       <label index="record_fe_users_sschaffstein_image">soeren.schaffstein_timestamp.gif</label>
-      <label index="record_fe_users_sschaffstein_tx_org_imagecaption"><![CDATA[S&ouml;ren Sch.]]></label>
-      <label index="record_fe_users_sschaffstein_tx_org_imageseo"><![CDATA[S&ouml;ren Schaffstein TYPO3 press]]></label>
+      <label index="record_fe_users_sschaffstein_tx_org_imagecaption"><![CDATA[Sören Sch.]]></label>
+      <label index="record_fe_users_sschaffstein_tx_org_imageseo"><![CDATA[Sören Schaffstein TYPO3 press]]></label>
       <label index="record_pm_fSets_title_billingAddress">billing address</label>
       <label index="record_pm_fSets_title_order">order</label>
       <label index="record_pm_fSets_title_contactData">contact data</label>
@@ -534,7 +534,7 @@ The sixth edition of the TYPO3 Developer Days will take place:]]></label>
       <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Topic
 <ul>
   <li>
-    First night: Organiser - TYPO3 for organisers and the lobby (<link record:fe_users:###fe_users.uid.dwildt### - internal-link>Dirk Wildt</link>)
+    First night: Organiser - TYPO3 for organisers and the lobby (<link record:fe_users:%dwildt% - internal-link>Dirk Wildt</link>)
   </li>
 </ul>
 The developer - Dirk Wildt (Die Netzmacher) - will present the TYPO3 Organiser in the public the first time. The will be sopme sample applications and references.
@@ -546,7 +546,7 @@ It is using the shopping cart Caddy.
     Website: <link http://typo3-organiser.de/ _blank>typo3-organiser.de</link>
   </li>
 </ul>
-P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Obama</link> has permitted his participation. BE AWARE: Short denials by the president aren\'t unusually!]]></label>
+P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> has permitted his participation. BE AWARE: Short denials by the president aren\'t unusually!]]></label>
       <label index="record_tx_org_cal_t3organiser_image">ext_icon_org_210px_timestamp.png</label>
       <label index="record_tx_org_cal_t3organiser_imagewidth">140</label>
       <label index="record_tx_org_cal_t3organiser_imageorient">26</label>
@@ -559,9 +559,130 @@ P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Oba
       <label index="record_tx_org_caltype_title_policy">policy</label>
       <label index="record_tx_org_caltype_title_society">society</label>
       <label index="record_tx_org_caltype_title_typo3">TYPO3</label>
+      <label index="record_tx_org_department_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
+      <label index="record_tx_org_department_netzmacher_telephone">++49 361 74789004</label>
+      <label index="record_tx_org_department_netzmacher_email">info@die-netzmacher.de</label>
+      <label index="record_tx_org_department_netzmacher_url">http://die-netzmacher.de/</label>
+      <label index="record_tx_org_department_president_title">White House - President</label>
+      <label index="record_tx_org_department_president_telephone">++1 202-456-1111</label>
+      <label index="record_tx_org_department_president_email">president@whitehouse.gov</label>
+      <label index="record_tx_org_department_president_url">http://www.whitehouse.gov/</label>
+      <label index="record_tx_org_department_t3press_title">TYPO3 press</label>
+      <label index="record_tx_org_department_t3press_telephone">++49 69 2475218 0</label>
+      <label index="record_tx_org_department_t3press_email">soeren@typo3.org</label>
+      <label index="record_tx_org_department_t3press_url">http://association.typo3.org/press/press-contact/</label>
       <label index="record_tx_org_departmentcat_title_policy">policy</label>
       <label index="record_tx_org_departmentcat_title_society">society</label>
       <label index="record_tx_org_departmentcat_title_typo3">TYPO3</label>
+      <label index="record_tx_org_downloads_cd1_type">shipping</label>
+      <label index="record_tx_org_downloads_cd1_title"><![CDATA[CD: TYPO3-Party - Release 1.0]]></label>
+      <label index="record_tx_org_downloads_cd1_subtitle"><![CDATA[TYPO3 1: Der Gründer-Groove]]></label>
+      <label index="record_tx_org_downloads_cd1_datetime">1038524460</label>
+      <label index="record_tx_org_downloads_cd1_bodytext"><![CDATA[Auf dieser CD h&ouml;rst Du den Sound der Geschichte. Die Aufnahmen stammen fast ausschlie&szlig;lich von der Party zum Release von  TYPO3 1.0. Nicht nur die Band sondern auch das damalige TYPO3-Core-Entwickler-Team passten in ein kleinen Bus. Das Cover zeigt den Bus kurz vor der Abreise nach Norwegen - damals wurde Casper noch mit dem Auto pers&ouml;nlich abgeholt. Der Kleinbus verfügte nur über ein Kasetten-Abspiel-Ger&auml;t. Das ging nach 1.500 Kilometern kurz hinter Oslo kaputt.]]></label>
+      <label index="record_tx_org_downloads_cd1_teasershort"><![CDATA[Der Sound der Geschichte - schon fast vergessen: die Party zum Release von TYPO3 1.0. Caspar kam aus Norwegen mit dem Auto. Die Aufnahmen von damals halten die Erinnerungen wach.]]></label>
+      <label index="record_tx_org_downloads_cd1_tx_org_downloadscat">1</label>
+      <label index="record_tx_org_downloads_cd1_tx_org_downloadsmedia">1</label>
+      <label index="record_tx_org_downloads_cd1_linkicon_width">40</label>
+      <label index="record_tx_org_downloads_cd1_thumbnail">cd_typo3_music_1_timestamp.jpg</label>
+      <label index="record_tx_org_downloads_cd1_thumbnail_height">600m</label>
+      <label index="record_tx_org_downloads_cd1_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_cd2_type">shipping</label>
+      <label index="record_tx_org_downloads_cd2_title"><![CDATA[CD: Aus dem Leoparden-Gummistiefel]]></label>
+      <label index="record_tx_org_downloads_cd2_subtitle"><![CDATA[TYPO3 4: Der Klang des Hier-und-Jetzt]]></label>
+      <label index="record_tx_org_downloads_cd2_datetime">1259451480</label>
+      <label index="record_tx_org_downloads_cd2_bodytext"><![CDATA[Wenn Du wissen willst, wie sich die Entwicklung von TYPO3 4 anhört, dann zieh' Dir die Musik-Sammlung und Sounds dieser CD 'rein. Projektleiter Ernesto Baschny hat dabei das Mikro nicht nur an klackernde Tastaturen, surrende Festplatten und rauschende Lüfter seiner Team-Mitglieder gehalten, sondern sogar in manchen Schuh. Einer der geilsten Höhepunkte ist der Mitschnitt aus dem Innenleben eines Leoparden-Gummistiefels. Das Stiefel-Paar hat es dann auch auf das Cover geschafft und ist dort abgebildet - samt TYPO3-Entwicklerin Aura.]]></label>
+      <label index="record_tx_org_downloads_cd2_teasershort"><![CDATA[Das aktuelle TYPO3 4 funktioniert nicht nur, sondern hört sich auch heiß an. Eine der verschwitztesten Aufnahmen: aus dem Inneren eines Leoparden-Gummistiefels einer TYPO3-Entwicklerin.]]></label>
+      <label index="record_tx_org_downloads_cd2_tx_org_downloadscat">1</label>
+      <label index="record_tx_org_downloads_cd2_tx_org_downloadsmedia">1</label>
+      <label index="record_tx_org_downloads_cd2_linkicon_width">40</label>
+      <label index="record_tx_org_downloads_cd2_thumbnail">cd_typo3_music_2_timestamp.jpg</label>
+      <label index="record_tx_org_downloads_cd2_thumbnail_height">600m</label>
+      <label index="record_tx_org_downloads_cd2_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_cd3_type">shipping</label>
+      <label index="record_tx_org_downloads_cd3_title"><![CDATA[CD: TYPO3 Fluid - Wassermusik]]></label>
+      <label index="record_tx_org_downloads_cd3_subtitle"><![CDATA[TYPO3 5: Ich möcht' Blasen blubbern lassen]]></label>
+      <label index="record_tx_org_downloads_cd3_datetime">1354147080</label>
+      <label index="record_tx_org_downloads_cd3_bodytext"><![CDATA[Das TYPO3 der Zukunft wird flüssig. Dafür sorgt die neue Template-Engine fluid. Dann hört sich TYPO3 total anders an - nämlich wie unter Wasser. Bei einer der letzten Sessions der TYPO3-5-Band guckte dann auch Nina Hagen vorbei und sang ihren Song, &quot;... ich möcht' ein Fisch im Wasser sein, ... und paar Blasen blubbern lassen ...&quot;. Patrick Lobacher hat Ninas Einlage, spontan begleitet von Kontrabass und Fagott,   mitgeschnitten.
+Viele neue TYPO3-Titel sind auf der CD. Natürlich ziert Nina das Cover.
+Die CD muss noch gepresst werden und ist voraussichtlich ab Ende 2012 lieferbar.]]></label>
+      <label index="record_tx_org_downloads_cd3_teasershort"><![CDATA[Das neue TYPO3 wird mit Fluid noch flüssiger. Grund für Nina Hagen, die Grand-Dame des Punk, vor der TYPO3-5-Band ihr Fisch-Lied neu zu interpretieren. Ab Ende 2012 lieferbar.]]></label>
+      <label index="record_tx_org_downloads_cd3_tx_org_downloadscat">1</label>
+      <label index="record_tx_org_downloads_cd3_tx_org_downloadsmedia">1</label>
+      <label index="record_tx_org_downloads_cd3_linkicon_width">40</label>
+      <label index="record_tx_org_downloads_cd3_thumbnail">cd_typo3_music_3_timestamp.jpg</label>
+      <label index="record_tx_org_downloads_cd3_thumbnail_height">600m</label>
+      <label index="record_tx_org_downloads_cd3_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_flyer1_type">download_shipping</label>
+      <label index="record_tx_org_downloads_flyer1_title"><![CDATA[Flyer: TYPO3-Organiser]]></label>
+      <label index="record_tx_org_downloads_flyer1_subtitle"><![CDATA[Kurz und bündig und zum Weiterverteilen]]></label>
+      <label index="record_tx_org_downloads_flyer1_datetime">1322570940</label>
+      <label index="record_tx_org_downloads_flyer1_bodytext"><![CDATA[Atemberaubendes Tempo: Du kannst TYPO3 mit Nachrichten, Kalender, Online-Ticketsystem, Personalverwaltung und Veranstaltungsorten in 15 bis 30 Minuten erweitern. Du kannst danach sofort Deine Daten veröffentlichen.
+Dieser Flyer stellt die Extension kurz vor.
+Du kannst den Flyer herunterladen und auch ein paar Exemplare bestellen - und an Deine Freunde verteilen.]]></label>
+      <label index="record_tx_org_downloads_flyer1_teasershort"><![CDATA[Dieser Flyer stellt die Extension Organiser vor: kurz und knapp. Zum Herunterladen und Bestellen. So kannst Du den Flyer persönlich an Deine Freunde verteilen.]]></label>
+      <label index="record_tx_org_downloads_flyer1_tx_org_downloadscat">1</label>
+      <label index="record_tx_org_downloads_flyer1_tx_org_downloadsmedia">1</label>
+      <label index="record_tx_org_downloads_flyer1_linkicon_width">40</label>
+      <label index="record_tx_org_downloads_flyer1_thumbnail">flyer_typo3_organiser_timestamp.pdf</label>
+      <label index="record_tx_org_downloads_flyer1_thumbnail_height">600m</label>
+      <label index="record_tx_org_downloads_flyer1_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_flyer2_type">download_shipping</label>
+      <label index="record_tx_org_downloads_flyer2_title"><![CDATA[Flyer: TYPO3-Quick-Shop]]></label>
+      <label index="record_tx_org_downloads_flyer2_subtitle"><![CDATA[Kurz und bündig und zum Weiterverteilen]]></label>
+      <label index="record_tx_org_downloads_flyer2_datetime">1291034940</label>
+      <label index="record_tx_org_downloads_flyer2_bodytext"><![CDATA[Einen Shop mit einem Klick installieren?
+Dieser Flyer stellt die Extension Organiser kurz vor.
+Du kannst den Flyer herunterladen und auch ein paar Exemplare bestellen - und an Deine Freunde verteilen.]]></label>
+      <label index="record_tx_org_downloads_flyer2_teasershort"><![CDATA[Dieser Flyer stellt die Extension Organiser vor: kurz und knapp. Zum Herunterladen und Bestellen. So kannst Du den Flyer persönlich an Deine Freunde verteilen.]]></label>
+      <label index="record_tx_org_downloads_flyer2_tx_org_downloadscat">1</label>
+      <label index="record_tx_org_downloads_flyer2_tx_org_downloadsmedia">1</label>
+      <label index="record_tx_org_downloads_flyer2_linkicon_width">40</label>
+      <label index="record_tx_org_downloads_flyer2_thumbnail">flyer_typo3_org_timestamp.pdf</label>
+      <label index="record_tx_org_downloads_flyer2_thumbnail_height">600m</label>
+      <label index="record_tx_org_downloads_flyer2_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_manual1_type">download_shipping</label>
+      <label index="record_tx_org_downloads_manual1_title"><![CDATA[Handbuch: TYPO3 Grüne Autos]]></label>
+      <label index="record_tx_org_downloads_manual1_subtitle"><![CDATA[Das Lern-Tutorial: Deine eigene Datenbank in drei Stunden]]></label>
+      <label index="record_tx_org_downloads_manual1_datetime">1259497860</label>
+      <label index="record_tx_org_downloads_manual1_bodytext"><![CDATA[Das Tutorial zeigt am Beispiel von Grüne Autos Schritt für Schritt, wie TYPO3-Entwickler komplexe Datenbanken in nur drei Stunden selbst programmieren können.
+Grüne Autos basiert auf dem Browser - TYPO3 ohne PHP. Der Browser ermöglicht die Entwicklung von TYPO3-Erweiterungen ohne eine einzige Zeile PHP. Der Aufwand für Entwickler reduziert sich auf bis zu ein Achtel, die Enwicklung geht bis zu acht Mal schneller.]]></label>
+      <label index="record_tx_org_downloads_manual1_teasershort"><![CDATA[Das Tutorial zeigt Schritt für Schritt, wie Du mit TYPO3 eine eigene Datenbank in nur drei Stunden selbst programmieren kannst.]]></label>
+      <label index="record_tx_org_downloads_manual1_tx_org_downloadscat">1</label>
+      <label index="record_tx_org_downloads_manual1_tx_org_downloadsmedia">1</label>
+      <label index="record_tx_org_downloads_manual1_linkicon_width">40</label>
+      <label index="record_tx_org_downloads_manual1_thumbnail">manual-typo3-gruene-autos-demo_timestamp.pdf</label>
+      <label index="record_tx_org_downloads_manual1_thumbnail_height">600m</label>
+      <label index="record_tx_org_downloads_manual1_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_manual2_type">download_shipping</label>
+      <label index="record_tx_org_downloads_manual2_title"><![CDATA[Handbuch: TYPO3-Browser]]></label>
+      <label index="record_tx_org_downloads_manual2_subtitle"><![CDATA[TYPO3-Extension-Entwicklung ohne PHP]]></label>
+      <label index="record_tx_org_downloads_manual2_datetime">1227918420</label>
+      <label index="record_tx_org_downloads_manual2_bodytext"><![CDATA[Du kannst TYPO3 entwickeln ohne eine Zeile PHP schreiben zu müssen. Diese Form der Extension-Entwicklung ermöglicht die TYPO3-Erweiterung Browser. Sie nimmt Dir nicht nur eine Menge Arbeit ab, sondern beschleunigt die Entwicklungszeit auf bis das Achtfache.
+Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen.
+<h3>Links</h3>
+<ul><li>Homepage: http://typo3-browser.de/</li></ul>]]></label>
+      <label index="record_tx_org_downloads_manual2_teasershort"><![CDATA[TYPO3 entwickeln ohne PHP. Dieses Handbuch zeigt Dir, wie es geht.]]></label>
+      <label index="record_tx_org_downloads_manual2_tx_org_downloadscat">1</label>
+      <label index="record_tx_org_downloads_manual2_tx_org_downloadsmedia">1</label>
+      <label index="record_tx_org_downloads_manual2_linkicon_width">40</label>
+      <label index="record_tx_org_downloads_manual2_thumbnail">manual-typo3-browser-demo_timestamp.pdf</label>
+      <label index="record_tx_org_downloads_manual2_thumbnail_height">600m</label>
+      <label index="record_tx_org_downloads_manual2_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_manual3_type">download_shipping</label>
+      <label index="record_tx_org_downloads_manual3_title"><![CDATA[Handbuch: TYPO3-Quick-Shop]]></label>
+      <label index="record_tx_org_downloads_manual3_subtitle"><![CDATA[Der schnellste Shop in der Geschichte von TYPO3]]></label>
+      <label index="record_tx_org_downloads_manual3_datetime">1291033080</label>
+      <label index="record_tx_org_downloads_manual3_bodytext"><![CDATA[Organiser ist der erste Shop in der Geschichte von TYPO3, der mit einem  Klick installiert werden kann. Und es ist der erste Shop vollkommen  ohne PHP. Du kannst Organiser sofort out-of-the-box nutzen. Mehr dazu  unter <link http://typo3-quick-shop.de/handbuecher/#c484 _self internal-link "Opens internal link in current window">Organiser Installer</link>. Du kannst einen Shop wie Organiser auch selbst bauen.
+Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen.
+<h3>Links</h3>
+<ul><li>Homepage: http://typo3-quick-shop.de/</li></ul>]]></label>
+      <label index="record_tx_org_downloads_manual3_teasershort"><![CDATA[Organiser ist der erste Shop in der Geschichte von TYPO3, der mit einem Klick installiert werden kann - inklusive Beispielprodukten.]]></label>
+      <label index="record_tx_org_downloads_manual3_tx_org_downloadscat">1</label>
+      <label index="record_tx_org_downloads_manual3_tx_org_downloadsmedia">1</label>
+      <label index="record_tx_org_downloads_manual3_linkicon_width">40</label>
+      <label index="record_tx_org_downloads_manual3_thumbnail">manual-typo3-quick-shop-demo_timestamp.pdf</label>
+      <label index="record_tx_org_downloads_manual3_thumbnail_height">600m</label>
+      <label index="record_tx_org_downloads_manual3_thumbnail_width">200m</label>
       <label index="record_tx_org_downloadscat_title_development">TYPO3 developers</label>
       <label index="record_tx_org_downloadscat_type_development">cat_image</label>
       <label index="record_tx_org_downloadscat_title_flyer">TYPO3 integrators</label>
@@ -574,6 +695,144 @@ P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Oba
       <label index="record_tx_org_downloadsmedia_type_flyer">cat_image</label>
       <label index="record_tx_org_downloadsmedia_title_manuals">manual</label>
       <label index="record_tx_org_downloadsmedia_type_manuals">cat_image</label>
+      <label index="record_tx_org_headquarters_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_address"><![CDATA[Borntalweg 4]]></label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_postcode">D-99092</label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_city">Erfurt</label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_url">http://die-netzmacher.de/</label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
+      <label index="record_tx_org_headquarters_netzmacher_telephone">++49 361 74789004</label>
+      <label index="record_tx_org_headquarters_netzmacher_email">info@die-netzmacher.de</label>
+      <label index="record_tx_org_headquarters_netzmacher_image">die_netzmacher_600px_timestamp.jpg</label>
+      <label index="record_tx_org_headquarters_netzmacher_imageseo">Die Netzmacher TYPO3</label>
+      <label index="record_tx_org_headquarters_netzmacher_imageorient">0</label>
+      <label index="record_tx_org_headquarters_president_title">The White House</label>
+      <label index="record_tx_org_headquarters_president_mail_address">1600 Pennsylvania Avenue Northwest</label>
+      <label index="record_tx_org_headquarters_president_mail_postcode">DC 20500-0003</label>
+      <label index="record_tx_org_headquarters_president_mail_city">Washington D.C., United States</label>
+      <label index="record_tx_org_headquarters_president_mail_url">http://www.whitehouse.gov/</label>
+      <label index="record_tx_org_headquarters_president_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519" style="color:#0000FF;text-align:left">Gr&ouml;&szlig;ere Kartenansicht</a></small>]]></label>
+      <label index="record_tx_org_headquarters_president_telephone">++1 202-456-1111</label>
+      <label index="record_tx_org_headquarters_president_email">barack.obama@whitehouse.gov</label>
+      <label index="record_tx_org_headquarters_president_image">white_house_timestamp.jpg</label>
+      <label index="record_tx_org_headquarters_president_imageseo">White House</label>
+      <label index="record_tx_org_headquarters_president_imageorient">26</label>
+      <label index="record_tx_org_headquarters_president_imagewidth">140</label>
+      <label index="record_tx_org_headquarters_typo3_title">TYPO3 Association</label>
+      <label index="record_tx_org_headquarters_typo3_mail_address">Sihlbruggstrasse 105</label>
+      <label index="record_tx_org_headquarters_typo3_mail_postcode">CH-6340</label>
+      <label index="record_tx_org_headquarters_typo3_mail_city">Baar</label>
+      <label index="record_tx_org_headquarters_typo3_mail_url">http://association.typo3.org//</label>
+      <label index="record_tx_org_headquarters_typo3_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516" style="color:#0000FF;text-align:left">Gr&ouml;&szlig;ere Kartenansicht</a></small>]]></label>
+      <label index="record_tx_org_headquarters_typo3_fax">+41 41 511 00 39</label>
+      <label index="record_tx_org_headquarters_typo3_email">info@typo3.org</label>
+      <label index="record_tx_org_headquarters_typo3_image">typo3_logo_timestamp.jpg</label>
+      <label index="record_tx_org_headquarters_typo3_imageseo">TYPO3 Association</label>
+      <label index="record_tx_org_headquarters_typo3_imageorient">0</label>
+      <label index="record_tx_org_headquarters_typo3_imagewidth"></label>
+      <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
+      <label index="record_tx_org_location_netzmacher_url">http://die-netzmacher.de/</label>
+      <label index="record_tx_org_location_netzmacher_mail_address"><![CDATA[Borntalweg 4]]></label>
+      <label index="record_tx_org_location_netzmacher_mail_postcode">D-99092</label>
+      <label index="record_tx_org_location_netzmacher_mail_city">Erfurt</label>
+      <label index="record_tx_org_location_netzmacher_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
+      <label index="record_tx_org_location_netzmacher_telephone">++49 361 74789004</label>
+      <label index="record_tx_org_location_netzmacher_email">info@die-netzmacher.de</label>
+      <label index="record_tx_org_location_netzmacher_image">die_netzmacher_600px_01_timestamp.jpg</label>
+      <label index="record_tx_org_location_netzmacher_imageseo">Die Netzmacher TYPO3</label>
+      <label index="record_tx_org_location_netzmacher_imageorient">26</label>
+      <label index="record_tx_org_location_netzmacher_imagewidth">140</label>
+      <label index="record_tx_org_location_netzmacher_image_link">http://die-netzmacher.de/</label>
+      <label index="record_tx_org_location_t3devdays_title">Campus Sursee</label>
+      <label index="record_tx_org_location_t3devdays_url">http://www.campus-sursee.ch/</label>
+      <label index="record_tx_org_location_t3devdays_mail_address"></label>
+      <label index="record_tx_org_location_t3devdays_mail_postcode">CH-6210</label>
+      <label index="record_tx_org_location_t3devdays_mail_city">Sursee</label>
+      <label index="record_tx_org_location_t3devdays_mail_url">http://www.campus-sursee.ch/anreise.html</label>
+      <label index="record_tx_org_location_t3devdays_mail_embeddedcode"></label>
+      <label index="record_tx_org_location_t3devdays_telephone">++41 41 9262626</label>
+      <label index="record_tx_org_location_t3devdays_email">office@campus-sursee.ch</label>
+      <label index="record_tx_org_location_t3devdays_image">campus_sursee_01_timestamp.jpg,campus_sursee_04_timestamp.jpg,campus_sursee_05_timestamp.jpg</label>
+      <label index="record_tx_org_location_t3devdays_imageseo"></label>
+      <label index="record_tx_org_location_t3devdays_imageorient">8</label>
+      <label index="record_tx_org_location_t3devdays_imagewidth">200</label>
+      <label index="record_tx_org_location_t3devdays_image_link"></label>
+      <label index="record_tx_org_location_t3devdays_documents">situationsplan_neu_timestamp.pdf</label>
+      <label index="record_tx_org_location_t3devdays_documentscaption">Situationsplan</label>
+      <label index="record_tx_org_location_t3devdays_documentslayout">2</label>
+      <label index="record_tx_org_location_t3devdays_documentssize">1</label>
+      <label index="record_tx_org_news_flow_type">news</label>
+      <label index="record_tx_org_news_flow_title">Get into the TYPO3 FLOW!</label>
+      <label index="record_tx_org_news_flow_datetime">1301523660</label>
+      <label index="record_tx_org_news_flow_bodytext"><![CDATA[Discover FLOW3 with our Getting Started Tutorial.
+Just follow the step-by-step instructions for building your first FLOW3 application and learn new programming paradigms and patterns along the way. 
+<b><link http://flow3.typo3.org/documentation/tutorials/getting-started/>Get started with FLOW3</link></b>
+<h2>About FLOW3</h2>
+It can change the way you work. It gives you fast results. It is a reliable foundation for complex applications. And it  is backed by one of the biggest PHP communities.
+We created FLOW3 as the foundation for the upcoming major&nbsp;version of TYPO3&nbsp;(code name Phoenix). Now you can use our  framework too, to build your own applications where code libraries lack an overall concept&nbsp;or a CMS would not fit the bill.
+FLOW3 brings new concepts to the PHP world. Domain-Driven Design, Dependency Injection and Aspect-Oriented  Programming are some of them. And besides some <link http://flow3.typo3.org/about/features/ - linkInt>great features</link> we offer <link http://flow3.typo3.org/about/principles/>a new view</link> on the &quot;how&quot; of software development. 
+It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]></label>
+      <label index="record_tx_org_news_flow_image">BlogExampleWithAnnotation-320px_02_timestamp.png</label>
+      <label index="record_tx_org_news_flow_imagecaption">FLOW3 Blogexample</label>
+      <label index="record_tx_org_news_flow_imageseo">FLOW3 Blogexample</label>
+      <label index="record_tx_org_news_flow_imageorient">26</label>
+      <label index="record_tx_org_news_flow_imagewidth">140</label>
+      <label index="record_tx_org_news_flow_image_link"></label>
+      <label index="record_tx_org_news_organiser_type">newsurl</label>
+      <label index="record_tx_org_news_organiser_newsurl">http://t3n.de/socialnews/TYPO3/TYPO3-Organiser-kommt-am-1-April-Alles-aus-einer-Hand/</label>
+      <label index="record_tx_org_news_organiser_title">TYPO3-Organiser kommt am 1. April</label>
+      <label index="record_tx_org_news_organiser_subtitle">TYPO3: Alles aus einer Hand</label>
+      <label index="record_tx_org_news_organiser_datetime">1296514800</label>
+      <label index="record_tx_org_news_organiser_teaser_short"><![CDATA[Der TYPO3-Organiser kommt am 1. April 2011. Das haben heute die Entwickler angekündigt und auch erstmals Screenshots von Frontend, Backend und dem Extension-Manager ver&ouml;ffentlicht. ]]></label>
+      <label index="record_tx_org_news_organiser_image">t3n_timestamp.png</label>
+      <label index="record_tx_org_news_organiser_imagecaption">FLOW3 Blogexample</label>
+      <label index="record_tx_org_news_organiser_imageseo">t3n Magazin</label>
+      <label index="record_tx_org_news_organiser_imageorient">0</label>
+      <label index="record_tx_org_news_organiser_imagewidth"></label>
+      <label index="record_tx_org_news_organiser_image_link">http://t3n.de/socialnews/TYPO3/TYPO3-Organiser-kommt-am-1-April-Alles-aus-einer-Hand/</label>
+      <label index="record_tx_org_news_president_type">news</label>
+      <label index="record_tx_org_news_president_title">Health Reform</label>
+      <label index="record_tx_org_news_president_subtitle">A Phone Call from the President</label>
+      <label index="record_tx_org_news_president_datetime">1298847600</label>
+      <label index="record_tx_org_news_president_bodytext"><![CDATA[<i>Posted by Kalpen Modi on March 22, 2011 at 04:00 PM EDT</i>
+One year ago tomorrow, President Obama signed the Affordable Care Act into law. It was a historic day, and the law is already making a difference in the lives of millions of Americans like Erick Moberg.
+Erick is currently a senior at Michigan State University and his dream is to attend medical school at his grandfather's alma mater in Missouri. Erick was always interested in medicine, but he was inspired after speaking to the doctors who treated his mother when she had quadruple bypass surgery.
+After he graduates this spring, Erick will be taking a year to enhance his skills and prepare his application. Under the old insurance rules, he would have been forced off his parent's health insurance plan. But now, thanks to the Affordable Care Act, Erick will be able to stay on his mother's plan.
+We interviewed Erick, and as he told his story, he received a surprise phone call from President Obama.
+Erick is just one example of the millions of Americans who are being helped by the new law. After just one year, Americans are enjoying:
+New coverage options
+<ul>
+  <li>
+    Children with pre-existing conditions cannot be denied coverage in new health plans.
+  </li>
+  <li>
+    Adults who have been locked out of the insurance marketplace because of a pre-existing condition can now buy coverage through a new Pre-Existing Condition Plan.
+  </li>
+</ul>
+Better quality coverage
+<ul>
+  <li>
+    People with insurance are free from worrying about losing their insurance due to a mistake on an application, or having it capped unexpectedly if someone is in an accident or becomes sick.
+  </li>
+  <li>
+    All Americans in new insurance plans will receive preventive services without being charged a deductible, co-payment, or co-insurance.
+  </li>
+</ul>
+Lower Costs
+<ul>
+  <li>
+    Seniors have the freedom to get the care they need, including free preventive care, lower cost prescription drugs, and Medicare they can count on. Nearly 4 million Americans who hit the Medicare prescription drug coverage gap known as the "donut hole" received $250 tax-free rebates, and will receive a 50% discount on brand name prescription drugs if they hit the donut hole this year.
+  </li>
+  <li>
+    Up to 4 million small businesses could receive tax credits to make employees' health coverage more affordable.
+  </li>
+  <li>
+    Insurance companies can no longer overcharge consumers just to boost profits and CEO salaries.
+  </li>
+</ul>
+Visit http://www.HealthCare.gov to learn more about the new law and the work we're doing to deliver the benefits of reform to the American people. For step-by-step instructions on the young adult coverage provision that helped Erick, you can also visit www.facebook.com/YoungAdultCoverage.
+Note: you also can visit our 50 States, 50 Stories map to listen to more stories of people the law has helped.
+<i>Kalpen Modi is Associate Director of the White House Office of Public Engagement</i>]]></label>
       <label index="record_tx_org_newscat_title_policy">policy</label>
       <label index="record_tx_org_newscat_title_society">society</label>
       <label index="record_tx_org_newscat_title_typo3">TYPO3</label>
@@ -1054,7 +1313,7 @@ Die TYPO3 Developer Days finden statt:]]></label>
       <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Thema
 <ul>
   <li>
-    Premiere: Organiser - TYPO3 für Lobby und Veranstalter (<link record:fe_users:###fe_users.uid.dwildt### - internal-link>Dirk Wildt</link>)
+    Premiere: Organiser - TYPO3 für Lobby und Veranstalter (<link record:fe_users:%dwildt% - internal-link>Dirk Wildt</link>)
   </li>
 </ul>
 Der Entwickler - Dirk Wildt (Die Netzmacher) - stellt erstmals den TYPO3-Organiser in der &Ouml;ffentlichkeit vor. Er wird Anwendungsbeispiele mit mehrere Referenzseiten zeigen.
@@ -1066,7 +1325,7 @@ Der Organiser hat mit Caddy einen flexiblen Web-Shop integriert, mit dem Karten 
     Website: <link http://typo3-organiser.de/ _blank>typo3-organiser.de</link>
   </li>
 </ul>
-P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Obama</link> hat als Gast zugesagt. ACHTUNG: Kurzfristige Absagen des Präsidenten sind nicht ungewöhnlich!]]></label>
+P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als Gast zugesagt. ACHTUNG: Kurzfristige Absagen des Präsidenten sind nicht ungewöhnlich!]]></label>
       <label index="record_tx_org_cal_t3organiser_image">ext_icon_org_210px_timestamp.png</label>
       <label index="record_tx_org_cal_t3organiser_imagewidth">140</label>
       <label index="record_tx_org_cal_t3organiser_imageorient">26</label>

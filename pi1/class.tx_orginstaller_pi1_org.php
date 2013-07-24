@@ -59,7 +59,7 @@
  *  812:     private function relationBook( $sorting )
  *  832:     private function relationCup( $sorting )
  *  852:     private function relationPullover( $sorting )
- *  871:     private function relations( )
+ *  871:     private function relation( )
  *
  *              SECTION: Sql
  *  927:     private function sqlInsert( $records, $table )
@@ -109,10 +109,7 @@ class tx_orginstaller_pi1_org
   {
     $this->category( );
     $this->record( );
-//    $this->sqlInsert( $records, 'tx_org_cal' );
-//
-//    $records = $this->relations( );
-//    $this->sqlInsert( $records, 'tx_org_cal_category_mm' );
+    $this->relation( );
   }
 
 
@@ -134,7 +131,7 @@ class tx_orginstaller_pi1_org
   private function category( )
   {
     $this->categoryCal( );
-    $this->categoryDepartment( );
+    $this->categoryDepartments( );
     $this->categoryDownloads( );
     $this->categoryNews( );
   }
@@ -514,14 +511,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * categoryDepartment( )
+ * categoryDepartments( )
  *
  * @return	array		$records : the fieldset records
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryDepartment( )
+  private function categoryDepartments( )
   {
     $table    = 'tx_org_departmentcat';
     $records  = array( );
@@ -529,22 +526,22 @@ class tx_orginstaller_pi1_org
 
       // category policy
     $uid = $uid + 1;
-    $records[$uid] = $this->categoryDepartmentPolicy( $uid );
+    $records[$uid] = $this->categoryDepartmentsPolicy( $uid );
 
       // category society
     $uid = $uid + 1;
-    $records[$uid] = $this->categoryDepartmentSociety( $uid );
+    $records[$uid] = $this->categoryDepartmentsSociety( $uid );
 
       // category society
     $uid = $uid + 1;
-    $records[$uid] = $this->categoryDepartmentTYPO3( $uid );
+    $records[$uid] = $this->categoryDepartmentsTYPO3( $uid );
 
 
     $this->sqlInsert( $records, $table );
   }
   
 /**
- * categoryDepartmentPolicy( )
+ * categoryDepartmentsPolicy( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -552,7 +549,7 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryDepartmentPolicy( $uid )
+  private function categoryDepartmentsPolicy( $uid )
   {
     $record = null;
 
@@ -571,7 +568,7 @@ class tx_orginstaller_pi1_org
   }
   
 /**
- * categoryDepartmentSociety( )
+ * categoryDepartmentsSociety( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -579,7 +576,7 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryDepartmentSociety( $uid )
+  private function categoryDepartmentsSociety( $uid )
   {
     $record = null;
 
@@ -598,7 +595,7 @@ class tx_orginstaller_pi1_org
   }
   
 /**
- * categoryDepartmentTYPO3( )
+ * categoryDepartmentsTYPO3( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -606,7 +603,7 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryDepartmentTYPO3( $uid )
+  private function categoryDepartmentsTYPO3( $uid )
   {
     $record = null;
 
@@ -879,10 +876,11 @@ class tx_orginstaller_pi1_org
       // staff must be first, because ids are needed by cal
     $this->recordStaff( );
     $this->recordCal( );
-//    $this->recordDownloads( );
-//    $this->recordHeadquarters( );
-//    $this->recordLocations( );
-//    $this->recordNews( );
+    $this->recordDepartments( );
+    $this->recordDownloads( );
+    $this->recordHeadquarters( );
+    $this->recordLocations( );
+    $this->recordNews( );
   }
 
 /**
@@ -979,7 +977,7 @@ class tx_orginstaller_pi1_org
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
     
-    $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3devdays_bodytext');
+    //$bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3devdays_bodytext');
 
     $datetime = strtotime( '+3 months' );
 
@@ -1018,13 +1016,13 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3organiser_bodytext');
-    $strUser  = '###fe_users.uid.dwildt###';
-    $uidUser  = $this->arr_recordUids[ $strUser ];
+    $strUser  = '%dwildt%';
+    $uidUser  = $this->pObj->arr_recordUids[ 'record_fe_users_dwildt_name' ];
     $bodytext = str_replace( $strUser, $uidUser, $bodytext );
-    $strUser  = '###fe_users.uid.obama###';
-    $uidUser  = $this->arr_recordUids[ $strUser ];
+    $strUser  = '%bobama%';
+    $uidUser  = $this->pObj->arr_recordUids[ 'record_fe_users_bobama_name' ];
     $bodytext = str_replace( $strUser, $uidUser, $bodytext );
 
     $datetime = strtotime( '+1 week' );
@@ -1045,6 +1043,966 @@ class tx_orginstaller_pi1_org
     $record['imagecols']    = '1';
     $record['image_zoom']   = '1';
     $record['image_noRows'] = '1';
+
+    return $record;
+  }
+
+/**
+ * recordDepartments( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDepartments( )
+  {
+    $table    = 'tx_org_department';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDepartmentsNetzmacher( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDepartmentsPresident( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDepartmentsT3Press( $uid );
+
+    $this->sqlInsert( $records, $table );
+  }
+  
+/**
+ * recordDepartmentsNetzmacher( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDepartmentsNetzmacher( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_department_netzmacher_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']       = 256 * 1;
+    $record['title']        = $llTitle;
+    $record['telephone']     = $this->pObj->pi_getLL('record_tx_org_department_netzmacher_telephone');
+    $record['email']         = $this->pObj->pi_getLL('record_tx_org_department_netzmacher_email');
+    $record['url']           = $this->pObj->pi_getLL('record_tx_org_department_netzmacher_url');
+
+    return $record;
+
+  }
+  
+/**
+ * recordDepartmentsPresident( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDepartmentsPresident( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_department_president_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']       = 256 * 2;
+    $record['title']        = $llTitle;
+    $record['telephone']     = $this->pObj->pi_getLL('record_tx_org_department_president_telephone');
+    $record['email']         = $this->pObj->pi_getLL('record_tx_org_department_president_email');
+    $record['url']           = $this->pObj->pi_getLL('record_tx_org_department_president_url');
+
+    return $record;
+
+  }
+  
+/**
+ * recordDepartmentsT3Press( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDepartmentsT3Press( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_department_t3press_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']       = 256 * 3;
+    $record['title']        = $llTitle;
+    $record['telephone']     = $this->pObj->pi_getLL('record_tx_org_department_t3press_telephone');
+    $record['email']         = $this->pObj->pi_getLL('record_tx_org_department_t3press_email');
+    $record['url']           = $this->pObj->pi_getLL('record_tx_org_department_t3press_url');
+
+    return $record;
+
+  }
+
+/**
+ * recordDownloads( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDownloads( )
+  {
+    $table    = 'tx_org_downloads';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDownloadsCD1( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDownloadsCD2( $uid );
+    
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDownloadsCD3( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDownloadsFlyer1( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDownloadsFlyer2( $uid );
+    
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDownloadsManual1( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDownloadsManual2( $uid );
+    
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordDownloadsManual3( $uid );
+
+    $this->sqlInsert( $records, $table );
+  }
+  
+/**
+ * recordDownloadsCD1( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDownloadsCD1( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_downloads_cd1_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloads_cd1_thumbnail';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                    = $uid;
+    $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']                 = time( );
+    $record['crdate']                 = time( );
+    $record['cruser_id']              = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']                   = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_type');
+    $record['title']                  = $llTitle;
+    $record['datetime']               = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_datetime');
+    $record['bodytext']               = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_bodytext');
+    $record['teaser_short']           = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_teasershort');
+    $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_tx_org_downloadscat');
+    $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_tx_org_downloadsmedia');
+    $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_linkicon_width');
+    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_thumbnail_height');
+    $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_thumbnail_width');
+
+    return $record;
+
+  }
+  
+/**
+ * recordDownloadsCD2( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDownloadsCD2( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_downloads_cd2_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloads_cd2_thumbnail';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                    = $uid;
+    $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']                 = time( );
+    $record['crdate']                 = time( );
+    $record['cruser_id']              = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']                   = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_type');
+    $record['title']                  = $llTitle;
+    $record['datetime']               = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_datetime');
+    $record['bodytext']               = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_bodytext');
+    $record['teaser_short']           = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_teasershort');
+    $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_tx_org_downloadscat');
+    $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_tx_org_downloadsmedia');
+    $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_linkicon_width');
+    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_thumbnail_height');
+    $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_thumbnail_width');
+
+    return $record;
+
+  }
+  
+/**
+ * recordDownloadsCD3( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDownloadsCD3( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_downloads_cd3_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloads_cd3_thumbnail';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                    = $uid;
+    $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']                 = time( );
+    $record['crdate']                 = time( );
+    $record['cruser_id']              = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']                   = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_type');
+    $record['title']                  = $llTitle;
+    $record['datetime']               = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_datetime');
+    $record['bodytext']               = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_bodytext');
+    $record['teaser_short']           = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_teasershort');
+    $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_tx_org_downloadscat');
+    $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_tx_org_downloadsmedia');
+    $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_linkicon_width');
+    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_thumbnail_height');
+    $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_thumbnail_width');
+
+    return $record;
+
+  }
+  
+/**
+ * recordDownloadsFlyer1( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDownloadsFlyer1( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_downloads_flyer1_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloads_flyer1_thumbnail';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                    = $uid;
+    $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']                 = time( );
+    $record['crdate']                 = time( );
+    $record['cruser_id']              = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']                   = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_type');
+    $record['title']                  = $llTitle;
+    $record['datetime']               = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_datetime');
+    $record['bodytext']               = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_bodytext');
+    $record['teaser_short']           = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_teasershort');
+    $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_tx_org_downloadscat');
+    $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_tx_org_downloadsmedia');
+    $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_linkicon_width');
+    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_thumbnail_height');
+    $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_thumbnail_width');
+
+    return $record;
+
+  }
+  
+/**
+ * recordDownloadsFlyer2( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDownloadsFlyer2( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_downloads_flyer2_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloads_flyer2_thumbnail';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                    = $uid;
+    $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']                 = time( );
+    $record['crdate']                 = time( );
+    $record['cruser_id']              = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']                   = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_type');
+    $record['title']                  = $llTitle;
+    $record['datetime']               = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_datetime');
+    $record['bodytext']               = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_bodytext');
+    $record['teaser_short']           = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_teasershort');
+    $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_tx_org_downloadscat');
+    $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_tx_org_downloadsmedia');
+    $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_linkicon_width');
+    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_thumbnail_height');
+    $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_thumbnail_width');
+
+    return $record;
+
+  }
+  
+/**
+ * recordDownloadsManual1( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDownloadsManual1( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_downloads_manual1_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloads_manual1_thumbnail';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                    = $uid;
+    $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']                 = time( );
+    $record['crdate']                 = time( );
+    $record['cruser_id']              = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']                   = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_type');
+    $record['title']                  = $llTitle;
+    $record['datetime']               = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_datetime');
+    $record['bodytext']               = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_bodytext');
+    $record['teaser_short']           = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_teasershort');
+    $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_tx_org_downloadscat');
+    $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_tx_org_downloadsmedia');
+    $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_linkicon_width');
+    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_thumbnail_height');
+    $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_thumbnail_width');
+
+    return $record;
+
+  }
+  
+/**
+ * recordDownloadsManual2( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDownloadsManual2( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_downloads_manual2_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloads_manual2_thumbnail';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                    = $uid;
+    $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']                 = time( );
+    $record['crdate']                 = time( );
+    $record['cruser_id']              = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']                   = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_type');
+    $record['title']                  = $llTitle;
+    $record['datetime']               = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_datetime');
+    $record['bodytext']               = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_bodytext');
+    $record['teaser_short']           = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_teasershort');
+    $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_tx_org_downloadscat');
+    $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_tx_org_downloadsmedia');
+    $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_linkicon_width');
+    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_thumbnail_height');
+    $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_thumbnail_width');
+
+    return $record;
+
+  }
+  
+/**
+ * recordDownloadsManual3( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordDownloadsManual3( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_downloads_manual3_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloads_manual3_thumbnail';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                    = $uid;
+    $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']                 = time( );
+    $record['crdate']                 = time( );
+    $record['cruser_id']              = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']                   = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_type');
+    $record['title']                  = $llTitle;
+    $record['datetime']               = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_datetime');
+    $record['bodytext']               = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_bodytext');
+    $record['teaser_short']           = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_teasershort');
+    $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_tx_org_downloadscat');
+    $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_tx_org_downloadsmedia');
+    $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_linkicon_width');
+    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_thumbnail_height');
+    $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_thumbnail_width');
+
+    return $record;
+
+  }
+
+/**
+ * recordHeadquarters( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordHeadquarters( )
+  {
+    $table    = 'tx_org_headquarters';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordHeadquartersNetzmacher( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordHeadquartersPresident( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordHeadquartersTYPO3( $uid );
+
+    $this->sqlInsert( $records, $table );
+  }
+  
+/**
+ * recordHeadquartersNetzmacher( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordHeadquartersNetzmacher( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_headquarters_netzmacher_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_headquarters_netzmacher_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                = $uid;
+    $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record['tstamp']             = time( );
+    $record['crdate']             = time( );
+    $record['cruser_id']          = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']            = 256 * 1;
+    $record['title']              = $llTitle;
+    $record['telephone']          = $this->pObj->pi_getLL('record_tx_org_headquarters_netzmacher_telephone');
+    $record['email']              = $this->pObj->pi_getLL('record_tx_org_headquarters_netzmacher_email');
+    $record['mail_address']       = $this->pObj->pi_getLL('record_tx_org_headquarters_netzmacher_mail_address');
+    $record['mail_postcode']      = $this->pObj->pi_getLL('record_tx_org_headquarters_netzmacher_mail_postcode');
+    $record['mail_city']          = $this->pObj->pi_getLL('record_tx_org_headquarters_netzmacher_mail_city');
+    $record['mail_url']           = $this->pObj->pi_getLL('record_tx_org_headquarters_netzmacher_mail_url');
+    $record['mail_embeddedcode']  = $this->pObj->pi_getLL('record_tx_org_headquarters_netzmacher_mail_embeddedcode');
+    $record['image']              = $llImageWiTimestamp;
+    $record['imageorient']        = $this->pObj->pi_getLL('record_tx_org_headquarters_netzmacher_imageorient');
+    $record['imageseo']           = $this->pObj->pi_getLL('record_tx_org_headquarters_netzmacher_imageseo');
+    $record['imagecols']          = '1';
+    $record['image_zoom']         = '1';
+    $record['image_noRows']       = '1';
+
+    return $record;
+    
+  }
+  
+/**
+ * recordHeadquartersPresident( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordHeadquartersPresident( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_headquarters_president_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_headquarters_president_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                = $uid;
+    $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record['tstamp']             = time( );
+    $record['crdate']             = time( );
+    $record['cruser_id']          = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']            = 256 * 1;
+    $record['title']              = $llTitle;
+    $record['telephone']          = $this->pObj->pi_getLL('record_tx_org_headquarters_president_telephone');
+    $record['email']              = $this->pObj->pi_getLL('record_tx_org_headquarters_president_email');
+    $record['mail_address']       = $this->pObj->pi_getLL('record_tx_org_headquarters_president_mail_address');
+    $record['mail_postcode']      = $this->pObj->pi_getLL('record_tx_org_headquarters_president_mail_postcode');
+    $record['mail_city']          = $this->pObj->pi_getLL('record_tx_org_headquarters_president_mail_city');
+    $record['mail_url']           = $this->pObj->pi_getLL('record_tx_org_headquarters_president_mail_url');
+    $record['mail_embeddedcode']  = $this->pObj->pi_getLL('record_tx_org_headquarters_president_mail_embeddedcode');
+    $record['image']              = $llImageWiTimestamp;
+    $record['imageorient']        = $this->pObj->pi_getLL('record_tx_org_headquarters_president_imageorient');
+    $record['imageseo']           = $this->pObj->pi_getLL('record_tx_org_headquarters_president_imageseo');
+    $record['imagecols']          = '1';
+    $record['image_zoom']         = '1';
+    $record['image_noRows']       = '1';
+
+    return $record;
+    
+  }
+  
+/**
+ * recordHeadquartersTYPO3( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordHeadquartersTYPO3( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_headquarters_typo3_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_headquarters_typo3_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                = $uid;
+    $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record['tstamp']             = time( );
+    $record['crdate']             = time( );
+    $record['cruser_id']          = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']            = 256 * 1;
+    $record['title']              = $llTitle;
+    $record['telephone']          = $this->pObj->pi_getLL('record_tx_org_headquarters_typo3_telephone');
+    $record['email']              = $this->pObj->pi_getLL('record_tx_org_headquarters_typo3_email');
+    $record['mail_address']       = $this->pObj->pi_getLL('record_tx_org_headquarters_typo3_mail_address');
+    $record['mail_postcode']      = $this->pObj->pi_getLL('record_tx_org_headquarters_typo3_mail_postcode');
+    $record['mail_city']          = $this->pObj->pi_getLL('record_tx_org_headquarters_typo3_mail_city');
+    $record['mail_url']           = $this->pObj->pi_getLL('record_tx_org_headquarters_typo3_mail_url');
+    $record['mail_embeddedcode']  = $this->pObj->pi_getLL('record_tx_org_headquarters_typo3_mail_embeddedcode');
+    $record['image']              = $llImageWiTimestamp;
+    $record['imageorient']        = $this->pObj->pi_getLL('record_tx_org_headquarters_typo3_imageorient');
+    $record['imageseo']           = $this->pObj->pi_getLL('record_tx_org_headquarters_typo3_imageseo');
+    $record['imagecols']          = '1';
+    $record['image_zoom']         = '1';
+    $record['image_noRows']       = '1';
+
+    return $record;
+    
+  }
+
+/**
+ * recordLocations( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordLocations( )
+  {
+    $table    = 'tx_org_locations';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordLocationsNetzmacher( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordLocationsT3Devdays( $uid );
+
+    $this->sqlInsert( $records, $table );
+  }
+  
+/**
+ * recordLocationsNetzmacher( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordLocationsNetzmacher( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_location_netzmacher_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_location_netzmacher_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $record['uid']                = $uid;
+    $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataLocations_title' ];
+    $record['tstamp']             = time( );
+    $record['crdate']             = time( );
+    $record['cruser_id']          = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']            = 256 * 1;
+    $record['title']              = $llTitle;
+    $record['url']                = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_url');
+    $record['telephone']          = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_telephone');
+    $record['email']              = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_email');
+    $record['mail_address']       = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_mail_address');
+    $record['mail_postcode']      = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_mail_postcode');
+    $record['mail_city']          = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_mail_city');
+    $record['mail_url']           = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_mail_url');
+    $record['mail_embeddedcode']  = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_mail_embeddedcode');
+    $record['image']              = $llImageWiTimestamp;
+    $record['imageorient']        = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_imageorient');
+    $record['imageseo']           = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_imageseo');
+    $record['imagewidth']         = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_imagewidth');
+    $record['image_link']         = $this->pObj->pi_getLL('record_tx_org_location_netzmacher_image_link');
+    $record['imagecols']          = '1';
+    $record['image_zoom']         = '1';
+    $record['image_noRows']       = '1';
+
+    return $record;
+  }
+  
+/**
+ * recordLocationsT3Devdays( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordLocationsT3Devdays( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_location_t3devdays_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_location_t3devdays_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $llLabel  = 'record_tx_org_location_t3devdays_documents';
+    $llFile  = $this->pObj->pi_getLL( $llLabel );
+    $llFileWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llFile );
+    $this->pObj->arr_fileUids[ $llFile ] = $llFileWiTimestamp;
+    
+    $record['uid']                = $uid;
+    $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataLocations_title' ];
+    $record['tstamp']             = time( );
+    $record['crdate']             = time( );
+    $record['cruser_id']          = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']            = 256 * 2;
+    $record['title']              = $llTitle;
+    $record['url']                = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_url');
+    $record['telephone']          = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_telephone');
+    $record['email']              = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_email');
+    $record['mail_address']       = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_mail_address');
+    $record['mail_postcode']      = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_mail_postcode');
+    $record['mail_city']          = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_mail_city');
+    $record['mail_url']           = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_mail_url');
+    $record['mail_embeddedcode']  = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_mail_embeddedcode');
+    $record['image']              = $llImageWiTimestamp;
+    $record['imageorient']        = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_imageorient');
+    $record['imageseo']           = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_imageseo');
+    $record['imagewidth']         = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_imagewidth');
+    $record['image_link']         = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_image_link');
+    $record['imagecols']          = '1';
+    $record['image_zoom']         = '1';
+    $record['image_noRows']       = '1';
+    $record['documents']          = $llFileWiTimestamp;
+    $record['documentscaption']   = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_documentscaption');
+    $record['documentslayout']    = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_documentslayout');
+    $record['documentssize']      = $this->pObj->pi_getLL('record_tx_org_location_t3devdays_documentssize');
+
+    return $record;
+  }
+
+/**
+ * recordNews( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordNews( )
+  {
+    $table    = 'tx_org_news';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordNewsFlow( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordNewsOrganiser( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordNewsPresident( $uid );
+
+    $this->sqlInsert( $records, $table );
+  }
+  
+/**
+ * recordNewsFlow( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordNewsFlow( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_news_flow_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_news_flow_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $bodytext = $this->pObj->pi_getLL( 'record_tx_org_news_flow_bodytext');
+
+    $datetime = strtotime( '-2 days' );
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataNews_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']         = $this->pObj->pi_getLL('record_tx_org_news_flow_type');
+    $record['title']        = $llTitle;
+    $record['datetime']     = $datetime;
+    $record['bodytext']     = $bodytext;
+    $record['image']        = $llImageWiTimestamp;
+    $record['imagewidth']   = $this->pObj->pi_getLL('record_tx_org_news_flow_imagewidth');
+    $record['image_link']   = $this->pObj->pi_getLL('record_tx_org_news_flow_image_link');
+    $record['imageorient']  = $this->pObj->pi_getLL('record_tx_org_news_flow_imageorient');
+    $record['imagecaption'] = $this->pObj->pi_getLL('record_tx_org_news_flow_imagecaption');
+    $record['imageseo']     = $this->pObj->pi_getLL('record_tx_org_news_flow_imageseo');
+    $record['imagecols']    = '1';
+    $record['image_zoom']   = '1';
+    $record['image_noRows'] = '1';
+
+    return $record;
+  }
+  
+/**
+ * recordNewsOrganiser( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordNewsOrganiser( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_news_organiser_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_news_organiser_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $datetime = strtotime( 'now' );
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataNews_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']         = $this->pObj->pi_getLL('record_tx_org_news_organiser_type');
+    $record['newsurl']      = $this->pObj->pi_getLL('record_tx_org_news_organiser_newsurl');
+    $record['title']        = $llTitle;
+    $record['subtitle']     = $this->pObj->pi_getLL('record_tx_org_news_organiser_subtitle');
+    $record['datetime']     = $datetime;
+    $record['teaser_short'] = $this->pObj->pi_getLL('record_tx_org_news_organiser_teaser_short');
+    $record['image']        = $llImageWiTimestamp;
+    $record['imagewidth']   = $this->pObj->pi_getLL('record_tx_org_news_organiser_imagewidth');
+    $record['image_link']   = $this->pObj->pi_getLL('record_tx_org_news_organiser_image_link');
+    $record['imageorient']  = $this->pObj->pi_getLL('record_tx_org_news_organiser_imageorient');
+    $record['imagecaption'] = $this->pObj->pi_getLL('record_tx_org_news_organiser_imagecaption');
+    $record['imageseo']     = $this->pObj->pi_getLL('record_tx_org_news_organiser_imageseo');
+    $record['imagecols']    = '1';
+    $record['image_zoom']   = '1';
+    $record['image_noRows'] = '1';
+
+    return $record;
+  }
+  
+/**
+ * recordNewsPresident( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordNewsPresident( $uid )
+  {
+    $record = array( );
+
+    $llLabel  = 'record_tx_org_news_president_title';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $bodytext = $this->pObj->pi_getLL( 'record_tx_org_news_president_bodytext');
+
+    $datetime = strtotime( '-1 week' );
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataNews_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['type']         = $this->pObj->pi_getLL('record_tx_org_news_president_type');
+    $record['title']        = $llTitle;
+    $record['datetime']     = $datetime;
+    $record['bodytext']     = $bodytext;
 
     return $record;
   }
@@ -1107,8 +2065,6 @@ class tx_orginstaller_pi1_org
   {
     $record = null;
     
-    $this->arr_recordUids['###fe_groups.uid.policy###'] = $uid;
-
     $llLabel = 'record_fe_groups_title_policy';
     $llTitle = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
@@ -1136,8 +2092,6 @@ class tx_orginstaller_pi1_org
   {
     $record = null;
     
-    $this->arr_recordUids['###fe_groups.uid.society###'] = $uid;
-
     $llLabel = 'record_fe_groups_title_society';
     $llTitle = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
@@ -1165,8 +2119,6 @@ class tx_orginstaller_pi1_org
   {
     $record = null;
     
-    $this->arr_recordUids['###fe_groups.uid.typo3###'] = $uid;
-
     $llLabel = 'record_fe_groups_title_typo3';
     $llTitle = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
@@ -1220,15 +2172,18 @@ class tx_orginstaller_pi1_org
   {
     $record = array( );
 
-    $this->arr_recordUids['###fe_users.uid.bobama###'] = $uid;
+    $llLabel = 'record_fe_users_bobama_name';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $llLabel  = 'record_fe_users_bobama_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
     
-    $usergroup  = $this->arr_recordUids['###fe_groups.uid.policy###'] . ', ' 
-                . $this->arr_recordUids['###fe_groups.uid.society###'];
+    $policy     = $this->pObj->arr_recordUids[ 'record_fe_groups_title_policy' ];
+    $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
+    $usergroup  = $policy . ', ' . $society;
 
     $record['uid']                  = $uid;
     $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
@@ -1237,7 +2192,7 @@ class tx_orginstaller_pi1_org
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['usergroup']            = $usergroup;
     $record['username']             = $this->pObj->pi_getLL('record_fe_users_bobama_username');
-    $record['name']                 = $this->pObj->pi_getLL('record_fe_users_bobama_name');
+    $record['name']                 = $llTitle;
     $record['first_name']           = $this->pObj->pi_getLL('record_fe_users_bobama_first_name');
     $record['last_name']            = $this->pObj->pi_getLL('record_fe_users_bobama_last_name');
     $record['password']             = $this->zz_getPassword();
@@ -1265,15 +2220,18 @@ class tx_orginstaller_pi1_org
   {
     $record = array( );
 
-    $this->arr_recordUids['###fe_users.uid.sschaffstein###'] = $uid;
+    $llLabel = 'record_fe_users_sschaffstein_name';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $llLabel  = 'record_fe_users_sschaffstein_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
     
-    $usergroup  = $this->arr_recordUids['###fe_groups.uid.policy###'] . ', ' 
-                . $this->arr_recordUids['###fe_groups.uid.society###'];
+    $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
+    $typo3      = $this->pObj->arr_recordUids[ 'record_fe_groups_title_typo3' ];
+    $usergroup  = $society . ', ' . $typo3;
 
     $record['uid']                  = $uid;
     $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
@@ -1282,7 +2240,7 @@ class tx_orginstaller_pi1_org
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['usergroup']            = $usergroup;
     $record['username']             = $this->pObj->pi_getLL('record_fe_users_sschaffstein_username');
-    $record['name']                 = $this->pObj->pi_getLL('record_fe_users_sschaffstein_name');
+    $record['name']                 = $llTitle;
     $record['first_name']           = $this->pObj->pi_getLL('record_fe_users_sschaffstein_first_name');
     $record['last_name']            = $this->pObj->pi_getLL('record_fe_users_sschaffstein_last_name');
     $record['password']             = $this->zz_getPassword();
@@ -1310,15 +2268,18 @@ class tx_orginstaller_pi1_org
   {
     $record = array( );
 
-    $this->arr_recordUids['###fe_users.uid.dwildt###'] = $uid;
+    $llLabel = 'record_fe_users_dwildt_name';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $llLabel  = 'record_fe_users_dwildt_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
     
-    $usergroup  = $this->arr_recordUids['###fe_groups.uid.policy###'] . ', ' 
-                . $this->arr_recordUids['###fe_groups.uid.society###'];
+    $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
+    $typo3      = $this->pObj->arr_recordUids[ 'record_fe_groups_title_typo3' ];
+    $usergroup  = $society . ', ' . $typo3;
 
     $record['uid']                  = $uid;
     $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
@@ -1327,7 +2288,7 @@ class tx_orginstaller_pi1_org
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['usergroup']            = $usergroup;
     $record['username']             = $this->pObj->pi_getLL('record_fe_users_dwildt_username');
-    $record['name']                 = $this->pObj->pi_getLL('record_fe_users_dwildt_name');
+    $record['name']                 = $llTitle;
     $record['first_name']           = $this->pObj->pi_getLL('record_fe_users_dwildt_first_name');
     $record['last_name']            = $this->pObj->pi_getLL('record_fe_users_dwildt_last_name');
     $record['password']             = $this->zz_getPassword();
@@ -1531,14 +2492,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * relations( )
+ * relation( )
  *
  * @return	array		$records : the relation records
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relations( )
+  private function relation( )
   {
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( 'tx_powermail_fields' );

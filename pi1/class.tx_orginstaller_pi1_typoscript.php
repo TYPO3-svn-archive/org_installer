@@ -271,13 +271,13 @@ plugin.org {
   url {
     default {
       calendar        = /
-      caddy           = ' . $this->pi_getLL('pageOrgCaddy_titleUrl') . '/
-      downloadsCaddy  = ' . $this->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
+      caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
+      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
     }
     de {
       calendar        = /
-      caddy           = ' . $this->pi_getLL('pageOrgCaddy_titleUrl') . '/
-      downloadsCaddy  = ' . $this->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
+      caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
+      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
     }
   }
 }
@@ -504,13 +504,13 @@ plugin.org {
   url {
     default {
       calendar        = /
-      caddy           = ' . $this->pi_getLL('pageOrgCaddy_titleUrl') . '/
-      downloadsCaddy  = ' . $this->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
+      caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
+      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
     }
     de {
       calendar        = /
-      caddy           = ' . $this->pi_getLL('pageOrgCaddy_titleUrl') . '/
-      downloadsCaddy  = ' . $this->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
+      caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
+      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
     }
   }
 }

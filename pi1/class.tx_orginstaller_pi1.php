@@ -608,7 +608,7 @@ die( $prompt );
     $this->powermailPageOrgCaddy       = t3lib_div::makeInstance( 'tx_orginstaller_pi1_powermail' );
     $this->powermailPageOrgCaddy->pObj = $this;
 
-    $pid = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $pid = $this->arr_pageUids[ 'pageOrgCaddy_title' ];
     $this->powermailPageOrgCaddy->main( $pid );
   }
 
@@ -625,7 +625,7 @@ die( $prompt );
     $this->powermailPageOrgDownloadsCaddy       = t3lib_div::makeInstance( 'tx_orginstaller_pi1_powermail' );
     $this->powermailPageOrgDownloadsCaddy->pObj = $this;
 
-    $pid = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
+    $pid = $this->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
     $this->powermailPageOrgDownloadsCaddy->main( $pid );
   }
 

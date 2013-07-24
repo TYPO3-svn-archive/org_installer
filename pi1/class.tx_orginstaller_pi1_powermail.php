@@ -149,6 +149,11 @@ class tx_orginstaller_pi1_powermail
  */
   public function main( $pid )
   {
+    if( ( ( int ) $pid ) < 1 )
+    {
+      $prompt = __METHOD__ . ' #' . __LINE__ . ': pid is below 1: "' . $pid . '"';
+      die ( $prompt );      
+    }
     $records = array( );
     
     $this->pid = ( int ) $pid;

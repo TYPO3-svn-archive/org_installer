@@ -32,7 +32,7 @@
  *   84:     public function main( )
  *
  *              SECTION: Records
- *  113:     private function records( )
+ *  113:     private function mainRecords( )
  *  146:     private function browserPageOrg( $uid )
  *  273:     private function caddyPageOrg( $uid )
  *  306:     private function caddyminiPageOrgCaddy( $uid )
@@ -90,27 +90,19 @@ class tx_orginstaller_pi1_plugins
        ' . $this->pObj->pi_getLL( 'plugin_create_header' ) . '
       </h2>';
 
-    $records = $this->records( );
+    $records = $this->mainRecords( );
     $this->sqlInsert( $records );
   }
 
-
-
- /***********************************************
-  *
-  * Records
-  *
-  **********************************************/
-
 /**
- * records( )
+ * mainRecords( )
  *
  * @return	array		$records : the plugin records
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function records( )
+  private function mainRecords( )
   {
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( 'tt_content' );
@@ -150,6 +142,14 @@ class tx_orginstaller_pi1_plugins
 
     return $records;
   }
+
+
+
+ /***********************************************
+  *
+  * Browser - TYPO3 without PHP
+  *
+  **********************************************/
 
 /**
  * browserPageOrg( )
@@ -445,6 +445,14 @@ class tx_orginstaller_pi1_plugins
     return $record;
   }
 
+
+
+ /***********************************************
+  *
+  * Caddy
+  *
+  **********************************************/
+
 /**
  * caddyPageOrg( )
  *
@@ -491,9 +499,9 @@ class tx_orginstaller_pi1_plugins
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgCaddyDownloads_header' );
-    $this->pObj->arr_pluginUids['pluginCaddyPageOrgCaddyDownloads_header'] = $uid;
-
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgDownloadsCaddy_header' );
+    $this->pObj->arr_pluginUids['pluginCaddyPageOrgDownloadsCaddy_header'] = $uid;
+    
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
     $record['tstamp']       = time( );
@@ -506,6 +514,52 @@ class tx_orginstaller_pi1_plugins
     $record['sectionIndex'] = 1;
 // Will updated by consolidate->pageCaddyPluginCaddy
 //    $record['pi_flexform']  = '';
+
+    return $record;
+  }
+  
+/**
+ * caddyminiPageOrgCaddy( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.5
+ * @since   3.0.5
+ * @internal  #i0007
+ */
+  private function caddyminiPageOrgCaddy( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgCaddyCaddymini_header' );
+    $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgCaddyCaddymini_header'] = $uid;
+
+    $pid                    = $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ];
+
+    $record['uid']          = $uid;
+    $record['pid']          = $pid;
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256;
+    $record['CType']        = 'list';
+    $record['header']       = $llHeader;
+    $record['header_layout']  = 100; // hidden
+    $record['list_type']    = 'caddy_pi3';
+    $record['sectionIndex'] = 1;
+    $record['pi_flexform']  = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="sdefPidCaddy">
+                    <value index="vDEF"> ' . $pid . '</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>';
 
     return $record;
   }
@@ -527,53 +581,165 @@ class tx_orginstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgDownloadsCaddyCaddymini_header' );
     $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgDownloadsCaddyCaddymini_header'] = $uid;
 
+    $pid                    = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ];
+
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ];
+    $record['pid']          = $pid;
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
     $record['sorting']      = 256;
     $record['CType']        = 'list';
     $record['header']       = $llHeader;
-    $record['header_layout']  = 100; // hidden
-    $record['list_type']    = 'caddy_pi3';
+    $record['list_type']    = 'caddy_pi1';
     $record['sectionIndex'] = 1;
-// Will updated by consolidate->pageCaddyPluginCaddy
-//    $record['pi_flexform']  = '';
+    $record['pi_flexform']  = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="sdefPidCaddy">
+                    <value index="vDEF"> ' . $pid . '</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>';
+
+    return $record;
+  }
+
+
+
+ /***********************************************
+  *
+  * Powermail
+  *
+  **********************************************/
+
+/**
+ * powermailPageOrgCaddy( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function powermailPageOrgCaddy( $uid )
+  {
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $record = $this->powermailPageOrgCaddy1x( $uid );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $record = $this->powermailPageOrgCaddy2x( $uid );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
     return $record;
   }
 
 /**
- * caddyminiPageOrgCaddy( )
+ * powermailPageOrgCaddy1x( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
  * @access private
- * @version 3.0.5
- * @since   3.0.5
- * @internal  #i0007
+ * @version 3.0.0
+ * @since   0.0.1
  */
-  private function caddyminiPageOrgCaddy( $uid )
+  private function powermailPageOrgCaddy1x( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgCaddyCaddymini_header' );
-    $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgCaddyCaddymini_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
+    $this->pObj->arr_pluginUids['pluginPowermailPageOrgCaddy_header'] = $uid;
 
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256;
-    $record['CType']        = 'list';
-    $record['header']       = $llHeader;
-    $record['header_layout']  = 100; // hidden
-    $record['list_type']    = 'caddy_pi3';
-    $record['sectionIndex'] = 1;
-// Will updated by consolidate->pageCaddyPluginCaddy
-//    $record['pi_flexform']  = '';
+    $emailRecipient = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###']
+                    . PHP_EOL
+                    . 'Organiser'
+                    ;
+
+    $record['uid']                        = $uid;
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['tstamp']                     = time( );
+    $record['crdate']                     = time( );
+    $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']                    = 512;
+    $record['CType']                      = 'powermail_pi1';
+    $record['header']                     = $llHeader;
+    $record['header_layout']              = 100;  // hidden
+    $record['list_type']                  = '';
+    $record['sectionIndex']               = 1;
+    $record['tx_powermail_title']         = 'org';
+    $record['tx_powermail_recipient']     = $emailRecipient;
+    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_r1x' );
+    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_s1x' );
+// Will updated by consolidate->pageCaddyPluginPowermail
+//    $record['tx_powermail_sender']        = $str_sender;
+//    $record['tx_powermail_sendername']    = $str_sendername;
+    $record['tx_powermail_confirm']       = 1;
+    $record['tx_powermail_pages']         = null;
+    $record['tx_powermail_multiple']      = 0;
+    $record['tx_powermail_recip_table']   = 0;
+    $record['tx_powermail_recip_id']      = null;
+    $record['tx_powermail_recip_field']   = null;
+    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_thanks1x' );
+    $record['tx_powermail_mailsender']    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_s1x' );
+    $record['tx_powermail_mailreceiver']  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_r1x' );
+    $record['tx_powermail_redirect']      = null;
+    $record['tx_powermail_fieldsets']     = 4;
+    $record['tx_powermail_users']         = 0;
+    $record['tx_powermail_preview']       = 0;
+
+    return $record;
+  }
+
+/**
+ * powermailPageOrgCaddy2x( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function powermailPageOrgCaddy2x( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
+    $this->pObj->arr_pluginUids['pluginPowermailPageOrgCaddy_header'] = $uid;
+
+    $record['uid']                        = $uid;
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['tstamp']                     = time( );
+    $record['crdate']                     = time( );
+    $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']                    = 512;
+    $record['CType']                      = 'list';
+    $record['header']                     = $llHeader;
+    $record['header_layout']              = 100;  // hidden
+    $record['list_type']                  = 'powermail_pi1';
+// Will updated by consolidate->pageCaddyPluginPowermail
+//    $record['pi_flexform']              = null;
 
     return $record;
   }

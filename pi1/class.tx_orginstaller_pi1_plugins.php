@@ -555,10 +555,10 @@ class tx_orginstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgCaddyCaddymini_header' );
     $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgCaddyCaddymini_header'] = $uid;
 
-    $pid                    = $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ];
+    $uidCaddyPage           = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
 
     $record['uid']          = $uid;
-    $record['pid']          = $pid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -574,7 +574,7 @@ class tx_orginstaller_pi1_plugins
         <sheet index="sDEF">
             <language index="lDEF">
                 <field index="sdefPidCaddy">
-                    <value index="vDEF"> ' . $pid . '</value>
+                    <value index="vDEF"> ' . $uidCaddyPage . '</value>
                 </field>
             </language>
         </sheet>
@@ -601,17 +601,17 @@ class tx_orginstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgDownloadsCaddyCaddymini_header' );
     $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgDownloadsCaddyCaddymini_header'] = $uid;
 
-    $pid                    = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ];
+    $uidCaddyPage           = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
 
     $record['uid']          = $uid;
-    $record['pid']          = $pid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
     $record['sorting']      = 256;
     $record['CType']        = 'list';
     $record['header']       = $llHeader;
-    $record['list_type']    = 'caddy_pi1';
+    $record['list_type']    = 'caddy_pi3';
     $record['sectionIndex'] = 1;
     $record['pi_flexform']  = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
@@ -619,7 +619,7 @@ class tx_orginstaller_pi1_plugins
         <sheet index="sDEF">
             <language index="lDEF">
                 <field index="sdefPidCaddy">
-                    <value index="vDEF"> ' . $pid . '</value>
+                    <value index="vDEF"> ' . $uidCaddyPage . '</value>
                 </field>
             </language>
         </sheet>

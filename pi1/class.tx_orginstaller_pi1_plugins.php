@@ -140,6 +140,12 @@ class tx_orginstaller_pi1_plugins
     $records[$uid] = $this->caddyminiPageOrgCaddy( $uid );
 
     $uid = $uid + 1;
+    $records[$uid] = $this->caddyPageOrgDownloads( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->caddyminiPageOrgDownloadsCaddy( $uid );
+
+    $uid = $uid + 1;
     $records[$uid] = $this->powermailPageOrgCaddy( $uid );
 
     return $records;
@@ -166,13 +172,15 @@ class tx_orginstaller_pi1_plugins
     $ffMode       = 201;  // calendar
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffListTitle' ) );
+    $ffTableField = 'tx_org_cal.title';
     
     $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,   $pi_flexform );
 
     $record['uid']           = $uid;
     $record['pid']           = $GLOBALS['TSFE']->id;
@@ -213,13 +221,15 @@ class tx_orginstaller_pi1_plugins
     $ffMode       = 301;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffListTitle' ) );
+    $ffTableField = 'tx_org_downloads.title';
     
     $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,   $pi_flexform );
 
     $record['uid']           = $uid;
     $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ];
@@ -260,13 +270,15 @@ class tx_orginstaller_pi1_plugins
     $ffMode       = 501;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffListTitle' ) );
+    $ffTableField = 'tx_org_headquarters.title';
     
     $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,   $pi_flexform );
 
     $record['uid']           = $uid;
     $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ];
@@ -307,13 +319,15 @@ class tx_orginstaller_pi1_plugins
     $ffMode       = 701;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffListTitle' ) );
+    $ffTableField = 'tx_org_location.title';
     
     $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,   $pi_flexform );
 
     $record['uid']           = $uid;
     $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgLocations_title' ];
@@ -354,14 +368,16 @@ class tx_orginstaller_pi1_plugins
     $ffMode       = 401;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffListTitle' ) );
+    $ffTableField = 'tx_org_news.title';
     
     $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
-
+    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,   $pi_flexform );
+    
     $record['uid']           = $uid;
     $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgNews_title' ];
     $record['tstamp']        = time( );
@@ -401,13 +417,15 @@ class tx_orginstaller_pi1_plugins
     $ffMode       = 101;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffListTitle' ) );
+    $ffTableField = 'fe_users.name';
     
     $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,   $pi_flexform );
 
     $record['uid']           = $uid;
     $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ];
@@ -452,6 +470,73 @@ class tx_orginstaller_pi1_plugins
     $record['CType']        = 'list';
     $record['header']       = $llHeader;
     $record['list_type']    = 'caddy_pi1';
+    $record['sectionIndex'] = 1;
+// Will updated by consolidate->pageCaddyPluginCaddy
+//    $record['pi_flexform']  = '';
+
+    return $record;
+  }
+
+
+/**
+ * caddyPageOrgDownloads( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function caddyPageOrgDownloads( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgCaddyDownloads_header' );
+    $this->pObj->arr_pluginUids['pluginCaddyPageOrgCaddyDownloads_header'] = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256;
+    $record['CType']        = 'list';
+    $record['header']       = $llHeader;
+    $record['list_type']    = 'caddy_pi1';
+    $record['sectionIndex'] = 1;
+// Will updated by consolidate->pageCaddyPluginCaddy
+//    $record['pi_flexform']  = '';
+
+    return $record;
+  }
+
+/**
+ * caddyminiPageOrgDownloadsCaddy( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.5
+ * @since   3.0.5
+ * @internal  #i0007
+ */
+  private function caddyminiPageOrgDownloadsCaddy( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgDownloadsCaddyCaddymini_header' );
+    $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgDownloadsCaddyCaddymini_header'] = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256;
+    $record['CType']        = 'list';
+    $record['header']       = $llHeader;
+    $record['header_layout']  = 100; // hidden
+    $record['list_type']    = 'caddy_pi3';
     $record['sectionIndex'] = 1;
 // Will updated by consolidate->pageCaddyPluginCaddy
 //    $record['pi_flexform']  = '';
@@ -743,13 +828,13 @@ class tx_orginstaller_pi1_plugins
                     <value index="vDEF">enabled_wi_individual_template</value>
                 </field>
                 <field index="tablefieldTitle_list">
-                    <value index="vDEF">tx_org_cal.title</value>
+                    <value index="vDEF">%socialMediaTableFieldList%</value>
                 </field>
                 <field index="bookmarks_list">
                     <value index="vDEF">facebook,google,twitter</value>
                 </field>
                 <field index="tablefieldTitle_single">
-                    <value index="vDEF">tx_org_cal.title</value>
+                    <value index="vDEF">%socialMediaTableFieldList%</value>
                 </field>
                 <field index="bookmarks_single">
                     <value index="vDEF">facebook,google,twitter</value>

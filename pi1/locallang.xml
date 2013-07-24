@@ -222,10 +222,10 @@
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_downloads.title
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in single views
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_downloads.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgHeadquarters_header">[Browser for Organiser Headquarters]</label>
@@ -245,10 +245,10 @@
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_headquarters.title
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in single views
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_headquarters.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgLocations_header">[Browser for Organiser Locations]</label>
@@ -268,10 +268,10 @@
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_location.title
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in single views
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_location.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgNews_header">[Browser for Organiser News]</label>
@@ -291,10 +291,10 @@
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_news.title
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in single views
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_news.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgStaff_header">[Browser for Organiser Staff]</label>
@@ -314,13 +314,14 @@
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
-      * table.field: tx_org_cal.title
+      * table.field: fe_users.name
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in single views
-      * table.field: tx_org_cal.title
+      * table.field: fe_users.name
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginCaddyPageOrgCaddy_header">Caddy</label>
+      <label index="pluginCaddyPageOrgDownloadsCaddy_header">Caddy</label>
       <label index="plugin_caddy_note_note_1x"></label>
       <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
 
@@ -332,6 +333,7 @@
       The value of the invoice address will overriden 
       by the value of the delivery address.]]></label>
       <label index="pluginCaddyminiPageOrgCaddyCaddymini_header">[Mini Caddy]</label>
+      <label index="pluginCaddyminiPageOrgDownloadsCaddyCaddymini_header">[Mini Caddy]</label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="plugin_help">If you want, please select the option "Installation: Organiser ..." in the TYPO3 backend plugin.</label>
@@ -691,10 +693,10 @@ Because of the price:
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_downloads.title
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in der Detailansicht
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_downloads.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgHeadquarters_header">[Browser für Organiser Standorte]</label>
@@ -714,10 +716,10 @@ Because of the price:
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_headquarters.title
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in der Detailansicht
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_headquarters.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgLocations_header">[Browser für Organiser Veranstaltungsorte]</label>
@@ -737,10 +739,10 @@ Because of the price:
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_location.title
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in der Detailansicht
-      * table.field: tx_org_cal.title
+      * table.field: tx_org_location.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgNews_header">[Browser für Organiser Nachrichten]</label>
@@ -760,10 +762,10 @@ Because of the price:
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht
-      * table.field: tx_org_cal.title
+      * table.field: News
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in der Detailansicht
-      * table.field: tx_org_cal.title
+      * table.field: News
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgStaff_header">[Browser für Organiser Personal]</label>
@@ -783,10 +785,10 @@ Because of the price:
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht
-      * table.field: tx_org_cal.title
+      * table.field: fe_users.name
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in der Detailansicht
-      * table.field: tx_org_cal.title
+      * table.field: fe_users.name
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginCaddyPageOrgCaddy_header">Warenkorb</label>

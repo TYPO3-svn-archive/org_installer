@@ -32,7 +32,7 @@
  *  108:     public function main( )
  *
  *              SECTION: Categories
- *  138:     private function categories( )
+ *  138:     private function category( )
  *  179:     private function categoryBlue( $uid )
  *  207:     private function categoryBook( $uid )
  *  234:     private function categoryClothes( $uid )
@@ -109,7 +109,7 @@ class tx_orginstaller_pi1_org
   {
     $records = array( );
 
-    $this->categories( );
+    $this->category( );
 
 //    $records = $this->records( );
 //    $this->sqlInsert( $records, 'tx_org_cal' );
@@ -127,45 +127,296 @@ class tx_orginstaller_pi1_org
   **********************************************/
 
 /**
- * categories( )
+ * category( )
  *
  * @return	array		$records : the fieldset records
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categories( )
+  private function category( )
   {
-    $this->categoriesCal( );
+    $this->categoryCal( );
 
   }
 
 
 /**
- * categoriesCal( )
+ * categoryCal( )
  *
  * @return	array		$records : the fieldset records
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoriesCal( )
+  private function categoryCal( )
   {
-    $this->categoriesCalType( );
+    $this->categoryCalEntrance( );
+    $this->categoryCalTax( );
+    $this->categoryCalType( );
   }
 
 /**
- * categoriesCalType( )
+ * categoryCalEntrance( )
  *
  * @return	array		$records : the fieldset records
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoriesCalType( )
+  private function categoryCalEntrance( )
   {
+    $table    = 'tx_org_calentrance';
     $records  = array( );
-    $uid      = $this->pObj->zz_getMaxDbUid( 'tx_org_caltype' );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+      // category policy
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryCalEntranceFree( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryCalEntranceMortals( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryCalEntranceSponsors( $uid );
+
+
+    $this->sqlInsert( $records, 'tx_org_caltype' );
+  }
+  
+/**
+ * categoryCalEntranceFree( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryCalEntranceFree( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_calentrance_title_entranceFree';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel = 'record_tx_org_calentrance_value_entranceFree';
+    $llValue = $this->pObj->pi_getLL( $llLabel );
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['value']      = $llValue;
+
+    return $record;
+  }
+  
+/**
+ * categoryCalEntranceMortals( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryCalEntranceMortals( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_calentrance_title_mereMortals';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel = 'record_tx_org_calentrance_value_mereMortals';
+    $llValue = $this->pObj->pi_getLL( $llLabel );
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['value']      = $llValue;
+
+    return $record;
+  }
+  
+/**
+ * categoryCalEntranceSponsors( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryCalEntranceSponsors( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_calentrance_title_sponsors';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel = 'record_tx_org_calentrance_value_sponsors';
+    $llValue = $this->pObj->pi_getLL( $llLabel );
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['value']      = $llValue;
+
+    return $record;
+  }
+  
+
+/**
+ * categoryCalTax( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryCalTax( )
+  {
+    $table    = 'tx_org_tax';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+      // category policy
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryCalTax000( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryCalTax007( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryCalTax019( $uid );
+
+
+    $this->sqlInsert( $records, $table );
+  }
+   
+/**
+ * categoryCalTax000( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryCalTax000( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_tax_title_000';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel = 'record_tx_org_tax_value_000';
+    $llValue = $this->pObj->pi_getLL( $llLabel );
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['value']      = $llValue;
+
+    return $record;
+  }
+   
+/**
+ * categoryCalTax007( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryCalTax007( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_tax_title_007';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel = 'record_tx_org_tax_value_007';
+    $llValue = $this->pObj->pi_getLL( $llLabel );
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['value']      = $llValue;
+
+    return $record;
+  }
+   
+/**
+ * categoryCalTax019( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryCalTax019( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_tax_title_019';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel = 'record_tx_org_tax_value_019';
+    $llValue = $this->pObj->pi_getLL( $llLabel );
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['value']      = $llValue;
+
+    return $record;
+  }
+ 
+
+/**
+ * categoryCalType( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryCalType( )
+  {
+    $table    = 'tx_org_caltype';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
 
       // category policy
     $uid = $uid + 1;
@@ -180,7 +431,7 @@ class tx_orginstaller_pi1_org
     $records[$uid] = $this->categoryCalTypeTYPO3( $uid );
 
 
-    $this->sqlInsert( $records, 'tx_org_caltype' );
+    $this->sqlInsert( $records, $table );
   }
   
 /**

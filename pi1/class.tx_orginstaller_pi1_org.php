@@ -2363,186 +2363,6 @@ class tx_orginstaller_pi1_org
   **********************************************/
 
 /**
- * relationBasecapBlueBlue( )
- *
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function relationBasecapBlueBlue( $sorting )
-  {
-    $record = null;
-
-    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capBlue' ];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_blue' ];
-    $record['sorting']     = $sorting;
-
-    return $record;
-  }
-
-/**
- * relationBasecapBlueClothes( )
- *
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function relationBasecapBlueClothes( $sorting )
-  {
-    $record = null;
-
-    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capBlue' ];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
-    $record['sorting']     = $sorting;
-
-    return $record;
-  }
-
-/**
- * relationBasecapGreenClothes( )
- *
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function relationBasecapGreenClothes( $sorting )
-  {
-    $record = null;
-
-    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capGreen' ];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
-    $record['sorting']     = $sorting;
-
-    return $record;
-  }
-
-/**
- * relationBasecapGreenGreen( )
- *
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function relationBasecapGreenGreen( $sorting )
-  {
-    $record = null;
-
-    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capGreen' ];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_green' ];
-    $record['sorting']     = $sorting;
-
-    return $record;
-  }
-
-/**
- * relationBasecapRedClothes( )
- *
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function relationBasecapRedClothes( $sorting )
-  {
-    $record = null;
-
-    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capRed' ];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
-    $record['sorting']     = $sorting;
-
-    return $record;
-  }
-
-/**
- * relationBasecapRedRed( )
- *
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function relationBasecapRedRed( $sorting )
-  {
-    $record = null;
-
-    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capRed' ];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_red' ];
-    $record['sorting']     = $sorting;
-
-    return $record;
-  }
-
-/**
- * relationBook( )
- *
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function relationBook( $sorting )
-  {
-    $record = null;
-
-    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_book' ];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_books' ];
-    $record['sorting']     = $sorting;
-
-    return $record;
-  }
-
-/**
- * relationCup( )
- *
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function relationCup( $sorting )
-  {
-    $record = null;
-
-    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_cup' ];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_cups' ];
-    $record['sorting']     = $sorting;
-
-    return $record;
-  }
-
-/**
- * relationPullover( )
- *
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function relationPullover( $sorting )
-  {
-    $record = null;
-
-    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_pullover' ];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
-    $record['sorting']     = $sorting;
-
-    return $record;
-  }
-
-/**
  * relation( )
  *
  * @return	array		$records : the relation records
@@ -2552,40 +2372,67 @@ class tx_orginstaller_pi1_org
  */
   private function relation( )
   {
-    $records  = array( );
-    $uid      = $this->pObj->zz_getMaxDbUid( 'tx_powermail_fields' );
+    $this->relationStaff2News( );
+  }
 
-      // record book
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBook( $sorting );
+/**
+ * relationStaff2News( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationStaff2News( )
+  {
+    $table = 'fe_users_mm_tx_org_news';
 
-      // record basecap blue
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBasecapBlueClothes( $sorting );
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBasecapBlueBlue( $sorting );
+    $records = array
+              (
+                $this->relationStaff2NewsPresident( ),
+                $this->relationStaff2NewsSchaffstein( )
+              );
 
-      // record basecap green
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBasecapGreenClothes( $sorting );
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBasecapGreenGreen( $sorting );
+    $this->sqlInsert( $records, $table );
 
-      // record basecap red
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBasecapRedClothes( $sorting );
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBasecapRedRed( $sorting );
+  }
 
-      // record cup
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationCup( $sorting );
+/**
+ * relationStaff2NewsPresident( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationStaff2NewsPresident( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_fe_users_bobama_name' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
+              );
 
-      // record pullover
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationPullover( $sorting );
+    return $record;
+  }
 
-    return $records;
+/**
+ * relationStaff2NewsSchaffstein( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationStaff2NewsSchaffstein( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_fe_users_sschaffstein_name' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
+              );
+
+    return $record;
   }
 
 
@@ -2656,28 +2503,6 @@ class tx_orginstaller_pi1_org
   * ZZ
   *
   **********************************************/
-
-/**
- * zz_counter( ) :
- *
- * @param	integer		$uid        : current record uid
- * @return	string		$csvResult  : uid, sorting
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
-  private function zz_counter( $uid )
-  {
-    static $counter = 0;
-
-    $counter  = $counter + 1 ;
-    $uid      = $uid + 1 ;
-    $sorting  = 256 * $counter;
-
-    $csvResult = $uid . ',' . $sorting;
-
-    return $csvResult;
-  }
 
 /**
  * zz_getPassword: Get a random value

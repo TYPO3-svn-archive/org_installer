@@ -634,7 +634,7 @@ class tx_orginstaller_pi1_org
  */
   private function categoryDownloads( )
   {
-    $table    = 'tx_org_departmentcat';
+    $table    = 'tx_org_downloadscat';
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( $table );
 
@@ -757,7 +757,7 @@ class tx_orginstaller_pi1_org
  */
   private function categoryNews( )
   {
-    $table    = 'tx_org_departmentcat';
+    $table    = 'tx_org_newscat';
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( $table );
 

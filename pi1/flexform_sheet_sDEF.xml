@@ -53,7 +53,7 @@
         <TCEforms>
           <exclude>1</exclude>
           <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.backend_user</label>
-          <displayCond>FIELD:install_case:=:install_all,install_shop</displayCond>
+          <displayCond>FIELD:install_case:=:install_all,install_org</displayCond>
           <config>
             <type>select</type>
             <foreign_table>be_users</foreign_table>
@@ -68,7 +68,7 @@
         <TCEforms>
           <exclude>1</exclude>
           <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.mail_subject</label>
-          <displayCond>FIELD:install_case:=:install_all,install_shop</displayCond>
+          <displayCond>FIELD:install_case:=:install_all,install_org</displayCond>
           <config>
             <type>input</type>
             <size>40</size>
@@ -81,7 +81,7 @@
         <TCEforms>
           <exclude>1</exclude>
           <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.mail_default_sender</label>
-          <displayCond>FIELD:install_case:=:install_all,install_shop</displayCond>
+          <displayCond>FIELD:install_case:=:install_all,install_org</displayCond>
           <config>
             <type>input</type>
             <size>40</size>

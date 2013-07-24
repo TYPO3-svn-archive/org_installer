@@ -26,78 +26,81 @@
  *
  *
  *
- *  114: class tx_orginstaller_pi1_powermail
+ *  117: class tx_orginstaller_pi1_powermail
  *
  *              SECTION: Main
- *  147:     public function main( )
+ *  153:     public function main( $pid )
  *
  *              SECTION: Fields: billing address
- *  179:     private function fieldBillingaddressAddress( $uid, $sorting )
- *  210:     private function fieldBillingaddressCity( $uid, $sorting )
- *  241:     private function fieldBillingaddressCompany( $uid, $sorting )
- *  272:     private function fieldBillingaddressCountry( $uid, $sorting )
- *  303:     private function fieldBillingaddressFirstname( $uid, $sorting )
- *  366:     private function fieldBillingaddressLastname( $uid, $sorting )
- *  428:     private function fieldBillingaddressZip( $uid, $sorting )
+ *  192:     private function fieldBillingaddressAddress( $uid, $sorting )
+ *  223:     private function fieldBillingaddressCity( $uid, $sorting )
+ *  254:     private function fieldBillingaddressCompany( $uid, $sorting )
+ *  285:     private function fieldBillingaddressCountry( $uid, $sorting )
+ *  316:     private function fieldBillingaddressFirstname( $uid, $sorting )
+ *  379:     private function fieldBillingaddressLastname( $uid, $sorting )
+ *  441:     private function fieldBillingaddressZip( $uid, $sorting )
  *
  *              SECTION: Fields: contact data
- *  467:     private function fieldContactdataEmail( $uid, $sorting )
- *  534:     private function fieldContactdataFax( $uid, $sorting )
- *  565:     private function fieldContactdataPhone( $uid, $sorting )
+ *  480:     private function fieldContactdataEmail( $uid, $sorting )
+ *  547:     private function fieldContactdataFax( $uid, $sorting )
+ *  578:     private function fieldContactdataPhone( $uid, $sorting )
  *
  *              SECTION: Fields: delivery address
- *  604:     private function fieldDeliveryaddressAddress( $uid, $sorting )
- *  635:     private function fieldDeliveryaddressCity( $uid, $sorting )
- *  666:     private function fieldDeliveryaddressCompany( $uid, $sorting )
- *  697:     private function fieldDeliveryaddressCountry( $uid, $sorting )
- *  728:     private function fieldDeliveryaddressFirstname( $uid, $sorting )
- *  759:     private function fieldDeliveryaddressLastname( $uid, $sorting )
- *  790:     private function fieldDeliveryaddressZip( $uid, $sorting )
+ *  617:     private function fieldDeliveryaddressAddress( $uid, $sorting )
+ *  648:     private function fieldDeliveryaddressCity( $uid, $sorting )
+ *  679:     private function fieldDeliveryaddressCompany( $uid, $sorting )
+ *  710:     private function fieldDeliveryaddressCountry( $uid, $sorting )
+ *  741:     private function fieldDeliveryaddressFirstname( $uid, $sorting )
+ *  772:     private function fieldDeliveryaddressLastname( $uid, $sorting )
+ *  803:     private function fieldDeliveryaddressZip( $uid, $sorting )
  *
  *              SECTION: Fields: order
- *  829:     private function fieldOrderNote( $uid, $sorting )
- *  894:     private function fieldOrderRevocation( $uid, $sorting )
- *  991:     private function fieldOrderSubmit( $uid, $sorting )
- * 1022:     private function fieldOrderTerms( $uid, $sorting )
+ *  842:     private function fieldOrderNote( $uid, $sorting )
+ *  907:     private function fieldOrderRevocation( $uid, $sorting )
+ * 1004:     private function fieldOrderSubmit( $uid, $sorting )
+ * 1035:     private function fieldOrderTerms( $uid, $sorting )
  *
  *              SECTION: Controller
- * 1126:     private function fields( )
- * 1229:     private function fieldsSetLabelsAndValuesByVersion( )
- * 1265:     private function fieldsSetLabelsAndValuesByVersion1x( )
- * 1281:     private function fieldsSetLabelsAndValuesByVersion2x( )
- * 1299:     private function fieldsSetMarkerByVersion( $record, $method )
- * 1340:     private function fieldsSetMarkerByVersion1x( $record, $method )
- * 1358:     private function fieldsSetMarkerByVersion2x( $record, $method )
- * 1376:     private function fieldsSetTitleDeliveryByVersion( $llLabel )
- * 1416:     private function fieldsSetTitleDeliveryByVersion1x( $llLabel )
- * 1433:     private function fieldsSetTitleDeliveryByVersion2x( $llLabel )
+ * 1139:     private function fields( )
+ * 1242:     private function fieldsSetLabelsAndValuesByVersion( )
+ * 1278:     private function fieldsSetLabelsAndValuesByVersion1x( )
+ * 1294:     private function fieldsSetLabelsAndValuesByVersion2x( )
+ * 1312:     private function fieldsSetMarkerByVersion( $record, $method )
+ * 1353:     private function fieldsSetMarkerByVersion1x( $record, $method )
+ * 1371:     private function fieldsSetMarkerByVersion2x( $record, $method )
+ * 1389:     private function fieldsSetTitleDeliveryByVersion( $llLabel )
+ * 1429:     private function fieldsSetTitleDeliveryByVersion1x( $llLabel )
+ * 1446:     private function fieldsSetTitleDeliveryByVersion2x( $llLabel )
  *
  *              SECTION: Fieldsets
- * 1466:     private function fieldsetBillingaddress( $uid, $sorting )
- * 1496:     private function fieldsetContactdata( $uid, $sorting )
- * 1526:     private function fieldsetDeliveryaddress( $uid, $sorting )
- * 1556:     private function fieldsetOrder( $uid, $sorting )
- * 1584:     private function fieldsets( )
- * 1620:     private function fieldsetsSetLabelsByVersion( )
- * 1656:     private function fieldsetsSetLabelsByVersion1x( )
- * 1671:     private function fieldsetsSetLabelsByVersion2x( )
- * 1686:     private function fieldsetsSetValuesByVersion( )
- * 1722:     private function fieldsetsSetValuesByVersion1x( )
- * 1735:     private function fieldsetsSetValuesByVersion2x( )
- *
- *              SECTION: Sql
- * 1758:     private function sqlInsert( $records, $table )
+ * 1479:     private function fieldsetBillingaddress( $uid, $sorting )
+ * 1509:     private function fieldsetContactdata( $uid, $sorting )
+ * 1539:     private function fieldsetDeliveryaddress( $uid, $sorting )
+ * 1569:     private function fieldsetOrder( $uid, $sorting )
+ * 1597:     private function fieldsets( )
+ * 1633:     private function fieldsetsSetLabelsByVersion( )
+ * 1669:     private function fieldsetsSetLabelsByVersion1x( )
+ * 1684:     private function fieldsetsSetLabelsByVersion2x( )
+ * 1699:     private function fieldsetsSetValuesByVersion( )
+ * 1735:     private function fieldsetsSetValuesByVersion1x( )
+ * 1748:     private function fieldsetsSetValuesByVersion2x( )
  *
  *              SECTION: forms
- * 1811:     private function formCaddyOrder( $uid )
- * 1837:     private function forms( )
- * 1877:     private function forms1x( )
- * 1892:     private function forms2x( )
+ * 1770:     private function formCaddyOrder( $uid )
+ * 1796:     private function forms( )
+ * 1836:     private function forms1x( )
+ * 1851:     private function forms2x( )
+ *
+ *              SECTION: Get
+ * 1881:     public function getValue( $field )
+ *
+ *              SECTION: Sql
+ * 1912:     private function sqlInsert( $records, $table )
  *
  *              SECTION: ZZ
- * 1922:     private function zz_counter( $uid )
+ * 1965:     private function zz_counter( $uid )
  *
- * TOTAL FUNCTIONS: 49
+ * TOTAL FUNCTIONS: 50
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -141,7 +144,7 @@ class tx_orginstaller_pi1_powermail
 /**
  * main( )
  *
- * @param       integer     $pid  : uid of the page with the powermail records
+ * @param	integer		$pid  : uid of the page with the powermail records
  * @return	void
  * @access public
  * @version 3.0.0
@@ -152,10 +155,10 @@ class tx_orginstaller_pi1_powermail
     if( ( ( int ) $pid ) < 1 )
     {
       $prompt = __METHOD__ . ' #' . __LINE__ . ': pid is below 1: "' . $pid . '"';
-      die ( $prompt );      
+      die ( $prompt );
     }
     $records = array( );
-    
+
     $this->pid = ( int ) $pid;
 
     $records = $this->forms( );
@@ -1870,7 +1873,7 @@ class tx_orginstaller_pi1_powermail
  * getValue( $field ) : Returns the value of the given field
  *
  * @param	string		$field  : label of the field
- * @return	string          $value  : value of the field
+ * @return	string		$value  : value of the field
  * @access public
  * @version 3.0.0
  * @since   0.0.1
@@ -1884,7 +1887,7 @@ class tx_orginstaller_pi1_powermail
       die ( $prompt );
     }
       // DIE  : field isn't set
-    
+
     return $this->arr_recordUids[ $field ];
   }
 

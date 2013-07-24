@@ -26,28 +26,34 @@
  *
  *
  *
- *   64: class tx_orginstaller_pi1_typoscript
+ *   70: class tx_orginstaller_pi1_typoscript
  *
  *              SECTION: Main
- *   88:     public function main( )
+ *   94:     public function main( )
  *
  *              SECTION: Records
- *  118:     private function recordOrgCaddy( $uid )
- *  157:     private function zzOrgCaddyStaticFiles( )
- *  197:     private function zzOrgCaddyStaticFilesPowermail1x( )
- *  215:     private function zzOrgCaddyStaticFilesPowermail2x( )
- *  236:     private function recordOrg( $uid )
- *  266:     private function recordOrgCaseAll( $uid )
- *  417:     private function recordOrgCaseOrgOnly( $uid )
- *  494:     private function recordOrgStaticFiles( )
- *  534:     private function recordOrgStaticFilesPowermail1x( )
- *  552:     private function recordOrgStaticFilesPowermail2x( )
- *  570:     private function records( )
+ *  124:     private function recordOrg( $uid )
+ *  154:     private function recordOrgCaseAll( $uid )
+ *  416:     private function recordOrgCaseOrgOnly( $uid )
+ *  601:     private function recordOrgCaddy( $uid )
+ *  655:     private function recordOrgDownloadsCaddy( $uid )
+ *  707:     private function recordOrgStaticFiles( )
+ *  747:     private function recordOrgStaticFilesPowermail1x( )
+ *  765:     private function recordOrgStaticFilesPowermail2x( )
+ *  783:     private function records( )
  *
  *              SECTION: Sql
- *  603:     private function sqlInsert( $records )
+ *  820:     private function sqlInsert( $records )
  *
- * TOTAL FUNCTIONS: 13
+ *              SECTION: ZZ - Helper
+ *  872:     private function zzOrgCaddyConfig( )
+ *  912:     private function zzOrgCaddyConfigPowermail1x( )
+ *  940:     private function zzOrgCaddyConfigPowermail2x( )
+ *  969:     private function zzOrgCaddyStaticFiles( )
+ * 1009:     private function zzOrgCaddyStaticFilesPowermail1x( )
+ * 1027:     private function zzOrgCaddyStaticFilesPowermail2x( )
+ *
+ * TOTAL FUNCTIONS: 17
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -179,7 +185,7 @@ class tx_orginstaller_pi1_typoscript
                                           . 'EXT:flipit/static/,'
                                           . '%flipit46%'
                                           . 'EXT:flipit/static/typo3/4.6/,'
-                                          . 'EXT:org/static/base/,' 
+                                          . 'EXT:org/static/base/,'
                                           . 'EXT:org/static/calendar/201/,'
                                           . 'EXT:org/static/department/601/,'
                                           . 'EXT:org/static/downloads/301/,'
@@ -284,7 +290,7 @@ plugin.org {
   // organiser
 
 ';
-    
+
     switch( true )
     {
       case( $this->typo3Version < 4007000 ):
@@ -295,8 +301,8 @@ plugin.org {
 xmlprologue                             = none';
         break;
     }
-      
-    switch($GLOBALS['TSFE']->lang) 
+
+    switch($GLOBALS['TSFE']->lang)
     {
       case('de'):
         $localeAll = 'de_DE';
@@ -439,7 +445,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
                                           . 'EXT:flipit/static/,'
                                           . '%flipit46%'
                                           . 'EXT:flipit/static/typo3/4.6/,'
-                                          . 'EXT:org/static/base/,' 
+                                          . 'EXT:org/static/base/,'
                                           . 'EXT:org/static/calendar/201/,'
                                           . 'EXT:org/static/department/601/,'
                                           . 'EXT:org/static/downloads/301/,'
@@ -517,7 +523,7 @@ plugin.org {
   // organiser
 
 ';
-    
+
     $record['config']                    = ''.
 '
   ////////////////////////////////////////////////////////
@@ -582,7 +588,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 
     return $record;
   }
- 
+
 /**
  * recordOrgCaddy( )
  *
@@ -636,7 +642,7 @@ plugin.caddy {
 
     return $record;
   }
-  
+
 /**
  * recordOrgDownloadsCaddy( )
  *

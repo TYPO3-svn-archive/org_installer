@@ -33,32 +33,32 @@
  *  122:     private function mainRecords( )
  *
  *              SECTION: Browser - TYPO3 without PHP
- *  180:     private function browserPageOrg( $uid )
- *  229:     private function browserPageOrgDownloads( $uid )
- *  278:     private function browserPageOrgHeadquarters( $uid )
- *  327:     private function browserPageOrgLocations( $uid )
- *  376:     private function browserPageOrgNews( $uid )
- *  425:     private function browserPageOrgStaff( $uid )
+ *  183:     private function browserPageOrg( $uid )
+ *  232:     private function browserPageOrgDownloads( $uid )
+ *  281:     private function browserPageOrgHeadquarters( $uid )
+ *  330:     private function browserPageOrgLocations( $uid )
+ *  379:     private function browserPageOrgNews( $uid )
+ *  428:     private function browserPageOrgStaff( $uid )
  *
  *              SECTION: Caddy
- *  482:     private function caddyPageOrg( $uid )
- *  515:     private function caddyPageOrgDownloads( $uid )
- *  548:     private function caddyminiPageOrgCaddy( $uid )
- *  594:     private function caddyminiPageOrgDownloadsCaddy( $uid )
+ *  485:     private function caddyPageOrg( $uid )
+ *  518:     private function caddyPageOrgDownloads( $uid )
+ *  551:     private function caddyminiPageOrgCaddy( $uid )
+ *  597:     private function caddyminiPageOrgDownloadsCaddy( $uid )
  *
  *              SECTION: Powermail
- *  646:     private function powermailPageOrgCaddy( $uid )
- *  685:     private function powermailPageOrgCaddy1x( $uid )
- *  741:     private function powermailPageOrgCaddy2x( $uid )
- *  773:     private function powermailPageOrgDownloadsCaddy( $uid )
- *  812:     private function powermailPageOrgDownloadsCaddy1x( $uid )
- *  868:     private function powermailPageOrgDownloadsCaddy2x( $uid )
+ *  649:     private function powermailPageOrgCaddy( $uid )
+ *  688:     private function powermailPageOrgCaddy1x( $uid )
+ *  744:     private function powermailPageOrgCaddy2x( $uid )
+ *  776:     private function powermailPageOrgDownloadsCaddy( $uid )
+ *  815:     private function powermailPageOrgDownloadsCaddy1x( $uid )
+ *  871:     private function powermailPageOrgDownloadsCaddy2x( $uid )
  *
  *              SECTION: Sql
- *  908:     private function sqlInsert( $records )
+ *  911:     private function sqlInsert( $records )
  *
  *              SECTION: zz - helper
- *  959:     private function zzGetFlexformBrowser( )
+ *  962:     private function zzGetFlexformBrowser( )
  *
  * TOTAL FUNCTIONS: 20
  * (This index is automatically created/updated by the extension "extdeveval")

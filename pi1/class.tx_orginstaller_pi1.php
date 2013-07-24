@@ -26,55 +26,57 @@
  *
  *
  *
- *   94: class tx_orginstaller_pi1 extends tslib_pibase
+ *   96: class tx_orginstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  155:     public function main( $content, $conf)
+ *  172:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  235:     private function confirmation()
+ *  252:     private function confirmation()
  *
  *              SECTION: Create
- *  310:     private function create( )
- *  334:     private function createBeGroup()
- *  443:     private function createContent( )
- *  457:     private function createFilesShop()
- *  514:     private function createPages( )
- *  531:     private function createPlugins( )
+ *  327:     private function create( )
+ *  353:     private function createBeGroup()
+ *  462:     private function createContent( )
+ *  476:     private function createFilesShop()
+ *  533:     private function createPages( )
+ *  550:     private function createPlugins( )
  *
  *              SECTION: Create records
- *  556:     private function createRecordsPowermail( )
- *  573:     private function createRecordsOrg( )
- *  590:     private function createTyposcript( )
+ *  575:     private function createRecordsOrg( )
+ *  592:     private function createRecordsPowermail( )
+ *  608:     private function createRecordsPowermailPageOrgCaddy( )
+ *  625:     private function createRecordsPowermailPageOrgDownloadsCaddy( )
+ *  642:     private function createTyposcript( )
  *
  *              SECTION: Consolidate
- *  615:     private function consolidate( )
+ *  667:     private function consolidate( )
  *
  *              SECTION: Extensions
- *  641:     private function extensionCheck( )
- *  713:     private function extensionCheckCaseBaseTemplate( )
- *  752:     private function extensionCheckExtension( $key, $title )
+ *  693:     private function extensionCheck( )
+ *  786:     private function extensionCheckCaseBaseTemplate( )
+ *  825:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- *  793:     private function htmlReport( )
+ *  866:     private function htmlReport( )
  *
  *              SECTION: Init
- *  850:     private function initBoolTopLevel( )
- *  879:     private function initPowermailVersion( )
- *  904:     private function install( )
- *  943:     private function installNothing( )
+ *  923:     private function initBoolTopLevel( )
+ *  952:     private function initPowermailVersion( )
+ *  977:     private function install( )
+ * 1016:     private function installNothing( )
  *
  *              SECTION: Prompt
- *  972:     private function promptCleanUp( )
+ * 1045:     private function promptCleanUp( )
  *
  *              SECTION: ZZ
- * 1013:     private function zz_getCHash($str_params)
- * 1027:     public function zz_getMaxDbUid( $table )
- * 1054:     private function zz_getPathToIcons()
- * 1075:     private function zz_getExtensionVersion( $_EXTKEY )
- * 1107:     private function zz_getFlexValues()
+ * 1086:     private function zz_getCHash($str_params)
+ * 1100:     public function zz_getMaxDbUid( $table )
+ * 1127:     private function zz_getPathToIcons()
+ * 1148:     private function zz_getExtensionVersion( $_EXTKEY )
+ * 1180:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 26
+ * TOTAL FUNCTIONS: 28
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -133,7 +135,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
   public  $arr_fileUids      = false;
     // [array] Uids of the generated tt_content records - here: page content only
   public  $arr_contentUids      = false;
-  
+
     // [object]
   public $consolidate = null;
     // [object]
@@ -336,7 +338,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
     $this->createRecordsPowermail( );
     $this->createRecordsOrg( );
-$prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';    
+$prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';
 die( $prompt );
     $this->createFilesShop( );
     $this->createContent( );

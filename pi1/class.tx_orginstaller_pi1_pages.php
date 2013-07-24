@@ -26,35 +26,53 @@
  *
  *
  *
- *   71: class tx_orginstaller_pi1_pages
+ *   89: class tx_orginstaller_pi1_pages
  *
  *              SECTION: Main
- *   95:     public function main( )
+ *  113:     public function main( )
+ *
+ *              SECTION: Init
+ *  145:     private function initPageOrg( )
  *
  *              SECTION: Create pages
- *  142:     private function pageOrgCaddy( $pageUid, $sorting )
- *  180:     private function pageOrgCaddyCaddymini( $pageUid, $sorting )
- *  220:     private function pageOrgCaddyDelivery( $pageUid, $sorting )
- *  257:     private function pageOrgLegalinfo( $pageUid, $sorting )
- *  294:     private function pageOrgLibrary( $pageUid, $sorting )
- *  345:     private function pageOrgLibraryFooter( $pageUid, $sorting )
- *  384:     private function pageOrgLibraryHeader( $pageUid, $sorting )
- *  423:     private function pageOrgNews( $pageUid, $sorting )
- *  519:     private function pageOrgCaddyRevocation( $pageUid, $sorting )
- *  557:     private function pageOrgCaddyTerms( $pageUid, $sorting )
- *  593:     private function pagesLibrary( $pageUid )
- *  619:     private function pagesLibraryRecords( $pageUid )
- *  647:     private function pagesLibrarySqlInsert( $pages )
- *  674:     private function pageOrg( $pageUid )
- *  695:     private function pageOrgRecords( $pageUid )
+ *  173:     private function pageOrg( )
+ *  289:     private function pageOrgCaddy( $pageUid, $sorting )
+ *  327:     private function pageOrgCaddyCaddymini( $pageUid, $sorting )
+ *  368:     private function pageOrgCaddyDelivery( $pageUid, $sorting )
+ *  407:     private function pageOrgCaddyRevocation( $pageUid, $sorting )
+ *  447:     private function pageOrgCaddyTerms( $pageUid, $sorting )
+ *  486:     private function pageOrgData( $pageUid, $sorting )
+ *  710:     private function pageOrgDataCal( $pageUid, $sorting )
+ *  772:     private function pageOrgDataDownloads( $pageUid, $sorting )
+ *  842:     private function pageOrgDataEvents( $pageUid, $sorting )
+ *  900:     private function pageOrgDataHeadquarters( $pageUid, $sorting )
+ *  960:     private function pageOrgDataLocations( $pageUid, $sorting )
+ * 1018:     private function pageOrgDataNews( $pageUid, $sorting )
+ * 1078:     private function pageOrgDataStaff( $pageUid, $sorting )
+ * 1137:     private function pageOrgDownloads( $pageUid, $sorting )
+ * 1173:     private function pageOrgDownloadsCaddy( $pageUid, $sorting )
+ * 1213:     private function pageOrgDownloadsCaddyCaddymini( $pageUid, $sorting )
+ * 1254:     private function pageOrgDownloadsCaddyDelivery( $pageUid, $sorting )
+ * 1293:     private function pageOrgDownloadsCaddyRevocation( $pageUid, $sorting )
+ * 1333:     private function pageOrgDownloadsCaddyTerms( $pageUid, $sorting )
+ * 1372:     private function pageOrgHeadquarters( $pageUid, $sorting )
+ * 1409:     private function pageOrgLocations( $pageUid, $sorting )
+ * 1446:     private function pageOrgLegalinfo( $pageUid, $sorting )
+ * 1483:     private function pageOrgLibrary( $pageUid, $sorting )
+ * 1534:     private function pageOrgLibraryFooter( $pageUid, $sorting )
+ * 1573:     private function pageOrgLibraryHeader( $pageUid, $sorting )
+ * 1612:     private function pageOrgLibraryHeaderLogo( $pageUid, $sorting )
+ * 1651:     private function pageOrgLibraryHeaderSlider( $pageUid, $sorting )
+ * 1690:     private function pageOrgNews( $pageUid, $sorting )
+ * 1727:     private function pageOrgStaff( $pageUid, $sorting )
  *
  *              SECTION: Sql
- *  752:     private function sqlInsert( $pages )
+ * 1771:     private function sqlInsert( $pages )
  *
  *              SECTION: ZZ
- *  803:     private function zz_countPages( $pageUid )
+ * 1822:     private function zz_countPages( $pageUid )
  *
- * TOTAL FUNCTIONS: 18
+ * TOTAL FUNCTIONS: 34
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -108,7 +126,7 @@ class tx_orginstaller_pi1_pages
     return;
   }
 
-  
+
 
  /***********************************************
   *
@@ -136,7 +154,7 @@ class tx_orginstaller_pi1_pages
       // Set the global vars for the root page
   }
 
-  
+
 
  /***********************************************
   *
@@ -158,7 +176,7 @@ class tx_orginstaller_pi1_pages
 
       // Init page org / the rrot page
     $this->initPageOrg( );
-            
+
       // Get the latest uid from the pages table
     $pageUid = $this->pObj->zz_getMaxDbUid( 'pages' );
 
@@ -652,13 +670,13 @@ TCEMAIN {
   }
 }
   // TCEMAIN
-  
-  
-  
+
+
+
   ///////////////////////////
   //
   // MOD
-  
+
 mod {
   web_list {
       // Deny all tables!
@@ -721,10 +739,10 @@ mod {
 mod {
   web_list {
     allowedNewTables (
-      tx_org_cal, 
-      tx_org_calentrance, 
-      tx_org_calspecial, 
-      tx_org_caltype, 
+      tx_org_cal,
+      tx_org_calentrance,
+      tx_org_calspecial,
+      tx_org_caltype,
       tx_org_tax
     )
   }

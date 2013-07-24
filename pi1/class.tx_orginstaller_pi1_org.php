@@ -26,48 +26,99 @@
  *
  *
  *
- *   84: class tx_orginstaller_pi1_org
+ *  135: class tx_orginstaller_pi1_org
  *
  *              SECTION: Main
- *  108:     public function main( )
+ *  159:     public function main( )
  *
  *              SECTION: Categories
- *  138:     private function category( )
- *  179:     private function categoryBlue( $uid )
- *  207:     private function categoryBook( $uid )
- *  234:     private function categoryClothes( $uid )
- *  261:     private function categoryCup( $uid )
- *  288:     private function categoryGreen( $uid )
- *  316:     private function categoryRed( $uid )
+ *  182:     private function category( )
+ *  199:     private function categoryCal( )
+ *  214:     private function categoryCalEntrance( )
+ *  245:     private function categoryCalEntranceFree( $uid )
+ *  276:     private function categoryCalEntranceMortals( $uid )
+ *  307:     private function categoryCalEntranceSponsors( $uid )
+ *  338:     private function categoryCalTax( )
+ *  369:     private function categoryCalTax000( $uid )
+ *  400:     private function categoryCalTax007( $uid )
+ *  431:     private function categoryCalTax019( $uid )
+ *  461:     private function categoryCalType( )
+ *  492:     private function categoryCalTypePolicy( $uid )
+ *  519:     private function categoryCalTypeSociety( $uid )
+ *  546:     private function categoryCalTypeTYPO3( $uid )
+ *  572:     private function categoryDepartments( )
+ *  603:     private function categoryDepartmentsPolicy( $uid )
+ *  630:     private function categoryDepartmentsSociety( $uid )
+ *  657:     private function categoryDepartmentsTYPO3( $uid )
+ *  683:     private function categoryDownloads( )
+ *  714:     private function categoryDownloadsDevelopment( $uid )
+ *  745:     private function categoryDownloadsFlyer( $uid )
+ *  776:     private function categoryDownloadsMusic( $uid )
+ *  806:     private function categoryNews( )
+ *  837:     private function categoryNewsPolicy( $uid )
+ *  864:     private function categoryNewsSociety( $uid )
+ *  891:     private function categoryNewsTYPO3( $uid )
  *
  *              SECTION: Records
- *  352:     private function recordBasecapBlue( $uid )
- *  400:     private function recordBasecapGreen( $uid )
- *  448:     private function recordBasecapRed( $uid )
- *  496:     private function recordBook( $uid )
- *  546:     private function recordCup( $uid )
- *  596:     private function recordPullover( $uid )
- *  643:     private function records( )
+ *  925:     private function record( )
+ *  945:     private function recordCal( )
+ *  972:     private function recordCalEggroll( $uid )
+ * 1018:     private function recordCalT3Devdays( $uid )
+ * 1058:     private function recordCalT3Organiser( $uid )
+ * 1109:     private function recordDepartments( )
+ * 1136:     private function recordDepartmentsNetzmacher( $uid )
+ * 1168:     private function recordDepartmentsPresident( $uid )
+ * 1200:     private function recordDepartmentsT3Press( $uid )
+ * 1231:     private function recordDownloads( )
+ * 1273:     private function recordDownloadsCD1( $uid )
+ * 1316:     private function recordDownloadsCD2( $uid )
+ * 1359:     private function recordDownloadsCD3( $uid )
+ * 1402:     private function recordDownloadsFlyer1( $uid )
+ * 1445:     private function recordDownloadsFlyer2( $uid )
+ * 1488:     private function recordDownloadsManual1( $uid )
+ * 1531:     private function recordDownloadsManual2( $uid )
+ * 1574:     private function recordDownloadsManual3( $uid )
+ * 1616:     private function recordHeadquarters( )
+ * 1643:     private function recordHeadquartersNetzmacher( $uid )
+ * 1690:     private function recordHeadquartersPresident( $uid )
+ * 1737:     private function recordHeadquartersTYPO3( $uid )
+ * 1783:     private function recordLocations( )
+ * 1807:     private function recordLocationsNetzmacher( $uid )
+ * 1856:     private function recordLocationsT3Devdays( $uid )
+ * 1913:     private function recordNews( )
+ * 1940:     private function recordNewsFlow( $uid )
+ * 1988:     private function recordNewsOrganiser( $uid )
+ * 2036:     private function recordNewsPresident( $uid )
+ * 2069:     private function recordStaff( )
+ * 2084:     private function recordStaffGroup( )
+ * 2115:     private function recordStaffGroupPolicy( $uid )
+ * 2142:     private function recordStaffGroupSociety( $uid )
+ * 2169:     private function recordStaffGroupTYPO3( $uid )
+ * 2195:     private function recordStaffUser( )
+ * 2222:     private function recordStaffUserObama( $uid )
+ * 2270:     private function recordStaffUserSchaffstein( $uid )
+ * 2318:     private function recordStaffUserWildt( $uid )
  *
  *              SECTION: Relations
- *  692:     private function relationBasecapBlueBlue( $sorting )
- *  712:     private function relationBasecapBlueClothes( $sorting )
- *  732:     private function relationBasecapGreenClothes( $sorting )
- *  752:     private function relationBasecapGreenGreen( $sorting )
- *  772:     private function relationBasecapRedClothes( $sorting )
- *  792:     private function relationBasecapRedRed( $sorting )
- *  812:     private function relationBook( $sorting )
- *  832:     private function relationCup( $sorting )
- *  852:     private function relationPullover( $sorting )
- *  871:     private function relation( )
+ * 2374:     private function relationBasecapBlueBlue( $sorting )
+ * 2394:     private function relationBasecapBlueClothes( $sorting )
+ * 2414:     private function relationBasecapGreenClothes( $sorting )
+ * 2434:     private function relationBasecapGreenGreen( $sorting )
+ * 2454:     private function relationBasecapRedClothes( $sorting )
+ * 2474:     private function relationBasecapRedRed( $sorting )
+ * 2494:     private function relationBook( $sorting )
+ * 2514:     private function relationCup( $sorting )
+ * 2534:     private function relationPullover( $sorting )
+ * 2553:     private function relation( )
  *
  *              SECTION: Sql
- *  927:     private function sqlInsert( $records, $table )
+ * 2609:     private function sqlInsert( $records, $table )
  *
  *              SECTION: ZZ
- *  987:     private function zz_counter( $uid )
+ * 2669:     private function zz_counter( $uid )
+ * 2690:     private function zz_getPassword( )
  *
- * TOTAL FUNCTIONS: 27
+ * TOTAL FUNCTIONS: 78
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -181,7 +232,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * categoryCalEntranceFree( )
  *
@@ -212,7 +263,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryCalEntranceMortals( )
  *
@@ -243,7 +294,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryCalEntranceSponsors( )
  *
@@ -274,7 +325,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 
 /**
  * categoryCalTax( )
@@ -305,7 +356,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-   
+
 /**
  * categoryCalTax000( )
  *
@@ -336,7 +387,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-   
+
 /**
  * categoryCalTax007( )
  *
@@ -367,7 +418,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-   
+
 /**
  * categoryCalTax019( )
  *
@@ -397,7 +448,7 @@ class tx_orginstaller_pi1_org
     $record['value']      = $llValue;
 
     return $record;
-  } 
+  }
 
 /**
  * categoryCalType( )
@@ -428,7 +479,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * categoryCalTypePolicy( )
  *
@@ -455,7 +506,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryCalTypeSociety( )
  *
@@ -482,7 +533,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryCalTypeTYPO3( )
  *
@@ -539,7 +590,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * categoryDepartmentsPolicy( )
  *
@@ -566,7 +617,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryDepartmentsSociety( )
  *
@@ -593,7 +644,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryDepartmentsTYPO3( )
  *
@@ -650,7 +701,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * categoryDownloadsDevelopment( )
  *
@@ -681,7 +732,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryDownloadsFlyer( )
  *
@@ -712,7 +763,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryDownloadsMusic( )
  *
@@ -773,7 +824,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * categoryNewsPolicy( )
  *
@@ -800,7 +851,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryNewsSociety( )
  *
@@ -827,7 +878,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * categoryNewsTYPO3( )
  *
@@ -908,7 +959,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * recordCalEggroll( )
  *
@@ -930,7 +981,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_eggroll_bodytext');
 
     $datetime = strtotime( '1 April next year' );
@@ -976,7 +1027,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     //$bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3devdays_bodytext');
 
     $datetime = strtotime( '+3 months' );
@@ -994,7 +1045,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * recordCalT3Organiser( )
  *
@@ -1072,7 +1123,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * recordDepartmentsNetzmacher( )
  *
@@ -1104,7 +1155,7 @@ class tx_orginstaller_pi1_org
     return $record;
 
   }
-  
+
 /**
  * recordDepartmentsPresident( )
  *
@@ -1136,7 +1187,7 @@ class tx_orginstaller_pi1_org
     return $record;
 
   }
-  
+
 /**
  * recordDepartmentsT3Press( )
  *
@@ -1188,7 +1239,7 @@ class tx_orginstaller_pi1_org
 
     $uid = $uid + 1;
     $records[$uid] = $this->recordDownloadsCD2( $uid );
-    
+
     $uid = $uid + 1;
     $records[$uid] = $this->recordDownloadsCD3( $uid );
 
@@ -1197,19 +1248,19 @@ class tx_orginstaller_pi1_org
 
     $uid = $uid + 1;
     $records[$uid] = $this->recordDownloadsFlyer2( $uid );
-    
+
     $uid = $uid + 1;
     $records[$uid] = $this->recordDownloadsManual1( $uid );
 
     $uid = $uid + 1;
     $records[$uid] = $this->recordDownloadsManual2( $uid );
-    
+
     $uid = $uid + 1;
     $records[$uid] = $this->recordDownloadsManual3( $uid );
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * recordDownloadsCD1( )
  *
@@ -1231,7 +1282,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
     $record['tstamp']                 = time( );
@@ -1252,7 +1303,7 @@ class tx_orginstaller_pi1_org
     return $record;
 
   }
-  
+
 /**
  * recordDownloadsCD2( )
  *
@@ -1274,7 +1325,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
     $record['tstamp']                 = time( );
@@ -1295,7 +1346,7 @@ class tx_orginstaller_pi1_org
     return $record;
 
   }
-  
+
 /**
  * recordDownloadsCD3( )
  *
@@ -1317,7 +1368,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
     $record['tstamp']                 = time( );
@@ -1338,7 +1389,7 @@ class tx_orginstaller_pi1_org
     return $record;
 
   }
-  
+
 /**
  * recordDownloadsFlyer1( )
  *
@@ -1360,7 +1411,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
     $record['tstamp']                 = time( );
@@ -1381,7 +1432,7 @@ class tx_orginstaller_pi1_org
     return $record;
 
   }
-  
+
 /**
  * recordDownloadsFlyer2( )
  *
@@ -1403,7 +1454,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
     $record['tstamp']                 = time( );
@@ -1424,7 +1475,7 @@ class tx_orginstaller_pi1_org
     return $record;
 
   }
-  
+
 /**
  * recordDownloadsManual1( )
  *
@@ -1446,7 +1497,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
     $record['tstamp']                 = time( );
@@ -1467,7 +1518,7 @@ class tx_orginstaller_pi1_org
     return $record;
 
   }
-  
+
 /**
  * recordDownloadsManual2( )
  *
@@ -1489,7 +1540,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
     $record['tstamp']                 = time( );
@@ -1510,7 +1561,7 @@ class tx_orginstaller_pi1_org
     return $record;
 
   }
-  
+
 /**
  * recordDownloadsManual3( )
  *
@@ -1532,7 +1583,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
     $record['tstamp']                 = time( );
@@ -1579,7 +1630,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * recordHeadquartersNetzmacher( )
  *
@@ -1601,7 +1652,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                = $uid;
     $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
     $record['tstamp']             = time( );
@@ -1624,9 +1675,9 @@ class tx_orginstaller_pi1_org
     $record['image_noRows']       = '1';
 
     return $record;
-    
+
   }
-  
+
 /**
  * recordHeadquartersPresident( )
  *
@@ -1648,7 +1699,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                = $uid;
     $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
     $record['tstamp']             = time( );
@@ -1671,9 +1722,9 @@ class tx_orginstaller_pi1_org
     $record['image_noRows']       = '1';
 
     return $record;
-    
+
   }
-  
+
 /**
  * recordHeadquartersTYPO3( )
  *
@@ -1695,7 +1746,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                = $uid;
     $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
     $record['tstamp']             = time( );
@@ -1718,7 +1769,7 @@ class tx_orginstaller_pi1_org
     $record['image_noRows']       = '1';
 
     return $record;
-    
+
   }
 
 /**
@@ -1743,7 +1794,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * recordLocationsNetzmacher( )
  *
@@ -1765,7 +1816,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $record['uid']                = $uid;
     $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataLocations_title' ];
     $record['tstamp']             = time( );
@@ -1792,7 +1843,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * recordLocationsT3Devdays( )
  *
@@ -1814,12 +1865,12 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $llLabel  = 'record_tx_org_location_t3devdays_documents';
     $llFile  = $this->pObj->pi_getLL( $llLabel );
     $llFileWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llFile );
     $this->pObj->arr_fileUids[ $llFile ] = $llFileWiTimestamp;
-    
+
     $record['uid']                = $uid;
     $record['pid']                = $this->pObj->arr_pageUids[ 'pageOrgDataLocations_title' ];
     $record['tstamp']             = time( );
@@ -1876,7 +1927,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * recordNewsFlow( )
  *
@@ -1898,7 +1949,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_news_flow_bodytext');
 
     $datetime = strtotime( '-2 days' );
@@ -1924,7 +1975,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * recordNewsOrganiser( )
  *
@@ -1946,7 +1997,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $datetime = strtotime( 'now' );
 
     $record['uid']          = $uid;
@@ -1972,7 +2023,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * recordNewsPresident( )
  *
@@ -2051,7 +2102,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * recordStaffGroupPolicy( )
  *
@@ -2064,7 +2115,7 @@ class tx_orginstaller_pi1_org
   private function recordStaffGroupPolicy( $uid )
   {
     $record = null;
-    
+
     $llLabel = 'record_fe_groups_title_policy';
     $llTitle = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
@@ -2078,7 +2129,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * recordStaffGroupSociety( )
  *
@@ -2091,7 +2142,7 @@ class tx_orginstaller_pi1_org
   private function recordStaffGroupSociety( $uid )
   {
     $record = null;
-    
+
     $llLabel = 'record_fe_groups_title_society';
     $llTitle = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
@@ -2105,7 +2156,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * recordStaffGroupTYPO3( )
  *
@@ -2118,7 +2169,7 @@ class tx_orginstaller_pi1_org
   private function recordStaffGroupTYPO3( $uid )
   {
     $record = null;
-    
+
     $llLabel = 'record_fe_groups_title_typo3';
     $llTitle = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
@@ -2158,7 +2209,7 @@ class tx_orginstaller_pi1_org
 
     $this->sqlInsert( $records, $table );
   }
-  
+
 /**
  * recordStaffUserObama( )
  *
@@ -2180,7 +2231,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $policy     = $this->pObj->arr_recordUids[ 'record_fe_groups_title_policy' ];
     $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
     $usergroup  = $policy . ', ' . $society;
@@ -2228,7 +2279,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
     $typo3      = $this->pObj->arr_recordUids[ 'record_fe_groups_title_typo3' ];
     $usergroup  = $society . ', ' . $typo3;
@@ -2254,7 +2305,7 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-  
+
 /**
  * recordStaffUserWildt( )
  *
@@ -2276,7 +2327,7 @@ class tx_orginstaller_pi1_org
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-    
+
     $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
     $typo3      = $this->pObj->arr_recordUids[ 'record_fe_groups_title_typo3' ];
     $usergroup  = $society . ', ' . $typo3;
@@ -2627,11 +2678,11 @@ class tx_orginstaller_pi1_org
 
     return $csvResult;
   }
-  
+
 /**
  * zz_getPassword: Get a random value
  *
- * @return    string  random value
+ * @return	string		random value
  * @access private
  * @version 3.0.0
  * @since 1.0.0
@@ -2641,7 +2692,7 @@ class tx_orginstaller_pi1_org
     mt_srand( ( double ) microtime( ) * 1000000 );
     $randval = mt_rand( );
     $randval = md5( $randval );
-    
+
     return $randval;
   }
 }

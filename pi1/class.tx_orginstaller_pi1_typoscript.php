@@ -623,7 +623,7 @@ plugin.caddy {
   pages {
     caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
     caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . '
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevovation_title' ] . '
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
     shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
   }
@@ -677,7 +677,7 @@ plugin.caddy {
   pages {
     caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
     caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ] . '
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevovation_title' ] . '
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevocation_title' ] . '
     shop            = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
     terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyTerms_title' ] . '
   }
@@ -784,9 +784,13 @@ plugin.caddy {
     $uid = $uid + 1;
     $records[$uid] = $this->recordOrg( $uid );
 
-      // TypoScript for the caddy page
+      // TypoScript for the caddy page cal
     $uid = $uid + 1;
     $records[$uid] = $this->recordOrgCaddy( $uid );
+
+      // TypoScript for the caddy page downloads
+    $uid = $uid + 1;
+    $records[$uid] = $this->recordOrgCaddyDownloads( $uid );
 
     return $records;
   }

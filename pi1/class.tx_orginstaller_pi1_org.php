@@ -1236,18 +1236,18 @@ class tx_orginstaller_pi1_org
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['usergroup']            = $usergroup;
-    $record['username']             = $this->pi_getLL('record_fe_users_bobama_username');
-    $record['name']                 = $this->pi_getLL('record_fe_users_bobama_name');
-    $record['first_name']           = $this->pi_getLL('record_fe_users_bobama_first_name');
-    $record['last_name']            = $this->pi_getLL('record_fe_users_bobama_last_name');
+    $record['username']             = $this->pObj->pi_getLL('record_fe_users_bobama_username');
+    $record['name']                 = $this->pObj->pi_getLL('record_fe_users_bobama_name');
+    $record['first_name']           = $this->pObj->pi_getLL('record_fe_users_bobama_first_name');
+    $record['last_name']            = $this->pObj->pi_getLL('record_fe_users_bobama_last_name');
     $record['password']             = $this->zz_getPassword();
-    $record['telephone']            = $this->pi_getLL('record_fe_users_bobama_telephone');
-    $record['email']                = $this->pi_getLL('record_fe_users_bobama_email');
-    $record['www']                  = $this->pi_getLL('record_fe_users_bobama_www');
+    $record['telephone']            = $this->pObj->pi_getLL('record_fe_users_bobama_telephone');
+    $record['email']                = $this->pObj->pi_getLL('record_fe_users_bobama_email');
+    $record['www']                  = $this->pObj->pi_getLL('record_fe_users_bobama_www');
     $record['image']                = $llImageWiTimestamp;
-    $record['tx_org_imagecaption']  = $this->pi_getLL('record_fe_users_bobama_tx_org_imagecaption');
-    $record['tx_org_imageseo']      = $this->pi_getLL('record_fe_users_bobama_tx_org_imageseo');
-    $record['tx_org_vita']          = $this->pi_getLL('record_fe_users_bobama_tx_org_vita');
+    $record['tx_org_imagecaption']  = $this->pObj->pi_getLL('record_fe_users_bobama_tx_org_imagecaption');
+    $record['tx_org_imageseo']      = $this->pObj->pi_getLL('record_fe_users_bobama_tx_org_imageseo');
+    $record['tx_org_vita']          = $this->pObj->pi_getLL('record_fe_users_bobama_tx_org_vita');
 
     return $record;
   }
@@ -1281,18 +1281,18 @@ class tx_orginstaller_pi1_org
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['usergroup']            = $usergroup;
-    $record['username']             = $this->pi_getLL('record_fe_users_sschaffstein_username');
-    $record['name']                 = $this->pi_getLL('record_fe_users_sschaffstein_name');
-    $record['first_name']           = $this->pi_getLL('record_fe_users_sschaffstein_first_name');
-    $record['last_name']            = $this->pi_getLL('record_fe_users_sschaffstein_last_name');
+    $record['username']             = $this->pObj->pi_getLL('record_fe_users_sschaffstein_username');
+    $record['name']                 = $this->pObj->pi_getLL('record_fe_users_sschaffstein_name');
+    $record['first_name']           = $this->pObj->pi_getLL('record_fe_users_sschaffstein_first_name');
+    $record['last_name']            = $this->pObj->pi_getLL('record_fe_users_sschaffstein_last_name');
     $record['password']             = $this->zz_getPassword();
-    $record['telephone']            = $this->pi_getLL('record_fe_users_sschaffstein_telephone');
-    $record['email']                = $this->pi_getLL('record_fe_users_sschaffstein_email');
-    $record['www']                  = $this->pi_getLL('record_fe_users_sschaffstein_www');
+    $record['telephone']            = $this->pObj->pi_getLL('record_fe_users_sschaffstein_telephone');
+    $record['email']                = $this->pObj->pi_getLL('record_fe_users_sschaffstein_email');
+    $record['www']                  = $this->pObj->pi_getLL('record_fe_users_sschaffstein_www');
     $record['image']                = $llImageWiTimestamp;
-    $record['tx_org_imagecaption']  = $this->pi_getLL('record_fe_users_sschaffstein_tx_org_imagecaption');
-    $record['tx_org_imageseo']      = $this->pi_getLL('record_fe_users_sschaffstein_tx_org_imageseo');
-    $record['tx_org_vita']          = $this->pi_getLL('record_fe_users_sschaffstein_tx_org_vita');
+    $record['tx_org_imagecaption']  = $this->pObj->pi_getLL('record_fe_users_sschaffstein_tx_org_imagecaption');
+    $record['tx_org_imageseo']      = $this->pObj->pi_getLL('record_fe_users_sschaffstein_tx_org_imageseo');
+    $record['tx_org_vita']          = $this->pObj->pi_getLL('record_fe_users_sschaffstein_tx_org_vita');
 
     return $record;
   }
@@ -1326,18 +1326,18 @@ class tx_orginstaller_pi1_org
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['usergroup']            = $usergroup;
-    $record['username']             = $this->pi_getLL('record_fe_users_dwildt_username');
-    $record['name']                 = $this->pi_getLL('record_fe_users_dwildt_name');
-    $record['first_name']           = $this->pi_getLL('record_fe_users_dwildt_first_name');
-    $record['last_name']            = $this->pi_getLL('record_fe_users_dwildt_last_name');
+    $record['username']             = $this->pObj->pi_getLL('record_fe_users_dwildt_username');
+    $record['name']                 = $this->pObj->pi_getLL('record_fe_users_dwildt_name');
+    $record['first_name']           = $this->pObj->pi_getLL('record_fe_users_dwildt_first_name');
+    $record['last_name']            = $this->pObj->pi_getLL('record_fe_users_dwildt_last_name');
     $record['password']             = $this->zz_getPassword();
-    $record['telephone']            = $this->pi_getLL('record_fe_users_dwildt_telephone');
-    $record['email']                = $this->pi_getLL('record_fe_users_dwildt_email');
-    $record['www']                  = $this->pi_getLL('record_fe_users_dwildt_www');
+    $record['telephone']            = $this->pObj->pi_getLL('record_fe_users_dwildt_telephone');
+    $record['email']                = $this->pObj->pi_getLL('record_fe_users_dwildt_email');
+    $record['www']                  = $this->pObj->pi_getLL('record_fe_users_dwildt_www');
     $record['image']                = $llImageWiTimestamp;
-    $record['tx_org_imagecaption']  = $this->pi_getLL('record_fe_users_dwildt_tx_org_imagecaption');
-    $record['tx_org_imageseo']      = $this->pi_getLL('record_fe_users_dwildt_tx_org_imageseo');
-    $record['tx_org_vita']          = $this->pi_getLL('record_fe_users_dwildt_tx_org_vita');
+    $record['tx_org_imagecaption']  = $this->pObj->pi_getLL('record_fe_users_dwildt_tx_org_imagecaption');
+    $record['tx_org_imageseo']      = $this->pObj->pi_getLL('record_fe_users_dwildt_tx_org_imageseo');
+    $record['tx_org_vita']          = $this->pObj->pi_getLL('record_fe_users_dwildt_tx_org_vita');
 
     return $record;
   }

@@ -33,9 +33,9 @@
  *
  *              SECTION: Records
  *  118:     private function recordOrgCaddy( $uid )
- *  157:     private function recordOrgCaddyStaticFiles( )
- *  197:     private function recordOrgCaddyStaticFilesPowermail1x( )
- *  215:     private function recordOrgCaddyStaticFilesPowermail2x( )
+ *  157:     private function zzOrgCaddyStaticFiles( )
+ *  197:     private function zzOrgCaddyStaticFilesPowermail1x( )
+ *  215:     private function zzOrgCaddyStaticFilesPowermail2x( )
  *  236:     private function recordOrg( $uid )
  *  266:     private function recordOrgCaseAll( $uid )
  *  417:     private function recordOrgCaseOrgOnly( $uid )
@@ -288,11 +288,11 @@ plugin.org {
     switch( true )
     {
       case( $this->typo3Version < 4007000 ):
-        $html5conf = 'doctype            = xhtml_strict';
+        $html5conf = 'doctype                                 = xhtml_strict';
         break;
       default:
-        $html5conf = 'doctype            = html5
-  xmlprologue        = none';
+        $html5conf = 'doctype                                 = html5
+xmlprologue                             = none';
         break;
     }
       
@@ -321,18 +321,18 @@ plugin.org {
 
   // config
 config {
-  baseURL            = ' . t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST') . '/
-  tx_realurl_enable  = 0
-  //no_cache           = 1
-  language           = ' . $GLOBALS['TSFE']->lang . '
-  locale_all         = ' . $localeAll . '
-  htmlTag_langKey    = ' . $GLOBALS['TSFE']->lang . '
-  metaCharset               = UTF-8
-' . $html5conf . '
-  xhtml_cleaning            = all
-  admPanel                  = 1
-  disablePrefixComment      = 1
-  spamProtectEmailAddresses = 5
+  baseURL                                 = ' . t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST') . '/
+  tx_realurl_enable                       = 0
+  //no_cache                                = 1
+  language                                = ' . $GLOBALS['TSFE']->lang . '
+  locale_all                              = ' . $localeAll . '
+  htmlTag_langKey                         = ' . $GLOBALS['TSFE']->lang . '
+  metaCharset                             = UTF-8
+  ' . $html5conf . '
+  xhtml_cleaning                          = all
+  admPanel                                = 1
+  disablePrefixComment                    = 1
+  spamProtectEmailAddresses               = 5
   spamProtectEmailAddresses_atSubst       = <span style="display:none;">spamfilter</span><span class="dummy">@</span>
   spamProtectEmailAddresses_lastDotSubst  = <span style="display:none;">spamfilter</span><span class="dummy">.</span>
 }
@@ -582,7 +582,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 
     return $record;
   }
-  
+ 
 /**
  * recordOrgCaddy( )
  *
@@ -613,7 +613,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $record['sorting']              = 256;
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
-    $record['include_static_file']  = $this->recordOrgCaddyStaticFiles( );
+    $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
     $record['constants']            = '
   /////////////////////////////////////////
   //
@@ -621,197 +621,75 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 
 plugin.caddy {
   pages {
-    caddy       = 8114
-    caddymini   = 8115
-    revocation  = 8117
-    shop        = 1204
-    terms       = 1280
+    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+    caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . '
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevovation_title' ] . '
+    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
   }
 }
   // caddy
 ';
 
-    $record['config']               = $this->recordOrgCaddyConfig( );
+    $record['config']               = $this->zzOrgCaddyConfig( );
     $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
     return $record;
   }
-
+  
 /**
- * recordOrgCaddyConfig( )
+ * recordOrgCaddyDownloads( )
  *
- * @return	string		$staticFiles  : the list of static files
+ * @param	[type]		$$uid: ...
+ * @return	array		$record : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function recordOrgCaddyConfig( )
+  private function recordOrgCaddyDownloads( $uid )
   {
-    $config = null;
+    $record = null;
 
-    switch( true )
-    {
-      case( $this->pObj->powermailVersionInt < 1000000 ):
-        $prompt = 'ERROR: unexpected result<br />
-          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
-          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
-          TYPO3 extension: ' . $this->extKey;
-        die( $prompt );
-        break;
-      case( $this->pObj->powermailVersionInt < 2000000 ):
-        $config = $this->recordOrgCaddyConfigPowermail1x( );
-        break;
-      case( $this->pObj->powermailVersionInt < 3000000 ):
-        $config = $this->recordOrgCaddyConfigPowermail2x( );
-        break;
-      case( $this->pObj->powermailVersionInt >= 3000000 ):
-      default:
-        $prompt = 'ERROR: unexpected result<br />
-          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
-          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
-          TYPO3 extension: ' . $this->extKey;
-        die( $prompt );
-        break;
-    }
+    $strUid = sprintf( '%03d', $uid );
 
-    return $config;
-  }
+    $title    = 'pageOrgCaddyDownloads_title';
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
 
-/**
- * recordOrgCaddyConfigPowermail1x( )
- *
- * @return	string		$config  : the list of static files
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function recordOrgCaddyConfigPowermail1x( )
-  {
-    $config  = '
-  ////////////////////////////////////////
+    $this->pObj->arr_tsUids[ $title ] = $uid;
+    $this->pObj->arr_tsTitles[ $uid ] = $title;
+
+    $record['title']                = $llTitle;
+    $record['uid']                  = $uid;
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['tstamp']               = time( );
+    $record['sorting']              = 256;
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
+    $record['constants']            = '
+  /////////////////////////////////////////
   //
-  // plugin.tx_powermail_pi1
+  // caddy
 
-plugin.tx_powermail_pi1 {
-  _LOCAL_LANG {
-    de {
-      locallangmarker_confirmation_submit = Anmelden
-    }
+plugin.caddy {
+  pages {
+    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
+    caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ] . '
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevovation_title' ] . '
+    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
+    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyTerms_title' ] . '
   }
 }
-  // plugin.tx_powermail_pi1
+  // caddy
 ';
 
-    return $config;
+    $record['config']               = $this->zzOrgCaddyConfig( );
+    $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
+
+    return $record;
   }
-
-/**
- * recordOrgCaddyConfigPowermail2x( )
- *
- * @return	string		$config  : the list of static files
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function recordOrgCaddyConfigPowermail2x( )
-  {
-      // 130721, dwildt: powermail 2.x without an ending slash!
-    $config  = '
-plugin.tx_powermail {
-  _LOCAL_LANG {
-    default {
-        // Next button will be empty in Powermail 2.x
-      //confirmation_next = Order without commitment
-    }
-    de {
-        // Next button will be empty in Powermail 2.x
-      //confirmation_next = Unverbindlich testen
-    }
-  }
-}
-';
-
-    return $config;
-  }
-
-/**
- * recordOrgCaddyStaticFiles( )
- *
- * @return	string		$staticFiles  : the list of static files
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function recordOrgCaddyStaticFiles( )
-  {
-    $staticFiles = null;
-
-    switch( true )
-    {
-      case( $this->pObj->powermailVersionInt < 1000000 ):
-        $prompt = 'ERROR: unexpected result<br />
-          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
-          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
-          TYPO3 extension: ' . $this->extKey;
-        die( $prompt );
-        break;
-      case( $this->pObj->powermailVersionInt < 2000000 ):
-        $staticFiles = $this->recordOrgCaddyStaticFilesPowermail1x( );
-        break;
-      case( $this->pObj->powermailVersionInt < 3000000 ):
-        $staticFiles = $this->recordOrgCaddyStaticFilesPowermail2x( );
-        break;
-      case( $this->pObj->powermailVersionInt >= 3000000 ):
-      default:
-        $prompt = 'ERROR: unexpected result<br />
-          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
-          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
-          TYPO3 extension: ' . $this->extKey;
-        die( $prompt );
-        break;
-    }
-
-    return $staticFiles;
-  }
-
-/**
- * recordOrgCaddyStaticFilesPowermail1x( )
- *
- * @return	string		$staticFiles  : the list of static files
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function recordOrgCaddyStaticFilesPowermail1x( )
-  {
-    $staticFiles  = 'EXT:powermail/static/pi1/,'
-                  . 'EXT:powermail/static/css_fancy/,'
-                  . 'EXT:caddy/static/powermail/1x/'
-                  ;
-
-    return $staticFiles;
-  }
-
-/**
- * recordOrgCaddyStaticFilesPowermail2x( )
- *
- * @return	string		$staticFiles  : the list of static files
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function recordOrgCaddyStaticFilesPowermail2x( )
-  {
-      // 130721, dwildt: powermail 2.x without an ending slash!
-    $staticFiles  = 'EXT:powermail/Configuration/TypoScript/Main,'
-                  . 'EXT:powermail/Configuration/TypoScript/CssFancy,'
-                  . 'EXT:caddy/static/powermail/2x/,'
-                  . 'EXT:caddy/static/powermail/2x/css/,'
-                  ;
-
-    return $staticFiles;
-  }
-
 
 /**
  * recordOrgStaticFiles( )
@@ -964,6 +842,189 @@ plugin.tx_powermail {
       $this->pObj->arrReport[ ] = $prompt;
         // prompt
     }
+  }
+
+
+
+ /***********************************************
+  *
+  * ZZ - Helper
+  *
+  **********************************************/
+
+/**
+ * zzOrgCaddyConfig( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function zzOrgCaddyConfig( )
+  {
+    $config = null;
+
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $config = $this->zzOrgCaddyConfigPowermail1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $config = $this->zzOrgCaddyConfigPowermail2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $config;
+  }
+
+/**
+ * zzOrgCaddyConfigPowermail1x( )
+ *
+ * @return	string		$config  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function zzOrgCaddyConfigPowermail1x( )
+  {
+    $config  = '
+  ////////////////////////////////////////
+  //
+  // plugin.tx_powermail_pi1
+
+plugin.tx_powermail_pi1 {
+  _LOCAL_LANG {
+    de {
+      locallangmarker_confirmation_submit = Anmelden
+    }
+  }
+}
+  // plugin.tx_powermail_pi1
+';
+
+    return $config;
+  }
+
+/**
+ * zzOrgCaddyConfigPowermail2x( )
+ *
+ * @return	string		$config  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function zzOrgCaddyConfigPowermail2x( )
+  {
+      // 130721, dwildt: powermail 2.x without an ending slash!
+    $config  = '
+plugin.tx_powermail {
+  _LOCAL_LANG {
+    default {
+        // Next button will be empty in Powermail 2.x
+      //confirmation_next = Order without commitment
+    }
+    de {
+        // Next button will be empty in Powermail 2.x
+      //confirmation_next = Unverbindlich testen
+    }
+  }
+}
+';
+
+    return $config;
+  }
+
+/**
+ * zzOrgCaddyStaticFiles( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function zzOrgCaddyStaticFiles( )
+  {
+    $staticFiles = null;
+
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $staticFiles = $this->zzOrgCaddyStaticFilesPowermail1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $staticFiles = $this->zzOrgCaddyStaticFilesPowermail2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $staticFiles;
+  }
+
+/**
+ * zzOrgCaddyStaticFilesPowermail1x( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function zzOrgCaddyStaticFilesPowermail1x( )
+  {
+    $staticFiles  = 'EXT:powermail/static/pi1/,'
+                  . 'EXT:powermail/static/css_fancy/,'
+                  . 'EXT:caddy/static/powermail/1x/'
+                  ;
+
+    return $staticFiles;
+  }
+
+/**
+ * zzOrgCaddyStaticFilesPowermail2x( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function zzOrgCaddyStaticFilesPowermail2x( )
+  {
+      // 130721, dwildt: powermail 2.x without an ending slash!
+    $staticFiles  = 'EXT:powermail/Configuration/TypoScript/Main,'
+                  . 'EXT:powermail/Configuration/TypoScript/CssFancy,'
+                  . 'EXT:caddy/static/powermail/2x/,'
+                  . 'EXT:caddy/static/powermail/2x/css/,'
+                  ;
+
+    return $staticFiles;
   }
 }
 

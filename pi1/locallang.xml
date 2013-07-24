@@ -184,8 +184,50 @@
       <label index="phrases_ts_titleTag_org_page">Organiser Homepage</label>
       <label index="pluginBrowserPageOrg_header">[Browser for Organiser Calendar]</label>
       <label index="pluginBrowserPageOrg_ffListTitle">Organiser Kalender</label>
-      <label index="pluginBrowserPageOrg_ffMycomment"><![CDATA[* [jQuery & AJAX] > AJAX [disabled]
-   * incompatibility of tree view filter and AJAX]]></label>
+      <label index="pluginBrowserPageOrg_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 301: +Org Downloads
+  * [Templating]
+    * HTML: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in list views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in single views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgDownloads_header">[Browser for Organiser Calendar]</label>
+      <label index="pluginBrowserPageOrgDownloads_ffListTitle">Organiser Kalender</label>
+      <label index="pluginBrowserPageOrgDownloads_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 201: +Org Kalender
+  * [Templating]
+    * HTML: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in list views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in single views
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
       <label index="pluginCaddyPageOrgCaddy_header">Caddy</label>
       <label index="plugin_caddy_note_note_1x"></label>
       <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
@@ -519,8 +561,50 @@ Because of the price:
       <label index="phrases_ts_titleTag_org_page">Organiser Startseite</label>
       <label index="pluginBrowserPageOrg_header">[Browser für Organiser Kalender]</label>
       <label index="pluginBrowserPageOrg_ffListTitle">Organiser Kalender</label>
-      <label index="pluginBrowserPageOrg_ffMycomment"><![CDATA[* [jQuery & AJAX] > AJAX [disabled]
-   * Unverträglichkeit von Baummenü-Filter (Tree View) und AJAX]]></label>
+      <label index="pluginBrowserPageOrg_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 201: +Org Kalender
+  * [Templating]
+    * HTML-Vorlage: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Listenansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in der Detailansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgDownloads_header">[Browser für Organiser Kalender]</label>
+      <label index="pluginBrowserPageOrgDownloads_ffListTitle">Organiser Kalender</label>
+      <label index="pluginBrowserPageOrgDownloads_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 301: +Org Downloads
+  * [Templating]
+    * HTML-Vorlage: [Browser: Main (browser) ]
+    * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Listenansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in der Detailansicht
+      * table.field: tx_org_cal.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
       <label index="pluginCaddyPageOrgCaddy_header">Warenkorb</label>
       <label index="plugin_caddy_note_note_1x"></label>
       <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt

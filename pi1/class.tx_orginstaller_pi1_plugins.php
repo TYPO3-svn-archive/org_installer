@@ -115,19 +115,30 @@ class tx_orginstaller_pi1_plugins
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( 'tt_content' );
 
-      // browser plugin
     $uid = $uid + 1;
     $records[$uid] = $this->browserPageOrg( $uid );
 
-      // caddy plugin
+    $uid = $uid + 1;
+    $records[$uid] = $this->browserPageOrgDownloads( $uid );
+
+//    $uid = $uid + 1;
+//    $records[$uid] = $this->browserPageOrgEvents( $uid );
+//
+//    $uid = $uid + 1;
+//    $records[$uid] = $this->browserPageOrgHeadquarters( $uid );
+//
+//    $uid = $uid + 1;
+//    $records[$uid] = $this->browserPageOrgLocations( $uid );
+//
+//    $uid = $uid + 1;
+//    $records[$uid] = $this->browserPageOrgStaff( $uid );
+
     $uid = $uid + 1;
     $records[$uid] = $this->caddyPageOrg( $uid );
 
-      // mini caddy plugin
     $uid = $uid + 1;
     $records[$uid] = $this->caddyminiPageOrgCaddy( $uid );
 
-      // powermail plugin
     $uid = $uid + 1;
     $records[$uid] = $this->powermailPageOrgCaddy( $uid );
 
@@ -150,9 +161,18 @@ class tx_orginstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrg_header' );
     $this->pObj->arr_pluginUids['pluginBrowserPageOrg_header'] = $uid;
 
-    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffListTitle' ) );
+    $ffJavascript = 'list_and_single';
+    $ffjQueryUi   = 'blitzer';
     $ffMode       = 201;  // 201: cal
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffMycomment' ) );
+    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffListTitle' ) );
+    
+    $pi_flexform = $this->zzGetFlexformBrowser( );
+    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
 
     $record['uid']           = $uid;
     $record['pid']           = $GLOBALS['TSFE']->id;
@@ -161,70 +181,60 @@ class tx_orginstaller_pi1_plugins
     $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
     $record['sorting']       = 128;
     $record['CType']         = 'list';
-    $record['header']        = $llHeader;
-    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData' ];
-    $record['header_layout'] = 100;  // hidden
     $record['list_type']     = 'browser_pi1';
+    $record['header']        = $llHeader;
+    $record['header_layout'] = 100;  // hidden
+    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record['recursive']     = 250;
     $record['sectionIndex']  = 1;
-    $record['pi_flexform']   = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="myComment">
-                    <value index="vDEF">' . $ffMycomment . '</value>
-                </field>
-                <field index="views">
-                    <value index="vDEF">selected</value>
-                </field>
-                <field index="viewsHandleFromTemplateOnly">
-                    <value index="vDEF">1</value>
-                </field>
-                <field index="viewsList">
-                    <value index="vDEF">' . $ffMode . '</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="viewList">
-            <language index="lDEF">
-                <field index="title">
-                    <value index="vDEF">' . $ffListTitle . '</value>
-                </field>
-                <field index="titleWrap">
-                    <value index="vDEF">&lt;h2 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h2&gt;</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="templating">
-            <language index="lDEF">
-                <field index="template">
-                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="socialmedia">
-            <language index="lDEF">
-                <field index="enabled">
-                    <value index="vDEF">enabled_wi_individual_template</value>
-                </field>
-                <field index="tablefieldTitle_list">
-                    <value index="vDEF">tx_org_cal.title</value>
-                </field>
-                <field index="bookmarks_list">
-                    <value index="vDEF">facebook,google,twitter</value>
-                </field>
-                <field index="tablefieldTitle_single">
-                    <value index="vDEF">tx_org_cal.title</value>
-                </field>
-                <field index="bookmarks_single">
-                    <value index="vDEF">facebook,google,twitter</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>';
+    $record['pi_flexform']   = $this->zzGetFlexformBrowser( );
+
+    return $record;
+  }
+
+/**
+ * browserPageOrgDownloads( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function browserPageOrgDownloads( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_header' );
+    $this->pObj->arr_pluginUids['pluginBrowserPageOrgDownloads_header'] = $uid;
+
+    $ffJavascript = 'list_and_single';
+    $ffjQueryUi   = 'blitzer';
+    $ffMode       = 201;  // 201: cal
+    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffMycomment' ) );
+    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffListTitle' ) );
+    
+    $pi_flexform = $this->zzGetFlexformBrowser( );
+    $pi_flexform = str_replace( '%cssJqueryUi%',  $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%',   $ffJavascript,  $pi_flexform );
+    $pi_flexform = str_replace( '%mode%',         $ffMode,        $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%',    $ffMycomment,   $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%',    $ffListTitle,   $pi_flexform );
+
+    $record['uid']           = $uid;
+    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ];
+    $record['tstamp']        = time( );
+    $record['crdate']        = time( );
+    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']       = 128;
+    $record['CType']         = 'list';
+    $record['list_type']     = 'browser_pi1';
+    $record['header']        = $llHeader;
+    $record['header_layout'] = 100;  // hidden
+    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record['recursive']     = 250;
+    $record['sectionIndex']  = 1;
+    $record['pi_flexform']   = $this->zzGetFlexformBrowser( );
 
     return $record;
   }
@@ -472,6 +482,96 @@ class tx_orginstaller_pi1_plugins
       $this->pObj->arrReport[ ] = $prompt;
         // prompt
     }
+  }
+
+
+
+ /***********************************************
+  *
+  * zz - helper
+  *
+  **********************************************/
+
+/**
+ * zzGetFlexformBrowser( )
+ *
+ * @return	string		$flexform : flexform for the browser plugin
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function zzGetFlexformBrowser( )
+  {
+    $flexform = ''.
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="myComment">
+                    <value index="vDEF">%mycomment%</value>
+                </field>
+                <field index="views">
+                    <value index="vDEF">selected</value>
+                </field>
+                <field index="viewsHandleFromTemplateOnly">
+                    <value index="vDEF">1</value>
+                </field>
+                <field index="viewsList">
+                    <value index="vDEF">%mode%</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="viewList">
+            <language index="lDEF">
+                <field index="title">
+                    <value index="vDEF">%listtitle%</value>
+                </field>
+                <field index="titleWrap">
+                    <value index="vDEF">&lt;h2 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h2&gt;</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="templating">
+            <language index="lDEF">
+                <field index="template">
+                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
+                </field>
+                <field index="css.jqui">
+                    <value index="vDEF">%cssJqueryUi%</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="javascript">
+            <language index="lDEF">
+                <field index="mode">
+                    <value index="vDEF">%javascript%</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="socialmedia">
+            <language index="lDEF">
+                <field index="enabled">
+                    <value index="vDEF">enabled_wi_individual_template</value>
+                </field>
+                <field index="tablefieldTitle_list">
+                    <value index="vDEF">tx_org_cal.title</value>
+                </field>
+                <field index="bookmarks_list">
+                    <value index="vDEF">facebook,google,twitter</value>
+                </field>
+                <field index="tablefieldTitle_single">
+                    <value index="vDEF">tx_org_cal.title</value>
+                </field>
+                <field index="bookmarks_single">
+                    <value index="vDEF">facebook,google,twitter</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>';
+
+    return $flexform;
   }
 }
 

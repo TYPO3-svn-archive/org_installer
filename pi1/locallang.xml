@@ -111,7 +111,7 @@
 <h2>Good to know</h2>
 <ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
 <h2>Helpful links</h2>
-<ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
+<ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
       <label index="content_shipping_header">Delivery</label>
       <label index="content_shipping_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
 <ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
@@ -426,6 +426,53 @@
       <label index="record_pm_field_title_revocation">revocation</label>
       <label index="record_pm_field_title_submit">Test Organiser without commitment!</label>
       <label index="record_pm_form_title_caddyorder">Caddy orderform</label>
+      <label index="record_tx_org_cal_eggroll_type">calurl</label>
+      <label index="record_tx_org_cal_eggroll_title">White House Easter Egg Roll</label>
+      <label index="record_tx_org_cal_eggroll_calurl">http://www.whitehouse.gov/eastereggroll</label>
+      <label index="record_tx_org_cal_eggroll_teaser_short"><![CDATA[The President and First Lady announced today that this year's White House Easter Egg Roll will be held on Monday, April 25, 2011 with the theme of "Get Up and Go!" promoting health and wellness.]]></label>
+      <label index="record_tx_org_cal_t3devdays_type">0</label>
+      <label index="record_tx_org_cal_t3devdays_title">TYPO3 Developer Days</label>
+      <label index="record_tx_org_cal_t3devdays_bodytext"><![CDATA[We invite you to this year's Developer Days. This will be a great time to learn more about the powerful system and is your chance to connect yourself with other developers from all around the world.
+Conference Activities
+<ul>
+  <li>
+    Workshops and presentations on a variety of TYPO3 topics
+  </li>
+  <li>
+    Ability to meet the TYPO3 community
+  </li>
+  <li>
+    Social event (free to attendees of the conference; individual tickets available for others)
+  </li>
+  <li>
+    Some surprises as every year :-)
+  </li>
+</ul>
+The sixth edition of the TYPO3 Developer Days will take place:]]></label>
+      <label index="record_tx_org_cal_t3devdays_image">t3dd11_header_front_timestamp.jpg</label>
+      <label index="record_tx_org_cal_t3devdays_imagelink">http://t3dd11.typo3.org/</label>
+      <label index="record_tx_org_cal_t3devdays_imageorient">0</label>
+      <label index="record_tx_org_cal_t3organiser_type">0</label>
+      <label index="record_tx_org_cal_t3organiser_title">First night: TYPO3 Organiser</label>
+      <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Topic
+<ul>
+  <li>
+    First night: Organiser - TYPO3 for organisers and the lobby (<link record:fe_users:###fe_users.uid.dwildt### - internal-link>Dirk Wildt</link>)
+  </li>
+</ul>
+The developer - Dirk Wildt (Die Netzmacher) - will present the TYPO3 Organiser in the public the first time. The will be sopme sample applications and references.
+The Organiser enables you, to manage news and events with selling online tickets and further on to manage your staff, headquarters and locations.
+The Organiser is the TYPO3 extension for organisers like theatres and the lobby.
+It is using the shopping cart Caddy.
+<ul>
+  <li>
+    Website: <link http://typo3-organiser.de/ _blank>typo3-organiser.de</link>
+  </li>
+</ul>
+P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Obama</link> has permitted his participation. BE AWARE: Short denials by the president aren\'t unusually!]]></label>
+      <label index="record_tx_org_cal_t3organiser_image">ext_icon_org_210px_timestamp.png</label>
+      <label index="record_tx_org_cal_t3organiser_imagewidth">140</label>
+      <label index="record_tx_org_cal_t3organiser_imageorient">26</label>
       <label index="record_tx_org_calentrance_title_entranceFree">entrance free</label>
       <label index="record_tx_org_calentrance_value_entranceFree">0.00</label>
       <label index="record_tx_org_calentrance_title_mereMortals">mere mortals</label>
@@ -573,11 +620,11 @@
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
-<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>      
+<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>      
       <label index="content_shipping_header">Versand</label>
       <label index="content_shipping_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
 <ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
-      <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
+      <label index="content_terms_header">AGB - Allgemeine Gesch&auml;ftsbedingungen</label>
       <label index="content_terms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
       <label index="consolidate_header">Konsolidierung</label>
@@ -893,6 +940,59 @@
       <label index="record_pm_field_title_revocation">Widerrufsbelehrung</label>
       <label index="record_pm_field_title_submit">Organiser unverbindlich testen!</label>
       <label index="record_pm_form_title_caddyorder">Caddy Bestellformular</label>
+      <label index="record_tx_org_cal_eggroll_type">calurl</label>
+      <label index="record_tx_org_cal_eggroll_title">White House: Ostereier rollen</label>
+      <label index="record_tx_org_cal_eggroll_calurl">http://www.whitehouse.gov/eastereggroll</label>
+      <label index="record_tx_org_cal_eggroll_teaser_short"><![CDATA[Der Pr&auml;sident und die First Lady haben heute angekündigt,
+dass das n&auml;chste White House Ostereier-Rollen am kommenden 1. April stattfinden wird.
+Das Thema ist "Steh auf und geh los!". 
+Mit der Party soll für mehr Gesundheit und Wohlbefinden geworben werden.]]></label>
+      <label index="record_tx_org_cal_t3devdays_type">0</label>
+      <label index="record_tx_org_cal_t3devdays_title">TYPO3 Developer Days</label>
+      <label index="record_tx_org_cal_t3devdays_bodytext"><![CDATA[
+Wir laden Dich zu den kommenden TYPO3 Developer Days ein. 
+Die Days sind eine gro&szlig;artige M&ouml;glichkeit, mehr &uuml;ber das leistungsf&auml;hige TYPO3 zu lernen.
+Sie sind Deine Chance, andere Entwickler aus der ganzen Welt kennenzulernen.<br />
+Konferenz-Aktivit&auml;ten
+<ul>
+  <li>
+    Workshops und Pr&auml;sentationen zu verschiedenen TYPO3-Themen
+  </li>
+  <li>
+    M&ouml;glichkeiten, die TYPO3-Community kennenzulernen
+  </li>
+  <li>
+    Social Event (kostenlos f&uuml;r Konferenzteilnehmer, individuelle Tickets für andere)
+  </li>
+  <li>
+    Wie jedes Jahr ein paar Überraschungen :-)
+  </li>
+</ul>
+Die TYPO3 Developer Days finden statt:]]></label>
+      <label index="record_tx_org_cal_t3devdays_image">t3dd11_header_front_timestamp.jpg</label>
+      <label index="record_tx_org_cal_t3devdays_imagelink">http://t3dd11.typo3.org/</label>
+      <label index="record_tx_org_cal_t3devdays_imageorient">0</label>
+      <label index="record_tx_org_cal_t3organiser_type">0</label>
+      <label index="record_tx_org_cal_t3organiser_title">Premiere: TYPO3 Organiser</label>
+      <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Thema
+<ul>
+  <li>
+    Premiere: Organiser - TYPO3 für Lobby und Veranstalter (<link record:fe_users:###fe_users.uid.dwildt### - internal-link>Dirk Wildt</link>)
+  </li>
+</ul>
+Der Entwickler - Dirk Wildt (Die Netzmacher) - stellt erstmals den TYPO3-Organiser in der &Ouml;ffentlichkeit vor. Er wird Anwendungsbeispiele mit mehrere Referenzseiten zeigen.
+Mit dem Organiser kannst Du Deine Nachrichten und Veranstaltungen mit Ticket-Verkauf mit einer einzigen TYPO3-Erweiterung verwalten - und darüber hinaus auch Dein Personal, deine Standorte und Veranstaltungsorte.
+Der Organiser ist die TYPO3-Erweiterung für Verb&auml;nde, Veranstalter und etwa Theater-Betriebe.
+Der Organiser hat mit Caddy einen flexiblen Web-Shop integriert, mit dem Karten reserviert und auch gekauft werden k&ouml;nnen. Er kann leicht an andere Anforderungen angepasst werden.
+<ul>
+  <li>
+    Website: <link http://typo3-organiser.de/ _blank>typo3-organiser.de</link>
+  </li>
+</ul>
+P.S.: <link record:fe_users:###fe_users.uid.bobama### - internal-link>Barack Obama</link> hat als Gast zugesagt. ACHTUNG: Kurzfristige Absagen des Präsidenten sind nicht ungewöhnlich!]]></label>
+      <label index="record_tx_org_cal_t3organiser_image">ext_icon_org_210px_timestamp.png</label>
+      <label index="record_tx_org_cal_t3organiser_imagewidth">140</label>
+      <label index="record_tx_org_cal_t3organiser_imageorient">26</label>
       <label index="record_tx_org_calentrance_title_entranceFree">Eintritt frei</label>
       <label index="record_tx_org_calentrance_value_entranceFree">0.00</label>
       <label index="record_tx_org_calentrance_title_mereMortals">Normalsterbliche</label>

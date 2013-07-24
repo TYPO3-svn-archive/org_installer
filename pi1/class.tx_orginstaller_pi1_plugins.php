@@ -825,7 +825,7 @@ class tx_orginstaller_pi1_plugins
                     ;
 
     $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
@@ -876,7 +876,7 @@ class tx_orginstaller_pi1_plugins
     $this->pObj->arr_pluginUids['pluginPowermailPageOrgDownloadsCaddy_header'] = $uid;
 
     $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];

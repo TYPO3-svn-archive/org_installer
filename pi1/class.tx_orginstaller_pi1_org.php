@@ -109,14 +109,13 @@ class tx_orginstaller_pi1_org
   {
     $records = array( );
 
-    $records = $this->categories( );
-    $this->sqlInsert( $records, 'tx_org_caltype' );
+    $this->categories( );
 
-    $records = $this->records( );
-    $this->sqlInsert( $records, 'tx_org_cal' );
-
-    $records = $this->relations( );
-    $this->sqlInsert( $records, 'tx_org_cal_category_mm' );
+//    $records = $this->records( );
+//    $this->sqlInsert( $records, 'tx_org_cal' );
+//
+//    $records = $this->relations( );
+//    $this->sqlInsert( $records, 'tx_org_cal_category_mm' );
   }
 
 
@@ -137,38 +136,55 @@ class tx_orginstaller_pi1_org
  */
   private function categories( )
   {
+    $this->categoriesCal( );
+
+  }
+
+
+/**
+ * categoriesCal( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoriesCal( )
+  {
+    $this->categoriesCalType( );
+  }
+
+/**
+ * categoriesCalType( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoriesCalType( )
+  {
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( 'tx_org_caltype' );
 
-      // category book
+      // category policy
     $uid = $uid + 1;
-    $records[$uid] = $this->categoryBook( $uid );
+    $records[$uid] = $this->categoryCalTypePolicy( $uid );
 
-      // category clothes
+      // category society
     $uid = $uid + 1;
-    $records[$uid] = $this->categoryClothes( $uid );
+    $records[$uid] = $this->categoryCalTypeSociety( $uid );
 
-      // category cup
+      // category society
     $uid = $uid + 1;
-    $records[$uid] = $this->categoryCup( $uid );
+    $records[$uid] = $this->categoryCalTypeTYPO3( $uid );
 
-      // category blue - depends on clothes
-    $uid = $uid + 1;
-    $records[$uid] = $this->categoryBlue( $uid );
 
-      // category green - depends on clothes
-    $uid = $uid + 1;
-    $records[$uid] = $this->categoryGreen( $uid );
-
-      // category red - depends on clothes
-    $uid = $uid + 1;
-    $records[$uid] = $this->categoryRed( $uid );
-
-    return $records;
+    $this->sqlInsert( $records, 'tx_org_caltype' );
   }
-
+  
 /**
- * categoryBlue( )
+ * categoryCalTypePolicy( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -176,44 +192,16 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryBlue( $uid )
+  private function categoryCalTypePolicy( $uid )
   {
     $record = null;
 
-    $llLabel = 'record_qs_cat_title_blue';
+    $llLabel = 'record_tx_org_caltype_title_policy';
     $llTitle = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgData' ];
-    $record['tstamp']     = time( );
-    $record['crdate']     = time( );
-    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llTitle;
-    $record['uid_parent'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
-
-    return $record;
-  }
-
-/**
- * categoryBook( )
- *
- * @param	integer		$uid      : uid of the current fieldset
- * @return	array		$record   : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function categoryBook( $uid )
-  {
-    $record = null;
-
-    $llLabel = 'record_qs_cat_title_books';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgData' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -221,9 +209,9 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-
+  
 /**
- * categoryClothes( )
+ * categoryCalTypeSociety( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -231,16 +219,16 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryClothes( $uid )
+  private function categoryCalTypeSociety( $uid )
   {
     $record = null;
 
-    $llLabel = 'record_qs_cat_title_clothes';
+    $llLabel = 'record_tx_org_caltype_title_society';
     $llTitle = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgData' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -248,9 +236,9 @@ class tx_orginstaller_pi1_org
 
     return $record;
   }
-
+  
 /**
- * categoryCup( )
+ * categoryCalTypeTYPO3( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -258,76 +246,20 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryCup( $uid )
+  private function categoryCalTypeTYPO3( $uid )
   {
     $record = null;
 
-    $llLabel = 'record_qs_cat_title_cups';
+    $llLabel = 'record_tx_org_caltype_title_typo3';
     $llTitle = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgData' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataCal' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
-
-    return $record;
-  }
-
-/**
- * categoryGreen( )
- *
- * @param	integer		$uid      : uid of the current fieldset
- * @return	array		$record   : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function categoryGreen( $uid )
-  {
-    $record = null;
-
-    $llLabel = 'record_qs_cat_title_green';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgData' ];
-    $record['tstamp']     = time( );
-    $record['crdate']     = time( );
-    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llTitle;
-    $record['uid_parent'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
-
-    return $record;
-  }
-
-/**
- * categoryRed( )
- *
- * @param	integer		$uid      : uid of the current fieldset
- * @return	array		$record   : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function categoryRed( $uid )
-  {
-    $record = null;
-
-    $llLabel = 'record_qs_cat_title_red';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgData' ];
-    $record['tstamp']     = time( );
-    $record['crdate']     = time( );
-    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llTitle;
-    $record['uid_parent'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
 
     return $record;
   }

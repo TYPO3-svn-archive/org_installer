@@ -1782,7 +1782,7 @@ class tx_orginstaller_pi1_org
  */
   private function recordLocations( )
   {
-    $table    = 'tx_org_locations';
+    $table    = 'tx_org_location';
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( $table );
 

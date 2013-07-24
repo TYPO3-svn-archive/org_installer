@@ -26,24 +26,41 @@
  *
  *
  *
- *   60: class tx_orginstaller_pi1_plugins
+ *   77: class tx_orginstaller_pi1_plugins
  *
  *              SECTION: Main
- *   84:     public function main( )
+ *  101:     public function main( )
+ *  122:     private function mainRecords( )
  *
- *              SECTION: Records
- *  113:     private function mainRecords( )
- *  146:     private function browserPageOrg( $uid )
- *  273:     private function caddyPageOrg( $uid )
- *  306:     private function caddyminiPageOrgCaddy( $uid )
- *  339:     private function powermailPageOrgCaddy( $uid )
- *  378:     private function powermailPageOrgCaddy1x( $uid )
- *  434:     private function powermailPageOrgCaddy2x( $uid )
+ *              SECTION: Browser - TYPO3 without PHP
+ *  180:     private function browserPageOrg( $uid )
+ *  229:     private function browserPageOrgDownloads( $uid )
+ *  278:     private function browserPageOrgHeadquarters( $uid )
+ *  327:     private function browserPageOrgLocations( $uid )
+ *  376:     private function browserPageOrgNews( $uid )
+ *  425:     private function browserPageOrgStaff( $uid )
+ *
+ *              SECTION: Caddy
+ *  482:     private function caddyPageOrg( $uid )
+ *  515:     private function caddyPageOrgDownloads( $uid )
+ *  548:     private function caddyminiPageOrgCaddy( $uid )
+ *  594:     private function caddyminiPageOrgDownloadsCaddy( $uid )
+ *
+ *              SECTION: Powermail
+ *  646:     private function powermailPageOrgCaddy( $uid )
+ *  685:     private function powermailPageOrgCaddy1x( $uid )
+ *  741:     private function powermailPageOrgCaddy2x( $uid )
+ *  773:     private function powermailPageOrgCaddy( $uid )
+ *  812:     private function powermailPageOrgCaddy1x( $uid )
+ *  868:     private function powermailPageOrgCaddy2x( $uid )
  *
  *              SECTION: Sql
- *  474:     private function sqlInsert( $records )
+ *  908:     private function sqlInsert( $records )
  *
- * TOTAL FUNCTIONS: 9
+ *              SECTION: zz - helper
+ *  959:     private function zzGetFlexformBrowser( )
+ *
+ * TOTAL FUNCTIONS: 20
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -173,7 +190,7 @@ class tx_orginstaller_pi1_plugins
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffListTitle' ) );
     $ffTableField = 'tx_org_cal.title';
-    
+
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
@@ -222,7 +239,7 @@ class tx_orginstaller_pi1_plugins
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffListTitle' ) );
     $ffTableField = 'tx_org_downloads.title';
-    
+
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
@@ -271,7 +288,7 @@ class tx_orginstaller_pi1_plugins
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffListTitle' ) );
     $ffTableField = 'tx_org_headquarters.title';
-    
+
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
@@ -320,7 +337,7 @@ class tx_orginstaller_pi1_plugins
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffListTitle' ) );
     $ffTableField = 'tx_org_location.title';
-    
+
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
@@ -369,7 +386,7 @@ class tx_orginstaller_pi1_plugins
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffListTitle' ) );
     $ffTableField = 'tx_org_news.title';
-    
+
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
@@ -377,7 +394,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
     $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,   $pi_flexform );
-    
+
     $record['uid']           = $uid;
     $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgNews_title' ];
     $record['tstamp']        = time( );
@@ -418,7 +435,7 @@ class tx_orginstaller_pi1_plugins
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffListTitle' ) );
     $ffTableField = 'fe_users.name';
-    
+
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
@@ -501,7 +518,7 @@ class tx_orginstaller_pi1_plugins
 
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgDownloadsCaddy_header' );
     $this->pObj->arr_pluginUids['pluginCaddyPageOrgDownloadsCaddy_header'] = $uid;
-    
+
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
     $record['tstamp']       = time( );
@@ -517,7 +534,7 @@ class tx_orginstaller_pi1_plugins
 
     return $record;
   }
-  
+
 /**
  * caddyminiPageOrgCaddy( )
  *

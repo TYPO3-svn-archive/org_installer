@@ -1757,7 +1757,7 @@ class tx_orginstaller_pi1_powermail
         $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_pageOrgDownloadsCaddy' ];
         break;
       default:
-        $prompt = 'ERROR: undefined value in switch<br />
+        $prompt = 'ERROR: undefined value in switch: ' . $this->page . '<br />
           Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
           TYPO3 extension: ' . $this->extKey;
         die( $prompt );
@@ -1797,7 +1797,7 @@ class tx_orginstaller_pi1_powermail
         $this->arr_recordUids[ 'record_pm_form_title_pageOrgDownloadsCaddy' ] = $uid;
         break;
       default:
-        $prompt = 'ERROR: undefined value in switch<br />
+        $prompt = 'ERROR: undefined value in switch: ' . $this->page . '<br />
           Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
           TYPO3 extension: ' . $this->extKey;
         die( $prompt );

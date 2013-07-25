@@ -734,48 +734,48 @@ page.10.subparts.menue.20 >
  */
   private function pageOrg_fileCopy( $timestamp )
   {
-      // Files
-    $str_fileSrce = 'quick_shop_header_image_210px.jpg';
-    $str_fileDest = 'typo3_org_' . $timestamp . '.jpg';
-
-      // Paths
-    //$str_pathSrceAbs  = t3lib_extMgm::extPath( 'quick_shop' ) . 'res/images/';
-    $str_pathSrce     = t3lib_extMgm::siteRelPath( 'quick_shop' ) . 'res/images/';
-    $str_pathDest     = 'uploads/media/';
-
-//    if( ! file_exists( $str_pathSrceAbs . $str_fileSrce ) )
+//      // Files
+//    $str_fileSrce = 'quick_shop_header_image_210px.jpg';
+//    $str_fileDest = 'typo3_org_' . $timestamp . '.jpg';
+//
+//      // Paths
+//    //$str_pathSrceAbs  = t3lib_extMgm::extPath( 'quick_shop' ) . 'res/images/';
+//    $str_pathSrce     = t3lib_extMgm::siteRelPath( 'quick_shop' ) . 'res/images/';
+//    $str_pathDest     = 'uploads/media/';
+//
+////    if( ! file_exists( $str_pathSrceAbs . $str_fileSrce ) )
+////    {
+////var_dump( __METHOD__, __LINE__, $str_pathSrceAbs . $str_fileSrce, 0 );
+////    }
+//      // Copy
+//    $success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
+////var_dump( __METHOD__, __LINE__, $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest, $success );
+//      // SWICTH : prompt depending on success
+//    switch( $success )
 //    {
-//var_dump( __METHOD__, __LINE__, $str_pathSrceAbs . $str_fileSrce, 0 );
+//      case( false ):
+//        $this->pObj->markerArray['###SRCE###'] = $str_pathSrce . $str_fileSrce;
+//        $this->pObj->markerArray['###DEST###'] = $str_pathDest . $str_fileDest;
+//        $prompt = '
+//          <p>
+//            '.$this->pObj->arr_icons['warn'].' '.$this->pObj->pi_getLL('files_create_prompt_error').'
+//          </p>';
+//        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
+//        $this->pObj->arrReport[ ] = $prompt;
+//        break;
+//      case( true ):
+//      default:
+//        $this->pObj->markerArray['###DEST###'] = $str_fileDest;
+//        $this->pObj->markerArray['###PATH###'] = $str_pathDest;
+//        $prompt = '
+//          <p>
+//            '.$this->pObj->arr_icons['ok'].' '.$this->pObj->pi_getLL('files_create_prompt').'
+//          </p>';
+//        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
+//        $this->pObj->arrReport[ ] = $prompt;
+//        break;
 //    }
-      // Copy
-    $success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
-//var_dump( __METHOD__, __LINE__, $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest, $success );
-      // SWICTH : prompt depending on success
-    switch( $success )
-    {
-      case( false ):
-        $this->pObj->markerArray['###SRCE###'] = $str_pathSrce . $str_fileSrce;
-        $this->pObj->markerArray['###DEST###'] = $str_pathDest . $str_fileDest;
-        $prompt = '
-          <p>
-            '.$this->pObj->arr_icons['warn'].' '.$this->pObj->pi_getLL('files_create_prompt_error').'
-          </p>';
-        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-        $this->pObj->arrReport[ ] = $prompt;
-        break;
-      case( true ):
-      default:
-        $this->pObj->markerArray['###DEST###'] = $str_fileDest;
-        $this->pObj->markerArray['###PATH###'] = $str_pathDest;
-        $prompt = '
-          <p>
-            '.$this->pObj->arr_icons['ok'].' '.$this->pObj->pi_getLL('files_create_prompt').'
-          </p>';
-        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-        $this->pObj->arrReport[ ] = $prompt;
-        break;
-    }
-      // SWICTH : prompt depending on success
+//      // SWICTH : prompt depending on success
   }
 
 /**

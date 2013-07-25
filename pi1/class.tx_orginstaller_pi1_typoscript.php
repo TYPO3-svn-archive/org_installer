@@ -33,8 +33,8 @@
  *
  *              SECTION: Records
  *  124:     private function recordOrg( $uid )
- *  154:     private function recordOrgCaseAll( $uid )
- *  416:     private function recordOrgCaseOrgOnly( $uid )
+ *  154:     private function recordOrg_caseAll( $uid )
+ *  416:     private function recordOrg_caseOrgOnly( $uid )
  *  601:     private function recordOrgCaddy( $uid )
  *  655:     private function recordOrgDownloadsCaddy( $uid )
  *  707:     private function recordOrgStaticFiles( )
@@ -131,10 +131,10 @@ class tx_orginstaller_pi1_typoscript
     switch( true )
     {
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
-        $record = $this->recordOrgCaseAll( $uid );
+        $record = $this->recordOrg_caseAll( $uid );
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
-        $record = $this->recordOrgCaseOrgOnly( $uid );
+        $record = $this->recordOrg_caseOrgOnly( $uid );
         break;
     }
       // SWITCH : install case
@@ -143,7 +143,7 @@ class tx_orginstaller_pi1_typoscript
   }
 
 /**
- * recordOrgCaseAll( )
+ * recordOrg_caseAll( )
  *
  * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
@@ -151,7 +151,7 @@ class tx_orginstaller_pi1_typoscript
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function recordOrgCaseAll( $uid )
+  private function recordOrg_caseAll( $uid )
   {
     $record = null;
 
@@ -404,7 +404,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   }
 
 /**
- * recordOrgCaseOrgOnly( )
+ * recordOrg_caseOrgOnly( )
  *
  * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
@@ -412,7 +412,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function recordOrgCaseOrgOnly( $uid )
+  private function recordOrg_caseOrgOnly( $uid )
   {
     $record = null;
 
@@ -723,82 +723,6 @@ plugin.caddy {
   }
 
 /**
- * recordOrgStaticFiles( )
- *
- * @return	string		$staticFiles  : the list of static files
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function recordOrgStaticFiles( )
-  {
-    $staticFiles = null;
-
-    switch( true )
-    {
-      case( $this->pObj->powermailVersionInt < 1000000 ):
-        $prompt = 'ERROR: unexpected result<br />
-          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
-          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
-          TYPO3 extension: ' . $this->extKey;
-        die( $prompt );
-        break;
-      case( $this->pObj->powermailVersionInt < 2000000 ):
-        $staticFiles = $this->recordOrgStaticFilesPowermail1x( );
-        break;
-      case( $this->pObj->powermailVersionInt < 3000000 ):
-        $staticFiles = $this->recordOrgStaticFilesPowermail2x( );
-        break;
-      case( $this->pObj->powermailVersionInt >= 3000000 ):
-      default:
-        $prompt = 'ERROR: unexpected result<br />
-          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
-          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
-          TYPO3 extension: ' . $this->extKey;
-        die( $prompt );
-        break;
-    }
-
-    return $staticFiles;
-  }
-
-/**
- * recordOrgStaticFilesPowermail1x( )
- *
- * @return	string		$staticFiles  : the list of static files
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function recordOrgStaticFilesPowermail1x( )
-  {
-    $staticFiles  = 'EXT:quick_shop/static/,'
-                  . 'EXT:caddy/static/,'
-                  . 'EXT:caddy/static/css/,'
-                  . 'EXT:quick_shop/static/caddy/';
-
-    return $staticFiles;
-  }
-
-/**
- * recordOrgStaticFilesPowermail2x( )
- *
- * @return	string		$staticFiles  : the list of static files
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function recordOrgStaticFilesPowermail2x( )
-  {
-    $staticFiles  = 'EXT:quick_shop/static/,'
-                  . 'EXT:caddy/static/,'
-                  . 'EXT:caddy/static/css/,'
-                  . 'EXT:quick_shop/static/caddy/';
-
-    return $staticFiles;
-  }
-
-/**
  * records( )
  *
  * @return	array		$records : the TypoScript records
@@ -1036,7 +960,8 @@ plugin.tx_powermail {
   {
     $staticFiles  = 'EXT:powermail/static/pi1/,'
                   . 'EXT:powermail/static/css_fancy/,'
-                  . 'EXT:caddy/static/powermail/1x/'
+                  . 'EXT:caddy/static/powermail/1x/,'
+                  . 'EXT:org/static/calendar/201/caddy/'
                   ;
 
     return $staticFiles;
@@ -1057,6 +982,7 @@ plugin.tx_powermail {
                   . 'EXT:powermail/Configuration/TypoScript/CssFancy,'
                   . 'EXT:caddy/static/powermail/2x/,'
                   . 'EXT:caddy/static/powermail/2x/css/,'
+                  . 'EXT:org/static/calendar/201/caddy/'
                   ;
 
     return $staticFiles;

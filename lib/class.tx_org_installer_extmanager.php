@@ -329,7 +329,23 @@ config {
 page = PAGE
 page {
   typeNum = 0
-  10 < styles.content.get
+  10 = COA
+  10 {
+    10 = TEXT
+    10 {
+      value (
+        <style type="text/css">
+        body {
+          background-image:url(typo3conf/ext/org_installer/res/images/background.gif);
+          background-repeat:no-repeat;
+          background-position:center center;
+          background-attachment:fixed;
+        }
+        </style>
+)
+    }
+    20 < styles.content.get
+  }
 }
 ';
     //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));

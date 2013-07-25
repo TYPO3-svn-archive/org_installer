@@ -289,7 +289,7 @@ class tx_orginstaller_pi1_content
     $this->pObj->arr_contentUids['content_pageOrgLegalinfo_header']  = $uid;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgLegalinfoinfo_title' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgLegalinfo_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];

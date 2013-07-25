@@ -561,7 +561,7 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> has per
       <label index="record_tx_org_caltype_title_policy">policy</label>
       <label index="record_tx_org_caltype_title_society">society</label>
       <label index="record_tx_org_caltype_title_typo3">TYPO3</label>
-      <label index="record_tx_org_department_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
+      <label index="record_tx_org_department_netzmacher_title"><![CDATA[Die Netzmacher - Büro Erfurt]]></label>
       <label index="record_tx_org_department_netzmacher_telephone">++49 361 74789004</label>
       <label index="record_tx_org_department_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_department_netzmacher_url">http://die-netzmacher.de/</label>
@@ -697,7 +697,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_downloadsmedia_type_flyer">cat_image</label>
       <label index="record_tx_org_downloadsmedia_title_manuals">manual</label>
       <label index="record_tx_org_downloadsmedia_type_manuals">cat_image</label>
-      <label index="record_tx_org_headquarters_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
+      <label index="record_tx_org_headquarters_netzmacher_title"><![CDATA[Die Netzmacher - Büro Erfurt]]></label>
       <label index="record_tx_org_headquarters_netzmacher_mail_address"><![CDATA[Borntalweg 4]]></label>
       <label index="record_tx_org_headquarters_netzmacher_mail_postcode">D-99092</label>
       <label index="record_tx_org_headquarters_netzmacher_mail_city">Erfurt</label>
@@ -732,7 +732,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_typo3_imageseo">TYPO3 Association</label>
       <label index="record_tx_org_headquarters_typo3_imageorient">0</label>
       <label index="record_tx_org_headquarters_typo3_imagewidth"></label>
-      <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher GbR - Büro Erfurt]]></label>
+      <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher - Büro Erfurt]]></label>
       <label index="record_tx_org_location_netzmacher_url">http://die-netzmacher.de/</label>
       <label index="record_tx_org_location_netzmacher_mail_address"><![CDATA[Borntalweg 4]]></label>
       <label index="record_tx_org_location_netzmacher_mail_postcode">D-99092</label>

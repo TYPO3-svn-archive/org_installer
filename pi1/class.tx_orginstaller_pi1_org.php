@@ -1106,8 +1106,6 @@ class tx_orginstaller_pi1_org
     $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
-    $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_eggroll_bodytext');
-
     $datetime = strtotime( '1 April next year' );
 
     $record['uid']          = $uid;
@@ -1118,14 +1116,8 @@ class tx_orginstaller_pi1_org
     $record['type']         = $this->pObj->pi_getLL('record_tx_org_cal_eggroll_type');
     $record['title']        = $llTitle;
     $record['datetime']     = $datetime;
-    $record['bodytext']     = $bodytext;
-    $record['image']        = $llImageWiTimestamp;
-    //$record['imagewidth']   = $this->pObj->pi_getLL('record_tx_org_cal_eggroll_imagewidth');
-    $record['image_link']   = $this->pObj->pi_getLL('record_tx_org_cal_eggroll_image_link');
-    $record['imageorient']  = $this->pObj->pi_getLL('record_tx_org_cal_eggroll_imageorient');
-    $record['imagecols']    = '1';
-    $record['image_zoom']   = '1';
-    $record['image_noRows'] = '1';
+    $record['calurl']       = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_calurl');
+    $record['teaser_short'] = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_teaser_short');
 
     return $record;
   }
@@ -1152,7 +1144,7 @@ class tx_orginstaller_pi1_org
     $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
-    //$bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3devdays_bodytext');
+    $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3devdays_bodytext');
 
     $datetime = strtotime( '+3 months' );
 
@@ -1164,8 +1156,7 @@ class tx_orginstaller_pi1_org
     $record['type']         = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_type');
     $record['title']        = $llTitle;
     $record['datetime']     = $datetime;
-    $record['calurl']       = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_calurl');
-    $record['teaser_short'] = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_teaser_short');
+    $record['bodytext']     = $bodytext;
     $record['image']        = $llImageWiTimestamp;
     //$record['imagewidth']   = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_imagewidth');
     $record['image_link']   = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_image_link');
@@ -2518,6 +2509,7 @@ class tx_orginstaller_pi1_org
     $this->relationDepartment2Staff( );
     $this->relationDownloads2Downloadscat( );
     $this->relationDownloads2Downloadsmedia( );
+    $this->relationHeadquarters2Department( );
     $this->relationNews2Newscat( );
     $this->relationStaff2News( );
   }
@@ -2858,8 +2850,8 @@ class tx_orginstaller_pi1_org
               (
                 $this->relationDepartment2DepartmentcatNetzmacherTYPO3( ),
                 $this->relationDepartment2DepartmentcatPresidentPolicy( ),
-                $this->relationDepartment2DepartmentcatPresidentSociety( ),
-                $this->relationDepartment2DepartmentcatT3PressSociety( ),
+                //$this->relationDepartment2DepartmentcatPresidentSociety( ),
+                //$this->relationDepartment2DepartmentcatT3PressSociety( ),
                 $this->relationDepartment2DepartmentcatT3PressTYPO3( )
               );
 

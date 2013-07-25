@@ -983,11 +983,15 @@ page.10.subparts.menue.20 >
   // organiser tables
 TCEFORM {
   fe_users {
+    tx_org_department {
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
+    }
     tx_org_downloads {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataDownloads_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataDownloads_title%
     }
-    tx_org_department {
+    tx_org_headquarters {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
     }
@@ -1037,15 +1041,16 @@ TCEFORM {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
     }
+    tx_org_headquarterscat < .tx_org_headquarters
+    tx_org_location {
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataLocations_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataLocations_title%
+    }
     tx_org_news {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataNews_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
     }
     tx_org_newscat < .tx_org_news
-    tx_org_location {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataLocations_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataLocations_title%
-    }
   }
   tx_org_cal            < .tx_org_cal_all_tables
   tx_org_calentrance    < .tx_org_cal_all_tables

@@ -1103,7 +1103,15 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
     foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
     {
+        // CONTINUE : file does not exist (this may be proper)
+      if( ! file_exists( $str_pathSrce . $str_fileSrce ) ) 
+      {
+        continue;
+      }
+        // CONTINUE : file does not exist (this may be proper)
+      
       $bool_success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
+        // CONTINUE : copy was succesful
       if( $bool_success )
       {
         $this->markerArray['###DEST###'] = $str_fileDest;
@@ -1114,18 +1122,19 @@ class tx_orginstaller_pi1 extends tslib_pibase
           </p>';
         $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
         $this->arrReport[] = $str_file_prompt;
+        
+        continue;
       }
-      if (!$bool_success)
-      {
-        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
-        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
-        $str_file_prompt = '
-          <p>
-            '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
-          </p>';
-        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-        $this->arrReport[] = $str_file_prompt;
-      }
+        // CONTINUE : copy was succesful
+
+      $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
+      $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
+      $str_file_prompt = '
+        <p>
+          '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
+        </p>';
+      $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+      $this->arrReport[] = $str_file_prompt;
     }
     // Copy product images to upload folder
 

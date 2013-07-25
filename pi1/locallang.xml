@@ -128,6 +128,8 @@
       <label index="ext_header">Check extension dependencies</label>
       <label index="ext_help">Please install: </label>
       <label index="ext_ok">is loaded.</label>
+      <label index="fe_users">Staff</label>
+      <label index="fe_groups">Staff: Groups</label>
       <label index="files_create_header">Files</label>
       <label index="files_create_prompt">File "###DEST###" is created at "###PATH###".</label>
       <label index="files_create_prompt_error">File "###SRCE###" couldn't copied to "###DEST###".</label>
@@ -845,14 +847,25 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>
       <label index="tt_content.list_type_pi1">Organiser - 1-Click-Installer</label>
+      <label index="tx_org_cal">Calendar</label>
+      <label index="tx_org_calentrance">Calendar: Entrance Fees</label>
+      <label index="tx_org_caltype">Calendar: Categories</label>
+      <label index="tx_org_department">Departments</label>
+      <label index="tx_org_downloads">Document</label>
+      <label index="tx_org_downloadscat">Documents: Categories</label>
+      <label index="tx_org_downloadsmedia">Documents: Media</label>
+      <label index="tx_org_event">Event</label>
+      <label index="tx_org_headquarters">Headquarters</label>
+      <label index="tx_org_headquarterscat">Company: Groups</label>
+      <label index="tx_org_location">Locations</label>
+      <label index="tx_org_news">News</label>
+      <label index="tx_org_newscat">News: Categories</label>
+      <label index="tx_org_tax">Tax</label>
       <label index="tx_powermail_domain_model_fields">Powermail Fields</label>
       <label index="tx_powermail_domain_model_forms">Powermail Forms</label>
       <label index="tx_powermail_domain_model_pages">Powermail Pages</label>
       <label index="tx_powermail_fieldsets">Powermail Fieldsets</label>
       <label index="tx_powermail_fields">Powermail Fields</label>
-      <label index="tx_org_caltype">Organiser Categories</label>
-      <label index="tx_org_news">Organiser Items</label>
-      <label index="tx_org_news_category_mm">Organiser MM Relations</label>
     </languageKey>
     <languageKey index="de" type="array">
       <label index="back">Zurück</label>
@@ -973,6 +986,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="end_h1">Die Installation war erfolgreich!</label>
       <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schließe das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
       <label index="error_all_h1">Organiser Installation nicht durchgeführt!</label>
+      <label index="fe_users">Personal</label>
+      <label index="fe_groups">Personal: Gruppen</label>
       <label index="files_create_header">Dateien</label>
       <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>
       <label index="files_create_prompt_error">Datei "###SRCE###" konnte nicht nach "###DEST###" kopiert werden.</label>
@@ -1365,14 +1380,26 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.</label>
       <label index="tt_content.list_type_pi1">Organiser - 1-Klick-Installer</label>
+      <label index="tx_org_cal">Kalender</label>
+      <label index="tx_org_calentrance">Kalender: Eintritt</label>
+      <label index="tx_org_caltype">Kalender: Kategorien</label>
+      <label index="tx_org_department">Abteilungen</label>
+      <label index="tx_org_departmentcat">Abteilung: Gruppen</label>
+      <label index="tx_org_downloads">Dokumente</label>
+      <label index="tx_org_downloadscat">Dokumente: Kategorien</label>
+      <label index="tx_org_downloadsmedia">Dokumente: Datentr<![CDATA[ä]]>ger</label>
+      <label index="tx_org_event">Veranstaltung</label>
+      <label index="tx_org_headquarters">Standorte</label>
+      <label index="tx_org_headquarterscat">Firma: Gruppen</label>
+      <label index="tx_org_location">Veranstaltungsorte</label>
+      <label index="tx_org_news">Nachrichten</label>
+      <label index="tx_org_newscat">Nachrichten: Kategorien</label>
+      <label index="tx_org_tax">Mehrwertsteuers<![CDATA[ä]]>tze</label>
       <label index="tx_powermail_domain_model_fields">Powermail Felder</label>
       <label index="tx_powermail_domain_model_forms">Powermail Formulare</label>
       <label index="tx_powermail_domain_model_pages">Powermail Seiten</label>
       <label index="tx_powermail_fieldsets">Powermail Feldgruppen</label>
       <label index="tx_powermail_fields">Powermail Felder</label>
-      <label index="tx_org_caltype">Organiser Kategorien</label>
-      <label index="tx_org_news">Organiser Artikel</label>
-      <label index="tx_org_news_category_mm">Organiser MM Relationen</label>
     </languageKey>
   </data>
 </T3locallang>

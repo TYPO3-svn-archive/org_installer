@@ -3637,7 +3637,7 @@ class tx_orginstaller_pi1_org
       $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
       $pageTitle = $this->pObj->pi_getLL( $pageTitle );
       $marker['###TITLE###']      = $record['title'];
-      $marker['###TABLE###']      = $this->pObj->pi_getLL( $table );
+      $marker['###TABLE###']      = $this->pObj->pi_getLL( $table, '<i>' . $table . '</i>' );
       $marker['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>

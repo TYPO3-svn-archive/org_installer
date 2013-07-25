@@ -2572,14 +2572,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * relationCal2CalentranceT3DevdaysSponors( )
+ * relationCal2CalentranceT3DevdaysSponsors( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationCal2CalentranceT3DevdaysSponor( )
+  private function relationCal2CalentranceT3DevdaysSponsor( )
   {
     $record = array
               ( 

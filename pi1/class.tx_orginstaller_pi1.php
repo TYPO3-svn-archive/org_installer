@@ -523,7 +523,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
  */
   private function createFilesStaff( )
   {
-    $this->zz_copyFiles( 'res/files/fe_users/' );
+    $this->zz_copyFiles( 'res/files/fe_users/', 'uploads/pics/' );
   }
 
 /**
@@ -1089,7 +1089,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function zz_copyFiles( $srceDir )
+  private function zz_copyFiles( $srceDir, $destDir='uploads/tx_org/' )
   {
 
     //////////////////////////////////////////////////////////////////////
@@ -1098,7 +1098,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
     // General values
     $str_pathSrce = t3lib_extMgm::siteRelPath( $this->extKey ) . $srceDir;
-    $str_pathDest = 'uploads/tx_org/';
+    $str_pathDest = $destDir;
     // General values
 
     foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )

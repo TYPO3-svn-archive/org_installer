@@ -708,7 +708,7 @@ page.10.subparts.menue.20 >
     $pageTitle  = $GLOBALS['TSFE']->page['title'];
 
       // Update page properties
-    $records = $this->pageOrg_properties( $timestamp );
+    $records = $this->pageOrg_properties( );
     $this->sqlUpdatePages( $records, $pageTitle );
 
       // Copy header image
@@ -802,13 +802,12 @@ page.10.subparts.menue.20 >
 /**
  * pageOrg_properties( )
  *
- * @param	integer		$timestamp  : current time
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageOrg_properties( $timestamp )
+  private function pageOrg_properties( )
   {
     $records = null;
 
@@ -833,12 +832,49 @@ page.10.subparts.menue.20 >
     $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageOrg_title' );
     $records[$uid]['nav_hide']    = 1;
     $records[$uid]['is_siteroot'] = $is_siteroot;
-    $records[$uid]['media']       = 'typo3_org_' . $timestamp . '.jpg';
     $records[$uid]['module']      = null;
     $records[$uid]['TSconfig']    = '
 
 // ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' ) . ' -- BEGIN
 
+  /////////////////////////////////////
+  //
+  // INDEX
+  //
+  // mod.tx_linkhandler
+  // RTE.default.tx_linkhandler
+  // TCEMAIN.permissions
+
+
+  // mod.tx_linkhandler
+mod {
+  tx_linkhandler {
+    fe_users.onlyPids             = %pageOrgDataStaff_title%
+    tx_org_cal.onlyPids           = %pageOrgDataCal_title%
+    tx_org_department.onlyPids    = %pageOrgDataHeadquarters_title%
+    tx_org_downloads.onlyPids     = %pageOrgDataDownloads_title%
+    tx_org_event.onlyPids         = %pageOrgDataEvents_title%
+    tx_org_headquarters.onlyPids  = %pageOrgDataHeadquarters_title%
+    tx_org_location.onlyPids      = %pageOrgDataLocations_title%
+    tx_org_news.onlyPids          = %pageOrgDataNews_title%
+  }
+}
+  // mod.tx_linkhandler
+
+
+  // RTE.default.tx_linkhandler
+RTE {
+  default {
+      // Remove RTE default configuration
+    tx_linkhandler >
+      // Copy configuration from mod to RTE
+    tx_linkhandler < mod.tx_linkhandler
+  }
+}
+  // RTE.default.tx_linkhandler
+
+  
+  // TCEMAIN.permissions
 TCEMAIN {
   permissions {
     // ' . $groupUid . ': ' . $groupTitle . '
@@ -846,10 +882,12 @@ TCEMAIN {
     group   = show,edit,delete,new,editcontent
   }
 }
+  // TCEMAIN.permissions
 
 // ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' ) . ' -- END
 
 ';
+    $records[$uid]['TSconfig'] = $this->zz_replacePageUids( $records[$uid]['TSconfig'] );
 
     return $records;
   }
@@ -1209,6 +1247,32 @@ TCEMAIN {
                   . $this->pObj->powermailPageOrgCaddy->getValue( $label );
 
     return $powermailUid;
+  }
+
+/**
+ * zz_replacePageUids( )
+ *
+ * @param       string          $content
+ * @return	string		$content
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function zz_replacePageUids( $content )
+  {
+    $needle   = array( );
+    $replace  = array( );
+    
+    foreach( ( array ) $this->pObj->arr_pageUids as $page => $uid )
+    {
+      $needle[ ]  = '%' . $page . '%';
+      $replace[ ] = $uid;
+    }
+    
+    $content = str_replace( $needle, $replace, $content );
+    
+
+    return $content;
   }
 
 }

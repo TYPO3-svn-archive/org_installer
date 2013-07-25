@@ -530,79 +530,79 @@ class tx_orginstaller_pi1_pages
 
   // PID
   // [' . $pageUid . '] organiser
-  //    [%uidPageOrgDataCal%] calendar
-  //    [%uidPageOrgDataDownloads%] downloads
-  //    [%uidPageOrgDataNews%] news
-  //    [%uidPageOrgDataStaff%] staff
-  //    [%uidPageOrgDataHeadquarters%] headquarters and departments
-  //    [%uidPageOrgDataEvents%] events
-  //    [%uidPageOrgDataLocations%] locations
+  //    [%pageOrgDataCal_title%] calendar
+  //    [%pageOrgDataDownloads_title%] downloads
+  //    [%pageOrgDataNews_title%] news
+  //    [%pageOrgDataStaff_title%] staff
+  //    [%pageOrgDataHeadquarters_title%] headquarters and departments
+  //    [%pageOrgDataEvents_title%] events
+  //    [%pageOrgDataLocations_title%] locations
 
   // organiser tables
 TCEFORM {
   fe_users {
     tx_org_downloads {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataDownloads%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataDownloads%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataDownloads_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataDownloads_title%
     }
     tx_org_department {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataHeadquarters%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataHeadquarters%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
     }
     tx_org_news {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataNews%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataNews%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataNews_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
     }
     usergroup {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataStaff%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataStaff%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
     }
   }
   fe_groups {
     subgroup {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataStaff%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataStaff%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
     }
   }
   tx_org_cal_all_tables {
     fe_users {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataStaff%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataStaff%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
     }
     tx_org_cal {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataCal%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataCal%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataCal_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataCal_title%
     }
     tx_org_calentrance < .tx_org_cal
     tx_org_calspecial  < .tx_org_cal
     tx_org_caltype     < .tx_org_cal
     tx_org_department {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataHeadquarters%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataHeadquarters%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
     }
     tx_org_departmentcat < .tx_org_department
     tx_org_event {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataEvents%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataEvents%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataEvents_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataEvents_title%
     }
     tx_org_downloads {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataDownloads%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataDownloads%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataDownloads_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataDownloads_title%
     }
     tx_org_downloadscat   < .tx_org_downloads
     tx_org_downloadsmedia < .tx_org_downloads
     tx_org_headquarters {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataHeadquarters%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataHeadquarters%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
     }
     tx_org_news {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataNews%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataNews%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataNews_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
     }
     tx_org_newscat < .tx_org_news
     tx_org_location {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataLocations%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataLocations%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataLocations_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataLocations_title%
     }
   }
   tx_org_cal            < .tx_org_cal_all_tables
@@ -612,8 +612,8 @@ TCEFORM {
   tx_org_department     < .tx_org_cal_all_tables
   tx_org_department {
     manager {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%uidPageOrgDataStaff%
-      PAGE_TSCONFIG_ID      = %uidPageOrgDataStaff%
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
     }
     fe_users < .manager
   }
@@ -638,14 +638,14 @@ TCEFORM {
 
   // mod.tx_linkhandler
 mod.tx_linkhandler {
-  fe_users.onlyPids             = %uidPageOrgDataStaff%
-  tx_org_cal.onlyPids           = %uidPageOrgDataCal%
-  tx_org_department.onlyPids    = %uidPageOrgDataHeadquarters%
-  tx_org_downloads.onlyPids     = %uidPageOrgDataDownloads%
-  tx_org_event.onlyPids         = %uidPageOrgDataEvents%
-  tx_org_headquarters.onlyPids  = %uidPageOrgDataHeadquarters%
-  tx_org_location.onlyPids      = %uidPageOrgDataLocations%
-  tx_org_news.onlyPids          = %uidPageOrgDataNews%
+  fe_users.onlyPids             = %pageOrgDataStaff_title%
+  tx_org_cal.onlyPids           = %pageOrgDataCal_title%
+  tx_org_department.onlyPids    = %pageOrgDataHeadquarters_title%
+  tx_org_downloads.onlyPids     = %pageOrgDataDownloads_title%
+  tx_org_event.onlyPids         = %pageOrgDataEvents_title%
+  tx_org_headquarters.onlyPids  = %pageOrgDataHeadquarters_title%
+  tx_org_location.onlyPids      = %pageOrgDataLocations_title%
+  tx_org_news.onlyPids          = %pageOrgDataNews_title%
 }
 
   // Remove RTE default configuration

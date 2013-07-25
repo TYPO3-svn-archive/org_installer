@@ -675,7 +675,7 @@ TCEMAIN {
     $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
 
     $llHeader         = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
-    $uidForm          = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_form_title_caddyorder' );
+    $uidForm          = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_form_title_pageOrgCaddy' );
     $receiverSubject  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_r2x' );
     $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_r2x' ) );
     list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
@@ -1282,7 +1282,7 @@ page.10.subparts.menue.20 >
     $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDownloadsCaddy_header' ];
 
     $llHeader         = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_header' );
-    $uidForm          = $this->pObj->powermailPageOrgDownloadsCaddy->getValue( 'record_pm_form_title_caddyorder' );
+    $uidForm          = $this->pObj->powermailPageOrgDownloadsCaddy->getValue( 'record_pm_form_title_pageOrgDownloadsCaddy' );
     $receiverSubject  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_subject_r2x' );
     $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_body_r2x' ) );
     list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );

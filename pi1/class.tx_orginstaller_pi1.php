@@ -615,7 +615,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->powermailPageOrgCaddy->pObj = $this;
 
     $pid = $this->arr_pageUids[ 'pageOrgCaddy_title' ];
-    $this->powermailPageOrgCaddy->main( $pid );
+    $this->powermailPageOrgCaddy->main( $pid, 'pageOrgCaddy_title' );
   }
 
 /**
@@ -632,7 +632,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->powermailPageOrgDownloadsCaddy->pObj = $this;
 
     $pid = $this->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
-    $this->powermailPageOrgDownloadsCaddy->main( $pid );
+    $this->powermailPageOrgDownloadsCaddy->main( $pid, 'pageOrgDownloadsCaddy_title' );
   }
 
 /**

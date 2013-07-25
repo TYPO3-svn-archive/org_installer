@@ -122,6 +122,7 @@ class tx_orginstaller_pi1_powermail
 
   public  $pObj = null;
   private $pid  = null;
+  private $page = null;
 
   private $arr_recordUids   = null;
   private $fieldsLabelTable = null;
@@ -150,7 +151,7 @@ class tx_orginstaller_pi1_powermail
  * @version 3.0.0
  * @since   0.0.1
  */
-  public function main( $pid )
+  public function main( $pid, $page )
   {
     if( ( ( int ) $pid ) < 1 )
     {
@@ -1747,7 +1748,21 @@ class tx_orginstaller_pi1_powermail
  */
   private function fieldsetsSetValuesByVersion2x( )
   {
-    $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
+    switch( $this->page )
+    {
+      case( 'pageOrgCaddy_title' ):
+        $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_pageOrgCaddy' ];
+        break;
+      case( 'pageOrgDownloadsCaddy_title' ):
+        $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_pageOrgDownloadsCaddy' ];
+        break;
+      default:
+        $prompt = 'ERROR: undefined value in switch<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
   }
 
 
@@ -1771,8 +1786,23 @@ class tx_orginstaller_pi1_powermail
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_caddyorder' );
-    $this->arr_recordUids[ 'record_pm_form_title_caddyorder' ] = $uid;
+    switch( $this->page )
+    {
+      case( 'pageOrgCaddy_title' ):
+        $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_pageOrgCaddy' );
+        $this->arr_recordUids[ 'record_pm_form_title_pageOrgCaddy' ] = $uid;
+        break;
+      case( 'pageOrgDownloadsCaddy_title' ):
+        $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_pageOrgDownloadsCaddy' );
+        $this->arr_recordUids[ 'record_pm_form_title_pageOrgDownloadsCaddy' ] = $uid;
+        break;
+      default:
+        $prompt = 'ERROR: undefined value in switch<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
     $record['uid']        = $uid;
     $record['pid']        = $this->pid;

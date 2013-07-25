@@ -110,6 +110,7 @@ class tx_orginstaller_pi1_consolidate
 
     $this->pageOrg( );
     $this->pageOrgCaddy( );
+    $this->pageOrgData( );
   }
 
 
@@ -119,6 +120,219 @@ class tx_orginstaller_pi1_consolidate
   * pages
   *
   **********************************************/
+
+/**
+ * pageOrg( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrg( )
+  {
+    $records    = array( );
+    $timestamp  = time();
+    $pageTitle  = $GLOBALS['TSFE']->page['title'];
+
+      // Update page properties
+    $records = $this->pageOrg_properties( );
+    $this->sqlUpdatePages( $records, $pageTitle );
+
+      // Copy header image
+    $this->pageOrg_fileCopy( $timestamp );
+
+      // Hide the installer plugin
+    $records  = $this->pageOrg_pluginInstallHide( );
+    $this->sqlUpdatePlugin( $records, $pageTitle );
+
+      // Hide the TypoScript template
+    $this->pageOrg_typoscriptOtherHide( );
+    $this->sqlUpdateTyposcriptOtherHide( );
+  }
+
+/**
+ * pageOrg_fileCopy( )
+ *
+ * @param	integer		$timestamp  : current time
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrg_fileCopy( $timestamp )
+  {
+    unset( $timestamp );
+//      // Files
+//    $str_fileSrce = 'quick_shop_header_image_210px.jpg';
+//    $str_fileDest = 'typo3_org_' . $timestamp . '.jpg';
+//
+//      // Paths
+//    //$str_pathSrceAbs  = t3lib_extMgm::extPath( 'quick_shop' ) . 'res/images/';
+//    $str_pathSrce     = t3lib_extMgm::siteRelPath( 'quick_shop' ) . 'res/images/';
+//    $str_pathDest     = 'uploads/media/';
+//
+////    if( ! file_exists( $str_pathSrceAbs . $str_fileSrce ) )
+////    {
+////var_dump( __METHOD__, __LINE__, $str_pathSrceAbs . $str_fileSrce, 0 );
+////    }
+//      // Copy
+//    $success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
+////var_dump( __METHOD__, __LINE__, $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest, $success );
+//      // SWICTH : prompt depending on success
+//    switch( $success )
+//    {
+//      case( false ):
+//        $this->pObj->markerArray['###SRCE###'] = $str_pathSrce . $str_fileSrce;
+//        $this->pObj->markerArray['###DEST###'] = $str_pathDest . $str_fileDest;
+//        $prompt = '
+//          <p>
+//            '.$this->pObj->arr_icons['warn'].' '.$this->pObj->pi_getLL('files_create_prompt_error').'
+//          </p>';
+//        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
+//        $this->pObj->arrReport[ ] = $prompt;
+//        break;
+//      case( true ):
+//      default:
+//        $this->pObj->markerArray['###DEST###'] = $str_fileDest;
+//        $this->pObj->markerArray['###PATH###'] = $str_pathDest;
+//        $prompt = '
+//          <p>
+//            '.$this->pObj->arr_icons['ok'].' '.$this->pObj->pi_getLL('files_create_prompt').'
+//          </p>';
+//        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
+//        $this->pObj->arrReport[ ] = $prompt;
+//        break;
+//    }
+//      // SWICTH : prompt depending on success
+  }
+
+/**
+ * pageOrg_pluginInstallHide( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrg_pluginInstallHide( )
+  {
+    $records = null;
+
+    $uid    = $this->pObj->cObj->data['uid'];
+    $header = $this->pObj->cObj->data['header'];
+
+    $records[$uid]['header'] = $header;
+    $records[$uid]['hidden'] = 1;
+
+    return $records;
+  }
+
+/**
+ * pageOrg_properties( )
+ *
+ * @return	array		$records    : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrg_properties( )
+  {
+    $records = null;
+
+    $uid          = $GLOBALS['TSFE']->id;
+    $is_siteroot  = null;
+    $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
+    $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
+
+      // SWITCH : siteroot depends on toplevel
+    switch( $this->pObj->bool_topLevel )
+    {
+      case( true ):
+        $is_siteroot = 1;
+        break;
+      case( false ):
+      default:
+        $is_siteroot = 0;
+        break;
+    }
+      // SWITCH : siteroot depends on toplevel
+
+    $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageOrg_title' );
+    $records[$uid]['nav_hide']    = 1;
+    $records[$uid]['is_siteroot'] = $is_siteroot;
+    $records[$uid]['module']      = null;
+    $records[$uid]['TSconfig']    = '
+
+// ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' ) . ' -- BEGIN
+
+  /////////////////////////////////////
+  //
+  // INDEX
+  //
+  // mod.tx_linkhandler
+  // RTE.default.tx_linkhandler
+  // TCEMAIN.permissions
+
+
+  // mod.tx_linkhandler
+mod {
+  tx_linkhandler {
+    fe_users.onlyPids             = %pageOrgDataStaff_title%
+    tx_org_cal.onlyPids           = %pageOrgDataCal_title%
+    tx_org_department.onlyPids    = %pageOrgDataHeadquarters_title%
+    tx_org_downloads.onlyPids     = %pageOrgDataDownloads_title%
+    tx_org_event.onlyPids         = %pageOrgDataEvents_title%
+    tx_org_headquarters.onlyPids  = %pageOrgDataHeadquarters_title%
+    tx_org_location.onlyPids      = %pageOrgDataLocations_title%
+    tx_org_news.onlyPids          = %pageOrgDataNews_title%
+  }
+}
+  // mod.tx_linkhandler
+
+
+  // RTE.default.tx_linkhandler
+RTE {
+  default {
+      // Remove RTE default configuration
+    tx_linkhandler >
+      // Copy configuration from mod to RTE
+    tx_linkhandler < mod.tx_linkhandler
+  }
+}
+  // RTE.default.tx_linkhandler
+
+  
+  // TCEMAIN.permissions
+TCEMAIN {
+  permissions {
+    // ' . $groupUid . ': ' . $groupTitle . '
+    groupid = ' . $groupUid . '
+    group   = show,edit,delete,new,editcontent
+  }
+}
+  // TCEMAIN.permissions
+
+// ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' ) . ' -- END
+
+';
+    $records[$uid]['TSconfig'] = $this->zz_replacePageUids( $records[$uid]['TSconfig'] );
+
+    return $records;
+  }
+
+/**
+ * pageOrg_typoscriptOtherHide( )
+ *
+ * @return	array		$record : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrg_typoscriptOtherHide( )
+  {
+    // Do nothing
+  }
 
 /**
  * pageOrgCaddy( )
@@ -565,6 +779,8 @@ class tx_orginstaller_pi1_consolidate
         die( $prompt );
         break;
     }
+    
+    unset( $pmX );
 
     return $records;
   }
@@ -694,215 +910,230 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageOrg( )
+ * pageOrgData( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageOrg( )
+  private function pageOrgData( )
   {
     $records    = array( );
-    $timestamp  = time();
-    $pageTitle  = $GLOBALS['TSFE']->page['title'];
+    $pageUid    = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $pageTitle  = $this->pObj->arr_pageTitles[ $pageUid ];
 
       // Update page properties
-    $records = $this->pageOrg_properties( );
+    $records = $this->pageOrgData_properties( );
     $this->sqlUpdatePages( $records, $pageTitle );
 
-      // Copy header image
-    $this->pageOrg_fileCopy( $timestamp );
-
-      // Hide the installer plugin
-    $records  = $this->pageOrg_pluginInstallHide( );
-    $this->sqlUpdatePlugin( $records, $pageTitle );
-
-      // Hide the TypoScript template
-    $this->pageOrg_typoscriptOtherHide( );
-    $this->sqlUpdateTyposcriptOtherHide( );
   }
 
 /**
- * pageOrg_fileCopy( )
- *
- * @param	integer		$timestamp  : current time
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrg_fileCopy( $timestamp )
-  {
-//      // Files
-//    $str_fileSrce = 'quick_shop_header_image_210px.jpg';
-//    $str_fileDest = 'typo3_org_' . $timestamp . '.jpg';
-//
-//      // Paths
-//    //$str_pathSrceAbs  = t3lib_extMgm::extPath( 'quick_shop' ) . 'res/images/';
-//    $str_pathSrce     = t3lib_extMgm::siteRelPath( 'quick_shop' ) . 'res/images/';
-//    $str_pathDest     = 'uploads/media/';
-//
-////    if( ! file_exists( $str_pathSrceAbs . $str_fileSrce ) )
-////    {
-////var_dump( __METHOD__, __LINE__, $str_pathSrceAbs . $str_fileSrce, 0 );
-////    }
-//      // Copy
-//    $success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
-////var_dump( __METHOD__, __LINE__, $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest, $success );
-//      // SWICTH : prompt depending on success
-//    switch( $success )
-//    {
-//      case( false ):
-//        $this->pObj->markerArray['###SRCE###'] = $str_pathSrce . $str_fileSrce;
-//        $this->pObj->markerArray['###DEST###'] = $str_pathDest . $str_fileDest;
-//        $prompt = '
-//          <p>
-//            '.$this->pObj->arr_icons['warn'].' '.$this->pObj->pi_getLL('files_create_prompt_error').'
-//          </p>';
-//        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-//        $this->pObj->arrReport[ ] = $prompt;
-//        break;
-//      case( true ):
-//      default:
-//        $this->pObj->markerArray['###DEST###'] = $str_fileDest;
-//        $this->pObj->markerArray['###PATH###'] = $str_pathDest;
-//        $prompt = '
-//          <p>
-//            '.$this->pObj->arr_icons['ok'].' '.$this->pObj->pi_getLL('files_create_prompt').'
-//          </p>';
-//        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-//        $this->pObj->arrReport[ ] = $prompt;
-//        break;
-//    }
-//      // SWICTH : prompt depending on success
-  }
-
-/**
- * pageOrg_pluginInstallHide( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrg_pluginInstallHide( )
-  {
-    $records = null;
-
-    $uid    = $this->pObj->cObj->data['uid'];
-    $header = $this->pObj->cObj->data['header'];
-
-    $records[$uid]['header'] = $header;
-    $records[$uid]['hidden'] = 1;
-
-    return $records;
-  }
-
-/**
- * pageOrg_properties( )
+ * pageOrgData_properties( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageOrg_properties( )
+  private function pageOrgData_properties( )
   {
     $records = null;
 
-    $uid          = $GLOBALS['TSFE']->id;
-    $is_siteroot  = null;
+    $uid          = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
     $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
     $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
+   
+    $dateHumanReadable  = date('Y-m-d G:i:s');
 
-      // SWITCH : siteroot depends on toplevel
-    switch( $this->pObj->bool_topLevel )
-    {
-      case( true ):
-        $is_siteroot = 1;
-        break;
-      case( false ):
-      default:
-        $is_siteroot = 0;
-        break;
-    }
-      // SWITCH : siteroot depends on toplevel
-
-    $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageOrg_title' );
-    $records[$uid]['nav_hide']    = 1;
-    $records[$uid]['is_siteroot'] = $is_siteroot;
-    $records[$uid]['module']      = null;
     $records[$uid]['TSconfig']    = '
 
-// ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' ) . ' -- BEGIN
+// Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
+
+
+
+  ///////////////////////////
+  //
+  // INDEX
+
+  // TCEFORM
+  //    organiser tables
+  // LINKHANDLER
+  //    mod.tx_linkhandler
+  //    RTE.default.tx_linkhandler
+  // TCEMAIN
+  //    clearCacheCmd
+  //    permissions
+  // MOD
+  //    web_layout
+
+
+
+  // PID
+  // [' . $pageUid . '] organiser
+  //    [%pageOrgDataCal_title%] calendar
+  //    [%pageOrgDataDownloads_title%] downloads
+  //    [%pageOrgDataNews_title%] news
+  //    [%pageOrgDataStaff_title%] staff
+  //    [%pageOrgDataHeadquarters_title%] headquarters and departments
+  //    [%pageOrgDataEvents_title%] events
+  //    [%pageOrgDataLocations_title%] locations
+
+  // organiser tables
+TCEFORM {
+  fe_users {
+    tx_org_downloads {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataDownloads_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataDownloads_title%
+    }
+    tx_org_department {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
+    }
+    tx_org_news {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataNews_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
+    }
+    usergroup {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
+    }
+  }
+  fe_groups {
+    subgroup {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
+    }
+  }
+  tx_org_cal_all_tables {
+    fe_users {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
+    }
+    tx_org_cal {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataCal_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataCal_title%
+    }
+    tx_org_calentrance < .tx_org_cal
+    tx_org_calspecial  < .tx_org_cal
+    tx_org_caltype     < .tx_org_cal
+    tx_org_department {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
+    }
+    tx_org_departmentcat < .tx_org_department
+    tx_org_event {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataEvents_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataEvents_title%
+    }
+    tx_org_downloads {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataDownloads_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataDownloads_title%
+    }
+    tx_org_downloadscat   < .tx_org_downloads
+    tx_org_downloadsmedia < .tx_org_downloads
+    tx_org_headquarters {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
+    }
+    tx_org_news {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataNews_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
+    }
+    tx_org_newscat < .tx_org_news
+    tx_org_location {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataLocations_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataLocations_title%
+    }
+  }
+  tx_org_cal            < .tx_org_cal_all_tables
+  tx_org_calentrance    < .tx_org_cal_all_tables
+  tx_org_calspecial     < .tx_org_cal_all_tables
+  tx_org_caltype        < .tx_org_cal_all_tables
+  tx_org_department     < .tx_org_cal_all_tables
+  tx_org_department {
+    manager {
+      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
+    }
+    fe_users < .manager
+  }
+  tx_org_downloads      < .tx_org_cal_all_tables
+  tx_org_downloadscat   < .tx_org_cal_all_tables
+  tx_org_downloadsmedia < .tx_org_cal_all_tables
+  tx_org_event          < .tx_org_cal_all_tables
+  tx_org_headquarters   < .tx_org_cal_all_tables
+  tx_org_location       < .tx_org_cal_all_tables
+  tx_org_news           < .tx_org_cal_all_tables
+  tx_org_newscat        < .tx_org_cal_all_tables
+}
+  // organiser tables
+  // TCEFORM
+
+
+
 
   /////////////////////////////////////
   //
-  // INDEX
+  // LINKHANDLER
+
+  // mod.tx_linkhandler
+mod.tx_linkhandler {
+  fe_users.onlyPids             = %pageOrgDataStaff_title%
+  tx_org_cal.onlyPids           = %pageOrgDataCal_title%
+  tx_org_department.onlyPids    = %pageOrgDataHeadquarters_title%
+  tx_org_downloads.onlyPids     = %pageOrgDataDownloads_title%
+  tx_org_event.onlyPids         = %pageOrgDataEvents_title%
+  tx_org_headquarters.onlyPids  = %pageOrgDataHeadquarters_title%
+  tx_org_location.onlyPids      = %pageOrgDataLocations_title%
+  tx_org_news.onlyPids          = %pageOrgDataNews_title%
+}
+
+  // Remove RTE default configuration
+RTE.default.tx_linkhandler >
+  // Copy configuration from mod to RTE
+RTE.default.tx_linkhandler < mod.tx_linkhandler
+
+  // LINKHANDLER
+
+
+
+  ////////////////////////////////////////////////////////////////////////
   //
-  // mod.tx_linkhandler
-  // RTE.default.tx_linkhandler
-  // TCEMAIN.permissions
+  // TCEMAIN
 
-
-  // mod.tx_linkhandler
-mod {
-  tx_linkhandler {
-    fe_users.onlyPids             = %pageOrgDataStaff_title%
-    tx_org_cal.onlyPids           = %pageOrgDataCal_title%
-    tx_org_department.onlyPids    = %pageOrgDataHeadquarters_title%
-    tx_org_downloads.onlyPids     = %pageOrgDataDownloads_title%
-    tx_org_event.onlyPids         = %pageOrgDataEvents_title%
-    tx_org_headquarters.onlyPids  = %pageOrgDataHeadquarters_title%
-    tx_org_location.onlyPids      = %pageOrgDataLocations_title%
-    tx_org_news.onlyPids          = %pageOrgDataNews_title%
-  }
-}
-  // mod.tx_linkhandler
-
-
-  // RTE.default.tx_linkhandler
-RTE {
-  default {
-      // Remove RTE default configuration
-    tx_linkhandler >
-      // Copy configuration from mod to RTE
-    tx_linkhandler < mod.tx_linkhandler
-  }
-}
-  // RTE.default.tx_linkhandler
-
-  
-  // TCEMAIN.permissions
 TCEMAIN {
+  clearCacheCmd = pages
   permissions {
     // ' . $groupUid . ': ' . $groupTitle . '
     groupid = ' . $groupUid . '
     group   = show,edit,delete,new,editcontent
   }
 }
-  // TCEMAIN.permissions
+  // TCEMAIN
 
-// ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' ) . ' -- END
+
+
+  ///////////////////////////
+  //
+  // MOD
+
+mod {
+  web_list {
+      // Deny all tables!
+    allowedNewTables = xxx
+  }
+}
+  // MOD
+
+
+// Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 ';
     $records[$uid]['TSconfig'] = $this->zz_replacePageUids( $records[$uid]['TSconfig'] );
 
     return $records;
-  }
-
-/**
- * pageOrg_typoscriptOtherHide( )
- *
- * @return	array		$record : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrg_typoscriptOtherHide( )
-  {
-    // Do nothing
   }
 
 

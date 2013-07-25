@@ -95,9 +95,9 @@
  * 2142:     private function recordStaffGroupSociety( $uid )
  * 2169:     private function recordStaffGroupTYPO3( $uid )
  * 2195:     private function recordStaffUser( )
- * 2222:     private function recordStaffUserObama( $uid )
- * 2270:     private function recordStaffUserSchaffstein( $uid )
- * 2318:     private function recordStaffUserWildt( $uid )
+ * 2222:     private function recordStaffUserBobama( $uid )
+ * 2270:     private function recordStaffUserSschaffstein( $uid )
+ * 2318:     private function recordStaffUserDwildt( $uid )
  *
  *              SECTION: Relations
  * 2374:     private function relationBasecapBlueBlue( $sorting )
@@ -2439,19 +2439,19 @@ class tx_orginstaller_pi1_org
     $uid      = $this->pObj->zz_getMaxDbUid( $table );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->recordStaffUserObama( $uid );
+    $records[$uid] = $this->recordStaffUserBobama( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->recordStaffUserSchaffstein( $uid );
+    $records[$uid] = $this->recordStaffUserSschaffstein( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->recordStaffUserWildt( $uid );
+    $records[$uid] = $this->recordStaffUserDwildt( $uid );
 
     $this->sqlInsert( $records, $table );
   }
 
 /**
- * recordStaffUserObama( )
+ * recordStaffUserBobama( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -2459,7 +2459,7 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function recordStaffUserObama( $uid )
+  private function recordStaffUserBobama( $uid )
   {
     $record = array( );
 
@@ -2499,7 +2499,7 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * recordStaffUserSchaffstein( )
+ * recordStaffUserDwildt( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -2507,55 +2507,7 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function recordStaffUserSchaffstein( $uid )
-  {
-    $record = array( );
-
-    $llLabel = 'record_fe_users_sschaffstein_name';
-    $llTitle = $this->pObj->pi_getLL( $llLabel );
-    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
-
-    $llLabel  = 'record_fe_users_sschaffstein_image';
-    $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-
-    $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
-    $typo3      = $this->pObj->arr_recordUids[ 'record_fe_groups_title_typo3' ];
-    $usergroup  = $society . ', ' . $typo3;
-
-    $record['uid']                  = $uid;
-    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
-    $record['tstamp']               = time( );
-    $record['crdate']               = time( );
-    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
-    $record['usergroup']            = $usergroup;
-    $record['username']             = $this->pObj->pi_getLL('record_fe_users_sschaffstein_username');
-    $record['name']                 = $llTitle;
-    $record['first_name']           = $this->pObj->pi_getLL('record_fe_users_sschaffstein_first_name');
-    $record['last_name']            = $this->pObj->pi_getLL('record_fe_users_sschaffstein_last_name');
-    $record['password']             = $this->zz_getPassword();
-    $record['telephone']            = $this->pObj->pi_getLL('record_fe_users_sschaffstein_telephone');
-    $record['email']                = $this->pObj->pi_getLL('record_fe_users_sschaffstein_email');
-    $record['www']                  = $this->pObj->pi_getLL('record_fe_users_sschaffstein_www');
-    $record['image']                = $llImageWiTimestamp;
-    $record['tx_org_imagecaption']  = $this->pObj->pi_getLL('record_fe_users_sschaffstein_tx_org_imagecaption');
-    $record['tx_org_imageseo']      = $this->pObj->pi_getLL('record_fe_users_sschaffstein_tx_org_imageseo');
-    $record['tx_org_vita']          = $this->pObj->pi_getLL('record_fe_users_sschaffstein_tx_org_vita');
-
-    return $record;
-  }
-
-/**
- * recordStaffUserWildt( )
- *
- * @param	integer		$uid      : uid of the current fieldset
- * @return	array		$record   : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function recordStaffUserWildt( $uid )
+  private function recordStaffUserDwildt( $uid )
   {
     $record = array( );
 
@@ -2594,6 +2546,54 @@ class tx_orginstaller_pi1_org
     return $record;
   }
 
+/**
+ * recordStaffUserSschaffstein( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function recordStaffUserSschaffstein( $uid )
+  {
+    $record = array( );
+
+    $llLabel = 'record_fe_users_sschaffstein_name';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_fe_users_sschaffstein_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+
+    $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
+    $typo3      = $this->pObj->arr_recordUids[ 'record_fe_groups_title_typo3' ];
+    $usergroup  = $society . ', ' . $typo3;
+
+    $record['uid']                  = $uid;
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ];
+    $record['tstamp']               = time( );
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['usergroup']            = $usergroup;
+    $record['username']             = $this->pObj->pi_getLL('record_fe_users_sschaffstein_username');
+    $record['name']                 = $llTitle;
+    $record['first_name']           = $this->pObj->pi_getLL('record_fe_users_sschaffstein_first_name');
+    $record['last_name']            = $this->pObj->pi_getLL('record_fe_users_sschaffstein_last_name');
+    $record['password']             = $this->zz_getPassword();
+    $record['telephone']            = $this->pObj->pi_getLL('record_fe_users_sschaffstein_telephone');
+    $record['email']                = $this->pObj->pi_getLL('record_fe_users_sschaffstein_email');
+    $record['www']                  = $this->pObj->pi_getLL('record_fe_users_sschaffstein_www');
+    $record['image']                = $llImageWiTimestamp;
+    $record['tx_org_imagecaption']  = $this->pObj->pi_getLL('record_fe_users_sschaffstein_tx_org_imagecaption');
+    $record['tx_org_imageseo']      = $this->pObj->pi_getLL('record_fe_users_sschaffstein_tx_org_imageseo');
+    $record['tx_org_vita']          = $this->pObj->pi_getLL('record_fe_users_sschaffstein_tx_org_vita');
+
+    return $record;
+  }
+
 
 
  /***********************************************
@@ -2623,6 +2623,7 @@ class tx_orginstaller_pi1_org
     $this->relationDownloads2Downloadsmedia( );
     $this->relationHeadquarters2Departments( );
     $this->relationHeadquarters2Headquarterscat( );
+    $this->relationHeadquarters2Staff( );
     $this->relationNews2Newscat( );
     $this->relationStaff2News( );
   }
@@ -3141,9 +3142,9 @@ class tx_orginstaller_pi1_org
 
     $records = array
               (
-                $this->relationDepartment2StaffNetzmacherWildt( ),
-                $this->relationDepartment2StaffPresidentObama( ),
-                $this->relationDepartment2StaffT3PressSchaffstein( )
+                $this->relationDepartment2StaffNetzmacherDwildt( ),
+                $this->relationDepartment2StaffPresidentBobama( ),
+                $this->relationDepartment2StaffT3PressSschaffstein( )
               );
 
     $this->sqlInsert( $records, $table );
@@ -3151,14 +3152,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * relationDepartment2StaffNetzmacherWildt( )
+ * relationDepartment2StaffNetzmacherDwildt( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationDepartment2StaffNetzmacherWildt( )
+  private function relationDepartment2StaffNetzmacherDwildt( )
   {
     $record = array
               ( 
@@ -3170,14 +3171,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * relationDepartment2StaffPresidentObama( )
+ * relationDepartment2StaffPresidentBobama( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationDepartment2StaffPresidentObama( )
+  private function relationDepartment2StaffPresidentBobama( )
   {
     $record = array
               ( 
@@ -3189,14 +3190,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * relationDepartment2StaffT3PressSchaffstein( )
+ * relationDepartment2StaffT3PressSschaffstein( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationDepartment2StaffT3PressSchaffstein( )
+  private function relationDepartment2StaffT3PressSschaffstein( )
   {
     $record = array
               ( 
@@ -3727,6 +3728,86 @@ class tx_orginstaller_pi1_org
   }
 
 /**
+ * relationHeadquarters2Staff( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2Staff( )
+  {
+    $table = 'tx_org_headquarters_mm_fe_users';
+
+    $records = array
+              (
+                $this->relationHeadquarters2StaffNetzmacherDwildt( ),
+                $this->relationHeadquarters2StaffPresidentBobama( ),
+                $this->relationHeadquarters2StaffTYPO3Sschaffstein( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationHeadquarters2StaffNetzmacherDwildt( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2StaffNetzmacherDwildt( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_netzmacher_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_dwildt_name' ]
+              );
+
+    return $record;
+  }
+
+/**
+ * relationHeadquarters2StaffPresidentBobama( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2StaffPresidentBobama( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_president_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_bobama_name' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationHeadquarters2StaffTYPO3Sschaffstein( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2StaffTYPO3Sschaffstein( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_typo3_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_sschaffstein_name' ],
+              );
+
+    return $record;
+  }
+
+/**
  * relationNews2Newscat( )
  *
  * @return	void
@@ -3821,7 +3902,7 @@ class tx_orginstaller_pi1_org
     $records = array
               (
                 $this->relationStaff2NewsPresidentPresident( ),
-                $this->relationStaff2NewsSchaffsteinFlow( )
+                $this->relationStaff2NewsSschaffsteinFlow( )
               );
 
     $this->sqlInsert( $records, $table );
@@ -3848,14 +3929,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * relationStaff2NewsSchaffsteinFlow( )
+ * relationStaff2NewsSschaffsteinFlow( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationStaff2NewsSchaffsteinFlow( )
+  private function relationStaff2NewsSschaffsteinFlow( )
   {
     $record = array
               ( 

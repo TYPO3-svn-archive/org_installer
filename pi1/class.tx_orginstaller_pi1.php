@@ -285,7 +285,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
       $this->arrReport[] = '
         '.$this->arr_icons['info'].$this->pi_getLL('confirm_prompt_createTs').'<br />
         '.$this->arr_icons['info'].$this->pi_getLL('confirm_prompt_createPowermail').'<br />
-        '.$this->arr_icons['info'].$this->pi_getLL('confirm_prompt_createProducts').'<br />
+        '.$this->arr_icons['info'].$this->pi_getLL('confirm_prompt_createRecords').'<br />
         '.$this->arr_icons['info'].$this->pi_getLL('confirm_prompt_createFiles').'<br />
         '.$this->arr_icons['info'].$this->pi_getLL('confirm_prompt_createContent').'<br />
         '.$this->arr_icons['info'].$this->pi_getLL('confirm_prompt_consolidate').'<br />

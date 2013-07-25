@@ -15,8 +15,8 @@
       <label index="confirm_prompt_createTs">Create TypoScript for the browser, caddy and powermail</label>
       <label index="confirm_prompt_createPlugins">Create the plugins browser, caddy and powermail</label>
       <label index="confirm_prompt_createPowermail">Create configuration records for powermail</label>
-      <label index="confirm_prompt_createProducts">Create six example items</label>
-      <label index="confirm_prompt_createFiles">Create product images</label>
+      <label index="confirm_prompt_createRecords">Create records</label>
+      <label index="confirm_prompt_createFiles">Create files and images</label>
       <label index="confirm_prompt_createContent">Create page content</label>
       <label index="confirm_prompt_consolidate">Consolidating</label>
       <label index="confirm_button">Install it!</label>
@@ -877,8 +877,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="confirm_prompt_createTs">TypoScript für Browser, Caddy und Powermail erstellen.</label>
       <label index="confirm_prompt_createPlugins">Plugins Browser, Caddy und Powermail erstellen.</label>
       <label index="confirm_prompt_createPowermail">Konfiguriere Powermail</label>
-      <label index="confirm_prompt_createProducts">Erstelle sechs Beispielprodukte</label>
-      <label index="confirm_prompt_createFiles">Erstelle die Produkt-Bilder</label>
+      <label index="confirm_prompt_createRecords">Erstelle Datensätze</label>
+      <label index="confirm_prompt_createFiles">Erstelle Dateien und Bilder</label>
       <label index="confirm_prompt_createContent">Erstelle Seiteninhalte</label>
       <label index="confirm_prompt_consolidate">Daten konsolidieren</label>
       <label index="confirm_button">Installieren</label>

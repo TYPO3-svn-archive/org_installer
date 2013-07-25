@@ -2950,6 +2950,66 @@ class tx_orginstaller_pi1_org
   }
 
 /**
+ * relationDepartment2News( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2News( )
+  {
+    $table = 'tx_org_department_mm_tx_org_news';
+
+    $records = array
+              (
+                $this->relationDepartment2NewsPresidentPresident( ),
+                $this->relationDepartment2NewsT3PressFlow( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationDepartment2NewsPresidentPresident( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2NewsPresidentPresident( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2NewsT3PressFlow( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2NewsT3PressFlow( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
+              );
+
+    return $record;
+  }
+
+/**
  * relationDepartment2Staff( )
  *
  * @return	void

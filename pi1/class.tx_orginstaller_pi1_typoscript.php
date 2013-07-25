@@ -209,8 +209,8 @@ class tx_orginstaller_pi1_typoscript
         break;
     }
     $record['includeStaticAfterBasedOn']  = 1;
-    $record['constants'] = ''.
-'
+    $record['constants'] = '
+      
   ////////////////////////////////////////////////////////
   //
   // INDEX
@@ -262,7 +262,6 @@ plugin.org {
   }
   pages {
     calendar                = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    calendar_expired        = ' . null . '
     downloads               = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ] . '
@@ -469,13 +468,40 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
         break;
     }
     $record['includeStaticAfterBasedOn']  = 1;
-    $record['constants'] = ''.
-'
+    $record['constants'] = '
+      
   ////////////////////////////////////////////////////////
   //
   // INDEX
   //
+  // plugin.baseorg
   // plugin.org
+
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.baseorg
+plugin.baseorg {
+    // for baseURL
+  host = ' . $this->pObj->markerArray['###HOST###'] . '/
+  pages {
+    root = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    root {
+      librares {
+        footer = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryFooter_title' ] . '
+        header {
+          logo    = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ] . '
+          slider  = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider_title' ] . '
+        }
+      }
+    }
+  }
+  slider {
+    colpos = 1
+  }
+}
+  // plugin.baseorg
 
 
 
@@ -494,17 +520,16 @@ plugin.org {
     staff       = ' . $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ] . '
   }
   pages {
-    caddy                   = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-    caddyCaddymini          = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . '
     calendar                = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    calendar_expired        = ' . __METHOD__ . ' #' . __LINE__ . '
     downloads               = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ] . '
-    event                   = ' . $this->pObj->arr_pageUids[ 'pageOrgEvents_title' ] . '
+    event                   = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     headquarter             = ' . $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ] . '
     location                = ' . $this->pObj->arr_pageUids[ 'pageOrgLocations_title' ] . '
     news                    = ' . $this->pObj->arr_pageUids[ 'pageOrgNews_title' ] . '
+    shopping_cart           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+    shopping_cart_downloads = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
     staff                   = ' . $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ] . '
   }
   url {

@@ -1228,8 +1228,8 @@ class tx_orginstaller_pi1_org
     $record['type']         = $this->pObj->pi_getLL('record_tx_org_cal_eggroll_type');
     $record['title']        = $llTitle;
     $record['datetime']     = $datetime;
-    $record['calurl']       = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_calurl');
-    $record['teaser_short'] = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_teaser_short');
+    $record['calurl']       = $this->pObj->pi_getLL('record_tx_org_cal_eggroll_calurl');
+    $record['teaser_short'] = $this->pObj->pi_getLL('record_tx_org_cal_eggroll_teaser_short');
 
     return $record;
   }

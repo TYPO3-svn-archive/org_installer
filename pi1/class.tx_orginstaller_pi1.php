@@ -466,10 +466,13 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->content->main( );
   }
 
-   /**
- * Shop will be installed - with or without template
+/**
+ * createFiles( ) : 
  *
  * @return	The		content that is displayed on the website
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
  */
   private function createFiles( )
   {
@@ -478,46 +481,49 @@ class tx_orginstaller_pi1 extends tslib_pibase
        '.$this->pi_getLL('files_create_header').'
       </h2>';
 
+    $this->createFilesDownloads( );
+    $this->createFilesOrg( );
+    $this->createFilesStaff( );
+    
+  }
 
+/**
+ * createFilesDownloads( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createFilesDownloads( )
+  {
+    $this->zz_copyFiles( 'res/files/tx_org_downloads/' );
+  }
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Copy product images to upload folder
+/**
+ * createFilesDownloads( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createFilesOrg( )
+  {
+    $this->zz_copyFiles( 'res/files/tx_org/' );
+  }
 
-    // General values
-    $str_pathSrce = t3lib_extMgm::siteRelPath( $this->extKey ) . 'res/images/products/';
-    $str_pathDest = 'uploads/tx_org/';
-    // General values
-
-    foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
-    {
-      $bool_success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
-      if( $bool_success )
-      {
-        $this->markerArray['###DEST###'] = $str_fileDest;
-        $this->markerArray['###PATH###'] = $str_pathDest;
-        $str_file_prompt = '
-          <p>
-            '.$this->arr_icons['ok'].' '.$this->pi_getLL('files_create_prompt').'
-          </p>';
-        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-        $this->arrReport[] = $str_file_prompt;
-      }
-      if (!$bool_success)
-      {
-        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
-        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
-        $str_file_prompt = '
-          <p>
-            '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
-          </p>';
-        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-        $this->arrReport[] = $str_file_prompt;
-      }
-    }
-    // Copy product images to upload folder
-
-    return false;
+/**
+ * createFilesStaff( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createFilesStaff( )
+  {
+    $this->zz_copyFiles( 'res/files/fe_users/' );
   }
 
 /**
@@ -1074,6 +1080,57 @@ class tx_orginstaller_pi1 extends tslib_pibase
   * ZZ
   *
   **********************************************/
+
+/**
+ * createFilesStaff( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function zz_copyFiles( $srceDir )
+  {
+
+    //////////////////////////////////////////////////////////////////////
+    //
+    // Copy product images to upload folder
+
+    // General values
+    $str_pathSrce = t3lib_extMgm::siteRelPath( $this->extKey ) . $srceDir;
+    $str_pathDest = 'uploads/tx_org/';
+    // General values
+
+    foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
+    {
+      $bool_success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
+      if( $bool_success )
+      {
+        $this->markerArray['###DEST###'] = $str_fileDest;
+        $this->markerArray['###PATH###'] = $str_pathDest;
+        $str_file_prompt = '
+          <p>
+            '.$this->arr_icons['ok'].' '.$this->pi_getLL('files_create_prompt').'
+          </p>';
+        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+        $this->arrReport[] = $str_file_prompt;
+      }
+      if (!$bool_success)
+      {
+        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
+        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
+        $str_file_prompt = '
+          <p>
+            '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
+          </p>';
+        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+        $this->arrReport[] = $str_file_prompt;
+      }
+    }
+    // Copy product images to upload folder
+
+    return;
+  }
 
 /**
  * Calculate the cHash md5 value

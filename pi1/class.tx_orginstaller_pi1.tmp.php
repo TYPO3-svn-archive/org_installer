@@ -5828,7 +5828,7 @@ TYPO3 Organiser Downloads'; // Without any space left
    * @return    void
    * @version 1.0.0
    */
-  private function createFilesFeUser()
+  private function createFilesFeUser( )
   {
     $this->arrReport[] = '
       <h2>

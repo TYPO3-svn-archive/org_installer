@@ -2621,7 +2621,7 @@ class tx_orginstaller_pi1_org
     $this->relationDepartment2Staff( );
     $this->relationDownloads2Downloadscat( );
     $this->relationDownloads2Downloadsmedia( );
-    $this->relationHeadquarters2Department( );
+    $this->relationHeadquarters2Departments( );
     $this->relationHeadquarters2Headquarterscat( );
     $this->relationNews2Newscat( );
     $this->relationStaff2News( );

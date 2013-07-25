@@ -3980,7 +3980,7 @@ class tx_orginstaller_pi1_org
                   'query: ' . $query . '.<br />' . PHP_EOL .
                   'error: ' . $error . '.<br />' . PHP_EOL .
                   'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }

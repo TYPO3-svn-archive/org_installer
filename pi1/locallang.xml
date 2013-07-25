@@ -24,6 +24,8 @@
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) in page ###TITLE_PID### is updated.</label>
       <label index="consolidate_prompt_page">Page ###TITLE_PID### (###FIELD###) is updated.</label>
       <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
+      <label index="content_create_header">Page content</label>
+      <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="content_pageOrgCaddy_header">[fade_deliveryorderaddress.jss]</label>
       <label index="content_pageOrgCaddy_bodytext"><![CDATA[
 <script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
@@ -96,28 +98,110 @@
 
 </script>
 ]]></label>
-      <label index="content_create_header">Page content</label>
-      <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
-      <label index="content_pageOrgLibraryFooter_header">[Footer]</label>
-      <label index="content_pageOrgLibraryFooter_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
-      <label index="content_pageOrgLibraryHeader_header">[Header]</label>
-      <label index="content_pageOrgLibraryHeader_bodytext">&lt;link ###PID### - internal-link "Organiser: Home"&gt;Organiser&lt;/link&gt;</label>
-      <label index="content_pageOrgLegalinfo_header">Legal info</label>
-      <label index="content_pageOrgLegalinfo_bodytext"><![CDATA[<p>Your legal info</p>
-<h2>Good to know</h2>
-<ul><li>If you provide a website without a legal info or an unproper legal info, you can get trouble with lawyers.</li><li>If you link to <a href="http://die-netzmacher.de/" title="Die Netzmacher - the developer of the Organiser" target="_blank">Die Netzmacher</a> - the developer of the Organiser -, we would be happy.</li></ul>]]></label>
+      <label index="content_pageOrgCaddyDelivery_header">Delivery</label>
+      <label index="content_pageOrgCaddyDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
+<ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
       <label index="content_pageOrgCaddyRevocation_header">Power of Revocation</label>
       <label index="content_pageOrgCaddyRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
 <h2>Good to know</h2>
 <ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
 <h2>Helpful links</h2>
 <ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
-      <label index="content_pageOrgCaddyDelivery_header">Delivery</label>
-      <label index="content_pageOrgCaddyDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
-<ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
       <label index="content_pageOrgCaddyTerms_header">Terms and conditions</label>
       <label index="content_pageOrgCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
-<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
+<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
+      <label index="content_pageOrgDownloadsCaddy_header">[fade_deliveryorderaddress.jss]</label>
+      <label index="content_pageOrgDownloadsCaddy_bodytext"><![CDATA[
+<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  /**
+   *
+   * Copyright (c) 2013 Dirk Wildt
+   * http://wildt.at.die-netzmacher.de/
+   *
+
+   * Version 0.0.3
+   *
+   * Slider for delivery address
+   */
+
+
+
+  $( document ).ready( function( )
+  {
+      // HTML unique class of the fieldset delivery address
+    var fieldset_delivery_address  = ".###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###";
+
+      // RETURN there isn't any HTML element with the defined class
+    if( ! $( fieldset_delivery_address ).length )
+    {
+      return;
+    }
+
+      // Hide all fields (divs) of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'div' )
+      .slideUp( 'fast' );
+    var bool_visible = false;
+
+      // Display the legend of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'legend' )
+      .css( "visibility", "visible" )
+      .css( "cursor", "pointer" )
+      .slideDown( 'fast' );
+
+      // Method for toogle the display of the delivery address
+      // The user has clicked on the legend
+    $( fieldset_delivery_address ).children( 'legend' ).bind(
+      'click',
+      function( e )
+      {
+          // delivery address is visible
+        if( bool_visible )
+        {
+            // Hide all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideUp( 'fast' );
+        }
+          // delivery address is visible
+          // delivery address is hidden
+        else
+        {
+            // Display all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideDown( 'fast' );
+        }
+          // delivery address is hidden
+        bool_visible = ! bool_visible;
+      }
+    );
+      // The user has clicked on the legend
+      // Method for toogle the display of the delivery address
+
+  });
+
+</script>
+]]></label>
+      <label index="content_pageOrgDownloadsCaddyDelivery_header">Delivery</label>
+      <label index="content_pageOrgDownloadsCaddyDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
+<ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
+      <label index="content_pageOrgDownloadsCaddyRevocation_header">Power of Revocation</label>
+      <label index="content_pageOrgDownloadsCaddyRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
+<h2>Good to know</h2>
+<ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
+<h2>Helpful links</h2>
+<ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
+      <label index="content_pageOrgDownloadsCaddyTerms_header">Terms and conditions</label>
+      <label index="content_pageOrgDownloadsCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
+<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
+      <label index="content_pageOrgLegalinfo_header">Legal info</label>
+      <label index="content_pageOrgLegalinfo_bodytext"><![CDATA[<p>Your legal info</p>
+<h2>Good to know</h2>
+<ul><li>If you provide a website without a legal info or an unproper legal info, you can get trouble with lawyers.</li><li>If you link to <a href="http://die-netzmacher.de/" title="Die Netzmacher - the developer of the Organiser" target="_blank">Die Netzmacher</a> - the developer of the Organiser -, we would be happy.</li></ul>]]></label>
+      <label index="content_pageOrgLibraryFooter_header">[Footer]</label>
+      <label index="content_pageOrgLibraryFooter_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
+      <label index="content_pageOrgLibraryHeader_header">[Header]</label>
+      <label index="content_pageOrgLibraryHeader_bodytext">&lt;link ###PID### - internal-link "Organiser: Home"&gt;Organiser&lt;/link&gt;</label>
       <label index="end_button">Reload this page</label>
       <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Organiser Installer, if you don't need it any longer.</label>
       <label index="end_header">Finish the installation</label>
@@ -339,14 +423,14 @@
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="plugin_help">If you want, please select the option "Installation: Organiser ..." in the TYPO3 backend plugin.</label>
-      <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Dear Quick-Shop-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+      <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Dear Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Dear Quick-Shop-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Quick-Shop.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
+      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Dear Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Quick-Shop.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_header">[Powermail for Caddy]</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r1x">New Organiser order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r2x">New Organiser order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
@@ -366,14 +450,14 @@
 <p>This is a demo shop only.</p>
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
 <p>Thanks, that you are interested in TYPO3 Organiser! {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_body_r1x"><![CDATA[<p>Dear Quick-Shop-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_body_r1x"><![CDATA[<p>Dear Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_body_r2x"><![CDATA[<p>Dear Quick-Shop-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Quick-Shop.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_body_r2x"><![CDATA[<p>Dear Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Quick-Shop.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_header">[Powermail for Caddy]</label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r1x">New Organiser order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r2x">New Organiser order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
@@ -633,9 +717,9 @@ Du kannst den Flyer herunterladen und auch ein paar Exemplare bestellen - und an
       <label index="record_tx_org_downloads_flyer2_subtitle"><![CDATA[Kurz und bündig und zum Weiterverteilen]]></label>
       <label index="record_tx_org_downloads_flyer2_datetime">1291034940</label>
       <label index="record_tx_org_downloads_flyer2_bodytext"><![CDATA[Einen Shop mit einem Klick installieren?
-Dieser Flyer stellt die Extension Organiser kurz vor.
+Dieser Flyer stellt die Extension Quick-Shop kurz vor.
 Du kannst den Flyer herunterladen und auch ein paar Exemplare bestellen - und an Deine Freunde verteilen.]]></label>
-      <label index="record_tx_org_downloads_flyer2_teasershort"><![CDATA[Dieser Flyer stellt die Extension Organiser vor: kurz und knapp. Zum Herunterladen und Bestellen. So kannst Du den Flyer persönlich an Deine Freunde verteilen.]]></label>
+      <label index="record_tx_org_downloads_flyer2_teasershort"><![CDATA[Dieser Flyer stellt die Extension Quick-Shop vor: kurz und knapp. Zum Herunterladen und Bestellen. So kannst Du den Flyer persönlich an Deine Freunde verteilen.]]></label>
       <label index="record_tx_org_downloads_flyer2_tx_org_downloadscat">1</label>
       <label index="record_tx_org_downloads_flyer2_tx_org_downloadsmedia">1</label>
       <label index="record_tx_org_downloads_flyer2_linkicon_width">40</label>
@@ -671,13 +755,13 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_downloads_manual2_thumbnail_height">600m</label>
       <label index="record_tx_org_downloads_manual2_thumbnail_width">200m</label>
       <label index="record_tx_org_downloads_manual3_type">download_shipping</label>
-      <label index="record_tx_org_downloads_manual3_title"><![CDATA[Handbuch: TYPO3-Quick-Shop]]></label>
+      <label index="record_tx_org_downloads_manual3_title"><![CDATA[Handbuch: TYPO3-Organiser]]></label>
       <label index="record_tx_org_downloads_manual3_subtitle"><![CDATA[Der schnellste Shop in der Geschichte von TYPO3]]></label>
       <label index="record_tx_org_downloads_manual3_datetime">1291033080</label>
-      <label index="record_tx_org_downloads_manual3_bodytext"><![CDATA[Organiser ist der erste Shop in der Geschichte von TYPO3, der mit einem  Klick installiert werden kann. Und es ist der erste Shop vollkommen  ohne PHP. Du kannst Organiser sofort out-of-the-box nutzen. Mehr dazu  unter <link http://typo3-quick-shop.de/handbuecher/#c484 _self internal-link "Opens internal link in current window">Organiser Installer</link>. Du kannst einen Shop wie Organiser auch selbst bauen.
+      <label index="record_tx_org_downloads_manual3_bodytext"><![CDATA[Organiser ist der erste Shop in der Geschichte von TYPO3, der mit einem  Klick installiert werden kann. Und es ist der erste Shop vollkommen  ohne PHP. Du kannst Organiser sofort out-of-the-box nutzen. Mehr dazu  unter <link http://typo3-organsier.de/handbuecher/#c484 _self internal-link "Opens internal link in current window">Organiser Installer</link>. Du kannst einen Shop wie Organiser auch selbst bauen.
 Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen.
 <h3>Links</h3>
-<ul><li>Homepage: http://typo3-quick-shop.de/</li></ul>]]></label>
+<ul><li>Homepage: http://typo3-organsier.de/</li></ul>]]></label>
       <label index="record_tx_org_downloads_manual3_teasershort"><![CDATA[Organiser ist der erste Shop in der Geschichte von TYPO3, der mit einem Klick installiert werden kann - inklusive Beispielprodukten.]]></label>
       <label index="record_tx_org_downloads_manual3_tx_org_downloadscat">1</label>
       <label index="record_tx_org_downloads_manual3_tx_org_downloadsmedia">1</label>
@@ -885,6 +969,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="confirm_prompt_createContent">Erstelle Seiteninhalte</label>
       <label index="confirm_prompt_consolidate">Daten konsolidieren</label>
       <label index="confirm_button">Installieren</label>
+      <label index="content_create_header">Seiteninhalt</label>
+      <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
       <label index="content_pageOrgCaddy_header">[fade_Lieferadresse.jss]</label>
       <label index="content_pageOrgCaddy_bodytext"><![CDATA[
 <script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
@@ -957,28 +1043,110 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 
 </script>
 ]]></label>
-      <label index="content_create_header">Seiteninhalt</label>
-      <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
-      <label index="content_pageOrgLibraryFooter_header">[Fußzeile]</label>
-      <label index="content_pageOrgLibraryFooter_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
-      <label index="content_pageOrgLibraryHeader_header">[Kopfzeile]</label>
-      <label index="content_pageOrgLibraryHeader_bodytext">&lt;link ###PID### - internal-link "Organiser: Startseite"&gt;Organiser&lt;/link&gt;</label>
-      <label index="content_pageOrgLegalinfo_header">Impressum</label>
-      <label index="content_pageOrgLegalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
-<h2>Gut zu wissen</h2>
-<ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Organiser" target="_blank">Netzmacher</a> als Entwickler des Organiser erw&auml;hnst, freuen wir uns.</li></ul>]]></label>
+      <label index="content_pageOrgCaddyDelivery_header">Versand</label>
+      <label index="content_pageOrgCaddyDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
+<ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
       <label index="content_pageOrgCaddyRevocation_header">Widerrufsrecht</label>
       <label index="content_pageOrgCaddyRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
 <ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>      
-      <label index="content_pageOrgCaddyDelivery_header">Versand</label>
-      <label index="content_pageOrgCaddyDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
-<ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
       <label index="content_pageOrgCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
       <label index="content_pageOrgCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
+      <label index="content_pageOrgDownloadsCaddy_header">[fade_Lieferadresse.jss]</label>
+      <label index="content_pageOrgDownloadsCaddy_bodytext"><![CDATA[
+<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  /**
+   *
+   * Copyright (c) 2013 Dirk Wildt
+   * http://wildt.at.die-netzmacher.de/
+   *
+
+   * Version 0.0.3
+   *
+   * Slider for delivery address
+   */
+
+
+
+  $( document ).ready( function( )
+  {
+      // HTML unique class of the fieldset delivery address
+    var fieldset_delivery_address  = ".###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###";
+
+      // RETURN there isn't any HTML element with the defined class
+    if( ! $( fieldset_delivery_address ).length )
+    {
+      return;
+    }
+
+      // Hide all fields (divs) of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'div' )
+      .slideUp( 'fast' );
+    var bool_visible = false;
+
+      // Display the legend of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'legend' )
+      .css( "visibility", "visible" )
+      .css( "cursor", "pointer" )
+      .slideDown( 'fast' );
+
+      // Method for toogle the display of the delivery address
+      // The user has clicked on the legend
+    $( fieldset_delivery_address ).children( 'legend' ).bind(
+      'click',
+      function( e )
+      {
+          // delivery address is visible
+        if( bool_visible )
+        {
+            // Hide all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideUp( 'fast' );
+        }
+          // delivery address is visible
+          // delivery address is hidden
+        else
+        {
+            // Display all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideDown( 'fast' );
+        }
+          // delivery address is hidden
+        bool_visible = ! bool_visible;
+      }
+    );
+      // The user has clicked on the legend
+      // Method for toogle the display of the delivery address
+
+  });
+
+</script>
+]]></label>
+      <label index="content_pageOrgDownloadsCaddyDelivery_header">Versand</label>
+      <label index="content_pageOrgDownloadsCaddyDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
+<ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
+      <label index="content_pageOrgDownloadsCaddyRevocation_header">Widerrufsrecht</label>
+      <label index="content_pageOrgDownloadsCaddyRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
+<h2>Gut zu wissen</h2>
+<ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
+<h2>Hilfreiche Links</h2>
+<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>      
+      <label index="content_pageOrgDownloadsCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
+      <label index="content_pageOrgDownloadsCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
+      <label index="content_pageOrgLegalinfo_header">Impressum</label>
+      <label index="content_pageOrgLegalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
+<h2>Gut zu wissen</h2>
+<ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Organiser" target="_blank">Netzmacher</a> als Entwickler des Organiser erw&auml;hnst, freuen wir uns.</li></ul>]]></label>
+      <label index="content_pageOrgLibraryFooter_header">[Fußzeile]</label>
+      <label index="content_pageOrgLibraryFooter_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
+      <label index="content_pageOrgLibraryHeader_header">[Kopfzeile]</label>
+      <label index="content_pageOrgLibraryHeader_bodytext">&lt;link ###PID### - internal-link "Organiser: Startseite"&gt;Organiser&lt;/link&gt;</label>
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
@@ -1203,61 +1371,61 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
       <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Pllugin.</label>
-      <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Lieber Quick-Shop-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+      <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Lieber Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
 ###POWERMAIL_TYPOSCRIPT_CADDY###      
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Lieber Quick-Shop-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_s1x"><![CDATA[Hallo,<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Quick-Shop interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
+      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Lieber Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_s1x"><![CDATA[Hallo,<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Quick-Shop interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_header">[Powermail für Caddy]</label>
-      <label index="pluginPowermailPageOrgCaddy_subject_r1x">Neue Quick-Shop-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="pluginPowermailPageOrgCaddy_subject_r2x">Neue Quick-Shop-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="pluginPowermailPageOrgCaddy_subject_s1x">[TEST] Deine Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="pluginPowermailPageOrgCaddy_subject_s2x">[TEST] Deine Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgCaddy_subject_r1x">Neue Organiser-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgCaddy_subject_r2x">Neue Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgCaddy_subject_s1x">[TEST] Deine Organiser-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgCaddy_subject_s2x">[TEST] Deine Organiser-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgCaddy_thanks1x"><![CDATA[<h1>Danke!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich f&uuml;r TYPO3-Organiser interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_thanks2x"><![CDATA[<h1>Danke {billingaddressfirstname} {billingaddresslastname}!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse {contactdataemail}.</p>
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich für TYPO3-Quick-Shop interessierst. 
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich für TYPO3-Organiser interessierst. 
 {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_body_r1x"><![CDATA[<p>Lieber Quick-Shop-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_body_r1x"><![CDATA[<p>Lieber Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
 ###POWERMAIL_TYPOSCRIPT_CADDY###      
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_body_r2x"><![CDATA[<p>Lieber Quick-Shop-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_body_s1x"><![CDATA[Hallo,<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Quick-Shop interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_body_r2x"><![CDATA[<p>Lieber Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_body_s1x"><![CDATA[Hallo,<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Quick-Shop interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_header">[Powermail für Caddy]</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r1x">Neue Quick-Shop-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r2x">Neue Quick-Shop-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s1x">[TEST] Deine Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s2x">[TEST] Deine Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r1x">Neue Organiser-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r2x">Neue Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s1x">[TEST] Deine Organiser-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s2x">[TEST] Deine Organiser-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_thanks1x"><![CDATA[<h1>Danke!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich f&uuml;r TYPO3-Organiser interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_thanks2x"><![CDATA[<h1>Danke {billingaddressfirstname} {billingaddresslastname}!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse {contactdataemail}.</p>
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich für TYPO3-Quick-Shop interessierst. 
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich für TYPO3-Organiser interessierst. 
 {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
       <label index="plugin_warn">Willst Du den Organiser Installer wirklich nicht benutzen?</label>
       <label index="record_create_header">Datensätze</label>

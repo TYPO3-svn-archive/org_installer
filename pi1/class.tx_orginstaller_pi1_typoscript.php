@@ -637,6 +637,13 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $this->pObj->arr_tsUids[ $title ] = $uid;
     $this->pObj->arr_tsTitles[ $uid ] = $title;
 
+    $includeStaticFile  = $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
+    $includeStaticFile  = $includeStaticFile
+                        . ','
+                        . 'EXT:caddy/static/css/green/,'
+                        . 'EXT:org/static/calendar/201/caddy/'
+                        ;
+
     $record['title']                = $llTitle;
     $record['uid']                  = $uid;
     $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
@@ -644,7 +651,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $record['sorting']              = 256;
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
-    $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
+    $record['include_static_file']  = $includeStaticFile;
       // Will handled by consolidation
 //    $record['constants']            = '
 //  /////////////////////////////////////////
@@ -690,6 +697,13 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 
     $this->pObj->arr_tsUids[ $title ] = $uid;
     $this->pObj->arr_tsTitles[ $uid ] = $title;
+    
+    $includeStaticFile  = $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
+    $includeStaticFile  = $includeStaticFile
+                        . ','
+                        . 'EXT:caddy/static/css/red/,'
+                        . 'EXT:org/static/calendar/201/caddy/'
+                        ;
 
     $record['title']                = $llTitle;
     $record['uid']                  = $uid;
@@ -698,7 +712,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $record['sorting']              = 256;
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
-    $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
+    $record['include_static_file']  = $includeStaticFile;
     $record['constants']            = '
   /////////////////////////////////////////
   //
@@ -782,7 +796,7 @@ plugin.caddy {
                   'query: ' . $query . '.<br />' . PHP_EOL .
                   'error: ' . $error . '.<br />' . PHP_EOL .
                   'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
@@ -960,8 +974,7 @@ plugin.tx_powermail {
   {
     $staticFiles  = 'EXT:powermail/static/pi1/,'
                   . 'EXT:powermail/static/css_fancy/,'
-                  . 'EXT:caddy/static/powermail/1x/,'
-                  . 'EXT:org/static/calendar/201/caddy/'
+                  . 'EXT:caddy/static/powermail/1x/'
                   ;
 
     return $staticFiles;
@@ -981,8 +994,7 @@ plugin.tx_powermail {
     $staticFiles  = 'EXT:powermail/Configuration/TypoScript/Main,'
                   . 'EXT:powermail/Configuration/TypoScript/CssFancy,'
                   . 'EXT:caddy/static/powermail/2x/,'
-                  . 'EXT:caddy/static/powermail/2x/css/,'
-                  . 'EXT:org/static/calendar/201/caddy/'
+                  . 'EXT:caddy/static/powermail/2x/css/'
                   ;
 
     return $staticFiles;

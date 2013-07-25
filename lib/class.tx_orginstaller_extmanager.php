@@ -38,14 +38,14 @@
  *
  *
  *
- *   49: class tx_org_installer_extmanager
+ *   49: class tx_orginstaller_extmanager
  *   67:     function promptQuickstart()
  *
  * TOTAL FUNCTIONS: 2
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
-class tx_org_installer_extmanager
+class tx_orginstaller_extmanager
 {
   var $int_pageUid  = null;
   var $str_llStatic = 'en';
@@ -427,9 +427,9 @@ page {
 
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/lib/class.tx_org_installer_extmanager.php'])
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/lib/class.tx_orginstaller_extmanager.php'])
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/lib/class.tx_org_installer_extmanager.php']);
+  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/lib/class.tx_orginstaller_extmanager.php']);
 }
 
 ?>

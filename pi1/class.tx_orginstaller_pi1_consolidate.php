@@ -110,6 +110,7 @@ class tx_orginstaller_pi1_consolidate
 
     $this->pageOrg( );
     $this->pageOrgCaddy( );
+    $this->pageOrgDownloadsCaddy( );
     $this->pageOrgData( );
   }
 
@@ -473,7 +474,7 @@ TCEMAIN {
             <language index="lDEF">
                 <field index="customerEmail">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_email' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_email' ) .
                     '</value>
                 </field>
                 <field index="termsMode">
@@ -494,37 +495,37 @@ TCEMAIN {
             <language index="lDEF">
                 <field index="company">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_companyBilling' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_companyBilling' ) .
                     '</value>
                 </field>
                 <field index="firstName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_firstnameBilling' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_firstnameBilling' ) .
                     '</value>
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_surnameBilling' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_surnameBilling' ) .
                     '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_streetBilling' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_streetBilling' ) .
                     '</value>
                 </field>
                 <field index="zip">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_zipBilling' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_zipBilling' ) .
                     '</value>
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_locationBilling' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_locationBilling' ) .
                     '</value>
                 </field>
                 <field index="country">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_countryBilling' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_countryBilling' ) .
                     '</value>
                 </field>
             </language>
@@ -533,37 +534,37 @@ TCEMAIN {
             <language index="lDEF">
                 <field index="company">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_companyDelivery' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_companyDelivery' ) .
                     '</value>
                 </field>
                 <field index="firstName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_firstnameDelivery' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_firstnameDelivery' ) .
                     '</value>
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_surnameDelivery' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_surnameDelivery' ) .
                     '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_streetDelivery' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_streetDelivery' ) .
                     '</value>
                 </field>
                 <field index="zip">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_zipDelivery' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_zipDelivery' ) .
                     '</value>
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_locationDelivery' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_locationDelivery' ) .
                     '</value>
                 </field>
                 <field index="country">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'record_pm_field_title_countryDelivery' ) .
+                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_countryDelivery' ) .
                     '</value>
                 </field>
             </language>
@@ -942,6 +943,613 @@ page.10.subparts.menue.20 >
   }
 
 /**
+ * pageOrgDownloadsCaddy( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgDownloadsCaddy( )
+  {
+    $records    = array( );
+    $pageTitle  = $this->pObj->pi_getLL( 'pageOrgDownloadsCaddy_title' );
+
+      // Update the jss script
+    $records    = $this->pageOrgDownloadsCaddy_contentJss( );
+    $this->sqlUpdateContent( $records, $pageTitle );
+
+      // Update the powermail plugin
+    $records    = $this->pageOrgDownloadsCaddy_pluginPowermail( );
+    $this->sqlUpdatePlugin( $records, $pageTitle );
+
+      // Update the caddy plugin
+    $records    = $this->pageOrgDownloadsCaddy_pluginCaddy( );
+    $this->sqlUpdatePlugin( $records, $pageTitle );
+
+      // Update the TypoScript
+    $records    = $this->pageOrgDownloadsCaddy_typoscriptCaddy( );
+    $this->sqlUpdateTyposcript( $records, $pageTitle );
+
+  }
+
+/**
+ * pageOrgDownloadsCaddy_contentJss( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.4
+ * @since   3.0.4
+ */
+  private function pageOrgDownloadsCaddy_contentJss( )
+  {
+    $records  = null;
+    $uid      = $this->pObj->arr_contentUids['content_pageOrgDownloadsCaddy_header'];
+
+      // values
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgDownloadsCaddy_header' );
+      // values
+
+    $pmFieldsetUid = $this->pObj->powermailPageOrgDownloadsCaddy->getValue( 'record_pm_fSets_title_deliveryAddress' );
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $pmFieldsetHtmlId = 'tx-powermail-pi1_fieldset_' . $pmFieldsetUid;
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $pmFieldsetHtmlId = 'powermail_fieldset_' . $pmFieldsetUid;
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    $jssScript = $this->pObj->pi_getLL('content_pageOrgDownloadsCaddy_bodytext');
+    $jssScript = str_replace( '###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###', $pmFieldsetHtmlId, $jssScript );
+
+
+    $records[$uid]['header']      = $llHeader;
+    $records[$uid]['bodytext']    = $jssScript;
+
+    return $records;
+  }
+
+/**
+ * pageOrgDownloadsCaddy_pluginCaddy( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgDownloadsCaddy_pluginCaddy( )
+  {
+    $records  = null;
+    $uid      = $this->pObj->arr_pluginUids[ 'pluginCaddyPageOrgDownloadsCaddy_header' ];
+    $pmX      = $this->powermailVersionAppendix( );
+
+      // values
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgDownloadsCaddy_header' );
+      // values
+
+    $records[$uid]['header']      = $llHeader;
+    $records[$uid]['pi_flexform'] = null .
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="note">
+            <language index="lDEF">
+                <field index="note">
+                    <value index="vDEF">'
+                      . $this->pObj->pi_getLL( 'pluginCaddyPageOrgDownloadsCaddy_note_' . $pmX ) .
+                    '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="origin">
+            <language index="lDEF">
+                <field index="order">
+                    <value index="vDEF">3972</value>
+                </field>
+                <field index="invoice">
+                    <value index="vDEF">83</value>
+                </field>
+                <field index="deliveryorder">
+                    <value index="vDEF">216</value>
+                </field>
+                <field index="min">
+                    <value index="vDEF">3</value>
+                </field>
+                <field index="max">
+                    <value index="vDEF">10</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="email">
+            <language index="lDEF">
+                <field index="customerEmail">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_email' ) .
+                    '</value>
+                </field>
+                <field index="termsMode">
+                    <value index="vDEF">all</value>
+                </field>
+                <field index="revocationMode">
+                    <value index="vDEF">all</value>
+                </field>
+                <field index="invoiceMode">
+                    <value index="vDEF">all</value>
+                </field>
+                <field index="deliveryorderMode">
+                    <value index="vDEF">all</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="invoice">
+            <language index="lDEF">
+                <field index="company">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_companyBilling' ) .
+                    '</value>
+                </field>
+                <field index="firstName">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_firstnameBilling' ) .
+                    '</value>
+                </field>
+                <field index="lastName">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_surnameBilling' ) .
+                    '</value>
+                </field>
+                <field index="address">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_streetBilling' ) .
+                    '</value>
+                </field>
+                <field index="zip">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_zipBilling' ) .
+                    '</value>
+                </field>
+                <field index="city">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_locationBilling' ) .
+                    '</value>
+                </field>
+                <field index="country">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_countryBilling' ) .
+                    '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="deliveryorder">
+            <language index="lDEF">
+                <field index="company">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_companyDelivery' ) .
+                    '</value>
+                </field>
+                <field index="firstName">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_firstnameDelivery' ) .
+                    '</value>
+                </field>
+                <field index="lastName">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_surnameDelivery' ) .
+                    '</value>
+                </field>
+                <field index="address">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_streetDelivery' ) .
+                    '</value>
+                </field>
+                <field index="zip">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_zipDelivery' ) .
+                    '</value>
+                </field>
+                <field index="city">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_locationDelivery' ) .
+                    '</value>
+                </field>
+                <field index="country">
+                    <value index="vDEF">'
+                      . $this->zz_getPowermailUid( 'pageOrgDownloadsCaddy_title', 'record_pm_field_title_countryDelivery' ) .
+                    '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="paths">
+            <language index="lDEF">
+                <field index="terms">
+                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                </field>
+                <field index="revocation">
+                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                </field>
+                <field index="invoice">
+                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                </field>
+                <field index="deliveryorder">
+                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>
+';
+
+    return $records;
+  }
+
+/**
+ * pageOrgDownloadsCaddy_pluginPowermail( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgDownloadsCaddy_pluginPowermail( )
+  {
+    $records  = null;
+
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $records = $this->pageOrgDownloadsCaddy_pluginPowermail1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $records = $this->pageOrgDownloadsCaddy_pluginPowermail2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $records;
+  }
+
+/**
+ * pageOrgDownloadsCaddy_pluginPowermail1x( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgDownloadsCaddy_pluginPowermail1x( )
+  {
+    $records  = null;
+    $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDownloadsCaddy_header' ];
+
+      // values
+    $llHeader       = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_header' );
+    $uidEmail       = $this->pObj->powermailPageOrgDownloadsCaddy->getValue( 'record_pm_field_title_email' );
+    $customerEmail  = 'uid' . $uidEmail;
+    $uidFirstname   = $this->pObj->powermailPageOrgDownloadsCaddy->getValue( 'record_pm_field_title_firstnameBilling' );
+    $uidSurname     = $this->pObj->powermailPageOrgDownloadsCaddy->getValue( 'record_pm_field_title_surnameBilling' );
+    $customerName   = 'uid' . $uidFirstname . ',uid' . $uidSurname;
+      // values
+
+    $records[$uid]['header']                  = $llHeader;
+    $records[$uid]['tx_powermail_sender']     = $customerEmail;
+    $records[$uid]['tx_powermail_sendername'] = $customerName;
+
+    return $records;
+  }
+
+/**
+ * pageOrgDownloadsCaddy_pluginPowermail2x( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgDownloadsCaddy_pluginPowermail2x( )
+  {
+    $records  = null;
+    $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDownloadsCaddy_header' ];
+
+    $llHeader         = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_header' );
+    $uidForm          = $this->pObj->powermailPageOrgDownloadsCaddy->getValue( 'record_pm_form_title_caddyorder' );
+    $receiverSubject  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_subject_r2x' );
+    $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_body_r2x' ) );
+    list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+    unset( $name );
+    $senderEmail      = 'noreply@' . $domain;
+    $senderSubject    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_subject_s2x' );
+    $senderBody       = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_body_s2x' ) );
+    $thxBody          = htmlspecialchars( $this->pObj->pi_getLL('pluginPowermailPageOrgDownloadsCaddy_thanks2x') );
+
+    $records[$uid]['header']      = $llHeader;
+    $records[$uid]['pi_flexform'] = null .
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="main">
+            <language index="lDEF">
+                <field index="settings.flexform.main.form">
+                    <value index="vDEF">' . $uidForm . '</value>
+                </field>
+                <field index="settings.flexform.main.confirmation">
+                    <value index="vDEF">1</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="receiver">
+            <language index="lDEF">
+                <field index="settings.flexform.receiver.name">
+                    <value index="vDEF">{billingaddressfirstname} {billingaddresslastname}</value>
+                </field>
+                <field index="settings.flexform.receiver.email">
+                    <value index="vDEF">{contactdataemail}</value>
+                </field>
+                <field index="settings.flexform.receiver.subject">
+                    <value index="vDEF">' . $receiverSubject . '</value>
+                </field>
+                <field index="settings.flexform.receiver.body">
+                    <value index="vDEF">' . $receiverBody . '</value>
+                    <value index="_TRANSFORM_vDEF.vDEFbase">' . $receiverBody . '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="sender">
+            <language index="lDEF">
+                <field index="settings.flexform.sender.name">
+                    <value index="vDEF">Organiser</value>
+                </field>
+                <field index="settings.flexform.sender.email">
+                    <value index="vDEF">' . $senderEmail . '</value>
+                </field>
+                <field index="settings.flexform.sender.subject">
+                    <value index="vDEF">' . $senderSubject . '</value>
+                </field>
+                <field index="settings.flexform.sender.body">
+                    <value index="vDEF">' . $senderBody . '</value>
+                    <value index="_TRANSFORM_vDEF.vDEFbase">' . $senderBody . '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="thx">
+            <language index="lDEF">
+                <field index="settings.flexform.thx.body">
+                    <value index="vDEF">' . $thxBody . '</value>
+                    <value index="_TRANSFORM_vDEF.vDEFbase">' . $thxBody . '</value>
+                </field>
+                <field index="settings.flexform.thx.redirect">
+                    <value index="vDEF"></value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>';
+
+    return $records;
+  }
+
+/**
+ * pageOrgDownloadsCaddy_typoscriptCaddy( )
+ *
+ * @return	array		$records    : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgDownloadsCaddy_typoscriptCaddy( )
+  {
+    $records = null;
+
+    $pmX = $this->powermailVersionAppendix( );
+    switch( true )
+    {
+      case( $pmX == '1x' ):
+        $records = $this->pageOrgDownloadsCaddy_typoscriptCaddy1x( );
+        break;
+      case( $pmX == '2x' ):
+        $records = $this->pageOrgDownloadsCaddy_typoscriptCaddy2x( );
+        break;
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is neither 1x nor 2x. Internal: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+    
+    unset( $pmX );
+
+    return $records;
+  }
+
+/**
+ * pageOrgDownloadsCaddy_typoscriptCaddy1x( )
+ *
+ * @return	array		$records    : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgDownloadsCaddy_typoscriptCaddy1x( )
+  {
+    $records = null;
+
+    $title  = 'pageOrgDownloadsCaddy_title';
+    $uid    = $this->pObj->arr_tsUids[ $title ];
+
+    $strUid = sprintf( '%03d', $uid );
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+
+    list( $noreply, $domain ) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+    $noreply                  = 'noreply@' . $domain;
+
+
+    $records[$uid]['title']     = $llTitle;
+    $records[$uid]['constants'] = '
+  /////////////////////////////////////////
+  //
+  // caddy
+
+plugin.caddy {
+  pages {
+    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
+    caddyCaddymini  = %pageOrgDownloadsCaddyCaddymini_title%
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevocation_title' ] . '
+    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyTerms_title' ] . '
+  }
+}
+  // caddy
+';
+    $records[$uid]['config']  = '
+plugin.tx_powermail_pi1 {
+  email {
+    sender_mail {
+      sender {
+        name {
+          value = Organiser
+        }
+        email {
+          value = ' . $noreply . '
+        }
+      }
+    }
+  }
+  _LOCAL_LANG {
+    default {
+      locallangmarker_confirmation_submit = Test Organiser without commitment!
+    }
+    de {
+      locallangmarker_confirmation_submit = Organiser unverbindlich testen!
+    }
+  }
+}';
+
+      // SWITCH : install case
+    switch( true )
+    {
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
+        $records[$uid]['config']  = $records[$uid]['config'] . '
+
+  // Don\'t display the mini caddy
+page.10.subparts.menue.20 >
+';
+        break;
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
+        // Do nothing
+        break;
+    }
+      // SWITCH : install case
+
+    return $records;
+  }
+
+/**
+ * pageOrgDownloadsCaddy_typoscriptCaddy2x( )
+ *
+ * @return	array		$records    : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgDownloadsCaddy_typoscriptCaddy2x( )
+  {
+    $records = null;
+
+    $title  = 'pageOrgDownloadsCaddy_title';
+    $uid    = $this->pObj->arr_tsUids[ $title ];
+
+    $strUid = sprintf( '%03d', $uid );
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+
+    $records[$uid]['title']   = $llTitle;
+    $records[$uid]['constants'] = '
+  /////////////////////////////////////////
+  //
+  // caddy
+
+plugin.caddy {
+  pages {
+    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
+    caddyCaddymini  = %pageOrgDownloadsCaddyCaddymini_title%
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevocation_title' ] . '
+    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyTerms_title' ] . '
+  }
+}
+  // caddy
+';
+    $records[$uid]['config']  = '
+plugin.tx_powermail {
+  _LOCAL_LANG {
+    default {
+        // Next button will be empty in Powermail 2.x
+      //confirmation_next = Order without commitment
+    }
+    de {
+        // Next button will be empty in Powermail 2.x
+      //confirmation_next = Unverbindlich testen
+    }
+  }
+}
+';
+
+      // SWITCH : install case
+    switch( true )
+    {
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
+        $records[$uid]['config']  = $records[$uid]['config'] . '
+
+  // Don\'t display the mini caddy
+page.10.subparts.menue.20 >
+';
+        break;
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
+        // Do nothing
+        break;
+    }
+      // SWITCH : install case
+
+
+    return $records;
+  }
+
+/**
  * pageOrgData( )
  *
  * @return	void
@@ -1214,7 +1822,7 @@ mod {
                   'query: ' . $query . '.<br />' . PHP_EOL .
                   'error: ' . $error . '.<br />' . PHP_EOL .
                   'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
@@ -1321,7 +1929,7 @@ mod {
                   'query: ' . $query . '.<br />' . PHP_EOL .
                   'error: ' . $error . '.<br />' . PHP_EOL .
                   'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
@@ -1370,7 +1978,7 @@ mod {
                   'query: ' . $query . '.<br />' . PHP_EOL .
                   'error: ' . $error . '.<br />' . PHP_EOL .
                   'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
@@ -1418,7 +2026,7 @@ mod {
                 'query: ' . $query . '.<br />' . PHP_EOL .
                 'error: ' . $error . '.<br />' . PHP_EOL .
                 'Sorry for the trouble.<br />' . PHP_EOL .
-                'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                'TYPO3-Organiser Installer<br />' . PHP_EOL .
               __METHOD__ . ' (' . __LINE__ . ')';
       die( $prompt );
     }
@@ -1449,7 +2057,7 @@ mod {
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function zz_getPowermailUid( $label )
+  private function zz_getPowermailUid( $page, $label )
   {
     $powermailUid = null;
 
@@ -1463,10 +2071,10 @@ mod {
         die( $prompt );
         break;
       case( $this->pObj->powermailVersionInt < 2000000 ):
-        $powermailUid = $this->zz_getPowermailUid1x( $label );
+        $powermailUid = $this->zz_getPowermailUid1x( $page, $label );
         break;
       case( $this->pObj->powermailVersionInt < 3000000 ):
-        $powermailUid = $this->zz_getPowermailUid2x( $label );
+        $powermailUid = $this->zz_getPowermailUid2x( $page, $label );
         break;
       case( $this->pObj->powermailVersionInt >= 3000000 ):
       default:
@@ -1490,10 +2098,21 @@ mod {
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function zz_getPowermailUid1x( $label )
+  private function zz_getPowermailUid1x( $page, $label )
   {
-    //$powermailUid = $this->pObj->arr_recordUids[ $label ];
-    $powermailUid = $this->pObj->powermailPageOrgCaddy->getValue( $label );
+    switch( $page )
+    {
+      case( 'pageOrgCaddy_title' ):
+        $powermailUid = $this->pObj->powermailPageOrgCaddy->getValue( $label );
+        break;
+      case( 'pageOrgDownloadsCaddy_title' ):
+        $powermailUid = $this->pObj->powermailPageOrgDownloadsCaddy->getValue( $label );
+        break;
+      default:
+        $prompt = __METHOD__ . ' #' . __LINE__ . ': undefined value in switch!';
+        die( $prompt );
+        break;
+    }
 
     return $powermailUid;
   }
@@ -1507,12 +2126,23 @@ mod {
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function zz_getPowermailUid2x( $label )
+  private function zz_getPowermailUid2x( $page, $label )
   {
-//    $powermailUid = 'tx_powermail_domain_model_fields_'
-//                  . $this->pObj->arr_recordUids[ $label ];
-    $powermailUid = 'tx_powermail_domain_model_fields_'
-                  . $this->pObj->powermailPageOrgCaddy->getValue( $label );
+    switch( $page )
+    {
+      case( 'pageOrgCaddy_title' ):
+        $powermailUid = 'tx_powermail_domain_model_fields_'
+                      . $this->pObj->powermailPageOrgCaddy->getValue( $label );
+        break;
+      case( 'pageOrgDownloadsCaddy_title' ):
+        $powermailUid = 'tx_powermail_domain_model_fields_'
+                      . $this->pObj->powermailPageOrgDownloadsCaddy->getValue( $label );
+        break;
+      default:
+        $prompt = __METHOD__ . ' #' . __LINE__ . ': undefined value in switch!';
+        die( $prompt );
+        break;
+    }
 
     return $powermailUid;
   }

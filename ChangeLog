@@ -31,7 +31,7 @@
 2.1.1
   2012-06-13
   * #00000: Ext-Manager reads $_POST['data']
-            Effected file: lib/class.tx_org_installer_extmanager.php
+            Effected file: lib/class.tx_orginstaller_extmanager.php
   * #00000: $ICON_TYPES -> t3lib_SpriteManager::addTcaTypeIcon( ... )
             Effected file: ext_tables.php
 

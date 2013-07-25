@@ -41,10 +41,10 @@
  *  428:     private function browserPageOrgStaff( $uid )
  *
  *              SECTION: Caddy
- *  485:     private function caddyPageOrg( $uid )
- *  518:     private function caddyPageOrgDownloads( $uid )
- *  551:     private function caddyminiPageOrgCaddy( $uid )
- *  597:     private function caddyminiPageOrgDownloadsCaddy( $uid )
+ *  485:     private function caddyPageOrgCaddy( $uid )
+ *  518:     private function caddyPageOrgDownloadsCaddy( $uid )
+ *  551:     private function caddyminiPageOrgCaddyCaddymini( $uid )
+ *  597:     private function caddyminiPageOrgDownloadsCaddyCaddymini( $uid )
  *
  *              SECTION: Powermail
  *  649:     private function powermailPageOrgCaddy( $uid )
@@ -143,16 +143,16 @@ class tx_orginstaller_pi1_plugins
     $records[$uid] = $this->browserPageOrgStaff( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyPageOrg( $uid );
+    $records[$uid] = $this->caddyPageOrgCaddy( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyminiPageOrgCaddy( $uid );
+    $records[$uid] = $this->caddyminiPageOrgCaddyCaddymini( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyPageOrgDownloads( $uid );
+    $records[$uid] = $this->caddyPageOrgDownloadsCaddy( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyminiPageOrgDownloadsCaddy( $uid );
+    $records[$uid] = $this->caddyminiPageOrgDownloadsCaddyCaddymini( $uid );
 
     $uid = $uid + 1;
     $records[$uid] = $this->powermailPageOrgCaddy( $uid );
@@ -474,7 +474,7 @@ class tx_orginstaller_pi1_plugins
   **********************************************/
 
 /**
- * caddyPageOrg( )
+ * caddyPageOrgCaddy( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -482,7 +482,7 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function caddyPageOrg( $uid )
+  private function caddyPageOrgCaddy( $uid )
   {
     $record = null;
 
@@ -507,7 +507,7 @@ class tx_orginstaller_pi1_plugins
 
 
 /**
- * caddyPageOrgDownloads( )
+ * caddyPageOrgDownloadsCaddy( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -515,7 +515,7 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function caddyPageOrgDownloads( $uid )
+  private function caddyPageOrgDownloadsCaddy( $uid )
   {
     $record = null;
 
@@ -539,7 +539,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * caddyminiPageOrgCaddy( )
+ * caddyminiPageOrgCaddyCaddymini( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -548,7 +548,7 @@ class tx_orginstaller_pi1_plugins
  * @since   3.0.5
  * @internal  #i0007
  */
-  private function caddyminiPageOrgCaddy( $uid )
+  private function caddyminiPageOrgCaddyCaddymini( $uid )
   {
     $record = null;
 
@@ -585,7 +585,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * caddyminiPageOrgDownloadsCaddy( )
+ * caddyminiPageOrgDownloadsCaddyCaddymini( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -594,7 +594,7 @@ class tx_orginstaller_pi1_plugins
  * @since   3.0.5
  * @internal  #i0007
  */
-  private function caddyminiPageOrgDownloadsCaddy( $uid )
+  private function caddyminiPageOrgDownloadsCaddyCaddymini( $uid )
   {
     $record = null;
 
@@ -923,7 +923,7 @@ class tx_orginstaller_pi1_plugins
                   'query: ' . $query . '.<br />' . PHP_EOL .
                   'error: ' . $error . '.<br />' . PHP_EOL .
                   'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }

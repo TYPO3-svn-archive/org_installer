@@ -1,4 +1,4 @@
-  # cat=basic/enable/10; type=user[EXT:org_installer/lib/class.tx_org_installer_extmanager.php:tx_org_installer_extmanager->initialPage]; label=Quick Install
+  # cat=basic/enable/10; type=user[EXT:org_installer/lib/class.tx_orginstaller_extmanager.php:tx_orginstaller_extmanager->initialPage]; label=Quick Install
 quick_install=0
 
   # cat=basic/enable/100; type=options[English,German]; label= Language:My preferred language

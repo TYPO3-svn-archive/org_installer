@@ -971,7 +971,7 @@ page.10.subparts.menue.20 >
 
 
   // PID
-  // [' . $pageUid . '] organiser
+  // [' . $uid . '] organiser
   //    [%pageOrgDataCal_title%] calendar
   //    [%pageOrgDataDownloads_title%] downloads
   //    [%pageOrgDataNews_title%] news
@@ -984,66 +984,66 @@ page.10.subparts.menue.20 >
 TCEFORM {
   fe_users {
     tx_org_downloads {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataDownloads_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataDownloads_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataDownloads_title%
     }
     tx_org_department {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
     }
     tx_org_news {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataNews_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataNews_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
     }
     usergroup {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
     }
   }
   fe_groups {
     subgroup {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
     }
   }
   tx_org_cal_all_tables {
     fe_users {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
     }
     tx_org_cal {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataCal_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataCal_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataCal_title%
     }
     tx_org_calentrance < .tx_org_cal
     tx_org_calspecial  < .tx_org_cal
     tx_org_caltype     < .tx_org_cal
     tx_org_department {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
     }
     tx_org_departmentcat < .tx_org_department
     tx_org_event {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataEvents_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataEvents_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataEvents_title%
     }
     tx_org_downloads {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataDownloads_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataDownloads_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataDownloads_title%
     }
     tx_org_downloadscat   < .tx_org_downloads
     tx_org_downloadsmedia < .tx_org_downloads
     tx_org_headquarters {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataHeadquarters_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
     }
     tx_org_news {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataNews_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataNews_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
     }
     tx_org_newscat < .tx_org_news
     tx_org_location {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataLocations_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataLocations_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataLocations_title%
     }
   }
@@ -1054,7 +1054,7 @@ TCEFORM {
   tx_org_department     < .tx_org_cal_all_tables
   tx_org_department {
     manager {
-      PAGE_TSCONFIG_IDLIST  = ' . $pageUid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
     }
     fe_users < .manager

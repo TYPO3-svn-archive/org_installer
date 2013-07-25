@@ -1166,6 +1166,13 @@ class tx_orginstaller_pi1_org
     $record['datetime']     = $datetime;
     $record['calurl']       = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_calurl');
     $record['teaser_short'] = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_teaser_short');
+    $record['image']        = $llImageWiTimestamp;
+    //$record['imagewidth']   = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_imagewidth');
+    $record['image_link']   = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_image_link');
+    $record['imageorient']  = $this->pObj->pi_getLL('record_tx_org_cal_t3devdays_imageorient');;
+    $record['imagecols']    = '1';
+    $record['image_zoom']   = '1';
+    $record['image_noRows'] = '1';
 
     return $record;
   }
@@ -1988,7 +1995,13 @@ class tx_orginstaller_pi1_org
     $llLabel  = 'record_tx_org_location_t3devdays_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    
+    $arrLlImage             = explode( ',', $llImage );
+    $arrLlImageWiTimestamp  = explode( ',', $llImageWiTimestamp );
+    foreach( array_keys( $arrLlImageWiTimestamp ) as $pos )
+    {
+      $this->pObj->arr_fileUids[ $arrLlImage[ $pos ] ] = $arrLlImageWiTimestamp[ $pos ];
+    }
 
     $llLabel  = 'record_tx_org_location_t3devdays_documents';
     $llFile  = $this->pObj->pi_getLL( $llLabel );

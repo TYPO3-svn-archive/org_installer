@@ -732,6 +732,9 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_typo3_imageseo">TYPO3 Association</label>
       <label index="record_tx_org_headquarters_typo3_imageorient">0</label>
       <label index="record_tx_org_headquarters_typo3_imagewidth"></label>
+      <label index="record_tx_org_headquarterscat_title_policy">policy</label>
+      <label index="record_tx_org_headquarterscat_title_society">society</label>
+      <label index="record_tx_org_headquarterscat_title_typo3">TYPO3</label>
       <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher - Büro Erfurt]]></label>
       <label index="record_tx_org_location_netzmacher_url">http://die-netzmacher.de/</label>
       <label index="record_tx_org_location_netzmacher_mail_address"><![CDATA[Borntalweg 4]]></label>
@@ -1368,6 +1371,9 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als
       <label index="record_tx_org_downloadsmedia_type_flyer">cat_image</label>
       <label index="record_tx_org_downloadsmedia_title_manuals">Benutzerandbuch</label>
       <label index="record_tx_org_downloadsmedia_type_manuals">cat_image</label>
+      <label index="record_tx_org_headquarterscat_title_policy">Politik</label>
+      <label index="record_tx_org_headquarterscat_title_society">Gesellschaft</label>
+      <label index="record_tx_org_headquarterscat_title_typo3">TYPO3</label>
       <label index="record_tx_org_newscat_title_policy">Politik</label>
       <label index="record_tx_org_newscat_title_society">Gesellschaft</label>
       <label index="record_tx_org_newscat_title_typo3">TYPO3</label>

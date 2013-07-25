@@ -185,6 +185,7 @@ class tx_orginstaller_pi1_org
     $this->categoryDepartments( );
     $this->categoryDownloadscat( );
     $this->categoryDownloadsmedia( );
+    $this->categoryHeadquarters( );
     $this->categoryNews( );
   }
 
@@ -915,6 +916,117 @@ class tx_orginstaller_pi1_org
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['type']       = $llType;
+
+    return $record;
+  }
+
+/**
+ * categoryHeadquarters( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryHeadquarters( )
+  {
+    $table    = 'tx_org_headquarterscat';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+      // category policy
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryHeadquartersPolicy( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryHeadquartersSociety( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryHeadquartersTYPO3( $uid );
+
+
+    $this->sqlInsert( $records, $table );
+  }
+
+/**
+ * categoryHeadquartersPolicy( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryHeadquartersPolicy( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_headquarterscat_title_policy';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+
+    return $record;
+  }
+
+/**
+ * categoryHeadquartersSociety( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryHeadquartersSociety( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_headquarterscat_title_society';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+
+    return $record;
+  }
+
+/**
+ * categoryHeadquartersTYPO3( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryHeadquartersTYPO3( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_headquarterscat_title_typo3';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
 
     return $record;
   }
@@ -2510,6 +2622,7 @@ class tx_orginstaller_pi1_org
     $this->relationDownloads2Downloadscat( );
     $this->relationDownloads2Downloadsmedia( );
     $this->relationHeadquarters2Department( );
+    $this->relationHeadquarters2Headquarterscat( );
     $this->relationNews2Newscat( );
     $this->relationStaff2News( );
   }
@@ -3448,6 +3561,166 @@ class tx_orginstaller_pi1_org
               ( 
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual3_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationHeadquarters2Departments( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2Departments( )
+  {
+    $table = 'tx_org_headquarters_mm_tx_org_department';
+
+    $records = array
+              (
+                $this->relationHeadquarters2DepartmentsNetzmacherNetzmacher( ),
+                $this->relationHeadquarters2DepartmentsPresidentPresident( ),
+                $this->relationHeadquarters2DepartmentsTYPO3T3press( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationHeadquarters2DepartmentsNetzmacherNetzmacher( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2DepartmentsNetzmacherNetzmacher( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_netzmacher_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_department_netzmacher_title' ]
+              );
+
+    return $record;
+  }
+
+/**
+ * relationHeadquarters2DepartmentsPresidentPresident( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2DepartmentsPresidentPresident( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_president_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationHeadquarters2DepartmentsTYPO3T3press( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2DepartmentsTYPO3T3press( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_typo3_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationHeadquarters2Headquarterscat( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2Headquarterscat( )
+  {
+    $table = 'tx_org_headquarters_mm_tx_org_headquarterscat';
+
+    $records = array
+              (
+                $this->relationHeadquarters2HeadquarterscatNetzmacherTYPO3( ),
+                $this->relationHeadquarters2HeadquarterscatPresidentPolicy( ),
+                $this->relationHeadquarters2HeadquarterscatTYPO3TYPO3( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationHeadquarters2HeadquarterscatNetzmacherTYPO3( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2HeadquarterscatNetzmacherTYPO3( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_netzmacher_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarterscat_title_typo3' ]
+              );
+
+    return $record;
+  }
+
+/**
+ * relationHeadquarters2HeadquarterscatPresidentPolicy( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2HeadquarterscatPresidentPolicy( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_president_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarterscat_title_policy' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationHeadquarters2HeadquarterscatTYPO3TYPO3( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationHeadquarters2HeadquarterscatTYPO3TYPO3( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_typo3_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarterscat_title_typo3' ],
               );
 
     return $record;

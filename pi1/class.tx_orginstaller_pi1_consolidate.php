@@ -809,7 +809,23 @@ TCEMAIN {
     $noreply                  = 'noreply@' . $domain;
 
 
-    $records[$uid]['title']   = $llTitle;
+    $records[$uid]['title']     = $llTitle;
+    $records[$uid]['constants'] = '
+  /////////////////////////////////////////
+  //
+  // caddy
+
+plugin.caddy {
+  pages {
+    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+    caddyCaddymini  = %pageOrgCaddyCaddymini_title%
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+  }
+}
+  // caddy
+';
     $records[$uid]['config']  = '
 plugin.tx_powermail_pi1 {
   email {
@@ -874,6 +890,22 @@ page.10.subparts.menue.20 >
     $llTitle  = '+page_' . $llTitle . '_' . $strUid;
 
     $records[$uid]['title']   = $llTitle;
+    $records[$uid]['constants'] = '
+  /////////////////////////////////////////
+  //
+  // caddy
+
+plugin.caddy {
+  pages {
+    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+    caddyCaddymini  = %pageOrgCaddyCaddymini_title%
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+  }
+}
+  // caddy
+';
     $records[$uid]['config']  = '
 plugin.tx_powermail {
   _LOCAL_LANG {

@@ -261,18 +261,18 @@ plugin.org {
     staff       = ' . $this->pObj->arr_pageUids[ 'pageOrgDataStaff_title' ] . '
   }
   pages {
-    caddy                   = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-    caddyCaddymini          = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . '
     calendar                = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    calendar_expired        = ' . __METHOD__ . ' #' . __LINE__ . '
+    calendar_expired        = ' . null . '
     downloads               = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ] . '
-    event                   = ' . $this->pObj->arr_pageUids[ 'pageOrgEvents_title' ] . '
+    event                   = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     headquarter             = ' . $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ] . '
     location                = ' . $this->pObj->arr_pageUids[ 'pageOrgLocations_title' ] . '
     news                    = ' . $this->pObj->arr_pageUids[ 'pageOrgNews_title' ] . '
-    staff                   = ' . $this->pObj->arr_pageUids[ 'pageOrgSatff_title' ] . '
+    shopping_cart           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+    shopping_cart_downloads = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
+    staff                   = ' . $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ] . '
   }
   url {
     default {
@@ -505,7 +505,7 @@ plugin.org {
     headquarter             = ' . $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ] . '
     location                = ' . $this->pObj->arr_pageUids[ 'pageOrgLocations_title' ] . '
     news                    = ' . $this->pObj->arr_pageUids[ 'pageOrgNews_title' ] . '
-    staff                   = ' . $this->pObj->arr_pageUids[ 'pageOrgSatff_title' ] . '
+    staff                   = ' . $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ] . '
   }
   url {
     default {
@@ -620,24 +620,25 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
-    $record['constants']            = '
-  /////////////////////////////////////////
-  //
-  // caddy
-
-plugin.caddy {
-  pages {
-    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-    caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . '
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
-    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
-  }
-}
-  // caddy
-';
-
-    $record['config']               = $this->zzOrgCaddyConfig( );
+      // Will handled by consolidation
+//    $record['constants']            = '
+//  /////////////////////////////////////////
+//  //
+//  // caddy
+//
+//plugin.caddy {
+//  pages {
+//    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+//    caddyCaddymini  = %pageOrgCaddyCaddymini_title%
+//    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+//    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+//    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+//  }
+//}
+//  // caddy
+//';
+//
+//    $record['config']               = $this->zzOrgCaddyConfig( );
     $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
     return $record;

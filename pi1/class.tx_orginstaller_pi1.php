@@ -1103,6 +1103,13 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
     foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
     {
+        // CONTINUE : srce is a directory only
+      if( is_dir( $str_pathSrce . $str_fileSrce ) ) 
+      {
+        continue;
+      }
+        // CONTINUE : srce is a directory only
+      
         // CONTINUE : file does not exist (this may be proper)
       if( ! file_exists( $str_pathSrce . $str_fileSrce ) ) 
       {

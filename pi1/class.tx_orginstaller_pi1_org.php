@@ -1103,7 +1103,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_cal_eggroll_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_eggroll_bodytext');
@@ -1149,7 +1149,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_cal_t3devdays_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     //$bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3devdays_bodytext');
@@ -1189,7 +1189,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_cal_t3organiser_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3organiser_bodytext');
@@ -1404,7 +1404,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_downloads_cd1_thumbnail';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                    = $uid;
@@ -1447,7 +1447,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_downloads_cd2_thumbnail';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                    = $uid;
@@ -1490,7 +1490,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_downloads_cd3_thumbnail';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                    = $uid;
@@ -1533,7 +1533,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_downloads_flyer1_thumbnail';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                    = $uid;
@@ -1576,7 +1576,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_downloads_flyer2_thumbnail';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                    = $uid;
@@ -1619,7 +1619,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_downloads_manual1_thumbnail';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                    = $uid;
@@ -1662,7 +1662,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_downloads_manual2_thumbnail';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                    = $uid;
@@ -1705,7 +1705,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_downloads_manual3_thumbnail';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                    = $uid;
@@ -1774,7 +1774,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_headquarters_netzmacher_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                = $uid;
@@ -1821,7 +1821,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_headquarters_president_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                = $uid;
@@ -1868,7 +1868,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_headquarters_typo3_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                = $uid;
@@ -1938,7 +1938,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_location_netzmacher_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']                = $uid;
@@ -1987,12 +1987,12 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_location_t3devdays_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $llLabel  = 'record_tx_org_location_t3devdays_documents';
     $llFile  = $this->pObj->pi_getLL( $llLabel );
-    $llFileWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llFile );
+    $llFileWiTimestamp = str_replace( 'timestamp', time( ), $llFile );
     $this->pObj->arr_fileUids[ $llFile ] = $llFileWiTimestamp;
 
     $record['uid']                = $uid;
@@ -2071,7 +2071,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_news_flow_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_news_flow_bodytext');
@@ -2119,7 +2119,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_tx_org_news_organiser_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $datetime = strtotime( 'now' );
@@ -2353,7 +2353,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_fe_users_bobama_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $policy     = $this->pObj->arr_recordUids[ 'record_fe_groups_title_policy' ];
@@ -2401,7 +2401,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_fe_users_sschaffstein_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
@@ -2449,7 +2449,7 @@ class tx_orginstaller_pi1_org
 
     $llLabel  = 'record_fe_users_dwildt_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $society    = $this->pObj->arr_recordUids[ 'record_fe_groups_title_society' ];
@@ -3636,7 +3636,17 @@ class tx_orginstaller_pi1_org
         // prompt
       $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
       $pageTitle = $this->pObj->pi_getLL( $pageTitle );
-      $marker['###TITLE###']      = $record['title'];
+      
+      $title = $record['title'];
+      if( empty( $title ) )
+      {
+        $title = $record['header'];      
+      }
+      if( empty( $title ) )
+      {
+        $title = $record['name'];      
+      }
+      $marker['###TITLE###']      = $title;
       $marker['###TABLE###']      = $this->pObj->pi_getLL( $table, '<i>' . $table . '</i>' );
       $marker['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $record['pid'] . ')';
       $prompt = '

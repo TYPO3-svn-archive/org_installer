@@ -32,13 +32,13 @@
  *   85:     public function main( )
  *
  *              SECTION: Records
- *  115:     private function pageCaddy( $uid )
- *  145:     private function pageDelivery( $uid )
- *  175:     private function pageLibraryFooter( $uid )
- *  206:     private function pageLibraryHeader( $uid )
- *  242:     private function pageLegal( $uid )
- *  272:     private function pageRevocation( $uid )
- *  302:     private function pageTerms( $uid )
+ *  115:     private function pageOrgCaddy( $uid )
+ *  145:     private function pageOrgCaddyDelivery( $uid )
+ *  175:     private function pageOrgLibraryFooter( $uid )
+ *  206:     private function pageOrgLibraryHeader( $uid )
+ *  242:     private function pageOrgLegalinfo( $uid )
+ *  272:     private function pageOrgCaddyRevocation( $uid )
+ *  302:     private function pageOrgCaddyTerms( $uid )
  *  331:     private function pages( )
  *
  *              SECTION: Sql
@@ -91,7 +91,7 @@ class tx_orginstaller_pi1_content
        ' . $this->pObj->pi_getLL( 'content_create_header' ) . '
       </h2>';
 
-    $records = $this->pages( );
+    $records = $this->page( );
     $this->sqlInsert( $records );
   }
 
@@ -104,7 +104,56 @@ class tx_orginstaller_pi1_content
   **********************************************/
 
 /**
- * pageCaddy( )
+ * page( )
+ *
+ * @return	array		$records : the plugin records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function page( )
+  {
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( 'tt_content' );
+
+      // content for page delivery
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgCaddy( $uid );
+
+      // content for page delivery
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgCaddyDelivery( $uid );
+
+      // content for page revocation
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgCaddyRevocation( $uid );
+
+      // content for page terms
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgCaddyTerms( $uid );
+
+    if( $this->pObj->markerArray['###INSTALL_CASE###'] != 'install_all')
+    {
+      return $records;
+    }
+
+      // content for page legal
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLegalinfo( $uid );
+
+      // content for page library header
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLibraryHeader( $uid );
+
+      // content for page library footer
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLibraryFooter( $uid );
+
+    return $records;
+  }
+
+/**
+ * pageOrgCaddy( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -112,29 +161,29 @@ class tx_orginstaller_pi1_content
  * @version 3.0.4
  * @since   3.0.4
  */
-  private function pageCaddy( $uid )
+  private function pageOrgCaddy( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'content_caddy_header' );
-    $this->pObj->arr_contentUids['content_caddy_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCaddy_header' );
+    $this->pObj->arr_contentUids['content_pageOrgCaddy_header'] = $uid;
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256 * 1;
+    $record['sorting']      = 256 * 2;
     $record['CType']        = 'html';
     $record['header']       = $llHeader;
-    $record['bodytext']     = $this->pObj->pi_getLL('content_caddy_bodytext');
+    $record['bodytext']     = $this->pObj->pi_getLL('content_pageOrgCaddy_bodytext');
     $record['sectionIndex'] = 0;
 
     return $record;
   }
 
 /**
- * pageDelivery( )
+ * pageOrgCaddyDelivery( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -142,12 +191,12 @@ class tx_orginstaller_pi1_content
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function pageDelivery( $uid )
+  private function pageOrgCaddyDelivery( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'content_shipping_header' );
-    $this->pObj->arr_contentUids['content_shipping_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCaddyDelivery_header' );
+    $this->pObj->arr_contentUids['content_pageOrgCaddyDelivery_header'] = $uid;
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddyDelivery_title' ];
@@ -157,14 +206,14 @@ class tx_orginstaller_pi1_content
     $record['sorting']      = 256 * 1;
     $record['CType']        = 'text';
     $record['header']       = $llHeader;
-    $record['bodytext']     = $this->pObj->pi_getLL('content_shipping_bodytext');
+    $record['bodytext']     = $this->pObj->pi_getLL('content_pageOrgCaddyDelivery_bodytext');
     $record['sectionIndex'] = 1;
 
     return $record;
   }
 
 /**
- * pageLibraryFooter( )
+ * pageOrgCaddyRevocation( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -172,12 +221,102 @@ class tx_orginstaller_pi1_content
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function pageLibraryFooter( $uid )
+  private function pageOrgCaddyRevocation( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'content_footer_header' );
-    $this->pObj->arr_contentUids['content_footer_header']  = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCaddyRevocation_header' );
+    $this->pObj->arr_contentUids['content_pageOrgCaddyRevocation_header']  = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256 * 1;
+    $record['CType']        = 'text';
+    $record['header']       = $llHeader;
+    $record['bodytext']     = $this->pObj->pi_getLL('content_pageOrgCaddyRevocation_bodytext');
+    $record['sectionIndex'] = 1;
+
+    return $record;
+  }
+
+/**
+ * pageOrgCaddyTerms( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgCaddyTerms( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCaddyTerms_header' );
+    $this->pObj->arr_contentUids['content_pageOrgCaddyTerms_header']  = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256 * 1;
+    $record['CType']        = 'text';
+    $record['header']       = $llHeader;
+    $record['bodytext']     = $this->pObj->pi_getLL('content_pageOrgCaddyTerms_bodytext');
+    $record['sectionIndex'] = 1;
+
+    return $record;
+  }
+
+/**
+ * pageOrgLegalinfo( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgLegalinfo( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgLegalinfo_header' );
+    $this->pObj->arr_contentUids['content_pageOrgLegalinfo_header']  = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgLegalinfoinfo_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256 * 1;
+    $record['CType']        = 'text';
+    $record['header']       = $llHeader;
+    $record['bodytext']     = $this->pObj->pi_getLL('content_pageOrgLegalinfo_bodytext');
+    $record['sectionIndex'] = 1;
+
+    return $record;
+  }
+
+/**
+ * pageOrgLibraryFooter( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgLibraryFooter( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgLibraryFooter_header' );
+    $this->pObj->arr_contentUids['content_pageOrgLibraryFooter_header']  = $uid;
 
     $record['uid']            = $uid;
     $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryFooter_title' ];
@@ -188,14 +327,14 @@ class tx_orginstaller_pi1_content
     $record['CType']          = 'text';
     $record['header']         = $llHeader;
     $record['header_layout']  = 100; // hidden
-    $record['bodytext']       = $this->pObj->pi_getLL('content_footer_bodytext');
+    $record['bodytext']       = $this->pObj->pi_getLL('content_pageOrgLibraryFooter_bodytext');
     $record['sectionIndex']   = 1;
 
     return $record;
   }
 
 /**
- * pageLibraryHeader( )
+ * pageOrgLibraryHeader( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -203,17 +342,17 @@ class tx_orginstaller_pi1_content
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function pageLibraryHeader( $uid )
+  private function pageOrgLibraryHeader( $uid )
   {
     $record = null;
 
       // Content for page header
     $pid      = $GLOBALS['TSFE']->id;
-    $bodytext = $this->pObj->pi_getLL('content_header_bodytext');
+    $bodytext = $this->pObj->pi_getLL('content_pageOrgLibraryHeader_bodytext');
     $bodytext = str_replace('###PID###', $pid, $bodytext);
 
-    $llHeader = $this->pObj->pi_getLL( 'content_header_header' );
-    $this->pObj->arr_contentUids['content_header_header']  = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgLibraryHeader_header' );
+    $this->pObj->arr_contentUids['content_pageOrgLibraryHeader_header']  = $uid;
 
     $record['uid']            = $uid;
     $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeader_title' ];
@@ -228,145 +367,6 @@ class tx_orginstaller_pi1_content
     $record['sectionIndex']   = 1;
 
     return $record;
-  }
-
-/**
- * pageLegal( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function pageLegal( $uid )
-  {
-    $record = null;
-
-    $llHeader = $this->pObj->pi_getLL( 'content_legalinfo_header' );
-    $this->pObj->arr_contentUids['content_legalinfo_header']  = $uid;
-
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgLegalinfo_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256 * 1;
-    $record['CType']        = 'text';
-    $record['header']       = $llHeader;
-    $record['bodytext']     = $this->pObj->pi_getLL('content_legalinfo_bodytext');
-    $record['sectionIndex'] = 1;
-
-    return $record;
-  }
-
-/**
- * pageRevocation( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function pageRevocation( $uid )
-  {
-    $record = null;
-
-    $llHeader = $this->pObj->pi_getLL( 'content_revocation_header' );
-    $this->pObj->arr_contentUids['content_revocation_header']  = $uid;
-
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256 * 1;
-    $record['CType']        = 'text';
-    $record['header']       = $llHeader;
-    $record['bodytext']     = $this->pObj->pi_getLL('content_revocation_bodytext');
-    $record['sectionIndex'] = 1;
-
-    return $record;
-  }
-
-/**
- * pageTerms( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function pageTerms( $uid )
-  {
-    $record = null;
-
-    $llHeader = $this->pObj->pi_getLL( 'content_terms_header' );
-    $this->pObj->arr_contentUids['content_terms_header']  = $uid;
-
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256 * 1;
-    $record['CType']        = 'text';
-    $record['header']       = $llHeader;
-    $record['bodytext']     = $this->pObj->pi_getLL('content_terms_bodytext');
-    $record['sectionIndex'] = 1;
-
-    return $record;
-  }
-
-/**
- * pages( )
- *
- * @return	array		$records : the plugin records
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function pages( )
-  {
-    $records  = array( );
-    $uid      = $this->pObj->zz_getMaxDbUid( 'tt_content' );
-
-      // content for page delivery
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageCaddy( $uid );
-
-      // content for page delivery
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageDelivery( $uid );
-
-      // content for page revocation
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageRevocation( $uid );
-
-      // content for page terms
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageTerms( $uid );
-
-    if( $this->pObj->markerArray['###INSTALL_CASE###'] != 'install_all')
-    {
-      return $records;
-    }
-
-      // content for page legal
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageLegal( $uid );
-
-      // content for page library header
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageLibraryHeader( $uid );
-
-      // content for page library footer
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageLibraryFooter( $uid );
-
-    return $records;
   }
 
 

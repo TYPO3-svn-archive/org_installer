@@ -207,7 +207,7 @@ class tx_orginstaller_pi1_plugins
     $record['tstamp']        = time( );
     $record['crdate']        = time( );
     $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']       = 128;
+    $record['sorting']       = 256 * 1;
     $record['CType']         = 'list';
     $record['list_type']     = 'browser_pi1';
     $record['header']        = $llHeader;
@@ -702,7 +702,7 @@ class tx_orginstaller_pi1_plugins
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']                    = 512;
+    $record['sorting']                    = 256 * 3;
     $record['CType']                      = 'powermail_pi1';
     $record['header']                     = $llHeader;
     $record['header_layout']              = 100;  // hidden
@@ -753,7 +753,7 @@ class tx_orginstaller_pi1_plugins
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']                    = 512;
+    $record['sorting']                    = 256 * 3;
     $record['CType']                      = 'list';
     $record['header']                     = $llHeader;
     $record['header_layout']              = 100;  // hidden
@@ -829,7 +829,7 @@ class tx_orginstaller_pi1_plugins
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']                    = 512;
+    $record['sorting']                    = 256 * 3;
     $record['CType']                      = 'powermail_pi1';
     $record['header']                     = $llHeader;
     $record['header_layout']              = 100;  // hidden
@@ -880,7 +880,7 @@ class tx_orginstaller_pi1_plugins
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']                    = 512;
+    $record['sorting']                    = 256 * 3;
     $record['CType']                      = 'list';
     $record['header']                     = $llHeader;
     $record['header_layout']              = 100;  // hidden

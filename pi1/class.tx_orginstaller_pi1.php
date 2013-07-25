@@ -38,7 +38,7 @@
  *  327:     private function create( )
  *  353:     private function createBeGroup()
  *  462:     private function createContent( )
- *  476:     private function createFilesShop()
+ *  476:     private function createFiles()
  *  533:     private function createPages( )
  *  550:     private function createPlugins( )
  *
@@ -338,9 +338,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
     $this->createRecordsPowermail( );
     $this->createRecordsOrg( );
-$prompt = __METHOD__ . ' #' . __LINE__ . ': Controlled die!';
-die( $prompt );
-    $this->createFilesShop( );
+    $this->createFiles( );
     $this->createContent( );
   }
 
@@ -473,7 +471,7 @@ die( $prompt );
  *
  * @return	The		content that is displayed on the website
  */
-  private function createFilesShop()
+  private function createFiles( )
   {
     $this->arrReport[ ] = '
       <h2>

@@ -32,21 +32,21 @@
  *  104:     public function main( )
  *
  *              SECTION: pages
- *  131:     private function pageCaddy( )
- *  166:     private function pageCaddyContentJss( )
- *  219:     private function pageCaddyPluginCaddy( )
- *  392:     private function pageCaddyPluginCaddyMini( )
- *  435:     private function pageCaddyPluginPowermail( )
- *  475:     private function pageCaddyPluginPowermail1x( )
- *  504:     private function pageCaddyPluginPowermail2x( )
- *  594:     private function pageCaddyTyposcript( )
- *  627:     private function pageCaddyTyposcript1x( )
- *  695:     private function pageCaddyTyposcript2x( )
- *  751:     private function pageRoot( )
- *  782:     private function pageRootFileCopy( $timestamp )
- *  836:     private function pageRootPluginInstallHide( )
- *  858:     private function pageRootProperties( $timestamp )
- *  912:     private function pageRootTyposcriptOtherHide( )
+ *  131:     private function pageOrgCaddy( )
+ *  166:     private function pageOrgCaddy_contentJss( )
+ *  219:     private function pageOrgCaddy_pluginCaddy( )
+ *  392:     private function pageOrgCaddy_pluginCaddyMini( )
+ *  435:     private function pageOrgCaddy_pluginPowermail( )
+ *  475:     private function pageOrgCaddy_pluginPowermail1x( )
+ *  504:     private function pageOrgCaddy_pluginPowermail2x( )
+ *  594:     private function pageOrgCaddy_typoscriptCaddy( )
+ *  627:     private function pageOrgCaddy_typoscriptCaddy1x( )
+ *  695:     private function pageOrgCaddy_typoscriptCaddy2x( )
+ *  751:     private function pageOrg( )
+ *  782:     private function pageOrg_fileCopy( $timestamp )
+ *  836:     private function pageOrg_pluginInstallHide( )
+ *  858:     private function pageOrg_properties( $timestamp )
+ *  912:     private function pageOrg_typoscriptOtherHide( )
  *
  *              SECTION: Sql
  *  935:     private function sqlUpdateContent( $records, $pageTitle )
@@ -108,8 +108,8 @@ class tx_orginstaller_pi1_consolidate
        ' . $this->pObj->pi_getLL( 'consolidate_header' ) . '
       </h2>';
 
-    $this->pageRoot( );
-    $this->pageCaddy( );
+    $this->pageOrg( );
+    $this->pageOrgCaddy( );
   }
 
 
@@ -121,55 +121,51 @@ class tx_orginstaller_pi1_consolidate
   **********************************************/
 
 /**
- * pageCaddy( )
+ * pageOrgCaddy( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddy( )
+  private function pageOrgCaddy( )
   {
     $records    = array( );
     $pageTitle  = $this->pObj->pi_getLL( 'pageOrgCaddy_title' );
 
       // Update the jss script
-    $records    = $this->pageCaddyContentJss( );
+    $records    = $this->pageOrgCaddy_contentJss( );
     $this->sqlUpdateContent( $records, $pageTitle );
 
       // Update the powermail plugin
-    $records    = $this->pageCaddyPluginPowermail( );
+    $records    = $this->pageOrgCaddy_pluginPowermail( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
       // Update the caddy plugin
-    $records    = $this->pageCaddyPluginCaddy( );
-    $this->sqlUpdatePlugin( $records, $pageTitle );
-
-      // Update the caddy plugin
-    $records    = $this->pageCaddyPluginCaddyMini( );
+    $records    = $this->pageOrgCaddy_pluginCaddy( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
       // Update the TypoScript
-    $records    = $this->pageCaddyTyposcript( );
+    $records    = $this->pageOrgCaddy_typoscriptCaddy( );
     $this->sqlUpdateTyposcript( $records, $pageTitle );
 
   }
 
 /**
- * pageCaddyContentJss( )
+ * pageOrgCaddy_contentJss( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.4
  * @since   3.0.4
  */
-  private function pageCaddyContentJss( )
+  private function pageOrgCaddy_contentJss( )
   {
     $records  = null;
-    $uid      = $this->pObj->arr_contentUids['content_caddy_header'];
+    $uid      = $this->pObj->arr_contentUids['content_pageOrgCaddy_header'];
 
       // values
-    $llHeader = $this->pObj->pi_getLL( 'content_caddy_header' );
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCaddy_header' );
       // values
 
     $pmFieldsetUid = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_fSets_title_deliveryAddress' );
@@ -198,7 +194,7 @@ class tx_orginstaller_pi1_consolidate
         break;
     }
 
-    $jssScript = $this->pObj->pi_getLL('content_caddy_bodytext');
+    $jssScript = $this->pObj->pi_getLL('content_pageOrgCaddy_bodytext');
     $jssScript = str_replace( '###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###', $pmFieldsetHtmlId, $jssScript );
 
 
@@ -209,14 +205,14 @@ class tx_orginstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginCaddy( )
+ * pageOrgCaddy_pluginCaddy( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyPluginCaddy( )
+  private function pageOrgCaddy_pluginCaddy( )
   {
     $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'pluginCaddyPageOrgCaddy_header' ];
@@ -235,7 +231,7 @@ class tx_orginstaller_pi1_consolidate
             <language index="lDEF">
                 <field index="note">
                     <value index="vDEF">'
-                      . $this->pObj->pi_getLL( 'plugin_caddy_note_note_' . $pmX ) .
+                      . $this->pObj->pi_getLL( 'pluginCaddyPageOrgCaddy_note_' . $pmX ) .
                     '</value>
                 </field>
             </language>
@@ -361,16 +357,16 @@ class tx_orginstaller_pi1_consolidate
         <sheet index="paths">
             <language index="lDEF">
                 <field index="terms">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-draft.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
                 </field>
                 <field index="revocation">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-draft.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
                 </field>
                 <field index="invoice">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-draft.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
                 </field>
                 <field index="deliveryorder">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-draft.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
                 </field>
             </language>
         </sheet>
@@ -382,57 +378,14 @@ class tx_orginstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginCaddyMini( )
+ * pageOrgCaddy_pluginPowermail( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyPluginCaddyMini( )
-  {
-    $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'pluginCaddyminiPageOrgCaddyCaddymini_header' ];
-
-      // values
-    $llHeader   = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgCaddyCaddymini_header' );
-    $pidOfCaddy = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
-      // values
-
-    $records[$uid]['header']      = $llHeader;
-    $records[$uid]['pi_flexform'] = null .
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="sdefPidCaddy">
-                    <value index="vDEF">' . $pidOfCaddy . '</value>
-                </field>
-                <field index="sdefCaddyMode">
-                    <value index="vDEF">woItems</value>
-                </field>
-                <field index="sdefDrs">
-                    <value index="vDEF">0</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-
-    return $records;
-  }
-
-/**
- * pageCaddyPluginPowermail( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageCaddyPluginPowermail( )
+  private function pageOrgCaddy_pluginPowermail( )
   {
     $records  = null;
 
@@ -446,10 +399,10 @@ class tx_orginstaller_pi1_consolidate
         die( $prompt );
         break;
       case( $this->pObj->powermailVersionInt < 2000000 ):
-        $records = $this->pageCaddyPluginPowermail1x( );
+        $records = $this->pageOrgCaddy_pluginPowermail1x( );
         break;
       case( $this->pObj->powermailVersionInt < 3000000 ):
-        $records = $this->pageCaddyPluginPowermail2x( );
+        $records = $this->pageOrgCaddy_pluginPowermail2x( );
         break;
       case( $this->pObj->powermailVersionInt >= 3000000 ):
       default:
@@ -465,14 +418,14 @@ class tx_orginstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginPowermail1x( )
+ * pageOrgCaddy_pluginPowermail1x( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyPluginPowermail1x( )
+  private function pageOrgCaddy_pluginPowermail1x( )
   {
     $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
@@ -494,14 +447,14 @@ class tx_orginstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginPowermail2x( )
+ * pageOrgCaddy_pluginPowermail2x( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyPluginPowermail2x( )
+  private function pageOrgCaddy_pluginPowermail2x( )
   {
     $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
@@ -584,14 +537,14 @@ class tx_orginstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyTyposcript( )
+ * pageOrgCaddy_typoscriptCaddy( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyTyposcript( )
+  private function pageOrgCaddy_typoscriptCaddy( )
   {
     $records = null;
 
@@ -599,10 +552,10 @@ class tx_orginstaller_pi1_consolidate
     switch( true )
     {
       case( $pmX == '1x' ):
-        $records = $this->pageCaddyTyposcript1x( );
+        $records = $this->pageOrgCaddy_typoscriptCaddy1x( );
         break;
       case( $pmX == '2x' ):
-        $records = $this->pageCaddyTyposcript2x( );
+        $records = $this->pageOrgCaddy_typoscriptCaddy2x( );
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -617,14 +570,14 @@ class tx_orginstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyTyposcript1x( )
+ * pageOrgCaddy_typoscriptCaddy1x( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyTyposcript1x( )
+  private function pageOrgCaddy_typoscriptCaddy1x( )
   {
     $records = null;
 
@@ -685,14 +638,14 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageCaddyTyposcript2x( )
+ * pageOrgCaddy_typoscriptCaddy2x( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyTyposcript2x( )
+  private function pageOrgCaddy_typoscriptCaddy2x( )
   {
     $records = null;
 
@@ -741,37 +694,37 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageRoot( )
+ * pageOrg( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRoot( )
+  private function pageOrg( )
   {
     $records    = array( );
     $timestamp  = time();
     $pageTitle  = $GLOBALS['TSFE']->page['title'];
 
       // Update page properties
-    $records = $this->pageRootProperties( $timestamp );
+    $records = $this->pageOrg_properties( $timestamp );
     $this->sqlUpdatePages( $records, $pageTitle );
 
       // Copy header image
-    $this->pageRootFileCopy( $timestamp );
+    $this->pageOrg_fileCopy( $timestamp );
 
       // Hide the installer plugin
-    $records    = $this->pageRootPluginInstallHide( );
+    $records  = $this->pageOrg_pluginInstallHide( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
       // Hide the TypoScript template
-    $this->pageRootTyposcriptOtherHide( );
+    $this->pageOrg_typoscriptOtherHide( );
     $this->sqlUpdateTyposcriptOtherHide( );
   }
 
 /**
- * pageRootFileCopy( )
+ * pageOrg_fileCopy( )
  *
  * @param	integer		$timestamp  : current time
  * @return	void
@@ -779,14 +732,14 @@ page.10.subparts.menue.20 >
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRootFileCopy( $timestamp )
+  private function pageOrg_fileCopy( $timestamp )
   {
       // Files
     $str_fileSrce = 'quick_shop_header_image_210px.jpg';
     $str_fileDest = 'typo3_org_' . $timestamp . '.jpg';
 
       // Paths
-    $str_pathSrceAbs  = t3lib_extMgm::extPath( 'quick_shop' ) . 'res/images/';
+    //$str_pathSrceAbs  = t3lib_extMgm::extPath( 'quick_shop' ) . 'res/images/';
     $str_pathSrce     = t3lib_extMgm::siteRelPath( 'quick_shop' ) . 'res/images/';
     $str_pathDest     = 'uploads/media/';
 
@@ -826,14 +779,14 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageRootPluginInstallHide( )
+ * pageOrg_pluginInstallHide( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRootPluginInstallHide( )
+  private function pageOrg_pluginInstallHide( )
   {
     $records = null;
 
@@ -847,7 +800,7 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageRootProperties( )
+ * pageOrg_properties( )
  *
  * @param	integer		$timestamp  : current time
  * @return	array		$records    : the TypoScript record
@@ -855,7 +808,7 @@ page.10.subparts.menue.20 >
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRootProperties( $timestamp )
+  private function pageOrg_properties( $timestamp )
   {
     $records = null;
 
@@ -902,14 +855,14 @@ TCEMAIN {
   }
 
 /**
- * pageRootTyposcriptOtherHide( )
+ * pageOrg_typoscriptOtherHide( )
  *
  * @return	array		$record : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRootTyposcriptOtherHide( )
+  private function pageOrg_typoscriptOtherHide( )
   {
     // Do nothing
   }
@@ -933,21 +886,6 @@ TCEMAIN {
  * @since   3.0.4
  */
   private function sqlUpdateContent( $records, $pageTitle )
-  {
-    $this->sqlUpdatePlugin( $records, $pageTitle );
-  }
-
-/**
- * sqlUpdatePlugin( )
- *
- * @param	array		$records  : tt_content records for pages
- * @param	string		$pageTitle  : title of the page
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function sqlUpdatePlugin( $records, $pageTitle )
   {
     $table = 'tt_content';
 
@@ -985,6 +923,21 @@ TCEMAIN {
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
       $this->pObj->arrReport[ ] = $prompt;
     }
+  }
+
+/**
+ * sqlUpdatePlugin( )
+ *
+ * @param	array		$records  : tt_content records for pages
+ * @param	string		$pageTitle  : title of the page
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function sqlUpdatePlugin( $records, $pageTitle )
+  {
+    $this->sqlUpdateContent( $records, $pageTitle );
   }
 
 /**
@@ -1233,7 +1186,8 @@ TCEMAIN {
  */
   private function zz_getPowermailUid1x( $label )
   {
-    $powermailUid = $this->pObj->arr_recordUids[ $label ];
+    //$powermailUid = $this->pObj->arr_recordUids[ $label ];
+    $powermailUid = $this->pObj->powermailPageOrgCaddy->getValue( $label );
 
     return $powermailUid;
   }
@@ -1249,8 +1203,10 @@ TCEMAIN {
  */
   private function zz_getPowermailUid2x( $label )
   {
+//    $powermailUid = 'tx_powermail_domain_model_fields_'
+//                  . $this->pObj->arr_recordUids[ $label ];
     $powermailUid = 'tx_powermail_domain_model_fields_'
-                  . $this->pObj->arr_recordUids[ $label ];
+                  . $this->pObj->powermailPageOrgCaddy->getValue( $label );
 
     return $powermailUid;
   }

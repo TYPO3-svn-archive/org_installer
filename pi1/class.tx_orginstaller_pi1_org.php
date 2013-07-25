@@ -50,10 +50,10 @@
  *  603:     private function categoryDepartmentsPolicy( $uid )
  *  630:     private function categoryDepartmentsSociety( $uid )
  *  657:     private function categoryDepartmentsTYPO3( $uid )
- *  683:     private function categoryDownloads( )
- *  714:     private function categoryDownloadsDevelopment( $uid )
- *  745:     private function categoryDownloadsFlyer( $uid )
- *  776:     private function categoryDownloadsMusic( $uid )
+ *  683:     private function categoryDownloadscat( )
+ *  714:     private function categoryDownloadscatDevelopment( $uid )
+ *  745:     private function categoryDownloadscatFlyer( $uid )
+ *  776:     private function categoryDownloadscatMusic( $uid )
  *  806:     private function categoryNews( )
  *  837:     private function categoryNewsPolicy( $uid )
  *  864:     private function categoryNewsSociety( $uid )
@@ -183,7 +183,8 @@ class tx_orginstaller_pi1_org
   {
     $this->categoryCal( );
     $this->categoryDepartments( );
-    $this->categoryDownloads( );
+    $this->categoryDownloadscat( );
+    $this->categoryDownloadsmedia( );
     $this->categoryNews( );
   }
 
@@ -673,14 +674,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * categoryDownloads( )
+ * categoryDownloadscat( )
  *
  * @return	array		$records : the fieldset records
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryDownloads( )
+  private function categoryDownloadscat( )
   {
     $table    = 'tx_org_downloadscat';
     $records  = array( );
@@ -688,22 +689,22 @@ class tx_orginstaller_pi1_org
 
       // category policy
     $uid = $uid + 1;
-    $records[$uid] = $this->categoryDownloadsDevelopment( $uid );
+    $records[$uid] = $this->categoryDownloadscatDevelopment( $uid );
 
       // category society
     $uid = $uid + 1;
-    $records[$uid] = $this->categoryDownloadsFlyer( $uid );
+    $records[$uid] = $this->categoryDownloadscatFlyer( $uid );
 
       // category society
     $uid = $uid + 1;
-    $records[$uid] = $this->categoryDownloadsMusic( $uid );
+    $records[$uid] = $this->categoryDownloadscatMusic( $uid );
 
 
     $this->sqlInsert( $records, $table );
   }
 
 /**
- * categoryDownloadsDevelopment( )
+ * categoryDownloadscatDevelopment( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -711,7 +712,7 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryDownloadsDevelopment( $uid )
+  private function categoryDownloadscatDevelopment( $uid )
   {
     $record = null;
 
@@ -734,7 +735,7 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * categoryDownloadsFlyer( )
+ * categoryDownloadscatFlyer( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -742,7 +743,7 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryDownloadsFlyer( $uid )
+  private function categoryDownloadscatFlyer( $uid )
   {
     $record = null;
 
@@ -765,7 +766,7 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * categoryDownloadsMusic( )
+ * categoryDownloadscatMusic( )
  *
  * @param	integer		$uid      : uid of the current fieldset
  * @return	array		$record   : the plugin record
@@ -773,7 +774,7 @@ class tx_orginstaller_pi1_org
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function categoryDownloadsMusic( $uid )
+  private function categoryDownloadscatMusic( $uid )
   {
     $record = null;
 
@@ -782,6 +783,129 @@ class tx_orginstaller_pi1_org
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $llLabel  = 'record_tx_org_downloadscat_type_music';
+    $llType   = $this->pObj->pi_getLL( $llLabel );
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['type']       = $llType;
+
+    return $record;
+  }
+
+/**
+ * categoryDownloadsmedia( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryDownloadsmedia( )
+  {
+    $table    = 'tx_org_downloadsmedia';
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( $table );
+
+      // category policy
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryDownloadsmediaCD( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryDownloadsmediaFlyer( $uid );
+
+      // category society
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryDownloadsmediaManuals( $uid );
+
+
+    $this->sqlInsert( $records, $table );
+  }
+
+/**
+ * categoryDownloadsmediaCD( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryDownloadsmediaCD( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'record_tx_org_downloadsmedia_title_cd';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloadsmedia_type_cd';
+    $llType   = $this->pObj->pi_getLL( $llLabel );
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['type']       = $llType;
+
+    return $record;
+  }
+
+/**
+ * categoryDownloadsmediaFlyer( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryDownloadsmediaFlyer( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'record_tx_org_downloadsmedia_title_flyer';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloadsmedia_type_flyer';
+    $llType   = $this->pObj->pi_getLL( $llLabel );
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['type']       = $llType;
+
+    return $record;
+  }
+
+/**
+ * categoryDownloadsmediaManuals( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryDownloadsmediaManuals( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'record_tx_org_downloadsmedia_title_manuals';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'record_tx_org_downloadsmedia_type_manuals';
     $llType   = $this->pObj->pi_getLL( $llLabel );
 
     $record['uid']        = $uid;
@@ -2372,7 +2496,976 @@ class tx_orginstaller_pi1_org
  */
   private function relation( )
   {
+    $this->relationCal2Calentrance( );
+    $this->relationCal2Caltype( );
+    $this->relationCal2Location( );
+    $this->relationDepartment2Cal( );
+    $this->relationDepartment2Departmentcat( );
+    $this->relationDepartment2News( );
+    $this->relationDepartment2Staff( );
+    $this->relationDownloads2Downloadscat( );
+    $this->relationDownloads2Downloadsmedia( );
+    $this->relationNews2Newscat( );
     $this->relationStaff2News( );
+  }
+
+/**
+ * relationCal2Calentrance( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2Calentrance( )
+  {
+    $table = 'tx_org_cal_mm_tx_org_calentrance';
+
+    $records = array
+              (
+                $this->relationCal2CalentranceT3DevdaysFree( ),
+                $this->relationCal2CalentranceT3DevdaysMortal( ),
+                $this->relationCal2CalentranceT3DevdaysSponsor( ),
+                $this->relationCal2CalentranceT3OrganiserFree( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationCal2CalentranceT3DevdaysFree( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2CalentranceT3DevdaysFree( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_entranceFree' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2CalentranceT3DevdaysMortals( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2CalentranceT3DevdaysMortal( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_mereMortals' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2CalentranceT3DevdaysSponors( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2CalentranceT3DevdaysSponor( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_sponsor' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2CalentranceT3OrganiserFree( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2CalentranceT3OrganiserFree( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_entranceFree' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2Caltype( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2Caltype( )
+  {
+    $table = 'tx_org_cal_mm_tx_org_caltype';
+
+    $records = array
+              (
+                $this->relationCal2CaltypeEggrollSociety( ),
+                $this->relationCal2CaltypeT3DevdaysTYPO3( ),
+                $this->relationCal2CaltypeT3OrgansierTYPO3( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationCal2CaltypeEggrollSociety( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2CaltypeEggrollSociety( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_eggroll_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_caltype_title_society' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2CaltypeT3DevdaysTYPO3( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2CaltypeT3DevdaysTYPO3( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_caltype_title_typo3' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2CaltypeT3OrgansierTYPO3( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2CaltypeT3OrgansierTYPO3( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_caltype_title_typo3' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2Location( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2Location( )
+  {
+    $table = 'tx_org_cal_mm_tx_org_location';
+
+    $records = array
+              (
+                $this->relationCal2LocationT3DevdaysT3Devdays( ),
+                $this->relationCal2LocationT3OrganiserNetzmacher( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationCal2LocationT3OrganiserNetzmacher( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2LocationT3OrganiserNetzmacher( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_location_netzmacher_title' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2LocationT3DevdaysT3Devdays( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2LocationT3DevdaysT3Devdays( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_location_t3devdays_title' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2Cal( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2Cal( )
+  {
+    $table = 'tx_org_department_mm_tx_org_cal';
+
+    $records = array
+              (
+                $this->relationDepartment2CalNetzmacherT3Organiser( ),
+                $this->relationDepartment2CalPresidentEggroll( ),
+                $this->relationDepartment2CalT3PressT3Devdays( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationDepartment2CalNetzmacherT3Organiser( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2CalNetzmacherT3Organiser( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_netzmacher_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2CalPresidentEggroll( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2CalPresidentEggroll( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_eggroll_title' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2CalT3PressT3Devdays( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2CalT3PressT3Devdays( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2Departmentcat( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2Departmentcat( )
+  {
+    $table = 'tx_org_department_mm_tx_org_departmentcat';
+
+    $records = array
+              (
+                $this->relationDepartment2DepartmentcatNetzmacherTYPO3( ),
+                $this->relationDepartment2DepartmentcatPresidentPolicy( ),
+                $this->relationDepartment2DepartmentcatPresidentSociety( ),
+                $this->relationDepartment2DepartmentcatT3PressSociety( ),
+                $this->relationDepartment2DepartmentcatT3PressTYPO3( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationDepartment2DepartmentcatNetzmacherTYPO3( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2DepartmentcatNetzmacherTYPO3( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_netzmacher_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_typo3' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2DepartmentcatPresidentPolicy( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2DepartmentcatPresidentPolicy( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_policy' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2DepartmentcatPresidentSociety( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2DepartmentcatPresidentSociety( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_society' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2DepartmentcatT3PressSociety( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2DepartmentcatT3PressSociety( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_society' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2DepartmentcatT3PressTYPO3( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2DepartmentcatT3PressTYPO3( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_typo3' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2Staff( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2Staff( )
+  {
+    $table = 'tx_org_department_mm_fe_users';
+
+    $records = array
+              (
+                $this->relationDepartment2StaffNetzmacherWildt( ),
+                $this->relationDepartment2StaffPresidentObama( ),
+                $this->relationDepartment2StaffT3PressSchaffstein( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationDepartment2StaffNetzmacherWildt( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2StaffNetzmacherWildt( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_netzmacher_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_dwildt_name' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2StaffPresidentObama( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2StaffPresidentObama( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_bobama_name' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDepartment2StaffT3PressSchaffstein( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDepartment2StaffT3PressSchaffstein( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_sschaffstein_name' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2Downloadscat( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2Downloadscat( )
+  {
+    $table = 'tx_org_downloads_mm_tx_org_downloadscat';
+
+    $records = array
+              (
+                $this->relationDownloads2DownloadscatCD1Music( ),
+                $this->relationDownloads2DownloadscatCD2Music( ),
+                $this->relationDownloads2DownloadscatCD3Music( ),
+                $this->relationDownloads2DownloadscatFlyer1Flyer( ),
+                $this->relationDownloads2DownloadscatFlyer2Flyer( ),
+                $this->relationDownloads2DownloadscatManual1Development( ),
+                $this->relationDownloads2DownloadscatManual2Development( ),
+                $this->relationDownloads2DownloadscatManual3Development( )
+              );
+
+    $this->sqlInsert( $records, $table );
+  }
+
+/**
+ * relationDownloads2DownloadscatCD1Music( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadscatCD1Music( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd1_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_music' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadscatCD2Music( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadscatCD2Music( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd2_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_music' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadscatCD3Music( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadscatCD3Music( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd3_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_music' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadscatFlyer1Flyer( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadscatFlyer1Flyer( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer1_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_flyer' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadscatFlyer2Flyer( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadscatFlyer2Flyer( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer2_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_flyer' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadscatManual1Development( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadscatManual1Development( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual1_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_development' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadscatManual2Development( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadscatManual2Development( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual2_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_development' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadscatManual3Development( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadscatManual3Development( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual3_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_development' ],
+              );
+
+    return $record;
+  }
+
+
+/**
+ * relationDownloads2Downloadsmedia( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2Downloadsmedia( )
+  {
+    $table = 'tx_org_downloads_mm_tx_org_downloadsmedia';
+
+    $records = array
+              (
+                $this->relationDownloads2DownloadsmediaCD1CD( ),
+                $this->relationDownloads2DownloadsmediaCD2CD( ),
+                $this->relationDownloads2DownloadsmediaCD3CD( ),
+                $this->relationDownloads2DownloadsmediaFlyer1Flyer( ),
+                $this->relationDownloads2DownloadsmediaFlyer2Flyer( ),
+                $this->relationDownloads2DownloadsmediaManual1Manuals( ),
+                $this->relationDownloads2DownloadsmediaManual2Manuals( ),
+                $this->relationDownloads2DownloadsmediaManual3Manuals( )
+              );
+
+    $this->sqlInsert( $records, $table );
+  }
+
+/**
+ * relationDownloads2DownloadsmediaCD1CD( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadsmediaCD1CD( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd1_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_cd' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadsmediaCD2CD( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadsmediaCD2CD( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd2_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_cd' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadsmediaCD3CD( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadsmediaCD3CD( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd3_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_cd' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadsmediaFlyer1Flyer( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadsmediaFlyer1Flyer( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer1_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_flyer' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadsmediaFlyer2Flyer( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadsmediaFlyer2Flyer( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer2_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_flyer' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadsmediaManual1Manuals( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadsmediaManual1Manuals( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual1_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadsmediaManual2Manuals( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadsmediaManual2Manuals( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual2_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationDownloads2DownloadsmediaManual3Manuals( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationDownloads2DownloadsmediaManual3Manuals( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual3_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationNews2Newscat( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationNews2Newscat( )
+  {
+    $table = 'tx_org_news_mm_tx_org_newscat';
+
+    $records = array
+              (
+                $this->relationNews2NewscatFlowTYPO3( ),
+                $this->relationNews2NewscatPresidentPolicy( ),
+                $this->relationNews2NewscatT3OrganiserTYPO3( )
+              );
+
+    $this->sqlInsert( $records, $table );
+
+  }
+
+/**
+ * relationNews2NewscatFlowTYPO3( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationNews2NewscatFlowTYPO3( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_newscat_title_typo3' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationNews2NewscatPresidentPolicy( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationNews2NewscatPresidentPolicy( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_newscat_title_policy' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationNews2NewscatT3OrganiserTYPO3( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationNews2NewscatT3OrganiserTYPO3( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_news_t3organiser_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_newscat_title_typo3' ],
+              );
+
+    return $record;
   }
 
 /**
@@ -2389,8 +3482,8 @@ class tx_orginstaller_pi1_org
 
     $records = array
               (
-                $this->relationStaff2NewsPresident( ),
-                $this->relationStaff2NewsSchaffstein( )
+                $this->relationStaff2NewsPresidentPresident( ),
+                $this->relationStaff2NewsSchaffsteinFlow( )
               );
 
     $this->sqlInsert( $records, $table );
@@ -2398,14 +3491,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * relationStaff2NewsPresident( )
+ * relationStaff2NewsPresidentPresident( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationStaff2NewsPresident( )
+  private function relationStaff2NewsPresidentPresident( )
   {
     $record = array
               ( 
@@ -2417,14 +3510,14 @@ class tx_orginstaller_pi1_org
   }
 
 /**
- * relationStaff2NewsSchaffstein( )
+ * relationStaff2NewsSchaffsteinFlow( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationStaff2NewsSchaffstein( )
+  private function relationStaff2NewsSchaffsteinFlow( )
   {
     $record = array
               ( 

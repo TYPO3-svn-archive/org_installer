@@ -359,6 +359,7 @@ xmlprologue                             = none';
   // INDEX
   //
   // config
+  // plugin.tx_caddy_pi3
   // page
   // TYPO3-Browser: ajax page object I
   // TYPO3-Browser: ajax page object II
@@ -832,7 +833,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 
     $record['title']                = $llTitle;
     $record['uid']                  = $uid;
-    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ];
     $record['tstamp']               = time( );
     $record['sorting']              = 256;
     $record['crdate']               = time( );
@@ -877,6 +878,75 @@ plugin.caddy {
   }
 }
   // plugin.caddy
+';
+    $record['config']                    = '
+  ////////////////////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // plugin.tx_caddy_pi3
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // plugin.tx_caddy_pi3
+
+plugin.tx_caddy_pi3 {
+  content {
+    sum {
+      20 {
+        10 {
+          data >
+          value = Item
+          lang {
+            de = Artikel
+            en = Item
+          }
+        }
+        20 {
+          data >
+          value = Items
+          lang {
+            de = Artikel
+            en = Items
+          }
+        }
+      }
+    }
+  }
+  _HTMLMARKER {
+    linktoshop {
+      10 {
+        data >
+        value = Order an item
+        lang {
+          de = Artikel bestellen
+          en = Order an item
+        }
+        typolink {
+          title {
+            data >
+            value = Order an item!
+            lang {
+              de = Bestell einen Artikel!
+              en = Order an item!
+            }
+          }
+        }
+      }
+    }
+  }
+  _LOCAL_LANG {
+    default {
+      caddyminiempty = Order an item!
+    }
+    de {
+      caddyminiempty = Bestell einen Artikel!
+    }
+  }  
+}
+  // plugin.tx_caddy_pi3
 ';
 
     $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );

@@ -511,6 +511,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
  */
   private function createFilesLibraryHeaderLogo( )
   {
+var_dump( __METHOD__, __LINE__, $this->arr_fileUids );    
     $this->zz_copyFiles( 'res/files/headerLogo/', 'uploads/pics/' );
   }
 

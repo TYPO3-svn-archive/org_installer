@@ -110,8 +110,9 @@ class tx_orginstaller_pi1_consolidate
 
     $this->pageOrg( );
     $this->pageOrgCaddy( );
-    $this->pageOrgDocumentsCaddy( );
     $this->pageOrgData( );
+    $this->pageOrgDocumentsCaddy( );
+    $this->pageOrgLibraryHeaderLogo( );
   }
 
 
@@ -1665,6 +1666,32 @@ page.10.subparts.menue.10 >
         break;
     }
       // SWITCH : install case
+
+
+    return $records;
+  }
+
+/**
+ * pageOrgLibraryHeaderLogo( )
+ *
+ * @return	array		$records    : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgLibraryHeaderLogo( )
+  {
+    $records = null;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderLogo_header';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $uid      = $this->pObj->arr_contentUids[ $llLabel ];
+    
+    $image_link = $this->pObj->pi_getLL('content_pageOrgLibraryHeaderLogo_image_link');
+    $image_link = $this->zz_replacePageUids( $image_link );
+
+    $records[$uid]['header']      = $llTitle;
+    $records[$uid]['image_link']  = $image_link;
 
 
     return $records;

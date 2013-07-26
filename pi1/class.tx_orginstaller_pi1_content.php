@@ -476,7 +476,6 @@ class tx_orginstaller_pi1_content
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-var_dump( __METHOD__, __LINE__, $llImage, $this->pObj->arr_fileUids[ $llImage ] );    
 
     $record['uid']            = $uid;
     $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ];
@@ -488,7 +487,8 @@ var_dump( __METHOD__, __LINE__, $llImage, $this->pObj->arr_fileUids[ $llImage ] 
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
-    $record['image_link']     = $this->pObj->pi_getLL('content_pageOrgLibraryHeaderLogo_image_link');
+      // Will done by consolidation
+    //$record['image_link']     = null;
     $record['imageorient']    = 1;
 
     return $record;

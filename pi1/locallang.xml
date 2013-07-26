@@ -203,7 +203,7 @@
       <label index="content_pageOrgLibraryHeaderLogo_header">[Header]</label>
       <label index="content_pageOrgLibraryHeaderLogo_bodytext"></label>
       <label index="content_pageOrgLibraryHeaderLogo_image">typo3_organiser_h102px_timestamp.gif</label>
-      <label index="content_pageOrgLibraryHeaderLogo_image_link">1204 - - "TYPO3 Organiser - TYPO3 für Lobby und Veranstalter"</label>
+      <label index="content_pageOrgLibraryHeaderLogo_image_link">%pageOrg_title% - - "TYPO3 Organiser - TYPO3 für Lobby und Veranstalter"</label>
       <label index="end_button">Reload this page</label>
       <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Organiser Installer, if you don't need it any longer.</label>
       <label index="end_header">Finish the installation</label>

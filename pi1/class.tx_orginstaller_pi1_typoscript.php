@@ -180,13 +180,12 @@ class tx_orginstaller_pi1_typoscript
                                           . 'EXT:caddy/static/,'
                                           . 'EXT:caddy/static/properties/de/,'
                                           . 'EXT:caddy/static/css/,'
-                                          . 'EXT:caddy/static/css/green,'
                                           . 'EXT:linkhandler/static/link_handler/,'
                                           . 'EXT:flipit/static/,'
                                           . '%flipit46%'
-                                          . 'EXT:flipit/static/typo3/4.6/,'
                                           . 'EXT:org/static/base/,'
                                           . 'EXT:org/static/calendar/201/,'
+                                          . 'EXT:org/static/calendar/201/caddy/'
                                           . 'EXT:org/static/department/601/,'
                                           . 'EXT:org/static/downloads/301/,'
                                           . 'EXT:org/static/headquarters/501/,'
@@ -216,6 +215,7 @@ class tx_orginstaller_pi1_typoscript
   // INDEX
   //
   // plugin.baseorg
+  // plugin.caddy
   // plugin.org
   // plugin.tx_browser_pi1
 
@@ -233,10 +233,7 @@ plugin.baseorg {
   pages {
     root = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     root {
-      caddymini {
-        calendar  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . ' 
-        documents = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . ' 
-      }
+      caddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . ' 
       libraries {
         footer = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryFooter_title' ] . '
         header {
@@ -256,6 +253,23 @@ plugin.baseorg {
   }
 }
   // plugin.baseorg
+
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.caddy
+
+plugin.caddy {
+  pages {
+    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+    caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . ' 
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+  }
+}
+  // plugin.caddy
 
 
 
@@ -666,11 +680,12 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $this->pObj->arr_tsTitles[ $uid ] = $title;
 
     $includeStaticFile  = $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
-    $includeStaticFile  = $includeStaticFile
-                        . ','
-                        . 'EXT:caddy/static/css/green/,'
-                        . 'EXT:org/static/calendar/201/caddy/'
-                        ;
+// Not needed. Included on root page, because of minicaddy on the root page    
+//    $includeStaticFile  = $includeStaticFile
+//                        . ','
+//                        . 'EXT:caddy/static/css/green/,'
+//                        . 'EXT:org/static/calendar/201/caddy/'
+//                        ;
 
     $record['title']                = $llTitle;
     $record['uid']                  = $uid;

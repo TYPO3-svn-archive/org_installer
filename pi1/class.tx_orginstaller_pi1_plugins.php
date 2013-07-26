@@ -611,6 +611,7 @@ class tx_orginstaller_pi1_plugins
     $record['sorting']      = 256;
     $record['CType']        = 'list';
     $record['header']       = $llHeader;
+    $record['header_layout']  = 100; // hidden
     $record['list_type']    = 'caddy_pi3';
     $record['sectionIndex'] = 1;
     $record['pi_flexform']  = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>

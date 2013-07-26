@@ -508,6 +508,19 @@ class tx_orginstaller_pi1 extends tslib_pibase
  * @version 3.0.0
  * @since 1.0.0
  */
+  private function createFilesLibraryHeaderLogo( )
+  {
+    $this->zz_copyFiles( 'res/files/headerLogo/' );
+  }
+
+/**
+ * createFilesDownloads( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
   private function createFilesOrg( )
   {
     $this->zz_copyFiles( 'res/files/tx_org/' );

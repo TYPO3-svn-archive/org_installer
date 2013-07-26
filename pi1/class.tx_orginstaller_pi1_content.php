@@ -484,7 +484,7 @@ class tx_orginstaller_pi1_content
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
     $record['sorting']        = 256 * 1;
     $record['CType']          = 'image';
-    $record['header']         = $llHeader;
+    $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
     $record['image_link']     = $this->pObj->pi_getLL('content_pageOrgLibraryHeaderLogo_image_link');

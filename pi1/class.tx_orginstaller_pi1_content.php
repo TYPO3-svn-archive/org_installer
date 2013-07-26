@@ -139,15 +139,30 @@ class tx_orginstaller_pi1_content
       return $records;
     }
 
-      // content for page legal
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgLegalinfo( $uid );
 
-      // content for page library header
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgLibraryHeaderLogo( $uid );
 
-      // content for page library footer
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLibraryHeaderSlider01( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLibraryHeaderSlider02( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLibraryHeaderSlider03( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLibraryHeaderSlider04( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLibraryHeaderSlider05( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLibraryMenubelow( $uid );
+
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgLibraryFooter( $uid );
 
@@ -489,6 +504,234 @@ class tx_orginstaller_pi1_content
     $record['image']          = $llImageWiTimestamp;
       // Will done by consolidation
     //$record['image_link']     = null;
+    $record['imageorient']    = 1;
+
+    return $record;
+  }
+
+/**
+ * pageOrgLibraryHeaderSlider01( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgLibraryHeaderSlider01( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider01_header';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_contentUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider01_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+
+    $record['uid']            = $uid;
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider01_title' ];
+    $record['tstamp']         = time( );
+    $record['crdate']         = time( );
+    $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']        = 256 * 1;
+    $record['CType']          = 'image';
+    $record['header']         = $llTitle;
+    $record['header_layout']  = 100; // hidden
+    $record['image']          = $llImageWiTimestamp;
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider01_image_link' ];
+    $record['imageorient']    = 1;
+
+    return $record;
+  }
+
+/**
+ * pageOrgLibraryHeaderSlider02( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgLibraryHeaderSlider02( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider02_header';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_contentUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider02_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+
+    $record['uid']            = $uid;
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider02_title' ];
+    $record['tstamp']         = time( );
+    $record['crdate']         = time( );
+    $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']        = 256 * 1;
+    $record['CType']          = 'image';
+    $record['header']         = $llTitle;
+    $record['header_layout']  = 100; // hidden
+    $record['image']          = $llImageWiTimestamp;
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider02_image_link' ];
+    $record['imageorient']    = 1;
+
+    return $record;
+  }
+
+/**
+ * pageOrgLibraryHeaderSlider03( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgLibraryHeaderSlider03( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider03_header';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_contentUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider03_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+
+    $record['uid']            = $uid;
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider03_title' ];
+    $record['tstamp']         = time( );
+    $record['crdate']         = time( );
+    $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']        = 256 * 1;
+    $record['CType']          = 'image';
+    $record['header']         = $llTitle;
+    $record['header_layout']  = 100; // hidden
+    $record['image']          = $llImageWiTimestamp;
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider03_image_link' ];
+    $record['imageorient']    = 1;
+
+    return $record;
+  }
+
+/**
+ * pageOrgLibraryHeaderSlider04( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgLibraryHeaderSlider04( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider04_header';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_contentUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider04_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+
+    $record['uid']            = $uid;
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider04_title' ];
+    $record['tstamp']         = time( );
+    $record['crdate']         = time( );
+    $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']        = 256 * 1;
+    $record['CType']          = 'image';
+    $record['header']         = $llTitle;
+    $record['header_layout']  = 100; // hidden
+    $record['image']          = $llImageWiTimestamp;
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider04_image_link' ];
+    $record['imageorient']    = 1;
+
+    return $record;
+  }
+
+/**
+ * pageOrgLibraryHeaderSlider05( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgLibraryHeaderSlider05( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider05_header';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_contentUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'content_pageOrgLibraryHeaderSlider05_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+
+    $record['uid']            = $uid;
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider05_title' ];
+    $record['tstamp']         = time( );
+    $record['crdate']         = time( );
+    $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']        = 256 * 1;
+    $record['CType']          = 'image';
+    $record['header']         = $llTitle;
+    $record['header_layout']  = 100; // hidden
+    $record['image']          = $llImageWiTimestamp;
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider05_image_link' ];
+    $record['imageorient']    = 1;
+
+    return $record;
+  }
+
+/**
+ * pageOrgLibraryMenubelow( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgLibraryMenubelow( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'content_pageOrgLibraryMenubelow_header';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_contentUids[ $llLabel ] = $uid;
+
+    $llLabel  = 'content_pageOrgLibraryMenubelow_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+
+    $record['uid']            = $uid;
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryMenubelow_title' ];
+    $record['tstamp']         = time( );
+    $record['crdate']         = time( );
+    $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']        = 256 * 1;
+    $record['CType']          = 'image';
+    $record['header']         = $llTitle;
+    $record['header_layout']  = 100; // hidden
+    $record['image']          = $llImageWiTimestamp;
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryMenubelow_image_link' ];
     $record['imageorient']    = 1;
 
     return $record;

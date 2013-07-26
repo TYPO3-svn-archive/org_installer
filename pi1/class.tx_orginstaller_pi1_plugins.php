@@ -574,13 +574,7 @@ class tx_orginstaller_pi1_plugins
         <sheet index="sDEF">
             <language index="lDEF">
                 <field index="sdefPidCaddy">
-                    <value index="vDEF"> ' . $uidCaddyPage . '</value>
-                </field>
-                <field index="sdefCaddyMode">
-                    <value index="vDEF">woItems</value>
-                </field>
-                <field index="sdefDrs">
-                    <value index="vDEF">0</value>
+                    <value index="vDEF">' . $uidCaddyPage . '</value>
                 </field>
             </language>
         </sheet>
@@ -626,13 +620,7 @@ class tx_orginstaller_pi1_plugins
         <sheet index="sDEF">
             <language index="lDEF">
                 <field index="sdefPidCaddy">
-                    <value index="vDEF"> ' . $uidCaddyPage . '</value>
-                </field>
-                <field index="sdefCaddyMode">
-                    <value index="vDEF">woItems</value>
-                </field>
-                <field index="sdefDrs">
-                    <value index="vDEF">0</value>
+                    <value index="vDEF">' . $uidCaddyPage . '</value>
                 </field>
             </language>
         </sheet>

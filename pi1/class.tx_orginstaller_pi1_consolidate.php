@@ -39,9 +39,9 @@
  *  435:     private function pageOrgCaddy_pluginPowermail( )
  *  475:     private function pageOrgCaddy_pluginPowermail1x( )
  *  504:     private function pageOrgCaddy_pluginPowermail2x( )
- *  594:     private function pageOrgCaddy_typoscriptCaddy( )
- *  627:     private function pageOrgCaddy_typoscriptCaddy1x( )
- *  695:     private function pageOrgCaddy_typoscriptCaddy2x( )
+ *  594:     private function pageOrgCaddy_typoscript( )
+ *  627:     private function pageOrgCaddy_typoscript1x( )
+ *  695:     private function pageOrgCaddy_typoscript2x( )
  *  751:     private function pageOrg( )
  *  782:     private function pageOrg_fileCopy( $timestamp )
  *  836:     private function pageOrg_pluginInstallHide( )
@@ -362,7 +362,7 @@ TCEMAIN {
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
       // Update the TypoScript
-    $records    = $this->pageOrgCaddy_typoscriptCaddy( );
+    $records    = $this->pageOrgCaddy_typoscript( );
     $this->sqlUpdateTyposcript( $records, $pageTitle );
 
   }
@@ -753,14 +753,14 @@ TCEMAIN {
   }
 
 /**
- * pageOrgCaddy_typoscriptCaddy( )
+ * pageOrgCaddy_typoscript( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageOrgCaddy_typoscriptCaddy( )
+  private function pageOrgCaddy_typoscript( )
   {
     $records = null;
 
@@ -768,10 +768,10 @@ TCEMAIN {
     switch( true )
     {
       case( $pmX == '1x' ):
-        $records = $this->pageOrgCaddy_typoscriptCaddy1x( );
+        $records = $this->pageOrgCaddy_typoscript1x( );
         break;
       case( $pmX == '2x' ):
-        $records = $this->pageOrgCaddy_typoscriptCaddy2x( );
+        $records = $this->pageOrgCaddy_typoscript2x( );
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -788,14 +788,14 @@ TCEMAIN {
   }
 
 /**
- * pageOrgCaddy_typoscriptCaddy1x( )
+ * pageOrgCaddy_typoscript1x( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageOrgCaddy_typoscriptCaddy1x( )
+  private function pageOrgCaddy_typoscript1x( )
   {
     $records = null;
 
@@ -822,20 +822,22 @@ TCEMAIN {
   
 
 
-  /////////////////////////////////////////
-  //
-  // plugin.caddy
-
-plugin.caddy {
-  pages {
-    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-    caddyCaddymini  = %pageOrgCaddyCaddymini_title%
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
-    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
-  }
-}
-  // plugin.caddy
+//  Not needed: Is included at the root page
+//
+//  /////////////////////////////////////////
+//  //
+//  // plugin.caddy
+//
+//plugin.caddy {
+//  pages {
+//    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+//    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+//    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+//  }
+//}
+//  // plugin.caddy
   
 
 
@@ -855,7 +857,6 @@ plugin.tx_powermail {
   // plugin.tx_powermail
 
 ';
-    $records[$uid]['constants'] = $this->zz_replacePageUids( $records[$uid]['constants'] );
 
     $records[$uid]['config']  = '
 plugin.tx_powermail_pi1 {
@@ -888,7 +889,7 @@ plugin.tx_powermail_pi1 {
         $records[$uid]['config']  = $records[$uid]['config'] . '
 
   // Don\'t display the mini caddy
-page.10.subparts.menue.20 >
+page.10.subparts.menue.10 >
 ';
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
@@ -901,14 +902,14 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageOrgCaddy_typoscriptCaddy2x( )
+ * pageOrgCaddy_typoscript2x( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageOrgCaddy_typoscriptCaddy2x( )
+  private function pageOrgCaddy_typoscript2x( )
   {
     $records = null;
 
@@ -930,21 +931,22 @@ page.10.subparts.menue.20 >
   // plugin.tx_powermail
   
 
-
-  /////////////////////////////////////////
-  //
-  // plugin.caddy
-
-plugin.caddy {
-  pages {
-    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-    caddyCaddymini  = %pageOrgCaddyCaddymini_title%
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
-    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
-  }
-}
-  // plugin.caddy
+//  Not needed: Is included at the root page
+//
+//  /////////////////////////////////////////
+//  //
+//  // plugin.caddy
+//
+//plugin.caddy {
+//  pages {
+//    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+//    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+//    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+//  }
+//}
+//  // plugin.caddy
   
 
 
@@ -989,7 +991,7 @@ plugin.tx_powermail {
         $records[$uid]['config']  = $records[$uid]['config'] . '
 
   // Don\'t display the mini caddy
-page.10.subparts.menue.20 >
+page.10.subparts.menue.10 >
 ';
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
@@ -1028,7 +1030,7 @@ page.10.subparts.menue.20 >
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
       // Update the TypoScript
-    $records    = $this->pageOrgDocumentsCaddy_typoscriptCaddy( );
+    $records    = $this->pageOrgDocumentsCaddy_typoscript( );
     $this->sqlUpdateTyposcript( $records, $pageTitle );
 
   }
@@ -1419,14 +1421,14 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageOrgDocumentsCaddy_typoscriptCaddy( )
+ * pageOrgDocumentsCaddy_typoscript( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageOrgDocumentsCaddy_typoscriptCaddy( )
+  private function pageOrgDocumentsCaddy_typoscript( )
   {
     $records = null;
 
@@ -1434,10 +1436,10 @@ page.10.subparts.menue.20 >
     switch( true )
     {
       case( $pmX == '1x' ):
-        $records = $this->pageOrgDocumentsCaddy_typoscriptCaddy1x( );
+        $records = $this->pageOrgDocumentsCaddy_typoscript1x( );
         break;
       case( $pmX == '2x' ):
-        $records = $this->pageOrgDocumentsCaddy_typoscriptCaddy2x( );
+        $records = $this->pageOrgDocumentsCaddy_typoscript2x( );
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -1454,14 +1456,14 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageOrgDocumentsCaddy_typoscriptCaddy1x( )
+ * pageOrgDocumentsCaddy_typoscript1x( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageOrgDocumentsCaddy_typoscriptCaddy1x( )
+  private function pageOrgDocumentsCaddy_typoscript1x( )
   {
     $records = null;
 
@@ -1488,19 +1490,21 @@ page.10.subparts.menue.20 >
   
 
 
-  /////////////////////////////////////////
-  //
-  // plugin.caddy
-
-plugin.caddy {
-  pages {
-    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
-    caddyCaddymini  = %pageOrgDocumentsCaddyCaddymini_title%
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ] . '
-    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
-  }
-}
+//  Not needed: Is included at the page documents
+//
+//  /////////////////////////////////////////
+//  //
+//  // plugin.caddy
+//
+//plugin.caddy {
+//  pages {
+//    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
+//    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ] . '
+//    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
+//  }
+//}
   
 
 
@@ -1520,7 +1524,6 @@ plugin.tx_powermail {
   // plugin.tx_powermail
 
 ';
-    $records[$uid]['constants'] = $this->zz_replacePageUids( $records[$uid]['constants'] );
 
     $records[$uid]['config']  = '
 plugin.tx_powermail_pi1 {
@@ -1553,7 +1556,7 @@ plugin.tx_powermail_pi1 {
         $records[$uid]['config']  = $records[$uid]['config'] . '
 
   // Don\'t display the mini caddy
-page.10.subparts.menue.20 >
+page.10.subparts.menue.10 >
 ';
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
@@ -1566,14 +1569,14 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageOrgDocumentsCaddy_typoscriptCaddy2x( )
+ * pageOrgDocumentsCaddy_typoscript2x( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageOrgDocumentsCaddy_typoscriptCaddy2x( )
+  private function pageOrgDocumentsCaddy_typoscript2x( )
   {
     $records = null;
 
@@ -1596,20 +1599,22 @@ page.10.subparts.menue.20 >
   
 
 
-  /////////////////////////////////////////
-  //
-  // plugin.caddy
-
-plugin.caddy {
-  pages {
-    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
-    caddyCaddymini  = %pageOrgDocumentsCaddyCaddymini_title%
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ] . '
-    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
-    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
-  }
-}
-  // plugin.caddy
+//  Not needed: Is included at the page documents
+//
+//  /////////////////////////////////////////
+//  //
+//  // plugin.caddy
+//
+//plugin.caddy {
+//  pages {
+//    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
+//    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ] . '
+//    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
+//  }
+//}
+  
   
 
 
@@ -1629,7 +1634,6 @@ plugin.tx_powermail {
   // plugin.tx_powermail
 
 ';
-    $records[$uid]['constants'] = $this->zz_replacePageUids( $records[$uid]['constants'] );
     
     $records[$uid]['config']  = '
 plugin.tx_powermail {
@@ -1653,7 +1657,7 @@ plugin.tx_powermail {
         $records[$uid]['config']  = $records[$uid]['config'] . '
 
   // Don\'t display the mini caddy
-page.10.subparts.menue.20 >
+page.10.subparts.menue.10 >
 ';
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):

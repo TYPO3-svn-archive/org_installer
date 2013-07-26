@@ -34,7 +34,7 @@
  *
  *              SECTION: Browser - TYPO3 without PHP
  *  183:     private function browserPageOrg( $uid )
- *  232:     private function browserPageOrgDownloads( $uid )
+ *  232:     private function browserPageOrgDocuments( $uid )
  *  281:     private function browserPageOrgHeadquarters( $uid )
  *  330:     private function browserPageOrgLocations( $uid )
  *  379:     private function browserPageOrgNews( $uid )
@@ -128,7 +128,7 @@ class tx_orginstaller_pi1_plugins
     $records[$uid] = $this->browserPageOrg( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->browserPageOrgDownloads( $uid );
+    $records[$uid] = $this->browserPageOrgDocuments( $uid );
 
     $uid = $uid + 1;
     $records[$uid] = $this->browserPageOrgHeadquarters( $uid );
@@ -221,7 +221,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * browserPageOrgDownloads( )
+ * browserPageOrgDocuments( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -229,18 +229,18 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function browserPageOrgDownloads( $uid )
+  private function browserPageOrgDocuments( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_header' );
-    $this->pObj->arr_pluginUids['pluginBrowserPageOrgDownloads_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_header' );
+    $this->pObj->arr_pluginUids['pluginBrowserPageOrgDocuments_header'] = $uid;
 
     $ffJavascript = 'list_and_single';
     $ffjQueryUi   = 'blitzer';
     $ffMode       = 301;
-    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffMycomment' ) );
-    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDownloads_ffListTitle' ) );
+    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_ffMycomment' ) );
+    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_ffListTitle' ) );
     $ffTableField = 'tx_org_downloads.title';
 
     $pi_flexform = $this->zzGetFlexformBrowser( );
@@ -252,7 +252,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,   $pi_flexform );
 
     $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ];
+    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ];
     $record['tstamp']        = time( );
     $record['crdate']        = time( );
     $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];

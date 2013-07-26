@@ -32,15 +32,15 @@
  *   94:     public function main( )
  *
  *              SECTION: Records
- *  124:     private function recordOrg( $uid )
- *  154:     private function recordOrg_caseAll( $uid )
- *  416:     private function recordOrg_caseOrgOnly( $uid )
- *  601:     private function recordOrgCaddy( $uid )
- *  655:     private function recordOrgDownloadsCaddy( $uid )
- *  707:     private function recordOrgStaticFiles( )
- *  747:     private function recordOrgStaticFilesPowermail1x( )
- *  765:     private function recordOrgStaticFilesPowermail2x( )
- *  783:     private function records( )
+ *  124:     private function pageOrg( $uid )
+ *  154:     private function pageOrg_caseAll( $uid )
+ *  416:     private function pageOrg_caseOrgOnly( $uid )
+ *  601:     private function pageOrgCaddy( $uid )
+ *  655:     private function pageOrgDocumentsCaddy( $uid )
+ *  707:     private function pageOrgStaticFiles( )
+ *  747:     private function pageOrgStaticFilesPowermail1x( )
+ *  765:     private function pageOrgStaticFilesPowermail2x( )
+ *  783:     private function page( )
  *
  *              SECTION: Sql
  *  820:     private function sqlInsert( $records )
@@ -100,7 +100,7 @@ class tx_orginstaller_pi1_typoscript
        ' . $this->pObj->pi_getLL( 'ts_create_header' ) . '
       </h2>';
 
-    $records = $this->records( );
+    $records = $this->page( );
     $this->sqlInsert( $records );
   }
 
@@ -113,7 +113,7 @@ class tx_orginstaller_pi1_typoscript
   **********************************************/
 
 /**
- * recordOrg( )
+ * pageOrg( )
  *
  * @param	[type]		$$uid: ...
  * @return	array
@@ -121,7 +121,7 @@ class tx_orginstaller_pi1_typoscript
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function recordOrg( $uid )
+  private function pageOrg( $uid )
   {
     $strUid = sprintf( '%03d', $uid );
     $this->pObj->str_tsRoot = 'page_org_' . $strUid;
@@ -131,10 +131,10 @@ class tx_orginstaller_pi1_typoscript
     switch( true )
     {
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
-        $record = $this->recordOrg_caseAll( $uid );
+        $record = $this->pageOrg_caseAll( $uid );
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
-        $record = $this->recordOrg_caseOrgOnly( $uid );
+        $record = $this->pageOrg_caseOrgOnly( $uid );
         break;
     }
       // SWITCH : install case
@@ -143,7 +143,7 @@ class tx_orginstaller_pi1_typoscript
   }
 
 /**
- * recordOrg_caseAll( )
+ * pageOrg_caseAll( )
  *
  * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
@@ -151,7 +151,7 @@ class tx_orginstaller_pi1_typoscript
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function recordOrg_caseAll( $uid )
+  private function pageOrg_caseAll( $uid )
   {
     $record = null;
 
@@ -262,11 +262,11 @@ plugin.baseorg {
 
 plugin.caddy {
   pages {
-    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-    caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . ' 
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
-    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . ' 
+    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
   }
 }
   // plugin.caddy
@@ -290,7 +290,7 @@ plugin.org {
   }
   pages {
     calendar                = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    downloads               = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
+    downloads               = ' . $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
     event                   = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
@@ -384,6 +384,64 @@ config {
 }
   // config
 
+  
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // plugin.tx_caddy_pi3
+
+plugin.tx_caddy_pi3 {
+  content {
+    sum {
+      20 {
+        10 {
+          data >
+          value = ticket
+          lang {
+            de = Ticket
+            en = ticket
+          }
+        }
+        20 {
+          data >
+          value = tickets
+          lang {
+            de = Tickets
+            en = tickets
+          }
+        }
+      }
+    }
+  }
+  _HTMLMARKER {
+    linktoshop {
+      10 {
+        data >
+        value = Tickets
+        typolink {
+          title {
+            data >
+            value = Order a ticket!
+            lang {
+              de = Bestell ein Ticket!
+              en = Order a ticket!
+            }
+          }
+        }
+      }
+    }
+  }
+  _LOCAL_LANG {
+    default {
+      caddyminiempty = Order a ticket!
+    }
+    de {
+      caddyminiempty = Bestell ein Ticket!
+    }
+  }  
+}
+  // plugin.tx_caddy_pi3
+  
 
 
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -445,7 +503,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   }
 
 /**
- * recordOrg_caseOrgOnly( )
+ * pageOrg_caseOrgOnly( )
  *
  * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
@@ -453,7 +511,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function recordOrg_caseOrgOnly( $uid )
+  private function pageOrg_caseOrgOnly( $uid )
   {
     $record = null;
 
@@ -561,7 +619,7 @@ plugin.org {
   }
   pages {
     calendar                = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    downloads               = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
+    downloads               = ' . $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
     event                   = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
@@ -655,7 +713,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   }
 
 /**
- * recordOrgCaddy( )
+ * pageOrgCaddy( )
  *
  * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
@@ -663,7 +721,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function recordOrgCaddy( $uid )
+  private function pageOrgCaddy( $uid )
   {
     $record = null;
 
@@ -677,7 +735,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $this->pObj->arr_tsUids[ $title ] = $uid;
     $this->pObj->arr_tsTitles[ $uid ] = $title;
 
-    $includeStaticFile  = $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
+    $includeStaticFile  = $this->zzOrgCaddyStaticFiles( );
 // Not needed. Included on root page, because of minicaddy on the root page    
 //    $includeStaticFile  = $includeStaticFile
 //                        . ','
@@ -693,32 +751,16 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file']  = $includeStaticFile;
-      // Will handled by consolidation
-//    $record['constants']            = '
-//  /////////////////////////////////////////
-//  //
-//  // caddy
-//
-//plugin.caddy {
-//  pages {
-//    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-//    caddyCaddymini  = %pageOrgCaddyCaddymini_title%
-//    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
-//    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-//    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
-//  }
-//}
-//  // caddy
-//';
-//
-//    $record['config']               = $this->zzOrgCaddyConfig( );
+// Will handled by consolidation
+//    $record['constants']            = null;
+//    $record['config']               = null;
     $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
     return $record;
   }
 
 /**
- * recordOrgDownloadsCaddy( )
+ * pageOrgDocumentsCaddy( )
  *
  * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
@@ -726,7 +768,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function recordOrgDownloadsCaddy( $uid )
+  private function pageOrgDocumentsCaddy( $uid )
   {
     $record = null;
 
@@ -739,7 +781,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $this->pObj->arr_tsUids[ $title ] = $uid;
     $this->pObj->arr_tsTitles[ $uid ] = $title;
     
-    $includeStaticFile  = $record['include_static_file']  = $this->zzOrgCaddyStaticFiles( );
+    $includeStaticFile  = $this->zzOrgCaddyStaticFiles( );
     $includeStaticFile  = $includeStaticFile
                         . ','
                         . 'EXT:caddy/static/css/red/,'
@@ -754,53 +796,118 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file']  = $includeStaticFile;
-    $record['constants']            = '
-  /////////////////////////////////////////
-  //
-  // caddy
-
-plugin.caddy {
-  pages {
-    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
-    caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ] . '
-    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
-    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
-  }
-}
-  // caddy
-';
-
-    $record['config']               = $this->zzOrgCaddyConfig( );
+// Will handled by consolidation
+//    $record['constants']            = null;
+//    $record['config']               = null;
     $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
     return $record;
   }
 
 /**
- * records( )
+ * pageOrgDocuments( )
+ *
+ * @param	[type]		$$uid: ...
+ * @return	array		$record : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgDocuments( $uid )
+  {
+    $record = null;
+
+    $strUid   = sprintf( '%03d', $uid );
+    $title    = 'pageOrgDocuments_title';
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+
+    $this->pObj->arr_tsUids[ $title ] = $uid;
+    $this->pObj->arr_tsTitles[ $uid ] = $title;
+    
+    $includeStaticFile  = 'EXT:caddy/static/css/red/,'
+                        . 'EXT:org/static/downloads/301/caddy/'
+                        ;
+
+    $record['title']                = $llTitle;
+    $record['uid']                  = $uid;
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
+    $record['tstamp']               = time( );
+    $record['sorting']              = 256;
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file']  = $includeStaticFile;
+    $record['constants']            = '
+  /////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // plugin.baseorg
+  // plugin.caddy
+
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.baseorg
+
+plugin.baseorg {
+  pages {
+    root {
+      caddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
+    }
+  }
+}
+  // plugin.baseorg
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.caddy
+
+plugin.caddy {
+  pages {
+    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
+    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
+    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ] . '
+    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
+  }
+}
+  // plugin.caddy
+';
+
+    $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
+
+    return $record;
+  }
+
+/**
+ * page( )
  *
  * @return	array		$records : the TypoScript records
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function records( )
+  private function page( )
   {
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( 'sys_template' );
 
-      // TypoScript for the root page
     $uid = $uid + 1;
-    $records[$uid] = $this->recordOrg( $uid );
+    $records[$uid] = $this->pageOrg( $uid );
 
-      // TypoScript for the caddy page cal
     $uid = $uid + 1;
-    $records[$uid] = $this->recordOrgCaddy( $uid );
+    $records[$uid] = $this->pageOrgCaddy( $uid );
 
-      // TypoScript for the caddy page downloads
     $uid = $uid + 1;
-    $records[$uid] = $this->recordOrgDownloadsCaddy( $uid );
+    $records[$uid] = $this->pageOrgDocuments( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgDocumentsCaddy( $uid );
 
     return $records;
   }

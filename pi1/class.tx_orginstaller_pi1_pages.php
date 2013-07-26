@@ -49,7 +49,7 @@
  *  960:     private function pageOrgDataLocations( $pageUid, $sorting )
  * 1018:     private function pageOrgDataNews( $pageUid, $sorting )
  * 1078:     private function pageOrgDataStaff( $pageUid, $sorting )
- * 1137:     private function pageOrgDownloads( $pageUid, $sorting )
+ * 1137:     private function pageOrgDocuments( $pageUid, $sorting )
  * 1173:     private function pageOrgDocumentsCaddy( $pageUid, $sorting )
  * 1213:     private function pageOrgDocumentsCaddyCaddymini( $pageUid, $sorting )
  * 1254:     private function pageOrgDocumentsCaddyDelivery( $pageUid, $sorting )
@@ -208,7 +208,7 @@ class tx_orginstaller_pi1_pages
     $pages[$pageUid] = $this->pageOrgNews( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDownloads( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageOrgDocuments( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[$pageUid] = $this->pageOrgDocumentsCaddy( $pageUid, $sorting );
@@ -943,7 +943,7 @@ mod {
   }
 
 /**
- * pageOrgDownloads( ) :
+ * pageOrgDocuments( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$sorting            : sorting value
@@ -952,9 +952,9 @@ mod {
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageOrgDownloads( $pageUid, $sorting )
+  private function pageOrgDocuments( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDownloads_title';
+    $pageTitle    = 'pageOrgDocuments_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
@@ -992,7 +992,7 @@ mod {
   {
     $pageTitle    = 'pageOrgDocumentsCaddy_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgDownloads_title';
+    $pidTitle     = 'pageOrgDocuments_title';
     $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array

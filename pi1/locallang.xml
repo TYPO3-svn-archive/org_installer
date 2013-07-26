@@ -242,7 +242,7 @@
       <label index="pageOrgDataLocations_title">Locations</label>
       <label index="pageOrgDataNews_title">News</label>
       <label index="pageOrgDataStaff_title">Staff</label>
-      <label index="pageOrgDownloads_title">Documents</label>
+      <label index="pageOrgDocuments_title">Documents</label>
       <label index="pageOrgDocumentsCaddy_title">Caddy</label>
       <label index="pageOrgDocumentsCaddy_titleUrl">Caddy</label>
       <label index="pageOrgDocumentsCaddyDelivery_title">Shipping</label>
@@ -293,9 +293,9 @@
       * table.field: tx_org_cal.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgDownloads_header">[Browser for Organiser Downloads]</label>
-      <label index="pluginBrowserPageOrgDownloads_ffListTitle">Organiser Downloads</label>
-      <label index="pluginBrowserPageOrgDownloads_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgDocuments_header">[Browser for Organiser Downloads]</label>
+      <label index="pluginBrowserPageOrgDocuments_ffListTitle">Organiser Downloads</label>
+      <label index="pluginBrowserPageOrgDocuments_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
   * Recursiv: Infinite
@@ -1193,7 +1193,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="pageOrgDataLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgDataNews_title">Nachrichten</label>
       <label index="pageOrgDataStaff_title">Personal</label>
-      <label index="pageOrgDownloads_title">Dokumente</label>
+      <label index="pageOrgDocuments_title">Dokumente</label>
       <label index="pageOrgDocumentsCaddy_title">Warenkorb</label>
       <label index="pageOrgDocumentsCaddy_titleUrl">Warenkorb</label>
       <label index="pageOrgDocumentsCaddyCaddymini_title">Mini-Warenkorb</label>
@@ -1244,9 +1244,9 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       * table.field: tx_org_cal.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgDownloads_header">[Browser für Organiser Downloads]</label>
-      <label index="pluginBrowserPageOrgDownloads_ffListTitle">Organiser Downloads</label>
-      <label index="pluginBrowserPageOrgDownloads_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgDocuments_header">[Browser für Organiser Downloads]</label>
+      <label index="pluginBrowserPageOrgDocuments_ffListTitle">Organiser Downloads</label>
+      <label index="pluginBrowserPageOrgDocuments_ffMycomment"><![CDATA[
 * [Verhalten]
   * Datensatzsammlung: Daten
   * Rekursiv: unendlich

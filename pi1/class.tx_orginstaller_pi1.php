@@ -338,8 +338,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
     $this->createRecordsPowermail( );
     $this->createRecordsOrg( );
-    $this->createFiles( );
     $this->createContent( );
+    $this->createFiles( );
   }
 
 /**

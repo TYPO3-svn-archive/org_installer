@@ -1213,11 +1213,6 @@ class tx_orginstaller_pi1_org
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llLabel  = 'record_tx_org_cal_eggroll_image';
-    $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-
     $datetime = strtotime( '1 April next year' );
 
     $record['uid']          = $uid;

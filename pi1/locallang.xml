@@ -432,8 +432,8 @@
 ###POWERMAIL_ALL###]]></label>
       <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_header">[Powermail for Caddy]</label>
-      <label index="pluginPowermailPageOrgCaddy_subject_r1x">[TEST] New Organiser order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="pluginPowermailPageOrgCaddy_subject_r2x">[TEST] New Organiser order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgCaddy_subject_r1x">[TEST] New Organiser order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgCaddy_subject_r2x">[TEST] New Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgCaddy_subject_s1x">[TEST] Your Organiser order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgCaddy_subject_s2x">[TEST] Your Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgCaddy_thanks1x"><![CDATA[<h1>Thanks!</h1>
@@ -459,8 +459,8 @@
 ###POWERMAIL_ALL###]]></label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_header">[Powermail for Caddy]</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r1x">New Organiser order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r2x">New Organiser order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r1x">[TEST] New Organiser order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r2x">[TEST] New Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s1x">[TEST] Your Organiser order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s2x">[TEST] Your Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_thanks1x"><![CDATA[<h1>Thanks!</h1>
@@ -1383,8 +1383,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="pluginPowermailPageOrgCaddy_header">[Powermail für Caddy]</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r1x">[TEST] Neue Organiser-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r2x">[TEST] Neue Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="pluginPowermailPageOrgCaddy_subject_s1x">[TEST] Deine Organiser-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="pluginPowermailPageOrgCaddy_subject_s2x">[TEST] Deine Organiser-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgCaddy_subject_s1x">[TEST] Deine Organiser-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgCaddy_subject_s2x">[TEST] Deine Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgCaddy_thanks1x"><![CDATA[<h1>Danke!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
@@ -1409,10 +1409,10 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 ###POWERMAIL_ALL###]]></label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organsier.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_header">[Powermail für Caddy]</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r1x">Neue Organiser-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r2x">Neue Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s1x">[TEST] Deine Organiser-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s2x">[TEST] Deine Organiser-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r1x">[TEST] Neue Organiser-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_r2x">[TEST] Neue Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s1x">[TEST] Deine Organiser-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgDownloadsCaddy_subject_s2x">[TEST] Deine Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgDownloadsCaddy_thanks1x"><![CDATA[<h1>Danke!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>

@@ -702,7 +702,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $includeStaticFile  = $includeStaticFile
                         . ','
                         . 'EXT:caddy/static/css/red/,'
-                        . 'EXT:org/static/calendar/201/caddy/'
+                        . 'EXT:org/static/downloads/301/caddy/'
                         ;
 
     $record['title']                = $llTitle;

@@ -1508,12 +1508,14 @@ plugin.caddy {
     caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
     caddyCaddymini  = %pageOrgDownloadsCaddyCaddymini_title%
     revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevocation_title' ] . '
-    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
     terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyTerms_title' ] . '
   }
 }
   // caddy
 ';
+    $records[$uid]['constants'] = $this->zz_replacePageUids( $records[$uid]['constants'] );
+    
     $records[$uid]['config']  = '
 plugin.tx_powermail {
   _LOCAL_LANG {

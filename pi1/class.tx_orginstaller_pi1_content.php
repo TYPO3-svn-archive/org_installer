@@ -532,7 +532,7 @@ class tx_orginstaller_pi1_content
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']            = $uid;
-    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider01_title' ];
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider_title' ];
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
@@ -541,7 +541,7 @@ class tx_orginstaller_pi1_content
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
-    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider01_image_link' ];
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'content_pageOrgLibraryHeaderSlider01_image_link' ];
     $record['imageorient']    = 1;
 
     return $record;
@@ -570,7 +570,7 @@ class tx_orginstaller_pi1_content
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']            = $uid;
-    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider02_title' ];
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider_title' ];
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
@@ -579,7 +579,7 @@ class tx_orginstaller_pi1_content
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
-    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider02_image_link' ];
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'content_pageOrgLibraryHeaderSlider02_image_link' ];
     $record['imageorient']    = 1;
 
     return $record;
@@ -608,7 +608,7 @@ class tx_orginstaller_pi1_content
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']            = $uid;
-    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider03_title' ];
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider_title' ];
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
@@ -617,7 +617,7 @@ class tx_orginstaller_pi1_content
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
-    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider03_image_link' ];
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'content_pageOrgLibraryHeaderSlider03_image_link' ];
     $record['imageorient']    = 1;
 
     return $record;
@@ -646,7 +646,7 @@ class tx_orginstaller_pi1_content
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']            = $uid;
-    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider04_title' ];
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider_title' ];
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
@@ -655,7 +655,7 @@ class tx_orginstaller_pi1_content
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
-    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider04_image_link' ];
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'content_pageOrgLibraryHeaderSlider04_image_link' ];
     $record['imageorient']    = 1;
 
     return $record;
@@ -684,7 +684,7 @@ class tx_orginstaller_pi1_content
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']            = $uid;
-    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider05_title' ];
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider_title' ];
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
@@ -693,7 +693,7 @@ class tx_orginstaller_pi1_content
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
-    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider05_image_link' ];
+    $record['image_link']     = $this->pObj->arr_pageUids[ 'content_pageOrgLibraryHeaderSlider05_image_link' ];
     $record['imageorient']    = 1;
 
     return $record;

@@ -483,6 +483,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
     $this->createFilesDownloads( );
     $this->createFilesLibraryHeaderLogo( );
+    $this->createFilesLibraryHeaderSlider( );
+    $this->createFilesLibraryMenubelow( );
     $this->createFilesOrg( );
     $this->createFilesStaff( );
     
@@ -502,7 +504,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
   }
 
 /**
- * createFilesDownloads( ) : 
+ * createFilesLibraryHeaderLogo( ) : 
  *
  * @return	void
  * @access private
@@ -515,7 +517,33 @@ class tx_orginstaller_pi1 extends tslib_pibase
   }
 
 /**
- * createFilesDownloads( ) : 
+ * createFilesLibraryHeaderSlider( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createFilesLibraryHeaderSlider( )
+  {
+    $this->zz_copyFiles( 'res/files/headerLogo/', 'uploads/pics/' );
+  }
+
+/**
+ * createFilesLibraryHeaderMenubelow( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createFilesLibraryMenubelow( )
+  {
+    $this->zz_copyFiles( 'res/files/headerLogo/', 'uploads/pics/' );
+  }
+
+/**
+ * createFilesOrg( ) : 
  *
  * @return	void
  * @access private

@@ -1508,7 +1508,7 @@ plugin.caddy {
     caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
     caddyCaddymini  = %pageOrgDownloadsCaddyCaddymini_title%
     revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevocation_title' ] . '
-    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
+    shop            = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
     terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyTerms_title' ] . '
   }
 }
@@ -2133,12 +2133,14 @@ mod {
     switch( $page )
     {
       case( 'pageOrgCaddy_title' ):
-        $powermailUid = 'tx_powermail_domain_model_fields_'
-                      . $this->pObj->powermailPageOrgCaddy->getValue( $label );
+//        $powermailUid = 'tx_powermail_domain_model_fields_'
+//                      . $this->pObj->powermailPageOrgCaddy->getValue( $label );
+        $powermailUid = $this->pObj->powermailPageOrgCaddy->getValue( $label );
         break;
       case( 'pageOrgDownloadsCaddy_title' ):
-        $powermailUid = 'tx_powermail_domain_model_fields_'
-                      . $this->pObj->powermailPageOrgDownloadsCaddy->getValue( $label );
+//        $powermailUid = 'tx_powermail_domain_model_fields_'
+//                      . $this->pObj->powermailPageOrgDownloadsCaddy->getValue( $label );
+        $powermailUid = $this->pObj->powermailPageOrgDownloadsCaddy->getValue( $label );
         break;
       default:
         $prompt = __METHOD__ . ' #' . __LINE__ . ': undefined value in switch!';

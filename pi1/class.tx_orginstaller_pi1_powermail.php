@@ -915,7 +915,21 @@ class tx_orginstaller_pi1_powermail
   {
     $record = null;
 
-    $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ];
+    switch( $this->page )
+    {
+      case( 'pageOrgCaddy_title' ):
+        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ];
+        break;
+      case( 'pageOrgDownloadsCaddy_title' ):
+        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevocation_title' ];
+        break;
+      default:
+        $prompt = 'ERROR: undefined value in switch: "' . $this->page . '"<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
       // phrases_powermail_revocationAccepted in dependence of Powermail 1.x or 2.x
     switch( true )
@@ -1043,7 +1057,21 @@ class tx_orginstaller_pi1_powermail
   {
     $record = null;
 
-    $int_terms = $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ];
+    switch( $this->page )
+    {
+      case( 'pageOrgCaddy_title' ):
+        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ];
+        break;
+      case( 'pageOrgDownloadsCaddy_title' ):
+        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgDownloadsaCaddyTerms_title' ];
+        break;
+      default:
+        $prompt = 'ERROR: undefined value in switch: "' . $this->page . '"<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
       // phrases_powermail_termsAccepted in dependence of Powermail 1.x or 2.x
     switch( true )

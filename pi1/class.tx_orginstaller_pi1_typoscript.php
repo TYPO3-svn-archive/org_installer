@@ -251,6 +251,7 @@ plugin.baseorg {
   // plugin.org
 
 plugin.org {
+  host = ' . $this->pObj->markerArray['###HOST###'] . '/
   sysfolder {
     calendar    = ' . $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ] . '
     downloads   = ' . $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ] . '
@@ -510,6 +511,7 @@ plugin.baseorg {
   // plugin.org
 
 plugin.org {
+  host = ' . $this->pObj->markerArray['###HOST###'] . '/
   sysfolder {
     calendar    = ' . $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ] . '
     downloads   = ' . $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ] . '

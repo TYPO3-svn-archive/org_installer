@@ -196,15 +196,15 @@ class tx_orginstaller_pi1_typoscript
     switch( true )
     {
       case( $this->typo3Version < 4007000 ):
-        $include = $arr_ts[$int_uid]['include_static_file'];
+        $include  = $record['include_static_file'];
         $include  = str_replace( '%flipit46%', 'EXT:flipit/static/typo3/4.6/,', $include );
         $include  = $include . ',EXT:org/static/base/typo3/4.6/';
-        $arr_ts[$int_uid]['include_static_file'] = $include;
+        $record['include_static_file'] = $include;
         break;
       default:
-        $include = $arr_ts[$int_uid]['include_static_file'];
+        $include = $record['include_static_file'];
         $include  = str_replace( '%flipit46%', null, $include );
-        $arr_ts[$int_uid]['include_static_file'] = $include;
+        $record['include_static_file'] = $include;
         break;
     }
     $record['includeStaticAfterBasedOn']  = 1;
@@ -495,15 +495,15 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     switch( true )
     {
       case( $this->typo3Version < 4007000 ):
-        $include = $arr_ts[$int_uid]['include_static_file'];
+        $include  = $record['include_static_file'];
         $include  = str_replace( '%flipit46%', 'EXT:flipit/static/typo3/4.6/,', $include );
         $include  = $include . ',EXT:org/static/base/typo3/4.6/';
-        $arr_ts[$int_uid]['include_static_file'] = $include;
+        $record['include_static_file'] = $include;
         break;
       default:
-        $include = $arr_ts[$int_uid]['include_static_file'];
+        $include = $record['include_static_file'];
         $include  = str_replace( '%flipit46%', null, $include );
-        $arr_ts[$int_uid]['include_static_file'] = $include;
+        $record['include_static_file'] = $include;
         break;
     }
     $record['includeStaticAfterBasedOn']  = 1;

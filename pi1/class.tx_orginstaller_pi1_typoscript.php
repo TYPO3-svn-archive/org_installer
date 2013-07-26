@@ -217,6 +217,7 @@ class tx_orginstaller_pi1_typoscript
   //
   // plugin.baseorg
   // plugin.org
+  // plugin.tx_browser_pi1
 
 
 
@@ -224,16 +225,24 @@ class tx_orginstaller_pi1_typoscript
   //
   // plugin.baseorg
 plugin.baseorg {
+  client {
+    name = TYPO3 Organiser Installer
+  }
     // for baseURL
   host = ' . $this->pObj->markerArray['###HOST###'] . '/
   pages {
     root = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     root {
-      librares {
+      libraries {
         footer = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryFooter_title' ] . '
         header {
-          logo    = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ] . '
-          slider  = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider_title' ] . '
+          logo = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ] . '
+          slider {
+            content = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider_title' ] . '
+          }
+        }
+        menu {
+          bottom = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryMenubelow_title' ] . '
         }
       }
     }
@@ -289,6 +298,19 @@ plugin.org {
 }
   // organiser
 
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  jss {
+      // We need jQuery above the slider script
+    placement.footer = 0
+  }
+}
+  // plugin.tx_browser_pi1
 ';
 
     switch( true )

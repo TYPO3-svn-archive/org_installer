@@ -260,7 +260,8 @@ class tx_orginstaller_pi1_consolidate
       // SWITCH : siteroot depends on toplevel
 
     $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageOrg_title' );
-    $records[$uid]['nav_hide']    = 1;
+    $records[$uid]['nav_hide']    = 0;
+    $records[$uid]['nav_title']   = $this->pObj->pi_getLL( 'pageOrg_titleNav' );
     $records[$uid]['is_siteroot'] = $is_siteroot;
     $records[$uid]['module']      = null;
     $records[$uid]['TSconfig']    = '
@@ -814,7 +815,16 @@ TCEMAIN {
     $records[$uid]['constants'] = '
   /////////////////////////////////////////
   //
-  // caddy
+  // INDEX
+  //
+  // plugin.caddy
+  // plugin.tx_powermail
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.caddy
 
 plugin.caddy {
   pages {
@@ -825,8 +835,28 @@ plugin.caddy {
     terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
   }
 }
-  // caddy
+  // plugin.caddy
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.tx_powermail
+
+plugin.tx_powermail {
+  settings {
+    javascript {
+        // We take jQuery from tx_browser_pi1 or from T3jQuery (recommended)
+      powermailJQuery = 
+      powermailJQueryUi =   
+    }
+  }
+}
+  // plugin.tx_powermail
+
 ';
+    $records[$uid]['constants'] = $this->zz_replacePageUids( $records[$uid]['constants'] );
+
     $records[$uid]['config']  = '
 plugin.tx_powermail_pi1 {
   email {
@@ -894,7 +924,16 @@ page.10.subparts.menue.20 >
     $records[$uid]['constants'] = '
   /////////////////////////////////////////
   //
-  // caddy
+  // INDEX
+  //
+  // plugin.caddy
+  // plugin.tx_powermail
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.caddy
 
 plugin.caddy {
   pages {
@@ -905,8 +944,28 @@ plugin.caddy {
     terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
   }
 }
-  // caddy
+  // plugin.caddy
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.tx_powermail
+
+plugin.tx_powermail {
+  settings {
+    javascript {
+        // We take jQuery from tx_browser_pi1 or from T3jQuery (recommended)
+      powermailJQuery = 
+      powermailJQueryUi =   
+    }
+  }
+}
+  // plugin.tx_powermail
+
 ';
+    $records[$uid]['constants'] = $this->zz_replacePageUids( $records[$uid]['constants'] );
+
     $records[$uid]['config']  = '
 plugin.tx_powermail {
   _LOCAL_LANG {
@@ -920,6 +979,7 @@ plugin.tx_powermail {
     }
   }
 }
+  // plugin.caddy
 ';
 
       // SWITCH : install case
@@ -1421,7 +1481,16 @@ page.10.subparts.menue.20 >
     $records[$uid]['constants'] = '
   /////////////////////////////////////////
   //
-  // caddy
+  // INDEX
+  //
+  // plugin.caddy
+  // plugin.tx_powermail
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.caddy
 
 plugin.caddy {
   pages {
@@ -1432,8 +1501,27 @@ plugin.caddy {
     terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyTerms_title' ] . '
   }
 }
-  // caddy
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.tx_powermail
+
+plugin.tx_powermail {
+  settings {
+    javascript {
+        // We take jQuery from tx_browser_pi1 or from T3jQuery (recommended)
+      powermailJQuery = 
+      powermailJQueryUi =   
+    }
+  }
+}
+  // plugin.tx_powermail
+
 ';
+    $records[$uid]['constants'] = $this->zz_replacePageUids( $records[$uid]['constants'] );
+
     $records[$uid]['config']  = '
 plugin.tx_powermail_pi1 {
   email {
@@ -1501,7 +1589,16 @@ page.10.subparts.menue.20 >
     $records[$uid]['constants'] = '
   /////////////////////////////////////////
   //
-  // caddy
+  // INDEX
+  //
+  // plugin.caddy
+  // plugin.tx_powermail
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.caddy
 
 plugin.caddy {
   pages {
@@ -1512,7 +1609,25 @@ plugin.caddy {
     terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyTerms_title' ] . '
   }
 }
-  // caddy
+  // plugin.caddy
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.tx_powermail
+
+plugin.tx_powermail {
+  settings {
+    javascript {
+        // We take jQuery from tx_browser_pi1 or from T3jQuery (recommended)
+      powermailJQuery = 
+      powermailJQueryUi =   
+    }
+  }
+}
+  // plugin.tx_powermail
+
 ';
     $records[$uid]['constants'] = $this->zz_replacePageUids( $records[$uid]['constants'] );
     

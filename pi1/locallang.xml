@@ -227,6 +227,7 @@
       <label index="page_create_header">Pages and Directories</label>
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###) is created.</label>
       <label index="pageOrg_title">Organiser</label>
+      <label index="pageOrg_titleNav">Calendar</label>
       <label index="pageOrgCaddy_title">Caddy</label>
       <label index="pageOrgCaddy_titleUrl">Caddy</label>
       <label index="pageOrgCaddyDelivery_title">Shipping</label>
@@ -252,10 +253,11 @@
       <label index="pageOrgHeadquarters_title">Headquarters</label>
       <label index="pageOrgLegalinfo_title">Legal info</label>
       <label index="pageOrgLibrary_title">Libraries</label>
-      <label index="pageOrgLibraryHeader_title">Kopf</label>
+      <label index="pageOrgLibraryHeader_title">Header</label>
       <label index="pageOrgLibraryHeaderLogo_title">Logo</label>
       <label index="pageOrgLibraryHeaderSlider_title">Slider</label>
       <label index="pageOrgLibraryFooter_title">Footer</label>
+      <label index="pageOrgLibraryMenubelow_title">Below the menu</label>
       <label index="pageOrgLocations_title">Locations</label>
       <label index="pageOrgNews_title">Items</label>
       <label index="pageOrgStaff_title">Staff</label>
@@ -1176,6 +1178,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="page_create_header">Seiten und Verzeichnisse</label>
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
       <label index="pageOrg_title">Organiser</label>
+      <label index="pageOrg_titleNav">Kalender</label>
       <label index="pageOrgCaddy_title">Warenkorb</label>
       <label index="pageOrgCaddy_titleUrl">Warenkorb</label>
       <label index="pageOrgCaddyCaddymini_title">Mini-Warenkorb</label>
@@ -1205,6 +1208,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="pageOrgLibraryHeaderLogo_title">Logo</label>
       <label index="pageOrgLibraryHeaderSlider_title">Slider</label>
       <label index="pageOrgLibraryFooter_title">Fuß</label>
+      <label index="pageOrgLibraryMenubelow_title">Unter dem Menü</label>
       <label index="pageOrgLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgNews_title">Nachrichten</label>
       <label index="pageOrgStaff_title">Personal</label>

@@ -261,6 +261,9 @@ class tx_orginstaller_pi1_pages
       $pages[$pageUid] = $this->pageOrgLibraryHeader( $pageUid, $sorting );
 
       list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+      $pages[$pageUid] = $this->pageOrgLibraryMenubelow( $pageUid, $sorting );
+
+      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
       $pages[$pageUid] = $this->pageOrgLibraryHeaderLogo( $pageUid, $sorting );
 
       list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
@@ -1468,6 +1471,45 @@ TCEMAIN {
     $pageTitle    = 'pageOrgLibraryHeaderSlider_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
     $pidTitle     = 'pageOrgLibraryHeader_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $pid,
+              'title'         => $llPageTitle,
+              'dokType'       => 254,  // 254: sysfolder
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
+
+    return $page;
+  }
+
+/**
+ * pageOrgLibraryMenubelow( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$sorting            : sorting value
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function pageOrgLibraryMenubelow( $pageUid, $sorting )
+  {
+    $pageTitle    = 'pageOrgLibraryMenubelow_title';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageOrgLibrary_title';
     $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array

@@ -260,9 +260,24 @@ class tx_orginstaller_pi1_consolidate
     }
       // SWITCH : siteroot depends on toplevel
 
+      // SWITCH : install case
+    $installCase = $this->pObj->markerArray['###INSTALL_CASE###'];
+    switch( $installCase )
+    {
+      case( 'install_org' ):
+        $records[$uid]['nav_title'] = null;
+        break;
+      case( 'install_all' ):
+        $records[$uid]['nav_title'] = $this->pObj->pi_getLL( 'pageOrg_titleNav' );
+        break;
+      default:
+        $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
+        die( $prompt );
+    }
+      // SWITCH : install case
+
     $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageOrg_title' );
     $records[$uid]['nav_hide']    = 0;
-    $records[$uid]['nav_title']   = $this->pObj->pi_getLL( 'pageOrg_titleNav' );
     $records[$uid]['is_siteroot'] = $is_siteroot;
     $records[$uid]['module']      = null;
     $records[$uid]['TSconfig']    = '

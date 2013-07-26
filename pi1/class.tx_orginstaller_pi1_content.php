@@ -35,7 +35,7 @@
  *  115:     private function pageOrgCaddy( $uid )
  *  145:     private function pageOrgCaddyDelivery( $uid )
  *  175:     private function pageOrgLibraryFooter( $uid )
- *  206:     private function pageOrgLibraryHeader( $uid )
+ *  206:     private function pageOrgLibraryHeaderLogo( $uid )
  *  242:     private function pageOrgLegalinfo( $uid )
  *  272:     private function pageOrgCaddyRevocation( $uid )
  *  302:     private function pageOrgCaddyTerms( $uid )
@@ -145,7 +145,7 @@ class tx_orginstaller_pi1_content
 
       // content for page library header
     $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgLibraryHeader( $uid );
+    $records[$uid] = $this->pageOrgLibraryHeaderLogo( $uid );
 
       // content for page library footer
     $uid = $uid + 1;
@@ -456,7 +456,7 @@ class tx_orginstaller_pi1_content
   }
 
 /**
- * pageOrgLibraryHeader( )
+ * pageOrgLibraryHeaderLogo( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -464,29 +464,31 @@ class tx_orginstaller_pi1_content
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function pageOrgLibraryHeader( $uid )
+  private function pageOrgLibraryHeaderLogo( $uid )
   {
     $record = null;
 
-      // Content for page header
-    $pid      = $GLOBALS['TSFE']->id;
-    $bodytext = $this->pObj->pi_getLL('content_pageOrgLibraryHeader_bodytext');
-    $bodytext = str_replace('###PID###', $pid, $bodytext);
+    $llLabel  = 'content_pageOrgLibraryHeaderLogo_header';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_contentUids[ $llLabel ] = $uid;
 
-    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgLibraryHeader_header' );
-    $this->pObj->arr_contentUids['content_pageOrgLibraryHeader_header']  = $uid;
+    $llLabel  = 'content_pageOrgLibraryHeaderLogo_image';
+    $llImage  = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']            = $uid;
-    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeader_title' ];
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ];
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
     $record['sorting']        = 256 * 1;
-    $record['CType']          = 'text';
+    $record['CType']          = 'image';
     $record['header']         = $llHeader;
     $record['header_layout']  = 100; // hidden
-    $record['bodytext']       = $bodytext;
-    $record['sectionIndex']   = 1;
+    $record['image']          = $llImageWiTimestamp;
+    $record['image_link']     = $this->pObj->pi_getLL('content_pageOrgLibraryHeaderLogo_image_link');
+    $record['imageorient']    = 1;
 
     return $record;
   }

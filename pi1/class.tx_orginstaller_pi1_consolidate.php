@@ -1681,6 +1681,25 @@ page.10.subparts.menue.10 >
  */
   private function pageOrgLibraryHeaderLogo( )
   {
+    $records    = array( );
+    $pageUid    = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ];
+    $pageTitle  = $this->pObj->arr_pageTitles[ $pageUid ];
+
+      // Update page properties
+    $records = $this->pageOrgLibraryHeaderLogo_content( );
+    $this->sqlUpdateContent( $records, $pageTitle );
+  }
+
+/**
+ * pageOrgLibraryHeaderLogo_content( )
+ *
+ * @return	array		$records    : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageOrgLibraryHeaderLogo_content( )
+  {
     $records = null;
 
     $llLabel  = 'content_pageOrgLibraryHeaderLogo_header';

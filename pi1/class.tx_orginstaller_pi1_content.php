@@ -536,7 +536,7 @@ class tx_orginstaller_pi1_content
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']        = 256 * 1;
+    $record['sorting']        = 256 * 5;
     $record['CType']          = 'image';
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
@@ -574,7 +574,7 @@ class tx_orginstaller_pi1_content
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']        = 256 * 2;
+    $record['sorting']        = 256 * 4;
     $record['CType']          = 'image';
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
@@ -650,14 +650,13 @@ class tx_orginstaller_pi1_content
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']        = 256 * 4;
+    $record['sorting']        = 256 * 2;
     $record['CType']          = 'image';
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
     $record['image_link']     = $this->pObj->pi_getLL( 'content_pageOrgLibraryHeaderSlider04_image_link' );
-    $record['imageorient']    = 2;  // 2: left
-    $record['spaceBefore']    = 60; // 2: left
+    $record['imageorient']    = 1;
 
     return $record;
   }
@@ -689,7 +688,7 @@ class tx_orginstaller_pi1_content
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']        = 256 * 5;
+    $record['sorting']        = 256 * 1;
     $record['CType']          = 'image';
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
@@ -733,7 +732,8 @@ class tx_orginstaller_pi1_content
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
     $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryMenubelow_image_link' ];
-    $record['imageorient']    = 1;
+    $record['imageorient']    = 2;  // 2: left
+    $record['spaceBefore']    = 60; // 2: left
 
     return $record;
   }

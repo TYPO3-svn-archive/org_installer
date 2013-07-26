@@ -526,7 +526,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
  */
   private function createFilesLibraryHeaderSlider( )
   {
-    $this->zz_copyFiles( 'res/files/headerLogo/', 'uploads/pics/' );
+    $this->zz_copyFiles( 'res/files/headerSlider/', 'uploads/pics/' );
   }
 
 /**
@@ -539,7 +539,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
  */
   private function createFilesLibraryMenubelow( )
   {
-    $this->zz_copyFiles( 'res/files/headerLogo/', 'uploads/pics/' );
+    $this->zz_copyFiles( 'res/files/menubelow/', 'uploads/pics/' );
   }
 
 /**

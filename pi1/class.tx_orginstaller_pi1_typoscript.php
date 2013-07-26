@@ -572,34 +572,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   //
   // INDEX
   //
-  // plugin.baseorg
   // plugin.org
-
-
-
-  /////////////////////////////////////////
-  //
-  // plugin.baseorg
-plugin.baseorg {
-    // for baseURL
-  host = ' . $this->pObj->markerArray['###HOST###'] . '/
-  pages {
-    root = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-    root {
-      librares {
-        footer = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryFooter_title' ] . '
-        header {
-          logo    = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ] . '
-          slider  = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderSlider_title' ] . '
-        }
-      }
-    }
-  }
-  slider {
-    colpos = 1
-  }
-}
-  // plugin.baseorg
 
 
 

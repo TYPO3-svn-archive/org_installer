@@ -42,17 +42,17 @@
  *
  *              SECTION: Caddy
  *  485:     private function caddyPageOrgCaddy( $uid )
- *  518:     private function caddyPageOrgDownloadsCaddy( $uid )
+ *  518:     private function caddyPageOrgDocumentsCaddy( $uid )
  *  551:     private function caddyminiPageOrgCaddyCaddymini( $uid )
- *  597:     private function caddyminiPageOrgDownloadsCaddyCaddymini( $uid )
+ *  597:     private function caddyminiPageOrgDocumentsCaddyCaddymini( $uid )
  *
  *              SECTION: Powermail
  *  649:     private function powermailPageOrgCaddy( $uid )
  *  688:     private function powermailPageOrgCaddy1x( $uid )
  *  744:     private function powermailPageOrgCaddy2x( $uid )
- *  776:     private function powermailPageOrgDownloadsCaddy( $uid )
- *  815:     private function powermailPageOrgDownloadsCaddy1x( $uid )
- *  871:     private function powermailPageOrgDownloadsCaddy2x( $uid )
+ *  776:     private function powermailPageOrgDocumentsCaddy( $uid )
+ *  815:     private function powermailPageOrgDocumentsCaddy1x( $uid )
+ *  871:     private function powermailPageOrgDocumentsCaddy2x( $uid )
  *
  *              SECTION: Sql
  *  911:     private function sqlInsert( $records )
@@ -149,16 +149,16 @@ class tx_orginstaller_pi1_plugins
     $records[$uid] = $this->caddyminiPageOrgCaddyCaddymini( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyPageOrgDownloadsCaddy( $uid );
+    $records[$uid] = $this->caddyPageOrgDocumentsCaddy( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyminiPageOrgDownloadsCaddyCaddymini( $uid );
+    $records[$uid] = $this->caddyminiPageOrgDocumentsCaddyCaddymini( $uid );
 
     $uid = $uid + 1;
     $records[$uid] = $this->powermailPageOrgCaddy( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->powermailPageOrgDownloadsCaddy( $uid );
+    $records[$uid] = $this->powermailPageOrgDocumentsCaddy( $uid );
 
     return $records;
   }
@@ -507,7 +507,7 @@ class tx_orginstaller_pi1_plugins
 
 
 /**
- * caddyPageOrgDownloadsCaddy( )
+ * caddyPageOrgDocumentsCaddy( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -515,15 +515,15 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function caddyPageOrgDownloadsCaddy( $uid )
+  private function caddyPageOrgDocumentsCaddy( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgDownloadsCaddy_header' );
-    $this->pObj->arr_pluginUids['pluginCaddyPageOrgDownloadsCaddy_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgDocumentsCaddy_header' );
+    $this->pObj->arr_pluginUids['pluginCaddyPageOrgDocumentsCaddy_header'] = $uid;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -585,7 +585,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * caddyminiPageOrgDownloadsCaddyCaddymini( )
+ * caddyminiPageOrgDocumentsCaddyCaddymini( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -594,17 +594,17 @@ class tx_orginstaller_pi1_plugins
  * @since   3.0.5
  * @internal  #i0007
  */
-  private function caddyminiPageOrgDownloadsCaddyCaddymini( $uid )
+  private function caddyminiPageOrgDocumentsCaddyCaddymini( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgDownloadsCaddyCaddymini_header' );
-    $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgDownloadsCaddyCaddymini_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgDocumentsCaddyCaddymini_header' );
+    $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgDocumentsCaddyCaddymini_header'] = $uid;
 
-    $uidCaddyPage           = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
+    $uidCaddyPage           = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -765,7 +765,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * powermailPageOrgDownloadsCaddy( )
+ * powermailPageOrgDocumentsCaddy( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -773,7 +773,7 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function powermailPageOrgDownloadsCaddy( $uid )
+  private function powermailPageOrgDocumentsCaddy( $uid )
   {
     switch( true )
     {
@@ -785,10 +785,10 @@ class tx_orginstaller_pi1_plugins
         die( $prompt );
         break;
       case( $this->pObj->powermailVersionInt < 2000000 ):
-        $record = $this->powermailPageOrgDownloadsCaddy1x( $uid );
+        $record = $this->powermailPageOrgDocumentsCaddy1x( $uid );
         break;
       case( $this->pObj->powermailVersionInt < 3000000 ):
-        $record = $this->powermailPageOrgDownloadsCaddy2x( $uid );
+        $record = $this->powermailPageOrgDocumentsCaddy2x( $uid );
         break;
       case( $this->pObj->powermailVersionInt >= 3000000 ):
       default:
@@ -804,7 +804,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * powermailPageOrgDownloadsCaddy1x( )
+ * powermailPageOrgDocumentsCaddy1x( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -812,12 +812,12 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function powermailPageOrgDownloadsCaddy1x( $uid )
+  private function powermailPageOrgDocumentsCaddy1x( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_header' );
-    $this->pObj->arr_pluginUids['pluginPowermailPageOrgDownloadsCaddy_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_header' );
+    $this->pObj->arr_pluginUids['pluginPowermailPageOrgDocumentsCaddy_header'] = $uid;
 
     $emailRecipient = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###']
                     . PHP_EOL
@@ -825,7 +825,7 @@ class tx_orginstaller_pi1_plugins
                     ;
 
     $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
@@ -837,8 +837,8 @@ class tx_orginstaller_pi1_plugins
     $record['sectionIndex']               = 1;
     $record['tx_powermail_title']         = 'org';
     $record['tx_powermail_recipient']     = $emailRecipient;
-    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_subject_r1x' );
-    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_subject_s1x' );
+    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_r1x' );
+    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_s1x' );
 // Will updated by consolidate->pageCaddyPluginPowermail
 //    $record['tx_powermail_sender']        = $str_sender;
 //    $record['tx_powermail_sendername']    = $str_sendername;
@@ -848,9 +848,9 @@ class tx_orginstaller_pi1_plugins
     $record['tx_powermail_recip_table']   = 0;
     $record['tx_powermail_recip_id']      = null;
     $record['tx_powermail_recip_field']   = null;
-    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_thanks1x' );
-    $record['tx_powermail_mailsender']    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_body_s1x' );
-    $record['tx_powermail_mailreceiver']  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_body_r1x' );
+    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_thanks1x' );
+    $record['tx_powermail_mailsender']    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_s1x' );
+    $record['tx_powermail_mailreceiver']  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_r1x' );
     $record['tx_powermail_redirect']      = null;
     $record['tx_powermail_fieldsets']     = 4;
     $record['tx_powermail_users']         = 0;
@@ -860,7 +860,7 @@ class tx_orginstaller_pi1_plugins
   }
 
 /**
- * powermailPageOrgDownloadsCaddy2x( )
+ * powermailPageOrgDocumentsCaddy2x( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -868,15 +868,15 @@ class tx_orginstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function powermailPageOrgDownloadsCaddy2x( $uid )
+  private function powermailPageOrgDocumentsCaddy2x( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDownloadsCaddy_header' );
-    $this->pObj->arr_pluginUids['pluginPowermailPageOrgDownloadsCaddy_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_header' );
+    $this->pObj->arr_pluginUids['pluginPowermailPageOrgDocumentsCaddy_header'] = $uid;
 
     $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];

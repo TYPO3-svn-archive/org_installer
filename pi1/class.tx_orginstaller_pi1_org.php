@@ -2645,7 +2645,9 @@ class tx_orginstaller_pi1_org
                 $this->relationCal2CalentranceT3DevdaysFree( ),
                 $this->relationCal2CalentranceT3DevdaysMortal( ),
                 $this->relationCal2CalentranceT3DevdaysSponsor( ),
-                $this->relationCal2CalentranceT3OrganiserFree( )
+                $this->relationCal2CalentranceT3OrganiserFree( ),
+                $this->relationCal2CalentranceT3OrganiserMortal( ),
+                $this->relationCal2CalentranceT3OrganiserSponsor( )
               );
 
     $this->sqlInsert( $records, $table );
@@ -2723,6 +2725,44 @@ class tx_orginstaller_pi1_org
               ( 
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_entranceFree' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2CalentranceT3OrganiserMortals( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2CalentranceT3OrganiserMortal( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_mereMortals' ],
+              );
+
+    return $record;
+  }
+
+/**
+ * relationCal2CalentranceT3OrganiserSponsors( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationCal2CalentranceT3OrganiserSponsor( )
+  {
+    $record = array
+              ( 
+                'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
+                'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_sponsor' ],
               );
 
     return $record;

@@ -920,8 +920,8 @@ class tx_orginstaller_pi1_powermail
       case( 'pageOrgCaddy_title' ):
         $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ];
         break;
-      case( 'pageOrgDownloadsCaddy_title' ):
-        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevocation_title' ];
+      case( 'pageOrgDocumentsCaddy_title' ):
+        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ];
         break;
       default:
         $prompt = 'ERROR: undefined value in switch: "' . $this->page . '"<br />
@@ -1062,7 +1062,7 @@ class tx_orginstaller_pi1_powermail
       case( 'pageOrgCaddy_title' ):
         $int_terms = $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ];
         break;
-      case( 'pageOrgDownloadsCaddy_title' ):
+      case( 'pageOrgDocumentsCaddy_title' ):
         $int_terms = $this->pObj->arr_pageUids[ 'pageOrgDownloadsaCaddyTerms_title' ];
         break;
       default:
@@ -1787,8 +1787,8 @@ class tx_orginstaller_pi1_powermail
       case( 'pageOrgCaddy_title' ):
         $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_pageOrgCaddy' ];
         break;
-      case( 'pageOrgDownloadsCaddy_title' ):
-        $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_pageOrgDownloadsCaddy' ];
+      case( 'pageOrgDocumentsCaddy_title' ):
+        $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_pageOrgDocumentsCaddy' ];
         break;
       default:
         $prompt = 'ERROR: undefined value in switch: "' . $this->page . '"<br />
@@ -1826,9 +1826,9 @@ class tx_orginstaller_pi1_powermail
         $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_pageOrgCaddy' );
         $this->arr_recordUids[ 'record_pm_form_title_pageOrgCaddy' ] = $uid;
         break;
-      case( 'pageOrgDownloadsCaddy_title' ):
-        $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_pageOrgDownloadsCaddy' );
-        $this->arr_recordUids[ 'record_pm_form_title_pageOrgDownloadsCaddy' ] = $uid;
+      case( 'pageOrgDocumentsCaddy_title' ):
+        $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_pageOrgDocumentsCaddy' );
+        $this->arr_recordUids[ 'record_pm_form_title_pageOrgDocumentsCaddy' ] = $uid;
         break;
       default:
         $prompt = 'ERROR: undefined value in switch: "' . $this->page . '"<br />

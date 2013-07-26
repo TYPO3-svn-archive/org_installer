@@ -46,7 +46,7 @@
  *  575:     private function createRecordsOrg( )
  *  592:     private function createRecordsPowermail( )
  *  608:     private function createRecordsPowermailPageOrgCaddy( )
- *  625:     private function createRecordsPowermailPageOrgDownloadsCaddy( )
+ *  625:     private function createRecordsPowermailPageOrgDocumentsCaddy( )
  *  642:     private function createTyposcript( )
  *
  *              SECTION: Consolidate
@@ -598,7 +598,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     require_once( 'class.tx_orginstaller_pi1_powermail.php' );
 
     $this->createRecordsPowermailPageOrgCaddy( );
-    $this->createRecordsPowermailPageOrgDownloadsCaddy( );
+    $this->createRecordsPowermailPageOrgDocumentsCaddy( );
   }
 
 /**
@@ -619,20 +619,20 @@ class tx_orginstaller_pi1 extends tslib_pibase
   }
 
 /**
- * createRecordsPowermailPageOrgDownloadsCaddy( ) :
+ * createRecordsPowermailPageOrgDocumentsCaddy( ) :
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createRecordsPowermailPageOrgDownloadsCaddy( )
+  private function createRecordsPowermailPageOrgDocumentsCaddy( )
   {
-    $this->powermailPageOrgDownloadsCaddy       = t3lib_div::makeInstance( 'tx_orginstaller_pi1_powermail' );
-    $this->powermailPageOrgDownloadsCaddy->pObj = $this;
+    $this->powermailPageOrgDocumentsCaddy       = t3lib_div::makeInstance( 'tx_orginstaller_pi1_powermail' );
+    $this->powermailPageOrgDocumentsCaddy->pObj = $this;
 
-    $pid = $this->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
-    $this->powermailPageOrgDownloadsCaddy->main( $pid, 'pageOrgDownloadsCaddy_title' );
+    $pid = $this->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
+    $this->powermailPageOrgDocumentsCaddy->main( $pid, 'pageOrgDocumentsCaddy_title' );
   }
 
 /**

@@ -233,6 +233,10 @@ plugin.baseorg {
   pages {
     root = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     root {
+      caddymini {
+        calendar  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . ' 
+        documents = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . ' 
+      }
       libraries {
         footer = ' . $this->pObj->arr_pageUids[ 'pageOrgLibraryFooter_title' ] . '
         header {
@@ -273,26 +277,26 @@ plugin.org {
   pages {
     calendar                = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     downloads               = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
-    downloadsCaddy          = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
-    downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ] . '
+    downloadsCaddy          = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
+    downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
     event                   = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     headquarter             = ' . $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ] . '
     location                = ' . $this->pObj->arr_pageUids[ 'pageOrgLocations_title' ] . '
     news                    = ' . $this->pObj->arr_pageUids[ 'pageOrgNews_title' ] . '
     shopping_cart           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-    shopping_cart_downloads = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
+    shopping_cart_downloads = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
     staff                   = ' . $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ] . '
   }
   url {
     default {
       calendar        = /
       caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
-      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
+      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDocumentsCaddy_titleUrl') . '/
     }
     de {
       calendar        = /
       caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
-      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
+      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDocumentsCaddy_titleUrl') . '/
     }
   }
 }
@@ -546,26 +550,26 @@ plugin.org {
   pages {
     calendar                = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     downloads               = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
-    downloadsCaddy          = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
-    downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ] . '
+    downloadsCaddy          = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
+    downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
     event                   = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
     headquarter             = ' . $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ] . '
     location                = ' . $this->pObj->arr_pageUids[ 'pageOrgLocations_title' ] . '
     news                    = ' . $this->pObj->arr_pageUids[ 'pageOrgNews_title' ] . '
     shopping_cart           = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-    shopping_cart_downloads = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
+    shopping_cart_downloads = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
     staff                   = ' . $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ] . '
   }
   url {
     default {
       calendar        = /
       caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
-      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
+      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDocumentsCaddy_titleUrl') . '/
     }
     de {
       calendar        = /
       caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
-      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDownloadsCaddy_titleUrl') . '/
+      downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDocumentsCaddy_titleUrl') . '/
     }
   }
 }
@@ -714,7 +718,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $record = null;
 
     $strUid   = sprintf( '%03d', $uid );
-    $title    = 'pageOrgDownloadsCaddy_title';
+    $title    = 'pageOrgDocumentsCaddy_title';
     $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
     $llTitle  = str_replace( ' ', null, $llTitle );
     $llTitle  = '+page_' . $llTitle . '_' . $strUid;
@@ -731,7 +735,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 
     $record['title']                = $llTitle;
     $record['uid']                  = $uid;
-    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ];
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
     $record['tstamp']               = time( );
     $record['sorting']              = 256;
     $record['crdate']               = time( );
@@ -744,11 +748,11 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 
 plugin.caddy {
   pages {
-    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddy_title' ] . '
-    caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyCaddymini_title' ] . '
-    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyRevocation_title' ] . '
+    caddy           = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
+    caddyCaddymini  = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
+    revocation      = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ] . '
     shop            = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloads_title' ] . '
-    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDownloadsCaddyTerms_title' ] . '
+    terms           = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
   }
 }
   // caddy

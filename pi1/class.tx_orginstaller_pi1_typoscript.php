@@ -533,8 +533,8 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
     $record['sitetitle']                  = $this->pObj->markerArray['###WEBSITE_TITLE###'];
-    $record['root']                       = 1;
-    $record['clear']                      = 3;  // Clear all
+    $record['root']                       = 0;
+    $record['clear']                      = 0;  // Clear nothing
     $record['include_static_file']        = 'EXT:browser/static/,'
                                           . 'EXT:caddy/static/,'
                                           . 'EXT:caddy/static/properties/de/,'

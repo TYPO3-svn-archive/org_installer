@@ -809,12 +809,13 @@ class tx_orginstaller_pi1 extends tslib_pibase
       $success = false;
     }
 
-    $key    = 'static_info_tables';
-    $title  = 'Static Info Tables (static_info_tables)';
-    if( ! $this->extensionCheckExtension( $key, $title ) )
-    {
-      $success = false;
-    }
+// See Organiser 3.2.0, #i0001
+//    $key    = 'static_info_tables';
+//    $title  = 'Static Info Tables (static_info_tables)';
+//    if( ! $this->extensionCheckExtension( $key, $title ) )
+//    {
+//      $success = false;
+//    }
 
     return $success;
 

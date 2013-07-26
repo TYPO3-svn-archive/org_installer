@@ -574,7 +574,7 @@ class tx_orginstaller_pi1_content
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']        = 256 * 1;
+    $record['sorting']        = 256 * 2;
     $record['CType']          = 'image';
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
@@ -612,7 +612,7 @@ class tx_orginstaller_pi1_content
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']        = 256 * 1;
+    $record['sorting']        = 256 * 3;
     $record['CType']          = 'image';
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
@@ -650,7 +650,7 @@ class tx_orginstaller_pi1_content
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']        = 256 * 1;
+    $record['sorting']        = 256 * 4;
     $record['CType']          = 'image';
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
@@ -689,7 +689,7 @@ class tx_orginstaller_pi1_content
     $record['tstamp']         = time( );
     $record['crdate']         = time( );
     $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']        = 256 * 1;
+    $record['sorting']        = 256 * 5;
     $record['CType']          = 'image';
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden

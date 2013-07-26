@@ -249,30 +249,43 @@ class tx_orginstaller_pi1_pages
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[$pageUid] = $this->pageOrgCaddyTerms( $pageUid, $sorting );
 
-    if( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' )
+      // SWITCH : install case
+    $installCase = $this->pObj->markerArray['###INSTALL_CASE###'];
+    switch( $installCase )
     {
-      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-      $pages[$pageUid] = $this->pageOrgLegalinfo( $pageUid, $sorting );
-
-      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-      $pages[$pageUid] = $this->pageOrgLibrary( $pageUid, $sorting );
-
-      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-      $pages[$pageUid] = $this->pageOrgLibraryHeader( $pageUid, $sorting );
-
-      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-      $pages[$pageUid] = $this->pageOrgLibraryMenubelow( $pageUid, $sorting );
-
-      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-      $pages[$pageUid] = $this->pageOrgLibraryHeaderLogo( $pageUid, $sorting );
-
-      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-      $pages[$pageUid] = $this->pageOrgLibraryHeaderSlider( $pageUid, $sorting );
-
-      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-      $pages[$pageUid] = $this->pageOrgLibraryFooter( $pageUid, $sorting );
-
+      case( 'install_org' ):
+        $this->sqlInsert( $pages );
+        return;
+        break;
+      case( 'install_all' ):
+        // follow the workflow 
+        break;
+      default:
+        $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
+        die( $prompt );
     }
+      // SWITCH : install case
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageOrgLegalinfo( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageOrgLibrary( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageOrgLibraryHeader( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageOrgLibraryMenubelow( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageOrgLibraryHeaderLogo( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageOrgLibraryHeaderSlider( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageOrgLibraryFooter( $pageUid, $sorting );
 
     $this->sqlInsert( $pages );
 

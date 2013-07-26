@@ -134,10 +134,21 @@ class tx_orginstaller_pi1_content
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgDocumentsCaddyTerms( $uid );
 
-    if( $this->pObj->markerArray['###INSTALL_CASE###'] != 'install_all')
+      // SWITCH : install case
+    $installCase = $this->pObj->markerArray['###INSTALL_CASE###'];
+    switch( $installCase )
     {
-      return $records;
+      case( 'install_org' ):
+        return $records;
+        break;
+      case( 'install_all' ):
+        // follow the workflow 
+        break;
+      default:
+        $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
+        die( $prompt );
     }
+      // SWITCH : install case
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgLegalinfo( $uid );

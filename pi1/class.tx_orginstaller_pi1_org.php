@@ -1213,7 +1213,7 @@ class tx_orginstaller_pi1_org
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $datetime = strtotime( '1 April next year' );
+    $datetime = strtotime( '1 April last year' );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
@@ -1305,7 +1305,7 @@ class tx_orginstaller_pi1_org
     $uidUser  = $this->pObj->arr_recordUids[ 'record_fe_users_bobama_name' ];
     $bodytext = str_replace( $strUser, $uidUser, $bodytext );
 
-    $datetime = strtotime( '+1 week' );
+    $datetime = strtotime( '+3 months' );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];
@@ -2187,7 +2187,7 @@ class tx_orginstaller_pi1_org
 
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_news_flow_bodytext');
 
-    $datetime = strtotime( '-2 days' );
+    $datetime = strtotime( 'now' );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataNews_title' ];
@@ -2233,7 +2233,7 @@ class tx_orginstaller_pi1_org
     $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
-    $datetime = strtotime( 'now' );
+    $datetime = strtotime( '1. April 2011' );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataNews_title' ];
@@ -2278,7 +2278,7 @@ class tx_orginstaller_pi1_org
 
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_news_president_bodytext');
 
-    $datetime = strtotime( '-1 week' );
+    $datetime = strtotime( '22. March last year' );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataNews_title' ];

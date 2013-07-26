@@ -1681,6 +1681,22 @@ page.10.subparts.menue.10 >
  */
   private function pageOrgLibraryHeaderLogo( )
   {
+      // SWITCH : install case
+    $installCase = $this->pObj->markerArray['###INSTALL_CASE###'];
+    switch( $installCase )
+    {
+      case( 'install_org' ):
+        return;
+        break;
+      case( 'install_all' ):
+        // follow the workflow 
+        break;
+      default:
+        $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
+        die( $prompt );
+    }
+      // SWITCH : install case
+
     $records    = array( );
     $pageUid    = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ];
     $pageTitle  = $this->pObj->arr_pageTitles[ $pageUid ];

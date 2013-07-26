@@ -482,6 +482,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
       </h2>';
 
     $this->createFilesDownloads( );
+    $this->createFilesLibraryHeaderLogo( );
     $this->createFilesOrg( );
     $this->createFilesStaff( );
     

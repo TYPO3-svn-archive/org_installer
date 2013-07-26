@@ -185,7 +185,7 @@ class tx_orginstaller_pi1_typoscript
                                           . '%flipit46%'
                                           . 'EXT:org/static/base/,'
                                           . 'EXT:org/static/calendar/201/,'
-                                          . 'EXT:org/static/calendar/201/caddy/'
+                                          . 'EXT:org/static/calendar/201/caddy/,'
                                           . 'EXT:org/static/department/601/,'
                                           . 'EXT:org/static/downloads/301/,'
                                           . 'EXT:org/static/headquarters/501/,'

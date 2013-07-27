@@ -153,6 +153,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
 
   public  $powermailVersionInt = null;
   public  $powermailVersionStr = null;
+  
+  private $typo3Version = null;
 
 
 
@@ -895,6 +897,61 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $boolInstalled = false;
     return $boolInstalled;
       // RETURN : extension isn't installed
+  }
+
+
+
+ /***********************************************
+  *
+  * Get
+  *
+  **********************************************/
+  
+/**
+ * get_typo3Version( ): 
+ *
+ * @return  void
+ * 
+ * @access  private
+ * @version 3.1.0
+ * @since 3.1.0
+ */
+  public function get_typo3Version( )
+  {
+    if( $this->typo3Version !== null )
+    {
+      return $this->typo3Version;
+    }
+      // RETURN : typo3Version is set
+    
+      // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+    list( $main, $sub, $bugfix ) = explode( '.', TYPO3_version );
+    $version = ( ( int ) $main ) * 1000000;
+    $version = $version + ( ( int ) $sub ) * 1000;
+    $version = $version + ( ( int ) $bugfix ) * 1;
+    $this->typo3Version = $version;
+      // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+
+    if( $this->typo3Version < 3000000 ) 
+    {
+      $prompt = '<h1>ERROR</h1>
+        <h2>Unproper TYPO3 version</h2>
+        <ul>
+          <li>
+            TYPO3 version is smaller than 3.0.0
+          </li>
+          <li>
+            constant TYPO3_version: ' . TYPO3_version . '
+          </li>
+          <li>
+            integer $this->typo3Version: ' . ( int ) $this->typo3Version . '
+          </li>
+        </ul>
+          ';
+      die ( $prompt );
+    }
+
+    return $this->typo3Version;
   }
 
 

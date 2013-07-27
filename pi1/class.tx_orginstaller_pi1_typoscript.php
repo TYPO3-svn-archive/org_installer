@@ -195,7 +195,7 @@ class tx_orginstaller_pi1_typoscript
                                           ;
     switch( true )
     {
-      case( $this->typo3Version < 4007000 ):
+      case( $this->pObj->get_typo3Version( ) < 4007000 ):
         $include  = $record['include_static_file'];
         $include  = str_replace( '%flipit46%', 'EXT:flipit/static/typo3/4.6/,', $include );
         $include  = $include . ',EXT:org/static/base/typo3/4.6/';
@@ -333,7 +333,7 @@ plugin.tx_browser_pi1 {
 
     switch( true )
     {
-      case( $this->typo3Version < 4007000 ):
+      case( $this->pObj->get_typo3Version( ) < 4007000 ):
         $html5conf = 'doctype                                 = xhtml_strict';
         break;
       default:
@@ -554,7 +554,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
                                           ;
     switch( true )
     {
-      case( $this->typo3Version < 4007000 ):
+      case( $this->pObj->get_typo3Version( ) < 4007000 ):
         $include  = $record['include_static_file'];
         $include  = str_replace( '%flipit46%', 'EXT:flipit/static/typo3/4.6/,', $include );
         $include  = $include . ',EXT:org/static/base/typo3/4.6/';
@@ -574,6 +574,24 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   // INDEX
   //
   // plugin.org
+  // plugin.caddy
+
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.caddy
+
+plugin.caddy {
+  pages {
+    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
+    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . ' 
+    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+  }
+}
+  // plugin.caddy
 
 
 

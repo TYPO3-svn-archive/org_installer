@@ -1253,7 +1253,7 @@ class tx_orginstaller_pi1_org
 
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_cal_t3devdays_bodytext');
 
-    $datetime = strtotime( 'now' );
+    $datetime = strtotime( '+3 months' );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDataCal_title' ];

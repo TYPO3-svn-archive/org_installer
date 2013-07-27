@@ -818,7 +818,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     
     $includeStaticFile  = 'EXT:caddy/static/css/red/,'
                         . 'EXT:org/static/downloads/301/,'
-                        . 'EXT:org/static/downloads/301/caddy/'
+                        . 'EXT:org/static/downloads/301/caddy/,'
                         . 'EXT:org/static/downloads/301/flipit/'
                         ;
 

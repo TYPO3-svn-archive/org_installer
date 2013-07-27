@@ -243,7 +243,7 @@ class tx_orginstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_header' );
     $this->pObj->arr_pluginUids['pluginBrowserPageOrgDocuments_header'] = $uid;
 
-    $ffJavascript = 'list_and_single';
+    $ffJavascript = 'disabled';
     $ffjQueryUi   = 'blitzer';
     $ffMode       = 301;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_ffMycomment' ) );

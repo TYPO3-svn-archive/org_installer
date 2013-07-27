@@ -288,39 +288,9 @@ class tx_orginstaller_pi1_consolidate
   //
   // INDEX
   //
-  // mod.tx_linkhandler
-  // RTE.default.tx_linkhandler
   // TCEMAIN.permissions
 
 
-  // mod.tx_linkhandler
-mod {
-  tx_linkhandler {
-    fe_users.onlyPids             = %pageOrgDataStaff_title%
-    tx_org_cal.onlyPids           = %pageOrgDataCal_title%
-    tx_org_department.onlyPids    = %pageOrgDataHeadquarters_title%
-    tx_org_downloads.onlyPids     = %pageOrgDataDownloads_title%
-    tx_org_event.onlyPids         = %pageOrgDataEvents_title%
-    tx_org_headquarters.onlyPids  = %pageOrgDataHeadquarters_title%
-    tx_org_location.onlyPids      = %pageOrgDataLocations_title%
-    tx_org_news.onlyPids          = %pageOrgDataNews_title%
-  }
-}
-  // mod.tx_linkhandler
-
-
-  // RTE.default.tx_linkhandler
-RTE {
-  default {
-      // Remove RTE default configuration
-    tx_linkhandler >
-      // Copy configuration from mod to RTE
-    tx_linkhandler < mod.tx_linkhandler
-  }
-}
-  // RTE.default.tx_linkhandler
-
-  
   // TCEMAIN.permissions
 TCEMAIN {
   permissions {
@@ -1797,9 +1767,6 @@ page.10.subparts.menue.10 >
 
   // TCEFORM
   //    organiser tables
-  // LINKHANDLER
-  //    mod.tx_linkhandler
-  //    RTE.default.tx_linkhandler
   // TCEMAIN
   //    clearCacheCmd
   //    permissions
@@ -1913,32 +1880,6 @@ TCEFORM {
 }
   // organiser tables
   // TCEFORM
-
-
-
-
-  /////////////////////////////////////
-  //
-  // LINKHANDLER
-
-  // mod.tx_linkhandler
-mod.tx_linkhandler {
-  fe_users.onlyPids             = %pageOrgDataStaff_title%
-  tx_org_cal.onlyPids           = %pageOrgDataCal_title%
-  tx_org_department.onlyPids    = %pageOrgDataHeadquarters_title%
-  tx_org_downloads.onlyPids     = %pageOrgDataDownloads_title%
-  tx_org_event.onlyPids         = %pageOrgDataEvents_title%
-  tx_org_headquarters.onlyPids  = %pageOrgDataHeadquarters_title%
-  tx_org_location.onlyPids      = %pageOrgDataLocations_title%
-  tx_org_news.onlyPids          = %pageOrgDataNews_title%
-}
-
-  // Remove RTE default configuration
-RTE.default.tx_linkhandler >
-  // Copy configuration from mod to RTE
-RTE.default.tx_linkhandler < mod.tx_linkhandler
-
-  // LINKHANDLER
 
 
 

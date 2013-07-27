@@ -199,7 +199,7 @@
 <h2>Good to know</h2>
 <ul><li>If you provide a website without a legal info or an unproper legal info, you can get trouble with lawyers.</li><li>If you link to <a href="http://die-netzmacher.de/" title="Die Netzmacher - the developer of the Organiser" target="_blank">Die Netzmacher</a> - the developer of the Organiser -, we would be happy.</li></ul>]]></label>
       <label index="content_pageOrgLibraryFooter_header">[Footer]</label>
-      <label index="content_pageOrgLibraryFooter_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
+      <label index="content_pageOrgLibraryFooter_bodytext"><![CDATA[<a href="http://typo3-organsier.de/oneclick/" target="_blank" title="Install this website with one mouse click!">Install this website with one mouse click! typo3-organiser.de »</a>]]></label>
       <label index="content_pageOrgLibraryHeaderLogo_header">[Logo]</label>
       <label index="content_pageOrgLibraryHeaderLogo_image">typo3_organiser_h102px_timestamp.gif</label>
       <label index="content_pageOrgLibraryHeaderLogo_image_link">%pageOrg_title% - - "TYPO3 Organiser - TYPO3 für Lobby und Veranstalter"</label>
@@ -1170,7 +1170,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 <h2>Gut zu wissen</h2>
 <ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Organiser" target="_blank">Netzmacher</a> als Entwickler des Organiser erw&auml;hnst, freuen wir uns.</li></ul>]]></label>
       <label index="content_pageOrgLibraryFooter_header">[Fußzeile]</label>
-      <label index="content_pageOrgLibraryFooter_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
+      <label index="content_pageOrgLibraryFooter_bodytext"><![CDATA[<a href="http://typo3-organsier.de/" target="_blank" title="Installiere diese Website mit einem Klick!">Installiere diese Website mit einem Klick! typo3-organiser.de »</a>]]></label>
       <label index="content_pageOrgLibraryHeaderLogo_header">[Logo]</label>
       <label index="content_pageOrgLibraryHeaderLogo_image">typo3_organiser_h102px_timestamp.gif</label>
       <label index="content_pageOrgLibraryHeaderLogo_image_link">%pageOrg_title% - - "TYPO3 Organiser - TYPO3 for organisers and the lobby"</label>

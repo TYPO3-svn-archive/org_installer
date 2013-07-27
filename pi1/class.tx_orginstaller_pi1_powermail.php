@@ -1063,7 +1063,7 @@ class tx_orginstaller_pi1_powermail
         $int_terms = $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ];
         break;
       case( 'pageOrgDocumentsCaddy_title' ):
-        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgDocumentsaCaddyTerms_title' ];
+        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ];
         break;
       default:
         $prompt = 'ERROR: undefined value in switch: "' . $this->page . '"<br />

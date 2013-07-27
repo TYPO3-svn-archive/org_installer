@@ -187,24 +187,27 @@ class tx_orginstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrg_header' );
     $this->pObj->arr_pluginUids['pluginBrowserPageOrg_header'] = $uid;
 
+    $ffDownloads  = 'no';
     $ffJavascript = 'list_and_single';
     $ffjQueryUi   = 'blitzer';
     $ffMode       = 201;  // calendar
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffListTitle' ) );
-    $ffTableField = 'tx_org_cal.title';
-    $ffDownloads  = 'no';
     $ffStatistics = 'no';
+    $ffTableField = 'tx_org_cal.title';
+    $ffRecBrowser = 'by_flexform';
 
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
     $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
     $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
     $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
+    
 
     $record['uid']           = $uid;
     $record['pid']           = $GLOBALS['TSFE']->id;
@@ -248,15 +251,17 @@ class tx_orginstaller_pi1_plugins
     $ffTableField = 'tx_org_downloads.title';
     $ffDownloads  = 'yes';
     $ffStatistics = 'yes';
+    $ffRecBrowser = 'disabled';
 
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
     $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
     $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
     $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
 
     $record['uid']           = $uid;
@@ -301,15 +306,17 @@ class tx_orginstaller_pi1_plugins
     $ffTableField = 'tx_org_headquarters.title';
     $ffDownloads  = 'no';
     $ffStatistics = 'no';
+    $ffRecBrowser = 'by_flexform';
 
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
     $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
     $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
     $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
 
     $record['uid']           = $uid;
@@ -354,15 +361,17 @@ class tx_orginstaller_pi1_plugins
     $ffTableField = 'tx_org_location.title';
     $ffDownloads  = 'no';
     $ffStatistics = 'no';
+    $ffRecBrowser = 'by_flexform';
 
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
     $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
     $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
     $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
 
     $record['uid']           = $uid;
@@ -407,15 +416,17 @@ class tx_orginstaller_pi1_plugins
     $ffTableField = 'tx_org_news.title';
     $ffDownloads  = 'no';
     $ffStatistics = 'no';
+    $ffRecBrowser = 'by_flexform';
 
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
     $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
     $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
     $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
 
     $record['uid']           = $uid;
@@ -460,15 +471,17 @@ class tx_orginstaller_pi1_plugins
     $ffTableField = 'fe_users.name';
     $ffDownloads  = 'no';
     $ffStatistics = 'no';
+    $ffRecBrowser = 'by_flexform';
 
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
     $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
     $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
     $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
     $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
 
     $record['uid']           = $uid;
@@ -1019,6 +1032,13 @@ class tx_orginstaller_pi1_plugins
                 </field>
                 <field index="titleWrap">
                     <value index="vDEF">&lt;h2 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h2&gt;</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="viewSingle">
+            <language index="lDEF">
+                <field index="record_browser">
+                    <value index="vDEF">%recordbrowser%</value>
                 </field>
             </language>
         </sheet>

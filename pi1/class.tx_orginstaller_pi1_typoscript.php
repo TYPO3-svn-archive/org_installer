@@ -544,6 +544,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
                                           . '%flipit46%'
                                           . 'EXT:org/static/base/,'
                                           . 'EXT:org/static/calendar/201/,'
+                                          . 'EXT:org/static/calendar/201/caddy/,'
                                           . 'EXT:org/static/department/601/,'
                                           . 'EXT:org/static/downloads/301/,'
                                           . 'EXT:org/static/headquarters/501/,'

@@ -881,6 +881,11 @@ plugin.tx_flipit {
   configuration {
     layout = layout_01
   }
+  jquery {
+      // jQuery is delivered by tx_browser_pi1 or t3jQuery
+    source            = disabled
+    fancyboxPosition  = bottom
+  }
 }
   // plugin.tx_flipit
 

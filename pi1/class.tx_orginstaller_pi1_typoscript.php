@@ -187,7 +187,6 @@ class tx_orginstaller_pi1_typoscript
                                           . 'EXT:org/static/calendar/201/,'
                                           . 'EXT:org/static/calendar/201/caddy/,'
                                           . 'EXT:org/static/department/601/,'
-                                          . 'EXT:org/static/downloads/301/,'
                                           . 'EXT:org/static/headquarters/501/,'
                                           . 'EXT:org/static/location/701/,'
                                           . 'EXT:org/static/news/401/,'
@@ -546,7 +545,6 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
                                           . 'EXT:org/static/calendar/201/,'
                                           . 'EXT:org/static/calendar/201/caddy/,'
                                           . 'EXT:org/static/department/601/,'
-                                          . 'EXT:org/static/downloads/301/,'
                                           . 'EXT:org/static/headquarters/501/,'
                                           . 'EXT:org/static/location/701/,'
                                           . 'EXT:org/static/news/401/,'
@@ -778,7 +776,6 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $includeStaticFile  = $includeStaticFile
                         . ','
                         . 'EXT:caddy/static/css/red/,'
-                        . 'EXT:org/static/downloads/301/caddy/'
                         ;
 
     $record['title']                = $llTitle;
@@ -820,7 +817,9 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $this->pObj->arr_tsTitles[ $uid ] = $title;
     
     $includeStaticFile  = 'EXT:caddy/static/css/red/,'
+                        . 'EXT:org/static/downloads/301/,'
                         . 'EXT:org/static/downloads/301/caddy/'
+                        . 'EXT:org/static/downloads/301/flipit/'
                         ;
 
     $record['title']                = $llTitle;
@@ -838,6 +837,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   //
   // plugin.baseorg
   // plugin.caddy
+  // plugin.tx_flipit
 
 
 
@@ -870,6 +870,20 @@ plugin.caddy {
   }
 }
   // plugin.caddy
+  
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.tx_flipit
+
+plugin.tx_flipit {
+  configuration {
+    layout = layout_01
+  }
+}
+  // plugin.tx_flipit
+
 ';
     $record['config']                    = '
   ////////////////////////////////////////////////////////

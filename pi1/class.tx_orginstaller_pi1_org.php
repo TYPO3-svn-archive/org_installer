@@ -1636,10 +1636,10 @@ class tx_orginstaller_pi1_org
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llLabel  = 'record_tx_org_downloads_flyer1_thumbnail';
-    $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    $llLabel  = 'record_tx_org_downloads_flyer1_documents';
+    $llDoc  = $this->pObj->pi_getLL( $llLabel );
+    $llDocWiTimestamp = str_replace( 'timestamp', time( ), $llDoc );
+    $this->pObj->arr_fileUids[ $llDoc ] = $llDocWiTimestamp;
 
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
@@ -1654,7 +1654,7 @@ class tx_orginstaller_pi1_org
     $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_tx_org_downloadscat');
     $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_tx_org_downloadsmedia');
     $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_linkicon_width');
-    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail']              = $llDocWiTimestamp;
     $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_thumbnail_height');
     $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_flyer1_thumbnail_width');
 
@@ -1679,10 +1679,10 @@ class tx_orginstaller_pi1_org
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llLabel  = 'record_tx_org_downloads_flyer2_thumbnail';
-    $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    $llLabel  = 'record_tx_org_downloads_flyer2_documents';
+    $llDoc  = $this->pObj->pi_getLL( $llLabel );
+    $llDocWiTimestamp = str_replace( 'timestamp', time( ), $llDoc );
+    $this->pObj->arr_fileUids[ $llDoc ] = $llDocWiTimestamp;
 
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
@@ -1697,7 +1697,7 @@ class tx_orginstaller_pi1_org
     $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_tx_org_downloadscat');
     $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_tx_org_downloadsmedia');
     $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_linkicon_width');
-    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail']              = $llDocWiTimestamp;
     $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_thumbnail_height');
     $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_flyer2_thumbnail_width');
 
@@ -1722,10 +1722,10 @@ class tx_orginstaller_pi1_org
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llLabel  = 'record_tx_org_downloads_manual1_thumbnail';
-    $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    $llLabel  = 'record_tx_org_downloads_manual1_documents';
+    $llDoc  = $this->pObj->pi_getLL( $llLabel );
+    $llDocWiTimestamp = str_replace( 'timestamp', time( ), $llDoc );
+    $this->pObj->arr_fileUids[ $llDoc ] = $llDocWiTimestamp;
 
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
@@ -1740,7 +1740,7 @@ class tx_orginstaller_pi1_org
     $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_tx_org_downloadscat');
     $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_tx_org_downloadsmedia');
     $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_linkicon_width');
-    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail']              = $llDocWiTimestamp;
     $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_thumbnail_height');
     $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_manual1_thumbnail_width');
 
@@ -1765,10 +1765,10 @@ class tx_orginstaller_pi1_org
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llLabel  = 'record_tx_org_downloads_manual2_thumbnail';
-    $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    $llLabel  = 'record_tx_org_downloads_manual2_documents';
+    $llDoc  = $this->pObj->pi_getLL( $llLabel );
+    $llDocWiTimestamp = str_replace( 'timestamp', time( ), $llDoc );
+    $this->pObj->arr_fileUids[ $llDoc ] = $llDocWiTimestamp;
 
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
@@ -1783,7 +1783,7 @@ class tx_orginstaller_pi1_org
     $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_tx_org_downloadscat');
     $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_tx_org_downloadsmedia');
     $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_linkicon_width');
-    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail']              = $llDocWiTimestamp;
     $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_thumbnail_height');
     $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_manual2_thumbnail_width');
 
@@ -1808,10 +1808,10 @@ class tx_orginstaller_pi1_org
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llLabel  = 'record_tx_org_downloads_manual3_thumbnail';
-    $llImage  = $this->pObj->pi_getLL( $llLabel );
-    $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
-    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+    $llLabel  = 'record_tx_org_downloads_manual3_documents';
+    $llDoc  = $this->pObj->pi_getLL( $llLabel );
+    $llDocWiTimestamp = str_replace( 'timestamp', time( ), $llDoc );
+    $this->pObj->arr_fileUids[ $llDoc ] = $llDocWiTimestamp;
 
     $record['uid']                    = $uid;
     $record['pid']                    = $this->pObj->arr_pageUids[ 'pageOrgDataDownloads_title' ];
@@ -1826,7 +1826,7 @@ class tx_orginstaller_pi1_org
     $record['tx_org_downloadscat']    = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_tx_org_downloadscat');
     $record['tx_org_downloadsmedia']  = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_tx_org_downloadsmedia');
     $record['linkicon_width']         = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_linkicon_width');
-    $record['thumbnail']              = $llImageWiTimestamp;
+    $record['thumbnail']              = $llDocWiTimestamp;
     $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_thumbnail_height');
     $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_manual3_thumbnail_width');
 

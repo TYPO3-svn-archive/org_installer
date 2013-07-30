@@ -553,6 +553,8 @@ class tx_orginstaller_pi1_content
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
     $record['image_link']     = $this->pObj->pi_getLL( 'content_pageOrgLibraryHeaderSlider01_image_link' );
+      // #i0002, 13-07-30, dwildt, 1+
+    $record['image_zoom']     = 1;
     $record['imageorient']    = 1;
 
     return $record;
@@ -591,6 +593,8 @@ class tx_orginstaller_pi1_content
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
     $record['image_link']     = $this->pObj->pi_getLL( 'content_pageOrgLibraryHeaderSlider02_image_link' );
+      // #i0002, 13-07-30, dwildt, 1+
+    $record['image_zoom']     = 1;
     $record['imageorient']    = 1;
 
     return $record;
@@ -629,6 +633,8 @@ class tx_orginstaller_pi1_content
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
     $record['image_link']     = $this->pObj->pi_getLL( 'content_pageOrgLibraryHeaderSlider03_image_link' );
+      // #i0002, 13-07-30, dwildt, 1+
+    $record['image_zoom']     = 1;
     $record['imageorient']    = 1;
 
     return $record;
@@ -667,6 +673,8 @@ class tx_orginstaller_pi1_content
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
     $record['image_link']     = $this->pObj->pi_getLL( 'content_pageOrgLibraryHeaderSlider04_image_link' );
+      // #i0002, 13-07-30, dwildt, 1+
+    $record['image_zoom']     = 1;
     $record['imageorient']    = 1;
 
     return $record;
@@ -705,6 +713,8 @@ class tx_orginstaller_pi1_content
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
     $record['image_link']     = $this->pObj->pi_getLL( 'content_pageOrgLibraryHeaderSlider05_image_link' );
+      // #i0002, 13-07-30, dwildt, 1+
+    $record['image_zoom']     = 1;
     $record['imageorient']    = 1;
 
     return $record;
@@ -743,6 +753,8 @@ class tx_orginstaller_pi1_content
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
     $record['image_link']     = $this->pObj->arr_pageUids[ 'pageOrgLibraryMenubelow_image_link' ];
+      // #i0002, 13-07-30, dwildt, 1+
+    $record['image_zoom']     = 1;
     $record['imageorient']    = 2;  // 2: left
     $record['spaceBefore']    = 60; // 2: left
 

@@ -1712,6 +1712,8 @@ page.10.subparts.menue.10 >
 
     $records[$uid]['header']      = $llTitle;
     $records[$uid]['image_link']  = $image_link;
+      // #i0002, 13-07-30, dwildt, 1+
+    $records[$uid]['image_zoom']  = 1;
 
 
     return $records;

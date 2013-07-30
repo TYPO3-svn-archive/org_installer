@@ -1,3 +1,8 @@
+3.3.1
+  13-07-30
+  Improvement
+  * #i0003: imgaes need click_enlarge in case of a link and realUrl
+
 3.3.0
   13-07-27
   Improvement

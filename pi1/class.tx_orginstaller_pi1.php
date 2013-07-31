@@ -770,7 +770,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
     }
 
     $key    = 'caddy';
-    $title  = 'Caddy - your shopping cart';
+    $title  = 'Caddy - TYPO3 shopping cart';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
@@ -790,15 +790,15 @@ class tx_orginstaller_pi1 extends tslib_pibase
       $success = false;
     }
 
-    $key    = 'linkhandler';
-    $title  = 'AOE link handler (linkhandler';
+    $key    = 'linkhandlerconf';
+    $title  = '+AOE linkhandler configurator';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
     }
 
     $key    = 'org';
-    $title  = 'Organiser';
+    $title  = 'Organiser - TYPO3 for lobby and organisers';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;

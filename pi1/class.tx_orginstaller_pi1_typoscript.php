@@ -405,13 +405,14 @@ plugin.tx_seodynamictag {
     $title  = strtolower( $GLOBALS['TSFE']->page['title'] );
     $title  = str_replace( ' ', null, $title );
     $title  = 'page_' . $title . '_' . $strUid;
+    $pid    = $GLOBALS['TSFE']->id;
 
     $this->pObj->str_tsRoot = $title;
     $this->pObj->arr_tsUids[$this->pObj->str_tsRoot] = $uid;
 
     $record['title']                      = $title;
     $record['uid']                        = $uid;
-    $record['pid']                        = $GLOBALS['TSFE']->id;
+    $record['pid']                        = $pid;
     $record['tstamp']                     = time( );
     $record['sorting']                    = 256;
     $record['crdate']                     = time( );
@@ -428,10 +429,10 @@ plugin.tx_seodynamictag {
                                           . 'EXT:linkhandler/static/link_handler/,'
                                           . 'EXT:flipit/static/,'
                                           . '%flipit46%'
+                                          . 'EXT:seo_dynamic_tag/static/,'
                                           . 'EXT:org/static/base/,'
                                           . 'EXT:org/static/calendar/201/,'
-                                          . 'EXT:org/static/calendar/201/caddy/,'
-                                          . 'EXT:org/static/department/601/'
+                                          . 'EXT:org/static/calendar/201/caddy/'
                                           ;
     switch( true )
     {
@@ -579,7 +580,7 @@ plugin.tx_browser_pi1 {
 plugin.tx_seodynamictag {
   condition {
     single {
-      begin = globalVar = GP:tx_browser_pi1|calendarUid > 0] && [globalVar = TSFE:id = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+      begin = globalVar = GP:tx_browser_pi1|calendarUid > 0] && [globalVar = TSFE:id = ' . $pid . '
     }
   }
 }
@@ -776,13 +777,14 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $title  = strtolower( $GLOBALS['TSFE']->page['title'] );
     $title  = str_replace( ' ', null, $title );
     $title  = 'page_' . $title . '_' . $strUid;
+    $pid    = $GLOBALS['TSFE']->id;
 
     $this->pObj->str_tsRoot = $title;
     $this->pObj->arr_tsUids[$this->pObj->str_tsRoot] = $uid;
 
     $record['title']                      = $title;
     $record['uid']                        = $uid;
-    $record['pid']                        = $GLOBALS['TSFE']->id;
+    $record['pid']                        = $pid;
     $record['tstamp']                     = time( );
     $record['sorting']                    = 256;
     $record['crdate']                     = time( );
@@ -797,10 +799,10 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
                                           . 'EXT:linkhandler/static/link_handler/,'
                                           . 'EXT:flipit/static/,'
                                           . '%flipit46%'
+                                          . 'EXT:seo_dynamic_tag/static/,'
                                           . 'EXT:org/static/base/,'
                                           . 'EXT:org/static/calendar/201/,'
-                                          . 'EXT:org/static/calendar/201/caddy/,'
-                                          . 'EXT:org/static/department/601/'
+                                          . 'EXT:org/static/calendar/201/caddy/'
                                           ;
     switch( true )
     {
@@ -825,6 +827,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   //
   // plugin.org
   // plugin.caddy
+  // plugin.tx_seodynamictag_pi1
 
 
 
@@ -888,6 +891,20 @@ plugin.org {
 }
   // organiser
 
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_seodynamictag
+
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|calendarUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
 ';
 
     $record['config']                    = ''.

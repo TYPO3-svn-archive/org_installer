@@ -143,6 +143,251 @@ class tx_orginstaller_pi1_typoscript
   }
 
 /**
+ * pageOrgHeadquarters( )
+ *
+ * @param	integer		$uid: uid of the new record
+ * @return	array		$record : the TypoScript record
+ * @access private
+ * @version 3.1.1
+ * @since   3.1.1
+ */
+  private function pageOrgHeadquarters( $uid )
+  {
+    $record = null;
+
+    $strUid   = sprintf( '%03d', $uid );
+    $title    = 'pageOrgHeadquarters_title';
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    $pid      = $this->pObj->arr_pageUids[ $title ];
+
+    $this->pObj->arr_tsUids[ $title ] = $uid;
+    $this->pObj->arr_tsTitles[ $uid ] = $title;
+    
+    $includeStaticFile  = 'EXT:org/static/headquarters/501/';
+    switch( true )
+    {
+      case( $this->pObj->get_typo3Version( ) < 4007000 ):
+        $includeStaticFile  = $includeStaticFile 
+                            . ',EXT:org/static/base/typo3/4.6/';
+        break;
+      default:
+          // follow the workflow
+        break;
+    }
+
+    $record['title']                = $llTitle;
+    $record['uid']                  = $uid;
+    $record['pid']                  = $pid;
+    $record['tstamp']               = time( );
+    $record['sorting']              = 256;
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file']  = $includeStaticFile;
+    $record['constants'] = '
+  // plugin.tx_seodynamictag
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|headquartersUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
+';
+    $record['config']               = null;
+
+    $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
+
+    return $record;
+  }
+
+/**
+ * pageOrgLocations( )
+ *
+ * @param	integer		$uid: uid of the new record
+ * @return	array		$record : the TypoScript record
+ * @access private
+ * @version 3.1.1
+ * @since   3.1.1
+ */
+  private function pageOrgLocations( $uid )
+  {
+    $record = null;
+
+    $strUid   = sprintf( '%03d', $uid );
+    $title    = 'pageOrgLocations_title';
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    $pid      = $this->pObj->arr_pageUids[ $title ];
+
+    $this->pObj->arr_tsUids[ $title ] = $uid;
+    $this->pObj->arr_tsTitles[ $uid ] = $title;
+    
+    $includeStaticFile  = 'EXT:org/static/location/701/';
+    switch( true )
+    {
+      case( $this->pObj->get_typo3Version( ) < 4007000 ):
+        $includeStaticFile  = $includeStaticFile 
+                            . ',EXT:org/static/base/typo3/4.6/';
+        break;
+      default:
+          // follow the workflow
+        break;
+    }
+
+    $record['title']                = $llTitle;
+    $record['uid']                  = $uid;
+    $record['pid']                  = $pid;
+    $record['tstamp']               = time( );
+    $record['sorting']              = 256;
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file']  = $includeStaticFile;
+    $record['constants']            = '
+  // plugin.tx_seodynamictag
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|locationUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
+';
+
+    $record['config']               = null;
+
+    $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
+
+    return $record;
+  }
+
+/**
+ * pageOrgNews( )
+ *
+ * @param	integer		$uid: uid of the new record
+ * @return	array		$record : the TypoScript record
+ * @access private
+ * @version 3.1.1
+ * @since   3.1.1
+ */
+  private function pageOrgNews( $uid )
+  {
+    $record = null;
+
+    $strUid   = sprintf( '%03d', $uid );
+    $title    = 'pageOrgNews_title';
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    $pid      = $this->pObj->arr_pageUids[ $title ];
+
+    $this->pObj->arr_tsUids[ $title ] = $uid;
+    $this->pObj->arr_tsTitles[ $uid ] = $title;
+    
+    $includeStaticFile  = 'EXT:org/static/news/401/';
+    switch( true )
+    {
+      case( $this->pObj->get_typo3Version( ) < 4007000 ):
+        $includeStaticFile  = $includeStaticFile 
+                            . ',EXT:org/static/base/typo3/4.6/';
+        break;
+      default:
+          // follow the workflow
+        break;
+    }
+
+    $record['title']                = $llTitle;
+    $record['uid']                  = $uid;
+    $record['pid']                  = $pid;
+    $record['tstamp']               = time( );
+    $record['sorting']              = 256;
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file']  = $includeStaticFile;
+    $record['constants'] = '
+  // plugin.tx_seodynamictag
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|newsUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
+';
+    $record['config']               = null;
+
+    $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
+
+    return $record;
+  }
+
+/**
+ * pageOrgStaff( )
+ *
+ * @param	integer		$uid: uid of the new record
+ * @return	array		$record : the TypoScript record
+ * @access private
+ * @version 3.1.1
+ * @since   3.1.1
+ */
+  private function pageOrgStaff( $uid )
+  {
+    $record = null;
+
+    $strUid   = sprintf( '%03d', $uid );
+    $title    = 'pageOrgStaff_title';
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    $pid      = $this->pObj->arr_pageUids[ $title ];
+
+    $this->pObj->arr_tsUids[ $title ] = $uid;
+    $this->pObj->arr_tsTitles[ $uid ] = $title;
+    
+    $includeStaticFile  = 'EXT:org/static/staff/101/';
+    switch( true )
+    {
+      case( $this->pObj->get_typo3Version( ) < 4007000 ):
+        $includeStaticFile  = $includeStaticFile 
+                            . ',EXT:org/static/base/typo3/4.6/';
+        break;
+      default:
+          // follow the workflow
+        break;
+    }
+
+    $record['title']                = $llTitle;
+    $record['uid']                  = $uid;
+    $record['pid']                  = $pid;
+    $record['tstamp']               = time( );
+    $record['sorting']              = 256;
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file']  = $includeStaticFile;
+    $record['constants'] = '
+  // plugin.tx_seodynamictag
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|staffUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
+';
+    $record['config']               = null;
+
+    $record['description']          = '// Created by ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' );
+
+    return $record;
+  }
+
+/**
  * pageOrg_caseAll( )
  *
  * @param	[type]		$$uid: ...
@@ -186,11 +431,7 @@ class tx_orginstaller_pi1_typoscript
                                           . 'EXT:org/static/base/,'
                                           . 'EXT:org/static/calendar/201/,'
                                           . 'EXT:org/static/calendar/201/caddy/,'
-                                          . 'EXT:org/static/department/601/,'
-                                          . 'EXT:org/static/headquarters/501/,'
-                                          . 'EXT:org/static/location/701/,'
-                                          . 'EXT:org/static/news/401/,'
-                                          . 'EXT:org/static/staff/101/'
+                                          . 'EXT:org/static/department/601/'
                                           ;
     switch( true )
     {
@@ -217,7 +458,7 @@ class tx_orginstaller_pi1_typoscript
   // plugin.caddy
   // plugin.org
   // plugin.tx_browser_pi1
-
+  // plugin.tx_seodynamictag_pi1
 
 
   /////////////////////////////////////////
@@ -328,6 +569,21 @@ plugin.tx_browser_pi1 {
   }
 }
   // plugin.tx_browser_pi1
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_seodynamictag
+
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|calendarUid > 0] && [globalVar = TSFE:id = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
 ';
 
     switch( true )
@@ -544,11 +800,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
                                           . 'EXT:org/static/base/,'
                                           . 'EXT:org/static/calendar/201/,'
                                           . 'EXT:org/static/calendar/201/caddy/,'
-                                          . 'EXT:org/static/department/601/,'
-                                          . 'EXT:org/static/headquarters/501/,'
-                                          . 'EXT:org/static/location/701/,'
-                                          . 'EXT:org/static/news/401/,'
-                                          . 'EXT:org/static/staff/101/'
+                                          . 'EXT:org/static/department/601/'
                                           ;
     switch( true )
     {
@@ -812,6 +1064,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
     $llTitle  = str_replace( ' ', null, $llTitle );
     $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    $pid      = $this->pObj->arr_pageUids[ $title ];
 
     $this->pObj->arr_tsUids[ $title ] = $uid;
     $this->pObj->arr_tsTitles[ $uid ] = $title;
@@ -821,10 +1074,20 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
                         . 'EXT:org/static/downloads/301/caddy/,'
                         . 'EXT:org/static/downloads/301/flipit/'
                         ;
-
+    switch( true )
+    {
+      case( $this->pObj->get_typo3Version( ) < 4007000 ):
+        $includeStaticFile  = $includeStaticFile 
+                            . ',EXT:org/static/base/typo3/4.6/';
+        break;
+      default:
+          // follow the workflow
+        break;
+    }
+    
     $record['title']                = $llTitle;
     $record['uid']                  = $uid;
-    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ];
+    $record['pid']                  = $pid;
     $record['tstamp']               = time( );
     $record['sorting']              = 256;
     $record['crdate']               = time( );
@@ -838,6 +1101,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   // plugin.baseorg
   // plugin.caddy
   // plugin.tx_flipit
+  // plugin.tx_seodynamictag
 
 
 
@@ -888,7 +1152,21 @@ plugin.tx_flipit {
   }
 }
   // plugin.tx_flipit
+  
 
+
+  /////////////////////////////////////////
+  //
+  // plugin.tx_seodynamictag
+
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|downloadsUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
 ';
     $record['config']                    = '
   ////////////////////////////////////////////////////////
@@ -989,6 +1267,18 @@ plugin.tx_caddy_pi3 {
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgDocumentsCaddy( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgHeadquarters( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLocations( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgNews( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgStaff( $uid );
 
     return $records;
   }

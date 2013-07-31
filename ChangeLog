@@ -1,3 +1,9 @@
+3.3.2
+  13-07-31
+  Feature
+  * #i0005: Simplify SEO. Integration of seo_dynamic_tag 2.0.
+  * #i0004: Simplify LinkHandlerConfiguration. Integration of linkhandlerconf.
+
 3.3.1
   13-07-30
   Improvement

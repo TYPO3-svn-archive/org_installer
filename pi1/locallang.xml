@@ -321,10 +321,13 @@
 * [Plugin]
   * [General]
     * Views:      [Configured]
-    * Views:      Display only views of the current template (recommended) [X]
+    * Views:      Display only views of the current template
+                  (recommended) [X]
     * Views:      Enabled list views ...: 301: +Org Downloads
     * Downloads:  [Enabled]
     * Statitiks   [Enabled]
+  * [Single View]
+    * Record Browser: [disabled]
   * [Templating]
     * HTML: [Browser: Main (browser) ]
     * CSS jQuery UI (User Interface): [UI: Blitzer]
@@ -350,9 +353,13 @@
     * Views: [Configured]
     * Views: Display only views of the current template (recommended) [X]
     * Views: Enabled list views ...: 501: +Org Headquarters
+  * [Single View]
+    * Record Browser: [disabled]
   * [Templating]
     * HTML: [Browser: Main (browser) ]
     * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [jQuery & AJAX]
+    * AJAX: [disabled]
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
@@ -1305,6 +1312,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
     * Views: Listen, die ... verarbeitet werden: 301: +Org Downloads
     * Downloads:  [Aktiviert]
     * Statitik:   [Aktiviert]
+  * [Detailansicht]
+    * Datensatz-Browser: [deaktiviert]
   * [Templating]
     * HTML-Vorlage: [Browser: Main (browser) ]
     * CSS jQuery UI (User Interface): [UI: Blitzer]
@@ -1330,9 +1339,13 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
     * Views: [Konfiguriert]
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
     * Views: Listen, die ... verarbeitet werden: 501: +Org Headquarters
+  * [Detailansicht]
+    * Datensatz-Browser: [deaktiviert]
   * [Templating]
     * HTML-Vorlage: [Browser: Main (browser) ]
     * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [jQuery & AJAX]
+    * AJAX: [deaktiviert]
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht

@@ -298,7 +298,7 @@ class tx_orginstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_header' );
     $this->pObj->arr_pluginUids['pluginBrowserPageOrgHeadquarters_header'] = $uid;
 
-    $ffJavascript = 'list_and_single';
+    $ffJavascript = 'disabled';
     $ffjQueryUi   = 'blitzer';
     $ffMode       = 501;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffMycomment' ) );
@@ -306,7 +306,7 @@ class tx_orginstaller_pi1_plugins
     $ffTableField = 'tx_org_headquarters.title';
     $ffDownloads  = 'no';
     $ffStatistics = 'no';
-    $ffRecBrowser = 'by_flexform';
+    $ffRecBrowser = 'disabled';
 
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );

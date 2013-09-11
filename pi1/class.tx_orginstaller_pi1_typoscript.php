@@ -426,7 +426,7 @@ plugin.tx_seodynamictag {
                                           . 'EXT:caddy/static/,'
                                           . 'EXT:caddy/static/properties/de/,'
                                           . 'EXT:caddy/static/css/,'
-                                          . 'EXT:linkhandler/static/link_handler/,'
+                                          . 'EXT:linkhandlerconf/static/,'
                                           . 'EXT:flipit/static/,'
                                           . '%flipit46%'
                                           . 'EXT:seo_dynamic_tag/static/,'

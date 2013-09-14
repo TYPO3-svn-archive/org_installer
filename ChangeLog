@@ -1,3 +1,10 @@
+3.3.4
+  13-09-12
+  Improvement
+  * #i0008: Page news should have an disbaled AJAX because of tree-view filter
+  Bugfix
+  * #i0009: Powermail 1x fieldsets where linked with plugin powermail caddy only
+
 3.3.3
   13-09-11
   Improvement

@@ -398,7 +398,7 @@ class tx_orginstaller_pi1_plugins
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
  * @access private
- * @version 3.0.0
+ * @version 3.3.4
  * @since   0.0.1
  */
   private function browserPageOrgNews( $uid )
@@ -408,7 +408,8 @@ class tx_orginstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_header' );
     $this->pObj->arr_pluginUids['pluginBrowserPageOrgNews_header'] = $uid;
 
-    $ffJavascript = 'list_and_single';
+      // #i0008, 130912, dwildt
+    $ffJavascript = 'disabled';
     $ffjQueryUi   = 'blitzer';
     $ffMode       = 401;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffMycomment' ) );

@@ -406,6 +406,8 @@
   * [Templating]
     * HTML: [Browser: Main (browser) ]
     * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [jQuery & AJAX]
+    * AJAX: [disabled]
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
@@ -1392,6 +1394,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
   * [Templating]
     * HTML-Vorlage: [Browser: Main (browser) ]
     * CSS jQuery UI (User Interface): [UI: Blitzer]
+  * [jQuery & AJAX]
+    * AJAX: [deaktiviert]
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht

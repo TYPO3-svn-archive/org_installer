@@ -1525,8 +1525,8 @@ class tx_orginstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record[$this->fieldsetsLabelForms] = $this->fieldsetsValueForm;
-    $record[$this->fieldsetsLabelFields]     = '7';
+    $record[$this->fieldsetsLabelForms]   = $this->fieldsetsValueForm;
+    $record[$this->fieldsetsLabelFields]  = '7';
 
     return $record;
   }
@@ -1769,7 +1769,22 @@ class tx_orginstaller_pi1_powermail
  */
   private function fieldsetsSetValuesByVersion1x( )
   {
-    $this->fieldsetsValueForm = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
+    switch( $this->page )
+    {
+      case( 'pageOrgCaddy_title' ):
+        $this->fieldsetsValueForm = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
+        break;
+        // #i0009, 130913, dwildt, 3+
+      case( 'pageOrgDocumentsCaddy_title' ):
+        $this->fieldsetsValueForm = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDocumentsCaddy_header' ];
+        break;
+      default:
+        $prompt = 'ERROR: undefined value in switch: "' . $this->page . '"<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
   }
 
 /**

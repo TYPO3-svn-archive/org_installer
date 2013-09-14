@@ -804,7 +804,7 @@ TCEMAIN {
   // INDEX
   //
   // plugin.caddy
-  // plugin.tx_powermail
+  // plugin.powermail
   
 
 
@@ -829,18 +829,14 @@ TCEMAIN {
 
   /////////////////////////////////////////
   //
-  // plugin.tx_powermail
+  // plugin.powermail
 
-plugin.tx_powermail {
-  settings {
-    javascript {
-        // We take jQuery from tx_browser_pi1 or from T3jQuery (recommended)
-      powermailJQuery = 
-      powermailJQueryUi =   
-    }
+plugin.powermail {
+  js {
+    toHeader = 1
   }
 }
-  // plugin.tx_powermail
+  // plugin.powermail
 
 ';
 
@@ -1472,7 +1468,7 @@ page.10.subparts.menue.10 >
   // INDEX
   //
   // plugin.caddy
-  // plugin.tx_powermail
+  // plugin.powermail
   
 
 
@@ -1496,18 +1492,14 @@ page.10.subparts.menue.10 >
 
   /////////////////////////////////////////
   //
-  // plugin.tx_powermail
+  // plugin.powermail
 
-plugin.tx_powermail {
-  settings {
-    javascript {
-        // We take jQuery from tx_browser_pi1 or from T3jQuery (recommended)
-      powermailJQuery = 
-      powermailJQueryUi =   
-    }
+plugin.powermail {
+  js {
+    toHeader = 1
   }
 }
-  // plugin.tx_powermail
+  // plugin.powermail
 
 ';
 

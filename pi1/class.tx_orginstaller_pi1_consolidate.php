@@ -247,28 +247,34 @@ class tx_orginstaller_pi1_consolidate
     $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
     $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
 
-      // SWITCH : siteroot depends on toplevel
-    switch( $this->pObj->bool_topLevel )
-    {
-      case( true ):
-        $is_siteroot = 1;
-        break;
-      case( false ):
-      default:
-        $is_siteroot = 0;
-        break;
-    }
-      // SWITCH : siteroot depends on toplevel
+      // #i0011, 130925, dwildt, 12- 
+//      // SWITCH : siteroot depends on toplevel
+//    switch( $this->pObj->bool_topLevel )
+//    {
+//      case( true ):
+//        $is_siteroot = 1;
+//        break;
+//      case( false ):
+//      default:
+//        $is_siteroot = 0;
+//        break;
+//    }
+//      // SWITCH : siteroot depends on toplevel
+      // #i0011, 130925, dwildt, 12- 
 
       // SWITCH : install case
     $installCase = $this->pObj->markerArray['###INSTALL_CASE###'];
     switch( $installCase )
     {
       case( 'install_org' ):
+          // #i0011, 130925, dwildt, 1+
+        $is_siteroot = 0;
         $records[$uid]['nav_title'] = null;
         break;
       case( 'install_all' ):
-        $records[$uid]['nav_title'] = $this->pObj->pi_getLL( 'pageOrg_titleNav' );
+          // #i0011, 130925, dwildt, 1+
+        $is_siteroot = 1;
+        $records[$uid]['nav_title'] = $this->pObj->pi_getLL( 'pageQuickshop_titleNav' );
         break;
       default:
         $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';

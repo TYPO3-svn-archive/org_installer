@@ -26,6 +26,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'depends' => array(
 			'css_styled_content' => '',
 			'org' => '',
+			'typo3' => '4.5.0-6.1.99',
 		),
 		'conflicts' => array(
 		),

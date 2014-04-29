@@ -449,7 +449,7 @@
 1. Field labels of the delivery address
   * The lables differ form the labels of the invoice address
     * Reason: If lables are the same ther is a bug in the confirmation form.
-      The value of the invoice address will overriden 
+      The value of the invoice address will overriden
       by the value of the delivery address.]]></label>
       <label index="pluginCaddyminiPageOrgCaddyCaddymini_header">[Mini Caddy]</label>
       <label index="pluginCaddyPageOrgDocumentsCaddy_header">Caddy</label>
@@ -535,7 +535,7 @@ After working his way through college with the help of scholarships  and student
 He went on to attend law school, where he became the first African-American president of the <i>Harvard Law Review</i>.  Upon graduation, he returned to Chicago to help lead a voter  registration drive, teach constitutional law at the University of  Chicago, and remain active in his community.
 President Obama's years of public service are based around his  unwavering belief in the ability to unite people around a politics of  purpose. In the Illinois State Senate, he passed the first major ethics  reform in 25 years, cut taxes for working families, and expanded health  care for children and their parents. As a United States Senator, he  reached across the aisle to pass groundbreaking lobbying reform, lock up  the world's most dangerous weapons, and bring transparency to  government by putting federal spending online.
 He was elected the 44th President of the United States on November 4,  2008, and sworn in on January 20, 2009. He and his wife, Michelle, are  the proud parents of two daughters, Malia, 12, and Sasha, 9.]]></label>
-      
+
       <label index="record_fe_users_dwildt_username">dwildt</label>
       <label index="record_fe_users_dwildt_name">Dirk Wildt</label>
       <label index="record_fe_users_dwildt_first_name">Dirk</label>
@@ -584,7 +584,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
             </tr>
           </tbody>
         </table>]]></label>
-      
+
       <label index="record_fe_users_sschaffstein_username">sschaffstein</label>
       <label index="record_fe_users_sschaffstein_name"><![CDATA[Sören Schaffstein]]></label>
       <label index="record_fe_users_sschaffstein_first_name"><![CDATA[Sören]]></label>
@@ -895,12 +895,12 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_news_flow_title">Get into the TYPO3 FLOW!</label>
       <label index="record_tx_org_news_flow_datetime">1301523660</label>
       <label index="record_tx_org_news_flow_bodytext"><![CDATA[Discover FLOW3 with our Getting Started Tutorial.
-Just follow the step-by-step instructions for building your first FLOW3 application and learn new programming paradigms and patterns along the way. 
+Just follow the step-by-step instructions for building your first FLOW3 application and learn new programming paradigms and patterns along the way.
 <b><link http://flow3.typo3.org/documentation/tutorials/getting-started/>Get started with FLOW3</link></b>
 <h2>About FLOW3</h2>
 It can change the way you work. It gives you fast results. It is a reliable foundation for complex applications. And it  is backed by one of the biggest PHP communities.
 We created FLOW3 as the foundation for the upcoming major&nbsp;version of TYPO3&nbsp;(code name Phoenix). Now you can use our  framework too, to build your own applications where code libraries lack an overall concept&nbsp;or a CMS would not fit the bill.
-FLOW3 brings new concepts to the PHP world. Domain-Driven Design, Dependency Injection and Aspect-Oriented  Programming are some of them. And besides some <link http://flow3.typo3.org/about/features/ - linkInt>great features</link> we offer <link http://flow3.typo3.org/about/principles/>a new view</link> on the &quot;how&quot; of software development. 
+FLOW3 brings new concepts to the PHP world. Domain-Driven Design, Dependency Injection and Aspect-Oriented  Programming are some of them. And besides some <link http://flow3.typo3.org/about/features/ - linkInt>great features</link> we offer <link http://flow3.typo3.org/about/principles/>a new view</link> on the &quot;how&quot; of software development.
 It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]></label>
       <label index="record_tx_org_news_flow_image">BlogExampleWithAnnotation-320px_02_timestamp.png</label>
       <label index="record_tx_org_news_flow_imagecaption">FLOW3 Blogexample</label>
@@ -994,6 +994,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="tx_powermail_domain_model_pages">Powermail Pages</label>
       <label index="tx_powermail_fieldsets">Powermail Fieldsets</label>
       <label index="tx_powermail_fields">Powermail Fields</label>
+      <label index="typo3Conf_header">TYPO3 Configuration</label>
+      <label index="typo3Conf_promptCHash">If you will get the error "Page Not Found: ... <![CDATA[&]]>cHash comparison failed", please start the Install Tool and configure [FE][pageNotFoundOnCHashError] = 0</label>
     </languageKey>
     <languageKey index="de" type="array">
       <label index="back">Zurück</label>
@@ -1092,7 +1094,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
-<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>      
+<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>
       <label index="content_pageOrgCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
       <label index="content_pageOrgCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
@@ -1176,7 +1178,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
-<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>      
+<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>
       <label index="content_pageOrgDocumentsCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
       <label index="content_pageOrgDocumentsCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
@@ -1446,7 +1448,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
       <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Pllugin.</label>
       <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Lieber TYPO3-Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
-###POWERMAIL_TYPOSCRIPT_CADDY###      
+###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
       <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Lieber TYPO3-Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_body_s1x"><![CDATA[Hallo,<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
@@ -1471,10 +1473,10 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich für TYPO3-Organiser interessierst. 
+<p>Danke, dass Du Dich für TYPO3-Organiser interessierst.
 {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
       <label index="pluginPowermailPageOrgDocumentsCaddy_body_r1x"><![CDATA[<p>Lieber Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
-###POWERMAIL_TYPOSCRIPT_CADDY###      
+###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
       <label index="pluginPowermailPageOrgDocumentsCaddy_body_r2x"><![CDATA[<p>Lieber Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgDocumentsCaddy_body_s1x"><![CDATA[Hallo,<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
@@ -1499,7 +1501,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich für TYPO3-Organiser interessierst. 
+<p>Danke, dass Du Dich für TYPO3-Organiser interessierst.
 {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
       <label index="plugin_warn">Willst Du den Organiser Installer wirklich nicht benutzen?</label>
       <label index="record_create_header">Datensätze</label>
@@ -1542,12 +1544,12 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="record_tx_org_cal_eggroll_calurl">http://www.whitehouse.gov/eastereggroll</label>
       <label index="record_tx_org_cal_eggroll_teaser_short"><![CDATA[Der Pr&auml;sident und die First Lady haben heute angekündigt,
 dass das n&auml;chste White House Ostereier-Rollen am kommenden 1. April stattfinden wird.
-Das Thema ist "Steh auf und geh los!". 
+Das Thema ist "Steh auf und geh los!".
 Mit der Party soll für mehr Gesundheit und Wohlbefinden geworben werden.]]></label>
       <label index="record_tx_org_cal_t3devdays_type">0</label>
       <label index="record_tx_org_cal_t3devdays_title">TYPO3 Developer Days</label>
       <label index="record_tx_org_cal_t3devdays_bodytext"><![CDATA[
-Wir laden Dich zu den kommenden TYPO3 Developer Days ein. 
+Wir laden Dich zu den kommenden TYPO3 Developer Days ein.
 Die Days sind eine gro&szlig;artige M&ouml;glichkeit, mehr &uuml;ber das leistungsf&auml;hige TYPO3 zu lernen.
 Sie sind Deine Chance, andere Entwickler aus der ganzen Welt kennenzulernen.<br />
 Konferenz-Aktivit&auml;ten
@@ -1649,6 +1651,8 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als
       <label index="tx_powermail_domain_model_pages">Powermail Seiten</label>
       <label index="tx_powermail_fieldsets">Powermail Feldgruppen</label>
       <label index="tx_powermail_fields">Powermail Felder</label>
+      <label index="typo3Conf_header">TYPO3-Konfiguration</label>
+      <label index="typo3Conf_promptCHash">Wenn Du den Fehler bekommen solltest "Page Not Found: ... <![CDATA[&]]>cHash comparison failed", <![CDATA[&ouml;]]>ffne bitte das Installations-Tool und setze [FE][pageNotFoundOnCHashError] = 0</label>
     </languageKey>
   </data>
 </T3locallang>

@@ -221,6 +221,87 @@
       <label index="content_pageOrgLibraryMenubelow_header">[Die Netzmacher - TYPO3 Silver Member]</label>
       <label index="content_pageOrgLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
       <label index="content_pageOrgLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
+      <label index="content_pageOrgTYPO3Integrators_header">TYPO3 Integrators</label>
+      <label index="content_pageOrgTYPO3Integrators_bodytext"><![CDATA[
+<ul class="csc-menu csc-menu-3">
+  <li class="csc-section">Congratulations</li>
+  <li class="csc-section">Using a proper jQuery</li>
+  <li class="csc-section">Using Flip it!</li>
+  <li class="csc-section">Using Radial Search (German: Umkreissuche)</li>
+</ul>
+<h2>Congratulations</h2>
+<p class="bodytext">
+  Congratulations! Installation of the TYPO3 Organiser was successful.
+</p>
+<p class="bodytext">
+  Below you find a list of the next possible steps.
+</p>
+<h2>
+  Using a proper jQuery
+</h2>
+<p class="bodytext">
+  Please use on jQuery library. It is recommended to use t3jquery.
+</p>
+<ul>
+  <li>Please compile your t3jquery after the installation of the Organiser.</li>
+</ul>
+<h2>
+  Using Flip it!
+</h2>
+<p class="bodytext">
+  TYPO3 Flip it! enables to page flip in PDF files like in real magazines.
+  The visitor of your website needs an internet browser with a flash plugin only.
+</p>
+<p class="bodytext">
+  If your Organiser installation should move PDF files to SWF files automatically,
+  you have to install the SWF Tools. See:
+</p>
+<ul>
+  <li>
+    English:http://typo3-flipit.de/en/swf-tools/
+  </li>
+  <li>
+    German: <a href="http://typo3-flipit.de/swf-tools/" >typo3-flipit.de/swf-tools/</a>
+  </li>
+</ul>
+<p class="bodytext">
+  In TYPO3 6.x you should not run the fancybox. The fancybox doesn't work.
+</p>
+<p class="bodytext">
+  You find a Flip it! example at
+</p>
+<ul>
+  <li>
+    <a href="index.php?id=%pageOrgDocuments_title%">Documents »</a>
+  </li>
+</ul>
+<p class="bodytext">
+  Please select a single document.
+</p>
+<h2>
+  Using Radial Search (German: Umkreissuche)
+</h2>
+<p class="bodytext">
+  If you like to use Radial Search (German: Umkreissuche), you have to import the needed postal data first. See
+</p>
+<ul>
+  <li>
+    <a href="http://typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf" >typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf</a><br />
+    Look for the section<br />
+    Import Postal Code Data
+  </li>
+</ul>
+<p class="bodytext">
+  The search won't find any match without postal data.
+</p>
+<p class="bodytext">
+  You find a Radial Search example at
+</p>
+<ul>
+  <li>
+    <a href="index.php?id=%pageOrgHeadquarters_title%">Headquarters »</a>
+  </li>
+</ul>]]></label>
       <label index="end_button">Reload this page</label>
       <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Organiser Installer, if you don't need it any longer.</label>
       <label index="end_header">Finish the installation</label>
@@ -280,6 +361,8 @@
       <label index="pageOrgLocations_title">Locations</label>
       <label index="pageOrgNews_title">News</label>
       <label index="pageOrgStaff_title">Staff</label>
+      <label index="pageOrgTYPO3Integrators_title">TYPO3 Integrators</label>
+      <label index="pageOrgTYPO3IntegratorsDevider_title"><![CDATA[[--------]]]></label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
       <label index="phrases_pm_fields_delivery_prependix2x">D-</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
@@ -707,6 +790,7 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> has per
       <label index="record_tx_org_downloads_cd1_thumbnail">cd_typo3_music_1_timestamp.jpg</label>
       <label index="record_tx_org_downloads_cd1_thumbnail_height">600m</label>
       <label index="record_tx_org_downloads_cd1_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_cd1_tx_flipit_layout">layout_00</label>
       <label index="record_tx_org_downloads_cd2_type">shipping</label>
       <label index="record_tx_org_downloads_cd2_title"><![CDATA[CD: Aus dem Leoparden-Gummistiefel]]></label>
       <label index="record_tx_org_downloads_cd2_subtitle"><![CDATA[TYPO3 4: Der Klang des Hier-und-Jetzt]]></label>
@@ -719,6 +803,7 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> has per
       <label index="record_tx_org_downloads_cd2_thumbnail">cd_typo3_music_2_timestamp.jpg</label>
       <label index="record_tx_org_downloads_cd2_thumbnail_height">600m</label>
       <label index="record_tx_org_downloads_cd2_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_cd2_tx_flipit_layout">layout_00</label>
       <label index="record_tx_org_downloads_cd3_type">shipping</label>
       <label index="record_tx_org_downloads_cd3_title"><![CDATA[CD: TYPO3 Fluid - Wassermusik]]></label>
       <label index="record_tx_org_downloads_cd3_subtitle"><![CDATA[TYPO3 5: Ich möcht' Blasen blubbern lassen]]></label>
@@ -733,6 +818,7 @@ Die CD muss noch gepresst werden und ist voraussichtlich ab Ende 2012 lieferbar.
       <label index="record_tx_org_downloads_cd3_thumbnail">cd_typo3_music_3_timestamp.jpg</label>
       <label index="record_tx_org_downloads_cd3_thumbnail_height">600m</label>
       <label index="record_tx_org_downloads_cd3_thumbnail_width">200m</label>
+      <label index="record_tx_org_downloads_cd3_tx_flipit_layout">layout_00</label>
       <label index="record_tx_org_downloads_flyer1_type">download_shipping</label>
       <label index="record_tx_org_downloads_flyer1_title"><![CDATA[Flyer: TYPO3-Organiser]]></label>
       <label index="record_tx_org_downloads_flyer1_subtitle"><![CDATA[Kurz und bündig und zum Weiterverteilen]]></label>
@@ -994,8 +1080,16 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="tx_powermail_domain_model_pages">Powermail Pages</label>
       <label index="tx_powermail_fieldsets">Powermail Fieldsets</label>
       <label index="tx_powermail_fields">Powermail Fields</label>
-      <label index="typo3Conf_header">TYPO3 Configuration</label>
-      <label index="typo3Conf_promptCHash">If you will get the error "Page Not Found: ... <![CDATA[&]]>cHash comparison failed", please start the Install Tool and configure [FE][pageNotFoundOnCHashError] = 0</label>
+      <label index="typo3ConfigVars_header">Check $TYPO3_CONF_VARS</label>
+      <label index="typo3ConfigVars_ok">is proper.</label>
+      <label index="typo3ConfigVars_pageNotFoundOnCHashError_header">pageNotFoundOnCHashError</label>
+      <label index="typo3ConfigVars_pageNotFoundOnCHashError_error">Error: $TYPO3_CONF_VARS['FE']['pageNotFoundOnCHashError'] is true.</label>
+      <label index="typo3ConfigVars_pageNotFoundOnCHashError_help"><![CDATA[$TYPO3_CONF_VARS['FE']['pageNotFoundOnCHashError'] must be false.<br />
+        Please change the value to false<br />
+        * See Admin Tools > Installation > All Configuration<br />
+        * Look for pageNotFoundOnCHashError<br />
+        You can change the value back to true after the installation.
+      ]]></label>
     </languageKey>
     <languageKey index="de" type="array">
       <label index="back">Zurück</label>
@@ -1213,6 +1307,85 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
       <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgeblendet.</label>
+      <label index="content_pageOrgTYPO3Integrators_header">TYPO3 Integratoren</label>
+      <label index="content_pageOrgTYPO3Integrators_bodytext"><![CDATA[<ul class="csc-menu csc-menu-3">
+  <li class="csc-section">Herzlichen Glückwunsch!</li>
+  <li class="csc-section">jQuery verwenden</li>
+  <li class="csc-section">Flip it! verwenden</li>
+  <li class="csc-section">Radial Search (Umkreissuche) verwenden</li>
+</ul>
+<h2>Herzlichen Glückwunsch!</h2>
+<p class="bodytext">
+  Herzlichen Glückwunsch! Die Installation des TYPO3 Organisers war erfolgreich.
+</p>
+<p class="bodytext">
+  Unten findest Du eine Übersicht der nächsten Schritte.
+</p>
+<h2>
+  jQuery verwenden
+</h2>
+<p class="bodytext">
+  Verwende bitte nur eine jQuery-Bibliothek. Es wird t3jquery empfohlen.
+</p>
+<ul>
+  <li>
+    Bitte kompiliere Dein t3jquery nach der Installation des Organisers neu.
+  </li>
+</ul>
+<h2>
+  Flip it! verwenden
+</h2>
+<p class="bodytext">
+  Mit Flip it! kannst Du online wie in echten Katalogen blättern.
+  Die Besucher Deiner Website brauchen nur einen Internet-Browser mit einem Flash-Plugin.
+</p>
+<p class="bodytext">
+  Wenn Deine Organiser-Installation PDF-Dateien automatisch in Flash-Dateien umwandeln soll,
+  musst Du die SWF-Tools installieren. Siehe</p>
+<ul>
+  <li>
+    <a href="http://typo3-flipit.de/swf-tools/" >typo3-flipit.de/swf-tools/</a>
+  </li>
+</ul>
+<p class="bodytext">
+  Verzichte in TYPO3 6.x bitte auf die Verwendung der Fancybox. Die Fancybox funkioniert nicht.
+</p>
+<p class="bodytext">
+  Du findest ein Flip it!-Beispiel hier:
+</p>
+<ul>
+  <li>
+    <a href="index.php?id=%pageOrgDocuments_title%">Dokumente »</a>
+  </li>
+</ul>
+<p class="bodytext">
+  Wähle ein einzelnes Dokument aus.
+</p>
+<h2>
+  Radial Search (Umkreissuche) verwenden
+</h2>
+<p class="bodytext">
+  Wenn Du Radial Search (Umkreissuche) verwenden möchtest,
+  musst Du vorher die von Dir benötigten Postleitzahlen importieren. Siehe
+</p>
+<ul>
+  <li>
+    <a href="http://typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf" >typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf</a><br />
+    Suche nach dem Abschnitt<br />
+    Import Postal Code Data
+  </li>
+</ul>
+<p class="bodytext">
+  Ohne Postleitzahlen kann die Suche keine Ergebnisse liefern.
+</p>
+<p class="bodytext">
+  Du findest ein Beispiel mit Radial Search (Umkreissuche) hier:
+</p>
+<ul>
+  <li>
+    <a href="index.php?id=%pageOrgHeadquarters_title%">Standorte »</a>
+  </li>
+</ul>]]></label>
       <label index="end_button">Seite neu laden</label>
       <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Organiser Installer, wenn Du ihn nicht mehr brauchst!</label>
       <label index="end_header">Installation beenden!</label>
@@ -1271,6 +1444,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="pageOrgLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgNews_title">Nachrichten</label>
       <label index="pageOrgStaff_title">Personal</label>
+      <label index="pageOrgTYPO3Integrators_title">TYPO3 Integratoren</label>
+      <label index="pageOrgTYPO3IntegratorsDevider_title"><![CDATA[[--------]]]></label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
       <label index="phrases_pm_fields_delivery_prependix2x">L-</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
@@ -1651,8 +1826,16 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als
       <label index="tx_powermail_domain_model_pages">Powermail Seiten</label>
       <label index="tx_powermail_fieldsets">Powermail Feldgruppen</label>
       <label index="tx_powermail_fields">Powermail Felder</label>
-      <label index="typo3Conf_header">TYPO3-Konfiguration</label>
-      <label index="typo3Conf_promptCHash">Wenn Du den Fehler bekommen solltest "Page Not Found: ... <![CDATA[&]]>cHash comparison failed", <![CDATA[&ouml;]]>ffne bitte das Installations-Tool und setze [FE][pageNotFoundOnCHashError] = 0</label>
+      <label index="typo3ConfigVars_header">Prüfung von $TYPO3_CONF_VARS</label>
+      <label index="typo3ConfigVars_ok">ist in Ordnung.</label>
+      <label index="typo3ConfigVars_pageNotFoundOnCHashError_header">pageNotFoundOnCHashError</label>
+      <label index="typo3ConfigVars_pageNotFoundOnCHashError_error">Fehler: $TYPO3_CONF_VARS['FE']['pageNotFoundOnCHashError'] ist true.</label>
+      <label index="typo3ConfigVars_pageNotFoundOnCHashError_help"><![CDATA[$TYPO3_CONF_VARS['FE']['pageNotFoundOnCHashError'] muss false sein.<br />
+        Bitte ändere den Wert auf false<br />
+        * Siehe Adminwerkzeug > Installation > All Configuration<br />
+        * Suche nach pageNotFoundOnCHashError<br />
+        Du kannst nach der Installation die Einstellung wieder auf true zurücksetzen.
+      ]]></label>
     </languageKey>
   </data>
 </T3locallang>

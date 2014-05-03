@@ -1528,6 +1528,7 @@ class tx_orginstaller_pi1_org
     $record['thumbnail']              = $llImageWiTimestamp;
     $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_thumbnail_height');
     $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_thumbnail_width');
+    $record['tx_flipit_layout']       = $this->pObj->pi_getLL('record_tx_org_downloads_cd1_tx_flipit_layout');
 
     return $record;
 
@@ -1571,6 +1572,7 @@ class tx_orginstaller_pi1_org
     $record['thumbnail']              = $llImageWiTimestamp;
     $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_thumbnail_height');
     $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_thumbnail_width');
+    $record['tx_flipit_layout']       = $this->pObj->pi_getLL('record_tx_org_downloads_cd2_tx_flipit_layout');
 
     return $record;
 
@@ -1614,6 +1616,7 @@ class tx_orginstaller_pi1_org
     $record['thumbnail']              = $llImageWiTimestamp;
     $record['thumbnail_height']       = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_thumbnail_height');
     $record['thumbnail_width']        = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_thumbnail_width');
+    $record['tx_flipit_layout']       = $this->pObj->pi_getLL('record_tx_org_downloads_cd3_tx_flipit_layout');
 
     return $record;
 
@@ -2099,7 +2102,7 @@ class tx_orginstaller_pi1_org
     $llLabel  = 'record_tx_org_location_t3devdays_image';
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
-    
+
     $arrLlImage             = explode( ',', $llImage );
     $arrLlImageWiTimestamp  = explode( ',', $llImageWiTimestamp );
     foreach( array_keys( $arrLlImageWiTimestamp ) as $pos )
@@ -2666,7 +2669,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2CalentranceT3DevdaysFree( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_entranceFree' ],
               );
@@ -2685,7 +2688,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2CalentranceT3DevdaysMortal( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_mereMortals' ],
               );
@@ -2704,7 +2707,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2CalentranceT3DevdaysSponsor( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_sponsor' ],
               );
@@ -2723,7 +2726,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2CalentranceT3OrganiserFree( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_entranceFree' ],
               );
@@ -2742,7 +2745,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2CalentranceT3OrganiserMortal( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_mereMortals' ],
               );
@@ -2761,7 +2764,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2CalentranceT3OrganiserSponsor( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_sponsor' ],
               );
@@ -2803,7 +2806,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2CaltypeEggrollSociety( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_eggroll_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_caltype_title_society' ],
               );
@@ -2822,7 +2825,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2CaltypeT3DevdaysTYPO3( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_caltype_title_typo3' ],
               );
@@ -2841,7 +2844,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2CaltypeT3OrgansierTYPO3( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_caltype_title_typo3' ],
               );
@@ -2882,7 +2885,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2LocationT3OrganiserNetzmacher( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_location_netzmacher_title' ],
               );
@@ -2901,7 +2904,7 @@ class tx_orginstaller_pi1_org
   private function relationCal2LocationT3DevdaysT3Devdays( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_location_t3devdays_title' ],
               );
@@ -2943,7 +2946,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2CalNetzmacherT3Organiser( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_netzmacher_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
               );
@@ -2962,7 +2965,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2CalPresidentEggroll( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_eggroll_title' ],
               );
@@ -2981,7 +2984,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2CalT3PressT3Devdays( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
               );
@@ -3025,7 +3028,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2DepartmentcatNetzmacherTYPO3( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_netzmacher_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_typo3' ],
               );
@@ -3044,7 +3047,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2DepartmentcatPresidentPolicy( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_policy' ],
               );
@@ -3063,7 +3066,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2DepartmentcatPresidentSociety( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_society' ],
               );
@@ -3082,7 +3085,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2DepartmentcatT3PressSociety( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_society' ],
               );
@@ -3101,7 +3104,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2DepartmentcatT3PressTYPO3( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_departmentcat_title_typo3' ],
               );
@@ -3142,7 +3145,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2NewsPresidentPresident( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
               );
@@ -3161,7 +3164,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2NewsT3PressFlow( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
               );
@@ -3203,7 +3206,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2StaffNetzmacherDwildt( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_netzmacher_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_dwildt_name' ],
               );
@@ -3222,7 +3225,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2StaffPresidentBobama( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_bobama_name' ],
               );
@@ -3241,7 +3244,7 @@ class tx_orginstaller_pi1_org
   private function relationDepartment2StaffT3PressSschaffstein( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_sschaffstein_name' ],
               );
@@ -3287,7 +3290,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadscatCD1Music( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd1_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_music' ],
               );
@@ -3306,7 +3309,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadscatCD2Music( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd2_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_music' ],
               );
@@ -3325,7 +3328,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadscatCD3Music( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd3_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_music' ],
               );
@@ -3344,7 +3347,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadscatFlyer1Flyer( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer1_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_flyer' ],
               );
@@ -3363,7 +3366,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadscatFlyer2Flyer( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer2_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_flyer' ],
               );
@@ -3382,7 +3385,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadscatManual1Development( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual1_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_development' ],
               );
@@ -3401,7 +3404,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadscatManual2Development( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual2_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_development' ],
               );
@@ -3420,7 +3423,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadscatManual3Development( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual3_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_development' ],
               );
@@ -3467,7 +3470,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadsmediaCD1CD( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd1_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_cd' ],
               );
@@ -3486,7 +3489,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadsmediaCD2CD( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd2_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_cd' ],
               );
@@ -3505,7 +3508,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadsmediaCD3CD( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd3_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_cd' ],
               );
@@ -3524,7 +3527,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadsmediaFlyer1Flyer( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer1_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_flyer' ],
               );
@@ -3543,7 +3546,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadsmediaFlyer2Flyer( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer2_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_flyer' ],
               );
@@ -3562,7 +3565,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadsmediaManual1Manuals( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual1_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
               );
@@ -3581,7 +3584,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadsmediaManual2Manuals( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual2_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
               );
@@ -3600,7 +3603,7 @@ class tx_orginstaller_pi1_org
   private function relationDownloads2DownloadsmediaManual3Manuals( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual3_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
               );
@@ -3642,7 +3645,7 @@ class tx_orginstaller_pi1_org
   private function relationHeadquarters2DepartmentsNetzmacherNetzmacher( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_netzmacher_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_department_netzmacher_title' ]
               );
@@ -3661,7 +3664,7 @@ class tx_orginstaller_pi1_org
   private function relationHeadquarters2DepartmentsPresidentPresident( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_president_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_department_president_title' ],
               );
@@ -3680,7 +3683,7 @@ class tx_orginstaller_pi1_org
   private function relationHeadquarters2DepartmentsTYPO3T3press( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_typo3_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_department_t3press_title' ],
               );
@@ -3722,7 +3725,7 @@ class tx_orginstaller_pi1_org
   private function relationHeadquarters2HeadquarterscatNetzmacherTYPO3( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_netzmacher_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarterscat_title_typo3' ]
               );
@@ -3741,7 +3744,7 @@ class tx_orginstaller_pi1_org
   private function relationHeadquarters2HeadquarterscatPresidentPolicy( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_president_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarterscat_title_policy' ],
               );
@@ -3760,7 +3763,7 @@ class tx_orginstaller_pi1_org
   private function relationHeadquarters2HeadquarterscatTYPO3TYPO3( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_typo3_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarterscat_title_typo3' ],
               );
@@ -3802,7 +3805,7 @@ class tx_orginstaller_pi1_org
   private function relationHeadquarters2StaffNetzmacherDwildt( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_netzmacher_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_dwildt_name' ]
               );
@@ -3821,7 +3824,7 @@ class tx_orginstaller_pi1_org
   private function relationHeadquarters2StaffPresidentBobama( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_president_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_bobama_name' ],
               );
@@ -3840,7 +3843,7 @@ class tx_orginstaller_pi1_org
   private function relationHeadquarters2StaffTYPO3Sschaffstein( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_typo3_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_fe_users_sschaffstein_name' ],
               );
@@ -3882,7 +3885,7 @@ class tx_orginstaller_pi1_org
   private function relationNews2NewscatFlowTYPO3( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_newscat_title_typo3' ],
               );
@@ -3901,7 +3904,7 @@ class tx_orginstaller_pi1_org
   private function relationNews2NewscatPresidentPolicy( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_newscat_title_policy' ],
               );
@@ -3920,7 +3923,7 @@ class tx_orginstaller_pi1_org
   private function relationNews2NewscatT3OrganiserTYPO3( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_news_t3organiser_title' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_newscat_title_typo3' ],
               );
@@ -3961,7 +3964,7 @@ class tx_orginstaller_pi1_org
   private function relationStaff2NewsPresidentPresident( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_fe_users_bobama_name' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
               );
@@ -3980,7 +3983,7 @@ class tx_orginstaller_pi1_org
   private function relationStaff2NewsSschaffsteinFlow( )
   {
     $record = array
-              ( 
+              (
                 'uid_local'   => $this->pObj->arr_recordUids[ 'record_fe_users_sschaffstein_name' ],
                 'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
               );
@@ -4036,15 +4039,15 @@ class tx_orginstaller_pi1_org
         // prompt
       $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
       $pageTitle = $this->pObj->pi_getLL( $pageTitle );
-      
+
       $title = $record['title'];
       if( empty( $title ) )
       {
-        $title = $record['header'];      
+        $title = $record['header'];
       }
       if( empty( $title ) )
       {
-        $title = $record['name'];      
+        $title = $record['name'];
       }
       $marker['###TITLE###']      = $title;
       $marker['###TABLE###']      = $this->pObj->pi_getLL( $table, '<i>' . $table . '</i>' );

@@ -142,7 +142,7 @@ class tx_orginstaller_pi1_content
         return $records;
         break;
       case( 'install_all' ):
-        // follow the workflow 
+        // follow the workflow
         break;
       default:
         $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
@@ -176,6 +176,9 @@ class tx_orginstaller_pi1_content
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgLibraryFooter( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgTYPO3Integrators( $uid );
 
     return $records;
   }
@@ -757,6 +760,41 @@ class tx_orginstaller_pi1_content
     $record['image_zoom']     = 1;
     $record['imageorient']    = 2;  // 2: left
     $record['spaceBefore']    = 60; // 2: left
+
+    return $record;
+  }
+
+/**
+ * pageOrgTYPO3Integrators( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageOrgTYPO3Integrators( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgTYPO3Integrators_header' );
+    $this->pObj->arr_contentUids['content_pageOrgTYPO3Integrators_header']  = $uid;
+    $bodytext = $this->pObj->pi_getLL('content_pageOrgTYPO3Integrators_bodytext');
+    $pageOrgDocuments_title = $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ];
+    $bodytext = str_replace( '%pageOrgDocuments_title%', $pageOrgDocuments_title, $bodytext );
+    $pageOrgHeadquarters_title = $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ];
+    $bodytext = str_replace( '%pageOrgHeadquarters_title%', $pageOrgHeadquarters_title, $bodytext );
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgTYPO3Integrators_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256 * 1;
+    $record['CType']        = 'text';
+    $record['header']       = $llHeader;
+    $record['bodytext']     = $bodytext;
+    $record['sectionIndex'] = 1;
 
     return $record;
   }

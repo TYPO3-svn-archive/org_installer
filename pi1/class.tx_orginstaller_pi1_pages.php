@@ -258,7 +258,7 @@ class tx_orginstaller_pi1_pages
         return;
         break;
       case( 'install_all' ):
-        // follow the workflow 
+        // follow the workflow
         break;
       default:
         $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
@@ -268,6 +268,12 @@ class tx_orginstaller_pi1_pages
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[$pageUid] = $this->pageOrgLegalinfo( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageOrgTYPO3IntegratorsDevider( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageOrgTYPO3Integrators( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[$pageUid] = $this->pageOrgLibrary( $pageUid, $sorting );
@@ -1605,6 +1611,80 @@ TCEMAIN {
               'pid'           => $GLOBALS['TSFE']->id,
               'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
+
+    return $page;
+  }
+
+/**
+ * pageOrgTYPO3Integrators( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$sorting            : sorting value
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 4.0.0
+ * @since 1.0.0
+ */
+  private function pageOrgTYPO3Integrators( $pageUid, $sorting )
+  {
+    $pageTitle    = 'pageOrgTYPO3Integrators_title';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $llPageTitle,
+              'dokType'       => 1,  // 1: page
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
+
+    return $page;
+  }
+
+/**
+ * pageOrgTYPO3IntegratorsDevider( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$sorting            : sorting value
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function pageOrgTYPO3IntegratorsDevider( $pageUid, $sorting )
+  {
+    $pageTitle    = 'pageOrgTYPO3IntegratorsDevider_title';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $llPageTitle,
+              'dokType'       => 199,  // 199: devider
               'crdate'        => time( ),
               'tstamp'        => time( ),
               'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],

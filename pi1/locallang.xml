@@ -1621,7 +1621,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="pluginCaddyminiPageOrgDocumentsCaddyCaddymini_header">[Mini-Warenkorb]</label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
-      <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Pllugin.</label>
+      <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Organiser ..." im TYPO3-Backend-Plugin.</label>
       <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Lieber TYPO3-Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>

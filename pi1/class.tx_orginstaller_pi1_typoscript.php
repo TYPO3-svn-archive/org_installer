@@ -473,6 +473,7 @@ plugin.tx_seodynamictag {
   // plugin.caddy
   // plugin.org
   // plugin.tx_browser_pi1
+  // plugin.tx_radialsearch_pi1
   // plugin.tx_seodynamictag_pi1
 
 
@@ -584,6 +585,19 @@ plugin.tx_browser_pi1 {
   }
 }
   // plugin.tx_browser_pi1
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_radialsearch_pi1
+
+plugin.tx_radialsearch_pi1 {
+  radiusbox {
+    options = 50, 100, 500,1000,8000
+  }
+}
+  // plugin.tx_radialsearch_pi1
 
 
 
@@ -844,6 +858,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   //
   // plugin.org
   // plugin.caddy
+  // plugin.tx_radialsearch_pi1
   // plugin.tx_seodynamictag_pi1
 
 
@@ -907,6 +922,19 @@ plugin.org {
   }
 }
   // organiser
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_radialsearch_pi1
+
+plugin.tx_radialsearch_pi1 {
+  radiusbox {
+    options = 50, 100, 500,1000,8000
+  }
+}
+  // plugin.tx_radialsearch_pi1
 
 
 

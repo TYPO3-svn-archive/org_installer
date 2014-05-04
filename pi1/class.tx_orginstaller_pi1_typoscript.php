@@ -453,12 +453,11 @@ plugin.tx_seodynamictag {
       case( $this->pObj->get_typo3Version() >= 6000000 ):
         $include = $record['include_static_file'];
         $include = str_replace('%flipit61%', 'EXT:flipit/static/woFancybox/,', $include);
-        $include = $include . ',EXT:org/static/base/typo3/4.6/';
         $record['include_static_file'] = $include;
         break;
       default:
         $include = $record['include_static_file'];
-        $include = str_replace('%flipit46%', null, $include);
+        $include = str_replace('%flipit61%', null, $include);
         $record['include_static_file'] = $include;
         break;
     }
@@ -830,6 +829,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
             . 'EXT:linkhandler/static/link_handler/,'
             . 'EXT:flipit/static/,'
             . '%flipit46%'
+            . '%flipit61%'
             . 'EXT:seo_dynamic_tag/static/,'
             . 'EXT:org/static/base/,'
             . 'EXT:org/static/calendar/201/,'
@@ -846,6 +846,19 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
       default:
         $include = $record['include_static_file'];
         $include = str_replace('%flipit46%', null, $include);
+        $record['include_static_file'] = $include;
+        break;
+    }
+    switch (true)
+    {
+      case( $this->pObj->get_typo3Version() >= 6000000 ):
+        $include = $record['include_static_file'];
+        $include = str_replace('%flipit61%', 'EXT:flipit/static/woFancybox/,', $include);
+        $record['include_static_file'] = $include;
+        break;
+      default:
+        $include = $record['include_static_file'];
+        $include = str_replace('%flipit61%', null, $include);
         $record['include_static_file'] = $include;
         break;
     }

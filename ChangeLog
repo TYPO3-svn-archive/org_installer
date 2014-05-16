@@ -1,3 +1,8 @@
+4.0.1
+  14-05-17
+  Bugfix
+  * #i0013: mod.web_list.allowedNewTables.tx_org_headquarterscat was missing
+
 4.0.0
   14-04-29
   Improvement

@@ -767,6 +767,7 @@ mod {
   web_list {
     allowedNewTables (
       tx_org_headquarters,
+      tx_org_headquarterscat,
       tx_org_department,
       tx_org_departmentcat
     )

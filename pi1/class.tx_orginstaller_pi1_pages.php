@@ -1,26 +1,27 @@
 <?php
-/***************************************************************
-*  Copyright notice
-*
-*  (c) 2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 2 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+
+/* * *************************************************************
+ *  Copyright notice
+ *
+ *  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ * ************************************************************* */
 /**
  * [CLASS/FUNCTION INDEX of SCRIPT]
  *
@@ -83,252 +84,248 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 3.0.0
+ * @version 6.0.0
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_pages
 {
-  public $prefixId      = 'tx_orginstaller_pi1_pages';                // Same as class name
-  public $scriptRelPath = 'pi1/class.tx_orginstaller_pi1_pages.php';  // Path to this script relative to the extension dir.
-  public $extKey        = 'org_installer';                      // The extension key.
 
+  public $prefixId = 'tx_orginstaller_pi1_pages';                // Same as class name
+  public $scriptRelPath = 'pi1/class.tx_orginstaller_pi1_pages.php';  // Path to this script relative to the extension dir.
+  public $extKey = 'org_installer';                      // The extension key.
   public $pObj = null;
 
+  /*   * *********************************************
+   *
+   * Main
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Main
-  *
-  **********************************************/
-
-/**
- * main( ) :
- *
- * @return	void
- * @access public
- * @version 3.0.0
- * @since 1.0.0
- */
-  public function main( )
+  /**
+   * main( ) :
+   *
+   * @return	void
+   * @access public
+   * @version 3.0.0
+   * @since 1.0.0
+   */
+  public function main()
   {
-      // Prompt header
-    $this->pObj->arrReport[ ] = '
+    // Prompt header
+    $this->pObj->arrReport[] = '
       <h2>
-       '.$this->pObj->pi_getLL('page_create_header').'
+       ' . $this->pObj->pi_getLL( 'page_create_header' ) . '
       </h2>';
-      // Prompt header
-
-      // Create pages on the root level
-    $pageUid = $this->pageOrg( );
+    // Prompt header
+    // Create pages on the root level
+    $pageUid = $this->pageOrg();
     unset( $pageUid );
 
     return;
   }
 
+  /*   * *********************************************
+   *
+   * Init
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Init
-  *
-  **********************************************/
-
-/**
- * initPageOrg( ) :
- *
- * @return	void
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
-  private function initPageOrg( )
+  /**
+   * initPageOrg( ) :
+   *
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
+  private function initPageOrg()
   {
-      // Set the global vars for the root page
-    $pageUid      = $GLOBALS['TSFE']->id;
-    $pageTitle    = 'pageOrg_title';
-      // 130723, dwildt, 1-
+    // Set the global vars for the root page
+    $pageUid = $GLOBALS[ 'TSFE' ]->id;
+    $pageTitle = 'pageOrg_title';
+    // 130723, dwildt, 1-
     //$llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
-      // Set the global vars for the root page
+    // Set the global vars for the root page
   }
 
+  /*   * *********************************************
+   *
+   * Create pages
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Create pages
-  *
-  **********************************************/
-
-/**
- * pageOrg( ) :
- *
- * @return	integer		$pageUid: latest page uid
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
-  private function pageOrg( )
+  /**
+   * pageOrg( ) :
+   *
+   * @return	integer		$pageUid: latest page uid
+   * @access private
+   * @version 6.0.0
+   * @since 1.0.0
+   */
+  private function pageOrg()
   {
-    $pages = array( );
+    $pages = array();
 
-      // Init page org / the rrot page
-    $this->initPageOrg( );
+    // Init page org / the rrot page
+    $this->initPageOrg();
 
-      // Get the latest uid from the pages table
+    // Get the latest uid from the pages table
     $pageUid = $this->pObj->zz_getMaxDbUid( 'pages' );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgData( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgData( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDataCal( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDataCal( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDataDownloads( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDataDownloads( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDataEvents( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDataEvents( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDataHeadquarters( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDataHeadquarters( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDataLocations( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDataLocations( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDataNews( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDataNews( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDataStaff( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDataStaff( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgNews( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgNews( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDocuments( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDocuments( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDocumentsCaddy( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDocumentsCaddy( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDocumentsCaddyCaddymini( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyCaddymini( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDocumentsCaddyDelivery( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyDelivery( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDocumentsCaddyRevocation( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyRevocation( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgDocumentsCaddyTerms( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyTerms( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgStaff( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgStaff( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgHeadquarters( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgHeadquarters( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgLocations( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgLocations( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgCaddy( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgCaddy( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgCaddyCaddymini( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgCaddyCaddymini( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgCaddyDelivery( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgCaddyDelivery( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgCaddyRevocation( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgCaddyRevocation( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgCaddyTerms( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgCaddyTerms( $pageUid, $sorting );
 
-      // SWITCH : install case
-    $installCase = $this->pObj->markerArray['###INSTALL_CASE###'];
-    switch( $installCase )
+    // SWITCH : install case
+    $installCase = $this->pObj->markerArray[ '###INSTALL_CASE###' ];
+    switch ( $installCase )
     {
       case( 'install_org' ):
         $this->sqlInsert( $pages );
         return;
-        break;
       case( 'install_all' ):
         // follow the workflow
         break;
       default:
-        $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
+        $prompt = __METHOD__ . ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
         die( $prompt );
     }
-      // SWITCH : install case
+    // SWITCH : install case
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgLegalinfo( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgLegalinfo( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgTYPO3IntegratorsDevider( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgTYPO3IntegratorsDevider( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgTYPO3Integrators( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgTYPO3Integrators( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgLibrary( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgLibrary( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgLibraryHeader( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgLibraryHeader( $pageUid, $sorting );
+
+    // #61693, 140917, dwildt, 2+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgLibraryMenu( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgLibraryMenubelow( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgLibraryMenubelow( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgLibraryHeaderLogo( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgLibraryHeaderLogo( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgLibraryHeaderSlider( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgLibraryHeaderSlider( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageOrgLibraryFooter( $pageUid, $sorting );
+    $pages[ $pageUid ] = $this->pageOrgLibraryFooter( $pageUid, $sorting );
 
     $this->sqlInsert( $pages );
 
     return $pageUid;
   }
 
-/**
- * pageOrgCaddy( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgCaddy( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgCaddy( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgCaddy_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgCaddy_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'caddy',
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'caddy',
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -336,40 +333,40 @@ class tx_orginstaller_pi1_pages
     return $page;
   }
 
-/**
- * pageOrgCaddyCaddymini( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgCaddyCaddymini( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgCaddyCaddymini( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgCaddyCaddymini_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgCaddy_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgCaddyCaddymini_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgCaddy_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'caddymini',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'nav_hide'      => 1
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'caddymini',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'nav_hide' => 1
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -377,38 +374,38 @@ class tx_orginstaller_pi1_pages
     return $page;
   }
 
-/**
- * pageOrgCaddyDelivery( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgCaddyDelivery( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgCaddyDelivery( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgCaddyDelivery_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgCaddy_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgCaddyDelivery_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgCaddy_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -416,38 +413,38 @@ class tx_orginstaller_pi1_pages
     return $page;
   }
 
-/**
- * pageOrgCaddyRevocation( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgCaddyRevocation( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgCaddyRevocation( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgCaddyRevocation_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgCaddy_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgCaddyRevocation_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgCaddy_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -455,39 +452,39 @@ class tx_orginstaller_pi1_pages
     return $page;
   }
 
-/**
- * pageOrgCaddyTerms( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgCaddyTerms( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @param	string		$dateHumanReadable  : human readabel date
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgCaddyTerms( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgCaddyTerms_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgCaddy_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgCaddyTerms_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgCaddy_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -495,38 +492,38 @@ class tx_orginstaller_pi1_pages
     return $page;
   }
 
-/**
- * pageOrgData( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgData( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgData( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgData_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgData_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'org',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'TSconfig'      => null // Will set while consolidation
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'org',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'TSconfig' => null // Will set while consolidation
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -534,42 +531,42 @@ class tx_orginstaller_pi1_pages
     return $page;
   }
 
-/**
- * pageOrgDataCal( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDataCal( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDataCal( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDataCal_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgData_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDataCal_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgData_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
 
-    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $dateHumanReadable = date( 'Y-m-d G:i:s' );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'org_cal',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'TSconfig'      => '
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'org_cal',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'TSconfig' => '
 
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
@@ -588,7 +585,7 @@ mod {
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 '
-            );
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -596,42 +593,42 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDataDownloads( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDataDownloads( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDataDownloads( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDataDownloads_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgData_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDataDownloads_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgData_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
 
-    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $dateHumanReadable = date( 'Y-m-d G:i:s' );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'org_dwnlds',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'TSconfig'      => '
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'org_dwnlds',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'TSconfig' => '
 
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
@@ -658,7 +655,7 @@ TCAdefaults {
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 '
-            );
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -666,42 +663,42 @@ TCAdefaults {
     return $page;
   }
 
-/**
- * pageOrgDataEvents( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDataEvents( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDataEvents( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDataEvents_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgData_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDataEvents_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgData_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
 
-    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $dateHumanReadable = date( 'Y-m-d G:i:s' );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'org_event',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'TSconfig'      => '
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'org_event',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'TSconfig' => '
 
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
@@ -716,7 +713,7 @@ mod {
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 '
-            );
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -724,42 +721,42 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDataHeadquarters( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDataHeadquarters( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDataHeadquarters( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDataHeadquarters_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgData_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDataHeadquarters_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgData_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
 
-    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $dateHumanReadable = date( 'Y-m-d G:i:s' );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'org_headq',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'TSconfig'      => '
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'org_headq',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'TSconfig' => '
 
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
@@ -767,9 +764,7 @@ mod {
   web_list {
     allowedNewTables (
       tx_org_headquarters,
-      tx_org_headquarterscat,
-      tx_org_department,
-      tx_org_departmentcat
+      tx_org_headquarterscat
     )
   }
 }
@@ -777,7 +772,7 @@ mod {
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 '
-            );
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -785,42 +780,42 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDataLocations( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDataLocations( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDataLocations( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDataLocations_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgData_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDataLocations_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgData_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
 
-    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $dateHumanReadable = date( 'Y-m-d G:i:s' );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'org_locat',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'TSconfig'      => '
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'org_locat',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'TSconfig' => '
 
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
@@ -835,7 +830,7 @@ mod {
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 '
-            );
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -843,42 +838,42 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDataNews( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDataNews( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDataNews( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDataNews_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgData_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDataNews_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgData_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
 
-    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $dateHumanReadable = date( 'Y-m-d G:i:s' );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'org_news',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'TSconfig'      => '
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'org_news',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'TSconfig' => '
 
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
@@ -895,7 +890,7 @@ mod {
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 '
-            );
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -903,50 +898,54 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDataStaff( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDataStaff( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 6.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDataStaff( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDataStaff_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgData_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDataStaff_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgData_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
 
-    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $dateHumanReadable = date( 'Y-m-d G:i:s' );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'org_staff',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'TSconfig'      => '
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'org_staff',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'TSconfig' => '
 
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
 mod {
   web_list {
     allowedNewTables (
-      fe_users,
-      fe_groups
+      // #61703, dwildt, 2-
+      //fe_users,
+      //fe_groups
+      // #61703, dwildt, 2+
+      tx_org_staff,
+      tx_org_staffgroup
     )
   }
 }
@@ -954,7 +953,7 @@ mod {
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 '
-            );
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -962,35 +961,35 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDocuments( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDocuments( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDocuments( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDocuments_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgDocuments_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -998,39 +997,39 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDocumentsCaddy( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDocumentsCaddy( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDocumentsCaddy( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDocumentsCaddy_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgDocuments_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDocumentsCaddy_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgDocuments_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'caddy',
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'caddy',
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1038,40 +1037,40 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDocumentsCaddyCaddymini( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDocumentsCaddyCaddymini( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDocumentsCaddyCaddymini( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDocumentsCaddyCaddymini_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgDocumentsCaddy_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDocumentsCaddyCaddymini_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgDocumentsCaddy_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'caddymini',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'nav_hide'      => 1
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'caddymini',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'nav_hide' => 1
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1079,38 +1078,38 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDocumentsCaddyDelivery( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDocumentsCaddyDelivery( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDocumentsCaddyDelivery( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDocumentsCaddyDelivery_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgDocumentsCaddy_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDocumentsCaddyDelivery_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgDocumentsCaddy_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1118,38 +1117,38 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDocumentsCaddyRevocation( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDocumentsCaddyRevocation( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDocumentsCaddyRevocation( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDocumentsCaddyRevocation_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgDocumentsCaddy_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDocumentsCaddyRevocation_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgDocumentsCaddy_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1157,39 +1156,39 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgDocumentsCaddyTerms( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgDocumentsCaddyTerms( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @param	string		$dateHumanReadable  : human readabel date
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgDocumentsCaddyTerms( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgDocumentsCaddyTerms_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgDocumentsCaddy_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgDocumentsCaddyTerms_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgDocumentsCaddy_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1197,36 +1196,36 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgHeadquarters( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgHeadquarters( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgHeadquarters( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgHeadquarters_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgHeadquarters_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1234,36 +1233,36 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgLocations( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgLocations( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgLocations( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgLocations_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgLocations_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1271,36 +1270,36 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgLegalinfo( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgLegalinfo( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgLegalinfo( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgLegalinfo_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgLegalinfo_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1308,39 +1307,39 @@ mod {
     return $page;
   }
 
-/**
- * pageOrgLibrary( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgLibrary( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgLibrary( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgLibrary_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgLibrary_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
-    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $dateHumanReadable = date( 'Y-m-d G:i:s' );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'module'        => 'library',
-              'urlType'       => 1,
-              'sorting'       => $sorting,
-              'TSconfig'      => '
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'module' => 'library',
+      'urlType' => 1,
+      'sorting' => $sorting,
+      'TSconfig' => '
 
 // ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
@@ -1351,7 +1350,7 @@ TCEMAIN {
 // ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 '
-            );
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1359,38 +1358,38 @@ TCEMAIN {
     return $page;
   }
 
-/**
- * pageOrgLibraryFooter( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgLibraryFooter( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgLibraryFooter( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgLibraryFooter_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgLibrary_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgLibraryFooter_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgLibrary_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1398,38 +1397,38 @@ TCEMAIN {
     return $page;
   }
 
-/**
- * pageOrgLibraryHeader( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgLibraryHeader( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgLibraryHeader( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgLibraryHeader_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgLibrary_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgLibraryHeader_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgLibrary_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1437,38 +1436,38 @@ TCEMAIN {
     return $page;
   }
 
-/**
- * pageOrgLibraryHeaderLogo( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgLibraryHeaderLogo( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgLibraryHeaderLogo( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgLibraryHeaderLogo_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgLibraryHeader_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgLibraryHeaderLogo_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgLibraryHeader_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1476,38 +1475,38 @@ TCEMAIN {
     return $page;
   }
 
-/**
- * pageOrgLibraryHeaderSlider( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgLibraryHeaderSlider( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgLibraryHeaderSlider( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgLibraryHeaderSlider_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgLibraryHeader_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgLibraryHeaderSlider_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgLibraryHeader_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1515,38 +1514,78 @@ TCEMAIN {
     return $page;
   }
 
-/**
- * pageOrgLibraryMenubelow( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgLibraryMenu( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @internal #61693
+   * @version 6.0.0
+   * @since 6.0.0
+   */
+  private function pageOrgLibraryMenu( $pageUid, $sorting )
+  {
+    $pageTitle = 'pageOrgLibraryMenu_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgLibrary_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
+
+    return $page;
+  }
+
+  /**
+   * pageOrgLibraryMenubelow( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgLibraryMenubelow( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgLibraryMenubelow_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageOrgLibrary_title';
-    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+    $pageTitle = 'pageOrgLibraryMenubelow_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgLibrary_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $pid,
-              'title'         => $llPageTitle,
-              'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 254, // 254: sysfolder
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1554,36 +1593,36 @@ TCEMAIN {
     return $page;
   }
 
-/**
- * pageOrgNews( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgNews( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgNews( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgNews_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgNews_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1591,36 +1630,36 @@ TCEMAIN {
     return $page;
   }
 
-/**
- * pageOrgStaff( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgStaff( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgStaff( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgStaff_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgStaff_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1628,36 +1667,36 @@ TCEMAIN {
     return $page;
   }
 
-/**
- * pageOrgTYPO3Integrators( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 4.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgTYPO3Integrators( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 4.0.0
+   * @since 1.0.0
+   */
   private function pageOrgTYPO3Integrators( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgTYPO3Integrators_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgTYPO3Integrators_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1665,36 +1704,36 @@ TCEMAIN {
     return $page;
   }
 
-/**
- * pageOrgTYPO3IntegratorsDevider( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrgTYPO3IntegratorsDevider( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function pageOrgTYPO3IntegratorsDevider( $pageUid, $sorting )
   {
-    $pageTitle    = 'pageOrgTYPO3IntegratorsDevider_title';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle = 'pageOrgTYPO3IntegratorsDevider_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $llPageTitle,
-              'dokType'       => 199,  // 199: devider
-              'crdate'        => time( ),
-              'tstamp'        => time( ),
-              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+      (
+      'uid' => $pageUid,
+      'pid' => $GLOBALS[ 'TSFE' ]->id,
+      'title' => $llPageTitle,
+      'dokType' => 199, // 199: devider
+      'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
@@ -1702,81 +1741,89 @@ TCEMAIN {
     return $page;
   }
 
+  /*   * *********************************************
+   *
+   * Sql
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Sql
-  *
-  **********************************************/
-
-/**
- * pageOrg( ) :
- *
- * @param	array		$pages: page records
- * @return	void
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * pageOrg( ) :
+   *
+   * @param	array		$pages: page records
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function sqlInsert( $pages )
   {
-    foreach( $pages as $page )
+    foreach ( $pages as $page )
     {
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+      $GLOBALS[ 'TYPO3_DB' ]->exec_INSERTquery( 'pages', $page );
+      $error = $GLOBALS[ 'TYPO3_DB' ]->sql_error();
 
-      if( $error )
+      if ( $error )
       {
-        $query  = $GLOBALS['TYPO3_DB']->INSERTquery( 'pages', $page );
-        $prompt = 'SQL-ERROR<br />' . PHP_EOL .
-                  'query: ' . $query . '.<br />' . PHP_EOL .
-                  'error: ' . $error . '.<br />' . PHP_EOL .
-                  'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
-                __METHOD__ . ' (' . __LINE__ . ')';
+        $query = $GLOBALS[ 'TYPO3_DB' ]->INSERTquery( 'pages', $page );
+        $prompt = '<div style="border:1em solid red;margin:1em;padding:2em;">' . PHP_EOL
+                . 'SQL-ERROR<br />' . PHP_EOL
+                . 'query: ' . $query . '.<br />' . PHP_EOL
+                . 'error: ' . $error . '.<br />' . PHP_EOL
+                . 'Sorry for the trouble.<br />' . PHP_EOL
+                . 'TYPO3-Organiser Installer<br />' . PHP_EOL
+                . __METHOD__ . ' (' . __LINE__ . ')' . PHP_EOL
+                . '</div>' . PHP_EOL
+                . '<div style="border:1em solid blue;margin:1em;padding:2em;">' . PHP_EOL
+                . 'HELP<br />' . PHP_EOL
+                . '1. Please save the installer plugin again. Probably the SQL error is solved.<br />' . PHP_EOL
+                . '2. Reload this page.<br />' . PHP_EOL
+                . '3. If error occurs again, please update your database. <br />' . PHP_EOL
+                . '   See: System > Install > Import action > Database analyzer [Compare current databse with spezifications]<br />' . PHP_EOL
+                . '4. Remove installed pages.<br />' . PHP_EOL
+                . '5. Reload this page.' . PHP_EOL
+                . '</div>' . PHP_EOL
+        ;
         die( $prompt );
       }
 
-        // prompt
-      $marker['###TITLE###'] = $page['title'];
-      $marker['###UID###']   = $page['uid'];
+      // prompt
+      $marker[ '###TITLE###' ] = $page[ 'title' ];
+      $marker[ '###UID###' ] = $page[ 'uid' ];
       $prompt = '
         <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'page_create_prompt' ) . '
+          ' . $this->pObj->arr_icons[ 'ok' ] . ' ' . $this->pObj->pi_getLL( 'page_create_prompt' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[] = $prompt;
-        // prompt
+      // prompt
     }
 
-    unset($pages);
+    unset( $pages );
   }
 
+  /*   * *********************************************
+   *
+   * ZZ
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * ZZ
-  *
-  **********************************************/
-
-/**
- * zz_countPages( ) :
- *
- * @param	integer		$pageUid    : current page uid
- * @return	string		$csvResult  : pageUid, sorting
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
+  /**
+   * zz_countPages( ) :
+   *
+   * @param	integer		$pageUid    : current page uid
+   * @return	string		$csvResult  : pageUid, sorting
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
   private function zz_countPages( $pageUid )
   {
     static $counter = 0;
 
-    $counter  = $counter + 1 ;
-    $pageUid  = $pageUid + 1 ;
-    $sorting  = 256 * $counter;
+    $counter = $counter + 1;
+    $pageUid = $pageUid + 1;
+    $sorting = 256 * $counter;
 
     $csvResult = $pageUid . ',' . $sorting;
 
@@ -1785,9 +1832,7 @@ TCEMAIN {
 
 }
 
-
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/pi1/class.tx_orginstaller_pi1_pages.php'])
+if ( defined( 'TYPO3_MODE' ) && $TYPO3_CONF_VARS[ TYPO3_MODE ][ 'XCLASS' ][ 'ext/org_installer/pi1/class.tx_orginstaller_pi1_pages.php' ] )
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/pi1/class.tx_orginstaller_pi1_pages.php']);
+  include_once($TYPO3_CONF_VARS[ TYPO3_MODE ][ 'XCLASS' ][ 'ext/org_installer/pi1/class.tx_orginstaller_pi1_pages.php' ]);
 }

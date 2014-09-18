@@ -81,7 +81,20 @@
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
-require_once(PATH_tslib . 'class.tslib_pibase.php');
+
+// #61624, 140916, dwildt, 1-
+//require_once(PATH_tslib . 'class.tslib_pibase.php');
+// #61624, 140916, dwildt, +
+list( $main, $sub, $bugfix ) = explode( '.', TYPO3_version );
+$version = ( ( int ) $main ) * 1000000;
+$version = $version + ( ( int ) $sub ) * 1000;
+$version = $version + ( ( int ) $bugfix ) * 1;
+// Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+if ( $version < 6002002 )
+{
+  require_once(PATH_tslib . 'class.tslib_pibase.php');
+}
+// #61624, 140916, dwildt, +
 
 /**
  * Plugin 'Organiser Installer' for the 'org_installer' extension.
@@ -89,7 +102,7 @@ require_once(PATH_tslib . 'class.tslib_pibase.php');
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 4.0.0
+ * @version 6.0.0
  * @since 1.0.0
  */
 class tx_orginstaller_pi1 extends tslib_pibase
@@ -254,9 +267,9 @@ class tx_orginstaller_pi1 extends tslib_pibase
       $boolConfirmation = true;
       return $boolConfirmation;
     }
-    // RETURN  if form is confirmed
+
     // Get the cHash. Important in case of realUrl and no_cache=0
-    $cHash_calc = $this->zz_getCHash('&tx_orginstaller_pi1[confirm]=1');
+    $cHash_calc = $this->zz_getCHash('&tx_orginstaller_pi1[confirm]=1&submit= ' . $this->pi_getLL('confirm_button') . ' ');
 
     // Confirmation form
     $this->arrReport[] = '
@@ -288,8 +301,9 @@ class tx_orginstaller_pi1 extends tslib_pibase
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
               ' . $this->pi_getLL('confirm_header') . '
             </legend>
-            <input type="hidden" name="tx_orginstaller_pi1[confirm]" value="1" />
-            <input type="hidden" name="cHash"                              value="' . $cHash_calc . '" />
+            <input type="hidden" name="tx_orginstaller_pi1[confirm]"  value="1" />
+            <input type="hidden" name="no_cache"                      value="1" />
+            <input type="hidden" name="cHash"                         value="' . $cHash_calc . '" />
             <input type="submit" name="submit" value=" ' . $this->pi_getLL('confirm_button') . ' " />
           </fieldset>
         </form>
@@ -551,7 +565,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
    */
   private function createFilesStaff()
   {
-    $this->zz_copyFiles('res/files/fe_users/', 'uploads/pics/');
+    $this->zz_copyFiles('res/files/tx_org_staff/', 'uploads/pics/');
   }
 
   /**
@@ -756,9 +770,9 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $key = 'cps_tcatree';
     $title = 'Record tree for TCA';
     // #58340, 140429, dwildt, 1-
-    //Sif (!$this->extensionCheckExtension($key, $title))
+    //if (!$this->extensionCheckExtension($key, $title))
     #58340, 140429, dwildt, 2+
-    $url = 'http://typo3-quick-shop.de/cps_tcatree_0.4.1_fix6x.zip';
+    $url = 'http://typo3-organiser.de/cps_tcatree_0.4.2_fix6x.zip';
     if (!$this->extensionCheckExtension($key, $title, $url))
     {
       $success = false;
@@ -1240,7 +1254,7 @@ class tx_orginstaller_pi1 extends tslib_pibase
    *
    * @return	boolean
    * @access private
-   * @version   4.0.3
+   * @version   6.0.0
    * @since     4.0.3
    */
   private function typo3ConfigVarsCheck()
@@ -1253,6 +1267,10 @@ class tx_orginstaller_pi1 extends tslib_pibase
       return $success;
     }
 
+//    // #61663, 140916, dwildt, 1+
+//    return true;
+
+//    // #61663, 140916, dwildt, -
     // Header
     $this->arrReport[] = '
       <h2>
@@ -1279,6 +1297,10 @@ class tx_orginstaller_pi1 extends tslib_pibase
    */
   private function typo3ConfigVarsCheckFePageNotFoundOnCHashError()
   {
+//    // #61663, 140916, dwildt, 1+
+//    return true;
+
+//    // #61663, 140916, dwildt, -
     global $TYPO3_CONF_VARS;
 
     $configIsOk = false;
@@ -1349,6 +1371,22 @@ class tx_orginstaller_pi1 extends tslib_pibase
         continue;
       }
       // CONTINUE : file does not exist (this may be proper)
+      // #59519, dwildt, +
+      if (!is_dir($destDir))
+      {
+        if (!mkdir($destDir, 0770, true))
+        {
+          $prompt = ''
+          . 'Fatal error! ' . PHP_EOL
+          . 'Failed to create ' . $destDir . PHP_EOL
+          . 'Method: ' . __METHOD__ . ' at line ' . __LINE__ . PHP_EOL
+          . PHP_EOL
+          . 'Sorry for the trouble. ' . PHP_EOL
+          . 'TYPO3 Organiser Installer ' . PHP_EOL
+          ;
+          die($prompt);
+        }
+      }
 
       $bool_success = copy($str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest);
       // CONTINUE : copy was succesful
@@ -1520,6 +1558,9 @@ class tx_orginstaller_pi1 extends tslib_pibase
         $this->markerArray['###' . strtoupper($key) . '###'] = $arr_value['vDEF'];
       }
     }
+
+    // #i0014, dwildt, 140612, 1+
+    $this->markerArray['###BE_USER###'] = $this->markerArray['###BACKEND_USER###'];
 
 
     // Set the URL

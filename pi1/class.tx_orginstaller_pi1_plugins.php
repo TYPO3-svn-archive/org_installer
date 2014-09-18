@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -207,7 +207,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
     $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
-    
+
 
     $record['uid']           = $uid;
     $record['pid']           = $GLOBALS['TSFE']->id;
@@ -398,7 +398,7 @@ class tx_orginstaller_pi1_plugins
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
  * @access private
- * @version 3.3.4
+ * @version 6.0.0
  * @since   0.0.1
  */
   private function browserPageOrgNews( $uid )
@@ -410,7 +410,10 @@ class tx_orginstaller_pi1_plugins
 
       // #i0008, 130912, dwildt
     $ffJavascript = 'disabled';
-    $ffjQueryUi   = 'blitzer';
+      // #61696, 140918, dwildt, 1-
+    //$ffjQueryUi   = 'blitzer';
+      // #61696, 140918, dwildt, 1+
+    $ffjQueryUi   = 'z_none';
     $ffMode       = 401;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffListTitle' ) );
@@ -418,6 +421,7 @@ class tx_orginstaller_pi1_plugins
     $ffDownloads  = 'no';
     $ffStatistics = 'no';
     $ffRecBrowser = 'by_flexform';
+    $ffTemplate   = 'EXT:browser/res/html/foundation/main_02.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser( );
     $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
@@ -429,6 +433,8 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
     $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
+      // #61696, 140918, dwildt, 1+
+    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl',                 $ffTemplate,  $pi_flexform );
 
     $record['uid']           = $uid;
     $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgNews_title' ];
@@ -469,7 +475,7 @@ class tx_orginstaller_pi1_plugins
     $ffMode       = 101;
     $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffMycomment' ) );
     $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffListTitle' ) );
-    $ffTableField = 'fe_users.name';
+    $ffTableField = 'tx_org_staff.title';
     $ffDownloads  = 'no';
     $ffStatistics = 'no';
     $ffRecBrowser = 'by_flexform';

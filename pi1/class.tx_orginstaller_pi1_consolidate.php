@@ -247,7 +247,7 @@ class tx_orginstaller_pi1_consolidate
     $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
     $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
 
-      // #i0011, 130925, dwildt, 12- 
+      // #i0011, 130925, dwildt, 12-
 //      // SWITCH : siteroot depends on toplevel
 //    switch( $this->pObj->bool_topLevel )
 //    {
@@ -260,7 +260,7 @@ class tx_orginstaller_pi1_consolidate
 //        break;
 //    }
 //      // SWITCH : siteroot depends on toplevel
-      // #i0011, 130925, dwildt, 12- 
+      // #i0011, 130925, dwildt, 12-
 
       // SWITCH : install case
     $installCase = $this->pObj->markerArray['###INSTALL_CASE###'];
@@ -773,7 +773,7 @@ TCEMAIN {
         die( $prompt );
         break;
     }
-    
+
     unset( $pmX );
 
     return $records;
@@ -811,7 +811,7 @@ TCEMAIN {
   //
   // plugin.caddy
   // plugin.powermail
-  
+
 
 
 //  Not needed: Is included at the root page
@@ -830,7 +830,7 @@ TCEMAIN {
 //  }
 //}
 //  // plugin.caddy
-  
+
 
 
   /////////////////////////////////////////
@@ -917,7 +917,7 @@ page.10.subparts.menue.10 >
   //
   // plugin.caddy
   // plugin.tx_powermail
-  
+
 
 //  Not needed: Is included at the root page
 //
@@ -935,7 +935,7 @@ page.10.subparts.menue.10 >
 //  }
 //}
 //  // plugin.caddy
-  
+
 
 
   /////////////////////////////////////////
@@ -946,8 +946,8 @@ plugin.tx_powermail {
   settings {
     javascript {
         // We take jQuery from tx_browser_pi1 or from T3jQuery (recommended)
-      powermailJQuery = 
-      powermailJQueryUi =   
+      powermailJQuery =
+      powermailJQueryUi =
     }
   }
 }
@@ -1437,7 +1437,7 @@ page.10.subparts.menue.10 >
         die( $prompt );
         break;
     }
-    
+
     unset( $pmX );
 
     return $records;
@@ -1475,7 +1475,7 @@ page.10.subparts.menue.10 >
   //
   // plugin.caddy
   // plugin.powermail
-  
+
 
 
 //  Not needed: Is included at the page documents
@@ -1493,7 +1493,7 @@ page.10.subparts.menue.10 >
 //    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
 //  }
 //}
-  
+
 
 
   /////////////////////////////////////////
@@ -1580,7 +1580,7 @@ page.10.subparts.menue.10 >
   //
   // plugin.caddy
   // plugin.tx_powermail
-  
+
 
 
 //  Not needed: Is included at the page documents
@@ -1598,8 +1598,8 @@ page.10.subparts.menue.10 >
 //    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
 //  }
 //}
-  
-  
+
+
 
 
   /////////////////////////////////////////
@@ -1610,15 +1610,15 @@ plugin.tx_powermail {
   settings {
     javascript {
         // We take jQuery from tx_browser_pi1 or from T3jQuery (recommended)
-      powermailJQuery = 
-      powermailJQueryUi =   
+      powermailJQuery =
+      powermailJQueryUi =
     }
   }
 }
   // plugin.tx_powermail
 
 ';
-    
+
     $records[$uid]['config']  = '
 plugin.tx_powermail {
   _LOCAL_LANG {
@@ -1672,7 +1672,7 @@ page.10.subparts.menue.10 >
         return;
         break;
       case( 'install_all' ):
-        // follow the workflow 
+        // follow the workflow
         break;
       default:
         $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
@@ -1704,7 +1704,7 @@ page.10.subparts.menue.10 >
     $llLabel  = 'content_pageOrgLibraryHeaderLogo_header';
     $llTitle  = $this->pObj->pi_getLL( $llLabel );
     $uid      = $this->pObj->arr_contentUids[ $llLabel ];
-    
+
     $image_link = $this->pObj->pi_getLL('content_pageOrgLibraryHeaderLogo_image_link');
     $image_link = $this->zz_replacePageUids( $image_link );
 
@@ -1752,7 +1752,7 @@ page.10.subparts.menue.10 >
     $uid          = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
     $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
     $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
-   
+
     $dateHumanReadable  = date('Y-m-d G:i:s');
 
     $records[$uid]['TSconfig']    = '
@@ -1781,45 +1781,13 @@ page.10.subparts.menue.10 >
   //    [%pageOrgDataDownloads_title%] downloads
   //    [%pageOrgDataNews_title%] news
   //    [%pageOrgDataStaff_title%] staff
-  //    [%pageOrgDataHeadquarters_title%] headquarters and departments
+  //    [%pageOrgDataHeadquarters_title%] headquarters
   //    [%pageOrgDataEvents_title%] events
   //    [%pageOrgDataLocations_title%] locations
 
   // organiser tables
 TCEFORM {
-  fe_users {
-    tx_org_department {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
-    }
-    tx_org_downloads {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataDownloads_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataDownloads_title%
-    }
-    tx_org_headquarters {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
-    }
-    tx_org_news {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataNews_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
-    }
-    usergroup {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
-    }
-  }
-  fe_groups {
-    subgroup {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
-    }
-  }
   tx_org_cal_all_tables {
-    fe_users {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
-    }
     tx_org_cal {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataCal_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataCal_title%
@@ -1827,15 +1795,6 @@ TCEFORM {
     tx_org_calentrance < .tx_org_cal
     tx_org_calspecial  < .tx_org_cal
     tx_org_caltype     < .tx_org_cal
-    tx_org_department {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
-    }
-    tx_org_departmentcat < .tx_org_department
-    tx_org_event {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataEvents_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataEvents_title%
-    }
     tx_org_downloads {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataDownloads_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataDownloads_title%
@@ -1851,32 +1810,45 @@ TCEFORM {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataLocations_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataLocations_title%
     }
+    tx_org_job {
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataJob_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataJob_title%
+    }
+    tx_org_jobcat < .tx_org_job
     tx_org_news {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataNews_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
     }
     tx_org_newscat < .tx_org_news
+    tx_org_service {
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataService_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataService_title%
+    }
+    tx_org_servicecat < .tx_org_service
+    tx_org_staff {
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
+    }
+    tx_org_staffcat < .tx_org_staff
   }
   tx_org_cal            < .tx_org_cal_all_tables
   tx_org_calentrance    < .tx_org_cal_all_tables
   tx_org_calspecial     < .tx_org_cal_all_tables
   tx_org_caltype        < .tx_org_cal_all_tables
-  tx_org_department     < .tx_org_cal_all_tables
-  tx_org_department {
-    manager {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
-    }
-    fe_users < .manager
-  }
   tx_org_downloads      < .tx_org_cal_all_tables
   tx_org_downloadscat   < .tx_org_cal_all_tables
   tx_org_downloadsmedia < .tx_org_cal_all_tables
   tx_org_event          < .tx_org_cal_all_tables
   tx_org_headquarters   < .tx_org_cal_all_tables
   tx_org_location       < .tx_org_cal_all_tables
+  tx_org_job            < .tx_org_cal_all_tables
+  tx_org_jobcat         < .tx_org_cal_all_tables
   tx_org_news           < .tx_org_cal_all_tables
   tx_org_newscat        < .tx_org_cal_all_tables
+  tx_org_service        < .tx_org_cal_all_tables
+  tx_org_servicecat     < .tx_org_cal_all_tables
+  tx_org_staff          < .tx_org_cal_all_tables
+  tx_org_staffcat       < .tx_org_cal_all_tables
 }
   // organiser tables
   // TCEFORM
@@ -2301,15 +2273,15 @@ mod {
   {
     $needle   = array( );
     $replace  = array( );
-    
+
     foreach( ( array ) $this->pObj->arr_pageUids as $page => $uid )
     {
       $needle[ ]  = '%' . $page . '%';
       $replace[ ] = $uid;
     }
-    
+
     $content = str_replace( $needle, $replace, $content );
-    
+
 
     return $content;
   }

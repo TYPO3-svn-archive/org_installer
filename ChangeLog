@@ -1,3 +1,37 @@
+6.0.0
+  14-09-18
+  Major Features
+  * #61710: Remove import for department table
+  * #61703: Integrate jobs, services, staff
+  * #61693: Integration of Foundation Top Bar
+  * #61624: Upgrade TYPO3 6.2
+            * remove require_once
+              Effected files:
+              * pi1
+                * class.tx_orginstaller_pi1.php
+            * #61663/#61664: &cHash comparison failed / cHashExcludedParameters / pageNotFoundOnCHashError
+              Effected files:
+              * pi1
+                * class.tx_orginstaller_pi1.php
+            * #61666: SQL-ERROR: pages 'perms_userid' cannot be null
+
+4.0.4
+  14-06-24
+  Bugfix
+  * Bug #59856: cHash comparison failed
+
+4.0.3
+  14-06-12
+  Bugfix
+  * #59519: Files can't installed, if directory uploads/tx_org is mising
+  * #i0015: SQL-ERROR tx_org_news_mm_tx_org_newscat. Column 'uid_local' cannot be null.
+  * #i0014: SQL-ERROR pages. Column 'perms_userid' cannot be null.
+
+4.0.2
+  14-06-12
+  Bugfix
+  * #59512: Extension Manager Form: Took params from quickshop installer
+
 4.0.1
   14-05-17
   Bugfix

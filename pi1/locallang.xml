@@ -106,7 +106,7 @@
 <h2>Good to know</h2>
 <ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
 <h2>Helpful links</h2>
-<ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
+<ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
       <label index="content_pageOrgCaddyTerms_header">Terms and conditions</label>
       <label index="content_pageOrgCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
@@ -190,7 +190,7 @@
 <h2>Good to know</h2>
 <ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
 <h2>Helpful links</h2>
-<ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
+<ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
       <label index="content_pageOrgDocumentsCaddyTerms_header">Terms and conditions</label>
       <label index="content_pageOrgDocumentsCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
@@ -218,6 +218,7 @@
       <label index="content_pageOrgLibraryHeaderSlider05_header">[Die Netzmacher]</label>
       <label index="content_pageOrgLibraryHeaderSlider05_image">Die-Netzmacher_TYPO3-ohne-PHP_timestamp.png</label>
       <label index="content_pageOrgLibraryHeaderSlider05_image_link">http://die-netzmacher.de/typo3-entwicklung/ - - "TYPO3 Organiser - by die Netzmacher. The developers of of TYPO3 without PHP."</label>
+      <label index="content_pageOrgLibraryMenu_header">[Foundation Top Bar]</label>
       <label index="content_pageOrgLibraryMenubelow_header">[Die Netzmacher - TYPO3 Silver Member]</label>
       <label index="content_pageOrgLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
       <label index="content_pageOrgLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
@@ -312,8 +313,7 @@
       <label index="ext_header">Check extension dependencies</label>
       <label index="ext_help">Please install: </label>
       <label index="ext_ok">is loaded.</label>
-      <label index="fe_users">Staff</label>
-      <label index="fe_groups">Staff: Groups</label>
+      <label index="tx_org_staff">Staff</label>
       <label index="files_create_header">Files</label>
       <label index="files_create_prompt">File "###DEST###" is created at "###PATH###".</label>
       <label index="files_create_prompt_error">File "###SRCE###" couldn't copied to "###DEST###".</label>
@@ -357,6 +357,7 @@
       <label index="pageOrgLibraryHeaderLogo_title">Logo</label>
       <label index="pageOrgLibraryHeaderSlider_title">Slider</label>
       <label index="pageOrgLibraryFooter_title">Footer</label>
+      <label index="pageOrgLibraryMenu_title">Menu</label>
       <label index="pageOrgLibraryMenubelow_title">Below the menu</label>
       <label index="pageOrgLocations_title">Locations</label>
       <label index="pageOrgNews_title">News</label>
@@ -487,8 +488,8 @@
     * Views: Display only views of the current template (recommended) [X]
     * Views: Enabled list views ...: 401: +Org News]
   * [Templating]
-    * HTML: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
   * [Social Media]
@@ -517,10 +518,10 @@
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
-      * table.field: fe_users.name
+      * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in single views
-      * table.field: fe_users.name
+      * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginCaddyPageOrgCaddy_header">Caddy</label>
@@ -598,86 +599,6 @@
       <label index="record_create_header">Records</label>
       <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the page/folder ###TITLE_PID###.</label>
       <label index="record_create_mm_prompt">###COUNT### records are added to the table "###TABLE###".</label>
-      <label index="record_fe_groups_title_policy">policy</label>
-      <label index="record_fe_groups_title_society">society</label>
-      <label index="record_fe_groups_title_typo3">TYPO3</label>
-      <label index="record_fe_users_bobama_username">bobama</label>
-      <label index="record_fe_users_bobama_name">Barack Obama</label>
-      <label index="record_fe_users_bobama_first_name">Barack</label>
-      <label index="record_fe_users_bobama_last_name">Obama</label>
-      <label index="record_fe_users_bobama_telephone">++1 202-456-1111</label>
-      <label index="record_fe_users_bobama_email">barack.obama@whitehouse.gov</label>
-      <label index="record_fe_users_bobama_www">http://www.whitehouse.gov/</label>
-      <label index="record_fe_users_bobama_image">barack.obama_timestamp.jpg</label>
-      <label index="record_fe_users_bobama_tx_org_imagecaption">Barack O.</label>
-      <label index="record_fe_users_bobama_tx_org_imageseo">Barack Obama: US President</label>
-      <label index="record_fe_users_bobama_tx_org_vita"><![CDATA[Barack H. Obama is the 44th President of the United States.
-His story is the American story - values from the heartland, a  middle-class upbringing in a strong family, hard work and education as  the means of getting ahead, and the conviction that a life so blessed  should be lived in service to others.
-With a father from Kenya and a mother from Kansas, President Obama  was born in Hawaii on August 4, 1961. He was raised with help from his  grandfather, who served in Patton's army, and his grandmother, who  worked her way up from the secretarial pool to middle management at a  bank.
-After working his way through college with the help of scholarships  and student loans, President Obama moved to Chicago, where he worked  with a group of churches to help rebuild communities devastated by the  closure of local steel plants.
-He went on to attend law school, where he became the first African-American president of the <i>Harvard Law Review</i>.  Upon graduation, he returned to Chicago to help lead a voter  registration drive, teach constitutional law at the University of  Chicago, and remain active in his community.
-President Obama's years of public service are based around his  unwavering belief in the ability to unite people around a politics of  purpose. In the Illinois State Senate, he passed the first major ethics  reform in 25 years, cut taxes for working families, and expanded health  care for children and their parents. As a United States Senator, he  reached across the aisle to pass groundbreaking lobbying reform, lock up  the world's most dangerous weapons, and bring transparency to  government by putting federal spending online.
-He was elected the 44th President of the United States on November 4,  2008, and sworn in on January 20, 2009. He and his wife, Michelle, are  the proud parents of two daughters, Malia, 12, and Sasha, 9.]]></label>
-
-      <label index="record_fe_users_dwildt_username">dwildt</label>
-      <label index="record_fe_users_dwildt_name">Dirk Wildt</label>
-      <label index="record_fe_users_dwildt_first_name">Dirk</label>
-      <label index="record_fe_users_dwildt_last_name">Wildt</label>
-      <label index="record_fe_users_dwildt_telephone">++49 361 74789004</label>
-      <label index="record_fe_users_dwildt_email">wildt@die-netzmacher.de</label>
-      <label index="record_fe_users_dwildt_www">http://wildt.at.die-netzmacher.de/</label>
-      <label index="record_fe_users_dwildt_image">dirk.wildt_timestamp.jpg</label>
-      <label index="record_fe_users_dwildt_tx_org_imagecaption">Dirk W.</label>
-      <label index="record_fe_users_dwildt_tx_org_imageseo">Dirk Wildt TYPO3 Oganiser</label>
-      <label index="record_fe_users_dwildt_tx_org_vita"><![CDATA[
-        <table cellspacing="0" cellpadding="0" border="0" summary="Vita Dirk Wildt" class="vita_wildt">
-          <caption>Dirk Wildt</caption>
-          <tbody>
-            <tr>
-                <th id="row1849-0" scope="row" class="td-0">2009</th>
-                <td headers="row1849-0" class="td-1">Gesellschafter<br><a title="Die Netzmacher" href="http://die-netzmacher.de">Die Netzmacher GbR</a><br>Internetdienstleistungen</td>
-            </tr>
-            <tr>
-                <th id="row1849-1" scope="row" class="td-0">2002 - 2008</th>
-                <td headers="row1849-1" class="td-1">Einzelunternehmer<br><a target="blank" title="think-visually" href="http://think-visually.com">think visually!</a><br>Internetdienstleistungen</td>
-            </tr>
-            <tr>
-                <th id="row1849-2" scope="row" class="td-0">2000 - 2002</th>
-                <td headers="row1849-2" class="td-1">Finanzcontroller<br><a target="blank" title="g.e.b.b." href="http://www.gebb.de">g.e.b.b.</a><br>Verteidigungsindustrie / Militär</td>
-            </tr>
-            <tr>
-                <th id="row1849-3" scope="row" class="td-0">1999 - 2000</th>
-                <td headers="row1849-3" class="td-1">Finanzcontroller<br><a target="blank" title="tagesspiegel.de" href="http://www.tagesspiegel.de/">GMZ (Tagesspiegel-Gruppe)</a><br>Verlagswesen</td>
-            </tr>
-            <tr>
-                <th id="row1849-4" scope="row" class="td-0">1997 - 1999</th>
-                <td headers="row1849-4" class="td-1">Pressesprecher<br><a target="blank" title="Senatsverwaltung für Finanzen, Berlin" href="http://www.berlin.de/sen/finanzen/">Senatsverwaltung für Finanzen, Berlin</a><br>Öffentlicher Dienst</td>
-            </tr>
-            <tr>
-                <th id="row1849-5" scope="row" class="td-0">1996 - 1997</th>
-                <td headers="row1849-5" class="td-1">Finanzcontroller<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
-            </tr>
-            <tr>
-                <th id="row1849-6" scope="row" class="td-0">1989 - 1996</th>
-                <td headers="row1849-6" class="td-1">Redakteur<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
-            </tr>
-            <tr>
-                <th id="row1849-7" scope="row" class="td-0">1983 - 1989</th>
-                <td headers="row1849-7" class="td-1">Freischaffender Pressefotograf<br>u.a. Spiegel, stern, Zeit, taz, die tageszeitung, Hamburger Morgenpost<br>Verlagswesen</td>
-            </tr>
-          </tbody>
-        </table>]]></label>
-
-      <label index="record_fe_users_sschaffstein_username">sschaffstein</label>
-      <label index="record_fe_users_sschaffstein_name"><![CDATA[Sören Schaffstein]]></label>
-      <label index="record_fe_users_sschaffstein_first_name"><![CDATA[Sören]]></label>
-      <label index="record_fe_users_sschaffstein_last_name">Schaffstein</label>
-      <label index="record_fe_users_sschaffstein_telephone">++49 69 2475218 0</label>
-      <label index="record_fe_users_sschaffstein_email">soeren@typo3.org</label>
-      <label index="record_fe_users_sschaffstein_www">http://association.typo3.org/press/press-contact/</label>
-      <label index="record_fe_users_sschaffstein_image">soeren.schaffstein_timestamp.gif</label>
-      <label index="record_fe_users_sschaffstein_tx_org_imagecaption"><![CDATA[Sören Sch.]]></label>
-      <label index="record_fe_users_sschaffstein_tx_org_imageseo"><![CDATA[Sören Schaffstein TYPO3 press]]></label>
       <label index="record_pm_fSets_title_billingAddress">billing address</label>
       <label index="record_pm_fSets_title_order">order</label>
       <label index="record_pm_fSets_title_contactData">contact data</label>
@@ -738,7 +659,7 @@ The sixth edition of the TYPO3 Developer Days will take place:]]></label>
       <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Topic
 <ul>
   <li>
-    First night: Organiser - TYPO3 for organisers and the lobby (<link record:fe_users:%dwildt% - internal-link>Dirk Wildt</link>)
+    First night: Organiser - TYPO3 for organisers and the lobby (<link record:tx_org_staff:%dwildt% - internal-link>Dirk Wildt</link>)
   </li>
 </ul>
 The developer - Dirk Wildt (Die Netzmacher) - will present the TYPO3 Organiser in the public the first time. The will be sopme sample applications and references.
@@ -750,7 +671,7 @@ It is using the shopping cart Caddy.
     Website: <link http://typo3-organiser.de/ _blank>typo3-organiser.de</link>
   </li>
 </ul>
-P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> has permitted his participation. BE AWARE: Short denials by the president aren't unusually!]]></label>
+P.S.: <link record:tx_org_staff:%bobama% - internal-link>Barack Obama</link> has permitted his participation. BE AWARE: Short denials by the president aren't unusually!]]></label>
       <label index="record_tx_org_cal_t3organiser_image">ext_icon_org_210px_timestamp.png</label>
       <label index="record_tx_org_cal_t3organiser_imagewidth">140</label>
       <label index="record_tx_org_cal_t3organiser_imageorient">26</label>
@@ -763,26 +684,11 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> has per
       <label index="record_tx_org_caltype_title_policy">policy</label>
       <label index="record_tx_org_caltype_title_society">society</label>
       <label index="record_tx_org_caltype_title_typo3">TYPO3</label>
-      <label index="record_tx_org_department_netzmacher_title"><![CDATA[Die Netzmacher - Büro Erfurt]]></label>
-      <label index="record_tx_org_department_netzmacher_telephone">++49 361 74789004</label>
-      <label index="record_tx_org_department_netzmacher_email">info@die-netzmacher.de</label>
-      <label index="record_tx_org_department_netzmacher_url">http://die-netzmacher.de/</label>
-      <label index="record_tx_org_department_president_title">White House - President</label>
-      <label index="record_tx_org_department_president_telephone">++1 202-456-1111</label>
-      <label index="record_tx_org_department_president_email">president@whitehouse.gov</label>
-      <label index="record_tx_org_department_president_url">http://www.whitehouse.gov/</label>
-      <label index="record_tx_org_department_t3press_title">TYPO3 press</label>
-      <label index="record_tx_org_department_t3press_telephone">++49 69 2475218 0</label>
-      <label index="record_tx_org_department_t3press_email">soeren@typo3.org</label>
-      <label index="record_tx_org_department_t3press_url">http://association.typo3.org/press/press-contact/</label>
-      <label index="record_tx_org_departmentcat_title_policy">policy</label>
-      <label index="record_tx_org_departmentcat_title_society">society</label>
-      <label index="record_tx_org_departmentcat_title_typo3">TYPO3</label>
       <label index="record_tx_org_downloads_cd1_type">shipping</label>
       <label index="record_tx_org_downloads_cd1_title"><![CDATA[CD: TYPO3-Party - Release 1.0]]></label>
       <label index="record_tx_org_downloads_cd1_subtitle"><![CDATA[TYPO3 1: Der Gründer-Groove]]></label>
       <label index="record_tx_org_downloads_cd1_datetime">1038524460</label>
-      <label index="record_tx_org_downloads_cd1_bodytext"><![CDATA[Auf dieser CD h&ouml;rst Du den Sound der Geschichte. Die Aufnahmen stammen fast ausschlie&szlig;lich von der Party zum Release von  TYPO3 1.0. Nicht nur die Band sondern auch das damalige TYPO3-Core-Entwickler-Team passten in ein kleinen Bus. Das Cover zeigt den Bus kurz vor der Abreise nach Norwegen - damals wurde Casper noch mit dem Auto pers&ouml;nlich abgeholt. Der Kleinbus verfügte nur über ein Kasetten-Abspiel-Ger&auml;t. Das ging nach 1.500 Kilometern kurz hinter Oslo kaputt.]]></label>
+      <label index="record_tx_org_downloads_cd1_bodytext"><![CDATA[Auf dieser CD hörst Du den Sound der Geschichte. Die Aufnahmen stammen fast ausschließlich von der Party zum Release von  TYPO3 1.0. Nicht nur die Band sondern auch das damalige TYPO3-Core-Entwickler-Team passten in ein kleinen Bus. Das Cover zeigt den Bus kurz vor der Abreise nach Norwegen - damals wurde Casper noch mit dem Auto persönlich abgeholt. Der Kleinbus verfügte nur über ein Kasetten-Abspiel-Gerät. Das ging nach 1.500 Kilometern kurz hinter Oslo kaputt.]]></label>
       <label index="record_tx_org_downloads_cd1_teasershort"><![CDATA[Der Sound der Geschichte - schon fast vergessen: die Party zum Release von TYPO3 1.0. Caspar kam aus Norwegen mit dem Auto. Die Aufnahmen von damals halten die Erinnerungen wach.]]></label>
       <label index="record_tx_org_downloads_cd1_tx_org_downloadscat">1</label>
       <label index="record_tx_org_downloads_cd1_tx_org_downloadsmedia">1</label>
@@ -918,7 +824,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_president_title">The White House</label>
       <label index="record_tx_org_headquarters_president_mail_address">1600 Pennsylvania Avenue Northwest</label>
       <label index="record_tx_org_headquarters_president_mail_city">Washington D.C., United States</label>
-      <label index="record_tx_org_headquarters_president_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519" style="color:#0000FF;text-align:left">Gr&ouml;&szlig;ere Kartenansicht</a></small>]]></label>
+      <label index="record_tx_org_headquarters_president_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
       <label index="record_tx_org_headquarters_president_mail_lat">38.897594</label>
       <label index="record_tx_org_headquarters_president_mail_lon">-77.036572</label>
       <label index="record_tx_org_headquarters_president_mail_postcode">DC 20500-0003</label>
@@ -932,7 +838,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_typo3_title">TYPO3 Association</label>
       <label index="record_tx_org_headquarters_typo3_mail_address">Sihlbruggstrasse 105</label>
       <label index="record_tx_org_headquarters_typo3_mail_city">Baar</label>
-      <label index="record_tx_org_headquarters_typo3_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516" style="color:#0000FF;text-align:left">Gr&ouml;&szlig;ere Kartenansicht</a></small>]]></label>
+      <label index="record_tx_org_headquarters_typo3_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
       <label index="record_tx_org_headquarters_typo3_mail_lat">47.212701</label>
       <label index="record_tx_org_headquarters_typo3_mail_lon">8.559516</label>
       <label index="record_tx_org_headquarters_typo3_mail_postcode">CH-6340</label>
@@ -994,12 +900,12 @@ It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]><
       <label index="record_tx_org_news_flow_imageorient">26</label>
       <label index="record_tx_org_news_flow_imagewidth">140</label>
       <label index="record_tx_org_news_flow_image_link"></label>
-      <label index="record_tx_org_news_organiser_type">newsurl</label>
-      <label index="record_tx_org_news_organiser_newsurl">http://t3n.de/socialnews/TYPO3/TYPO3-Organiser-kommt-am-1-April-Alles-aus-einer-Hand/</label>
+      <label index="record_tx_org_news_organiser_type">url</label>
+      <label index="record_tx_org_news_organiser_url">http://t3n.de/socialnews/TYPO3/TYPO3-Organiser-kommt-am-1-April-Alles-aus-einer-Hand/</label>
       <label index="record_tx_org_news_organiser_title">TYPO3-Organiser kommt am 1. April</label>
       <label index="record_tx_org_news_organiser_subtitle">TYPO3: Alles aus einer Hand</label>
       <label index="record_tx_org_news_organiser_datetime">1296514800</label>
-      <label index="record_tx_org_news_organiser_teaser_short"><![CDATA[Der TYPO3-Organiser kommt am 1. April 2011. Das haben heute die Entwickler angekündigt und auch erstmals Screenshots von Frontend, Backend und dem Extension-Manager ver&ouml;ffentlicht. ]]></label>
+      <label index="record_tx_org_news_organiser_teaser_short"><![CDATA[Der TYPO3-Organiser kommt am 1. April 2011. Das haben heute die Entwickler angekündigt und auch erstmals Screenshots von Frontend, Backend und dem Extension-Manager veröffentlicht. ]]></label>
       <label index="record_tx_org_news_organiser_image">t3n_timestamp.png</label>
       <label index="record_tx_org_news_organiser_imagecaption">FLOW3 Blogexample</label>
       <label index="record_tx_org_news_organiser_imageseo">t3n Magazin</label>
@@ -1052,6 +958,83 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="record_tx_org_newscat_title_policy">policy</label>
       <label index="record_tx_org_newscat_title_society">society</label>
       <label index="record_tx_org_newscat_title_typo3">TYPO3</label>
+      <label index="record_tx_org_staff_bobama_name_first">Barack</label>
+      <label index="record_tx_org_staff_bobama_name_last">Obama</label>
+      <label index="record_tx_org_staff_bobama_contact_phone">++1 202-456-1111</label>
+      <label index="record_tx_org_staff_bobama_title">Barack Obama</label>
+      <label index="record_tx_org_staff_bobama_contact_email">barack.obama@whitehouse.gov</label>
+      <label index="record_tx_org_staff_bobama_url">http://www.whitehouse.gov/</label>
+      <label index="record_tx_org_staff_bobama_image">barack.obama_timestamp.jpg</label>
+      <label index="record_tx_org_staff_bobama_imagecaption">Barack O.</label>
+      <label index="record_tx_org_staff_bobama_imageseo">Barack Obama: US President</label>
+      <label index="record_tx_org_staff_bobama_vita"><![CDATA[Barack H. Obama is the 44th President of the United States.
+His story is the American story - values from the heartland, a  middle-class upbringing in a strong family, hard work and education as  the means of getting ahead, and the conviction that a life so blessed  should be lived in service to others.
+With a father from Kenya and a mother from Kansas, President Obama  was born in Hawaii on August 4, 1961. He was raised with help from his  grandfather, who served in Patton's army, and his grandmother, who  worked her way up from the secretarial pool to middle management at a  bank.
+After working his way through college with the help of scholarships  and student loans, President Obama moved to Chicago, where he worked  with a group of churches to help rebuild communities devastated by the  closure of local steel plants.
+He went on to attend law school, where he became the first African-American president of the <i>Harvard Law Review</i>.  Upon graduation, he returned to Chicago to help lead a voter  registration drive, teach constitutional law at the University of  Chicago, and remain active in his community.
+President Obama's years of public service are based around his  unwavering belief in the ability to unite people around a politics of  purpose. In the Illinois State Senate, he passed the first major ethics  reform in 25 years, cut taxes for working families, and expanded health  care for children and their parents. As a United States Senator, he  reached across the aisle to pass groundbreaking lobbying reform, lock up  the world's most dangerous weapons, and bring transparency to  government by putting federal spending online.
+He was elected the 44th President of the United States on November 4,  2008, and sworn in on January 20, 2009. He and his wife, Michelle, are  the proud parents of two daughters, Malia, 12, and Sasha, 9.]]></label>
+
+      <label index="record_tx_org_staff_dwildt_name_first">Dirk</label>
+      <label index="record_tx_org_staff_dwildt_name_last">Wildt</label>
+      <label index="record_tx_org_staff_dwildt_contact_phone">++49 361 74789004</label>
+      <label index="record_tx_org_staff_dwildt_title">Dirk Wildt</label>
+      <label index="record_tx_org_staff_dwildt_contact_email">wildt@die-netzmacher.de</label>
+      <label index="record_tx_org_staff_dwildt_url">http://wildt.at.die-netzmacher.de/</label>
+      <label index="record_tx_org_staff_dwildt_image">dirk.wildt_timestamp.jpg</label>
+      <label index="record_tx_org_staff_dwildt_imagecaption">Dirk W.</label>
+      <label index="record_tx_org_staff_dwildt_imageseo">Dirk Wildt TYPO3 Oganiser</label>
+      <label index="record_tx_org_staff_dwildt_vita"><![CDATA[
+        <table cellspacing="0" cellpadding="0" border="0" summary="Vita Dirk Wildt" class="vita_wildt">
+          <caption>Dirk Wildt</caption>
+          <tbody>
+            <tr>
+                <th id="row1849-0" scope="row" class="td-0">2009</th>
+                <td headers="row1849-0" class="td-1">Gesellschafter<br><a title="Die Netzmacher" href="http://die-netzmacher.de">Die Netzmacher GbR</a><br>Internetdienstleistungen</td>
+            </tr>
+            <tr>
+                <th id="row1849-1" scope="row" class="td-0">2002 - 2008</th>
+                <td headers="row1849-1" class="td-1">Einzelunternehmer<br><a target="blank" title="think-visually" href="http://think-visually.com">think visually!</a><br>Internetdienstleistungen</td>
+            </tr>
+            <tr>
+                <th id="row1849-2" scope="row" class="td-0">2000 - 2002</th>
+                <td headers="row1849-2" class="td-1">Finanzcontroller<br><a target="blank" title="g.e.b.b." href="http://www.gebb.de">g.e.b.b.</a><br>Verteidigungsindustrie / Militär</td>
+            </tr>
+            <tr>
+                <th id="row1849-3" scope="row" class="td-0">1999 - 2000</th>
+                <td headers="row1849-3" class="td-1">Finanzcontroller<br><a target="blank" title="tagesspiegel.de" href="http://www.tagesspiegel.de/">GMZ (Tagesspiegel-Gruppe)</a><br>Verlagswesen</td>
+            </tr>
+            <tr>
+                <th id="row1849-4" scope="row" class="td-0">1997 - 1999</th>
+                <td headers="row1849-4" class="td-1">Pressesprecher<br><a target="blank" title="Senatsverwaltung für Finanzen, Berlin" href="http://www.berlin.de/sen/finanzen/">Senatsverwaltung für Finanzen, Berlin</a><br>Öffentlicher Dienst</td>
+            </tr>
+            <tr>
+                <th id="row1849-5" scope="row" class="td-0">1996 - 1997</th>
+                <td headers="row1849-5" class="td-1">Finanzcontroller<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
+            </tr>
+            <tr>
+                <th id="row1849-6" scope="row" class="td-0">1989 - 1996</th>
+                <td headers="row1849-6" class="td-1">Redakteur<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
+            </tr>
+            <tr>
+                <th id="row1849-7" scope="row" class="td-0">1983 - 1989</th>
+                <td headers="row1849-7" class="td-1">Freischaffender Pressefotograf<br>u.a. Spiegel, stern, Zeit, taz, die tageszeitung, Hamburger Morgenpost<br>Verlagswesen</td>
+            </tr>
+          </tbody>
+        </table>]]></label>
+
+      <label index="record_tx_org_staff_sschaffstein_name_first"><![CDATA[Sören]]></label>
+      <label index="record_tx_org_staff_sschaffstein_name_last">Schaffstein</label>
+      <label index="record_tx_org_staff_sschaffstein_contact_phone">++49 69 2475218 0</label>
+      <label index="record_tx_org_staff_sschaffstein_title"><![CDATA[Sören Schaffstein]]></label>
+      <label index="record_tx_org_staff_sschaffstein_contact_email">soeren@typo3.org</label>
+      <label index="record_tx_org_staff_sschaffstein_url">http://association.typo3.org/press/press-contact/</label>
+      <label index="record_tx_org_staff_sschaffstein_image">soeren.schaffstein_timestamp.gif</label>
+      <label index="record_tx_org_staff_sschaffstein_imagecaption"><![CDATA[Sören Sch.]]></label>
+      <label index="record_tx_org_staff_sschaffstein_imageseo"><![CDATA[Sören Schaffstein TYPO3 press]]></label>
+      <label index="record_tx_org_staffgroup_title_policy">policy</label>
+      <label index="record_tx_org_staffgroup_title_society">society</label>
+      <label index="record_tx_org_staffgroup_title_typo3">TYPO3</label>
       <label index="record_tx_org_tax_title_000">0% (without tax)</label>
       <label index="record_tx_org_tax_value_000">0.00</label>
       <label index="record_tx_org_tax_title_007">007% (James Bonds tax rate)</label>
@@ -1064,7 +1047,6 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="tx_org_cal">Calendar</label>
       <label index="tx_org_calentrance">Calendar: Entrance Fees</label>
       <label index="tx_org_caltype">Calendar: Categories</label>
-      <label index="tx_org_department">Departments</label>
       <label index="tx_org_downloads">Document</label>
       <label index="tx_org_downloadscat">Documents: Categories</label>
       <label index="tx_org_downloadsmedia">Documents: Media</label>
@@ -1074,6 +1056,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="tx_org_location">Locations</label>
       <label index="tx_org_news">News</label>
       <label index="tx_org_newscat">News: Categories</label>
+      <label index="tx_org_staffgroup">Staff: Groups</label>
       <label index="tx_org_tax">Tax</label>
       <label index="tx_powermail_domain_model_fields">Powermail Fields</label>
       <label index="tx_powermail_domain_model_forms">Powermail Forms</label>
@@ -1087,8 +1070,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="typo3ConfigVars_pageNotFoundOnCHashError_help"><![CDATA[$TYPO3_CONF_VARS['FE']['pageNotFoundOnCHashError'] must be false.<br />
         Please change the value to false<br />
         * See Admin Tools > Installation > All Configuration<br />
-        * Look for pageNotFoundOnCHashError<br />
-        You can change the value back to true after the installation.
+        * Look for pageNotFoundOnCHashError
       ]]></label>
     </languageKey>
     <languageKey index="de" type="array">
@@ -1188,10 +1170,10 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
-<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>
+<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>
       <label index="content_pageOrgCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_pageOrgCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
+      <label index="content_pageOrgCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Geschäftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
       <label index="content_pageOrgDocumentsCaddy_header">[fade_Lieferadresse.jss]</label>
       <label index="content_pageOrgDocumentsCaddy_bodytext"><![CDATA[
 <script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
@@ -1272,14 +1254,14 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
-<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzvertr&auml;gen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>
+<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>
       <label index="content_pageOrgDocumentsCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_pageOrgDocumentsCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
+      <label index="content_pageOrgDocumentsCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Geschäftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
       <label index="content_pageOrgLegalinfo_header">Impressum</label>
       <label index="content_pageOrgLegalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
 <h2>Gut zu wissen</h2>
-<ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Organiser" target="_blank">Netzmacher</a> als Entwickler des Organiser erw&auml;hnst, freuen wir uns.</li></ul>]]></label>
+<ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Organiser" target="_blank">Netzmacher</a> als Entwickler des Organiser erwähnst, freuen wir uns.</li></ul>]]></label>
       <label index="content_pageOrgLibraryFooter_header">[Fußzeile]</label>
       <label index="content_pageOrgLibraryFooter_bodytext"><![CDATA[<a href="http://typo3-organiser.de/ein-klick/" target="_blank" title="Installiere diese Website mit einem Klick!">Installiere diese Website mit einem Klick! typo3-organiser.de »</a>]]></label>
       <label index="content_pageOrgLibraryHeaderLogo_header">[Logo]</label>
@@ -1300,6 +1282,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="content_pageOrgLibraryHeaderSlider05_header">[Die Netzmacher]</label>
       <label index="content_pageOrgLibraryHeaderSlider05_image">Die-Netzmacher_TYPO3-ohne-PHP_timestamp.png</label>
       <label index="content_pageOrgLibraryHeaderSlider05_image_link">http://die-netzmacher.de/typo3-entwicklung/ - - "TYPO3 Organiser - powered by Die Netzmacher. The developers of TYPO3 without PHP."</label>
+      <label index="content_pageOrgLibraryMenu_header">[Foundation Top Bar]</label>
       <label index="content_pageOrgLibraryMenubelow_header">[Die Netzmacher - TYPO3 Silver Member]</label>
       <label index="content_pageOrgLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
       <label index="content_pageOrgLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
@@ -1392,8 +1375,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="end_h1">Die Installation war erfolgreich!</label>
       <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schließe das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
       <label index="error_all_h1">Organiser Installation nicht durchgeführt!</label>
-      <label index="fe_users">Personal</label>
-      <label index="fe_groups">Personal: Gruppen</label>
+      <label index="tx_org_staff">Personal</label>
       <label index="files_create_header">Dateien</label>
       <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>
       <label index="files_create_prompt_error">Datei "###SRCE###" konnte nicht nach "###DEST###" kopiert werden.</label>
@@ -1440,6 +1422,7 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="pageOrgLibraryHeaderLogo_title">Logo</label>
       <label index="pageOrgLibraryHeaderSlider_title">Slider</label>
       <label index="pageOrgLibraryFooter_title">Fuß</label>
+      <label index="pageOrgLibraryMenu_title">Menü</label>
       <label index="pageOrgLibraryMenubelow_title">Unter dem Menü</label>
       <label index="pageOrgLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgNews_title">Nachrichten</label>
@@ -1569,8 +1552,8 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
     * Views: Listen, die ... verarbeitet werden: 401: +Org News
   * [Templating]
-    * HTML-Vorlage: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
   * [Social Media]
@@ -1599,10 +1582,10 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht
-      * table.field: fe_users.name
+      * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in der Detailansicht
-      * table.field: fe_users.name
+      * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginCaddyPageOrgCaddy_header">Warenkorb</label>
@@ -1637,11 +1620,11 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="pluginPowermailPageOrgCaddy_subject_s2x">[TEST] Deine Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgCaddy_thanks1x"><![CDATA[<h1>Danke!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
-<p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
+<p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse.</p>
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich f&uuml;r TYPO3-Organiser interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich für TYPO3-Organiser interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_thanks2x"><![CDATA[<h1>Danke {billingaddressfirstname} {billingaddresslastname}!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse {contactdataemail}.</p>
@@ -1665,11 +1648,11 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="pluginPowermailPageOrgDocumentsCaddy_subject_s2x">[TEST] Deine Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgDocumentsCaddy_thanks1x"><![CDATA[<h1>Danke!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
-<p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
+<p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse.</p>
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich f&uuml;r TYPO3-Organiser interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich für TYPO3-Organiser interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
       <label index="pluginPowermailPageOrgDocumentsCaddy_thanks2x"><![CDATA[<h1>Danke {billingaddressfirstname} {billingaddresslastname}!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse {contactdataemail}.</p>
@@ -1682,9 +1665,6 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="record_create_header">Datensätze</label>
       <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" in der Seite/im Ordner ###TITLE_PID### eingefügt.</label>
       <label index="record_create_mm_prompt">###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.</label>
-      <label index="record_fe_groups_title_policy">Politik</label>
-      <label index="record_fe_groups_title_society">Gesellschaft</label>
-      <label index="record_fe_groups_title_typo3">TYPO3</label>
       <label index="record_pm_fSets_title_billingAddress">Rechnungsadresse</label>
       <label index="record_pm_fSets_title_order">Bestellung</label>
       <label index="record_pm_fSets_title_contactData">Kontaktdaten</label>
@@ -1717,26 +1697,26 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="record_tx_org_cal_eggroll_type">calurl</label>
       <label index="record_tx_org_cal_eggroll_title">White House: Ostereier-Party</label>
       <label index="record_tx_org_cal_eggroll_calurl">http://www.whitehouse.gov/eastereggroll</label>
-      <label index="record_tx_org_cal_eggroll_teaser_short"><![CDATA[Der Pr&auml;sident und die First Lady haben heute angekündigt,
-dass das n&auml;chste White House Ostereier-Rollen am kommenden 1. April stattfinden wird.
+      <label index="record_tx_org_cal_eggroll_teaser_short"><![CDATA[Der Präsident und die First Lady haben heute angekündigt,
+dass das nächste White House Ostereier-Rollen am kommenden 1. April stattfinden wird.
 Das Thema ist "Steh auf und geh los!".
 Mit der Party soll für mehr Gesundheit und Wohlbefinden geworben werden.]]></label>
       <label index="record_tx_org_cal_t3devdays_type">0</label>
       <label index="record_tx_org_cal_t3devdays_title">TYPO3 Developer Days</label>
       <label index="record_tx_org_cal_t3devdays_bodytext"><![CDATA[
 Wir laden Dich zu den kommenden TYPO3 Developer Days ein.
-Die Days sind eine gro&szlig;artige M&ouml;glichkeit, mehr &uuml;ber das leistungsf&auml;hige TYPO3 zu lernen.
+Die Days sind eine großartige Möglichkeit, mehr über das leistungsfähige TYPO3 zu lernen.
 Sie sind Deine Chance, andere Entwickler aus der ganzen Welt kennenzulernen.<br />
-Konferenz-Aktivit&auml;ten
+Konferenz-Aktivitäten
 <ul>
   <li>
-    Workshops und Pr&auml;sentationen zu verschiedenen TYPO3-Themen
+    Workshops und Präsentationen zu verschiedenen TYPO3-Themen
   </li>
   <li>
-    M&ouml;glichkeiten, die TYPO3-Community kennenzulernen
+    Möglichkeiten, die TYPO3-Community kennenzulernen
   </li>
   <li>
-    Social Event (kostenlos f&uuml;r Konferenzteilnehmer, individuelle Tickets für andere)
+    Social Event (kostenlos für Konferenzteilnehmer, individuelle Tickets für andere)
   </li>
   <li>
     Wie jedes Jahr ein paar Überraschungen :-)
@@ -1751,19 +1731,19 @@ Die TYPO3 Developer Days finden statt:]]></label>
       <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Thema
 <ul>
   <li>
-    Premiere: Organiser - TYPO3 für Lobby und Veranstalter (<link record:fe_users:%dwildt% - internal-link>Dirk Wildt</link>)
+    Premiere: Organiser - TYPO3 für Lobby und Veranstalter (<link record:tx_org_staff:%dwildt% - internal-link>Dirk Wildt</link>)
   </li>
 </ul>
-Der Entwickler - Dirk Wildt (Die Netzmacher) - stellt erstmals den TYPO3-Organiser in der &Ouml;ffentlichkeit vor. Er wird Anwendungsbeispiele mit mehrere Referenzseiten zeigen.
+Der Entwickler - Dirk Wildt (Die Netzmacher) - stellt erstmals den TYPO3-Organiser in der Öffentlichkeit vor. Er wird Anwendungsbeispiele mit mehrere Referenzseiten zeigen.
 Mit dem Organiser kannst Du Deine Nachrichten und Veranstaltungen mit Ticket-Verkauf mit einer einzigen TYPO3-Erweiterung verwalten - und darüber hinaus auch Dein Personal, deine Standorte und Veranstaltungsorte.
-Der Organiser ist die TYPO3-Erweiterung für Verb&auml;nde, Veranstalter und etwa Theater-Betriebe.
-Der Organiser hat mit Caddy einen flexiblen Web-Shop integriert, mit dem Karten reserviert und auch gekauft werden k&ouml;nnen. Er kann leicht an andere Anforderungen angepasst werden.
+Der Organiser ist die TYPO3-Erweiterung für Verbände, Veranstalter und etwa Theater-Betriebe.
+Der Organiser hat mit Caddy einen flexiblen Web-Shop integriert, mit dem Karten reserviert und auch gekauft werden können. Er kann leicht an andere Anforderungen angepasst werden.
 <ul>
   <li>
     Website: <link http://typo3-organiser.de/ _blank>typo3-organiser.de</link>
   </li>
 </ul>
-P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als Gast zugesagt. ACHTUNG: Kurzfristige Absagen des Präsidenten sind nicht ungewöhnlich!]]></label>
+P.S.: <link record:tx_org_staff:%bobama% - internal-link>Barack Obama</link> hat als Gast zugesagt. ACHTUNG: Kurzfristige Absagen des Präsidenten sind nicht ungewöhnlich!]]></label>
       <label index="record_tx_org_cal_t3organiser_image">ext_icon_org_210px_timestamp.png</label>
       <label index="record_tx_org_cal_t3organiser_imagewidth">140</label>
       <label index="record_tx_org_cal_t3organiser_imageorient">26</label>
@@ -1776,9 +1756,6 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als
       <label index="record_tx_org_caltype_title_policy">Politik</label>
       <label index="record_tx_org_caltype_title_society">Gesellschaft</label>
       <label index="record_tx_org_caltype_title_typo3">TYPO3</label>
-      <label index="record_tx_org_departmentcat_title_policy">Politik</label>
-      <label index="record_tx_org_departmentcat_title_society">Gesellschaft</label>
-      <label index="record_tx_org_departmentcat_title_typo3">TYPO3</label>
       <label index="record_tx_org_downloadscat_title_development">TYPO3-Entwickler</label>
       <label index="record_tx_org_downloadscat_type_development">cat_image</label>
       <label index="record_tx_org_downloadscat_title_flyer">TYPO3-Integratoren</label>
@@ -1797,6 +1774,9 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als
       <label index="record_tx_org_newscat_title_policy">Politik</label>
       <label index="record_tx_org_newscat_title_society">Gesellschaft</label>
       <label index="record_tx_org_newscat_title_typo3">TYPO3</label>
+      <label index="record_tx_org_staffgroup_title_policy">Politik</label>
+      <label index="record_tx_org_staffgroup_title_society">Gesellschaft</label>
+      <label index="record_tx_org_staffgroup_title_typo3">TYPO3</label>
       <label index="record_tx_org_tax_title_000">0% (steuerfrei)</label>
       <label index="record_tx_org_tax_value_000">0.00</label>
       <label index="record_tx_org_tax_title_007">007% (James Bond Steuersatz)</label>
@@ -1809,8 +1789,6 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als
       <label index="tx_org_cal">Kalender</label>
       <label index="tx_org_calentrance">Kalender: Eintritt</label>
       <label index="tx_org_caltype">Kalender: Kategorien</label>
-      <label index="tx_org_department">Abteilungen</label>
-      <label index="tx_org_departmentcat">Abteilung: Gruppen</label>
       <label index="tx_org_downloads">Dokumente</label>
       <label index="tx_org_downloadscat">Dokumente: Kategorien</label>
       <label index="tx_org_downloadsmedia">Dokumente: Datentr<![CDATA[ä]]>ger</label>
@@ -1820,6 +1798,7 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als
       <label index="tx_org_location">Veranstaltungsorte</label>
       <label index="tx_org_news">Nachrichten</label>
       <label index="tx_org_newscat">Nachrichten: Kategorien</label>
+      <label index="tx_org_staffgroup">Personal: Gruppen</label>
       <label index="tx_org_tax">Mehrwertsteuers<![CDATA[ä]]>tze</label>
       <label index="tx_powermail_domain_model_fields">Powermail Felder</label>
       <label index="tx_powermail_domain_model_forms">Powermail Formulare</label>
@@ -1834,7 +1813,6 @@ P.S.: <link record:fe_users:%bobama% - internal-link>Barack Obama</link> hat als
         Bitte ändere den Wert auf false<br />
         * Siehe Adminwerkzeug > Installation > All Configuration<br />
         * Suche nach pageNotFoundOnCHashError<br />
-        Du kannst nach der Installation die Einstellung wieder auf true zurücksetzen.
       ]]></label>
     </languageKey>
   </data>

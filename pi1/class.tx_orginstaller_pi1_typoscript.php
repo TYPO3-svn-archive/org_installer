@@ -3,7 +3,7 @@
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+ *  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -65,7 +65,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 3.0.0
+ * @version 6.0.0
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_typoscript
@@ -108,6 +108,46 @@ class tx_orginstaller_pi1_typoscript
    * Records
    *
    * ******************************************** */
+
+  /**
+   * page( )
+   *
+   * @return	array		$records : the TypoScript records
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function page()
+  {
+    $records = array();
+    $uid = $this->pObj->zz_getMaxDbUid('sys_template');
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrg($uid);
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgCaddy($uid);
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgDocuments($uid);
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgDocumentsCaddy($uid);
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgHeadquarters($uid);
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgLocations($uid);
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgNews($uid);
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgStaff($uid);
+
+    return $records;
+  }
 
   /**
    * pageOrg( )
@@ -390,7 +430,7 @@ plugin.tx_seodynamictag {
    * @param	[type]		$$uid: ...
    * @return	array		$record : the TypoScript record
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   3.0.0
    */
   private function pageOrg_caseAll($uid)
@@ -421,7 +461,9 @@ plugin.tx_seodynamictag {
             . 'EXT:baseorg/static/,'
             . 'EXT:radialsearch/static/,'
             . 'EXT:radialsearch/static/properties/de/,'
+            . 'EXT:browser/static/Foundation/Framework/,'
             . 'EXT:browser/static/,'
+            . 'EXT:browser/static/Foundation/Templating/,'
             . 'EXT:caddy/static/,'
             . 'EXT:caddy/static/properties/de/,'
             . 'EXT:caddy/static/css/,'
@@ -498,6 +540,7 @@ plugin.baseorg {
           }
         }
         menu {
+          topbar = ' . $this->pObj->arr_pageUids['pageOrgLibraryMenu_title'] . '
           bottom = ' . $this->pObj->arr_pageUids['pageOrgLibraryMenubelow_title'] . '
         }
       }
@@ -578,13 +621,25 @@ plugin.org {
   // plugin.tx_browser_pi1
 
 plugin.tx_browser_pi1 {
+  frameworks {
+    foundation {
+      templating {
+        components {
+          navigation {
+            topbar {
+              name = TYPO3 Organiser
+            }
+          }
+        }
+      }
+    }
+  }
   jss {
       // We need jQuery above the slider script
     placement.footer = 0
   }
 }
   // plugin.tx_browser_pi1
-
 
 
   ////////////////////////////////////////
@@ -646,7 +701,7 @@ xmlprologue                             = none';
   // page
   // TYPO3-Browser: ajax page object I
   // TYPO3-Browser: ajax page object II
-
+  // jQuery
 
 
   // config
@@ -779,6 +834,23 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 //  }
 //[global]
   // ajax page object II
+
+
+
+  ////////////////////////////////////////////////////////
+  //
+  // jQuery
+
+  // Please use t3jquery!
+page {
+  includeJSFooter {
+    baseorgJquery >
+    baseorgFoundation >
+    browserJquery >
+  }
+}
+  // jQuery
+
 ';
 
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
@@ -1327,46 +1399,6 @@ plugin.tx_caddy_pi3 {
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
     return $record;
-  }
-
-  /**
-   * page( )
-   *
-   * @return	array		$records : the TypoScript records
-   * @access private
-   * @version 3.0.0
-   * @since   3.0.0
-   */
-  private function page()
-  {
-    $records = array();
-    $uid = $this->pObj->zz_getMaxDbUid('sys_template');
-
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrg($uid);
-
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgCaddy($uid);
-
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgDocuments($uid);
-
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgDocumentsCaddy($uid);
-
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgHeadquarters($uid);
-
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgLocations($uid);
-
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgNews($uid);
-
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgStaff($uid);
-
-    return $records;
   }
 
   /*   * *********************************************

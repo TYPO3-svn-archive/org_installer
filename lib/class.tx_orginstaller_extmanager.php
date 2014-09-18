@@ -80,10 +80,9 @@ class tx_orginstaller_extmanager
         $confArr = $_POST['data'];
         break;
       default:
-        $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['quickshop_installer']);
+        $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['org_installer']);
         break;
     }
-
     $llStatic = $confArr['LLstatic'];
 
 

@@ -1095,7 +1095,7 @@ class tx_orginstaller_pi1_org
     $record[ 'type' ] = $this->pObj->pi_getLL( 'record_tx_org_cal_eggroll_type' );
     $record[ 'title' ] = $llTitle;
     $record[ 'datetime' ] = $datetime;
-    $record[ 'calurl' ] = $this->pObj->pi_getLL( 'record_tx_org_cal_eggroll_calurl' );
+    $record[ 'url' ] = $this->pObj->pi_getLL( 'record_tx_org_cal_eggroll_url' );
     $record[ 'teaser_short' ] = $this->pObj->pi_getLL( 'record_tx_org_cal_eggroll_teaser_short' );
 
     return $record;
@@ -2028,7 +2028,8 @@ class tx_orginstaller_pi1_org
 
     $bodytext = $this->pObj->pi_getLL( 'record_tx_org_news_president_bodytext' );
 
-    $datetime = strtotime( '22. March last year' );
+    //$datetime = strtotime( '22. March last year' );
+    $datetime = $this->pObj->pi_getLL( 'record_tx_org_news_president_datetime' );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDataNews_title' ];
@@ -2232,6 +2233,7 @@ class tx_orginstaller_pi1_org
     $record[ 'tstamp' ] = time();
     $record[ 'crdate' ] = time();
     $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'bodytext' ] = $this->pObj->pi_getLL( 'record_tx_org_staff_bobama_bodytext' );
     $record[ 'contact_phone' ] = $this->pObj->pi_getLL( 'record_tx_org_staff_bobama_contact_phone' );
     $record[ 'contact_email' ] = $this->pObj->pi_getLL( 'record_tx_org_staff_bobama_contact_email' );
     $record[ 'image' ] = $llImageWiTimestamp;
@@ -2241,7 +2243,6 @@ class tx_orginstaller_pi1_org
     $record[ 'name_last' ] = $this->pObj->pi_getLL( 'record_tx_org_staff_bobama_name_last' );
     $record[ 'title' ] = $llTitle;
     $record[ 'tx_org_staffgroup' ] = $tx_org_staffgroup;
-    $record[ 'vita' ] = $this->pObj->pi_getLL( 'record_tx_org_staff_bobama_vita' );
     $record[ 'url' ] = $this->pObj->pi_getLL( 'record_tx_org_staff_bobama_url' );
 
     return $record;
@@ -2362,8 +2363,10 @@ class tx_orginstaller_pi1_org
     $this->relationDownloads2Downloadsmedia();
     $this->relationHeadquarters2Headquarterscat();
     $this->relationHeadquarters2Staff();
+    $this->relationNews2Headquarters();
     $this->relationNews2Newscat();
     $this->relationNews2Staff();
+    $this->relationStaff2Staffgroup();
   }
 
   /**
@@ -3006,12 +3009,12 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationHeadquarters2Headquarterscat()
   {
-    $table = 'tx_org_headquarters_mm_tx_org_headquarterscat';
+    $table = 'tx_org_mm_all';
 
     $records = array
       (
@@ -3028,13 +3031,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationHeadquarters2HeadquarterscatNetzmacherTYPO3()
   {
     $record = array
       (
+      'table_local' => 'tx_org_headquarters',
+      'table_foreign' => 'tx_org_headquarterscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_netzmacher_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarterscat_title_typo3' ]
     );
@@ -3047,13 +3052,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationHeadquarters2HeadquarterscatPresidentPolicy()
   {
     $record = array
       (
+      'table_local' => 'tx_org_headquarters',
+      'table_foreign' => 'tx_org_headquarterscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_president_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarterscat_title_policy' ],
     );
@@ -3066,13 +3073,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationHeadquarters2HeadquarterscatTYPO3TYPO3()
   {
     $record = array
       (
+      'table_local' => 'tx_org_headquarters',
+      'table_foreign' => 'tx_org_headquarterscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_typo3_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarterscat_title_typo3' ],
     );
@@ -3169,6 +3178,94 @@ class tx_orginstaller_pi1_org
   }
 
   /**
+   * relationNews2Headquarters( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function relationNews2Headquarters()
+  {
+    // #61703, dwildt, 1-
+    //$table = 'fe_users_mm_tx_org_news';
+    // #61703, dwildt, 1+
+    $table = 'tx_org_mm_all';
+
+    $records = array
+      (
+      $this->relationNews2HeadquartersNetzmacher(),
+      $this->relationNews2HeadquartersPresident(),
+      $this->relationNews2HeadquartersTYPO3()
+    );
+
+    $this->sqlInsert( $records, $table );
+  }
+
+  /**
+   * relationNews2HeadquartersNetzmacher( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function relationNews2HeadquartersNetzmacher()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_news',
+      'table_foreign' => 'tx_org_headquarters',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_news_organiser_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_netzmacher_title' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationNews2HeadquartersPresident( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function relationNews2HeadquartersPresident()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_news',
+      'table_foreign' => 'tx_org_headquarters',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_president_title' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationNews2HeadquartersTYPO3( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function relationNews2HeadquartersTYPO3()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_news',
+      'table_foreign' => 'tx_org_headquarters',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_typo3_title' ],
+    );
+
+    return $record;
+  }
+
+  /**
    * relationNews2Newscat( )
    *
    * @return	void
@@ -3178,7 +3275,7 @@ class tx_orginstaller_pi1_org
    */
   private function relationNews2Newscat()
   {
-    $table = 'tx_org_news_mm_tx_org_newscat';
+    $table = 'tx_org_mm_all';
 
     $records = array
       (
@@ -3195,13 +3292,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationNews2NewscatFlowTYPO3()
   {
     $record = array
       (
+      'table_local' => 'tx_org_news',
+      'table_foreign' => 'tx_org_newscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_newscat_title_typo3' ],
     );
@@ -3214,13 +3313,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationNews2NewscatPresidentPolicy()
   {
     $record = array
       (
+      'table_local' => 'tx_org_news',
+      'table_foreign' => 'tx_org_newscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_newscat_title_policy' ],
     );
@@ -3233,16 +3334,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationNews2NewscatT3OrganiserTYPO3()
   {
     $record = array
       (
-      // #i0015, dwildt, 1-
-      //'uid_local'   => $this->pObj->arr_recordUids[ 'record_tx_org_news_t3organiser_title' ],
-      // #i0015, dwildt, 1+
+      'table_local' => 'tx_org_news',
+      'table_foreign' => 'tx_org_newscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_news_organiser_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_newscat_title_typo3' ],
     );
@@ -3255,7 +3355,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationNews2Staff()
@@ -3280,7 +3380,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationNews2StaffNetzmacherDwildt()
@@ -3289,8 +3389,8 @@ class tx_orginstaller_pi1_org
       (
       'table_local' => 'tx_org_news',
       'table_foreign' => 'tx_org_staff',
-      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_staff_dwildt_title' ],
-      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_organiser_title' ],
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_news_organiser_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_staff_dwildt_title' ],
     );
 
     return $record;
@@ -3301,7 +3401,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationNews2StaffPresidentPresident()
@@ -3310,8 +3410,8 @@ class tx_orginstaller_pi1_org
       (
       'table_local' => 'tx_org_news',
       'table_foreign' => 'tx_org_staff',
-      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_staff_bobama_title' ],
-      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_news_president_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_staff_bobama_title' ],
     );
 
     return $record;
@@ -3322,7 +3422,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationNews2StaffSschaffsteinFlow()
@@ -3331,8 +3431,97 @@ class tx_orginstaller_pi1_org
       (
       'table_local' => 'tx_org_news',
       'table_foreign' => 'tx_org_staff',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_staff_sschaffstein_title' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationStaff2Staffgroup( )
+   *
+   * @return	void
+   * @access private
+   * @internal #61703
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function relationStaff2Staffgroup()
+  {
+    $table = 'tx_org_mm_all';
+
+    $records = array
+      (
+      $this->relationStaff2StaffgroupFlowTYPO3(),
+      $this->relationStaff2StaffgroupPresidentPolicy(),
+      $this->relationStaff2StaffgroupT3OrganiserTYPO3()
+    );
+
+    $this->sqlInsert( $records, $table );
+  }
+
+  /**
+   * relationStaff2StaffgroupFlowTYPO3( )
+   *
+   * @return	void
+   * @access private
+   * @internal #61703
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function relationStaff2StaffgroupFlowTYPO3()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_staff',
+      'table_foreign' => 'tx_org_staffgroup',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_staff_sschaffstein_title' ],
-      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_news_flow_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_staffgroup_title_typo3' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationStaff2StaffgroupPresidentPolicy( )
+   *
+   * @return	void
+   * @access private
+   * @internal #61703
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function relationStaff2StaffgroupPresidentPolicy()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_staff',
+      'table_foreign' => 'tx_org_staffgroup',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_staff_bobama_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_staffgroup_title_policy' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationStaff2StaffgroupT3OrganiserTYPO3( )
+   *
+   * @return	void
+   * @access private
+   * @internal #61703
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function relationStaff2StaffgroupT3OrganiserTYPO3()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_staff',
+      'table_foreign' => 'tx_org_staffgroup',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_staff_dwildt_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_staffgroup_title_typo3' ],
     );
 
     return $record;

@@ -1,6 +1,12 @@
 6.0.0
   14-09-18
   Major Features
+  * #61825: +Events
+  * #61779: +Job, +Service
+            * pi1
+              * class.tx_orginstaller_pi1_pages.php
+              * class.tx_orginstaller_pi1_typoscript.php
+              * locallang.xml
   * #61710: Remove import for department table
   * #61703: Integrate jobs, services, staff
   * #61693: Integration of Foundation Top Bar

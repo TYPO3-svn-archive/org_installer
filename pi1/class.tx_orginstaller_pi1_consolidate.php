@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -72,7 +72,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 3.0.0
+ * @version 6.0.0
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_consolidate
@@ -1779,11 +1779,11 @@ page.10.subparts.menue.10 >
   // [' . $uid . '] organiser
   //    [%pageOrgDataCal_title%] calendar
   //    [%pageOrgDataDownloads_title%] downloads
+  //    [%pageOrgDataEvents_title%] events
+  //    [%pageOrgDataHeadquarters_title%] headquarters
+  //    [%pageOrgDataLocations_title%] locations
   //    [%pageOrgDataNews_title%] news
   //    [%pageOrgDataStaff_title%] staff
-  //    [%pageOrgDataHeadquarters_title%] headquarters
-  //    [%pageOrgDataEvents_title%] events
-  //    [%pageOrgDataLocations_title%] locations
 
   // organiser tables
 TCEFORM {
@@ -1801,6 +1801,11 @@ TCEFORM {
     }
     tx_org_downloadscat   < .tx_org_downloads
     tx_org_downloadsmedia < .tx_org_downloads
+    tx_org_event {
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataEvent_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataEvent_title%
+    }
+    tx_org_eventcat < .tx_org_event
     tx_org_headquarters {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataHeadquarters_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%

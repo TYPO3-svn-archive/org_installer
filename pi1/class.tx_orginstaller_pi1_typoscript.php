@@ -114,7 +114,7 @@ class tx_orginstaller_pi1_typoscript
    *
    * @return	array		$records : the TypoScript records
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   3.0.0
    */
   private function page()
@@ -134,14 +134,30 @@ class tx_orginstaller_pi1_typoscript
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgDocumentsCaddy($uid);
 
+    // #61826, 140923, dwildt, 2+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgEvents($uid);
+
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgHeadquarters($uid);
+
+    // #61779, 140921, dwildt, 2+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgJobs($uid);
+
+    // #61779, 140921, dwildt, 2+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgJobsJobsApply($uid);
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgLocations($uid);
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgNews($uid);
+
+    // #61779, 140921, dwildt, 2+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgService($uid);
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgStaff($uid);
@@ -175,6 +191,118 @@ class tx_orginstaller_pi1_typoscript
         break;
     }
     // SWITCH : install case
+
+    return $record;
+  }
+
+  /**
+   * pageOrgEvents( )
+   *
+   * @param	integer		$uid: uid of the new record
+   * @return	array		$record : the TypoScript record
+   * @access private
+   * @internal #61826
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function pageOrgEvents($uid)
+  {
+    $record = null;
+
+    $strUid = sprintf('%03d', $uid);
+    $title = 'pageOrgEvents_title';
+    $llTitle = strtolower($this->pObj->pi_getLL($title));
+    $llTitle = str_replace(' ', null, $llTitle);
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
+    $pid = $this->pObj->arr_pageUids[$title];
+
+    $this->pObj->arr_tsUids[$title] = $uid;
+    $this->pObj->arr_tsTitles[$uid] = $title;
+
+    $includeStaticFile = 'EXT:org/static/events/61826/';
+    switch (true)
+    {
+      case( $this->pObj->get_typo3Version() < 4007000 ):
+        $includeStaticFile = $includeStaticFile
+                . ',EXT:org/static/base/typo3/4.6/';
+        break;
+      default:
+        // follow the workflow
+        break;
+    }
+
+    $record['title'] = $llTitle;
+    $record['uid'] = $uid;
+    $record['pid'] = $pid;
+    $record['tstamp'] = time();
+    $record['sorting'] = 256;
+    $record['crdate'] = time();
+    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file'] = $includeStaticFile;
+    $record['constants'] = '
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // plugin.tx_browser_pi1
+  // plugin.tx_seodynamictag
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  map {
+    aliases {
+      showUid {
+        marker = eventsUid
+      }
+    }
+  }
+  templates {
+    listview {
+      image {
+        0 {
+          height  =  90c
+          width   = 220c
+        }
+      }
+      url {
+        1 {
+            // News
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+        }
+        2 {
+            // Staff
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
+        }
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_seodynamictag
+
+  // plugin.tx_seodynamictag
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|eventsUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
+';
+    $record['config'] = null;
+
+    $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
     return $record;
   }
@@ -223,6 +351,88 @@ class tx_orginstaller_pi1_typoscript
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = $includeStaticFile;
     $record['constants'] = '
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // plugin.tx_browser_pi1
+  // plugin.tx_seodynamictag
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  map {
+    aliases {
+      showUid {
+        marker = headquartersUid
+      }
+    }
+    controlling {
+      enabled = Map
+    }
+    design {
+      path {
+        categoryIcon  = uploads/tx_org/
+      }
+      height  = 240
+      width   = 720
+    }
+    icon {
+      listNum {
+        categoryIconMap       = 1
+        categoryIconMapSingle = 2
+      }
+    }
+    marker {
+      field {
+        linktoSingle      = tx_org_headquarters.uid
+        latitude          = tx_org_headquarters.mail_lat
+        longitude         = tx_org_headquarters.mail_lon
+        description       = tx_org_headquarters.title
+        category          = tx_org_headquarterscat.title
+        categoryIcon      = tx_org_headquarterscat.icons
+        categoryOffsetX   = tx_org_headquarterscat.icon_offset_x
+        categoryOffsetY   = tx_org_headquarterscat.icon_offset_y
+      }
+    }
+  }
+  radialsearch {
+    lat = tx_org_headquarters.mail_lat
+    lon = tx_org_headquarters.mail_lon
+  }
+  templates {
+    listview {
+      image {
+        0 {
+          height  =  90c
+          width   = 220c
+        }
+      }
+      url {
+        1 {
+            // News
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+        }
+        2 {
+            // Staff
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
+        }
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_seodynamictag
+
   // plugin.tx_seodynamictag
 plugin.tx_seodynamictag {
   condition {
@@ -235,6 +445,133 @@ plugin.tx_seodynamictag {
 ';
     $record['config'] = null;
 
+    $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
+
+    return $record;
+  }
+
+  /**
+   * pageOrgJobs( )
+   *
+   * @param	integer		$uid: uid of the new record
+   * @return	array		$record : the TypoScript record
+   * @access private
+   * @internal #61779
+   * @version 6.0.0
+   * @since 6.0.0
+   */
+  private function pageOrgJobs($uid)
+  {
+    $record = null;
+
+    $strUid = sprintf('%03d', $uid);
+    $title = 'pageOrgJobs_title';
+    $llTitle = strtolower($this->pObj->pi_getLL($title));
+    $llTitle = str_replace(' ', null, $llTitle);
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
+    $pid = $this->pObj->arr_pageUids[$title];
+
+    $this->pObj->arr_tsUids[$title] = $uid;
+    $this->pObj->arr_tsTitles[$uid] = $title;
+
+    $includeStaticFile = 'EXT:org/static/job/593611/';
+    switch (true)
+    {
+      case( $this->pObj->get_typo3Version() < 4007000 ):
+        $includeStaticFile = $includeStaticFile
+                . ',EXT:org/static/base/typo3/4.6/';
+        break;
+      default:
+        // follow the workflow
+        break;
+    }
+
+    $record['title'] = $llTitle;
+    $record['uid'] = $uid;
+    $record['pid'] = $pid;
+    $record['tstamp'] = time();
+    $record['sorting'] = 256;
+    $record['crdate'] = time();
+    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file'] = $includeStaticFile;
+    $record['constants'] = '
+  // plugin.tx_browser_pi1
+  // plugin.tx_seodynamictag
+
+
+  // plugin.tx_browser_pi1
+plugin.tx_browser_pi1 {
+  templates {
+    listview {
+      url {
+        1 {
+            // News
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+        }
+        2 {
+            // Headquarters
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+        }
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+
+  // plugin.tx_seodynamictag
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|jobUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
+';
+    $record['config'] = null;
+
+    $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
+
+    return $record;
+  }
+
+  /**
+   * pageOrgJobsJobsApply( )
+   *
+   * @param	integer		$uid: uid of the new record
+   * @return	array		$record : the TypoScript record
+   * @access private
+   * @internal #61779
+   * @version 6.0.0
+   * @since 6.0.0
+   */
+  private function pageOrgJobsJobsApply($uid)
+  {
+    $record = null;
+
+    $strUid = sprintf('%03d', $uid);
+    $title = 'pageOrgJobsJobsApply_title';
+    $llTitle = strtolower($this->pObj->pi_getLL($title));
+    $llTitle = str_replace(' ', null, $llTitle);
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
+    $pid = $this->pObj->arr_pageUids[$title];
+
+    $this->pObj->arr_tsUids[$title] = $uid;
+    $this->pObj->arr_tsTitles[$uid] = $title;
+
+    $includeStaticFile = $this->zzOrgCaddyStaticFiles();
+
+    $record['title'] = $llTitle;
+    $record['uid'] = $uid;
+    $record['pid'] = $pid;
+    $record['tstamp'] = time();
+    $record['sorting'] = 256;
+    $record['crdate'] = time();
+    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file'] = $includeStaticFile;
+// Will handled by consolidation
+//    $record['constants']            = null;
+//    $record['config']               = null;
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
     return $record;
@@ -346,6 +683,29 @@ plugin.tx_seodynamictag {
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = $includeStaticFile;
     $record['constants'] = '
+  // plugin.tx_browser_pi1
+  // plugin.tx_seodynamictag
+
+
+  // plugin.tx_browser_pi1
+plugin.tx_browser_pi1 {
+  templates {
+    listview {
+      url {
+        1 {
+            // Staff
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
+        }
+        2 {
+            // Headquarters
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+        }
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+
   // plugin.tx_seodynamictag
 plugin.tx_seodynamictag {
   condition {
@@ -407,11 +767,119 @@ plugin.tx_seodynamictag {
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = $includeStaticFile;
     $record['constants'] = '
+  // plugin.tx_browser_pi1
+  // plugin.tx_seodynamictag
+
+
+  // plugin.tx_browser_pi1
+plugin.tx_browser_pi1 {
+  templates {
+    listview {
+      url {
+        1 {
+            // News
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+        }
+        2 {
+            // Headquarters
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+        }
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+
   // plugin.tx_seodynamictag
 plugin.tx_seodynamictag {
   condition {
     single {
       begin = globalVar = GP:tx_browser_pi1|staffUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
+';
+    $record['config'] = null;
+
+    $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
+
+    return $record;
+  }
+
+  /**
+   * pageOrgService( )
+   *
+   * @param	integer		$uid: uid of the new record
+   * @return	array		$record : the TypoScript record
+   * @access private
+   * @internal #61779
+   * @version 6.0.0
+   * @since 6.0.0
+   */
+  private function pageOrgService($uid)
+  {
+    $record = null;
+
+    $strUid = sprintf('%03d', $uid);
+    $title = 'pageOrgService_title';
+    $llTitle = strtolower($this->pObj->pi_getLL($title));
+    $llTitle = str_replace(' ', null, $llTitle);
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
+    $pid = $this->pObj->arr_pageUids[$title];
+
+    $this->pObj->arr_tsUids[$title] = $uid;
+    $this->pObj->arr_tsTitles[$uid] = $title;
+
+    $includeStaticFile = 'EXT:org/static/service/593621/';
+    switch (true)
+    {
+      case( $this->pObj->get_typo3Version() < 4007000 ):
+        $includeStaticFile = $includeStaticFile
+                . ',EXT:org/static/base/typo3/4.6/';
+        break;
+      default:
+        // follow the workflow
+        break;
+    }
+
+    $record['title'] = $llTitle;
+    $record['uid'] = $uid;
+    $record['pid'] = $pid;
+    $record['tstamp'] = time();
+    $record['sorting'] = 256;
+    $record['crdate'] = time();
+    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file'] = $includeStaticFile;
+    $record['constants'] = '
+  // plugin.tx_browser_pi1
+  // plugin.tx_seodynamictag
+
+
+  // plugin.tx_browser_pi1
+plugin.tx_browser_pi1 {
+  templates {
+    listview {
+      url {
+        1 {
+            // News
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+        }
+        2 {
+            // Headquarters
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+        }
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+
+  // plugin.tx_seodynamictag
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|serviceUid > 0] && [globalVar = TSFE:id = ' . $pid . '
     }
   }
 }
@@ -458,10 +926,10 @@ plugin.tx_seodynamictag {
     $record['root'] = 1;
     $record['clear'] = 3;  // Clear all
     $record['include_static_file'] = 'EXT:css_styled_content/static/,'
+            . 'EXT:browser/static/Foundation/Framework/,'
             . 'EXT:baseorg/static/,'
             . 'EXT:radialsearch/static/,'
             . 'EXT:radialsearch/static/properties/de/,'
-            . 'EXT:browser/static/Foundation/Framework/,'
             . 'EXT:browser/static/,'
             . 'EXT:browser/static/Foundation/Templating/,'
             . 'EXT:caddy/static/,'
@@ -582,8 +1050,10 @@ plugin.org {
     downloads   = ' . $this->pObj->arr_pageUids['pageOrgDataDownloads_title'] . '
     event       = ' . $this->pObj->arr_pageUids['pageOrgDataEvents_title'] . '
     headquarter = ' . $this->pObj->arr_pageUids['pageOrgDataHeadquarters_title'] . '
+    job         = ' . $this->pObj->arr_pageUids['pageOrgDataJobs_title'] . '
     location    = ' . $this->pObj->arr_pageUids['pageOrgDataLocations_title'] . '
     news        = ' . $this->pObj->arr_pageUids['pageOrgDataNews_title'] . '
+    service     = ' . $this->pObj->arr_pageUids['pageOrgDataService_title'] . '
     staff       = ' . $this->pObj->arr_pageUids['pageOrgDataStaff_title'] . '
   }
   pages {
@@ -591,10 +1061,13 @@ plugin.org {
     downloads               = ' . $this->pObj->arr_pageUids['pageOrgDocuments_title'] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyCaddymini_title'] . '
-    event                   = ' . $this->pObj->arr_pageUids['pageOrg_title'] . '
+    event                   = ' . $this->pObj->arr_pageUids['pageOrgEvents_title'] . '
     headquarter             = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+    job                     = ' . $this->pObj->arr_pageUids['pageOrgJobs_title'] . '
+    jobApply                = ' . $this->pObj->arr_pageUids['pageOrgJobsApply_title'] . '
     location                = ' . $this->pObj->arr_pageUids['pageOrgLocations_title'] . '
     news                    = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+    service                 = ' . $this->pObj->arr_pageUids['pageOrgService_title'] . '
     shopping_cart           = ' . $this->pObj->arr_pageUids['pageOrgCaddy_title'] . '
     shopping_cart_downloads = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     staff                   = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
@@ -976,8 +1449,10 @@ plugin.org {
     downloads   = ' . $this->pObj->arr_pageUids['pageOrgDataDownloads_title'] . '
     event       = ' . $this->pObj->arr_pageUids['pageOrgDataEvents_title'] . '
     headquarter = ' . $this->pObj->arr_pageUids['pageOrgDataHeadquarters_title'] . '
+    job         = ' . $this->pObj->arr_pageUids['pageOrgDataJobs_title'] . '
     location    = ' . $this->pObj->arr_pageUids['pageOrgDataLocations_title'] . '
     news        = ' . $this->pObj->arr_pageUids['pageOrgDataNews_title'] . '
+    service     = ' . $this->pObj->arr_pageUids['pageOrgDataService_title'] . '
     staff       = ' . $this->pObj->arr_pageUids['pageOrgDataStaff_title'] . '
   }
   pages {
@@ -985,10 +1460,13 @@ plugin.org {
     downloads               = ' . $this->pObj->arr_pageUids['pageOrgDocuments_title'] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyCaddymini_title'] . '
-    event                   = ' . $this->pObj->arr_pageUids['pageOrg_title'] . '
+    event                   = ' . $this->pObj->arr_pageUids['pageOrgEvents_title'] . '
     headquarter             = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+    job                     = ' . $this->pObj->arr_pageUids['pageOrgJobs_title'] . '
+    jobApply                = ' . $this->pObj->arr_pageUids['pageOrgJobsApply_title'] . '
     location                = ' . $this->pObj->arr_pageUids['pageOrgLocations_title'] . '
     news                    = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+    service                 = ' . $this->pObj->arr_pageUids['pageOrgService_title'] . '
     shopping_cart           = ' . $this->pObj->arr_pageUids['pageOrgCaddy_title'] . '
     shopping_cart_downloads = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     staff                   = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '

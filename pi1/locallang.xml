@@ -109,7 +109,7 @@
 <ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
       <label index="content_pageOrgCaddyTerms_header">Terms and conditions</label>
       <label index="content_pageOrgCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
-<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
+<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
       <label index="content_pageOrgDocumentsCaddy_header">[fade_deliveryorderaddress.jss]</label>
       <label index="content_pageOrgDocumentsCaddy_bodytext"><![CDATA[
 <script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
@@ -193,7 +193,7 @@
 <ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
       <label index="content_pageOrgDocumentsCaddyTerms_header">Terms and conditions</label>
       <label index="content_pageOrgDocumentsCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
-<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
+<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
       <label index="content_pageOrgLegalinfo_header">Legal info</label>
       <label index="content_pageOrgLegalinfo_bodytext"><![CDATA[<p>Your legal info</p>
 <h2>Good to know</h2>
@@ -313,7 +313,7 @@
       <label index="ext_header">Check extension dependencies</label>
       <label index="ext_help">Please install: </label>
       <label index="ext_ok">is loaded.</label>
-      <label index="tx_org_staff">Staff</label>
+      <label index="tx_org_staff">People</label>
       <label index="files_create_header">Files</label>
       <label index="files_create_prompt">File "###DEST###" is created at "###PATH###".</label>
       <label index="files_create_prompt_error">File "###SRCE###" couldn't copied to "###DEST###".</label>
@@ -339,9 +339,12 @@
       <label index="pageOrgDataDownloads_title">Documents</label>
       <label index="pageOrgDataEvents_title">Events</label>
       <label index="pageOrgDataHeadquarters_title">Headquarters</label>
+      <label index="pageOrgDataJobs_title">Jobs</label>
+      <label index="pageOrgDataJobsJobsApply_title">Application</label>
       <label index="pageOrgDataLocations_title">Locations</label>
       <label index="pageOrgDataNews_title">News</label>
-      <label index="pageOrgDataStaff_title">Staff</label>
+      <label index="pageOrgDataService_title">Service</label>
+      <label index="pageOrgDataStaff_title">People</label>
       <label index="pageOrgDocuments_title">Documents</label>
       <label index="pageOrgDocumentsCaddy_title">Caddy</label>
       <label index="pageOrgDocumentsCaddy_titleUrl">Caddy</label>
@@ -351,6 +354,8 @@
       <label index="pageOrgDocumentsCaddyTerms_title">Terms</label>
       <label index="pageOrgEvents_title">Events</label>
       <label index="pageOrgHeadquarters_title">Headquarters</label>
+      <label index="pageOrgJobs_title">Jobs</label>
+      <label index="pageOrgJobsJobsApply_title">Application</label>
       <label index="pageOrgLegalinfo_title">Legal info</label>
       <label index="pageOrgLibrary_title">Libraries</label>
       <label index="pageOrgLibraryHeader_title">Header</label>
@@ -361,7 +366,8 @@
       <label index="pageOrgLibraryMenubelow_title">Below the menu</label>
       <label index="pageOrgLocations_title">Locations</label>
       <label index="pageOrgNews_title">News</label>
-      <label index="pageOrgStaff_title">Staff</label>
+      <label index="pageOrgService_title">Services</label>
+      <label index="pageOrgStaff_title">People</label>
       <label index="pageOrgTYPO3Integrators_title">TYPO3 Integrators</label>
       <label index="pageOrgTYPO3IntegratorsDevider_title"><![CDATA[[--------]]]></label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
@@ -385,8 +391,10 @@
     * Views: Display only views of the current template (recommended) [X]
     * Views: Enabled list views ...: 201: +Org Calendar
   * [Templating]
-    * HTML: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
+  * [jQuery & AJAX]
+    * AJAX: [disabled]
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
@@ -426,6 +434,33 @@
       * table.field: tx_org_downloads.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
+      <label index="pluginBrowserPageOrgEvents_header">[Browser for Organiser Events]</label>
+      <label index="pluginBrowserPageOrgEvents_ffListTitle">Organiser Events</label>
+      <label index="pluginBrowserPageOrgEvents_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 61825: +Org Events
+  * [Single View]
+    * Record Browser: [disabled]
+  * [Templating]
+    * HTML: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
+  * [jQuery & AJAX]
+    * AJAX: [disabled]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in list views
+      * table.field: tx_org_event.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in single views
+      * table.field: tx_org_event.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
       <label index="pluginBrowserPageOrgHeadquarters_header">[Browser for Organiser Headquarters]</label>
       <label index="pluginBrowserPageOrgHeadquarters_ffListTitle">Organiser Headquarters</label>
       <label index="pluginBrowserPageOrgHeadquarters_ffMycomment"><![CDATA[
@@ -440,8 +475,8 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
   * [Social Media]
@@ -451,6 +486,33 @@
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in single views
       * table.field: tx_org_headquarters.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgJobs_header">[Browser for Organiser Jobs]</label>
+      <label index="pluginBrowserPageOrgJobs_ffListTitle">Organiser Jobs</label>
+      <label index="pluginBrowserPageOrgJobs_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 593611: +Org: Jobs
+  * [Single View]
+    * Record Browser: [disabled]
+  * [Templating]
+    * HTML: [Foundation - Table 1: Title // Searchform / Map, Browser, Table (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
+  * [jQuery & AJAX]
+    * AJAX: [disabled]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in list views
+      * table.field: tx_org_staff.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in single views
+      * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgLocations_header">[Browser for Organiser Locations]</label>
@@ -463,7 +525,7 @@
   * [General]
     * Views: [Configured]
     * Views: Display only views of the current template (recommended) [X]
-    * Views: Enabled list views ...: 701: +Org Locations]
+    * Views: Enabled list views ...: 701: +Org Locations
   * [Templating]
     * HTML: [Browser: Main (browser) ]
     * CSS jQuery UI (User Interface): [UI: Blitzer]
@@ -486,7 +548,9 @@
   * [General]
     * Views: [Configured]
     * Views: Display only views of the current template (recommended) [X]
-    * Views: Enabled list views ...: 401: +Org News]
+    * Views: Enabled list views ...: 401: +Org News
+  * [Single View]
+    * Record Browser: [disabled]
   * [Templating]
     * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
     * CSS jQuery UI (User Interface): [Don't embed it!]
@@ -501,8 +565,35 @@
       * table.field: tx_org_news.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgStaff_header">[Browser for Organiser Staff]</label>
-      <label index="pluginBrowserPageOrgStaff_ffListTitle">Organiser Staff</label>
+      <label index="pluginBrowserPageOrgService_header">[Browser for Organiser Service]</label>
+      <label index="pluginBrowserPageOrgService_ffListTitle">Organiser Service</label>
+      <label index="pluginBrowserPageOrgService_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 593621: +Org: Services
+  * [Single View]
+    * Record Browser: [disabled]
+  * [Templating]
+    * HTML: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
+  * [jQuery & AJAX]
+    * AJAX: [disabled]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in list views
+      * table.field: tx_org_staff.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in single views
+      * table.field: tx_org_staff.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgStaff_header">[Browser for Organiser People]</label>
+      <label index="pluginBrowserPageOrgStaff_ffListTitle">Organiser People</label>
       <label index="pluginBrowserPageOrgStaff_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
@@ -511,10 +602,14 @@
   * [General]
     * Views: [Configured]
     * Views: Display only views of the current template (recommended) [X]
-    * Views: Enabled list views ...: 101: +Org Staff]
+    * Views: Enabled list views ...: 101: +Org People
+  * [Single View]
+    * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
+  * [jQuery & AJAX]
+    * AJAX: [disabled]
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
@@ -536,19 +631,16 @@
       The value of the invoice address will overriden
       by the value of the delivery address.]]></label>
       <label index="pluginCaddyminiPageOrgCaddyCaddymini_header">[Mini Caddy]</label>
-      <label index="pluginCaddyPageOrgDocumentsCaddy_header">Caddy</label>
       <label index="pluginCaddyminiPageOrgDocumentsCaddyCaddymini_header">[Mini Caddy]</label>
-      <label index="plugin_create_header">Plugins</label>
-      <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
-      <label index="plugin_help">If you want, please select the option "Installation: Organiser ..." in the TYPO3 backend plugin.</label>
-      <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Dear TYPO3-Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+      <label index="pluginCaddyPageOrgDocumentsCaddy_header">Caddy</label>
+      <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Dear TYPO3-Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Dear TYPO3-Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
+      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Dear TYPO3-Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_header">[Powermail for Caddy]</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r1x">[TEST] New Organiser order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r2x">[TEST] New Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
@@ -568,14 +660,14 @@
 <p>This is a demo shop only.</p>
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
 <p>Thanks, that you are interested in TYPO3 Organiser! {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
-      <label index="pluginPowermailPageOrgDocumentsCaddy_body_r1x"><![CDATA[<p>Dear Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+      <label index="pluginPowermailPageOrgDocumentsCaddy_body_r1x"><![CDATA[<p>Dear Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgDocumentsCaddy_body_r2x"><![CDATA[<p>Dear Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
-      <label index="pluginPowermailPageOrgDocumentsCaddy_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
+      <label index="pluginPowermailPageOrgDocumentsCaddy_body_r2x"><![CDATA[<p>Dear Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgDocumentsCaddy_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgDocumentsCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgDocumentsCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
       <label index="pluginPowermailPageOrgDocumentsCaddy_header">[Powermail for Caddy]</label>
       <label index="pluginPowermailPageOrgDocumentsCaddy_subject_r1x">[TEST] New Organiser order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgDocumentsCaddy_subject_r2x">[TEST] New Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
@@ -595,6 +687,77 @@
 <p>This is a demo shop only.</p>
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
 <p>Thanks, that you are interested in TYPO3 Organiser! {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_body_r1x"><![CDATA[<p>Dear TYPO3-Organiser-Provider,<br />There is a new job application.</p>
+<p>You don't have to do anything, because this is a demo only.</p>
+<p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p>
+<ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
+<p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+###POWERMAIL_TYPOSCRIPT_JOBAPPLICATION###
+###POWERMAIL_ALL###]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_body_r2x"><![CDATA[<p>Dear TYPO3-Organiser-Provider,<br />There is a new job application.</p>
+<p>You don't have to do anything, because this is a demo only.</p>
+<p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p>
+<ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
+<p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.jobapplication')}</p>]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br />
+<br />
+You find all about your order in the attachments:</p>
+<p></p>
+<ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul>
+<p>This is a demo only!</p>
+<ul>
+  <li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li>
+  <li>The ordered items aren't real.</li>
+  <li>You won't get any delivery.</li>
+  <li>Invoice and delivery order are for information only.</li>
+  <li>You don't have to pay any bill.</li>
+</ul>
+<p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p>
+<ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
+###POWERMAIL_TYPOSCRIPT_JOBAPPLICATION###
+###POWERMAIL_ALL###]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />
+Thanks for your interest in the TYPO3 Organiser.<br />
+<br />
+You find all about your order in the attachments:</p>
+<p></p>
+<ul>
+  <li>terms & conditions</li><li>delivery order and</li>
+  <li>invoice</li>
+</ul>
+<p>This is a demo only!</p>
+<ul>
+  <li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li>
+  <li>The ordered items aren't real.</li>
+  <li>You won't get any delivery.</li>
+  <li>Invoice and delivery order are for information only.</li>
+  <li>You don't have to pay any bill.</li>
+</ul>
+<p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p>
+<ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
+<p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_header">[Powermail for Caddy]</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_subject_r1x">[TEST] New Organiser job application ####POWERMAIL_TYPOSCRIPT_JOBAPPLICATIONNUMBER###</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_subject_r2x">[TEST] New Organiser job application #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyjobapplicationnumber')}</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_subject_s1x">[TEST] Your Organiser job application ####POWERMAIL_TYPOSCRIPT_JOBAPPLICATIONNUMBER###</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_subject_s2x">[TEST] Your Organiser job application #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyjobapplicationnumber')}</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_thanks1x"><![CDATA[<h1>Thanks!</h1>
+<p>Thanks for your order.</p>
+<p>We sent a confirmation to your e-mail.</p>
+<h2>Good to know</h2>
+<p>This is a demo shop only.</p>
+<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
+<p>Thanks, that you are interested in TYPO3 Organiser! ###POWERMAIL_TYPOSCRIPT_CLEARJOBAPPLICATIONSESSION###</p>]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_thanks2x"><![CDATA[<h1>Thanks {billingaddressfirstname} {billingaddresslastname}!</h1>
+<p>Thanks for your order.</p>
+<p>You get a confirmation to your e-mail {contactdataemail}.</p>
+<h2>Good to know</h2>
+<p>This is a demo shop only.</p>
+<ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
+<p>Thanks, that you are interested in TYPO3 Organiser! {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
+      <label index="plugin_create_header">Plugins</label>
+      <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
+      <label index="plugin_help">If you want, please select the option "Installation: Organiser ..." in the TYPO3 backend plugin.</label>
       <label index="plugin_warn">Do you don't want, that Organiser Installer installs the Organiser?</label>
       <label index="record_create_header">Records</label>
       <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the page/folder ###TITLE_PID###.</label>
@@ -628,11 +791,11 @@
       <label index="record_pm_field_title_submit">Test Organiser without commitment!</label>
       <label index="record_pm_form_title_pageOrgCaddy">Caddy orderform (calendar)</label>
       <label index="record_pm_form_title_pageOrgDocumentsCaddy">Caddy orderform (downloads)</label>
-      <label index="record_tx_org_cal_eggroll_type">calurl</label>
+      <label index="record_tx_org_cal_eggroll_type">url</label>
       <label index="record_tx_org_cal_eggroll_title">White House Easter Egg Roll</label>
-      <label index="record_tx_org_cal_eggroll_calurl">http://www.whitehouse.gov/eastereggroll</label>
+      <label index="record_tx_org_cal_eggroll_url">http://www.whitehouse.gov/eastereggroll</label>
       <label index="record_tx_org_cal_eggroll_teaser_short"><![CDATA[The President and First Lady announced today that this year's White House Easter Egg Roll will be held on Monday, April 25, 2011 with the theme of "Get Up and Go!" promoting health and wellness.]]></label>
-      <label index="record_tx_org_cal_t3devdays_type">0</label>
+      <label index="record_tx_org_cal_t3devdays_type">record</label>
       <label index="record_tx_org_cal_t3devdays_title">TYPO3 Developer Days</label>
       <label index="record_tx_org_cal_t3devdays_bodytext"><![CDATA[We invite you to this year's Developer Days. This will be a great time to learn more about the powerful system and is your chance to connect yourself with other developers from all around the world.
 Conference Activities
@@ -654,7 +817,7 @@ The sixth edition of the TYPO3 Developer Days will take place:]]></label>
       <label index="record_tx_org_cal_t3devdays_image">t3dd11_header_front_timestamp.jpg</label>
       <label index="record_tx_org_cal_t3devdays_imagelink">http://t3dd11.typo3.org/</label>
       <label index="record_tx_org_cal_t3devdays_imageorient">0</label>
-      <label index="record_tx_org_cal_t3organiser_type">0</label>
+      <label index="record_tx_org_cal_t3organiser_type">record</label>
       <label index="record_tx_org_cal_t3organiser_title">First night: TYPO3 Organiser</label>
       <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Topic
 <ul>
@@ -663,7 +826,7 @@ The sixth edition of the TYPO3 Developer Days will take place:]]></label>
   </li>
 </ul>
 The developer - Dirk Wildt (Die Netzmacher) - will present the TYPO3 Organiser in the public the first time. The will be sopme sample applications and references.
-The Organiser enables you, to manage news and events with selling online tickets and further on to manage your staff, headquarters and locations.
+The Organiser enables you, to manage news and events with selling online tickets and further on to manage your people, headquarters and locations.
 The Organiser is the TYPO3 extension for organisers like theatres and the lobby.
 It is using the shopping cart Caddy.
 <ul>
@@ -729,7 +892,7 @@ Die CD muss noch gepresst werden und ist voraussichtlich ab Ende 2012 lieferbar.
       <label index="record_tx_org_downloads_flyer1_title"><![CDATA[Flyer: TYPO3-Organiser]]></label>
       <label index="record_tx_org_downloads_flyer1_subtitle"><![CDATA[Kurz und bündig und zum Weiterverteilen]]></label>
       <label index="record_tx_org_downloads_flyer1_datetime">1322570940</label>
-      <label index="record_tx_org_downloads_flyer1_bodytext"><![CDATA[Atemberaubendes Tempo: Du kannst TYPO3 mit Nachrichten, Kalender, Online-Ticketsystem, Personalverwaltung und Veranstaltungsorten in 15 bis 30 Minuten erweitern. Du kannst danach sofort Deine Daten veröffentlichen.
+      <label index="record_tx_org_downloads_flyer1_bodytext"><![CDATA[Atemberaubendes Tempo: Du kannst TYPO3 mit Nachrichten, Kalender, Online-Ticketsystem, Personen und Veranstaltungsorten in 15 bis 30 Minuten erweitern. Du kannst danach sofort Deine Daten veröffentlichen.
 Dieser Flyer stellt die Extension kurz vor.
 Du kannst den Flyer herunterladen und auch ein paar Exemplare bestellen - und an Deine Freunde verteilen.]]></label>
       <label index="record_tx_org_downloads_flyer1_teasershort"><![CDATA[Dieser Flyer stellt die Extension Organiser vor: kurz und knapp. Zum Herunterladen und Bestellen. So kannst Du den Flyer persönlich an Deine Freunde verteilen.]]></label>
@@ -808,15 +971,15 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_downloadsmedia_type_flyer">cat_image</label>
       <label index="record_tx_org_downloadsmedia_title_manuals">manual</label>
       <label index="record_tx_org_downloadsmedia_type_manuals">cat_image</label>
-      <label index="record_tx_org_headquarters_netzmacher_title"><![CDATA[Die Netzmacher - Büro Erfurt]]></label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_address"><![CDATA[Borntalweg 4]]></label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_city">Erfurt</label>
+      <label index="record_tx_org_headquarters_netzmacher_title"><![CDATA[Die Netzmacher]]></label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_address"><![CDATA[Rothof 6]]></label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_city">Passau</label>
       <label index="record_tx_org_headquarters_netzmacher_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_lat">50.982425</label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_lon">11.014459</label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_postcode">D-99092</label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_lat">48.4923001</label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_lon">13.4194614</label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_postcode">D-94152</label>
       <label index="record_tx_org_headquarters_netzmacher_mail_url">http://die-netzmacher.de/</label>
-      <label index="record_tx_org_headquarters_netzmacher_telephone">++49 361 74789004</label>
+      <label index="record_tx_org_headquarters_netzmacher_telephone">++49 8507 9237053</label>
       <label index="record_tx_org_headquarters_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_headquarters_netzmacher_image">die_netzmacher_600px_timestamp.jpg</label>
       <label index="record_tx_org_headquarters_netzmacher_imageseo">Die Netzmacher TYPO3</label>
@@ -852,13 +1015,13 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarterscat_title_policy">policy</label>
       <label index="record_tx_org_headquarterscat_title_society">society</label>
       <label index="record_tx_org_headquarterscat_title_typo3">TYPO3</label>
-      <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher - Büro Erfurt]]></label>
+      <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher]]></label>
       <label index="record_tx_org_location_netzmacher_url">http://die-netzmacher.de/</label>
-      <label index="record_tx_org_location_netzmacher_mail_address"><![CDATA[Borntalweg 4]]></label>
-      <label index="record_tx_org_location_netzmacher_mail_postcode">D-99092</label>
-      <label index="record_tx_org_location_netzmacher_mail_city">Erfurt</label>
+      <label index="record_tx_org_location_netzmacher_mail_address">Rothof 6</label>
+      <label index="record_tx_org_location_netzmacher_mail_postcode">D-94152</label>
+      <label index="record_tx_org_location_netzmacher_mail_city">Passau</label>
       <label index="record_tx_org_location_netzmacher_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
-      <label index="record_tx_org_location_netzmacher_telephone">++49 361 74789004</label>
+      <label index="record_tx_org_location_netzmacher_telephone">++49 8507 9237053</label>
       <label index="record_tx_org_location_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_location_netzmacher_image">die_netzmacher_600px_01_timestamp.jpg</label>
       <label index="record_tx_org_location_netzmacher_imageseo">Die Netzmacher TYPO3</label>
@@ -883,7 +1046,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_location_t3devdays_documentscaption">Situationsplan</label>
       <label index="record_tx_org_location_t3devdays_documentslayout">2</label>
       <label index="record_tx_org_location_t3devdays_documentssize">1</label>
-      <label index="record_tx_org_news_flow_type">news</label>
+      <label index="record_tx_org_news_flow_type">record</label>
       <label index="record_tx_org_news_flow_title">Get into the TYPO3 FLOW!</label>
       <label index="record_tx_org_news_flow_datetime">1301523660</label>
       <label index="record_tx_org_news_flow_bodytext"><![CDATA[Discover FLOW3 with our Getting Started Tutorial.
@@ -912,7 +1075,7 @@ It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]><
       <label index="record_tx_org_news_organiser_imageorient">0</label>
       <label index="record_tx_org_news_organiser_imagewidth"></label>
       <label index="record_tx_org_news_organiser_image_link">http://t3n.de/socialnews/TYPO3/TYPO3-Organiser-kommt-am-1-April-Alles-aus-einer-Hand/</label>
-      <label index="record_tx_org_news_president_type">news</label>
+      <label index="record_tx_org_news_president_type">record</label>
       <label index="record_tx_org_news_president_title">Health Reform</label>
       <label index="record_tx_org_news_president_subtitle">A Phone Call from the President</label>
       <label index="record_tx_org_news_president_datetime">1298847600</label>
@@ -958,6 +1121,13 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="record_tx_org_newscat_title_policy">policy</label>
       <label index="record_tx_org_newscat_title_society">society</label>
       <label index="record_tx_org_newscat_title_typo3">TYPO3</label>
+      <label index="record_tx_org_staff_bobama_bodytext"><![CDATA[Barack H. Obama is the 44th President of the United States.
+His story is the American story - values from the heartland, a  middle-class upbringing in a strong family, hard work and education as  the means of getting ahead, and the conviction that a life so blessed  should be lived in service to others.
+With a father from Kenya and a mother from Kansas, President Obama  was born in Hawaii on August 4, 1961. He was raised with help from his  grandfather, who served in Patton's army, and his grandmother, who  worked her way up from the secretarial pool to middle management at a  bank.
+After working his way through college with the help of scholarships  and student loans, President Obama moved to Chicago, where he worked  with a group of churches to help rebuild communities devastated by the  closure of local steel plants.
+He went on to attend law school, where he became the first African-American president of the <i>Harvard Law Review</i>.  Upon graduation, he returned to Chicago to help lead a voter  registration drive, teach constitutional law at the University of  Chicago, and remain active in his community.
+President Obama's years of public service are based around his  unwavering belief in the ability to unite people around a politics of  purpose. In the Illinois State Senate, he passed the first major ethics  reform in 25 years, cut taxes for working families, and expanded health  care for children and their parents. As a United States Senator, he  reached across the aisle to pass groundbreaking lobbying reform, lock up  the world's most dangerous weapons, and bring transparency to  government by putting federal spending online.
+He was elected the 44th President of the United States on November 4,  2008, and sworn in on January 20, 2009. He and his wife, Michelle, are  the proud parents of two daughters, Malia, 12, and Sasha, 9.]]></label>
       <label index="record_tx_org_staff_bobama_name_first">Barack</label>
       <label index="record_tx_org_staff_bobama_name_last">Obama</label>
       <label index="record_tx_org_staff_bobama_contact_phone">++1 202-456-1111</label>
@@ -967,62 +1137,23 @@ Note: you also can visit our 50 States, 50 Stories map to listen to more stories
       <label index="record_tx_org_staff_bobama_image">barack.obama_timestamp.jpg</label>
       <label index="record_tx_org_staff_bobama_imagecaption">Barack O.</label>
       <label index="record_tx_org_staff_bobama_imageseo">Barack Obama: US President</label>
-      <label index="record_tx_org_staff_bobama_vita"><![CDATA[Barack H. Obama is the 44th President of the United States.
-His story is the American story - values from the heartland, a  middle-class upbringing in a strong family, hard work and education as  the means of getting ahead, and the conviction that a life so blessed  should be lived in service to others.
-With a father from Kenya and a mother from Kansas, President Obama  was born in Hawaii on August 4, 1961. He was raised with help from his  grandfather, who served in Patton's army, and his grandmother, who  worked her way up from the secretarial pool to middle management at a  bank.
-After working his way through college with the help of scholarships  and student loans, President Obama moved to Chicago, where he worked  with a group of churches to help rebuild communities devastated by the  closure of local steel plants.
-He went on to attend law school, where he became the first African-American president of the <i>Harvard Law Review</i>.  Upon graduation, he returned to Chicago to help lead a voter  registration drive, teach constitutional law at the University of  Chicago, and remain active in his community.
-President Obama's years of public service are based around his  unwavering belief in the ability to unite people around a politics of  purpose. In the Illinois State Senate, he passed the first major ethics  reform in 25 years, cut taxes for working families, and expanded health  care for children and their parents. As a United States Senator, he  reached across the aisle to pass groundbreaking lobbying reform, lock up  the world's most dangerous weapons, and bring transparency to  government by putting federal spending online.
-He was elected the 44th President of the United States on November 4,  2008, and sworn in on January 20, 2009. He and his wife, Michelle, are  the proud parents of two daughters, Malia, 12, and Sasha, 9.]]></label>
-
       <label index="record_tx_org_staff_dwildt_name_first">Dirk</label>
       <label index="record_tx_org_staff_dwildt_name_last">Wildt</label>
-      <label index="record_tx_org_staff_dwildt_contact_phone">++49 361 74789004</label>
+      <label index="record_tx_org_staff_dwildt_contact_phone">++49 8507 9237053</label>
       <label index="record_tx_org_staff_dwildt_title">Dirk Wildt</label>
       <label index="record_tx_org_staff_dwildt_contact_email">wildt@die-netzmacher.de</label>
       <label index="record_tx_org_staff_dwildt_url">http://wildt.at.die-netzmacher.de/</label>
       <label index="record_tx_org_staff_dwildt_image">dirk.wildt_timestamp.jpg</label>
       <label index="record_tx_org_staff_dwildt_imagecaption">Dirk W.</label>
       <label index="record_tx_org_staff_dwildt_imageseo">Dirk Wildt TYPO3 Oganiser</label>
-      <label index="record_tx_org_staff_dwildt_vita"><![CDATA[
-        <table cellspacing="0" cellpadding="0" border="0" summary="Vita Dirk Wildt" class="vita_wildt">
-          <caption>Dirk Wildt</caption>
-          <tbody>
-            <tr>
-                <th id="row1849-0" scope="row" class="td-0">2009</th>
-                <td headers="row1849-0" class="td-1">Gesellschafter<br><a title="Die Netzmacher" href="http://die-netzmacher.de">Die Netzmacher GbR</a><br>Internetdienstleistungen</td>
-            </tr>
-            <tr>
-                <th id="row1849-1" scope="row" class="td-0">2002 - 2008</th>
-                <td headers="row1849-1" class="td-1">Einzelunternehmer<br><a target="blank" title="think-visually" href="http://think-visually.com">think visually!</a><br>Internetdienstleistungen</td>
-            </tr>
-            <tr>
-                <th id="row1849-2" scope="row" class="td-0">2000 - 2002</th>
-                <td headers="row1849-2" class="td-1">Finanzcontroller<br><a target="blank" title="g.e.b.b." href="http://www.gebb.de">g.e.b.b.</a><br>Verteidigungsindustrie / Militär</td>
-            </tr>
-            <tr>
-                <th id="row1849-3" scope="row" class="td-0">1999 - 2000</th>
-                <td headers="row1849-3" class="td-1">Finanzcontroller<br><a target="blank" title="tagesspiegel.de" href="http://www.tagesspiegel.de/">GMZ (Tagesspiegel-Gruppe)</a><br>Verlagswesen</td>
-            </tr>
-            <tr>
-                <th id="row1849-4" scope="row" class="td-0">1997 - 1999</th>
-                <td headers="row1849-4" class="td-1">Pressesprecher<br><a target="blank" title="Senatsverwaltung für Finanzen, Berlin" href="http://www.berlin.de/sen/finanzen/">Senatsverwaltung für Finanzen, Berlin</a><br>Öffentlicher Dienst</td>
-            </tr>
-            <tr>
-                <th id="row1849-5" scope="row" class="td-0">1996 - 1997</th>
-                <td headers="row1849-5" class="td-1">Finanzcontroller<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
-            </tr>
-            <tr>
-                <th id="row1849-6" scope="row" class="td-0">1989 - 1996</th>
-                <td headers="row1849-6" class="td-1">Redakteur<br><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br>Verlagswesen</td>
-            </tr>
-            <tr>
-                <th id="row1849-7" scope="row" class="td-0">1983 - 1989</th>
-                <td headers="row1849-7" class="td-1">Freischaffender Pressefotograf<br>u.a. Spiegel, stern, Zeit, taz, die tageszeitung, Hamburger Morgenpost<br>Verlagswesen</td>
-            </tr>
-          </tbody>
-        </table>]]></label>
-
+      <label index="record_tx_org_staff_dwildt_vita"><![CDATA[2009|Gesellschafter<br /><a title="Die Netzmacher" href="http://die-netzmacher.de">Die Netzmacher GbR</a><br />Internetdienstleistungen||
+2002 - 2008|Einzelunternehmer<br /><a target="blank" title="think-visually" href="http://think-visually.com">think visually!</a><br />Internetdienstleistungen||
+2000 - 2002|Finanzcontroller<br /><a target="blank" title="g.e.b.b." href="http://www.gebb.de">g.e.b.b.</a><br />Verteidigungsindustrie / Militär||
+1999 - 2000|Finanzcontroller<br /><a target="blank" title="tagesspiegel.de" href="http://www.tagesspiegel.de/">GMZ (Tagesspiegel-Gruppe)</a><br />Verlagswesen||
+1997 - 1999|Pressesprecher<br /><a target="blank" title="Senatsverwaltung für Finanzen, Berlin" href="http://www.berlin.de/sen/finanzen/">Senatsverwaltung für Finanzen, Berlin</a><br />Öffentlicher Dienst||
+1996 - 1997|Finanzcontroller<br /><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br />Verlagswesen||
+1989 - 1996|Redakteur<br /><a target="blank" title="taz, die tageszeitung" href="http://taz.de">taz, die tageszeitung</a><br />Verlagswesen||
+1983 - 1989|Freischaffender Pressefotograf<br />u.a. Spiegel, stern, Zeit, taz, die tageszeitung, Hamburger Morgenpost<br />Verlagswesen||]]></label>
       <label index="record_tx_org_staff_sschaffstein_name_first"><![CDATA[Sören]]></label>
       <label index="record_tx_org_staff_sschaffstein_name_last">Schaffstein</label>
       <label index="record_tx_org_staff_sschaffstein_contact_phone">++49 69 2475218 0</label>
@@ -1056,7 +1187,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="tx_org_location">Locations</label>
       <label index="tx_org_news">News</label>
       <label index="tx_org_newscat">News: Categories</label>
-      <label index="tx_org_staffgroup">Staff: Groups</label>
+      <label index="tx_org_staffgroup">People: Groups</label>
       <label index="tx_org_tax">Tax</label>
       <label index="tx_powermail_domain_model_fields">Powermail Fields</label>
       <label index="tx_powermail_domain_model_forms">Powermail Forms</label>
@@ -1366,7 +1497,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
 </p>
 <ul>
   <li>
-    <a href="index.php?id=%pageOrgHeadquarters_title%">Standorte »</a>
+    <a href="index.php?id=%pageOrgHeadquarters_title%">Firma »</a>
   </li>
 </ul>]]></label>
       <label index="end_button">Seite neu laden</label>
@@ -1375,7 +1506,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="end_h1">Die Installation war erfolgreich!</label>
       <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schließe das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
       <label index="error_all_h1">Organiser Installation nicht durchgeführt!</label>
-      <label index="tx_org_staff">Personal</label>
+      <label index="tx_org_staff">Personen</label>
       <label index="files_create_header">Dateien</label>
       <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>
       <label index="files_create_prompt_error">Datei "###SRCE###" konnte nicht nach "###DEST###" kopiert werden.</label>
@@ -1403,10 +1534,13 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgDataCal_title">Kalender</label>
       <label index="pageOrgDataDownloads_title">Dokumente</label>
       <label index="pageOrgDataEvents_title">Veranstaltungen</label>
-      <label index="pageOrgDataHeadquarters_title">Standorte</label>
+      <label index="pageOrgDataHeadquarters_title">Firmen / Anbieter</label>
+      <label index="pageOrgDataJobs_title">Jobs</label>
+      <label index="pageOrgDataJobsJobsApply_title">Bewerbung</label>
       <label index="pageOrgDataLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgDataNews_title">Nachrichten</label>
-      <label index="pageOrgDataStaff_title">Personal</label>
+      <label index="pageOrgDataService_title">Dienstleistungen</label>
+      <label index="pageOrgDataStaff_title">Personen</label>
       <label index="pageOrgDocuments_title">Dokumente</label>
       <label index="pageOrgDocumentsCaddy_title">Warenkorb</label>
       <label index="pageOrgDocumentsCaddy_titleUrl">Warenkorb</label>
@@ -1415,7 +1549,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgDocumentsCaddyRevocation_title">Widerrufsrecht</label>
       <label index="pageOrgDocumentsCaddyTerms_title">AGB</label>
       <label index="pageOrgEvents_title">Veranstaltungen</label>
-      <label index="pageOrgHeadquarters_title">Standorte</label>
+      <label index="pageOrgHeadquarters_title">Firmen</label>
+      <label index="pageOrgJobs_title">Jobs</label>
+      <label index="pageOrgJobsJobsApply_title">Bewerbung</label>
       <label index="pageOrgLegalinfo_title">Impressum</label>
       <label index="pageOrgLibrary_title">Bibliotheken</label>
       <label index="pageOrgLibraryHeader_title">Kopf</label>
@@ -1426,7 +1562,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgLibraryMenubelow_title">Unter dem Menü</label>
       <label index="pageOrgLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgNews_title">Nachrichten</label>
-      <label index="pageOrgStaff_title">Personal</label>
+      <label index="pageOrgService_title">Dienstleistungen</label>
+      <label index="pageOrgStaff_title">Personen</label>
       <label index="pageOrgTYPO3Integrators_title">TYPO3 Integratoren</label>
       <label index="pageOrgTYPO3IntegratorsDevider_title"><![CDATA[[--------]]]></label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
@@ -1450,8 +1587,10 @@ He was elected the 44th President of the United States on November 4,  2008, and
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
     * Views: Listen, die ... verarbeitet werden: 201: +Org Kalender
   * [Templating]
-    * HTML-Vorlage: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
+  * [jQuery & AJAX]
+    * AJAX: [deaktiviert]
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht
@@ -1490,8 +1629,35 @@ He was elected the 44th President of the United States on November 4,  2008, and
       * table.field: tx_org_downloads.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgHeadquarters_header">[Browser für Organiser Standorte]</label>
-      <label index="pluginBrowserPageOrgHeadquarters_ffListTitle">Organiser Standorte</label>
+      <label index="pluginBrowserPageOrgEvents_header">[Browser für Organiser Veranstaltungen]</label>
+      <label index="pluginBrowserPageOrgEvents_ffListTitle">Organiser Veranstaltungen</label>
+      <label index="pluginBrowserPageOrgEvents_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 61825 +Org Events
+  * [Detailansicht]
+    * Datensatz-Browser: [deaktiviert]
+  * [Templating]
+    * HTML-Vorlage: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
+  * [jQuery & AJAX]
+    * AJAX: [deaktiviert]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Listenansicht
+      * table.field: tx_org_event.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in der Detailansicht
+      * table.field: tx_org_event.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgHeadquarters_header">[Browser für Organiser Firma]</label>
+      <label index="pluginBrowserPageOrgHeadquarters_ffListTitle">Organiser Firma</label>
       <label index="pluginBrowserPageOrgHeadquarters_ffMycomment"><![CDATA[
 * [Verhalten]
   * Datensatzsammlung: Daten
@@ -1504,8 +1670,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML-Vorlage: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
   * [Social Media]
@@ -1515,6 +1681,33 @@ He was elected the 44th President of the United States on November 4,  2008, and
       * Bookmarks: Facebook, google.com, Twitter
     * Bookmarks in der Detailansicht
       * table.field: tx_org_headquarters.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgJobs_header">[Browser für Organiser Jobs]</label>
+      <label index="pluginBrowserPageOrgJobs_ffListTitle">Organiser Jobs</label>
+      <label index="pluginBrowserPageOrgJobs_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 593611: +Org: Jobs
+  * [Detailansicht]
+    * Datensatz-Browser: [deaktiviert]
+  * [Templating]
+    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
+  * [jQuery & AJAX]
+    * AJAX: [deaktiviert]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Listenansicht
+      * table.field: tx_org_staff.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in der Detailansicht
+      * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
       <label index="pluginBrowserPageOrgLocations_header">[Browser für Organiser Veranstaltungsorte]</label>
@@ -1551,6 +1744,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
     * Views: [Konfiguriert]
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
     * Views: Listen, die ... verarbeitet werden: 401: +Org News
+  * [Detailansicht]
+    * Datensatz-Browser: [deaktiviert]
   * [Templating]
     * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
@@ -1565,8 +1760,35 @@ He was elected the 44th President of the United States on November 4,  2008, and
       * table.field: News
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgStaff_header">[Browser für Organiser Personal]</label>
-      <label index="pluginBrowserPageOrgStaff_ffListTitle">Organiser Personal</label>
+      <label index="pluginBrowserPageOrgService_header">[Browser für Organiser Dienstleistungen]</label>
+      <label index="pluginBrowserPageOrgService_ffListTitle">Organiser Dienstleistungen</label>
+      <label index="pluginBrowserPageOrgService_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 593621: +Org: Services
+  * [Detailansicht]
+    * Datensatz-Browser: [deaktiviert]
+  * [Templating]
+    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
+  * [jQuery & AJAX]
+    * AJAX: [deaktiviert]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Listenansicht
+      * table.field: tx_org_staff.title
+      * Bookmarks: Facebook, google.com, Twitter
+    * Bookmarks in der Detailansicht
+      * table.field: tx_org_staff.title
+      * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgStaff_header">[Browser für Organiser Personen]</label>
+      <label index="pluginBrowserPageOrgStaff_ffListTitle">Organiser Personen</label>
       <label index="pluginBrowserPageOrgStaff_ffMycomment"><![CDATA[
 * [Verhalten]
   * Datensatzsammlung: Daten
@@ -1575,10 +1797,14 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Allgemein]
     * Views: [Konfiguriert]
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
-    * Views: Listen, die ... verarbeitet werden: 101: +Org Staff
+    * Views: Listen, die ... verarbeitet werden: 101: +Org People
+  * [Detailansicht]
+    * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
+  * [jQuery & AJAX]
+    * AJAX: [deaktiviert]
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht
@@ -1661,6 +1887,118 @@ He was elected the 44th President of the United States on November 4,  2008, and
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
 <p>Danke, dass Du Dich für TYPO3-Organiser interessierst.
 {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_body_r1x"><![CDATA[<p>Lieber TYPO3-Organiser-Betreiber,<br />
+es gibt eine neue Bestellung.</p>
+<ul>
+  <li>AGB</li>
+  <li>Lieferschein</li>
+  <li>Rechnung und</li>
+  <li>Widerrufsbelehrung</li>
+</ul>
+<p>liegen anbei.</p>
+<p>Da es sich um eine Demo handelt,</p>
+<ul><li>ist von Dir nichts zu veranlassen.</li></ul>
+<p>Und der Kunde hat</p>
+<ul>
+  <li>AGB</li>
+  <li>Lieferschein</li>
+  <li>Rechnung und</li>
+  <li>Widerrufsbelehrung</li>
+</ul>
+<p>ebenfalls erhalten.</p>
+<p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p>
+<ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
+<p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
+###POWERMAIL_TYPOSCRIPT_CADDY###
+###POWERMAIL_ALL###]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_body_r2x"><![CDATA[<p>Lieber TYPO3-Organiser-Betreiber,<br />
+es gibt eine neue Bestellung.</p>
+<ul>
+  <li>AGB</li>
+  <li>Lieferschein</li>
+  <li>Rechnung und</li>
+  <li>Widerrufsbelehrung</li>
+</ul>
+<p>liegen anbei.</p>
+<p>Da es sich um eine Demo handelt,</p>
+<ul><li>ist von Dir nichts zu veranlassen.</li></ul>
+<p>Und der Kunde hat</p>
+<ul>
+  <li>AGB</li>
+  <li>Lieferschein</li>
+  <li>Rechnung und</li>
+  <li>Widerrufsbelehrung</li>
+</ul>
+<p>ebenfalls erhalten.</p>
+<p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p>
+<ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
+<p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />
+{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_body_s1x"><![CDATA[Hallo,<br />
+herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br />
+<br />
+Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p>
+<p></p>
+<ul>
+  <li>AGB</li>
+  <li>Lieferschein</li>
+  <li>Rechnung und</li>
+  <li>Widerrufsbelehrung</li>
+</ul>
+<p>Dies ist ein Demo-Shop</p>
+<ul>
+  <li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li>
+  <li>Die von Dir bestellten Artikel gibt es nicht.</li>
+  <li>Du bekommst die Artikel nicht geliefert.</li>
+  <li>Rechnung und Lieferschein dienen nur der Demonstration.</li>
+  <li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li>
+</ul>
+<p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p>
+<ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
+###POWERMAIL_TYPOSCRIPT_CADDY###
+###POWERMAIL_ALL###]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />
+herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br />
+<br />
+Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p>
+<p></p>
+<ul>
+  <li>AGB</li>
+  <li>Lieferschein</li>
+  <li>Rechnung und</li>
+  <li>Widerrufsbelehrung</li>
+</ul>
+<p>Dies ist ein Demo-Shop</p>
+<ul>
+  <li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li>
+  <li>Die von Dir bestellten Artikel gibt es nicht.</li>
+  <li>Du bekommst die Artikel nicht geliefert.</li>
+  <li>Rechnung und Lieferschein dienen nur der Demonstration.</li>
+  <li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li>
+</ul>
+<p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p>
+<ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
+<p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_header">[Powermail für Job Bewerbung]</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_subject_r1x">[TEST] Neue Organiser-Job-Bewerbung ####POWERMAIL_TYPOSCRIPT_JOBAPPLICATIONORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_subject_r2x">[TEST] Neue Organiser-Job-Bewerbung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_subject_s1x">[TEST] Deine Organiser-Job-Bewerbung ####POWERMAIL_TYPOSCRIPT_JOBAPPLICATIONORDERNUMBER###</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_subject_s2x">[TEST] Deine Organiser-Job-Bewerbung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_thanks1x"><![CDATA[<h1>Danke!</h1>
+<p>Herzlichen Dank für Deine Bestellung.</p>
+<p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse.</p>
+<h2>Besondere Hinweise</h2>
+<p>Dies ist ein Demo-Shop</p>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich für TYPO3-Organiser interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARJOBAPPLICATIONSESSION###</p>]]></label>
+      <label index="pluginPowermailPageOrgJobsJobsApply_thanks2x"><![CDATA[<h1>Danke {billingaddressfirstname} {billingaddresslastname}!</h1>
+<p>Herzlichen Dank für Deine Bestellung.</p>
+<p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse {contactdataemail}.</p>
+<h2>Besondere Hinweise</h2>
+<p>Dies ist ein Demo-Shop</p>
+<ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich für TYPO3-Organiser interessierst.
+{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
       <label index="plugin_warn">Willst Du den Organiser Installer wirklich nicht benutzen?</label>
       <label index="record_create_header">Datensätze</label>
       <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" in der Seite/im Ordner ###TITLE_PID### eingefügt.</label>
@@ -1694,14 +2032,14 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_pm_field_title_submit">Organiser unverbindlich testen!</label>
       <label index="record_pm_form_title_pageOrgCaddy">Caddy Bestellformular (Kalender)</label>
       <label index="record_pm_form_title_pageOrgDocumentsCaddy">Caddy Bestellformular (Downloads)</label>
-      <label index="record_tx_org_cal_eggroll_type">calurl</label>
+      <label index="record_tx_org_cal_eggroll_type">url</label>
       <label index="record_tx_org_cal_eggroll_title">White House: Ostereier-Party</label>
-      <label index="record_tx_org_cal_eggroll_calurl">http://www.whitehouse.gov/eastereggroll</label>
+      <label index="record_tx_org_cal_eggroll_url">http://www.whitehouse.gov/eastereggroll</label>
       <label index="record_tx_org_cal_eggroll_teaser_short"><![CDATA[Der Präsident und die First Lady haben heute angekündigt,
 dass das nächste White House Ostereier-Rollen am kommenden 1. April stattfinden wird.
 Das Thema ist "Steh auf und geh los!".
 Mit der Party soll für mehr Gesundheit und Wohlbefinden geworben werden.]]></label>
-      <label index="record_tx_org_cal_t3devdays_type">0</label>
+      <label index="record_tx_org_cal_t3devdays_type">record</label>
       <label index="record_tx_org_cal_t3devdays_title">TYPO3 Developer Days</label>
       <label index="record_tx_org_cal_t3devdays_bodytext"><![CDATA[
 Wir laden Dich zu den kommenden TYPO3 Developer Days ein.
@@ -1726,7 +2064,7 @@ Die TYPO3 Developer Days finden statt:]]></label>
       <label index="record_tx_org_cal_t3devdays_image">t3dd11_header_front_timestamp.jpg</label>
       <label index="record_tx_org_cal_t3devdays_imagelink">http://t3dd11.typo3.org/</label>
       <label index="record_tx_org_cal_t3devdays_imageorient">0</label>
-      <label index="record_tx_org_cal_t3organiser_type">0</label>
+      <label index="record_tx_org_cal_t3organiser_type">record</label>
       <label index="record_tx_org_cal_t3organiser_title">Premiere: TYPO3 Organiser</label>
       <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Thema
 <ul>
@@ -1735,7 +2073,7 @@ Die TYPO3 Developer Days finden statt:]]></label>
   </li>
 </ul>
 Der Entwickler - Dirk Wildt (Die Netzmacher) - stellt erstmals den TYPO3-Organiser in der Öffentlichkeit vor. Er wird Anwendungsbeispiele mit mehrere Referenzseiten zeigen.
-Mit dem Organiser kannst Du Deine Nachrichten und Veranstaltungen mit Ticket-Verkauf mit einer einzigen TYPO3-Erweiterung verwalten - und darüber hinaus auch Dein Personal, deine Standorte und Veranstaltungsorte.
+Mit dem Organiser kannst Du Deine Nachrichten und Veranstaltungen mit Ticket-Verkauf mit einer einzigen TYPO3-Erweiterung verwalten - und darüber hinaus auch Deine Personen, Firmen und Veranstaltungsorte.
 Der Organiser ist die TYPO3-Erweiterung für Verbände, Veranstalter und etwa Theater-Betriebe.
 Der Organiser hat mit Caddy einen flexiblen Web-Shop integriert, mit dem Karten reserviert und auch gekauft werden können. Er kann leicht an andere Anforderungen angepasst werden.
 <ul>
@@ -1793,12 +2131,12 @@ P.S.: <link record:tx_org_staff:%bobama% - internal-link>Barack Obama</link> hat
       <label index="tx_org_downloadscat">Dokumente: Kategorien</label>
       <label index="tx_org_downloadsmedia">Dokumente: Datentr<![CDATA[ä]]>ger</label>
       <label index="tx_org_event">Veranstaltung</label>
-      <label index="tx_org_headquarters">Standorte</label>
+      <label index="tx_org_headquarters">Firma</label>
       <label index="tx_org_headquarterscat">Firma: Gruppen</label>
       <label index="tx_org_location">Veranstaltungsorte</label>
       <label index="tx_org_news">Nachrichten</label>
       <label index="tx_org_newscat">Nachrichten: Kategorien</label>
-      <label index="tx_org_staffgroup">Personal: Gruppen</label>
+      <label index="tx_org_staffgroup">Personen: Gruppen</label>
       <label index="tx_org_tax">Mehrwertsteuers<![CDATA[ä]]>tze</label>
       <label index="tx_powermail_domain_model_fields">Powermail Felder</label>
       <label index="tx_powermail_domain_model_forms">Powermail Formulare</label>

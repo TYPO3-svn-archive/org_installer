@@ -1,26 +1,27 @@
 <?php
-/***************************************************************
-*  Copyright notice
-*
-*  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 2 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+
+/* * *************************************************************
+ *  Copyright notice
+ *
+ *  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ * ************************************************************* */
 /**
  * [CLASS/FUNCTION INDEX of SCRIPT]
  *
@@ -71,548 +72,771 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 3.0.0
+ * @version 6.0.0
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_plugins
 {
-  public $prefixId      = 'tx_orginstaller_pi1_plugins';                // Same as class name
-  public $scriptRelPath = 'pi1/class.tx_orginstaller_pi1_plugins.php';  // Path to this script relative to the extension dir.
-  public $extKey        = 'org_installer';                      // The extension key.
 
+  public $prefixId = 'tx_orginstaller_pi1_plugins';                // Same as class name
+  public $scriptRelPath = 'pi1/class.tx_orginstaller_pi1_plugins.php';  // Path to this script relative to the extension dir.
+  public $extKey = 'org_installer';                      // The extension key.
   public $pObj = null;
 
+  /*   * *********************************************
+   *
+   * Main
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Main
-  *
-  **********************************************/
-
-/**
- * main( )
- *
- * @return	void
- * @access public
- * @version 3.0.0
- * @since   0.0.1
- */
-  public function main( )
+  /**
+   * main( )
+   *
+   * @return	void
+   * @access public
+   * @version 3.0.0
+   * @since   0.0.1
+   */
+  public function main()
   {
-    $records = array( );
+    $records = array();
 
-    $this->pObj->arrReport[ ] = '
+    $this->pObj->arrReport[] = '
       <h2>
        ' . $this->pObj->pi_getLL( 'plugin_create_header' ) . '
       </h2>';
 
-    $records = $this->mainRecords( );
+    $records = $this->mainRecords();
     $this->sqlInsert( $records );
   }
 
-/**
- * mainRecords( )
- *
- * @return	array		$records : the plugin records
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function mainRecords( )
+  /**
+   * mainRecords( )
+   *
+   * @return	array		$records : the plugin records
+   * @access private
+   * @version 6.0.0
+   * @since   0.0.1
+   */
+  private function mainRecords()
   {
-    $records  = array( );
-    $uid      = $this->pObj->zz_getMaxDbUid( 'tt_content' );
+    $records = array();
+    $uid = $this->pObj->zz_getMaxDbUid( 'tt_content' );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->browserPageOrg( $uid );
+    $records[ $uid ] = $this->browserPageOrg( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->browserPageOrgDocuments( $uid );
+    $records[ $uid ] = $this->browserPageOrgDocuments( $uid );
+
+    // #61826, 140923, dwildt, 2+
+    $uid = $uid + 1;
+    $records[ $uid ] = $this->browserPageOrgEvents( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->browserPageOrgHeadquarters( $uid );
+    $records[ $uid ] = $this->browserPageOrgHeadquarters( $uid );
+
+    // #61779, 140921, dwildt, 2+
+    $uid = $uid + 1;
+    $records[ $uid ] = $this->browserPageOrgJobs( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->browserPageOrgLocations( $uid );
+    $records[ $uid ] = $this->browserPageOrgLocations( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->browserPageOrgNews( $uid );
+    $records[ $uid ] = $this->browserPageOrgNews( $uid );
+
+    // #61779, 140921, dwildt, 2+
+    $uid = $uid + 1;
+    $records[ $uid ] = $this->browserPageOrgService( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->browserPageOrgStaff( $uid );
+    $records[ $uid ] = $this->browserPageOrgStaff( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyPageOrgCaddy( $uid );
+    $records[ $uid ] = $this->caddyPageOrgCaddy( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyminiPageOrgCaddyCaddymini( $uid );
+    $records[ $uid ] = $this->caddyminiPageOrgCaddyCaddymini( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyPageOrgDocumentsCaddy( $uid );
+    $records[ $uid ] = $this->caddyPageOrgDocumentsCaddy( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->caddyminiPageOrgDocumentsCaddyCaddymini( $uid );
+    $records[ $uid ] = $this->caddyminiPageOrgDocumentsCaddyCaddymini( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->powermailPageOrgCaddy( $uid );
+    $records[ $uid ] = $this->powermailPageOrgCaddy( $uid );
 
     $uid = $uid + 1;
-    $records[$uid] = $this->powermailPageOrgDocumentsCaddy( $uid );
+    $records[ $uid ] = $this->powermailPageOrgDocumentsCaddy( $uid );
+
+    // #61779, 140921, dwildt, 2+
+    $uid = $uid + 1;
+    $records[ $uid ] = $this->powermailPageOrgJobsJobsApply( $uid );
 
     return $records;
   }
 
+  /*   * *********************************************
+   *
+   * Browser - TYPO3 without PHP
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Browser - TYPO3 without PHP
-  *
-  **********************************************/
-
-/**
- * browserPageOrg( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * browserPageOrg( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 6.0.0
+   * @since   0.0.1
+   */
   private function browserPageOrg( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrg_header' );
-    $this->pObj->arr_pluginUids['pluginBrowserPageOrg_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrg_header' ] = $uid;
 
-    $ffDownloads  = 'no';
-    $ffJavascript = 'list_and_single';
-    $ffjQueryUi   = 'blitzer';
-    $ffMode       = 201;  // calendar
-    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffMycomment' ) );
-    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffListTitle' ) );
+    $ffDownloads = 'no';
+    // #61819, 140923, dwildt, 2-
+    //$ffJavascript = 'list_and_single';
+    //$ffjQueryUi   = 'blitzer';
+    // #61819, 140923, dwildt, 2+
+    $ffJavascript = 'disabled';
+    $ffjQueryUi = 'z_none';
+    $ffMode = 201;  // calendar
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrg_ffListTitle' ) );
     $ffStatistics = 'no';
     $ffTableField = 'tx_org_cal.title';
-    $ffRecBrowser = 'by_flexform';
+    // #61819, 140923, dwildt, 1-
+    //$ffRecBrowser = 'by_flexform';
+    // #61819, 140923, dwildt, 2+
+    $ffRecBrowser = 'disabled';
+    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
 
-    $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
-    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
-    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
+    // #61819, 140923, dwildt, 1+
+    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
 
 
-    $record['uid']           = $uid;
-    $record['pid']           = $GLOBALS['TSFE']->id;
-    $record['tstamp']        = time( );
-    $record['crdate']        = time( );
-    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']       = 256 * 1;
-    $record['CType']         = 'list';
-    $record['list_type']     = 'browser_pi1';
-    $record['header']        = $llHeader;
-    $record['header_layout'] = 100;  // hidden
-    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
-    $record['recursive']     = 250;
-    $record['sectionIndex']  = 1;
-    $record['pi_flexform']   = $pi_flexform;
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $GLOBALS[ 'TSFE' ]->id;
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 1;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
 
     return $record;
   }
 
-/**
- * browserPageOrgDocuments( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * browserPageOrgDocuments( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function browserPageOrgDocuments( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_header' );
-    $this->pObj->arr_pluginUids['pluginBrowserPageOrgDocuments_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgDocuments_header' ] = $uid;
 
     $ffJavascript = 'disabled';
-    $ffjQueryUi   = 'blitzer';
-    $ffMode       = 301;
-    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_ffMycomment' ) );
-    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_ffListTitle' ) );
+    $ffjQueryUi = 'blitzer';
+    $ffMode = 301;
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_ffListTitle' ) );
     $ffTableField = 'tx_org_downloads.title';
-    $ffDownloads  = 'yes';
+    $ffDownloads = 'yes';
     $ffStatistics = 'yes';
     $ffRecBrowser = 'disabled';
 
-    $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
-    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
-    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
 
-    $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ];
-    $record['tstamp']        = time( );
-    $record['crdate']        = time( );
-    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']       = 128;
-    $record['CType']         = 'list';
-    $record['list_type']     = 'browser_pi1';
-    $record['header']        = $llHeader;
-    $record['header_layout'] = 100;  // hidden
-    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
-    $record['recursive']     = 250;
-    $record['sectionIndex']  = 1;
-    $record['pi_flexform']   = $pi_flexform;
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 128;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
 
     return $record;
   }
 
-/**
- * browserPageOrgHeadquarters( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * browserPageOrgEvents( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @internal #61826
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function browserPageOrgEvents( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgEvents_header' );
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgEvents_header' ] = $uid;
+
+    $ffJavascript = 'disabled';
+    $ffjQueryUi = 'z_none';
+    $ffMode = 61825;
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgEvents_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgEvents_ffListTitle' ) );
+    $ffTableField = 'tx_org_event.title';
+    $ffDownloads = 'no';
+    $ffStatistics = 'no';
+    $ffRecBrowser = 'disabled';
+    // #61696, 140920, dwildt, 1+
+    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
+
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
+    // #61696, 140920, dwildt, 1+
+    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgEvents_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 128;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
+
+    return $record;
+  }
+
+  /**
+   * browserPageOrgHeadquarters( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 6.0.0
+   * @since   0.0.1
+   */
   private function browserPageOrgHeadquarters( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_header' );
-    $this->pObj->arr_pluginUids['pluginBrowserPageOrgHeadquarters_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgHeadquarters_header' ] = $uid;
 
     $ffJavascript = 'disabled';
-    $ffjQueryUi   = 'blitzer';
-    $ffMode       = 501;
-    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffMycomment' ) );
-    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffListTitle' ) );
+    // #61696, 140920, dwildt, 1-
+    //$ffjQueryUi   = 'blitzer';
+    // #61696, 140920, dwildt, 1+
+    $ffjQueryUi = 'z_none';
+    $ffMode = 501;
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgHeadquarters_ffListTitle' ) );
     $ffTableField = 'tx_org_headquarters.title';
-    $ffDownloads  = 'no';
+    $ffDownloads = 'no';
     $ffStatistics = 'no';
     $ffRecBrowser = 'disabled';
+    // #61696, 140920, dwildt, 1+
+    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
 
-    $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
-    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
-    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
+    // #61696, 140920, dwildt, 1+
+    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
 
-    $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ];
-    $record['tstamp']        = time( );
-    $record['crdate']        = time( );
-    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']       = 128;
-    $record['CType']         = 'list';
-    $record['list_type']     = 'browser_pi1';
-    $record['header']        = $llHeader;
-    $record['header_layout'] = 100;  // hidden
-    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
-    $record['recursive']     = 250;
-    $record['sectionIndex']  = 1;
-    $record['pi_flexform']   = $pi_flexform;
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 128;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
 
     return $record;
   }
 
-/**
- * browserPageOrgLocations( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * browserPageOrgJobs( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @internal #61779
+   * @version 6.0.0
+   * @since 6.0.0
+   */
+  private function browserPageOrgJobs( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgJobs_header' );
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgJobs_header' ] = $uid;
+
+    $ffJavascript = 'disabled';
+    $ffjQueryUi = 'z_none';
+    $ffMode = 593611;
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgJobs_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgJobs_ffListTitle' ) );
+    $ffTableField = 'tx_org_staff.title';
+    $ffDownloads = 'no';
+    $ffStatistics = 'no';
+    // #61696, 140920, dwildt, 1-
+    //$ffRecBrowser = 'by_flexform';
+    // #61696, 140920, dwildt, 2+
+    $ffRecBrowser = 'disabled';
+    $ffTemplate = 'EXT:browser/res/html/foundation/table_01.html';
+
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
+    // #61696, 140920, dwildt, 1+
+    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgJobs_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 128;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
+
+    return $record;
+  }
+
+  /**
+   * browserPageOrgLocations( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function browserPageOrgLocations( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_header' );
-    $this->pObj->arr_pluginUids['pluginBrowserPageOrgLocations_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgLocations_header' ] = $uid;
 
     $ffJavascript = 'list_and_single';
-    $ffjQueryUi   = 'blitzer';
-    $ffMode       = 701;
-    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffMycomment' ) );
-    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffListTitle' ) );
+    $ffjQueryUi = 'blitzer';
+    $ffMode = 701;
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgLocations_ffListTitle' ) );
     $ffTableField = 'tx_org_location.title';
-    $ffDownloads  = 'no';
+    $ffDownloads = 'no';
     $ffStatistics = 'no';
     $ffRecBrowser = 'by_flexform';
 
-    $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
-    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
-    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
 
-    $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgLocations_title' ];
-    $record['tstamp']        = time( );
-    $record['crdate']        = time( );
-    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']       = 128;
-    $record['CType']         = 'list';
-    $record['list_type']     = 'browser_pi1';
-    $record['header']        = $llHeader;
-    $record['header_layout'] = 100;  // hidden
-    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
-    $record['recursive']     = 250;
-    $record['sectionIndex']  = 1;
-    $record['pi_flexform']   = $pi_flexform;
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgLocations_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 128;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
 
     return $record;
   }
 
-/**
- * browserPageOrgNews( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 6.0.0
- * @since   0.0.1
- */
+  /**
+   * browserPageOrgNews( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 6.0.0
+   * @since   0.0.1
+   */
   private function browserPageOrgNews( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_header' );
-    $this->pObj->arr_pluginUids['pluginBrowserPageOrgNews_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgNews_header' ] = $uid;
 
-      // #i0008, 130912, dwildt
+    // #i0008, 130912, dwildt
     $ffJavascript = 'disabled';
-      // #61696, 140918, dwildt, 1-
+    // #61696, 140918, dwildt, 1-
     //$ffjQueryUi   = 'blitzer';
-      // #61696, 140918, dwildt, 1+
-    $ffjQueryUi   = 'z_none';
-    $ffMode       = 401;
-    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffMycomment' ) );
-    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffListTitle' ) );
+    // #61696, 140918, dwildt, 1+
+    $ffjQueryUi = 'z_none';
+    $ffMode = 401;
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgNews_ffListTitle' ) );
     $ffTableField = 'tx_org_news.title';
-    $ffDownloads  = 'no';
+    $ffDownloads = 'no';
     $ffStatistics = 'no';
-    $ffRecBrowser = 'by_flexform';
-    $ffTemplate   = 'EXT:browser/res/html/foundation/main_02.html';
+    // #61696, 140918, dwildt, 1-
+    //$ffRecBrowser = 'by_flexform';
+    // #61696, 140918, dwildt, 2+
+    $ffRecBrowser = 'disabled';
+    $ffTemplate = 'EXT:browser/res/html/foundation/main_02.html';
 
-    $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
-    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
-    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
-      // #61696, 140918, dwildt, 1+
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl',                 $ffTemplate,  $pi_flexform );
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
+    // #61696, 140918, dwildt, 1+
+    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
 
-    $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgNews_title' ];
-    $record['tstamp']        = time( );
-    $record['crdate']        = time( );
-    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']       = 128;
-    $record['CType']         = 'list';
-    $record['list_type']     = 'browser_pi1';
-    $record['header']        = $llHeader;
-    $record['header_layout'] = 100;  // hidden
-    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
-    $record['recursive']     = 250;
-    $record['sectionIndex']  = 1;
-    $record['pi_flexform']   = $pi_flexform;
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgNews_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 128;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
 
     return $record;
   }
 
-/**
- * browserPageOrgStaff( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * browserPageOrgService( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @internal #61779
+   * @version 6.0.0
+   * @since 6.0.0
+   */
+  private function browserPageOrgService( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgService_header' );
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgService_header' ] = $uid;
+
+    $ffJavascript = 'disabled';
+    $ffjQueryUi = 'z_none';
+    $ffMode = 593621;
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgService_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgService_ffListTitle' ) );
+    $ffTableField = 'tx_org_staff.title';
+    $ffDownloads = 'no';
+    $ffStatistics = 'no';
+    // #61696, 140920, dwildt, 1-
+    //$ffRecBrowser = 'by_flexform';
+    // #61696, 140920, dwildt, 2+
+    $ffRecBrowser = 'disabled';
+    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
+
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
+    // #61696, 140920, dwildt, 1+
+    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgService_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 128;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
+
+    return $record;
+  }
+
+  /**
+   * browserPageOrgStaff( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 6.0.0
+   * @since   0.0.1
+   */
   private function browserPageOrgStaff( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_header' );
-    $this->pObj->arr_pluginUids['pluginBrowserPageOrgStaff_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgStaff_header' ] = $uid;
 
-    $ffJavascript = 'list_and_single';
-    $ffjQueryUi   = 'blitzer';
-    $ffMode       = 101;
-    $ffMycomment  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffMycomment' ) );
-    $ffListTitle  = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffListTitle' ) );
+    // #61696, 140920, dwildt, 2-
+    //$ffJavascript = 'list_and_single';
+    //$ffjQueryUi   = 'blitzer';
+    // #61696, 140920, dwildt, 2+
+    $ffJavascript = 'disabled';
+    $ffjQueryUi = 'z_none';
+    $ffMode = 101;
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaff_ffListTitle' ) );
     $ffTableField = 'tx_org_staff.title';
-    $ffDownloads  = 'no';
+    $ffDownloads = 'no';
     $ffStatistics = 'no';
-    $ffRecBrowser = 'by_flexform';
+    // #61696, 140920, dwildt, 1-
+    //$ffRecBrowser = 'by_flexform';
+    // #61696, 140920, dwildt, 2+
+    $ffRecBrowser = 'disabled';
+    $ffTemplate = 'EXT:browser/res/html/foundation/main_02.html';
 
-    $pi_flexform = $this->zzGetFlexformBrowser( );
-    $pi_flexform = str_replace( '%cssJqueryUi%',                $ffjQueryUi,    $pi_flexform );
-    $pi_flexform = str_replace( '%downloads%',                  $ffDownloads,   $pi_flexform );
-    $pi_flexform = str_replace( '%javascript%',                 $ffJavascript,  $pi_flexform );
-    $pi_flexform = str_replace( '%mode%',                       $ffMode,        $pi_flexform );
-    $pi_flexform = str_replace( '%mycomment%',                  $ffMycomment,   $pi_flexform );
-    $pi_flexform = str_replace( '%listtitle%',                  $ffListTitle,   $pi_flexform );
-    $pi_flexform = str_replace( '%recordbrowser%',              $ffRecBrowser,  $pi_flexform );
-    $pi_flexform = str_replace( '%socialMediaTableFieldList%',  $ffTableField,  $pi_flexform );
-    $pi_flexform = str_replace( '%statistics%',                 $ffStatistics,  $pi_flexform );
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
+    // #61696, 140920, dwildt, 1+
+    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
 
-    $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ];
-    $record['tstamp']        = time( );
-    $record['crdate']        = time( );
-    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']       = 128;
-    $record['CType']         = 'list';
-    $record['list_type']     = 'browser_pi1';
-    $record['header']        = $llHeader;
-    $record['header_layout'] = 100;  // hidden
-    $record['pages']         = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
-    $record['recursive']     = 250;
-    $record['sectionIndex']  = 1;
-    $record['pi_flexform']   = $pi_flexform;
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 128;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
 
     return $record;
   }
 
+  /*   * *********************************************
+   *
+   * Caddy
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Caddy
-  *
-  **********************************************/
-
-/**
- * caddyPageOrgCaddy( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * caddyPageOrgCaddy( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function caddyPageOrgCaddy( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgCaddy_header' );
-    $this->pObj->arr_pluginUids['pluginCaddyPageOrgCaddy_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginCaddyPageOrgCaddy_header' ] = $uid;
 
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256;
-    $record['CType']        = 'list';
-    $record['header']       = $llHeader;
-    $record['list_type']    = 'caddy_pi1';
-    $record['sectionIndex'] = 1;
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256;
+    $record[ 'CType' ] = 'list';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'list_type' ] = 'caddy_pi1';
+    $record[ 'sectionIndex' ] = 1;
 // Will updated by consolidate->pageCaddyPluginCaddy
 //    $record['pi_flexform']  = '';
 
     return $record;
   }
 
-
-/**
- * caddyPageOrgDocumentsCaddy( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * caddyPageOrgDocumentsCaddy( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function caddyPageOrgDocumentsCaddy( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgDocumentsCaddy_header' );
-    $this->pObj->arr_pluginUids['pluginCaddyPageOrgDocumentsCaddy_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginCaddyPageOrgDocumentsCaddy_header' ] = $uid;
 
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256;
-    $record['CType']        = 'list';
-    $record['header']       = $llHeader;
-    $record['list_type']    = 'caddy_pi1';
-    $record['sectionIndex'] = 1;
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256;
+    $record[ 'CType' ] = 'list';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'list_type' ] = 'caddy_pi1';
+    $record[ 'sectionIndex' ] = 1;
 // Will updated by consolidate->pageCaddyPluginCaddy
 //    $record['pi_flexform']  = '';
 
     return $record;
   }
 
-/**
- * caddyminiPageOrgCaddyCaddymini( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.5
- * @since   3.0.5
- * @internal  #i0007
- */
+  /**
+   * caddyminiPageOrgCaddyCaddymini( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.5
+   * @since   3.0.5
+   * @internal  #i0007
+   */
   private function caddyminiPageOrgCaddyCaddymini( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgCaddyCaddymini_header' );
-    $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgCaddyCaddymini_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginCaddyminiPageOrgCaddyCaddymini_header' ] = $uid;
 
-    $uidCaddyPage           = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $uidCaddyPage = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
 
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256;
-    $record['CType']        = 'list';
-    $record['header']       = $llHeader;
-    $record['header_layout']  = 100; // hidden
-    $record['list_type']    = 'caddy_pi3';
-    $record['sectionIndex'] = 1;
-    $record['pi_flexform']  = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256;
+    $record[ 'CType' ] = 'list';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100; // hidden
+    $record[ 'list_type' ] = 'caddy_pi3';
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
         <sheet index="sDEF">
@@ -628,37 +852,37 @@ class tx_orginstaller_pi1_plugins
     return $record;
   }
 
-/**
- * caddyminiPageOrgDocumentsCaddyCaddymini( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.5
- * @since   3.0.5
- * @internal  #i0007
- */
+  /**
+   * caddyminiPageOrgDocumentsCaddyCaddymini( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.5
+   * @since   3.0.5
+   * @internal  #i0007
+   */
   private function caddyminiPageOrgDocumentsCaddyCaddymini( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyminiPageOrgDocumentsCaddyCaddymini_header' );
-    $this->pObj->arr_pluginUids['pluginCaddyminiPageOrgDocumentsCaddyCaddymini_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginCaddyminiPageOrgDocumentsCaddyCaddymini_header' ] = $uid;
 
-    $uidCaddyPage           = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
+    $uidCaddyPage = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
 
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256;
-    $record['CType']        = 'list';
-    $record['header']       = $llHeader;
-    $record['header_layout']  = 100; // hidden
-    $record['list_type']    = 'caddy_pi3';
-    $record['sectionIndex'] = 1;
-    $record['pi_flexform']  = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256;
+    $record[ 'CType' ] = 'list';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100; // hidden
+    $record[ 'list_type' ] = 'caddy_pi3';
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
         <sheet index="sDEF">
@@ -674,26 +898,24 @@ class tx_orginstaller_pi1_plugins
     return $record;
   }
 
+  /*   * *********************************************
+   *
+   * Powermail
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Powermail
-  *
-  **********************************************/
-
-/**
- * powermailPageOrgCaddy( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * powermailPageOrgCaddy( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function powermailPageOrgCaddy( $uid )
   {
-    switch( true )
+    switch ( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
         $prompt = 'ERROR: unexpected result<br />
@@ -721,106 +943,106 @@ class tx_orginstaller_pi1_plugins
     return $record;
   }
 
-/**
- * powermailPageOrgCaddy1x( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * powermailPageOrgCaddy1x( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function powermailPageOrgCaddy1x( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
-    $this->pObj->arr_pluginUids['pluginPowermailPageOrgCaddy_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ] = $uid;
 
-    $emailRecipient = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###']
-                    . PHP_EOL
-                    . 'Organiser'
-                    ;
+    $emailRecipient = $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ]
+            . PHP_EOL
+            . 'Organiser'
+    ;
 
-    $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
-    $record['tstamp']                     = time( );
-    $record['crdate']                     = time( );
-    $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']                    = 256 * 3;
-    $record['CType']                      = 'powermail_pi1';
-    $record['header']                     = $llHeader;
-    $record['header_layout']              = 100;  // hidden
-    $record['list_type']                  = '';
-    $record['sectionIndex']               = 1;
-    $record['tx_powermail_title']         = 'org';
-    $record['tx_powermail_recipient']     = $emailRecipient;
-    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_r1x' );
-    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_s1x' );
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 3;
+    $record[ 'CType' ] = 'powermail_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'list_type' ] = '';
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'tx_powermail_title' ] = 'org';
+    $record[ 'tx_powermail_recipient' ] = $emailRecipient;
+    $record[ 'tx_powermail_subject_r' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_r1x' );
+    $record[ 'tx_powermail_subject_s' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_s1x' );
 // Will updated by consolidate->pageCaddyPluginPowermail
 //    $record['tx_powermail_sender']        = $str_sender;
 //    $record['tx_powermail_sendername']    = $str_sendername;
-    $record['tx_powermail_confirm']       = 1;
-    $record['tx_powermail_pages']         = null;
-    $record['tx_powermail_multiple']      = 0;
-    $record['tx_powermail_recip_table']   = 0;
-    $record['tx_powermail_recip_id']      = null;
-    $record['tx_powermail_recip_field']   = null;
-    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_thanks1x' );
-    $record['tx_powermail_mailsender']    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_s1x' );
-    $record['tx_powermail_mailreceiver']  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_r1x' );
-    $record['tx_powermail_redirect']      = null;
-    $record['tx_powermail_fieldsets']     = 4;
-    $record['tx_powermail_users']         = 0;
-    $record['tx_powermail_preview']       = 0;
+    $record[ 'tx_powermail_confirm' ] = 1;
+    $record[ 'tx_powermail_pages' ] = null;
+    $record[ 'tx_powermail_multiple' ] = 0;
+    $record[ 'tx_powermail_recip_table' ] = 0;
+    $record[ 'tx_powermail_recip_id' ] = null;
+    $record[ 'tx_powermail_recip_field' ] = null;
+    $record[ 'tx_powermail_thanks' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_thanks1x' );
+    $record[ 'tx_powermail_mailsender' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_s1x' );
+    $record[ 'tx_powermail_mailreceiver' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_r1x' );
+    $record[ 'tx_powermail_redirect' ] = null;
+    $record[ 'tx_powermail_fieldsets' ] = 4;
+    $record[ 'tx_powermail_users' ] = 0;
+    $record[ 'tx_powermail_preview' ] = 0;
 
     return $record;
   }
 
-/**
- * powermailPageOrgCaddy2x( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * powermailPageOrgCaddy2x( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function powermailPageOrgCaddy2x( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
-    $this->pObj->arr_pluginUids['pluginPowermailPageOrgCaddy_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ] = $uid;
 
-    $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
-    $record['tstamp']                     = time( );
-    $record['crdate']                     = time( );
-    $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']                    = 256 * 3;
-    $record['CType']                      = 'list';
-    $record['header']                     = $llHeader;
-    $record['header_layout']              = 100;  // hidden
-    $record['list_type']                  = 'powermail_pi1';
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 3;
+    $record[ 'CType' ] = 'list';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'list_type' ] = 'powermail_pi1';
 // Will updated by consolidate->pageCaddyPluginPowermail
 //    $record['pi_flexform']              = null;
 
     return $record;
   }
 
-/**
- * powermailPageOrgDocumentsCaddy( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * powermailPageOrgDocumentsCaddy( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function powermailPageOrgDocumentsCaddy( $uid )
   {
-    switch( true )
+    switch ( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
         $prompt = 'ERROR: unexpected result<br />
@@ -848,166 +1070,289 @@ class tx_orginstaller_pi1_plugins
     return $record;
   }
 
-/**
- * powermailPageOrgDocumentsCaddy1x( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * powermailPageOrgDocumentsCaddy1x( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function powermailPageOrgDocumentsCaddy1x( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_header' );
-    $this->pObj->arr_pluginUids['pluginPowermailPageOrgDocumentsCaddy_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDocumentsCaddy_header' ] = $uid;
 
-    $emailRecipient = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###']
-                    . PHP_EOL
-                    . 'Organiser'
-                    ;
+    $emailRecipient = $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ]
+            . PHP_EOL
+            . 'Organiser'
+    ;
 
-    $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
-    $record['tstamp']                     = time( );
-    $record['crdate']                     = time( );
-    $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']                    = 256 * 3;
-    $record['CType']                      = 'powermail_pi1';
-    $record['header']                     = $llHeader;
-    $record['header_layout']              = 100;  // hidden
-    $record['list_type']                  = '';
-    $record['sectionIndex']               = 1;
-    $record['tx_powermail_title']         = 'org';
-    $record['tx_powermail_recipient']     = $emailRecipient;
-    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_r1x' );
-    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_s1x' );
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 3;
+    $record[ 'CType' ] = 'powermail_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'list_type' ] = '';
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'tx_powermail_title' ] = 'org';
+    $record[ 'tx_powermail_recipient' ] = $emailRecipient;
+    $record[ 'tx_powermail_subject_r' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_r1x' );
+    $record[ 'tx_powermail_subject_s' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_s1x' );
 // Will updated by consolidate->pageCaddyPluginPowermail
 //    $record['tx_powermail_sender']        = $str_sender;
 //    $record['tx_powermail_sendername']    = $str_sendername;
-    $record['tx_powermail_confirm']       = 1;
-    $record['tx_powermail_pages']         = null;
-    $record['tx_powermail_multiple']      = 0;
-    $record['tx_powermail_recip_table']   = 0;
-    $record['tx_powermail_recip_id']      = null;
-    $record['tx_powermail_recip_field']   = null;
-    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_thanks1x' );
-    $record['tx_powermail_mailsender']    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_s1x' );
-    $record['tx_powermail_mailreceiver']  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_r1x' );
-    $record['tx_powermail_redirect']      = null;
-    $record['tx_powermail_fieldsets']     = 4;
-    $record['tx_powermail_users']         = 0;
-    $record['tx_powermail_preview']       = 0;
+    $record[ 'tx_powermail_confirm' ] = 1;
+    $record[ 'tx_powermail_pages' ] = null;
+    $record[ 'tx_powermail_multiple' ] = 0;
+    $record[ 'tx_powermail_recip_table' ] = 0;
+    $record[ 'tx_powermail_recip_id' ] = null;
+    $record[ 'tx_powermail_recip_field' ] = null;
+    $record[ 'tx_powermail_thanks' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_thanks1x' );
+    $record[ 'tx_powermail_mailsender' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_s1x' );
+    $record[ 'tx_powermail_mailreceiver' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_r1x' );
+    $record[ 'tx_powermail_redirect' ] = null;
+    $record[ 'tx_powermail_fieldsets' ] = 4;
+    $record[ 'tx_powermail_users' ] = 0;
+    $record[ 'tx_powermail_preview' ] = 0;
 
     return $record;
   }
 
-/**
- * powermailPageOrgDocumentsCaddy2x( )
- *
- * @param	integer		$uid: uid of the current plugin
- * @return	array		$record : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+  /**
+   * powermailPageOrgDocumentsCaddy2x( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function powermailPageOrgDocumentsCaddy2x( $uid )
   {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_header' );
-    $this->pObj->arr_pluginUids['pluginPowermailPageOrgDocumentsCaddy_header'] = $uid;
+    $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDocumentsCaddy_header' ] = $uid;
 
-    $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
-    $record['tstamp']                     = time( );
-    $record['crdate']                     = time( );
-    $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']                    = 256 * 3;
-    $record['CType']                      = 'list';
-    $record['header']                     = $llHeader;
-    $record['header_layout']              = 100;  // hidden
-    $record['list_type']                  = 'powermail_pi1';
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 3;
+    $record[ 'CType' ] = 'list';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'list_type' ] = 'powermail_pi1';
 // Will updated by consolidate->pageCaddyPluginPowermail
 //    $record['pi_flexform']              = null;
 
     return $record;
   }
 
+  /**
+   * powermailPageOrgJobsJobsApply( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
+  private function powermailPageOrgJobsJobsApply( $uid )
+  {
+    switch ( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $record = $this->powermailPageOrgJobsJobsApply1x( $uid );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $record = $this->powermailPageOrgJobsJobsApply2x( $uid );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
+    return $record;
+  }
 
- /***********************************************
-  *
-  * Sql
-  *
-  **********************************************/
+  /**
+   * powermailPageOrgJobsJobsApply1x( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
+  private function powermailPageOrgJobsJobsApply1x( $uid )
+  {
+    $record = null;
 
-/**
- * sqlInsert( )
- *
- * @param	array		$records : TypoScript records for pages
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgJobsJobsApply_header' );
+    $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgJobsJobsApply_header' ] = $uid;
+
+    $emailRecipient = $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ]
+            . PHP_EOL
+            . 'Organiser'
+    ;
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgJobsJobsApply_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 3;
+    $record[ 'CType' ] = 'powermail_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'list_type' ] = '';
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'tx_powermail_title' ] = 'org';
+    $record[ 'tx_powermail_recipient' ] = $emailRecipient;
+    $record[ 'tx_powermail_subject_r' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgJobsJobsApply_subject_r1x' );
+    $record[ 'tx_powermail_subject_s' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgJobsJobsApply_subject_s1x' );
+// Will updated by consolidate->pageJobsJobsApplyPluginPowermail
+//    $record['tx_powermail_sender']        = $str_sender;
+//    $record['tx_powermail_sendername']    = $str_sendername;
+    $record[ 'tx_powermail_confirm' ] = 1;
+    $record[ 'tx_powermail_pages' ] = null;
+    $record[ 'tx_powermail_multiple' ] = 0;
+    $record[ 'tx_powermail_recip_table' ] = 0;
+    $record[ 'tx_powermail_recip_id' ] = null;
+    $record[ 'tx_powermail_recip_field' ] = null;
+    $record[ 'tx_powermail_thanks' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgJobsJobsApply_thanks1x' );
+    $record[ 'tx_powermail_mailsender' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgJobsJobsApply_body_s1x' );
+    $record[ 'tx_powermail_mailreceiver' ] = $this->pObj->pi_getLL( 'pluginPowermailPageOrgJobsJobsApply_body_r1x' );
+    $record[ 'tx_powermail_redirect' ] = null;
+    $record[ 'tx_powermail_fieldsets' ] = 4;
+    $record[ 'tx_powermail_users' ] = 0;
+    $record[ 'tx_powermail_preview' ] = 0;
+
+    return $record;
+  }
+
+  /**
+   * powermailPageOrgJobsJobsApply2x( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
+  private function powermailPageOrgJobsJobsApply2x( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgJobsJobsApply_header' );
+    $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgJobsJobsApply_header' ] = $uid;
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgJobsJobsApply_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 3;
+    $record[ 'CType' ] = 'list';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'list_type' ] = 'powermail_pi1';
+// Will updated by consolidate->pageJobsJobsApplyPluginPowermail
+//    $record['pi_flexform']              = null;
+
+    return $record;
+  }
+
+  /*   * *********************************************
+   *
+   * Sql
+   *
+   * ******************************************** */
+
+  /**
+   * sqlInsert( )
+   *
+   * @param	array		$records : TypoScript records for pages
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
   private function sqlInsert( $records )
   {
-    foreach( $records as $record )
+    foreach ( $records as $record )
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'tt_content', $record );
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+      $GLOBALS[ 'TYPO3_DB' ]->exec_INSERTquery( 'tt_content', $record );
+      $error = $GLOBALS[ 'TYPO3_DB' ]->sql_error();
 
-      if( $error )
+      if ( $error )
       {
-        $query  = $GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record );
+        $query = $GLOBALS[ 'TYPO3_DB' ]->INSERTquery( 'tt_content', $record );
         $prompt = 'SQL-ERROR<br />' . PHP_EOL .
-                  'query: ' . $query . '.<br />' . PHP_EOL .
-                  'error: ' . $error . '.<br />' . PHP_EOL .
-                  'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
+                'query: ' . $query . '.<br />' . PHP_EOL .
+                'error: ' . $error . '.<br />' . PHP_EOL .
+                'Sorry for the trouble.<br />' . PHP_EOL .
+                'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
 
-        // prompt
-      $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
+      // prompt
+      $pageTitle = $this->pObj->arr_pageTitles[ $record[ 'pid' ] ];
       $pageTitle = $this->pObj->pi_getLL( $pageTitle );
-      $marker['###HEADER###']     = $record['header'];
-      $marker['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $record['pid'] . ')';
+      $marker[ '###HEADER###' ] = $record[ 'header' ];
+      $marker[ '###TITLE_PID###' ] = '"' . $pageTitle . '" (uid ' . $record[ 'pid' ] . ')';
       $prompt = '
         <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'plugin_create_prompt' ) . '
+          ' . $this->pObj->arr_icons[ 'ok' ] . ' ' . $this->pObj->pi_getLL( 'plugin_create_prompt' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
-      $this->pObj->arrReport[ ] = $prompt;
-        // prompt
+      $this->pObj->arrReport[] = $prompt;
+      // prompt
     }
   }
 
+  /*   * *********************************************
+   *
+   * zz - helper
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * zz - helper
-  *
-  **********************************************/
-
-/**
- * zzGetFlexformBrowser( )
- *
- * @return	string		$flexform : flexform for the browser plugin
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function zzGetFlexformBrowser( )
+  /**
+   * zzGetFlexformBrowser( )
+   *
+   * @return	string		$flexform : flexform for the browser plugin
+   * @access private
+   * @version 3.0.0
+   * @since   0.0.1
+   */
+  private function zzGetFlexformBrowser()
   {
-    $flexform = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+    $flexform = '' .
+            '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
         <sheet index="sDEF">
@@ -1090,11 +1435,10 @@ class tx_orginstaller_pi1_plugins
 
     return $flexform;
   }
+
 }
 
-
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/pi1/class.tx_orginstaller_pi1_plugins.php'])
+if ( defined( 'TYPO3_MODE' ) && $TYPO3_CONF_VARS[ TYPO3_MODE ][ 'XCLASS' ][ 'ext/org_installer/pi1/class.tx_orginstaller_pi1_plugins.php' ] )
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/pi1/class.tx_orginstaller_pi1_plugins.php']);
+  include_once($TYPO3_CONF_VARS[ TYPO3_MODE ][ 'XCLASS' ][ 'ext/org_installer/pi1/class.tx_orginstaller_pi1_plugins.php' ]);
 }

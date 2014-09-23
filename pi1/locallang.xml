@@ -817,6 +817,7 @@ The sixth edition of the TYPO3 Developer Days will take place:]]></label>
       <label index="record_tx_org_cal_t3devdays_image">t3dd11_header_front_timestamp.jpg</label>
       <label index="record_tx_org_cal_t3devdays_imagelink">http://t3dd11.typo3.org/</label>
       <label index="record_tx_org_cal_t3devdays_imageorient">0</label>
+      <label index="record_tx_org_cal_t3devdays_imageorient">0</label>
       <label index="record_tx_org_cal_t3organiser_type">record</label>
       <label index="record_tx_org_cal_t3organiser_title">First night: TYPO3 Organiser</label>
       <label index="record_tx_org_cal_t3organiser_bodytext"><![CDATA[Topic
@@ -972,26 +973,22 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_downloadsmedia_title_manuals">manual</label>
       <label index="record_tx_org_downloadsmedia_type_manuals">cat_image</label>
       <label index="record_tx_org_headquarters_netzmacher_title"><![CDATA[Die Netzmacher]]></label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_address"><![CDATA[Rothof 6]]></label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_city">Passau</label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_street"><![CDATA[Rothof 6]]></label>
+      <label index="record_tx_org_headquarters_netzmacher_mail_city">Neuhaus am Inn</label>
       <label index="record_tx_org_headquarters_netzmacher_mail_lat">48.4923001</label>
       <label index="record_tx_org_headquarters_netzmacher_mail_lon">13.4194614</label>
       <label index="record_tx_org_headquarters_netzmacher_mail_postcode">D-94152</label>
-      <label index="record_tx_org_headquarters_netzmacher_mail_url">http://die-netzmacher.de/</label>
       <label index="record_tx_org_headquarters_netzmacher_telephone">++49 8507 9237053</label>
       <label index="record_tx_org_headquarters_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_headquarters_netzmacher_image">die_netzmacher_600px_timestamp.jpg</label>
       <label index="record_tx_org_headquarters_netzmacher_imageseo">Die Netzmacher TYPO3</label>
       <label index="record_tx_org_headquarters_netzmacher_imageorient">0</label>
       <label index="record_tx_org_headquarters_president_title">The White House</label>
-      <label index="record_tx_org_headquarters_president_mail_address">1600 Pennsylvania Avenue Northwest</label>
+      <label index="record_tx_org_headquarters_president_mail_street">1600 Pennsylvania Avenue Northwest</label>
       <label index="record_tx_org_headquarters_president_mail_city">Washington D.C., United States</label>
-      <label index="record_tx_org_headquarters_president_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=white+house+government&amp;aq=&amp;sll=38.897696,-77.036519&amp;sspn=0.003707,0.009645&amp;ie=UTF8&amp;rq=1&amp;ev=zi&amp;radius=0.31&amp;split=1&amp;hq=white+house+government&amp;hnear=&amp;ll=38.904326,-77.048836&amp;spn=0.003707,0.009645&amp;iwloc=lyrftr:m,16690021471939518983,38.897696,-77.036519" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
       <label index="record_tx_org_headquarters_president_mail_lat">38.897594</label>
       <label index="record_tx_org_headquarters_president_mail_lon">-77.036572</label>
       <label index="record_tx_org_headquarters_president_mail_postcode">DC 20500-0003</label>
-      <label index="record_tx_org_headquarters_president_mail_url">http://www.whitehouse.gov/</label>
       <label index="record_tx_org_headquarters_president_telephone">++1 202-456-1111</label>
       <label index="record_tx_org_headquarters_president_email">barack.obama@whitehouse.gov</label>
       <label index="record_tx_org_headquarters_president_image">white_house_timestamp.jpg</label>
@@ -999,13 +996,11 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_president_imageorient">26</label>
       <label index="record_tx_org_headquarters_president_imagewidth">140</label>
       <label index="record_tx_org_headquarters_typo3_title">TYPO3 Association</label>
-      <label index="record_tx_org_headquarters_typo3_mail_address">Sihlbruggstrasse 105</label>
+      <label index="record_tx_org_headquarters_typo3_mail_street">Sihlbruggstrasse 105</label>
       <label index="record_tx_org_headquarters_typo3_mail_city">Baar</label>
-      <label index="record_tx_org_headquarters_typo3_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;q=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;ie=UTF8&amp;geocode=FZ1o0AIdnJuCAA&amp;split=0&amp;sll=51.151786,10.415039&amp;sspn=7.307413,14.941406&amp;hq=&amp;hnear=Sihlbruggstrasse+105,+6340+Baar,+Zug,+Schweiz&amp;z=14&amp;ll=47.212701,8.559516" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
       <label index="record_tx_org_headquarters_typo3_mail_lat">47.212701</label>
       <label index="record_tx_org_headquarters_typo3_mail_lon">8.559516</label>
       <label index="record_tx_org_headquarters_typo3_mail_postcode">CH-6340</label>
-      <label index="record_tx_org_headquarters_typo3_mail_url">http://association.typo3.org//</label>
       <label index="record_tx_org_headquarters_typo3_fax">+41 41 511 00 39</label>
       <label index="record_tx_org_headquarters_typo3_email">info@typo3.org</label>
       <label index="record_tx_org_headquarters_typo3_image">typo3_logo_timestamp.jpg</label>
@@ -1017,10 +1012,11 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarterscat_title_typo3">TYPO3</label>
       <label index="record_tx_org_location_netzmacher_title"><![CDATA[Die Netzmacher]]></label>
       <label index="record_tx_org_location_netzmacher_url">http://die-netzmacher.de/</label>
-      <label index="record_tx_org_location_netzmacher_mail_address">Rothof 6</label>
+      <label index="record_tx_org_location_netzmacher_mail_street">Rothof 6</label>
       <label index="record_tx_org_location_netzmacher_mail_postcode">D-94152</label>
-      <label index="record_tx_org_location_netzmacher_mail_city">Passau</label>
-      <label index="record_tx_org_location_netzmacher_mail_embeddedcode"><![CDATA[<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.de/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="http://maps.google.de/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=borntalweg+4,+99092+erfurt&amp;aq=&amp;sll=51.151786,10.415039&amp;sspn=13.191458,43.286133&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Borntalweg+4,+Erfurt+99092+Erfurt,+Th%C3%BCringen&amp;ll=50.982422,11.014471&amp;spn=3.306576,10.821533&amp;t=m&amp;z=7" style="color:#0000FF;text-align:left">Größere Kartenansicht</a></small>]]></label>
+      <label index="record_tx_org_location_netzmacher_mail_city">Neuhaus am Inn</label>
+      <label index="record_tx_org_location_netzmacher_mail_lat">48.4923001</label>
+      <label index="record_tx_org_location_netzmacher_mail_lon">13.4194614</label>
       <label index="record_tx_org_location_netzmacher_telephone">++49 8507 9237053</label>
       <label index="record_tx_org_location_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_location_netzmacher_image">die_netzmacher_600px_01_timestamp.jpg</label>
@@ -1030,11 +1026,11 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_location_netzmacher_image_link">http://die-netzmacher.de/</label>
       <label index="record_tx_org_location_t3devdays_title">Campus Sursee</label>
       <label index="record_tx_org_location_t3devdays_url">http://www.campus-sursee.ch/</label>
-      <label index="record_tx_org_location_t3devdays_mail_address"></label>
+      <label index="record_tx_org_location_t3devdays_mail_street"></label>
       <label index="record_tx_org_location_t3devdays_mail_postcode">CH-6210</label>
       <label index="record_tx_org_location_t3devdays_mail_city">Sursee</label>
-      <label index="record_tx_org_location_t3devdays_mail_url">http://www.campus-sursee.ch/anreise.html</label>
-      <label index="record_tx_org_location_t3devdays_mail_embeddedcode"></label>
+      <label index="record_tx_org_location_t3devdays_mail_lat">47.1771473</label>
+      <label index="record_tx_org_location_t3devdays_mail_lon">8.1043593</label>
       <label index="record_tx_org_location_t3devdays_telephone">++41 41 9262626</label>
       <label index="record_tx_org_location_t3devdays_email">office@campus-sursee.ch</label>
       <label index="record_tx_org_location_t3devdays_image">campus_sursee_01_timestamp.jpg,campus_sursee_04_timestamp.jpg,campus_sursee_05_timestamp.jpg</label>

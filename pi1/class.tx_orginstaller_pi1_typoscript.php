@@ -365,53 +365,8 @@ plugin.tx_seodynamictag {
   // plugin.tx_browser_pi1
 
 plugin.tx_browser_pi1 {
-  map {
-    aliases {
-      showUid {
-        marker = headquartersUid
-      }
-    }
-    controlling {
-      enabled = Map
-    }
-    design {
-      path {
-        categoryIcon  = uploads/tx_org/
-      }
-      height  = 240
-      width   = 720
-    }
-    icon {
-      listNum {
-        categoryIconMap       = 1
-        categoryIconMapSingle = 2
-      }
-    }
-    marker {
-      field {
-        linktoSingle      = tx_org_headquarters.uid
-        latitude          = tx_org_headquarters.mail_lat
-        longitude         = tx_org_headquarters.mail_lon
-        description       = tx_org_headquarters.title
-        category          = tx_org_headquarterscat.title
-        categoryIcon      = tx_org_headquarterscat.icons
-        categoryOffsetX   = tx_org_headquarterscat.icon_offset_x
-        categoryOffsetY   = tx_org_headquarterscat.icon_offset_y
-      }
-    }
-  }
-  radialsearch {
-    lat = tx_org_headquarters.mail_lat
-    lon = tx_org_headquarters.mail_lon
-  }
   templates {
     listview {
-      image {
-        0 {
-          height  =  90c
-          width   = 220c
-        }
-      }
       url {
         1 {
             // News

@@ -1802,8 +1802,8 @@ TCEFORM {
     tx_org_downloadscat   < .tx_org_downloads
     tx_org_downloadsmedia < .tx_org_downloads
     tx_org_event {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataEvent_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataEvent_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataEvents_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataEvents_title%
     }
     tx_org_eventcat < .tx_org_event
     tx_org_headquarters {

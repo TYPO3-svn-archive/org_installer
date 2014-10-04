@@ -122,7 +122,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 3.0.0
+ * @version 6.0.0
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_org
@@ -2667,12 +2667,12 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2Downloadscat()
   {
-    $table = 'tx_org_downloads_mm_tx_org_downloadscat';
+    $table = 'tx_org_mm_all';
 
     $records = array
       (
@@ -2694,13 +2694,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadscatCD1Music()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd1_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_music' ],
     );
@@ -2713,13 +2715,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadscatCD2Music()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd2_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_music' ],
     );
@@ -2732,13 +2736,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadscatCD3Music()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd3_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_music' ],
     );
@@ -2751,13 +2757,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadscatFlyer1Flyer()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer1_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_flyer' ],
     );
@@ -2770,13 +2778,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadscatFlyer2Flyer()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer2_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_flyer' ],
     );
@@ -2789,13 +2799,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadscatManual1Development()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual1_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_development' ],
     );
@@ -2808,13 +2820,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadscatManual2Development()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual2_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_development' ],
     );
@@ -2827,13 +2841,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadscatManual3Development()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadscat',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual3_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadscat_title_development' ],
     );
@@ -2846,12 +2862,12 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2Downloadsmedia()
   {
-    $table = 'tx_org_downloads_mm_tx_org_downloadsmedia';
+    $table = 'tx_org_mm_all';
 
     $records = array
       (
@@ -2873,13 +2889,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadsmediaCD1CD()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadsmedia',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd1_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_cd' ],
     );
@@ -2892,13 +2910,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadsmediaCD2CD()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadsmedia',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd2_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_cd' ],
     );
@@ -2911,13 +2931,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadsmediaCD3CD()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadsmedia',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_cd3_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_cd' ],
     );
@@ -2930,13 +2952,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadsmediaFlyer1Flyer()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadsmedia',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer1_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_flyer' ],
     );
@@ -2949,13 +2973,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadsmediaFlyer2Flyer()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadsmedia',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_flyer2_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_flyer' ],
     );
@@ -2968,13 +2994,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadsmediaManual1Manuals()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadsmedia',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual1_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
     );
@@ -2987,13 +3015,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadsmediaManual2Manuals()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadsmedia',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual2_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
     );
@@ -3006,13 +3036,15 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationDownloads2DownloadsmediaManual3Manuals()
   {
     $record = array
       (
+      'table_local' => 'tx_org_downloads',
+      'table_foreign' => 'tx_org_downloadsmedia',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_downloads_manual3_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_downloadsmedia_title_manuals' ],
     );
@@ -3110,7 +3142,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationHeadquarters2Staff()
@@ -3135,7 +3167,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationHeadquarters2StaffNetzmacherDwildt()
@@ -3156,7 +3188,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationHeadquarters2StaffPresidentBobama()
@@ -3177,7 +3209,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationHeadquarters2StaffTYPO3Sschaffstein()
@@ -3286,7 +3318,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function relationNews2Newscat()

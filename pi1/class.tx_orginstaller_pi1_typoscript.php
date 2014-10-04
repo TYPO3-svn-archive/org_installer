@@ -36,7 +36,7 @@
  *  124:     private function pageOrg( $uid )
  *  154:     private function pageOrg_caseAll( $uid )
  *  416:     private function pageOrg_caseOrgOnly( $uid )
- *  601:     private function pageOrgCaddy( $uid )
+ *  601:     private function pageOrgCalCaddy( $uid )
  *  655:     private function pageOrgDocumentsCaddy( $uid )
  *  707:     private function pageOrgStaticFiles( )
  *  747:     private function pageOrgStaticFilesPowermail1x( )
@@ -126,17 +126,24 @@ class tx_orginstaller_pi1_typoscript
     $records[$uid] = $this->pageOrg($uid);
 
     $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgCaddy($uid);
+    $records[$uid] = $this->pageOrgCalCaddy($uid);
+
+    // #61838, 140923, dwildt, 2+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgCal($uid);
+
+    // #61826, 140923, dwildt, 2+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgCalEvents($uid);
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgCalLocations($uid);
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgDocuments($uid);
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgDocumentsCaddy($uid);
-
-    // #61826, 140923, dwildt, 2+
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgEvents($uid);
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgHeadquarters($uid);
@@ -148,9 +155,6 @@ class tx_orginstaller_pi1_typoscript
     // #61779, 140921, dwildt, 2+
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgJobsJobsApply($uid);
-
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageOrgLocations($uid);
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgNews($uid);
@@ -196,21 +200,21 @@ class tx_orginstaller_pi1_typoscript
   }
 
   /**
-   * pageOrgEvents( )
+   * pageOrgCal( )
    *
    * @param	integer		$uid: uid of the new record
    * @return	array		$record : the TypoScript record
    * @access private
-   * @internal #61826
+   * @internal #61838
    * @version 6.0.0
    * @since   6.0.0
    */
-  private function pageOrgEvents($uid)
+  private function pageOrgCal($uid)
   {
     $record = null;
 
     $strUid = sprintf('%03d', $uid);
-    $title = 'pageOrgEvents_title';
+    $title = 'pageOrgCal_title';
     $llTitle = strtolower($this->pObj->pi_getLL($title));
     $llTitle = str_replace(' ', null, $llTitle);
     $llTitle = '+page_' . $llTitle . '_' . $strUid;
@@ -219,12 +223,138 @@ class tx_orginstaller_pi1_typoscript
     $this->pObj->arr_tsUids[$title] = $uid;
     $this->pObj->arr_tsTitles[$uid] = $title;
 
-    $includeStaticFile = 'EXT:org/static/events/61826/';
+    $includeStaticFile = 'EXT:org/Configuration/TypoScript/events/61826/';
     switch (true)
     {
       case( $this->pObj->get_typo3Version() < 4007000 ):
         $includeStaticFile = $includeStaticFile
-                . ',EXT:org/static/base/typo3/4.6/';
+                . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
+        break;
+      default:
+        // follow the workflow
+        break;
+    }
+
+    $record['title'] = $llTitle;
+    $record['uid'] = $uid;
+    $record['pid'] = $pid;
+    $record['tstamp'] = time();
+    $record['sorting'] = 256;
+    $record['crdate'] = time();
+    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file'] = ''
+            . 'EXT:org/Configuration/TypoScript/calendar/201/,'
+            . 'EXT:org/Configuration/TypoScript/calendar/201/caddy/'
+    ;
+    $record['constants'] = '
+
+  ////////////////////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // plugin.caddy
+  // plugin.tx_browser_pi1
+  // plugin.tx_seodynamictag
+
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.caddy
+
+plugin.caddy {
+  pages {
+    caddy       = ' . $this->pObj->arr_pageUids['pageOrgCalCaddy_title'] . '
+    caddymini   = ' . $this->pObj->arr_pageUids['pageOrgCalCaddyCaddymini_title'] . '
+    revocation  = ' . $this->pObj->arr_pageUids['pageOrgCalCaddyRevocation_title'] . '
+    shop        = ' . $this->pObj->arr_pageUids['pageOrgCal_title'] . '
+    terms       = ' . $this->pObj->arr_pageUids['pageOrgCalCaddyTerms_title'] . '
+  }
+  url {
+    showUid = calendarUid
+  }
+}
+  // plugin.caddy
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  templates {
+    listview {
+      url {
+        1 {
+            // News
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+        }
+        2 {
+            // Location
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgLocation_title'] . '
+        }
+        3 {
+            // Staff
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
+        }
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_seodynamictag
+
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|calendarUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
+';
+
+    $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
+
+    return $record;
+  }
+
+  /**
+   * pageOrgCalEvents( )
+   *
+   * @param	integer		$uid: uid of the new record
+   * @return	array		$record : the TypoScript record
+   * @access private
+   * @internal #61826
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function pageOrgCalEvents($uid)
+  {
+    $record = null;
+
+    $strUid = sprintf('%03d', $uid);
+    $title = 'pageOrgCalEvents_title';
+    $llTitle = strtolower($this->pObj->pi_getLL($title));
+    $llTitle = str_replace(' ', null, $llTitle);
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
+    $pid = $this->pObj->arr_pageUids[$title];
+
+    $this->pObj->arr_tsUids[$title] = $uid;
+    $this->pObj->arr_tsTitles[$uid] = $title;
+
+    $includeStaticFile = 'EXT:org/Configuration/TypoScript/events/61826/';
+    switch (true)
+    {
+      case( $this->pObj->get_typo3Version() < 4007000 ):
+        $includeStaticFile = $includeStaticFile
+                . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
         break;
       default:
         // follow the workflow
@@ -308,6 +438,68 @@ plugin.tx_seodynamictag {
   }
 
   /**
+   * pageOrgCalLocations( )
+   *
+   * @param	integer		$uid: uid of the new record
+   * @return	array		$record : the TypoScript record
+   * @access private
+   * @version 3.1.1
+   * @since   3.1.1
+   */
+  private function pageOrgCalLocations($uid)
+  {
+    $record = null;
+
+    $strUid = sprintf('%03d', $uid);
+    $title = 'pageOrgCalLocations_title';
+    $llTitle = strtolower($this->pObj->pi_getLL($title));
+    $llTitle = str_replace(' ', null, $llTitle);
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
+    $pid = $this->pObj->arr_pageUids[$title];
+
+    $this->pObj->arr_tsUids[$title] = $uid;
+    $this->pObj->arr_tsTitles[$uid] = $title;
+
+    $includeStaticFile = 'EXT:org/Configuration/TypoScript/location/701/';
+    switch (true)
+    {
+      case( $this->pObj->get_typo3Version() < 4007000 ):
+        $includeStaticFile = $includeStaticFile
+                . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
+        break;
+      default:
+        // follow the workflow
+        break;
+    }
+
+    $record['title'] = $llTitle;
+    $record['uid'] = $uid;
+    $record['pid'] = $pid;
+    $record['tstamp'] = time();
+    $record['sorting'] = 256;
+    $record['crdate'] = time();
+    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file'] = $includeStaticFile;
+    $record['constants'] = '
+  // plugin.tx_seodynamictag
+plugin.tx_seodynamictag {
+  condition {
+    single {
+      begin = globalVar = GP:tx_browser_pi1|locationUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+    }
+  }
+}
+  // plugin.tx_seodynamictag
+';
+
+    $record['config'] = null;
+
+    $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
+
+    return $record;
+  }
+
+  /**
    * pageOrgHeadquarters( )
    *
    * @param	integer		$uid: uid of the new record
@@ -330,12 +522,12 @@ plugin.tx_seodynamictag {
     $this->pObj->arr_tsUids[$title] = $uid;
     $this->pObj->arr_tsTitles[$uid] = $title;
 
-    $includeStaticFile = 'EXT:org/static/headquarters/501/';
+    $includeStaticFile = 'EXT:org/Configuration/TypoScript/headquarters/501/';
     switch (true)
     {
       case( $this->pObj->get_typo3Version() < 4007000 ):
         $includeStaticFile = $includeStaticFile
-                . ',EXT:org/static/base/typo3/4.6/';
+                . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
         break;
       default:
         // follow the workflow
@@ -429,12 +621,12 @@ plugin.tx_seodynamictag {
     $this->pObj->arr_tsUids[$title] = $uid;
     $this->pObj->arr_tsTitles[$uid] = $title;
 
-    $includeStaticFile = 'EXT:org/static/job/593611/';
+    $includeStaticFile = 'EXT:org/Configuration/TypoScript/job/593611/';
     switch (true)
     {
       case( $this->pObj->get_typo3Version() < 4007000 ):
         $includeStaticFile = $includeStaticFile
-                . ',EXT:org/static/base/typo3/4.6/';
+                . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
         break;
       default:
         // follow the workflow
@@ -533,68 +725,6 @@ plugin.tx_seodynamictag {
   }
 
   /**
-   * pageOrgLocations( )
-   *
-   * @param	integer		$uid: uid of the new record
-   * @return	array		$record : the TypoScript record
-   * @access private
-   * @version 3.1.1
-   * @since   3.1.1
-   */
-  private function pageOrgLocations($uid)
-  {
-    $record = null;
-
-    $strUid = sprintf('%03d', $uid);
-    $title = 'pageOrgLocations_title';
-    $llTitle = strtolower($this->pObj->pi_getLL($title));
-    $llTitle = str_replace(' ', null, $llTitle);
-    $llTitle = '+page_' . $llTitle . '_' . $strUid;
-    $pid = $this->pObj->arr_pageUids[$title];
-
-    $this->pObj->arr_tsUids[$title] = $uid;
-    $this->pObj->arr_tsTitles[$uid] = $title;
-
-    $includeStaticFile = 'EXT:org/static/location/701/';
-    switch (true)
-    {
-      case( $this->pObj->get_typo3Version() < 4007000 ):
-        $includeStaticFile = $includeStaticFile
-                . ',EXT:org/static/base/typo3/4.6/';
-        break;
-      default:
-        // follow the workflow
-        break;
-    }
-
-    $record['title'] = $llTitle;
-    $record['uid'] = $uid;
-    $record['pid'] = $pid;
-    $record['tstamp'] = time();
-    $record['sorting'] = 256;
-    $record['crdate'] = time();
-    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
-    $record['include_static_file'] = $includeStaticFile;
-    $record['constants'] = '
-  // plugin.tx_seodynamictag
-plugin.tx_seodynamictag {
-  condition {
-    single {
-      begin = globalVar = GP:tx_browser_pi1|locationUid > 0] && [globalVar = TSFE:id = ' . $pid . '
-    }
-  }
-}
-  // plugin.tx_seodynamictag
-';
-
-    $record['config'] = null;
-
-    $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
-
-    return $record;
-  }
-
-  /**
    * pageOrgNews( )
    *
    * @param	integer		$uid: uid of the new record
@@ -617,12 +747,12 @@ plugin.tx_seodynamictag {
     $this->pObj->arr_tsUids[$title] = $uid;
     $this->pObj->arr_tsTitles[$uid] = $title;
 
-    $includeStaticFile = 'EXT:org/static/news/401/';
+    $includeStaticFile = 'EXT:org/Configuration/TypoScript/news/401/';
     switch (true)
     {
       case( $this->pObj->get_typo3Version() < 4007000 ):
         $includeStaticFile = $includeStaticFile
-                . ',EXT:org/static/base/typo3/4.6/';
+                . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
         break;
       default:
         // follow the workflow
@@ -701,12 +831,12 @@ plugin.tx_seodynamictag {
     $this->pObj->arr_tsUids[$title] = $uid;
     $this->pObj->arr_tsTitles[$uid] = $title;
 
-    $includeStaticFile = 'EXT:org/static/staff/101/';
+    $includeStaticFile = 'EXT:org/Configuration/TypoScript/staff/101/';
     switch (true)
     {
       case( $this->pObj->get_typo3Version() < 4007000 ):
         $includeStaticFile = $includeStaticFile
-                . ',EXT:org/static/base/typo3/4.6/';
+                . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
         break;
       default:
         // follow the workflow
@@ -786,12 +916,12 @@ plugin.tx_seodynamictag {
     $this->pObj->arr_tsUids[$title] = $uid;
     $this->pObj->arr_tsTitles[$uid] = $title;
 
-    $includeStaticFile = 'EXT:org/static/service/593621/';
+    $includeStaticFile = 'EXT:org/Configuration/TypoScript/service/593621/';
     switch (true)
     {
       case( $this->pObj->get_typo3Version() < 4007000 ):
         $includeStaticFile = $includeStaticFile
-                . ',EXT:org/static/base/typo3/4.6/';
+                . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
         break;
       default:
         // follow the workflow
@@ -888,23 +1018,24 @@ plugin.tx_seodynamictag {
             . 'EXT:browser/static/,'
             . 'EXT:browser/static/Foundation/Templating/,'
             . 'EXT:caddy/static/,'
+            . 'EXT:caddy/static/foundation/5x/,'      // #61867, 140925, dwildt, 1+
             . 'EXT:caddy/static/properties/de/,'
-            . 'EXT:caddy/static/css/,'
+            . 'EXT:caddy/static/css/foundation/5x/,'  // #61867, 140925, dwildt, 1+
+            //. 'EXT:caddy/static/css/,'              // #61867, 140925, dwildt, 1-
             . 'EXT:linkhandlerconf/static/,'
             . 'EXT:flipit/static/,'
             . '%flipit46%'
             . '%flipit61%'
             . 'EXT:seo_dynamic_tag/static/,'
-            . 'EXT:org/static/base/,'
-            . 'EXT:org/static/calendar/201/,'
-            . 'EXT:org/static/calendar/201/caddy/'
+            . 'EXT:org/Configuration/TypoScript/base/,'
     ;
+
     switch (true)
     {
       case( $this->pObj->get_typo3Version() < 4007000 ):
         $include = $record['include_static_file'];
         $include = str_replace('%flipit46%', 'EXT:flipit/static/typo3/4.6/,', $include);
-        $include = $include . ',EXT:org/static/base/typo3/4.6/';
+        $include = $include . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
         $record['include_static_file'] = $include;
         break;
       default:
@@ -934,7 +1065,6 @@ plugin.tx_seodynamictag {
   // INDEX
   //
   // plugin.baseorg
-  // plugin.caddy
   // plugin.org
   // plugin.tx_browser_pi1
   // plugin.tx_radialsearch_pi1
@@ -953,7 +1083,7 @@ plugin.baseorg {
   pages {
     root = ' . $this->pObj->arr_pageUids['pageOrg_title'] . '
     root {
-      caddymini = ' . $this->pObj->arr_pageUids['pageOrgCaddyCaddymini_title'] . '
+      caddymini = ' . $this->pObj->arr_pageUids['pageOrgCalCaddyCaddymini_title'] . '
       libraries {
         footer = ' . $this->pObj->arr_pageUids['pageOrgLibraryFooter_title'] . '
         header {
@@ -979,23 +1109,6 @@ plugin.baseorg {
 
   /////////////////////////////////////////
   //
-  // plugin.caddy
-
-plugin.caddy {
-  pages {
-    caddy       = ' . $this->pObj->arr_pageUids['pageOrgCaddy_title'] . '
-    caddymini   = ' . $this->pObj->arr_pageUids['pageOrgCaddyCaddymini_title'] . '
-    revocation  = ' . $this->pObj->arr_pageUids['pageOrgCaddyRevocation_title'] . '
-    shop        = ' . $this->pObj->arr_pageUids['pageOrg_title'] . '
-    terms       = ' . $this->pObj->arr_pageUids['pageOrgCaddyTerms_title'] . '
-  }
-}
-  // plugin.caddy
-
-
-
-  /////////////////////////////////////////
-  //
   // plugin.org
 
 plugin.org {
@@ -1012,30 +1125,30 @@ plugin.org {
     staff       = ' . $this->pObj->arr_pageUids['pageOrgDataStaff_title'] . '
   }
   pages {
-    calendar                = ' . $this->pObj->arr_pageUids['pageOrg_title'] . '
+    calendar                = ' . $this->pObj->arr_pageUids['pageOrgCal_title'] . '
     downloads               = ' . $this->pObj->arr_pageUids['pageOrgDocuments_title'] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyCaddymini_title'] . '
-    event                   = ' . $this->pObj->arr_pageUids['pageOrgEvents_title'] . '
+    event                   = ' . $this->pObj->arr_pageUids['pageOrgCalEvents_title'] . '
     headquarter             = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
     job                     = ' . $this->pObj->arr_pageUids['pageOrgJobs_title'] . '
     jobApply                = ' . $this->pObj->arr_pageUids['pageOrgJobsApply_title'] . '
-    location                = ' . $this->pObj->arr_pageUids['pageOrgLocations_title'] . '
+    location                = ' . $this->pObj->arr_pageUids['pageOrgCalLocations_title'] . '
     news                    = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
     service                 = ' . $this->pObj->arr_pageUids['pageOrgService_title'] . '
-    shopping_cart           = ' . $this->pObj->arr_pageUids['pageOrgCaddy_title'] . '
+    shopping_cart           = ' . $this->pObj->arr_pageUids['pageOrgCalCaddy_title'] . '
     shopping_cart_downloads = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     staff                   = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
   }
   url {
     default {
       calendar        = /
-      caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
+      caddy           = ' . $this->pObj->pi_getLL('pageOrgCalCaddy_titleUrl') . '/
       downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDocumentsCaddy_titleUrl') . '/
     }
     de {
       calendar        = /
-      caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
+      caddy           = ' . $this->pObj->pi_getLL('pageOrgCalCaddy_titleUrl') . '/
       downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDocumentsCaddy_titleUrl') . '/
     }
   }
@@ -1324,23 +1437,23 @@ page {
             . 'EXT:radialsearch/static/properties/de/,'
             . 'EXT:browser/static/,'
             . 'EXT:caddy/static/,'
+            . 'EXT:caddy/static/foundation/5x/,'      // #61867, 140925, dwildt, 1+
             . 'EXT:caddy/static/properties/de/,'
-            . 'EXT:caddy/static/css/,'
+            . 'EXT:caddy/static/css/foundation/5x/,'  // #61867, 140925, dwildt, 1+
+            //. 'EXT:caddy/static/css/,'              // #61867, 140925, dwildt, 1-
             . 'EXT:linkhandler/static/link_handler/,'
             . 'EXT:flipit/static/,'
             . '%flipit46%'
             . '%flipit61%'
             . 'EXT:seo_dynamic_tag/static/,'
-            . 'EXT:org/static/base/,'
-            . 'EXT:org/static/calendar/201/,'
-            . 'EXT:org/static/calendar/201/caddy/'
+            . 'EXT:org/Configuration/TypoScript/base/,'
     ;
     switch (true)
     {
       case( $this->pObj->get_typo3Version() < 4007000 ):
         $include = $record['include_static_file'];
         $include = str_replace('%flipit46%', 'EXT:flipit/static/typo3/4.6/,', $include);
-        $include = $include . ',EXT:org/static/base/typo3/4.6/';
+        $include = $include . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
         $record['include_static_file'] = $include;
         break;
       default:
@@ -1370,26 +1483,8 @@ page {
   // INDEX
   //
   // plugin.org
-  // plugin.caddy
   // plugin.tx_radialsearch_pi1
   // plugin.tx_seodynamictag_pi1
-
-
-
-  /////////////////////////////////////////
-  //
-  // plugin.caddy
-
-plugin.caddy {
-  pages {
-    caddy       = ' . $this->pObj->arr_pageUids['pageOrgCaddy_title'] . '
-    caddymini   = ' . $this->pObj->arr_pageUids['pageOrgCaddyCaddymini_title'] . '
-    revocation  = ' . $this->pObj->arr_pageUids['pageOrgCaddyRevocation_title'] . '
-    shop        = ' . $this->pObj->arr_pageUids['pageOrg_title'] . '
-    terms       = ' . $this->pObj->arr_pageUids['pageOrgCaddyTerms_title'] . '
-  }
-}
-  // plugin.caddy
 
 
 
@@ -1411,30 +1506,30 @@ plugin.org {
     staff       = ' . $this->pObj->arr_pageUids['pageOrgDataStaff_title'] . '
   }
   pages {
-    calendar                = ' . $this->pObj->arr_pageUids['pageOrg_title'] . '
+    calendar                = ' . $this->pObj->arr_pageUids['pageOrgCal_title'] . '
     downloads               = ' . $this->pObj->arr_pageUids['pageOrgDocuments_title'] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyCaddymini_title'] . '
-    event                   = ' . $this->pObj->arr_pageUids['pageOrgEvents_title'] . '
+    event                   = ' . $this->pObj->arr_pageUids['pageOrgCalEvents_title'] . '
     headquarter             = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
     job                     = ' . $this->pObj->arr_pageUids['pageOrgJobs_title'] . '
     jobApply                = ' . $this->pObj->arr_pageUids['pageOrgJobsApply_title'] . '
-    location                = ' . $this->pObj->arr_pageUids['pageOrgLocations_title'] . '
+    location                = ' . $this->pObj->arr_pageUids['pageOrgCalLocations_title'] . '
     news                    = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
     service                 = ' . $this->pObj->arr_pageUids['pageOrgService_title'] . '
-    shopping_cart           = ' . $this->pObj->arr_pageUids['pageOrgCaddy_title'] . '
+    shopping_cart           = ' . $this->pObj->arr_pageUids['pageOrgCalCaddy_title'] . '
     shopping_cart_downloads = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     staff                   = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
   }
   url {
     default {
       calendar        = /
-      caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
+      caddy           = ' . $this->pObj->pi_getLL('pageOrgCalCaddy_titleUrl') . '/
       downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDocumentsCaddy_titleUrl') . '/
     }
     de {
       calendar        = /
-      caddy           = ' . $this->pObj->pi_getLL('pageOrgCaddy_titleUrl') . '/
+      caddy           = ' . $this->pObj->pi_getLL('pageOrgCalCaddy_titleUrl') . '/
       downloadsCaddy  = ' . $this->pObj->pi_getLL('pageOrgDocumentsCaddy_titleUrl') . '/
     }
   }
@@ -1536,7 +1631,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
   }
 
   /**
-   * pageOrgCaddy( )
+   * pageOrgCalCaddy( )
    *
    * @param	[type]		$$uid: ...
    * @return	array		$record : the TypoScript record
@@ -1544,13 +1639,13 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
    * @version 3.0.0
    * @since   3.0.0
    */
-  private function pageOrgCaddy($uid)
+  private function pageOrgCalCaddy($uid)
   {
     $record = null;
 
     $strUid = sprintf('%03d', $uid);
 
-    $title = 'pageOrgCaddy_title';
+    $title = 'pageOrgCalCaddy_title';
     $llTitle = strtolower($this->pObj->pi_getLL($title));
     $llTitle = str_replace(' ', null, $llTitle);
     $llTitle = '+page_' . $llTitle . '_' . $strUid;
@@ -1559,16 +1654,10 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $this->pObj->arr_tsTitles[$uid] = $title;
 
     $includeStaticFile = $this->zzOrgCaddyStaticFiles();
-// Not needed. Included on root page, because of minicaddy on the root page
-//    $includeStaticFile  = $includeStaticFile
-//                        . ','
-//                        . 'EXT:caddy/static/css/green/,'
-//                        . 'EXT:org/static/calendar/201/caddy/'
-//                        ;
 
     $record['title'] = $llTitle;
     $record['uid'] = $uid;
-    $record['pid'] = $this->pObj->arr_pageUids['pageOrgCaddy_title'];
+    $record['pid'] = $this->pObj->arr_pageUids['pageOrgCalCaddy_title'];
     $record['tstamp'] = time();
     $record['sorting'] = 256;
     $record['crdate'] = time();
@@ -1605,10 +1694,11 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $this->pObj->arr_tsTitles[$uid] = $title;
 
     $includeStaticFile = $this->zzOrgCaddyStaticFiles();
-    $includeStaticFile = $includeStaticFile
-            . ','
-            . 'EXT:caddy/static/css/red/,'
-    ;
+//    $includeStaticFile = $includeStaticFile
+//            . ',EXT:powermail/Configuration/TypoScript/Main'
+//            . ',EXT:caddy/static/powermail/2x/'
+//            . ',EXT:caddy/Configuration/TypoScript/Powermail_2.1.0/Foundation_5x/'
+//    ;
 
     $record['title'] = $llTitle;
     $record['uid'] = $uid;
@@ -1650,15 +1740,15 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $this->pObj->arr_tsTitles[$uid] = $title;
 
     $includeStaticFile = 'EXT:caddy/static/css/red/,'
-            . 'EXT:org/static/downloads/301/,'
-            . 'EXT:org/static/downloads/301/caddy/,'
-            . 'EXT:org/static/downloads/301/flipit/'
+            . 'EXT:org/Configuration/TypoScript/downloads/301/,'
+            . 'EXT:org/Configuration/TypoScript/downloads/301/tx_caddy/,'
+            . 'EXT:org/Configuration/TypoScript/downloads/301/tx_flipit/'
     ;
     switch (true)
     {
       case( $this->pObj->get_typo3Version() >= 6000000 ):
         $includeStaticFile = $includeStaticFile
-                . ',EXT:org/static/downloads/301/flipit/typo3/6.x';
+                . ',EXT:org/Configuration/TypoScript/downloads/301/tx_flipit/typo3/6.x';
         break;
       default:
         // follow the workflow
@@ -1669,7 +1759,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     {
       case( $this->pObj->get_typo3Version() < 4007000 ):
         $includeStaticFile = $includeStaticFile
-                . ',EXT:org/static/base/typo3/4.6/';
+                . ',EXT:org/Configuration/TypoScript/base/typo3/4.6/';
         break;
       default:
         // follow the workflow
@@ -1722,6 +1812,9 @@ plugin.caddy {
     revocation  = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyRevocation_title'] . '
     shop        = ' . $this->pObj->arr_pageUids['pageOrgDocuments_title'] . '
     terms       = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyTerms_title'] . '
+  }
+  url {
+    showUid = downloadsUid
   }
 }
   // plugin.caddy
@@ -2033,14 +2126,13 @@ plugin.tx_powermail {
    *
    * @return	string		$staticFiles  : the list of static files
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   3.0.0
    */
   private function zzOrgCaddyStaticFilesPowermail1x()
   {
-    $staticFiles = 'EXT:powermail/static/pi1/,'
-            . 'EXT:powermail/static/css_fancy/,'
-            . 'EXT:caddy/static/powermail/1x/'
+    $staticFiles = 'EXT:powermail/static/pi1/'
+            . ',EXT:caddy/static/powermail/1x/'
     ;
 
     return $staticFiles;
@@ -2051,16 +2143,16 @@ plugin.tx_powermail {
    *
    * @return	string		$staticFiles  : the list of static files
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   3.0.0
    */
   private function zzOrgCaddyStaticFilesPowermail2x()
   {
     // 130721, dwildt: powermail 2.x without an ending slash!
-    $staticFiles = 'EXT:powermail/Configuration/TypoScript/Main,'
-            . 'EXT:powermail/Configuration/TypoScript/CssFancy,'
-            . 'EXT:caddy/static/powermail/2x/,'
-            . 'EXT:caddy/static/powermail/2x/css/'
+    $staticFiles = ''
+            . 'EXT:powermail/Configuration/TypoScript/Main'
+            . ',EXT:caddy/static/powermail/2x/'
+            . ',EXT:caddy/Configuration/TypoScript/Powermail_2.1.0/Foundation_5x/'
     ;
 
     return $staticFiles;

@@ -26,8 +26,8 @@
       <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
       <label index="content_create_header">Page content</label>
       <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
-      <label index="content_pageOrgCaddy_header">[fade_deliveryorderaddress.jss]</label>
-      <label index="content_pageOrgCaddy_bodytext"><![CDATA[
+      <label index="content_pageOrgCalCaddy_header">[fade_deliveryorderaddress.jss]</label>
+      <label index="content_pageOrgCalCaddy_bodytext"><![CDATA[
 <script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -98,17 +98,17 @@
 
 </script>
 ]]></label>
-      <label index="content_pageOrgCaddyDelivery_header">Delivery</label>
-      <label index="content_pageOrgCaddyDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
+      <label index="content_pageOrgCalCaddyDelivery_header">Delivery</label>
+      <label index="content_pageOrgCalCaddyDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
 <ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
-      <label index="content_pageOrgCaddyRevocation_header">Power of Revocation</label>
-      <label index="content_pageOrgCaddyRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
+      <label index="content_pageOrgCalCaddyRevocation_header">Power of Revocation</label>
+      <label index="content_pageOrgCalCaddyRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
 <h2>Good to know</h2>
 <ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
 <h2>Helpful links</h2>
 <ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
-      <label index="content_pageOrgCaddyTerms_header">Terms and conditions</label>
-      <label index="content_pageOrgCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
+      <label index="content_pageOrgCalCaddyTerms_header">Terms and conditions</label>
+      <label index="content_pageOrgCalCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
       <label index="content_pageOrgDocumentsCaddy_header">[fade_deliveryorderaddress.jss]</label>
       <label index="content_pageOrgDocumentsCaddy_bodytext"><![CDATA[
@@ -222,8 +222,8 @@
       <label index="content_pageOrgLibraryMenubelow_header">[Die Netzmacher - TYPO3 Silver Member]</label>
       <label index="content_pageOrgLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
       <label index="content_pageOrgLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
-      <label index="content_pageOrgTYPO3Integrators_header">TYPO3 Integrators</label>
-      <label index="content_pageOrgTYPO3Integrators_bodytext"><![CDATA[
+      <label index="content_pageOrg_header">TYPO3 Integrators</label>
+      <label index="content_pageOrg_bodytext"><![CDATA[
 <ul class="csc-menu csc-menu-3">
   <li class="csc-section">Congratulations</li>
   <li class="csc-section">Using a proper jQuery</li>
@@ -328,12 +328,12 @@
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###) is created.</label>
       <label index="pageOrg_title">Organiser</label>
       <label index="pageOrg_titleNav">Home</label>
-      <label index="pageOrgCaddy_title">Caddy</label>
-      <label index="pageOrgCaddy_titleUrl">Caddy</label>
-      <label index="pageOrgCaddyDelivery_title">Shipping</label>
-      <label index="pageOrgCaddyCaddymini_title">Caddy mini</label>
-      <label index="pageOrgCaddyRevocation_title">Revocation</label>
-      <label index="pageOrgCaddyTerms_title">Terms</label>
+      <label index="pageOrgCalCaddy_title">Caddy</label>
+      <label index="pageOrgCalCaddy_titleUrl">Caddy</label>
+      <label index="pageOrgCalCaddyDelivery_title">Shipping</label>
+      <label index="pageOrgCalCaddyCaddymini_title">Caddy mini</label>
+      <label index="pageOrgCalCaddyRevocation_title">Revocation</label>
+      <label index="pageOrgCalCaddyTerms_title">Terms</label>
       <label index="pageOrgData_title">Data</label>
       <label index="pageOrgDataCal_title">Calendar</label>
       <label index="pageOrgDataDownloads_title">Documents</label>
@@ -345,6 +345,7 @@
       <label index="pageOrgDataNews_title">News</label>
       <label index="pageOrgDataService_title">Service</label>
       <label index="pageOrgDataStaff_title">People</label>
+      <label index="pageOrgCal_title">Calendar</label>
       <label index="pageOrgDocuments_title">Documents</label>
       <label index="pageOrgDocumentsCaddy_title">Caddy</label>
       <label index="pageOrgDocumentsCaddy_titleUrl">Caddy</label>
@@ -352,9 +353,10 @@
       <label index="pageOrgDocumentsCaddyCaddymini_title">Caddy mini</label>
       <label index="pageOrgDocumentsCaddyRevocation_title">Revocation</label>
       <label index="pageOrgDocumentsCaddyTerms_title">Terms</label>
-      <label index="pageOrgEvents_title">Events</label>
+      <label index="pageOrgCalEvents_title">Events</label>
+      <label index="pageOrgCalLocations_title">Locations</label>
       <label index="pageOrgHeadquarters_title">Headquarters</label>
-      <label index="pageOrgJobs_title">Jobs</label>
+      <label index="pageOrgJobs_title">[Jobs]</label>
       <label index="pageOrgJobsJobsApply_title">Application</label>
       <label index="pageOrgLegalinfo_title">Legal info</label>
       <label index="pageOrgLibrary_title">Libraries</label>
@@ -364,12 +366,11 @@
       <label index="pageOrgLibraryFooter_title">Footer</label>
       <label index="pageOrgLibraryMenu_title">Menu</label>
       <label index="pageOrgLibraryMenubelow_title">Below the menu</label>
-      <label index="pageOrgLocations_title">Locations</label>
       <label index="pageOrgNews_title">News</label>
-      <label index="pageOrgService_title">Services</label>
+      <label index="pageOrgService_title">[Services]</label>
       <label index="pageOrgStaff_title">People</label>
-      <label index="pageOrgTYPO3Integrators_title">TYPO3 Integrators</label>
-      <label index="pageOrgTYPO3IntegratorsDevider_title"><![CDATA[[--------]]]></label>
+      <label index="pageOrg_title">TYPO3 Organiser</label>
+      <label index="pageOrgDevider_title"><![CDATA[[--------]]]></label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
       <label index="phrases_pm_fields_delivery_prependix2x">D-</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
@@ -379,9 +380,9 @@
       <label index="phrases_powermail_termsAccepted1x"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
       <label index="phrases_powermail_termsAccepted2x"><![CDATA[I'm according with the <a href="index.php?id=###PID###" target="_blank">Terms and Conditions</a>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_org_page">Organiser Homepage</label>
-      <label index="pluginBrowserPageOrg_header">[Browser for Organiser Calendar]</label>
-      <label index="pluginBrowserPageOrg_ffListTitle">Organiser Calendar</label>
-      <label index="pluginBrowserPageOrg_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgCal_header">[Browser for Organiser Calendar]</label>
+      <label index="pluginBrowserPageOrgCal_ffListTitle">Organiser Calendar</label>
+      <label index="pluginBrowserPageOrgCal_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
   * Recursiv: Infinite
@@ -421,8 +422,8 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
   * [Social Media]
@@ -434,9 +435,9 @@
       * table.field: tx_org_downloads.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgEvents_header">[Browser for Organiser Events]</label>
-      <label index="pluginBrowserPageOrgEvents_ffListTitle">Organiser Events</label>
-      <label index="pluginBrowserPageOrgEvents_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgCalEvents_header">[Browser for Organiser Events]</label>
+      <label index="pluginBrowserPageOrgCalEvents_ffListTitle">Organiser Events</label>
+      <label index="pluginBrowserPageOrgCalEvents_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
   * Recursiv: Infinite
@@ -515,9 +516,9 @@
       * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgLocations_header">[Browser for Organiser Locations]</label>
-      <label index="pluginBrowserPageOrgLocations_ffListTitle">Organiser Locations</label>
-      <label index="pluginBrowserPageOrgLocations_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgCalLocations_header">[Browser for Organiser Locations]</label>
+      <label index="pluginBrowserPageOrgCalLocations_ffListTitle">Organiser Locations</label>
+      <label index="pluginBrowserPageOrgCalLocations_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
   * Recursiv: Infinite
@@ -579,7 +580,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -789,7 +790,7 @@ You find all about your order in the attachments:</p>
       <label index="record_pm_field_title_terms">terms and conditions</label>
       <label index="record_pm_field_title_revocation">revocation</label>
       <label index="record_pm_field_title_submit">Test Organiser without commitment!</label>
-      <label index="record_pm_form_title_pageOrgCaddy">Caddy orderform (calendar)</label>
+      <label index="record_pm_form_title_pageOrgCalCaddy">Caddy orderform (calendar)</label>
       <label index="record_pm_form_title_pageOrgDocumentsCaddy">Caddy orderform (downloads)</label>
       <label index="record_tx_org_cal_eggroll_type">url</label>
       <label index="record_tx_org_cal_eggroll_title">White House Easter Egg Roll</label>
@@ -1217,8 +1218,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="confirm_button">Installieren</label>
       <label index="content_create_header">Seiteninhalt</label>
       <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
-      <label index="content_pageOrgCaddy_header">[fade_Lieferadresse.jss]</label>
-      <label index="content_pageOrgCaddy_bodytext"><![CDATA[
+      <label index="content_pageOrgCalCaddy_header">[fade_Lieferadresse.jss]</label>
+      <label index="content_pageOrgCalCaddy_bodytext"><![CDATA[
 <script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -1289,17 +1290,17 @@ He was elected the 44th President of the United States on November 4,  2008, and
 
 </script>
 ]]></label>
-      <label index="content_pageOrgCaddyDelivery_header">Versand</label>
-      <label index="content_pageOrgCaddyDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
+      <label index="content_pageOrgCalCaddyDelivery_header">Versand</label>
+      <label index="content_pageOrgCalCaddyDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
 <ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
-      <label index="content_pageOrgCaddyRevocation_header">Widerrufsrecht</label>
-      <label index="content_pageOrgCaddyRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
+      <label index="content_pageOrgCalCaddyRevocation_header">Widerrufsrecht</label>
+      <label index="content_pageOrgCalCaddyRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
 <ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>
-      <label index="content_pageOrgCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_pageOrgCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Geschäftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
+      <label index="content_pageOrgCalCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
+      <label index="content_pageOrgCalCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Geschäftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
       <label index="content_pageOrgDocumentsCaddy_header">[fade_Lieferadresse.jss]</label>
       <label index="content_pageOrgDocumentsCaddy_bodytext"><![CDATA[
@@ -1417,8 +1418,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
       <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgeblendet.</label>
-      <label index="content_pageOrgTYPO3Integrators_header">TYPO3 Integratoren</label>
-      <label index="content_pageOrgTYPO3Integrators_bodytext"><![CDATA[<ul class="csc-menu csc-menu-3">
+      <label index="content_pageOrg_header">TYPO3 Integratoren</label>
+      <label index="content_pageOrg_bodytext"><![CDATA[<ul class="csc-menu csc-menu-3">
   <li class="csc-section">Herzlichen Glückwunsch!</li>
   <li class="csc-section">jQuery verwenden</li>
   <li class="csc-section">Flip it! verwenden</li>
@@ -1496,6 +1497,81 @@ He was elected the 44th President of the United States on November 4,  2008, and
     <a href="index.php?id=%pageOrgHeadquarters_title%">Firma »</a>
   </li>
 </ul>]]></label>
+      <label index="content_pageOrg_bodytext"><![CDATA[<h1>
+  <a name="top"></a>Herzlichen Glückwunsch!
+</h1>
+<p>
+  Herzlichen Glückwunsch! Die Installation des TYPO3 Organisers war erfolgreich.
+  Das sind die nächsten Schritte:
+</p>
+<ul>
+  <li>
+    <a href="#jquery">jQuery richtig konfigurieren »</a>
+  </li>
+  <li>
+    <a href="#flipit">Flip it! verwenden »</a>
+  </li>
+  <li>
+    <a href="#radialsearch">Daten für die Umkreissuche importieren »</a>
+  </li>
+</ul>
+<h2>
+  <a name="jquery"></a><a href="#top">&circ;</a> jQuery richtig konfigurieren
+</h2>
+<p>
+  Verwende bitte nur eine jQuery-Bibliothek. Es wird t3jquery empfohlen.
+</p>
+<ul>
+  <li>
+    Bitte kompiliere Dein t3jquery nach der Installation des Organisers neu.
+  </li>
+</ul>
+<h2>
+  <a name="flipit"></a><a href="#top">&circ;</a> Flip it! verwenden
+</h2>
+<p>
+  Mit Flip it! kannst Du online wie in echten Katalogen blättern.
+  Die Besucher Deiner Website brauchen nur einen Internet-Browser mit einem Flash-Plugin.
+  Wenn Deine Organiser-Installation PDF-Dateien automatisch in Flash-Dateien umwandeln soll,
+  musst Du die SWF-Tools installieren. Siehe
+</p>
+<ul>
+  <li>
+    <a href="http://typo3-flipit.de/swf-tools/">typo3-flipit.de/swf-tools/</a>
+  </li>
+</ul>
+<p>
+  Verzichte in TYPO3 6.x bitte auf die Verwendung der Fancybox. Die Fancybox funkioniert nicht.
+  Du findest ein Flip it!-Beispiel hier:
+</p>
+<ul>
+  <li>
+    <a href="index.php?id=%pageOrgDocuments_title%">Dokumente »</a>
+  </li>
+</ul>
+<h2>
+  <a name="radialsearch"></a><a href="#top">&circ;</a> Daten für die Umkreissuche importieren
+</h2>
+<p>
+  Wenn Du Radial Search (Umkreissuche) verwenden möchtest,
+  musst Du vorher die von Dir benötigten Postleitzahlen importieren. Siehe
+</p>
+<ul>
+  <li>
+    <a href="http://typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf">typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf</a><br />
+    Suche nach dem Abschnitt<br />
+    Import Postal Code Data
+  </li>
+</ul>
+<p>
+  Ohne Postleitzahlen kann die Suche keine Ergebnisse liefern.
+  Du findest ein Beispiel mit Radial Search (Umkreissuche) hier:
+</p>
+<ul>
+  <li>
+    <a href="index.php?id=%pageOrgHeadquarters_title%">Firma »</a>
+  </li>
+</ul>]]></label>
       <label index="end_button">Seite neu laden</label>
       <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Organiser Installer, wenn Du ihn nicht mehr brauchst!</label>
       <label index="end_header">Installation beenden!</label>
@@ -1520,12 +1596,14 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
       <label index="pageOrg_title">Organiser</label>
       <label index="pageOrg_titleNav">Home</label>
-      <label index="pageOrgCaddy_title">Warenkorb</label>
-      <label index="pageOrgCaddy_titleUrl">Warenkorb</label>
-      <label index="pageOrgCaddyCaddymini_title">Mini-Warenkorb</label>
-      <label index="pageOrgCaddyDelivery_title">Versand</label>
-      <label index="pageOrgCaddyRevocation_title">Widerrufsrecht</label>
-      <label index="pageOrgCaddyTerms_title">AGB</label>
+      <label index="pageOrgCalCaddy_title">Warenkorb</label>
+      <label index="pageOrgCalCaddy_titleUrl">Warenkorb</label>
+      <label index="pageOrgCalCaddyCaddymini_title">Mini-Warenkorb</label>
+      <label index="pageOrgCalCaddyDelivery_title">Versand</label>
+      <label index="pageOrgCalCaddyRevocation_title">Widerrufsrecht</label>
+      <label index="pageOrgCalCaddyTerms_title">AGB</label>
+      <label index="pageOrgCalEvents_title">Veranstaltungen</label>
+      <label index="pageOrgCalLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgData_title">Daten</label>
       <label index="pageOrgDataCal_title">Kalender</label>
       <label index="pageOrgDataDownloads_title">Dokumente</label>
@@ -1537,6 +1615,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgDataNews_title">Nachrichten</label>
       <label index="pageOrgDataService_title">Dienstleistungen</label>
       <label index="pageOrgDataStaff_title">Personen</label>
+      <label index="pageOrgCal_title">Kalender</label>
       <label index="pageOrgDocuments_title">Dokumente</label>
       <label index="pageOrgDocumentsCaddy_title">Warenkorb</label>
       <label index="pageOrgDocumentsCaddy_titleUrl">Warenkorb</label>
@@ -1544,9 +1623,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgDocumentsCaddyDelivery_title">Versand</label>
       <label index="pageOrgDocumentsCaddyRevocation_title">Widerrufsrecht</label>
       <label index="pageOrgDocumentsCaddyTerms_title">AGB</label>
-      <label index="pageOrgEvents_title">Veranstaltungen</label>
       <label index="pageOrgHeadquarters_title">Firmen</label>
-      <label index="pageOrgJobs_title">Jobs</label>
+      <label index="pageOrgJobs_title">[Jobs]</label>
       <label index="pageOrgJobsJobsApply_title">Bewerbung</label>
       <label index="pageOrgLegalinfo_title">Impressum</label>
       <label index="pageOrgLibrary_title">Bibliotheken</label>
@@ -1556,12 +1634,11 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgLibraryFooter_title">Fuß</label>
       <label index="pageOrgLibraryMenu_title">Menü</label>
       <label index="pageOrgLibraryMenubelow_title">Unter dem Menü</label>
-      <label index="pageOrgLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgNews_title">Nachrichten</label>
-      <label index="pageOrgService_title">Dienstleistungen</label>
+      <label index="pageOrgService_title">[Dienstleistungen]</label>
       <label index="pageOrgStaff_title">Personen</label>
-      <label index="pageOrgTYPO3Integrators_title">TYPO3 Integratoren</label>
-      <label index="pageOrgTYPO3IntegratorsDevider_title"><![CDATA[[--------]]]></label>
+      <label index="pageOrg_title">TYPO3 Organiser</label>
+      <label index="pageOrgDevider_title"><![CDATA[[--------]]]></label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
       <label index="phrases_pm_fields_delivery_prependix2x">L-</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
@@ -1571,9 +1648,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="phrases_powermail_termsAccepted1x"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
       <label index="phrases_powermail_termsAccepted2x"><![CDATA[Ich akzeptiere die <a href="index.php?id=###PID###" target="_blank">AGB</a>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_org_page">Organiser Startseite</label>
-      <label index="pluginBrowserPageOrg_header">[Browser für Organiser Kalender]</label>
-      <label index="pluginBrowserPageOrg_ffListTitle">Organiser Kalender</label>
-      <label index="pluginBrowserPageOrg_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgCal_header">[Browser für Organiser Kalender]</label>
+      <label index="pluginBrowserPageOrgCal_ffListTitle">Organiser Kalender</label>
+      <label index="pluginBrowserPageOrgCal_ffMycomment"><![CDATA[
 * [Verhalten]
   * Datensatzsammlung: Daten
   * Rekursiv: unendlich
@@ -1612,8 +1689,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
   * [Social Media]
@@ -1625,9 +1702,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       * table.field: tx_org_downloads.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgEvents_header">[Browser für Organiser Veranstaltungen]</label>
-      <label index="pluginBrowserPageOrgEvents_ffListTitle">Organiser Veranstaltungen</label>
-      <label index="pluginBrowserPageOrgEvents_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgCalEvents_header">[Browser für Organiser Veranstaltungen]</label>
+      <label index="pluginBrowserPageOrgCalEvents_ffListTitle">Organiser Veranstaltungen</label>
+      <label index="pluginBrowserPageOrgCalEvents_ffMycomment"><![CDATA[
 * [Verhalten]
   * Datensatzsammlung: Daten
   * Rekursiv: unendlich
@@ -1706,9 +1783,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgLocations_header">[Browser für Organiser Veranstaltungsorte]</label>
-      <label index="pluginBrowserPageOrgLocations_ffListTitle">Organiser Veranstaltungsorte</label>
-      <label index="pluginBrowserPageOrgLocations_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgCalLocations_header">[Browser für Organiser Veranstaltungsorte]</label>
+      <label index="pluginBrowserPageOrgCalLocations_ffListTitle">Organiser Veranstaltungsorte</label>
+      <label index="pluginBrowserPageOrgCalLocations_ffMycomment"><![CDATA[
 * [Verhalten]
   * Datensatzsammlung: Daten
   * Rekursiv: unendlich
@@ -2026,7 +2103,7 @@ Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokum
       <label index="record_pm_field_title_terms">AGB</label>
       <label index="record_pm_field_title_revocation">Widerrufsbelehrung</label>
       <label index="record_pm_field_title_submit">Organiser unverbindlich testen!</label>
-      <label index="record_pm_form_title_pageOrgCaddy">Caddy Bestellformular (Kalender)</label>
+      <label index="record_pm_form_title_pageOrgCalCaddy">Caddy Bestellformular (Kalender)</label>
       <label index="record_pm_form_title_pageOrgDocumentsCaddy">Caddy Bestellformular (Downloads)</label>
       <label index="record_tx_org_cal_eggroll_type">url</label>
       <label index="record_tx_org_cal_eggroll_title">White House: Ostereier-Party</label>

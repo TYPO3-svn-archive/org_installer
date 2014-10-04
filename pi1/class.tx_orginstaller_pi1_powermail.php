@@ -917,8 +917,8 @@ class tx_orginstaller_pi1_powermail
 
     switch( $this->page )
     {
-      case( 'pageOrgCaddy_title' ):
-        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ];
+      case( 'pageOrgCalCaddy_title' ):
+        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgCalCaddyRevocation_title' ];
         break;
       case( 'pageOrgDocumentsCaddy_title' ):
         $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ];
@@ -1059,8 +1059,8 @@ class tx_orginstaller_pi1_powermail
 
     switch( $this->page )
     {
-      case( 'pageOrgCaddy_title' ):
-        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ];
+      case( 'pageOrgCalCaddy_title' ):
+        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgCalCaddyTerms_title' ];
         break;
       case( 'pageOrgDocumentsCaddy_title' ):
         $int_terms = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ];
@@ -1771,7 +1771,7 @@ class tx_orginstaller_pi1_powermail
   {
     switch( $this->page )
     {
-      case( 'pageOrgCaddy_title' ):
+      case( 'pageOrgCalCaddy_title' ):
         $this->fieldsetsValueForm = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
         break;
         // #i0009, 130913, dwildt, 3+
@@ -1799,8 +1799,8 @@ class tx_orginstaller_pi1_powermail
   {
     switch( $this->page )
     {
-      case( 'pageOrgCaddy_title' ):
-        $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_pageOrgCaddy' ];
+      case( 'pageOrgCalCaddy_title' ):
+        $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_pageOrgCalCaddy' ];
         break;
       case( 'pageOrgDocumentsCaddy_title' ):
         $this->fieldsetsValueForm = $this->arr_recordUids[ 'record_pm_form_title_pageOrgDocumentsCaddy' ];
@@ -1837,9 +1837,9 @@ class tx_orginstaller_pi1_powermail
 
     switch( $this->page )
     {
-      case( 'pageOrgCaddy_title' ):
-        $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_pageOrgCaddy' );
-        $this->arr_recordUids[ 'record_pm_form_title_pageOrgCaddy' ] = $uid;
+      case( 'pageOrgCalCaddy_title' ):
+        $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_pageOrgCalCaddy' );
+        $this->arr_recordUids[ 'record_pm_form_title_pageOrgCalCaddy' ] = $uid;
         break;
       case( 'pageOrgDocumentsCaddy_title' ):
         $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_pageOrgDocumentsCaddy' );

@@ -1,6 +1,12 @@
 6.0.0
-  14-09-18
+  14-10-03
   Major Features
+  * #62018: * removed:
+              * tx_org_downloads_mm_tx_org_downloadscat
+              * tx_org_downloads_mm_tx_org_downloadsmedia
+  * #61867: Caddy + Foundation 5.x
+  * #61838: +   Cal page
+            ./. TYPO3integrators page
   * #61825: +Events
   * #61779: +Job, +Service
             * pi1
@@ -20,6 +26,9 @@
               * pi1
                 * class.tx_orginstaller_pi1.php
             * #61666: SQL-ERROR: pages 'perms_userid' cannot be null
+  Bugfix
+  * #i0016: powermail plugin git the wrong receiver e-mail address
+            Is fixed for Powermail 2x only!
 
 4.0.4
   14-06-24

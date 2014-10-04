@@ -642,8 +642,8 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->powermailPageOrgCaddy = t3lib_div::makeInstance( 'tx_orginstaller_pi1_powermail' );
     $this->powermailPageOrgCaddy->pObj = $this;
 
-    $pid = $this->arr_pageUids[ 'pageOrgCaddy_title' ];
-    $this->powermailPageOrgCaddy->main( $pid, 'pageOrgCaddy_title' );
+    $pid = $this->arr_pageUids[ 'pageOrgCalCaddy_title' ];
+    $this->powermailPageOrgCaddy->main( $pid, 'pageOrgCalCaddy_title' );
   }
 
   /**

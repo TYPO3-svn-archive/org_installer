@@ -1,26 +1,27 @@
 <?php
-/***************************************************************
-*  Copyright notice
-*
-*  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 2 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+
+/* * *************************************************************
+ *  Copyright notice
+ *
+ *  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ * ************************************************************* */
 /**
  * [CLASS/FUNCTION INDEX of SCRIPT]
  *
@@ -32,16 +33,16 @@
  *  104:     public function main( )
  *
  *              SECTION: pages
- *  131:     private function pageOrgCaddy( )
- *  166:     private function pageOrgCaddy_contentJss( )
- *  219:     private function pageOrgCaddy_pluginCaddy( )
- *  392:     private function pageOrgCaddy_pluginCaddyMini( )
- *  435:     private function pageOrgCaddy_pluginPowermail( )
- *  475:     private function pageOrgCaddy_pluginPowermail1x( )
- *  504:     private function pageOrgCaddy_pluginPowermail2x( )
- *  594:     private function pageOrgCaddy_typoscript( )
- *  627:     private function pageOrgCaddy_typoscript1x( )
- *  695:     private function pageOrgCaddy_typoscript2x( )
+ *  131:     private function pageOrgCalCaddy( )
+ *  166:     private function pageOrgCalCaddy_contentJss( )
+ *  219:     private function pageOrgCalCaddy_pluginCaddy( )
+ *  392:     private function pageOrgCalCaddy_pluginCaddyMini( )
+ *  435:     private function pageOrgCalCaddy_pluginPowermail( )
+ *  475:     private function pageOrgCalCaddy_pluginPowermail1x( )
+ *  504:     private function pageOrgCalCaddy_pluginPowermail2x( )
+ *  594:     private function pageOrgCalCaddy_typoscript( )
+ *  627:     private function pageOrgCalCaddy_typoscript1x( )
+ *  695:     private function pageOrgCalCaddy_typoscript2x( )
  *  751:     private function pageOrg( )
  *  782:     private function pageOrg_fileCopy( $timestamp )
  *  836:     private function pageOrg_pluginInstallHide( )
@@ -77,91 +78,86 @@
  */
 class tx_orginstaller_pi1_consolidate
 {
-  public $prefixId      = 'tx_orginstaller_pi1_consolidate';                // Same as class name
+
+  public $prefixId = 'tx_orginstaller_pi1_consolidate';                // Same as class name
   public $scriptRelPath = 'pi1/class.tx_orginstaller_pi1_consolidate.php';  // Path to this script relative to the extension dir.
-  public $extKey        = 'org_installer';                      // The extension key.
-
+  public $extKey = 'org_installer';                      // The extension key.
   public $pObj = null;
-
   private $powermailVersionAppendix = null;
 
+  /*   * *********************************************
+   *
+   * Main
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Main
-  *
-  **********************************************/
-
-/**
- * main( )
- *
- * @return	void
- * @access public
- * @version 3.0.0
- * @since   3.0.0
- */
-  public function main( )
+  /**
+   * main( )
+   *
+   * @return	void
+   * @access public
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  public function main()
   {
     $this->pObj->arrReport[] = '
       <h2>
        ' . $this->pObj->pi_getLL( 'consolidate_header' ) . '
       </h2>';
 
-    $this->pageOrg( );
-    $this->pageOrgCaddy( );
-    $this->pageOrgData( );
-    $this->pageOrgDocumentsCaddy( );
-    $this->pageOrgLibraryHeaderLogo( );
+    $this->pageOrg();
+    $this->pageOrgCalCaddy();
+    $this->pageOrgData();
+    $this->pageOrgDocumentsCaddy();
+    $this->pageOrgLibraryHeaderLogo();
   }
 
+  /*   * *********************************************
+   *
+   * pages
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * pages
-  *
-  **********************************************/
-
-/**
- * pageOrg( )
- *
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrg( )
+  /**
+   * pageOrg( )
+   *
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrg()
   {
-    $records    = array( );
-    $timestamp  = time();
-    $pageTitle  = $GLOBALS['TSFE']->page['title'];
+    $records = array();
+    $timestamp = time();
+    $pageTitle = $GLOBALS[ 'TSFE' ]->page[ 'title' ];
 
-      // Update page properties
-    $records = $this->pageOrg_properties( );
+    // Update page properties
+    $records = $this->pageOrg_properties();
     $this->sqlUpdatePages( $records, $pageTitle );
 
-      // Copy header image
+    // Copy header image
     $this->pageOrg_fileCopy( $timestamp );
 
-      // Hide the installer plugin
-    $records  = $this->pageOrg_pluginInstallHide( );
+    // Hide the installer plugin
+    $records = $this->pageOrg_pluginInstallHide();
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
-      // Hide the TypoScript template
-    $this->pageOrg_typoscriptOtherHide( );
-    $this->sqlUpdateTyposcriptOtherHide( );
+    // Hide the TypoScript template
+    $this->pageOrg_typoscriptOtherHide();
+    $this->sqlUpdateTyposcriptOtherHide();
   }
 
-/**
- * pageOrg_fileCopy( )
- *
- * @param	integer		$timestamp  : current time
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
+  /**
+   * pageOrg_fileCopy( )
+   *
+   * @param	integer		$timestamp  : current time
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
   private function pageOrg_fileCopy( $timestamp )
   {
     unset( $timestamp );
@@ -209,45 +205,45 @@ class tx_orginstaller_pi1_consolidate
 //      // SWICTH : prompt depending on success
   }
 
-/**
- * pageOrg_pluginInstallHide( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrg_pluginInstallHide( )
+  /**
+   * pageOrg_pluginInstallHide( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrg_pluginInstallHide()
   {
     $records = null;
 
-    $uid    = $this->pObj->cObj->data['uid'];
-    $header = $this->pObj->cObj->data['header'];
+    $uid = $this->pObj->cObj->data[ 'uid' ];
+    $header = $this->pObj->cObj->data[ 'header' ];
 
-    $records[$uid]['header'] = $header;
-    $records[$uid]['hidden'] = 1;
+    $records[ $uid ][ 'header' ] = $header;
+    $records[ $uid ][ 'hidden' ] = 1;
 
     return $records;
   }
 
-/**
- * pageOrg_properties( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrg_properties( )
+  /**
+   * pageOrg_properties( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrg_properties()
   {
     $records = null;
 
-    $uid          = $GLOBALS['TSFE']->id;
-    $is_siteroot  = null;
-    $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
-    $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
+    $uid = $GLOBALS[ 'TSFE' ]->id;
+    $is_siteroot = null;
+    $groupUid = $this->pObj->markerArray[ '###GROUP_UID###' ];
+    $groupTitle = $this->pObj->markerArray[ '###GROUP_TITLE###' ];
 
-      // #i0011, 130925, dwildt, 12-
+    // #i0011, 130925, dwildt, 12-
 //      // SWITCH : siteroot depends on toplevel
 //    switch( $this->pObj->bool_topLevel )
 //    {
@@ -260,33 +256,32 @@ class tx_orginstaller_pi1_consolidate
 //        break;
 //    }
 //      // SWITCH : siteroot depends on toplevel
-      // #i0011, 130925, dwildt, 12-
-
-      // SWITCH : install case
-    $installCase = $this->pObj->markerArray['###INSTALL_CASE###'];
-    switch( $installCase )
+    // #i0011, 130925, dwildt, 12-
+    // SWITCH : install case
+    $installCase = $this->pObj->markerArray[ '###INSTALL_CASE###' ];
+    switch ( $installCase )
     {
       case( 'install_org' ):
-          // #i0011, 130925, dwildt, 1+
+        // #i0011, 130925, dwildt, 1+
         $is_siteroot = 0;
-        $records[$uid]['nav_title'] = null;
+        $records[ $uid ][ 'nav_title' ] = null;
         break;
       case( 'install_all' ):
-          // #i0011, 130925, dwildt, 1+
+        // #i0011, 130925, dwildt, 1+
         $is_siteroot = 1;
-        $records[$uid]['nav_title'] = $this->pObj->pi_getLL( 'pageQuickshop_titleNav' );
+        $records[ $uid ][ 'nav_title' ] = $this->pObj->pi_getLL( 'pageQuickshop_titleNav' );
         break;
       default:
-        $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
+        $prompt = __METHOD__ . ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
         die( $prompt );
     }
-      // SWITCH : install case
+    // SWITCH : install case
 
-    $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageOrg_title' );
-    $records[$uid]['nav_hide']    = 0;
-    $records[$uid]['is_siteroot'] = $is_siteroot;
-    $records[$uid]['module']      = null;
-    $records[$uid]['TSconfig']    = '
+    $records[ $uid ][ 'title' ] = $this->pObj->pi_getLL( 'pageOrg_title' );
+    $records[ $uid ][ 'nav_hide' ] = 0;
+    $records[ $uid ][ 'is_siteroot' ] = $is_siteroot;
+    $records[ $uid ][ 'module' ] = null;
+    $records[ $uid ][ 'TSconfig' ] = '
 
 // ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' ) . ' -- BEGIN
 
@@ -310,74 +305,73 @@ TCEMAIN {
 // ORGANISER INSTALLER at ' . date( 'Y-m-d G:i:s' ) . ' -- END
 
 ';
-    $records[$uid]['TSconfig'] = $this->zz_replacePageUids( $records[$uid]['TSconfig'] );
+    $records[ $uid ][ 'TSconfig' ] = $this->zz_replacePageUids( $records[ $uid ][ 'TSconfig' ] );
 
     return $records;
   }
 
-/**
- * pageOrg_typoscriptOtherHide( )
- *
- * @return	array		$record : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrg_typoscriptOtherHide( )
+  /**
+   * pageOrg_typoscriptOtherHide( )
+   *
+   * @return	array		$record : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrg_typoscriptOtherHide()
   {
     // Do nothing
   }
 
-/**
- * pageOrgCaddy( )
- *
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgCaddy( )
+  /**
+   * pageOrgCalCaddy( )
+   *
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgCalCaddy()
   {
-    $records    = array( );
-    $pageTitle  = $this->pObj->pi_getLL( 'pageOrgCaddy_title' );
+    $records = array();
+    $pageTitle = $this->pObj->pi_getLL( 'pageOrgCalCaddy_title' );
 
-      // Update the jss script
-    $records    = $this->pageOrgCaddy_contentJss( );
+    // Update the jss script
+    $records = $this->pageOrgCalCaddy_contentJss();
     $this->sqlUpdateContent( $records, $pageTitle );
 
-      // Update the powermail plugin
-    $records    = $this->pageOrgCaddy_pluginPowermail( );
+    // Update the powermail plugin
+    $records = $this->pageOrgCalCaddy_pluginPowermail();
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
-      // Update the caddy plugin
-    $records    = $this->pageOrgCaddy_pluginCaddy( );
+    // Update the caddy plugin
+    $records = $this->pageOrgCalCaddy_pluginCaddy();
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
-      // Update the TypoScript
-    $records    = $this->pageOrgCaddy_typoscript( );
+    // Update the TypoScript
+    $records = $this->pageOrgCalCaddy_typoscript();
     $this->sqlUpdateTyposcript( $records, $pageTitle );
-
   }
 
-/**
- * pageOrgCaddy_contentJss( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.4
- * @since   3.0.4
- */
-  private function pageOrgCaddy_contentJss( )
+  /**
+   * pageOrgCalCaddy_contentJss( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.4
+   * @since   3.0.4
+   */
+  private function pageOrgCalCaddy_contentJss()
   {
-    $records  = null;
-    $uid      = $this->pObj->arr_contentUids['content_pageOrgCaddy_header'];
+    $records = null;
+    $uid = $this->pObj->arr_contentUids[ 'content_pageOrgCalCaddy_header' ];
 
-      // values
-    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCaddy_header' );
-      // values
+    // values
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCalCaddy_header' );
+    // values
 
     $pmFieldsetUid = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_fSets_title_deliveryAddress' );
-    switch( true )
+    switch ( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
         $prompt = 'ERROR: unexpected result<br />
@@ -402,45 +396,46 @@ TCEMAIN {
         break;
     }
 
-    $jssScript = $this->pObj->pi_getLL('content_pageOrgCaddy_bodytext');
+    $jssScript = $this->pObj->pi_getLL( 'content_pageOrgCalCaddy_bodytext' );
     $jssScript = str_replace( '###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###', $pmFieldsetHtmlId, $jssScript );
 
 
-    $records[$uid]['header']      = $llHeader;
-    $records[$uid]['bodytext']    = $jssScript;
+    $records[ $uid ][ 'header' ] = $llHeader;
+    $records[ $uid ][ 'bodytext' ] = $jssScript;
+    $records[ $uid ][ 'hidden' ] = 1;
 
     return $records;
   }
 
-/**
- * pageOrgCaddy_pluginCaddy( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgCaddy_pluginCaddy( )
+  /**
+   * pageOrgCalCaddy_pluginCaddy( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgCalCaddy_pluginCaddy()
   {
-    $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'pluginCaddyPageOrgCaddy_header' ];
-    $pmX      = $this->powermailVersionAppendix( );
+    $records = null;
+    $uid = $this->pObj->arr_pluginUids[ 'pluginCaddyPageOrgCaddy_header' ];
+    $pmX = $this->powermailVersionAppendix();
 
-      // values
+    // values
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgCaddy_header' );
-      // values
+    // values
 
-    $records[$uid]['header']      = $llHeader;
-    $records[$uid]['pi_flexform'] = null .
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+    $records[ $uid ][ 'header' ] = $llHeader;
+    $records[ $uid ][ 'pi_flexform' ] = null .
+            '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
         <sheet index="note">
             <language index="lDEF">
                 <field index="note">
                     <value index="vDEF">'
-                      . $this->pObj->pi_getLL( 'pluginCaddyPageOrgCaddy_note_' . $pmX ) .
-                    '</value>
+            . $this->pObj->pi_getLL( 'pluginCaddyPageOrgCaddy_note_' . $pmX ) .
+            '</value>
                 </field>
             </language>
         </sheet>
@@ -467,8 +462,8 @@ TCEMAIN {
             <language index="lDEF">
                 <field index="customerEmail">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_email' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_email' ) .
+            '</value>
                 </field>
                 <field index="termsMode">
                     <value index="vDEF">all</value>
@@ -488,38 +483,38 @@ TCEMAIN {
             <language index="lDEF">
                 <field index="company">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_companyBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_companyBilling' ) .
+            '</value>
                 </field>
                 <field index="firstName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_firstnameBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_firstnameBilling' ) .
+            '</value>
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_surnameBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_surnameBilling' ) .
+            '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_streetBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_streetBilling' ) .
+            '</value>
                 </field>
                 <field index="zip">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_zipBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_zipBilling' ) .
+            '</value>
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_locationBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_locationBilling' ) .
+            '</value>
                 </field>
                 <field index="country">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_countryBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_countryBilling' ) .
+            '</value>
                 </field>
             </language>
         </sheet>
@@ -527,38 +522,38 @@ TCEMAIN {
             <language index="lDEF">
                 <field index="company">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_companyDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_companyDelivery' ) .
+            '</value>
                 </field>
                 <field index="firstName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_firstnameDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_firstnameDelivery' ) .
+            '</value>
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_surnameDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_surnameDelivery' ) .
+            '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_streetDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_streetDelivery' ) .
+            '</value>
                 </field>
                 <field index="zip">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_zipDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_zipDelivery' ) .
+            '</value>
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_locationDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_locationDelivery' ) .
+            '</value>
                 </field>
                 <field index="country">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgCaddy_title', 'record_pm_field_title_countryDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgCalCaddy_title', 'record_pm_field_title_countryDelivery' ) .
+            '</value>
                 </field>
             </language>
         </sheet>
@@ -585,19 +580,19 @@ TCEMAIN {
     return $records;
   }
 
-/**
- * pageOrgCaddy_pluginPowermail( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgCaddy_pluginPowermail( )
+  /**
+   * pageOrgCalCaddy_pluginPowermail( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgCalCaddy_pluginPowermail()
   {
-    $records  = null;
+    $records = null;
 
-    switch( true )
+    switch ( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
         $prompt = 'ERROR: unexpected result<br />
@@ -607,10 +602,10 @@ TCEMAIN {
         die( $prompt );
         break;
       case( $this->pObj->powermailVersionInt < 2000000 ):
-        $records = $this->pageOrgCaddy_pluginPowermail1x( );
+        $records = $this->pageOrgCalCaddy_pluginPowermail1x();
         break;
       case( $this->pObj->powermailVersionInt < 3000000 ):
-        $records = $this->pageOrgCaddy_pluginPowermail2x( );
+        $records = $this->pageOrgCalCaddy_pluginPowermail2x();
         break;
       case( $this->pObj->powermailVersionInt >= 3000000 ):
       default:
@@ -625,62 +620,68 @@ TCEMAIN {
     return $records;
   }
 
-/**
- * pageOrgCaddy_pluginPowermail1x( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgCaddy_pluginPowermail1x( )
+  /**
+   * pageOrgCalCaddy_pluginPowermail1x( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgCalCaddy_pluginPowermail1x()
   {
-    $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
+    $records = null;
+    $uid = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
 
-      // values
-    $llHeader       = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
-    $uidEmail       = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_field_title_email' );
-    $customerEmail  = 'uid' . $uidEmail;
-    $uidFirstname   = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_field_title_firstnameBilling' );
-    $uidSurname     = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_field_title_surnameBilling' );
-    $customerName   = 'uid' . $uidFirstname . ',uid' . $uidSurname;
-      // values
+    // values
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
+    $uidEmail = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_field_title_email' );
+    $customerEmail = 'uid' . $uidEmail;
+    $uidFirstname = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_field_title_firstnameBilling' );
+    $uidSurname = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_field_title_surnameBilling' );
+    $customerName = 'uid' . $uidFirstname . ',uid' . $uidSurname;
+    // values
 
-    $records[$uid]['header']                  = $llHeader;
-    $records[$uid]['tx_powermail_sender']     = $customerEmail;
-    $records[$uid]['tx_powermail_sendername'] = $customerName;
+    $records[ $uid ][ 'header' ] = $llHeader;
+    $records[ $uid ][ 'tx_powermail_sender' ] = $customerEmail;
+    $records[ $uid ][ 'tx_powermail_sendername' ] = $customerName;
 
     return $records;
   }
 
-/**
- * pageOrgCaddy_pluginPowermail2x( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgCaddy_pluginPowermail2x( )
+  /**
+   * pageOrgCalCaddy_pluginPowermail2x( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 6.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgCalCaddy_pluginPowermail2x()
   {
-    $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
+    $records = null;
+    $uid = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgCaddy_header' ];
 
-    $llHeader         = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
-    $uidForm          = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_form_title_pageOrgCaddy' );
-    $receiverSubject  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_r2x' );
-    $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_r2x' ) );
-    list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_header' );
+    $uidForm = $this->pObj->powermailPageOrgCaddy->getValue( 'record_pm_form_title_pageOrgCalCaddy' );
+    $receiverSubject = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_r2x' );
+    $receiverBody = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_r2x' ) );
+    // #i0016, 140926, dwildt, 3-
+//    list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+//    unset( $name );
+//    $senderEmail      = 'noreply@' . $domain;
+    // #i0016, 140926, dwildt, 3-
+    $providerEmail = $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ];
+    list( $name, $domain) = explode( '@', $providerEmail );
     unset( $name );
-    $senderEmail      = 'noreply@' . $domain;
-    $senderSubject    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_s2x' );
-    $senderBody       = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_s2x' ) );
-    $thxBody          = htmlspecialchars( $this->pObj->pi_getLL('pluginPowermailPageOrgCaddy_thanks2x') );
+    $noreplyEmail = 'noreply@' . $domain;
+    $senderSubject = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_s2x' );
+    $senderBody = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_s2x' ) );
+    $thxBody = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_thanks2x' ) );
 
-    $records[$uid]['header']      = $llHeader;
-    $records[$uid]['pi_flexform'] = null .
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+    $records[ $uid ][ 'header' ] = $llHeader;
+    $records[ $uid ][ 'pi_flexform' ] = null .
+            '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
         <sheet index="main">
@@ -699,7 +700,7 @@ TCEMAIN {
                     <value index="vDEF">{billingaddressfirstname} {billingaddresslastname}</value>
                 </field>
                 <field index="settings.flexform.receiver.email">
-                    <value index="vDEF">{contactdataemail}</value>
+                    <value index="vDEF">' . $providerEmail . '</value>
                 </field>
                 <field index="settings.flexform.receiver.subject">
                     <value index="vDEF">' . $receiverSubject . '</value>
@@ -716,7 +717,7 @@ TCEMAIN {
                     <value index="vDEF">Organiser</value>
                 </field>
                 <field index="settings.flexform.sender.email">
-                    <value index="vDEF">' . $senderEmail . '</value>
+                    <value index="vDEF">' . $noreplyEmail . '</value>
                 </field>
                 <field index="settings.flexform.sender.subject">
                     <value index="vDEF">' . $senderSubject . '</value>
@@ -744,26 +745,26 @@ TCEMAIN {
     return $records;
   }
 
-/**
- * pageOrgCaddy_typoscript( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgCaddy_typoscript( )
+  /**
+   * pageOrgCalCaddy_typoscript( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgCalCaddy_typoscript()
   {
     $records = null;
 
-    $pmX = $this->powermailVersionAppendix( );
-    switch( true )
+    $pmX = $this->powermailVersionAppendix();
+    switch ( true )
     {
       case( $pmX == '1x' ):
-        $records = $this->pageOrgCaddy_typoscript1x( );
+        $records = $this->pageOrgCalCaddy_typoscript1x();
         break;
       case( $pmX == '2x' ):
-        $records = $this->pageOrgCaddy_typoscript2x( );
+        $records = $this->pageOrgCalCaddy_typoscript2x();
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -779,32 +780,32 @@ TCEMAIN {
     return $records;
   }
 
-/**
- * pageOrgCaddy_typoscript1x( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgCaddy_typoscript1x( )
+  /**
+   * pageOrgCalCaddy_typoscript1x( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgCalCaddy_typoscript1x()
   {
     $records = null;
 
-    $title  = 'pageOrgCaddy_title';
-    $uid    = $this->pObj->arr_tsUids[ $title ];
+    $title = 'pageOrgCalCaddy_title';
+    $uid = $this->pObj->arr_tsUids[ $title ];
 
     $strUid = sprintf( '%03d', $uid );
-    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
-    $llTitle  = str_replace( ' ', null, $llTitle );
-    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    $llTitle = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle = str_replace( ' ', null, $llTitle );
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
 
-    list( $noreply, $domain ) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
-    $noreply                  = 'noreply@' . $domain;
+    list( $noreply, $domain ) = explode( '@', $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ] );
+    $noreply = 'noreply@' . $domain;
 
 
-    $records[$uid]['title']     = $llTitle;
-    $records[$uid]['constants'] = '
+    $records[ $uid ][ 'title' ] = $llTitle;
+    $records[ $uid ][ 'constants' ] = '
   /////////////////////////////////////////
   //
   // INDEX
@@ -822,11 +823,11 @@ TCEMAIN {
 //
 //plugin.caddy {
 //  pages {
-//    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-//    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . '
-//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+//    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddy_title' ] . '
+//    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyCaddymini_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyRevocation_title' ] . '
 //    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyTerms_title' ] . '
 //  }
 //}
 //  // plugin.caddy
@@ -846,7 +847,7 @@ plugin.powermail {
 
 ';
 
-    $records[$uid]['config']  = '
+    $records[ $uid ][ 'config' ] = '
 plugin.tx_powermail_pi1 {
   email {
     sender_mail {
@@ -870,47 +871,47 @@ plugin.tx_powermail_pi1 {
   }
 }';
 
-      // SWITCH : install case
-    switch( true )
+    // SWITCH : install case
+    switch ( true )
     {
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
-        $records[$uid]['config']  = $records[$uid]['config'] . '
+      case( $this->pObj->markerArray[ '###INSTALL_CASE###' ] == 'install_all' ):
+        $records[ $uid ][ 'config' ] = $records[ $uid ][ 'config' ] . '
 
   // Don\'t display the mini caddy
 page.10.subparts.menue.10 >
 ';
         break;
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
+      case( $this->pObj->markerArray[ '###INSTALL_CASE###' ] == 'install_org' ):
         // Do nothing
         break;
     }
-      // SWITCH : install case
+    // SWITCH : install case
 
     return $records;
   }
 
-/**
- * pageOrgCaddy_typoscript2x( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgCaddy_typoscript2x( )
+  /**
+   * pageOrgCalCaddy_typoscript2x( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgCalCaddy_typoscript2x()
   {
     $records = null;
 
-    $title  = 'pageOrgCaddy_title';
-    $uid    = $this->pObj->arr_tsUids[ $title ];
+    $title = 'pageOrgCalCaddy_title';
+    $uid = $this->pObj->arr_tsUids[ $title ];
 
     $strUid = sprintf( '%03d', $uid );
-    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
-    $llTitle  = str_replace( ' ', null, $llTitle );
-    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    $llTitle = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle = str_replace( ' ', null, $llTitle );
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
 
-    $records[$uid]['title']   = $llTitle;
-    $records[$uid]['constants'] = '
+    $records[ $uid ][ 'title' ] = $llTitle;
+    $records[ $uid ][ 'constants' ] = '
   /////////////////////////////////////////
   //
   // INDEX
@@ -927,11 +928,11 @@ page.10.subparts.menue.10 >
 //
 //plugin.caddy {
 //  pages {
-//    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddy_title' ] . '
-//    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyCaddymini_title' ] . '
-//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyRevocation_title' ] . '
+//    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddy_title' ] . '
+//    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyCaddymini_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyRevocation_title' ] . '
 //    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCaddyTerms_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyTerms_title' ] . '
 //  }
 //}
 //  // plugin.caddy
@@ -954,9 +955,9 @@ plugin.tx_powermail {
   // plugin.tx_powermail
 
 ';
-    $records[$uid]['constants'] = $this->zz_replacePageUids( $records[$uid]['constants'] );
+    $records[ $uid ][ 'constants' ] = $this->zz_replacePageUids( $records[ $uid ][ 'constants' ] );
 
-    $records[$uid]['config']  = '
+    $records[ $uid ][ 'config' ] = '
 plugin.tx_powermail {
   _LOCAL_LANG {
     default {
@@ -972,76 +973,75 @@ plugin.tx_powermail {
   // plugin.caddy
 ';
 
-      // SWITCH : install case
-    switch( true )
+    // SWITCH : install case
+    switch ( true )
     {
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
-        $records[$uid]['config']  = $records[$uid]['config'] . '
+      case( $this->pObj->markerArray[ '###INSTALL_CASE###' ] == 'install_all' ):
+        $records[ $uid ][ 'config' ] = $records[ $uid ][ 'config' ] . '
 
   // Don\'t display the mini caddy
 page.10.subparts.menue.10 >
 ';
         break;
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
+      case( $this->pObj->markerArray[ '###INSTALL_CASE###' ] == 'install_org' ):
         // Do nothing
         break;
     }
-      // SWITCH : install case
+    // SWITCH : install case
 
 
     return $records;
   }
 
-/**
- * pageOrgDocumentsCaddy( )
- *
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgDocumentsCaddy( )
+  /**
+   * pageOrgDocumentsCaddy( )
+   *
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgDocumentsCaddy()
   {
-    $records    = array( );
-    $pageTitle  = $this->pObj->pi_getLL( 'pageOrgDocumentsCaddy_title' );
+    $records = array();
+    $pageTitle = $this->pObj->pi_getLL( 'pageOrgDocumentsCaddy_title' );
 
-      // Update the jss script
-    $records    = $this->pageOrgDocumentsCaddy_contentJss( );
+    // Update the jss script
+    $records = $this->pageOrgDocumentsCaddy_contentJss();
     $this->sqlUpdateContent( $records, $pageTitle );
 
-      // Update the powermail plugin
-    $records    = $this->pageOrgDocumentsCaddy_pluginPowermail( );
+    // Update the powermail plugin
+    $records = $this->pageOrgDocumentsCaddy_pluginPowermail();
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
-      // Update the caddy plugin
-    $records    = $this->pageOrgDocumentsCaddy_pluginCaddy( );
+    // Update the caddy plugin
+    $records = $this->pageOrgDocumentsCaddy_pluginCaddy();
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
-      // Update the TypoScript
-    $records    = $this->pageOrgDocumentsCaddy_typoscript( );
+    // Update the TypoScript
+    $records = $this->pageOrgDocumentsCaddy_typoscript();
     $this->sqlUpdateTyposcript( $records, $pageTitle );
-
   }
 
-/**
- * pageOrgDocumentsCaddy_contentJss( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.4
- * @since   3.0.4
- */
-  private function pageOrgDocumentsCaddy_contentJss( )
+  /**
+   * pageOrgDocumentsCaddy_contentJss( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.4
+   * @since   3.0.4
+   */
+  private function pageOrgDocumentsCaddy_contentJss()
   {
-    $records  = null;
-    $uid      = $this->pObj->arr_contentUids['content_pageOrgDocumentsCaddy_header'];
+    $records = null;
+    $uid = $this->pObj->arr_contentUids[ 'content_pageOrgDocumentsCaddy_header' ];
 
-      // values
+    // values
     $llHeader = $this->pObj->pi_getLL( 'content_pageOrgDocumentsCaddy_header' );
-      // values
+    // values
 
     $pmFieldsetUid = $this->pObj->powermailPageOrgDocumentsCaddy->getValue( 'record_pm_fSets_title_deliveryAddress' );
-    switch( true )
+    switch ( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
         $prompt = 'ERROR: unexpected result<br />
@@ -1066,45 +1066,46 @@ page.10.subparts.menue.10 >
         break;
     }
 
-    $jssScript = $this->pObj->pi_getLL('content_pageOrgDocumentsCaddy_bodytext');
+    $jssScript = $this->pObj->pi_getLL( 'content_pageOrgDocumentsCaddy_bodytext' );
     $jssScript = str_replace( '###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###', $pmFieldsetHtmlId, $jssScript );
 
 
-    $records[$uid]['header']      = $llHeader;
-    $records[$uid]['bodytext']    = $jssScript;
+    $records[ $uid ][ 'header' ] = $llHeader;
+    $records[ $uid ][ 'bodytext' ] = $jssScript;
+    $records[ $uid ][ 'hidden' ] = 1;
 
     return $records;
   }
 
-/**
- * pageOrgDocumentsCaddy_pluginCaddy( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgDocumentsCaddy_pluginCaddy( )
+  /**
+   * pageOrgDocumentsCaddy_pluginCaddy( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgDocumentsCaddy_pluginCaddy()
   {
-    $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'pluginCaddyPageOrgDocumentsCaddy_header' ];
-    $pmX      = $this->powermailVersionAppendix( );
+    $records = null;
+    $uid = $this->pObj->arr_pluginUids[ 'pluginCaddyPageOrgDocumentsCaddy_header' ];
+    $pmX = $this->powermailVersionAppendix();
 
-      // values
+    // values
     $llHeader = $this->pObj->pi_getLL( 'pluginCaddyPageOrgDocumentsCaddy_header' );
-      // values
+    // values
 
-    $records[$uid]['header']      = $llHeader;
-    $records[$uid]['pi_flexform'] = null .
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+    $records[ $uid ][ 'header' ] = $llHeader;
+    $records[ $uid ][ 'pi_flexform' ] = null .
+            '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
         <sheet index="note">
             <language index="lDEF">
                 <field index="note">
                     <value index="vDEF">'
-                      . $this->pObj->pi_getLL( 'pluginCaddyPageOrgDocumentsCaddy_note_' . $pmX ) .
-                    '</value>
+            . $this->pObj->pi_getLL( 'pluginCaddyPageOrgDocumentsCaddy_note_' . $pmX ) .
+            '</value>
                 </field>
             </language>
         </sheet>
@@ -1131,8 +1132,8 @@ page.10.subparts.menue.10 >
             <language index="lDEF">
                 <field index="customerEmail">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_email' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_email' ) .
+            '</value>
                 </field>
                 <field index="termsMode">
                     <value index="vDEF">all</value>
@@ -1152,38 +1153,38 @@ page.10.subparts.menue.10 >
             <language index="lDEF">
                 <field index="company">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_companyBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_companyBilling' ) .
+            '</value>
                 </field>
                 <field index="firstName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_firstnameBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_firstnameBilling' ) .
+            '</value>
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_surnameBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_surnameBilling' ) .
+            '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_streetBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_streetBilling' ) .
+            '</value>
                 </field>
                 <field index="zip">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_zipBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_zipBilling' ) .
+            '</value>
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_locationBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_locationBilling' ) .
+            '</value>
                 </field>
                 <field index="country">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_countryBilling' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_countryBilling' ) .
+            '</value>
                 </field>
             </language>
         </sheet>
@@ -1191,38 +1192,38 @@ page.10.subparts.menue.10 >
             <language index="lDEF">
                 <field index="company">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_companyDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_companyDelivery' ) .
+            '</value>
                 </field>
                 <field index="firstName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_firstnameDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_firstnameDelivery' ) .
+            '</value>
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_surnameDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_surnameDelivery' ) .
+            '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_streetDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_streetDelivery' ) .
+            '</value>
                 </field>
                 <field index="zip">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_zipDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_zipDelivery' ) .
+            '</value>
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_locationDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_locationDelivery' ) .
+            '</value>
                 </field>
                 <field index="country">
                     <value index="vDEF">'
-                      . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_countryDelivery' ) .
-                    '</value>
+            . $this->zz_getPowermailUid( 'pageOrgDocumentsCaddy_title', 'record_pm_field_title_countryDelivery' ) .
+            '</value>
                 </field>
             </language>
         </sheet>
@@ -1249,19 +1250,19 @@ page.10.subparts.menue.10 >
     return $records;
   }
 
-/**
- * pageOrgDocumentsCaddy_pluginPowermail( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgDocumentsCaddy_pluginPowermail( )
+  /**
+   * pageOrgDocumentsCaddy_pluginPowermail( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgDocumentsCaddy_pluginPowermail()
   {
-    $records  = null;
+    $records = null;
 
-    switch( true )
+    switch ( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
         $prompt = 'ERROR: unexpected result<br />
@@ -1271,10 +1272,10 @@ page.10.subparts.menue.10 >
         die( $prompt );
         break;
       case( $this->pObj->powermailVersionInt < 2000000 ):
-        $records = $this->pageOrgDocumentsCaddy_pluginPowermail1x( );
+        $records = $this->pageOrgDocumentsCaddy_pluginPowermail1x();
         break;
       case( $this->pObj->powermailVersionInt < 3000000 ):
-        $records = $this->pageOrgDocumentsCaddy_pluginPowermail2x( );
+        $records = $this->pageOrgDocumentsCaddy_pluginPowermail2x();
         break;
       case( $this->pObj->powermailVersionInt >= 3000000 ):
       default:
@@ -1289,62 +1290,68 @@ page.10.subparts.menue.10 >
     return $records;
   }
 
-/**
- * pageOrgDocumentsCaddy_pluginPowermail1x( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgDocumentsCaddy_pluginPowermail1x( )
+  /**
+   * pageOrgDocumentsCaddy_pluginPowermail1x( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgDocumentsCaddy_pluginPowermail1x()
   {
-    $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDocumentsCaddy_header' ];
+    $records = null;
+    $uid = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDocumentsCaddy_header' ];
 
-      // values
-    $llHeader       = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_header' );
-    $uidEmail       = $this->pObj->powermailPageOrgDocumentsCaddy->getValue( 'record_pm_field_title_email' );
-    $customerEmail  = 'uid' . $uidEmail;
-    $uidFirstname   = $this->pObj->powermailPageOrgDocumentsCaddy->getValue( 'record_pm_field_title_firstnameBilling' );
-    $uidSurname     = $this->pObj->powermailPageOrgDocumentsCaddy->getValue( 'record_pm_field_title_surnameBilling' );
-    $customerName   = 'uid' . $uidFirstname . ',uid' . $uidSurname;
-      // values
+    // values
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_header' );
+    $uidEmail = $this->pObj->powermailPageOrgDocumentsCaddy->getValue( 'record_pm_field_title_email' );
+    $customerEmail = 'uid' . $uidEmail;
+    $uidFirstname = $this->pObj->powermailPageOrgDocumentsCaddy->getValue( 'record_pm_field_title_firstnameBilling' );
+    $uidSurname = $this->pObj->powermailPageOrgDocumentsCaddy->getValue( 'record_pm_field_title_surnameBilling' );
+    $customerName = 'uid' . $uidFirstname . ',uid' . $uidSurname;
+    // values
 
-    $records[$uid]['header']                  = $llHeader;
-    $records[$uid]['tx_powermail_sender']     = $customerEmail;
-    $records[$uid]['tx_powermail_sendername'] = $customerName;
+    $records[ $uid ][ 'header' ] = $llHeader;
+    $records[ $uid ][ 'tx_powermail_sender' ] = $customerEmail;
+    $records[ $uid ][ 'tx_powermail_sendername' ] = $customerName;
 
     return $records;
   }
 
-/**
- * pageOrgDocumentsCaddy_pluginPowermail2x( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgDocumentsCaddy_pluginPowermail2x( )
+  /**
+   * pageOrgDocumentsCaddy_pluginPowermail2x( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 6.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgDocumentsCaddy_pluginPowermail2x()
   {
-    $records  = null;
-    $uid      = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDocumentsCaddy_header' ];
+    $records = null;
+    $uid = $this->pObj->arr_pluginUids[ 'pluginPowermailPageOrgDocumentsCaddy_header' ];
 
-    $llHeader         = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_header' );
-    $uidForm          = $this->pObj->powermailPageOrgDocumentsCaddy->getValue( 'record_pm_form_title_pageOrgDocumentsCaddy' );
-    $receiverSubject  = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_r2x' );
-    $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_r2x' ) );
-    list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+    $llHeader = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_header' );
+    $uidForm = $this->pObj->powermailPageOrgDocumentsCaddy->getValue( 'record_pm_form_title_pageOrgDocumentsCaddy' );
+    $receiverSubject = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_r2x' );
+    $receiverBody = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_r2x' ) );
+    // #i0016, 140926, dwildt, 3-
+//    list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+//    unset( $name );
+//    $senderEmail      = 'noreply@' . $domain;
+    // #i0016, 140926, dwildt, 3-
+    $providerEmail = $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ];
+    list( $name, $domain) = explode( '@', $providerEmail );
     unset( $name );
-    $senderEmail      = 'noreply@' . $domain;
-    $senderSubject    = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_s2x' );
-    $senderBody       = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_s2x' ) );
-    $thxBody          = htmlspecialchars( $this->pObj->pi_getLL('pluginPowermailPageOrgDocumentsCaddy_thanks2x') );
+    $noreplyEmail = 'noreply@' . $domain;
+    $senderSubject = $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_subject_s2x' );
+    $senderBody = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_body_s2x' ) );
+    $thxBody = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgDocumentsCaddy_thanks2x' ) );
 
-    $records[$uid]['header']      = $llHeader;
-    $records[$uid]['pi_flexform'] = null .
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+    $records[ $uid ][ 'header' ] = $llHeader;
+    $records[ $uid ][ 'pi_flexform' ] = null .
+            '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
         <sheet index="main">
@@ -1363,7 +1370,7 @@ page.10.subparts.menue.10 >
                     <value index="vDEF">{billingaddressfirstname} {billingaddresslastname}</value>
                 </field>
                 <field index="settings.flexform.receiver.email">
-                    <value index="vDEF">{contactdataemail}</value>
+                    <value index="vDEF">' . $providerEmail . '</value>
                 </field>
                 <field index="settings.flexform.receiver.subject">
                     <value index="vDEF">' . $receiverSubject . '</value>
@@ -1380,7 +1387,7 @@ page.10.subparts.menue.10 >
                     <value index="vDEF">Organiser</value>
                 </field>
                 <field index="settings.flexform.sender.email">
-                    <value index="vDEF">' . $senderEmail . '</value>
+                    <value index="vDEF">' . $noreplyEmail . '</value>
                 </field>
                 <field index="settings.flexform.sender.subject">
                     <value index="vDEF">' . $senderSubject . '</value>
@@ -1408,26 +1415,26 @@ page.10.subparts.menue.10 >
     return $records;
   }
 
-/**
- * pageOrgDocumentsCaddy_typoscript( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgDocumentsCaddy_typoscript( )
+  /**
+   * pageOrgDocumentsCaddy_typoscript( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgDocumentsCaddy_typoscript()
   {
     $records = null;
 
-    $pmX = $this->powermailVersionAppendix( );
-    switch( true )
+    $pmX = $this->powermailVersionAppendix();
+    switch ( true )
     {
       case( $pmX == '1x' ):
-        $records = $this->pageOrgDocumentsCaddy_typoscript1x( );
+        $records = $this->pageOrgDocumentsCaddy_typoscript1x();
         break;
       case( $pmX == '2x' ):
-        $records = $this->pageOrgDocumentsCaddy_typoscript2x( );
+        $records = $this->pageOrgDocumentsCaddy_typoscript2x();
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -1443,32 +1450,32 @@ page.10.subparts.menue.10 >
     return $records;
   }
 
-/**
- * pageOrgDocumentsCaddy_typoscript1x( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgDocumentsCaddy_typoscript1x( )
+  /**
+   * pageOrgDocumentsCaddy_typoscript1x( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgDocumentsCaddy_typoscript1x()
   {
     $records = null;
 
-    $title  = 'pageOrgDocumentsCaddy_title';
-    $uid    = $this->pObj->arr_tsUids[ $title ];
+    $title = 'pageOrgDocumentsCaddy_title';
+    $uid = $this->pObj->arr_tsUids[ $title ];
 
     $strUid = sprintf( '%03d', $uid );
-    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
-    $llTitle  = str_replace( ' ', null, $llTitle );
-    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    $llTitle = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle = str_replace( ' ', null, $llTitle );
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
 
-    list( $noreply, $domain ) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
-    $noreply                  = 'noreply@' . $domain;
+    list( $noreply, $domain ) = explode( '@', $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ] );
+    $noreply = 'noreply@' . $domain;
 
 
-    $records[$uid]['title']     = $llTitle;
-    $records[$uid]['constants'] = '
+    $records[ $uid ][ 'title' ] = $llTitle;
+    $records[ $uid ][ 'constants' ] = '
   /////////////////////////////////////////
   //
   // INDEX
@@ -1509,7 +1516,7 @@ plugin.powermail {
 
 ';
 
-    $records[$uid]['config']  = '
+    $records[ $uid ][ 'config' ] = '
 plugin.tx_powermail_pi1 {
   email {
     sender_mail {
@@ -1533,47 +1540,47 @@ plugin.tx_powermail_pi1 {
   }
 }';
 
-      // SWITCH : install case
-    switch( true )
+    // SWITCH : install case
+    switch ( true )
     {
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
-        $records[$uid]['config']  = $records[$uid]['config'] . '
+      case( $this->pObj->markerArray[ '###INSTALL_CASE###' ] == 'install_all' ):
+        $records[ $uid ][ 'config' ] = $records[ $uid ][ 'config' ] . '
 
   // Don\'t display the mini caddy
 page.10.subparts.menue.10 >
 ';
         break;
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
+      case( $this->pObj->markerArray[ '###INSTALL_CASE###' ] == 'install_org' ):
         // Do nothing
         break;
     }
-      // SWITCH : install case
+    // SWITCH : install case
 
     return $records;
   }
 
-/**
- * pageOrgDocumentsCaddy_typoscript2x( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgDocumentsCaddy_typoscript2x( )
+  /**
+   * pageOrgDocumentsCaddy_typoscript2x( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgDocumentsCaddy_typoscript2x()
   {
     $records = null;
 
-    $title  = 'pageOrgDocumentsCaddy_title';
-    $uid    = $this->pObj->arr_tsUids[ $title ];
+    $title = 'pageOrgDocumentsCaddy_title';
+    $uid = $this->pObj->arr_tsUids[ $title ];
 
     $strUid = sprintf( '%03d', $uid );
-    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
-    $llTitle  = str_replace( ' ', null, $llTitle );
-    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    $llTitle = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle = str_replace( ' ', null, $llTitle );
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
 
-    $records[$uid]['title']   = $llTitle;
-    $records[$uid]['constants'] = '
+    $records[ $uid ][ 'title' ] = $llTitle;
+    $records[ $uid ][ 'constants' ] = '
   /////////////////////////////////////////
   //
   // INDEX
@@ -1619,7 +1626,7 @@ plugin.tx_powermail {
 
 ';
 
-    $records[$uid]['config']  = '
+    $records[ $uid ][ 'config' ] = '
 plugin.tx_powermail {
   _LOCAL_LANG {
     default {
@@ -1634,39 +1641,39 @@ plugin.tx_powermail {
 }
 ';
 
-      // SWITCH : install case
-    switch( true )
+    // SWITCH : install case
+    switch ( true )
     {
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
-        $records[$uid]['config']  = $records[$uid]['config'] . '
+      case( $this->pObj->markerArray[ '###INSTALL_CASE###' ] == 'install_all' ):
+        $records[ $uid ][ 'config' ] = $records[ $uid ][ 'config' ] . '
 
   // Don\'t display the mini caddy
 page.10.subparts.menue.10 >
 ';
         break;
-      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_org' ):
+      case( $this->pObj->markerArray[ '###INSTALL_CASE###' ] == 'install_org' ):
         // Do nothing
         break;
     }
-      // SWITCH : install case
+    // SWITCH : install case
 
 
     return $records;
   }
 
-/**
- * pageOrgLibraryHeaderLogo( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgLibraryHeaderLogo( )
+  /**
+   * pageOrgLibraryHeaderLogo( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgLibraryHeaderLogo()
   {
-      // SWITCH : install case
-    $installCase = $this->pObj->markerArray['###INSTALL_CASE###'];
-    switch( $installCase )
+    // SWITCH : install case
+    $installCase = $this->pObj->markerArray[ '###INSTALL_CASE###' ];
+    switch ( $installCase )
     {
       case( 'install_org' ):
         return;
@@ -1675,87 +1682,86 @@ page.10.subparts.menue.10 >
         // follow the workflow
         break;
       default:
-        $prompt = __METHOD__ .  ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
+        $prompt = __METHOD__ . ' #' . __LINE__ . ': Undefined value in switch: "' . $installCase . '"';
         die( $prompt );
     }
-      // SWITCH : install case
+    // SWITCH : install case
 
-    $records    = array( );
-    $pageUid    = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ];
-    $pageTitle  = $this->pObj->arr_pageTitles[ $pageUid ];
+    $records = array();
+    $pageUid = $this->pObj->arr_pageUids[ 'pageOrgLibraryHeaderLogo_title' ];
+    $pageTitle = $this->pObj->arr_pageTitles[ $pageUid ];
 
-      // Update page properties
-    $records = $this->pageOrgLibraryHeaderLogo_content( );
+    // Update page properties
+    $records = $this->pageOrgLibraryHeaderLogo_content();
     $this->sqlUpdateContent( $records, $pageTitle );
   }
 
-/**
- * pageOrgLibraryHeaderLogo_content( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgLibraryHeaderLogo_content( )
+  /**
+   * pageOrgLibraryHeaderLogo_content( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgLibraryHeaderLogo_content()
   {
     $records = null;
 
-    $llLabel  = 'content_pageOrgLibraryHeaderLogo_header';
-    $llTitle  = $this->pObj->pi_getLL( $llLabel );
-    $uid      = $this->pObj->arr_contentUids[ $llLabel ];
+    $llLabel = 'content_pageOrgLibraryHeaderLogo_header';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $uid = $this->pObj->arr_contentUids[ $llLabel ];
 
-    $image_link = $this->pObj->pi_getLL('content_pageOrgLibraryHeaderLogo_image_link');
+    $image_link = $this->pObj->pi_getLL( 'content_pageOrgLibraryHeaderLogo_image_link' );
     $image_link = $this->zz_replacePageUids( $image_link );
 
-    $records[$uid]['header']      = $llTitle;
-    $records[$uid]['image_link']  = $image_link;
-      // #i0002, 13-07-30, dwildt, 1+
-    $records[$uid]['image_zoom']  = 1;
+    $records[ $uid ][ 'header' ] = $llTitle;
+    $records[ $uid ][ 'image_link' ] = $image_link;
+    // #i0002, 13-07-30, dwildt, 1+
+    $records[ $uid ][ 'image_zoom' ] = 1;
 
 
     return $records;
   }
 
-/**
- * pageOrgData( )
- *
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgData( )
+  /**
+   * pageOrgData( )
+   *
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgData()
   {
-    $records    = array( );
-    $pageUid    = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
-    $pageTitle  = $this->pObj->arr_pageTitles[ $pageUid ];
+    $records = array();
+    $pageUid = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $pageTitle = $this->pObj->arr_pageTitles[ $pageUid ];
 
-      // Update page properties
-    $records = $this->pageOrgData_properties( );
+    // Update page properties
+    $records = $this->pageOrgData_properties();
     $this->sqlUpdatePages( $records, $pageTitle );
-
   }
 
-/**
- * pageOrgData_properties( )
- *
- * @return	array		$records    : the TypoScript record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function pageOrgData_properties( )
+  /**
+   * pageOrgData_properties( )
+   *
+   * @return	array		$records    : the TypoScript record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function pageOrgData_properties()
   {
     $records = null;
 
-    $uid          = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
-    $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
-    $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
+    $uid = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $groupUid = $this->pObj->markerArray[ '###GROUP_UID###' ];
+    $groupTitle = $this->pObj->markerArray[ '###GROUP_TITLE###' ];
 
-    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $dateHumanReadable = date( 'Y-m-d G:i:s' );
 
-    $records[$uid]['TSconfig']    = '
+    $records[ $uid ][ 'TSconfig' ] = '
 
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
@@ -1892,100 +1898,98 @@ mod {
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- END
 
 ';
-    $records[$uid]['TSconfig'] = $this->zz_replacePageUids( $records[$uid]['TSconfig'] );
+    $records[ $uid ][ 'TSconfig' ] = $this->zz_replacePageUids( $records[ $uid ][ 'TSconfig' ] );
 
     return $records;
   }
 
+  /*   * *********************************************
+   *
+   * Sql
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * Sql
-  *
-  **********************************************/
-
-/**
- * sqlUpdateContent( )
- *
- * @param	array		$records  : tt_content records for pages
- * @param	string		$pageTitle  : title of the page
- * @return	void
- * @access private
- * @version 3.0.4
- * @since   3.0.4
- */
+  /**
+   * sqlUpdateContent( )
+   *
+   * @param	array		$records  : tt_content records for pages
+   * @param	string		$pageTitle  : title of the page
+   * @return	void
+   * @access private
+   * @version 3.0.4
+   * @since   3.0.4
+   */
   private function sqlUpdateContent( $records, $pageTitle )
   {
     $table = 'tt_content';
 
-    foreach( $records as $uid => $record )
+    foreach ( $records as $uid => $record )
     {
-      $where      = 'uid = ' . $uid;
-      $fields     = array_keys( $record );
-      $csvFields  = implode( ', ', $fields );
-      $csvFields  = str_replace( 'header, ', null, $csvFields );
+      $where = 'uid = ' . $uid;
+      $fields = array_keys( $record );
+      $csvFields = implode( ', ', $fields );
+      $csvFields = str_replace( 'header, ', null, $csvFields );
 
       //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
-      $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
+      $GLOBALS[ 'TYPO3_DB' ]->exec_UPDATEquery( $table, $where, $record );
 
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+      $error = $GLOBALS[ 'TYPO3_DB' ]->sql_error();
 
-      if( $error )
+      if ( $error )
       {
-        $query  = $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record );
+        $query = $GLOBALS[ 'TYPO3_DB' ]->UPDATEquery( $table, $where, $record );
         $prompt = 'SQL-ERROR<br />' . PHP_EOL .
-                  'query: ' . $query . '.<br />' . PHP_EOL .
-                  'error: ' . $error . '.<br />' . PHP_EOL .
-                  'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
+                'query: ' . $query . '.<br />' . PHP_EOL .
+                'error: ' . $error . '.<br />' . PHP_EOL .
+                'Sorry for the trouble.<br />' . PHP_EOL .
+                'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
 
-      $this->pObj->markerArray['###FIELD###']     = $csvFields;
-      $this->pObj->markerArray['###TITLE###']     = '"' . $record['header'] . '"';
-      $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
+      $this->pObj->markerArray[ '###FIELD###' ] = $csvFields;
+      $this->pObj->markerArray[ '###TITLE###' ] = '"' . $record[ 'header' ] . '"';
+      $this->pObj->markerArray[ '###TITLE_PID###' ] = '"' . $pageTitle . '" (uid ' . $uid . ')';
       $prompt = '
         <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_content' ) . '
+          ' . $this->pObj->arr_icons[ 'ok' ] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_content' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-      $this->pObj->arrReport[ ] = $prompt;
+      $this->pObj->arrReport[] = $prompt;
     }
   }
 
-/**
- * sqlUpdatePlugin( )
- *
- * @param	array		$records  : tt_content records for pages
- * @param	string		$pageTitle  : title of the page
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
+  /**
+   * sqlUpdatePlugin( )
+   *
+   * @param	array		$records  : tt_content records for pages
+   * @param	string		$pageTitle  : title of the page
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
   private function sqlUpdatePlugin( $records, $pageTitle )
   {
     $this->sqlUpdateContent( $records, $pageTitle );
   }
 
-/**
- * powermailVersionAppendix( )
- *
- * @return	array		$records : the plugin record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function powermailVersionAppendix( )
+  /**
+   * powermailVersionAppendix( )
+   *
+   * @return	array		$records : the plugin record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function powermailVersionAppendix()
   {
-    if( $this->powermailVersionAppendix !== null )
+    if ( $this->powermailVersionAppendix !== null )
     {
       return $this->powermailVersionAppendix;
     }
 
-    switch( true )
+    switch ( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
         $prompt = 'ERROR: unexpected result<br />
@@ -2013,171 +2017,169 @@ mod {
     return $this->powermailVersionAppendix;
   }
 
-/**
- * sqlUpdatePages( )
- *
- * @param	array		$records  : TypoScript records for pages
- * @param	string		$pageTitle  : title of the page
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
+  /**
+   * sqlUpdatePages( )
+   *
+   * @param	array		$records  : TypoScript records for pages
+   * @param	string		$pageTitle  : title of the page
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
   private function sqlUpdatePages( $records, $pageTitle )
   {
     $table = 'pages';
 
-    foreach( $records as $uid => $record )
+    foreach ( $records as $uid => $record )
     {
-      $where      = 'uid = ' . $uid;
-      $fields     = array_keys( $record );
-      $csvFields  = implode( ', ', $fields );
+      $where = 'uid = ' . $uid;
+      $fields = array_keys( $record );
+      $csvFields = implode( ', ', $fields );
 
 //      var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
-      $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
+      $GLOBALS[ 'TYPO3_DB' ]->exec_UPDATEquery( $table, $where, $record );
 
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+      $error = $GLOBALS[ 'TYPO3_DB' ]->sql_error();
 
-      if( $error )
+      if ( $error )
       {
-        $query  = $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record );
+        $query = $GLOBALS[ 'TYPO3_DB' ]->UPDATEquery( $table, $where, $record );
         $prompt = 'SQL-ERROR<br />' . PHP_EOL .
-                  'query: ' . $query . '.<br />' . PHP_EOL .
-                  'error: ' . $error . '.<br />' . PHP_EOL .
-                  'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
+                'query: ' . $query . '.<br />' . PHP_EOL .
+                'error: ' . $error . '.<br />' . PHP_EOL .
+                'Sorry for the trouble.<br />' . PHP_EOL .
+                'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
 
-      $this->pObj->markerArray['###FIELD###']     = $csvFields;
-      $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
+      $this->pObj->markerArray[ '###FIELD###' ] = $csvFields;
+      $this->pObj->markerArray[ '###TITLE_PID###' ] = '"' . $pageTitle . '" (uid ' . $uid . ')';
       $prompt = '
         <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_page' ) . '
+          ' . $this->pObj->arr_icons[ 'ok' ] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_page' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-      $this->pObj->arrReport[ ] = $prompt;
+      $this->pObj->arrReport[] = $prompt;
     }
   }
 
-/**
- * sqlUpdateTyposcript( )
- *
- * @param	array		$records  : TypoScript records for pages
- * @param	string		$pageTitle  : title of the page
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
+  /**
+   * sqlUpdateTyposcript( )
+   *
+   * @param	array		$records  : TypoScript records for pages
+   * @param	string		$pageTitle  : title of the page
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
   private function sqlUpdateTyposcript( $records, $pageTitle )
   {
     $table = 'sys_template';
 
-    foreach( $records as $uid => $record )
+    foreach ( $records as $uid => $record )
     {
-      $where      = 'uid = ' . $uid;
-      $fields     = array_keys( $record );
-      $csvFields  = implode( ', ', $fields );
-      $csvFields  = str_replace( 'title, ', null, $csvFields );
+      $where = 'uid = ' . $uid;
+      $fields = array_keys( $record );
+      $csvFields = implode( ', ', $fields );
+      $csvFields = str_replace( 'title, ', null, $csvFields );
 
       //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
-      $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
+      $GLOBALS[ 'TYPO3_DB' ]->exec_UPDATEquery( $table, $where, $record );
 
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+      $error = $GLOBALS[ 'TYPO3_DB' ]->sql_error();
 
-      if( $error )
+      if ( $error )
       {
-        $query  = $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record );
+        $query = $GLOBALS[ 'TYPO3_DB' ]->UPDATEquery( $table, $where, $record );
         $prompt = 'SQL-ERROR<br />' . PHP_EOL .
-                  'query: ' . $query . '.<br />' . PHP_EOL .
-                  'error: ' . $error . '.<br />' . PHP_EOL .
-                  'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Organiser Installer<br />' . PHP_EOL .
+                'query: ' . $query . '.<br />' . PHP_EOL .
+                'error: ' . $error . '.<br />' . PHP_EOL .
+                'Sorry for the trouble.<br />' . PHP_EOL .
+                'TYPO3-Organiser Installer<br />' . PHP_EOL .
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
-      $this->pObj->markerArray['###FIELD###']     = $csvFields;
-      $this->pObj->markerArray['###TITLE###']     = '"' . $record['title'] . '"';
-      $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
+      $this->pObj->markerArray[ '###FIELD###' ] = $csvFields;
+      $this->pObj->markerArray[ '###TITLE###' ] = '"' . $record[ 'title' ] . '"';
+      $this->pObj->markerArray[ '###TITLE_PID###' ] = '"' . $pageTitle . '" (uid ' . $uid . ')';
       $prompt = '
         <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_content' ) . '
+          ' . $this->pObj->arr_icons[ 'ok' ] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_content' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-      $this->pObj->arrReport[ ] = $prompt;
+      $this->pObj->arrReport[] = $prompt;
     }
   }
 
-/**
- * sqlUpdateTyposcriptOtherHide( )
- *
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
-  private function sqlUpdateTyposcriptOtherHide( )
+  /**
+   * sqlUpdateTyposcriptOtherHide( )
+   *
+   * @return	void
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
+  private function sqlUpdateTyposcriptOtherHide()
   {
-    $pageTitle = $GLOBALS['TSFE']->page['title'];
+    $pageTitle = $GLOBALS[ 'TSFE' ]->page[ 'title' ];
 
     $table = 'sys_template';
 
     $record = array( 'hidden' => 1 );
 
-    $uid    = $this->pObj->arr_tsUids[ $this->pObj->str_tsRoot ];
-    $pid    = $GLOBALS['TSFE']->id;
-    $where  = 'pid = ' . $pid . ' AND uid NOT LIKE ' . $uid;
+    $uid = $this->pObj->arr_tsUids[ $this->pObj->str_tsRoot ];
+    $pid = $GLOBALS[ 'TSFE' ]->id;
+    $where = 'pid = ' . $pid . ' AND uid NOT LIKE ' . $uid;
 
     //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
-    $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
+    $GLOBALS[ 'TYPO3_DB' ]->exec_UPDATEquery( $table, $where, $record );
 
-    $error = $GLOBALS['TYPO3_DB']->sql_error( );
+    $error = $GLOBALS[ 'TYPO3_DB' ]->sql_error();
 
-    if( $error )
+    if ( $error )
     {
-      $query  = $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record );
+      $query = $GLOBALS[ 'TYPO3_DB' ]->UPDATEquery( $table, $where, $record );
       $prompt = 'SQL-ERROR<br />' . PHP_EOL .
-                'query: ' . $query . '.<br />' . PHP_EOL .
-                'error: ' . $error . '.<br />' . PHP_EOL .
-                'Sorry for the trouble.<br />' . PHP_EOL .
-                'TYPO3-Organiser Installer<br />' . PHP_EOL .
+              'query: ' . $query . '.<br />' . PHP_EOL .
+              'error: ' . $error . '.<br />' . PHP_EOL .
+              'Sorry for the trouble.<br />' . PHP_EOL .
+              'TYPO3-Organiser Installer<br />' . PHP_EOL .
               __METHOD__ . ' (' . __LINE__ . ')';
       die( $prompt );
     }
 
-    $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
+    $this->pObj->markerArray[ '###TITLE_PID###' ] = '"' . $pageTitle . '" (uid ' . $uid . ')';
     $prompt = '
       <p>
-        ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_template' ) . '
+        ' . $this->pObj->arr_icons[ 'ok' ] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_template' ) . '
       </p>';
     $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-    $this->pObj->arrReport[ ] = $prompt;
+    $this->pObj->arrReport[] = $prompt;
   }
 
+  /*   * *********************************************
+   *
+   * ZZ
+   *
+   * ******************************************** */
 
-
- /***********************************************
-  *
-  * ZZ
-  *
-  **********************************************/
-
-/**
- * zz_getPowermailUid( )
- *
- * @param	string		$label        : label for the powermail field
- * @return	string		$powermailUid : uid of the powermail field record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
+  /**
+   * zz_getPowermailUid( )
+   *
+   * @param	string		$label        : label for the powermail field
+   * @return	string		$powermailUid : uid of the powermail field record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
   private function zz_getPowermailUid( $page, $label )
   {
     $powermailUid = null;
 
-    switch( true )
+    switch ( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
         $prompt = 'ERROR: unexpected result<br />
@@ -2205,20 +2207,20 @@ mod {
     return $powermailUid;
   }
 
-/**
- * zz_getPowermailUid1x( )
- *
- * @param	string		$label        : label for the powermail field
- * @return	string		$powermailUid : uid of the powermail field record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
+  /**
+   * zz_getPowermailUid1x( )
+   *
+   * @param	string		$label        : label for the powermail field
+   * @return	string		$powermailUid : uid of the powermail field record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
   private function zz_getPowermailUid1x( $page, $label )
   {
-    switch( $page )
+    switch ( $page )
     {
-      case( 'pageOrgCaddy_title' ):
+      case( 'pageOrgCalCaddy_title' ):
         $powermailUid = $this->pObj->powermailPageOrgCaddy->getValue( $label );
         break;
       case( 'pageOrgDocumentsCaddy_title' ):
@@ -2233,20 +2235,20 @@ mod {
     return $powermailUid;
   }
 
-/**
- * zz_getPowermailUid2x( )
- *
- * @param	string		$label        : label for the powermail field
- * @return	string		$powermailUid : uid of the powermail field record
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
+  /**
+   * zz_getPowermailUid2x( )
+   *
+   * @param	string		$label        : label for the powermail field
+   * @return	string		$powermailUid : uid of the powermail field record
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
   private function zz_getPowermailUid2x( $page, $label )
   {
-    switch( $page )
+    switch ( $page )
     {
-      case( 'pageOrgCaddy_title' ):
+      case( 'pageOrgCalCaddy_title' ):
 //        $powermailUid = 'tx_powermail_domain_model_fields_'
 //                      . $this->pObj->powermailPageOrgCaddy->getValue( $label );
         $powermailUid = $this->pObj->powermailPageOrgCaddy->getValue( $label );
@@ -2265,24 +2267,24 @@ mod {
     return $powermailUid;
   }
 
-/**
- * zz_replacePageUids( )
- *
- * @param       string          $content
- * @return	string		$content
- * @access private
- * @version 3.0.0
- * @since   3.0.0
- */
+  /**
+   * zz_replacePageUids( )
+   *
+   * @param       string          $content
+   * @return	string		$content
+   * @access private
+   * @version 3.0.0
+   * @since   3.0.0
+   */
   private function zz_replacePageUids( $content )
   {
-    $needle   = array( );
-    $replace  = array( );
+    $needle = array();
+    $replace = array();
 
-    foreach( ( array ) $this->pObj->arr_pageUids as $page => $uid )
+    foreach ( ( array ) $this->pObj->arr_pageUids as $page => $uid )
     {
-      $needle[ ]  = '%' . $page . '%';
-      $replace[ ] = $uid;
+      $needle[] = '%' . $page . '%';
+      $replace[] = $uid;
     }
 
     $content = str_replace( $needle, $replace, $content );
@@ -2293,9 +2295,7 @@ mod {
 
 }
 
-
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/pi1/class.tx_orginstaller_pi1_consolidate.php'])
+if ( defined( 'TYPO3_MODE' ) && $TYPO3_CONF_VARS[ TYPO3_MODE ][ 'XCLASS' ][ 'ext/org_installer/pi1/class.tx_orginstaller_pi1_consolidate.php' ] )
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/org_installer/pi1/class.tx_orginstaller_pi1_consolidate.php']);
+  include_once($TYPO3_CONF_VARS[ TYPO3_MODE ][ 'XCLASS' ][ 'ext/org_installer/pi1/class.tx_orginstaller_pi1_consolidate.php' ]);
 }

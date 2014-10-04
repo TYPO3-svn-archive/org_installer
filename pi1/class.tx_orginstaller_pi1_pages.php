@@ -37,11 +37,11 @@
  *
  *              SECTION: Create pages
  *  173:     private function pageOrg( )
- *  289:     private function pageOrgCaddy( $pageUid, $sorting )
- *  327:     private function pageOrgCaddyCaddymini( $pageUid, $sorting )
- *  368:     private function pageOrgCaddyDelivery( $pageUid, $sorting )
- *  407:     private function pageOrgCaddyRevocation( $pageUid, $sorting )
- *  447:     private function pageOrgCaddyTerms( $pageUid, $sorting )
+ *  289:     private function pageOrgCalCaddy( $pageUid, $sorting )
+ *  327:     private function pageOrgCalCaddyCaddymini( $pageUid, $sorting )
+ *  368:     private function pageOrgCalCaddyDelivery( $pageUid, $sorting )
+ *  407:     private function pageOrgCalCaddyRevocation( $pageUid, $sorting )
+ *  447:     private function pageOrgCalCaddyTerms( $pageUid, $sorting )
  *  486:     private function pageOrgData( $pageUid, $sorting )
  *  710:     private function pageOrgDataCal( $pageUid, $sorting )
  *  772:     private function pageOrgDataDownloads( $pageUid, $sorting )
@@ -57,7 +57,7 @@
  * 1293:     private function pageOrgDocumentsCaddyRevocation( $pageUid, $sorting )
  * 1333:     private function pageOrgDocumentsCaddyTerms( $pageUid, $sorting )
  * 1372:     private function pageOrgHeadquarters( $pageUid, $sorting )
- * 1409:     private function pageOrgLocations( $pageUid, $sorting )
+ * 1409:     private function pageOrgCalLocations( $pageUid, $sorting )
  * 1446:     private function pageOrgLegalinfo( $pageUid, $sorting )
  * 1483:     private function pageOrgLibrary( $pageUid, $sorting )
  * 1534:     private function pageOrgLibraryFooter( $pageUid, $sorting )
@@ -199,6 +199,36 @@ class tx_orginstaller_pi1_pages
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDataStaff( $pageUid, $sorting );
 
+    // #61838, 140924, dwildt, 2+
+    // includes events and locations!
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCal( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddy( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddyCaddymini( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddyDelivery( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddyRevocation( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddyTerms( $pageUid, $sorting );
+
+    // #61826, 140923, dwildt, 2+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalEvents( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalLocations( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgHeadquarters( $pageUid, $sorting );
+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocuments( $pageUid, $sorting );
 
@@ -217,13 +247,6 @@ class tx_orginstaller_pi1_pages
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyTerms( $pageUid, $sorting );
 
-    // #61826, 140923, dwildt, 2+
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgEvents( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgHeadquarters( $pageUid, $sorting );
-
     // #61779, 140921, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgJobs( $pageUid, $sorting );
@@ -231,9 +254,6 @@ class tx_orginstaller_pi1_pages
     // #61779, 140921, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgJobsJobsApply( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgLocations( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgNews( $pageUid, $sorting );
@@ -244,21 +264,6 @@ class tx_orginstaller_pi1_pages
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgStaff( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddy( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddyCaddymini( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddyDelivery( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddyRevocation( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddyTerms( $pageUid, $sorting );
 
     // SWITCH : install case
     $installCase = $this->pObj->markerArray[ '###INSTALL_CASE###' ];
@@ -278,12 +283,6 @@ class tx_orginstaller_pi1_pages
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgLegalinfo( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgTYPO3IntegratorsDevider( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgTYPO3Integrators( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgLibrary( $pageUid, $sorting );
@@ -382,17 +381,17 @@ class tx_orginstaller_pi1_pages
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyCaddymini( $pageUid, $sorting );
 
-    // Dokument: Warenkorb: ...
+    // Dokument: Warenkorb: AGB
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyTerms( $pageUid, $sorting );
+
+    // Dokument: Warenkorb: Versand
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyDelivery( $pageUid, $sorting );
 
-    // Dokument: Warenkorb: ...
+    // Dokument: Warenkorb: Widerruf
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyRevocation( $pageUid, $sorting );
-
-    // Dokument: Warenkorb: ...
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyTerms( $pageUid, $sorting );
 
     // Firma
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
@@ -408,6 +407,40 @@ class tx_orginstaller_pi1_pages
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgJobsJobsApply( $pageUid, $sorting );
 
+    // #61838, 140924, dwildt, 2+
+    // Kalender
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCal( $pageUid, $sorting );
+
+    // Kalender: Warenkorb
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddy( $pageUid, $sorting );
+
+    // Kalender: Warenkorb: ...
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddyCaddymini( $pageUid, $sorting );
+
+    // Kalender: Warenkorb: AGB
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddyTerms( $pageUid, $sorting );
+
+    // Kalender: Warenkorb: Versand
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddyDelivery( $pageUid, $sorting );
+
+    // Kalender: Warenkorb: Widerruf
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalCaddyRevocation( $pageUid, $sorting );
+
+    // #61826, 140923, dwildt, 3+
+    // Kalender: Veranstaltungen
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalEvents( $pageUid, $sorting );
+
+    // Kalender: Veranstaltungsort
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgCalLocations( $pageUid, $sorting );
+
     // Nachricht
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgNews( $pageUid, $sorting );
@@ -415,36 +448,6 @@ class tx_orginstaller_pi1_pages
     // Personen
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgStaff( $pageUid, $sorting );
-
-    // #61826, 140923, dwildt, 3+
-    // Veranstaltungen
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgEvents( $pageUid, $sorting );
-
-    // Veranstaltungsort
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgLocations( $pageUid, $sorting );
-
-
-    // Warenkorb
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddy( $pageUid, $sorting );
-
-    // Warenkorb: ...
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddyCaddymini( $pageUid, $sorting );
-
-    // Warenkorb: ...
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddyDelivery( $pageUid, $sorting );
-
-    // Warenkorb: ...
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddyRevocation( $pageUid, $sorting );
-
-    // Warenkorb: ...
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgCaddyTerms( $pageUid, $sorting );
 
     // SWITCH : install case
     $installCase = $this->pObj->markerArray[ '###INSTALL_CASE###' ];
@@ -464,12 +467,6 @@ class tx_orginstaller_pi1_pages
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgLegalinfo( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgTYPO3IntegratorsDevider( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgTYPO3Integrators( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgLibrary( $pageUid, $sorting );
@@ -531,18 +528,19 @@ class tx_orginstaller_pi1_pages
   }
 
   /**
-   * pageOrgCaddy( ) :
+   * pageOrgCal( ) :
    *
    * @param	integer		$pageUid            : uid of the current page
    * @param	integer		$sorting            : sorting value
    * @return	array		$page               : current page record
    * @access private
-   * @version 3.0.0
-   * @since 1.0.0
+   * @internal #61838
+   * @version 6.0.0
+   * @since 6.0.0
    */
-  private function pageOrgCaddy( $pageUid, $sorting )
+  private function pageOrgCal( $pageUid, $sorting )
   {
-    $pageTitle = 'pageOrgCaddy_title';
+    $pageTitle = 'pageOrgCal_title';
     $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
@@ -552,6 +550,46 @@ class tx_orginstaller_pi1_pages
       'title' => $llPageTitle,
       'dokType' => 1, // 1: page
       'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
+
+    return $page;
+  }
+
+  /**
+   * pageOrgCalCaddy( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 3.0.0
+   * @since 1.0.0
+   */
+  private function pageOrgCalCaddy( $pageUid, $sorting )
+  {
+    $pageTitle = 'pageOrgCalCaddy_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgCal_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'nav_hide' => 1, // Don't display in menus
       'tstamp' => time(),
       'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
       'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
@@ -569,7 +607,7 @@ class tx_orginstaller_pi1_pages
   }
 
   /**
-   * pageOrgCaddyCaddymini( ) :
+   * pageOrgCalCaddyCaddymini( ) :
    *
    * @param	integer		$pageUid            : uid of the current page
    * @param	integer		$sorting            : sorting value
@@ -578,11 +616,11 @@ class tx_orginstaller_pi1_pages
    * @version 3.0.0
    * @since 1.0.0
    */
-  private function pageOrgCaddyCaddymini( $pageUid, $sorting )
+  private function pageOrgCalCaddyCaddymini( $pageUid, $sorting )
   {
-    $pageTitle = 'pageOrgCaddyCaddymini_title';
+    $pageTitle = 'pageOrgCalCaddyCaddymini_title';
     $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle = 'pageOrgCaddy_title';
+    $pidTitle = 'pageOrgCalCaddy_title';
     $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
@@ -610,7 +648,7 @@ class tx_orginstaller_pi1_pages
   }
 
   /**
-   * pageOrgCaddyDelivery( ) :
+   * pageOrgCalCaddyDelivery( ) :
    *
    * @param	integer		$pageUid            : uid of the current page
    * @param	integer		$sorting            : sorting value
@@ -619,11 +657,11 @@ class tx_orginstaller_pi1_pages
    * @version 3.0.0
    * @since 1.0.0
    */
-  private function pageOrgCaddyDelivery( $pageUid, $sorting )
+  private function pageOrgCalCaddyDelivery( $pageUid, $sorting )
   {
-    $pageTitle = 'pageOrgCaddyDelivery_title';
+    $pageTitle = 'pageOrgCalCaddyDelivery_title';
     $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle = 'pageOrgCaddy_title';
+    $pidTitle = 'pageOrgCalCaddy_title';
     $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
@@ -649,7 +687,7 @@ class tx_orginstaller_pi1_pages
   }
 
   /**
-   * pageOrgCaddyRevocation( ) :
+   * pageOrgCalCaddyRevocation( ) :
    *
    * @param	integer		$pageUid            : uid of the current page
    * @param	integer		$sorting            : sorting value
@@ -658,11 +696,11 @@ class tx_orginstaller_pi1_pages
    * @version 3.0.0
    * @since 1.0.0
    */
-  private function pageOrgCaddyRevocation( $pageUid, $sorting )
+  private function pageOrgCalCaddyRevocation( $pageUid, $sorting )
   {
-    $pageTitle = 'pageOrgCaddyRevocation_title';
+    $pageTitle = 'pageOrgCalCaddyRevocation_title';
     $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle = 'pageOrgCaddy_title';
+    $pidTitle = 'pageOrgCalCaddy_title';
     $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
@@ -688,7 +726,7 @@ class tx_orginstaller_pi1_pages
   }
 
   /**
-   * pageOrgCaddyTerms( ) :
+   * pageOrgCalCaddyTerms( ) :
    *
    * @param	integer		$pageUid            : uid of the current page
    * @param	integer		$sorting            : sorting value
@@ -698,11 +736,11 @@ class tx_orginstaller_pi1_pages
    * @version 3.0.0
    * @since 1.0.0
    */
-  private function pageOrgCaddyTerms( $pageUid, $sorting )
+  private function pageOrgCalCaddyTerms( $pageUid, $sorting )
   {
-    $pageTitle = 'pageOrgCaddyTerms_title';
+    $pageTitle = 'pageOrgCalCaddyTerms_title';
     $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle = 'pageOrgCaddy_title';
+    $pidTitle = 'pageOrgCalCaddy_title';
     $pid = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
@@ -712,6 +750,86 @@ class tx_orginstaller_pi1_pages
       'title' => $llPageTitle,
       'dokType' => 1, // 1: page
       'crdate' => time(),
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
+
+    return $page;
+  }
+
+  /**
+   * pageOrgCalEvents( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 6.0.0
+   * @since 1.0.0
+   */
+  private function pageOrgCalEvents( $pageUid, $sorting )
+  {
+    $pageTitle = 'pageOrgCalEvents_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgCal_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'nav_hide' => 1, // Don't display in menus
+      'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
+
+    return $page;
+  }
+
+  /**
+   * pageOrgCalLocations( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @version 6.0.0
+   * @since 1.0.0
+   */
+  private function pageOrgCalLocations( $pageUid, $sorting )
+  {
+    $pageTitle = 'pageOrgCalLocations_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgCal_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'nav_hide' => 1, // Don't display in menus
       'tstamp' => time(),
       'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
       'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
@@ -1379,6 +1497,7 @@ mod {
       'title' => $llPageTitle,
       'dokType' => 1, // 1: page
       'crdate' => time(),
+      'nav_hide' => 1, // Don't display in menus
       'tstamp' => time(),
       'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
       'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
@@ -1617,43 +1736,7 @@ mod {
       'title' => $llPageTitle,
       'dokType' => 1, // 1: page
       'crdate' => time(),
-      'tstamp' => time(),
-      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
-      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
-      'perms_user' => 31, // 31: Full access
-      'perms_group' => 31, // 31: Full access
-      'urlType' => 1,
-      'sorting' => $sorting
-    );
-
-    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
-
-    return $page;
-  }
-
-  /**
-   * pageOrgEvents( ) :
-   *
-   * @param	integer		$pageUid            : uid of the current page
-   * @param	integer		$sorting            : sorting value
-   * @return	array		$page               : current page record
-   * @access private
-   * @version 3.0.0
-   * @since 1.0.0
-   */
-  private function pageOrgEvents( $pageUid, $sorting )
-  {
-    $pageTitle = 'pageOrgEvents_title';
-    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
-
-    $page = array
-      (
-      'uid' => $pageUid,
-      'pid' => $GLOBALS[ 'TSFE' ]->id,
-      'title' => $llPageTitle,
-      'dokType' => 1, // 1: page
-      'crdate' => time(),
+      'nav_hide' => 1, // Don't display in menus
       'tstamp' => time(),
       'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
       'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
@@ -1682,43 +1765,6 @@ mod {
   private function pageOrgHeadquarters( $pageUid, $sorting )
   {
     $pageTitle = 'pageOrgHeadquarters_title';
-    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
-
-    $page = array
-      (
-      'uid' => $pageUid,
-      'pid' => $GLOBALS[ 'TSFE' ]->id,
-      'title' => $llPageTitle,
-      'dokType' => 1, // 1: page
-      'crdate' => time(),
-      'tstamp' => time(),
-      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
-      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
-      'perms_user' => 31, // 31: Full access
-      'perms_group' => 31, // 31: Full access
-      'urlType' => 1,
-      'sorting' => $sorting
-    );
-
-    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
-
-    return $page;
-  }
-
-  /**
-   * pageOrgLocations( ) :
-   *
-   * @param	integer		$pageUid            : uid of the current page
-   * @param	integer		$sorting            : sorting value
-   * @return	array		$page               : current page record
-   * @access private
-   * @version 3.0.0
-   * @since 1.0.0
-   */
-  private function pageOrgLocations( $pageUid, $sorting )
-  {
-    $pageTitle = 'pageOrgLocations_title';
     $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
@@ -2163,81 +2209,6 @@ TCEMAIN {
       'pid' => $GLOBALS[ 'TSFE' ]->id,
       'title' => $llPageTitle,
       'dokType' => 1, // 1: page
-      'crdate' => time(),
-      'tstamp' => time(),
-      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
-      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
-      'perms_user' => 31, // 31: Full access
-      'perms_group' => 31, // 31: Full access
-      'urlType' => 1,
-      'sorting' => $sorting
-    );
-
-    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
-
-    return $page;
-  }
-
-  /**
-   * pageOrgTYPO3Integrators( ) :
-   *
-   * @param	integer		$pageUid            : uid of the current page
-   * @param	integer		$sorting            : sorting value
-   * @return	array		$page               : current page record
-   * @access private
-   * @version 6.0.0
-   * @since 1.0.0
-   */
-  private function pageOrgTYPO3Integrators( $pageUid, $sorting )
-  {
-    $pageTitle = 'pageOrgTYPO3Integrators_title';
-    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
-
-    $page = array
-      (
-      'uid' => $pageUid,
-      'pid' => $GLOBALS[ 'TSFE' ]->id,
-      'crdate' => time(),
-      'dokType' => 1, // 1: page
-      'nav_hide' => 1, // Don't display in menus
-      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
-      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
-      'perms_user' => 31, // 31: Full access
-      'perms_group' => 31, // 31: Full access
-      'title' => $llPageTitle,
-      'urlType' => 1,
-      'sorting' => $sorting,
-      'tstamp' => time()
-    );
-
-    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
-
-    return $page;
-  }
-
-  /**
-   * pageOrgTYPO3IntegratorsDevider( ) :
-   *
-   * @param	integer		$pageUid            : uid of the current page
-   * @param	integer		$sorting            : sorting value
-   * @return	array		$page               : current page record
-   * @access private
-   * @version 3.0.0
-   * @since 1.0.0
-   */
-  private function pageOrgTYPO3IntegratorsDevider( $pageUid, $sorting )
-  {
-    $pageTitle = 'pageOrgTYPO3IntegratorsDevider_title';
-    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
-
-    $page = array
-      (
-      'uid' => $pageUid,
-      'pid' => $GLOBALS[ 'TSFE' ]->id,
-      'title' => $llPageTitle,
-      'dokType' => 199, // 199: devider
       'crdate' => time(),
       'tstamp' => time(),
       'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],

@@ -266,9 +266,9 @@ plugin.caddy {
   pages {
     caddy       = ' . $this->pObj->arr_pageUids['pageOrgCalCaddy_title'] . '
     caddymini   = ' . $this->pObj->arr_pageUids['pageOrgCalCaddyCaddymini_title'] . '
-    revocation  = ' . $this->pObj->arr_pageUids['pageOrgCalCaddyRevocation_title'] . '
+    revocation  = ' . $this->pObj->arr_pageUids['pageOrgCalRevocation_title'] . '
     shop        = ' . $this->pObj->arr_pageUids['pageOrgCal_title'] . '
-    terms       = ' . $this->pObj->arr_pageUids['pageOrgCalCaddyTerms_title'] . '
+    terms       = ' . $this->pObj->arr_pageUids['pageOrgCalTerms_title'] . '
   }
   url {
     showUid = calendarUid
@@ -1017,11 +1017,11 @@ plugin.tx_seodynamictag {
             . 'EXT:radialsearch/static/properties/de/,'
             . 'EXT:browser/static/,'
             . 'EXT:browser/static/Foundation/Templating/,'
-            . 'EXT:caddy/static/,'
-            . 'EXT:caddy/static/foundation/5x/,'      // #61867, 140925, dwildt, 1+
-            . 'EXT:caddy/static/properties/de/,'
-            . 'EXT:caddy/static/css/foundation/5x/,'  // #61867, 140925, dwildt, 1+
-            //. 'EXT:caddy/static/css/,'              // #61867, 140925, dwildt, 1-
+            . 'EXT:caddy/Configuration/TypoScript/Basis/,'
+            . 'EXT:caddy/Configuration/TypoScript/Foundation/5x/,'      // #61867, 140925, dwildt, 1+
+            . 'EXT:caddy/Configuration/TypoScript/Properties/de/,'
+            . 'EXT:caddy/Configuration/TypoScript/Foundation/5x/Css/,'  // #61867, 140925, dwildt, 1+
+            //. 'EXT:caddy/Configuration/TypoScript/Css/,'              // #61867, 140925, dwildt, 1-
             . 'EXT:linkhandlerconf/static/,'
             . 'EXT:flipit/static/,'
             . '%flipit46%'
@@ -1174,10 +1174,6 @@ plugin.tx_browser_pi1 {
         }
       }
     }
-  }
-  jss {
-      // We need jQuery above the slider script
-    placement.footer = 0
   }
 }
   // plugin.tx_browser_pi1
@@ -1384,9 +1380,8 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 
   // Please use t3jquery!
 page {
-  includeJSFooter {
+  includeJSFooterlibs {
     baseorgJquery >
-    baseorgFoundation >
     browserJquery >
   }
 }
@@ -1436,11 +1431,11 @@ page {
             . 'EXT:radialsearch/static/,'
             . 'EXT:radialsearch/static/properties/de/,'
             . 'EXT:browser/static/,'
-            . 'EXT:caddy/static/,'
-            . 'EXT:caddy/static/foundation/5x/,'      // #61867, 140925, dwildt, 1+
-            . 'EXT:caddy/static/properties/de/,'
-            . 'EXT:caddy/static/css/foundation/5x/,'  // #61867, 140925, dwildt, 1+
-            //. 'EXT:caddy/static/css/,'              // #61867, 140925, dwildt, 1-
+            . 'EXT:caddy/Configuration/TypoScript/Basis/,'
+            . 'EXT:caddy/Configuration/TypoScript/Foundation/5x/,'      // #61867, 140925, dwildt, 1+
+            . 'EXT:caddy/Configuration/TypoScript/Properties/de/,'
+            . 'EXT:caddy/Configuration/TypoScript/Foundation/5x/Css,'  // #61867, 140925, dwildt, 1+
+            //. 'EXT:caddy/Configuration/TypoScript/Css/,'              // #61867, 140925, dwildt, 1-
             . 'EXT:linkhandler/static/link_handler/,'
             . 'EXT:flipit/static/,'
             . '%flipit46%'
@@ -1696,8 +1691,8 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $includeStaticFile = $this->zzOrgCaddyStaticFiles();
 //    $includeStaticFile = $includeStaticFile
 //            . ',EXT:powermail/Configuration/TypoScript/Main'
-//            . ',EXT:caddy/static/powermail/2x/'
-//            . ',EXT:caddy/Configuration/TypoScript/Powermail_2.1.0/Foundation_5x/'
+//            . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/'
+//            . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/Foundation_5x/'
 //    ;
 
     $record['title'] = $llTitle;
@@ -1739,7 +1734,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
     $this->pObj->arr_tsUids[$title] = $uid;
     $this->pObj->arr_tsTitles[$uid] = $title;
 
-    $includeStaticFile = 'EXT:caddy/static/css/red/,'
+    $includeStaticFile = 'EXT:caddy/Configuration/TypoScript/Css/red/,'
             . 'EXT:org/Configuration/TypoScript/downloads/301/,'
             . 'EXT:org/Configuration/TypoScript/downloads/301/tx_caddy/,'
             . 'EXT:org/Configuration/TypoScript/downloads/301/tx_flipit/'
@@ -1809,9 +1804,9 @@ plugin.caddy {
   pages {
     caddy       = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     caddymini   = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyCaddymini_title'] . '
-    revocation  = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyRevocation_title'] . '
+    revocation  = ' . $this->pObj->arr_pageUids['pageOrgDocumentsRevocation_title'] . '
     shop        = ' . $this->pObj->arr_pageUids['pageOrgDocuments_title'] . '
-    terms       = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyTerms_title'] . '
+    terms       = ' . $this->pObj->arr_pageUids['pageOrgDocumentsTerms_title'] . '
   }
   url {
     showUid = downloadsUid
@@ -2067,12 +2062,10 @@ plugin.tx_powermail_pi1 {
 plugin.tx_powermail {
   _LOCAL_LANG {
     default {
-        // Next button will be empty in Powermail 2.x
-      //confirmation_next = Order without commitment
+      confirmation_next = Order without commitment
     }
     de {
-        // Next button will be empty in Powermail 2.x
-      //confirmation_next = Unverbindlich testen
+      confirmation_next = Unverbindlich testen
     }
   }
 }
@@ -2132,7 +2125,7 @@ plugin.tx_powermail {
   private function zzOrgCaddyStaticFilesPowermail1x()
   {
     $staticFiles = 'EXT:powermail/static/pi1/'
-            . ',EXT:caddy/static/powermail/1x/'
+            . ',EXT:caddy/Configuration/TypoScript/Powermail/1x/'
     ;
 
     return $staticFiles;
@@ -2151,8 +2144,8 @@ plugin.tx_powermail {
     // 130721, dwildt: powermail 2.x without an ending slash!
     $staticFiles = ''
             . 'EXT:powermail/Configuration/TypoScript/Main'
-            . ',EXT:caddy/static/powermail/2x/'
-            . ',EXT:caddy/Configuration/TypoScript/Powermail_2.1.0/Foundation_5x/'
+            . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/'
+            . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/Foundation_5x/'
     ;
 
     return $staticFiles;

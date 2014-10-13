@@ -35,7 +35,7 @@
  *
  *              SECTION: Browser - TYPO3 without PHP
  *  183:     private function browserPageOrg( $uid )
- *  232:     private function browserPageOrgDocuments( $uid )
+ *  232:     private function browserPageOrgDocumentsDocuments( $uid )
  *  281:     private function browserPageOrgHeadquarters( $uid )
  *  330:     private function browserPageOrgCalLocations( $uid )
  *  379:     private function browserPageOrgNews( $uid )
@@ -128,7 +128,7 @@ class tx_orginstaller_pi1_plugins
 
     // #61838, 140923, dwildt, 2+
     $uid = $uid + 1;
-    $records[ $uid ] = $this->browserPageOrgCal( $uid );
+    $records[ $uid ] = $this->browserPageOrgCalCal( $uid );
 
     // #61826, 140923, dwildt, 2+
     $uid = $uid + 1;
@@ -138,7 +138,7 @@ class tx_orginstaller_pi1_plugins
     $records[ $uid ] = $this->browserPageOrgCalLocations( $uid );
 
     $uid = $uid + 1;
-    $records[ $uid ] = $this->browserPageOrgDocuments( $uid );
+    $records[ $uid ] = $this->browserPageOrgDocumentsDocuments( $uid );
 
     $uid = $uid + 1;
     $records[ $uid ] = $this->browserPageOrgHeadquarters( $uid );
@@ -204,8 +204,8 @@ class tx_orginstaller_pi1_plugins
 
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgCal_header' );
-    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgCal_header' ] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalCal_header' );
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgCalCal_header' ] = $uid;
 
     $ffDownloads = 'no';
     // #61819, 140923, dwildt, 2-
@@ -215,8 +215,8 @@ class tx_orginstaller_pi1_plugins
     $ffJavascript = 'disabled';
     $ffjQueryUi = 'z_none';
     $ffMode = 201;  // calendar
-    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCal_ffMycomment' ) );
-    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCal_ffListTitle' ) );
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalCal_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalCal_ffListTitle' ) );
     $ffStatistics = 'no';
     $ffTableField = 'tx_org_cal.title';
     // #61819, 140923, dwildt, 1-
@@ -258,28 +258,28 @@ class tx_orginstaller_pi1_plugins
   }
 
   /**
-   * browserPageOrgCal( )
+   * browserPageOrgCalCal( )
    *
    * @param	integer		$uid: uid of the current plugin
    * @return	array		$record : the plugin record
    * @access private
-   * @internal #61838
+   * @internal #61838, #i0017
    * @version 6.0.0
    * @since   6.0.0
    */
-  private function browserPageOrgCal( $uid )
+  private function browserPageOrgCalCal( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgCal_header' );
-    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgCal_header' ] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalCal_header' );
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgCalCal_header' ] = $uid;
 
     $ffDownloads = 'no';
     $ffJavascript = 'disabled';
     $ffjQueryUi = 'z_none';
     $ffMode = 201;  // calendar
-    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCal_ffMycomment' ) );
-    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCal_ffListTitle' ) );
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalCal_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalCal_ffListTitle' ) );
     $ffStatistics = 'no';
     $ffTableField = 'tx_org_cal.title';
     $ffRecBrowser = 'disabled';
@@ -299,7 +299,7 @@ class tx_orginstaller_pi1_plugins
 
 
     $record[ 'uid' ] = $uid;
-    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCal_title' ];
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCalCal_title' ];
     $record[ 'tstamp' ] = time();
     $record[ 'crdate' ] = time();
     $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
@@ -432,7 +432,7 @@ class tx_orginstaller_pi1_plugins
   }
 
   /**
-   * browserPageOrgDocuments( )
+   * browserPageOrgDocumentsDocuments( )
    *
    * @param	integer		$uid: uid of the current plugin
    * @return	array		$record : the plugin record
@@ -440,12 +440,12 @@ class tx_orginstaller_pi1_plugins
    * @version 6.0.0
    * @since   0.0.1
    */
-  private function browserPageOrgDocuments( $uid )
+  private function browserPageOrgDocumentsDocuments( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_header' );
-    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgDocuments_header' ] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocumentsDocuments_header' );
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgDocumentsDocuments_header' ] = $uid;
 
     $ffJavascript = 'disabled';
     // #62018, 141003, dwildt, 1-
@@ -453,8 +453,8 @@ class tx_orginstaller_pi1_plugins
     // #62018, 141003, dwildt, 1+
     $ffjQueryUi = 'z_none';
     $ffMode = 301;
-    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_ffMycomment' ) );
-    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocuments_ffListTitle' ) );
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocumentsDocuments_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgDocumentsDocuments_ffListTitle' ) );
     $ffTableField = 'tx_org_downloads.title';
     $ffDownloads = 'yes';
     $ffStatistics = 'yes';
@@ -478,7 +478,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
-    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ];
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDocumentsDocuments_title' ];
     $record[ 'tstamp' ] = time();
     $record[ 'crdate' ] = time();
     $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];

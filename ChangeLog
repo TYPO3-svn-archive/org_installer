@@ -1,6 +1,7 @@
 6.0.0
   14-10-03
   Major Features
+  * #i0017: responsive site structure
   * #62018: * removed:
               * tx_org_downloads_mm_tx_org_downloadscat
               * tx_org_downloads_mm_tx_org_downloadsmedia

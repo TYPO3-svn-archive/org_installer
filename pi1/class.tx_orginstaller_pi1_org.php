@@ -3588,7 +3588,7 @@ class tx_orginstaller_pi1_org
    * @param	[type]		$table: ...
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.0
    * @since   0.0.1
    */
   private function sqlInsert( $records, $table )
@@ -3602,6 +3602,7 @@ class tx_orginstaller_pi1_org
       if ( $error )
       {
         $query = $GLOBALS[ 'TYPO3_DB' ]->INSERTquery( $table, $record );
+        // #61666, 141003, dwildt
         $prompt = 'SQL-ERROR<br />' . PHP_EOL .
                 'query: ' . $query . '.<br />' . PHP_EOL .
                 'error: ' . $error . '.<br />' . PHP_EOL .

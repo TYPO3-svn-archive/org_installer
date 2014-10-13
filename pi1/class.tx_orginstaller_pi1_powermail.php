@@ -918,10 +918,10 @@ class tx_orginstaller_pi1_powermail
     switch( $this->page )
     {
       case( 'pageOrgCalCaddy_title' ):
-        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgCalCaddyRevocation_title' ];
+        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgCalRevocation_title' ];
         break;
       case( 'pageOrgDocumentsCaddy_title' ):
-        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ];
+        $int_revocation = $this->pObj->arr_pageUids[ 'pageOrgDocumentsRevocation_title' ];
         break;
       default:
         $prompt = 'ERROR: undefined value in switch: "' . $this->page . '"<br />
@@ -1060,10 +1060,10 @@ class tx_orginstaller_pi1_powermail
     switch( $this->page )
     {
       case( 'pageOrgCalCaddy_title' ):
-        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgCalCaddyTerms_title' ];
+        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgCalTerms_title' ];
         break;
       case( 'pageOrgDocumentsCaddy_title' ):
-        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ];
+        $int_terms = $this->pObj->arr_pageUids[ 'pageOrgDocumentsTerms_title' ];
         break;
       default:
         $prompt = 'ERROR: undefined value in switch: "' . $this->page . '"<br />

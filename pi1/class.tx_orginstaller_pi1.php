@@ -89,7 +89,7 @@ $version = ( ( int ) $main ) * 1000000;
 $version = $version + ( ( int ) $sub ) * 1000;
 $version = $version + ( ( int ) $bugfix ) * 1;
 // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
-if ( $version < 6002002 )
+if ( $version < 6002000 )
 {
   require_once(PATH_tslib . 'class.tslib_pibase.php');
 }
@@ -973,13 +973,13 @@ class tx_orginstaller_pi1 extends tslib_pibase
     $this->typo3Version = $version;
     // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
 
-    if ( $this->typo3Version < 3000000 )
+    if ( $this->typo3Version < 4005000 )
     {
       $prompt = '<h1>ERROR</h1>
         <h2>Unproper TYPO3 version</h2>
         <ul>
           <li>
-            TYPO3 version is smaller than 3.0.0
+            TYPO3 version is smaller than 4.5.0
           </li>
           <li>
             constant TYPO3_version: ' . TYPO3_version . '

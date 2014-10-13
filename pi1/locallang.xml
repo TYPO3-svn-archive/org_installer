@@ -98,17 +98,17 @@
 
 </script>
 ]]></label>
-      <label index="content_pageOrgCalCaddyDelivery_header">Delivery</label>
-      <label index="content_pageOrgCalCaddyDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
+      <label index="content_pageOrgCalDelivery_header">Delivery</label>
+      <label index="content_pageOrgCalDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
 <ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
-      <label index="content_pageOrgCalCaddyRevocation_header">Power of Revocation</label>
-      <label index="content_pageOrgCalCaddyRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
+      <label index="content_pageOrgCalRevocation_header">Power of Revocation</label>
+      <label index="content_pageOrgCalRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
 <h2>Good to know</h2>
 <ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
 <h2>Helpful links</h2>
 <ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
-      <label index="content_pageOrgCalCaddyTerms_header">Terms and conditions</label>
-      <label index="content_pageOrgCalCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
+      <label index="content_pageOrgCalTerms_header">Terms and conditions</label>
+      <label index="content_pageOrgCalTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
       <label index="content_pageOrgDocumentsCaddy_header">[fade_deliveryorderaddress.jss]</label>
       <label index="content_pageOrgDocumentsCaddy_bodytext"><![CDATA[
@@ -182,17 +182,17 @@
 
 </script>
 ]]></label>
-      <label index="content_pageOrgDocumentsCaddyDelivery_header">Delivery</label>
-      <label index="content_pageOrgDocumentsCaddyDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
+      <label index="content_pageOrgDocumentsDelivery_header">Delivery</label>
+      <label index="content_pageOrgDocumentsDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
 <ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
-      <label index="content_pageOrgDocumentsCaddyRevocation_header">Power of Revocation</label>
-      <label index="content_pageOrgDocumentsCaddyRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
+      <label index="content_pageOrgDocumentsRevocation_header">Power of Revocation</label>
+      <label index="content_pageOrgDocumentsRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
 <h2>Good to know</h2>
 <ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
 <h2>Helpful links</h2>
 <ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
-      <label index="content_pageOrgDocumentsCaddyTerms_header">Terms and conditions</label>
-      <label index="content_pageOrgDocumentsCaddyTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
+      <label index="content_pageOrgDocumentsTerms_header">Terms and conditions</label>
+      <label index="content_pageOrgDocumentsTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
       <label index="content_pageOrgLegalinfo_header">Legal info</label>
       <label index="content_pageOrgLegalinfo_bodytext"><![CDATA[<p>Your legal info</p>
@@ -328,12 +328,14 @@
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###) is created.</label>
       <label index="pageOrg_title">Organiser</label>
       <label index="pageOrg_titleNav">Home</label>
+      <label index="pageOrgCal_title">Calendar</label>
+      <label index="pageOrgCalCal_title">Calendar</label>
       <label index="pageOrgCalCaddy_title">Caddy</label>
       <label index="pageOrgCalCaddy_titleUrl">Caddy</label>
-      <label index="pageOrgCalCaddyDelivery_title">Shipping</label>
+      <label index="pageOrgCalDelivery_title">Shipping</label>
       <label index="pageOrgCalCaddyCaddymini_title">Caddy mini</label>
-      <label index="pageOrgCalCaddyRevocation_title">Revocation</label>
-      <label index="pageOrgCalCaddyTerms_title">Terms</label>
+      <label index="pageOrgCalRevocation_title">Revocation</label>
+      <label index="pageOrgCalTerms_title">Terms</label>
       <label index="pageOrgData_title">Data</label>
       <label index="pageOrgDataCal_title">Calendar</label>
       <label index="pageOrgDataDownloads_title">Documents</label>
@@ -345,18 +347,19 @@
       <label index="pageOrgDataNews_title">News</label>
       <label index="pageOrgDataService_title">Service</label>
       <label index="pageOrgDataStaff_title">People</label>
-      <label index="pageOrgCal_title">Calendar</label>
       <label index="pageOrgDocuments_title">Documents</label>
+      <label index="pageOrgDocumentsDocuments_title">Documents</label>
       <label index="pageOrgDocumentsCaddy_title">Caddy</label>
       <label index="pageOrgDocumentsCaddy_titleUrl">Caddy</label>
-      <label index="pageOrgDocumentsCaddyDelivery_title">Shipping</label>
+      <label index="pageOrgDocumentsDelivery_title">Shipping</label>
       <label index="pageOrgDocumentsCaddyCaddymini_title">Caddy mini</label>
-      <label index="pageOrgDocumentsCaddyRevocation_title">Revocation</label>
-      <label index="pageOrgDocumentsCaddyTerms_title">Terms</label>
+      <label index="pageOrgDocumentsRevocation_title">Revocation</label>
+      <label index="pageOrgDocumentsTerms_title">Terms</label>
       <label index="pageOrgCalEvents_title">Events</label>
       <label index="pageOrgCalLocations_title">Locations</label>
       <label index="pageOrgHeadquarters_title">Headquarters</label>
       <label index="pageOrgJobs_title">[Jobs]</label>
+      <label index="pageOrgJobsJobs_title">[Jobs]</label>
       <label index="pageOrgJobsJobsApply_title">Application</label>
       <label index="pageOrgLegalinfo_title">Legal info</label>
       <label index="pageOrgLibrary_title">Libraries</label>
@@ -380,9 +383,9 @@
       <label index="phrases_powermail_termsAccepted1x"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
       <label index="phrases_powermail_termsAccepted2x"><![CDATA[I'm according with the <a href="index.php?id=###PID###" target="_blank">Terms and Conditions</a>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_org_page">Organiser Homepage</label>
-      <label index="pluginBrowserPageOrgCal_header">[Browser for Organiser Calendar]</label>
-      <label index="pluginBrowserPageOrgCal_ffListTitle">Organiser Calendar</label>
-      <label index="pluginBrowserPageOrgCal_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgCalCal_header">[Browser for Organiser Calendar]</label>
+      <label index="pluginBrowserPageOrgCalCal_ffListTitle">Organiser Calendar</label>
+      <label index="pluginBrowserPageOrgCalCal_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
   * Recursiv: Infinite
@@ -405,9 +408,9 @@
       * table.field: tx_org_cal.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgDocuments_header">[Browser for Organiser Downloads]</label>
-      <label index="pluginBrowserPageOrgDocuments_ffListTitle">Organiser Downloads</label>
-      <label index="pluginBrowserPageOrgDocuments_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgDocumentsDocuments_header">[Browser for Organiser Downloads]</label>
+      <label index="pluginBrowserPageOrgDocumentsDocuments_ffListTitle">Organiser Downloads</label>
+      <label index="pluginBrowserPageOrgDocumentsDocuments_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
   * Recursiv: Infinite
@@ -647,14 +650,14 @@
       <label index="pluginPowermailPageOrgCaddy_subject_r2x">[TEST] New Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgCaddy_subject_s1x">[TEST] Your Organiser order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgCaddy_subject_s2x">[TEST] Your Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="pluginPowermailPageOrgCaddy_thanks1x"><![CDATA[<h1>Thanks!</h1>
+      <label index="pluginPowermailPageOrgCaddy_thanks1x"><![CDATA[<h2>Thanks!</h2>
 <p>Thanks for your order.</p>
 <p>We sent a confirmation to your e-mail.</p>
 <h2>Good to know</h2>
 <p>This is a demo shop only.</p>
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
 <p>Thanks, that you are interested in TYPO3 Organiser! ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
-      <label index="pluginPowermailPageOrgCaddy_thanks2x"><![CDATA[<h1>Thanks {billingaddressfirstname} {billingaddresslastname}!</h1>
+      <label index="pluginPowermailPageOrgCaddy_thanks2x"><![CDATA[<h2>Thanks {billingaddressfirstname} {billingaddresslastname}!</h2>
 <p>Thanks for your order.</p>
 <p>You get a confirmation to your e-mail {contactdataemail}.</p>
 <h2>Good to know</h2>
@@ -763,10 +766,10 @@ You find all about your order in the attachments:</p>
       <label index="record_create_header">Records</label>
       <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the page/folder ###TITLE_PID###.</label>
       <label index="record_create_mm_prompt">###COUNT### records are added to the table "###TABLE###".</label>
-      <label index="record_pm_fSets_title_billingAddress">billing address</label>
-      <label index="record_pm_fSets_title_order">order</label>
-      <label index="record_pm_fSets_title_contactData">contact data</label>
-      <label index="record_pm_fSets_title_deliveryAddress">delivery address</label>
+      <label index="record_pm_fSets_title_billingAddress">1. billing address</label>
+      <label index="record_pm_fSets_title_order">4. send</label>
+      <label index="record_pm_fSets_title_contactData">3. contact data</label>
+      <label index="record_pm_fSets_title_deliveryAddress">2. delivery address</label>
       <label index="record_pm_field_title_companyBilling">Company</label>
       <label index="record_pm_field_title_countryBilling">Country</label>
       <label index="record_pm_field_title_surnameBilling">surname</label>
@@ -982,7 +985,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_netzmacher_telephone">++49 8507 9237053</label>
       <label index="record_tx_org_headquarters_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_headquarters_netzmacher_image">die_netzmacher_600px_timestamp.jpg</label>
-      <label index="record_tx_org_headquarters_netzmacher_imageseo">Die Netzmacher TYPO3</label>
+      <label index="record_tx_org_headquarters_netzmacher_imageseo">Die Netzmacher TYPO3 - published by the Organiser, TYPO3 for the lobby and the organisers</label>
       <label index="record_tx_org_headquarters_netzmacher_imageorient">0</label>
       <label index="record_tx_org_headquarters_president_title">The White House</label>
       <label index="record_tx_org_headquarters_president_mail_street">1600 Pennsylvania Avenue Northwest</label>
@@ -993,7 +996,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_president_telephone">++1 202-456-1111</label>
       <label index="record_tx_org_headquarters_president_email">barack.obama@whitehouse.gov</label>
       <label index="record_tx_org_headquarters_president_image">white_house_timestamp.jpg</label>
-      <label index="record_tx_org_headquarters_president_imageseo">White House</label>
+      <label index="record_tx_org_headquarters_president_imageseo">White House - published by the Organiser, TYPO3 for the lobby and the organisers</label>
       <label index="record_tx_org_headquarters_president_imageorient">26</label>
       <label index="record_tx_org_headquarters_president_imagewidth">140</label>
       <label index="record_tx_org_headquarters_typo3_title">TYPO3 Association</label>
@@ -1005,7 +1008,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_typo3_fax">+41 41 511 00 39</label>
       <label index="record_tx_org_headquarters_typo3_email">info@typo3.org</label>
       <label index="record_tx_org_headquarters_typo3_image">typo3_logo_timestamp.jpg</label>
-      <label index="record_tx_org_headquarters_typo3_imageseo">TYPO3 Association</label>
+      <label index="record_tx_org_headquarters_typo3_imageseo">TYPO3 Association - published by the Organiser, TYPO3 for the lobby and the organisers</label>
       <label index="record_tx_org_headquarters_typo3_imageorient">0</label>
       <label index="record_tx_org_headquarters_typo3_imagewidth"></label>
       <label index="record_tx_org_headquarterscat_title_policy">policy</label>
@@ -1021,7 +1024,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_location_netzmacher_telephone">++49 8507 9237053</label>
       <label index="record_tx_org_location_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_location_netzmacher_image">die_netzmacher_600px_01_timestamp.jpg</label>
-      <label index="record_tx_org_location_netzmacher_imageseo">Die Netzmacher TYPO3</label>
+      <label index="record_tx_org_location_netzmacher_imageseo">Die Netzmacher TYPO3 - published by the Organiser, TYPO3 for the lobby and the organisers</label>
       <label index="record_tx_org_location_netzmacher_imageorient">26</label>
       <label index="record_tx_org_location_netzmacher_imagewidth">140</label>
       <label index="record_tx_org_location_netzmacher_image_link">http://die-netzmacher.de/</label>
@@ -1056,7 +1059,7 @@ FLOW3 brings new concepts to the PHP world. Domain-Driven Design, Dependency Inj
 It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]></label>
       <label index="record_tx_org_news_flow_image">BlogExampleWithAnnotation-320px_02_timestamp.png</label>
       <label index="record_tx_org_news_flow_imagecaption">FLOW3 Blogexample</label>
-      <label index="record_tx_org_news_flow_imageseo">FLOW3 Blogexample</label>
+      <label index="record_tx_org_news_flow_imageseo">FLOW3 Blogexample - published by the Organiser, TYPO3 for the lobby and the organisers</label>
       <label index="record_tx_org_news_flow_imageorient">26</label>
       <label index="record_tx_org_news_flow_imagewidth">140</label>
       <label index="record_tx_org_news_flow_image_link"></label>
@@ -1068,7 +1071,7 @@ It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]><
       <label index="record_tx_org_news_organiser_teaser_short"><![CDATA[Der TYPO3-Organiser kommt am 1. April 2011. Das haben heute die Entwickler angekündigt und auch erstmals Screenshots von Frontend, Backend und dem Extension-Manager veröffentlicht. ]]></label>
       <label index="record_tx_org_news_organiser_image">t3n_timestamp.png</label>
       <label index="record_tx_org_news_organiser_imagecaption">FLOW3 Blogexample</label>
-      <label index="record_tx_org_news_organiser_imageseo">t3n Magazin</label>
+      <label index="record_tx_org_news_organiser_imageseo">t3n Magazin - published by the Organiser, TYPO3 for the lobby and the organisers</label>
       <label index="record_tx_org_news_organiser_imageorient">0</label>
       <label index="record_tx_org_news_organiser_imagewidth"></label>
       <label index="record_tx_org_news_organiser_image_link">http://t3n.de/socialnews/TYPO3/TYPO3-Organiser-kommt-am-1-April-Alles-aus-einer-Hand/</label>
@@ -1133,7 +1136,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_tx_org_staff_bobama_url">http://www.whitehouse.gov/</label>
       <label index="record_tx_org_staff_bobama_image">barack.obama_timestamp.jpg</label>
       <label index="record_tx_org_staff_bobama_imagecaption">Barack O.</label>
-      <label index="record_tx_org_staff_bobama_imageseo">Barack Obama: US President</label>
+      <label index="record_tx_org_staff_bobama_imageseo">Barack Obama: US President - published by the Organiser, TYPO3 for the lobby and the organisers</label>
       <label index="record_tx_org_staff_dwildt_name_first">Dirk</label>
       <label index="record_tx_org_staff_dwildt_name_last">Wildt</label>
       <label index="record_tx_org_staff_dwildt_contact_phone">++49 8507 9237053</label>
@@ -1142,7 +1145,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_tx_org_staff_dwildt_url">http://wildt.at.die-netzmacher.de/</label>
       <label index="record_tx_org_staff_dwildt_image">dirk.wildt_timestamp.jpg</label>
       <label index="record_tx_org_staff_dwildt_imagecaption">Dirk W.</label>
-      <label index="record_tx_org_staff_dwildt_imageseo">Dirk Wildt TYPO3 Oganiser</label>
+      <label index="record_tx_org_staff_dwildt_imageseo">Dirk Wildt - published by the Organiser, TYPO3 for the lobby and the organisers</label>
       <label index="record_tx_org_staff_dwildt_vita"><![CDATA[2009|Gesellschafter<br /><a title="Die Netzmacher" href="http://die-netzmacher.de">Die Netzmacher GbR</a><br />Internetdienstleistungen||
 2002 - 2008|Einzelunternehmer<br /><a target="blank" title="think-visually" href="http://think-visually.com">think visually!</a><br />Internetdienstleistungen||
 2000 - 2002|Finanzcontroller<br /><a target="blank" title="g.e.b.b." href="http://www.gebb.de">g.e.b.b.</a><br />Verteidigungsindustrie / Militär||
@@ -1159,7 +1162,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_tx_org_staff_sschaffstein_url">http://association.typo3.org/press/press-contact/</label>
       <label index="record_tx_org_staff_sschaffstein_image">soeren.schaffstein_timestamp.gif</label>
       <label index="record_tx_org_staff_sschaffstein_imagecaption"><![CDATA[Sören Sch.]]></label>
-      <label index="record_tx_org_staff_sschaffstein_imageseo"><![CDATA[Sören Schaffstein TYPO3 press]]></label>
+      <label index="record_tx_org_staff_sschaffstein_imageseo">Sören Schaffstein TYPO3 press - published by the Organiser, TYPO3 for the lobby and the organisers></label>
       <label index="record_tx_org_staffgroup_title_policy">policy</label>
       <label index="record_tx_org_staffgroup_title_society">society</label>
       <label index="record_tx_org_staffgroup_title_typo3">TYPO3</label>
@@ -1290,17 +1293,17 @@ He was elected the 44th President of the United States on November 4,  2008, and
 
 </script>
 ]]></label>
-      <label index="content_pageOrgCalCaddyDelivery_header">Versand</label>
-      <label index="content_pageOrgCalCaddyDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
+      <label index="content_pageOrgCalDelivery_header">Versand</label>
+      <label index="content_pageOrgCalDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
 <ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
-      <label index="content_pageOrgCalCaddyRevocation_header">Widerrufsrecht</label>
-      <label index="content_pageOrgCalCaddyRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
+      <label index="content_pageOrgCalRevocation_header">Widerrufsrecht</label>
+      <label index="content_pageOrgCalRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
 <ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>
-      <label index="content_pageOrgCalCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_pageOrgCalCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Geschäftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
+      <label index="content_pageOrgCalTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
+      <label index="content_pageOrgCalTerms_bodytext"><![CDATA[<p>Wir haben keine Geschäftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
       <label index="content_pageOrgDocumentsCaddy_header">[fade_Lieferadresse.jss]</label>
       <label index="content_pageOrgDocumentsCaddy_bodytext"><![CDATA[
@@ -1374,17 +1377,17 @@ He was elected the 44th President of the United States on November 4,  2008, and
 
 </script>
 ]]></label>
-      <label index="content_pageOrgDocumentsCaddyDelivery_header">Versand</label>
-      <label index="content_pageOrgDocumentsCaddyDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
+      <label index="content_pageOrgDocumentsDelivery_header">Versand</label>
+      <label index="content_pageOrgDocumentsDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
 <ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
-      <label index="content_pageOrgDocumentsCaddyRevocation_header">Widerrufsrecht</label>
-      <label index="content_pageOrgDocumentsCaddyRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
+      <label index="content_pageOrgDocumentsRevocation_header">Widerrufsrecht</label>
+      <label index="content_pageOrgDocumentsRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
 <ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>
-      <label index="content_pageOrgDocumentsCaddyTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_pageOrgDocumentsCaddyTerms_bodytext"><![CDATA[<p>Wir haben keine Geschäftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
+      <label index="content_pageOrgDocumentsTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
+      <label index="content_pageOrgDocumentsTerms_bodytext"><![CDATA[<p>Wir haben keine Geschäftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
       <label index="content_pageOrgLegalinfo_header">Impressum</label>
       <label index="content_pageOrgLegalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
@@ -1596,12 +1599,14 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
       <label index="pageOrg_title">Organiser</label>
       <label index="pageOrg_titleNav">Home</label>
+      <label index="pageOrgCal_title">Kalender</label>
+      <label index="pageOrgCalCal_title">Kalender</label>
       <label index="pageOrgCalCaddy_title">Warenkorb</label>
       <label index="pageOrgCalCaddy_titleUrl">Warenkorb</label>
       <label index="pageOrgCalCaddyCaddymini_title">Mini-Warenkorb</label>
-      <label index="pageOrgCalCaddyDelivery_title">Versand</label>
-      <label index="pageOrgCalCaddyRevocation_title">Widerrufsrecht</label>
-      <label index="pageOrgCalCaddyTerms_title">AGB</label>
+      <label index="pageOrgCalDelivery_title">Versand</label>
+      <label index="pageOrgCalRevocation_title">Widerrufsrecht</label>
+      <label index="pageOrgCalTerms_title">AGB</label>
       <label index="pageOrgCalEvents_title">Veranstaltungen</label>
       <label index="pageOrgCalLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgData_title">Daten</label>
@@ -1615,16 +1620,17 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgDataNews_title">Nachrichten</label>
       <label index="pageOrgDataService_title">Dienstleistungen</label>
       <label index="pageOrgDataStaff_title">Personen</label>
-      <label index="pageOrgCal_title">Kalender</label>
       <label index="pageOrgDocuments_title">Dokumente</label>
+      <label index="pageOrgDocumentsDocuments_title">Dokumente</label>
       <label index="pageOrgDocumentsCaddy_title">Warenkorb</label>
       <label index="pageOrgDocumentsCaddy_titleUrl">Warenkorb</label>
       <label index="pageOrgDocumentsCaddyCaddymini_title">Mini-Warenkorb</label>
-      <label index="pageOrgDocumentsCaddyDelivery_title">Versand</label>
-      <label index="pageOrgDocumentsCaddyRevocation_title">Widerrufsrecht</label>
-      <label index="pageOrgDocumentsCaddyTerms_title">AGB</label>
+      <label index="pageOrgDocumentsDelivery_title">Versand</label>
+      <label index="pageOrgDocumentsRevocation_title">Widerrufsrecht</label>
+      <label index="pageOrgDocumentsTerms_title">AGB</label>
       <label index="pageOrgHeadquarters_title">Firmen</label>
       <label index="pageOrgJobs_title">[Jobs]</label>
+      <label index="pageOrgJobsJobs_title">[Jobs]</label>
       <label index="pageOrgJobsJobsApply_title">Bewerbung</label>
       <label index="pageOrgLegalinfo_title">Impressum</label>
       <label index="pageOrgLibrary_title">Bibliotheken</label>
@@ -1648,9 +1654,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="phrases_powermail_termsAccepted1x"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
       <label index="phrases_powermail_termsAccepted2x"><![CDATA[Ich akzeptiere die <a href="index.php?id=###PID###" target="_blank">AGB</a>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_org_page">Organiser Startseite</label>
-      <label index="pluginBrowserPageOrgCal_header">[Browser für Organiser Kalender]</label>
-      <label index="pluginBrowserPageOrgCal_ffListTitle">Organiser Kalender</label>
-      <label index="pluginBrowserPageOrgCal_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgCalCal_header">[Browser für Organiser Kalender]</label>
+      <label index="pluginBrowserPageOrgCalCal_ffListTitle">Organiser Kalender</label>
+      <label index="pluginBrowserPageOrgCalCal_ffMycomment"><![CDATA[
 * [Verhalten]
   * Datensatzsammlung: Daten
   * Rekursiv: unendlich
@@ -1673,9 +1679,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       * table.field: tx_org_cal.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgDocuments_header">[Browser für Organiser Downloads]</label>
-      <label index="pluginBrowserPageOrgDocuments_ffListTitle">Organiser Downloads</label>
-      <label index="pluginBrowserPageOrgDocuments_ffMycomment"><![CDATA[
+      <label index="pluginBrowserPageOrgDocumentsDocuments_header">[Browser für Organiser Downloads]</label>
+      <label index="pluginBrowserPageOrgDocumentsDocuments_ffListTitle">Organiser Downloads</label>
+      <label index="pluginBrowserPageOrgDocumentsDocuments_ffMycomment"><![CDATA[
 * [Verhalten]
   * Datensatzsammlung: Daten
   * Rekursiv: unendlich
@@ -1917,14 +1923,14 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pluginPowermailPageOrgCaddy_subject_r2x">[TEST] Neue Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="pluginPowermailPageOrgCaddy_subject_s1x">[TEST] Deine Organiser-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgCaddy_subject_s2x">[TEST] Deine Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="pluginPowermailPageOrgCaddy_thanks1x"><![CDATA[<h1>Danke!</h1>
+      <label index="pluginPowermailPageOrgCaddy_thanks1x"><![CDATA[<h2>Danke!</h2>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse.</p>
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
 <p>Danke, dass Du Dich für TYPO3-Organiser interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
-      <label index="pluginPowermailPageOrgCaddy_thanks2x"><![CDATA[<h1>Danke {billingaddressfirstname} {billingaddresslastname}!</h1>
+      <label index="pluginPowermailPageOrgCaddy_thanks2x"><![CDATA[<h2>Danke {billingaddressfirstname} {billingaddresslastname}!</h2>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse {contactdataemail}.</p>
 <h2>Besondere Hinweise</h2>
@@ -2076,10 +2082,10 @@ Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokum
       <label index="record_create_header">Datensätze</label>
       <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" in der Seite/im Ordner ###TITLE_PID### eingefügt.</label>
       <label index="record_create_mm_prompt">###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.</label>
-      <label index="record_pm_fSets_title_billingAddress">Rechnungsadresse</label>
-      <label index="record_pm_fSets_title_order">Bestellung</label>
-      <label index="record_pm_fSets_title_contactData">Kontaktdaten</label>
-      <label index="record_pm_fSets_title_deliveryAddress">Lieferadresse</label>
+      <label index="record_pm_fSets_title_billingAddress">1. Rechnungsadresse</label>
+      <label index="record_pm_fSets_title_order">4. Absenden</label>
+      <label index="record_pm_fSets_title_contactData">3. Kontaktdaten</label>
+      <label index="record_pm_fSets_title_deliveryAddress">2. Lieferadresse</label>
       <label index="record_pm_field_title_companyBilling">Firma</label>
       <label index="record_pm_field_title_countryBilling">Land</label>
       <label index="record_pm_field_title_surnameBilling">Nachname</label>

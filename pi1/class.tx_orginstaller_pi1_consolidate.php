@@ -825,9 +825,9 @@ TCEMAIN {
 //  pages {
 //    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddy_title' ] . '
 //    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyCaddymini_title' ] . '
-//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyRevocation_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCalRevocation_title' ] . '
 //    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyTerms_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalTerms_title' ] . '
 //  }
 //}
 //  // plugin.caddy
@@ -930,9 +930,9 @@ page.10.subparts.menue.10 >
 //  pages {
 //    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddy_title' ] . '
 //    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyCaddymini_title' ] . '
-//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyRevocation_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgCalRevocation_title' ] . '
 //    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrg_title' ] . '
-//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalCaddyTerms_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgCalTerms_title' ] . '
 //  }
 //}
 //  // plugin.caddy
@@ -1495,9 +1495,9 @@ page.10.subparts.menue.10 >
 //  pages {
 //    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
 //    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
-//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsRevocation_title' ] . '
 //    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ] . '
-//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsTerms_title' ] . '
 //  }
 //}
 
@@ -1600,9 +1600,9 @@ page.10.subparts.menue.10 >
 //  pages {
 //    caddy       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddy_title' ] . '
 //    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyCaddymini_title' ] . '
-//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyRevocation_title' ] . '
+//    revocation  = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsRevocation_title' ] . '
 //    shop        = ' . $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ] . '
-//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsCaddyTerms_title' ] . '
+//    terms       = ' . $this->pObj->arr_pageUids[ 'pageOrgDocumentsTerms_title' ] . '
 //  }
 //}
 

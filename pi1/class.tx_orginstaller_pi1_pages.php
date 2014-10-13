@@ -167,113 +167,146 @@ class tx_orginstaller_pi1_pages
    */
   private function orderEnglish( $pageUid )
   {
+    // Data
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgData( $pageUid, $sorting );
 
+    // Data: Cal
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDataCal( $pageUid, $sorting );
 
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgDataDownloads( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgDataEvents( $pageUid, $sorting );
-
+    // Data: Companies
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDataHeadquarters( $pageUid, $sorting );
 
+    // Data: Documents
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgDataDownloads( $pageUid, $sorting );
+
+    // Data: Events
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgDataEvents( $pageUid, $sorting );
+
+    // Data: Jobs
     // #61779, 140921, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDataJobs( $pageUid, $sorting );
 
+    // Data: Locations
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDataLocations( $pageUid, $sorting );
 
+    // Data: News
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDataNews( $pageUid, $sorting );
 
+    // Data: People
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgDataStaff( $pageUid, $sorting );
+
+    // Data: Service
     // #61779, 140921, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDataService( $pageUid, $sorting );
 
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgDataStaff( $pageUid, $sorting );
-
+    // Cal
     // #61838, 140924, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgCal( $pageUid, $sorting );
 
+    // Cal: Cal
     // #i0017, 141013, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgCalCal( $pageUid, $sorting );
 
+    // Cal: Events
     // #61826, 140923, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgCalEvents( $pageUid, $sorting );
 
+    // Cal: Locations
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgCalLocations( $pageUid, $sorting );
 
+    // Cal: Caddy
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgCalCaddy( $pageUid, $sorting );
 
+    // Cal: Caddy: CaddyMini
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgCalCaddyCaddymini( $pageUid, $sorting );
 
+    // Cal: Delivery
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgCalDelivery( $pageUid, $sorting );
 
+    // Cal: Revocation
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgCalRevocation( $pageUid, $sorting );
 
+    // Cal: Terms
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgCalTerms( $pageUid, $sorting );
 
+    // Companies
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgHeadquarters( $pageUid, $sorting );
 
+    // Documents
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocuments( $pageUid, $sorting );
 
+    // Documents: Documents
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsDocuments( $pageUid, $sorting );
 
+    // Documents: Caddy
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsCaddy( $pageUid, $sorting );
 
+    // Documents: Caddy: Caddymini
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyCaddymini( $pageUid, $sorting );
 
+    // Documents: Delivery
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsDelivery( $pageUid, $sorting );
 
+    // Documents: Revocation
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsRevocation( $pageUid, $sorting );
 
+    // Documents: Terms
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsTerms( $pageUid, $sorting );
 
+    // Jobs
     // #61779, 140921, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgJobs( $pageUid, $sorting );
 
+    // Jobs: Jobs
     // #i0017, 140921, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgJobsJobs( $pageUid, $sorting );
 
+    // Jobs: Apply
     // #61779, 140921, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgJobsJobsApply( $pageUid, $sorting );
 
+    // News
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgNews( $pageUid, $sorting );
 
+    // People
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgStaff( $pageUid, $sorting );
+
+    // Service
     // #61779, 140921, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgService( $pageUid, $sorting );
-
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgStaff( $pageUid, $sorting );
 
     // SWITCH : install case
     $installCase = $this->pObj->markerArray[ '###INSTALL_CASE###' ];
@@ -291,6 +324,7 @@ class tx_orginstaller_pi1_pages
     }
     // SWITCH : install case
 
+    // Legal Info
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgLegalinfo( $pageUid, $sorting );
 
@@ -383,7 +417,7 @@ class tx_orginstaller_pi1_pages
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocuments( $pageUid, $sorting );
 
-    // Dokument
+    // Dokument: Dokument
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsDocuments( $pageUid, $sorting );
 
@@ -395,15 +429,15 @@ class tx_orginstaller_pi1_pages
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsCaddyCaddymini( $pageUid, $sorting );
 
-    // Dokument: Warenkorb: AGB
+    // Dokument: AGB
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsTerms( $pageUid, $sorting );
 
-    // Dokument: Warenkorb: Versand
+    // Dokument: Versand
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsDelivery( $pageUid, $sorting );
 
-    // Dokument: Warenkorb: Widerruf
+    // Dokument: Widerruf
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgDocumentsRevocation( $pageUid, $sorting );
 
@@ -487,6 +521,7 @@ class tx_orginstaller_pi1_pages
     }
     // SWITCH : install case
 
+    // Impressum
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgLegalinfo( $pageUid, $sorting );
 

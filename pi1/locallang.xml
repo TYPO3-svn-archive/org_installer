@@ -266,7 +266,7 @@
     <p>
       The Organiser is easy: easy to use, easy to configure, easy to handle.
       TYPO3 integrators can install the Organiser with minimum costs.
-      You can manage a calendar, events, companies, documents, news, jobs and staff.
+      You can manage a calendar, events, companies, documents, news, jobs and people.
       You can sell tickets and items.
     </p>
     <p>
@@ -429,7 +429,7 @@
       <label index="pageOrgDataCal_title">Calendar</label>
       <label index="pageOrgDataDownloads_title">Documents</label>
       <label index="pageOrgDataEvents_title">Events</label>
-      <label index="pageOrgDataHeadquarters_title">Headquarters</label>
+      <label index="pageOrgDataHeadquarters_title">Companies</label>
       <label index="pageOrgDataJobs_title">Jobs</label>
       <label index="pageOrgDataJobsJobsApply_title">Application</label>
       <label index="pageOrgDataLocations_title">Locations</label>
@@ -446,7 +446,7 @@
       <label index="pageOrgDocumentsTerms_title">Terms</label>
       <label index="pageOrgCalEvents_title">Events</label>
       <label index="pageOrgCalLocations_title">Locations</label>
-      <label index="pageOrgHeadquarters_title">Headquarters</label>
+      <label index="pageOrgHeadquarters_title">Companies</label>
       <label index="pageOrgJobs_title">[Jobs]</label>
       <label index="pageOrgJobsJobs_title">[Jobs]</label>
       <label index="pageOrgJobsJobsApply_title">Application</label>
@@ -554,8 +554,8 @@
       * table.field: tx_org_event.title
       * Bookmarks: Facebook, google.com, Twitter
       ]]></label>
-      <label index="pluginBrowserPageOrgHeadquarters_header">[Browser for Organiser Headquarters]</label>
-      <label index="pluginBrowserPageOrgHeadquarters_ffListTitle">Organiser Headquarters</label>
+      <label index="pluginBrowserPageOrgHeadquarters_header">[Browser for Organiser Companies]</label>
+      <label index="pluginBrowserPageOrgHeadquarters_ffListTitle">Organiser Companies</label>
       <label index="pluginBrowserPageOrgHeadquarters_ffMycomment"><![CDATA[
 * [Behaviour]
   * Record Storage Page: Data
@@ -564,7 +564,7 @@
   * [General]
     * Views: [Configured]
     * Views: Display only views of the current template (recommended) [X]
-    * Views: Enabled list views ...: 501: +Org Headquarters
+    * Views: Enabled list views ...: 501: +Org Companies
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
@@ -1271,7 +1271,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="tx_org_downloadscat">Documents: Categories</label>
       <label index="tx_org_downloadsmedia">Documents: Media</label>
       <label index="tx_org_event">Event</label>
-      <label index="tx_org_headquarters">Headquarters</label>
+      <label index="tx_org_headquarters">Companies</label>
       <label index="tx_org_headquarterscat">Company: Groups</label>
       <label index="tx_org_location">Locations</label>
       <label index="tx_org_news">News</label>
@@ -1554,7 +1554,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
     <p>
       Der Organiser ist einfach: einfach zu nutzen, einfach einzurichten, einfach zu pflegen.
       TYPO3-Integratoren können den Organiser mit einem Minimum an Aufwand installieren.
-      Du kannst Dokumente, Firmen, Jobs, einen Kalender, Nachrichten, Personal und Veranstaltungen veralten.
+      Du kannst Dokumente, Firmen, Jobs, einen Kalender, Nachrichten, Personen und Veranstaltungen verwalten.
       Du kannst Tickets und Dokumente verkaufen.
     </p>
     <p>
@@ -1924,7 +1924,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Allgemein]
     * Views: [Konfiguriert]
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
-    * Views: Listen, die ... verarbeitet werden: 501: +Org Headquarters
+    * Views: Listen, die ... verarbeitet werden: 501: +Org Companies
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]

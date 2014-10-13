@@ -285,10 +285,10 @@ class tx_orginstaller_pi1_pages
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgJobs( $pageUid, $sorting );
 
-    // Jobs: Jobs
-    // #i0017, 140921, dwildt, 2+
-    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[ $pageUid ] = $this->pageOrgJobsJobs( $pageUid, $sorting );
+//    // Jobs: Jobs
+//    // #i0017, 140921, dwildt, 2+
+//    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+//    $pages[ $pageUid ] = $this->pageOrgJobsJobs( $pageUid, $sorting );
 
     // Jobs: Apply
     // #61779, 140921, dwildt, 2+

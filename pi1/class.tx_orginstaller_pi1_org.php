@@ -38,7 +38,7 @@
  *  214:     private function categoryCalEntrance( )
  *  245:     private function categoryCalEntranceFree( $uid )
  *  276:     private function categoryCalEntranceMortals( $uid )
- *  307:     private function categoryCalEntranceSponsors( $uid )
+ *  307:     private function categoryCalEntranceSponsor( $uid )
  *  338:     private function categoryCalTax( )
  *  369:     private function categoryCalTax000( $uid )
  *  400:     private function categoryCalTax007( $uid )
@@ -216,7 +216,7 @@ class tx_orginstaller_pi1_org
 
     // category society
     $uid = $uid + 1;
-    $records[ $uid ] = $this->categoryCalEntranceSponsors( $uid );
+    $records[ $uid ] = $this->categoryCalEntranceSponsor( $uid );
 
 
     $this->sqlInsert( $records, $table );
@@ -285,7 +285,7 @@ class tx_orginstaller_pi1_org
   }
 
   /**
-   * categoryCalEntranceSponsors( )
+   * categoryCalEntranceSponsor( )
    *
    * @param	integer		$uid      : uid of the current fieldset
    * @return	array		$record   : the plugin record
@@ -293,7 +293,7 @@ class tx_orginstaller_pi1_org
    * @version 3.0.0
    * @since   0.0.1
    */
-  private function categoryCalEntranceSponsors( $uid )
+  private function categoryCalEntranceSponsor( $uid )
   {
     $record = null;
 
@@ -1763,6 +1763,9 @@ class tx_orginstaller_pi1_org
     $records[ $uid ] = $this->recordLocationsNetzmacher( $uid );
 
     $uid = $uid + 1;
+    $records[ $uid ] = $this->recordLocationsPresident( $uid );
+
+    $uid = $uid + 1;
     $records[ $uid ] = $this->recordLocationsT3Devdays( $uid );
 
     $this->sqlInsert( $records, $table );
@@ -1810,6 +1813,55 @@ class tx_orginstaller_pi1_org
     $record[ 'imageseo' ] = $this->pObj->pi_getLL( 'record_tx_org_location_netzmacher_imageseo' );
     $record[ 'imagewidth' ] = $this->pObj->pi_getLL( 'record_tx_org_location_netzmacher_imagewidth' );
     $record[ 'image_link' ] = $this->pObj->pi_getLL( 'record_tx_org_location_netzmacher_image_link' );
+    $record[ 'imagecols' ] = '1';
+    $record[ 'image_zoom' ] = '1';
+    $record[ 'image_noRows' ] = '1';
+
+    return $record;
+  }
+
+  /**
+   * recordLocationsPresident( )
+   *
+   * @param	integer		$uid      : uid of the current fieldset
+   * @return	array		$record   : the plugin record
+   * @access private
+   * @version 6.0.0
+   * @since   6.0.0
+   */
+  private function recordLocationsPresident( $uid )
+  {
+    $record = array();
+
+    $llLabel = 'record_tx_org_location_president_title';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $llLabel = 'record_tx_org_location_president_image';
+    $llImage = $this->pObj->pi_getLL( $llLabel );
+    $llImageWiTimestamp = str_replace( 'timestamp', time(), $llImage );
+    $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDataLocations_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 1;
+    $record[ 'title' ] = $llTitle;
+    $record[ 'url' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_url' );
+    $record[ 'telephone' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_telephone' );
+    $record[ 'email' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_email' );
+    $record[ 'mail_lat' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_mail_lat' );
+    $record[ 'mail_lon' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_mail_lon' );
+    $record[ 'mail_street' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_mail_street' );
+    $record[ 'mail_postcode' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_mail_postcode' );
+    $record[ 'mail_city' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_mail_city' );
+    $record[ 'image' ] = $llImageWiTimestamp;
+    $record[ 'imageorient' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_imageorient' );
+    $record[ 'imageseo' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_imageseo' );
+    $record[ 'imagewidth' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_imagewidth' );
+    $record[ 'image_link' ] = $this->pObj->pi_getLL( 'record_tx_org_location_president_image_link' );
     $record[ 'imagecols' ] = '1';
     $record[ 'image_zoom' ] = '1';
     $record[ 'image_noRows' ] = '1';
@@ -2377,6 +2429,9 @@ class tx_orginstaller_pi1_org
 
     $records = array
       (
+      $this->relationCal2CalentranceEggrollFree(),
+      $this->relationCal2CalentranceEggrollMortal(),
+      $this->relationCal2CalentranceEggrollSponsor(),
       $this->relationCal2CalentranceT3DevdaysFree(),
       $this->relationCal2CalentranceT3DevdaysMortal(),
       $this->relationCal2CalentranceT3DevdaysSponsor(),
@@ -2431,7 +2486,7 @@ class tx_orginstaller_pi1_org
   }
 
   /**
-   * relationCal2CalentranceT3DevdaysSponsors( )
+   * relationCal2CalentranceT3DevdaysSponsor( )
    *
    * @return	void
    * @access private
@@ -2445,6 +2500,69 @@ class tx_orginstaller_pi1_org
       'table_local' => 'tx_org_cal',
       'table_foreign' => 'tx_org_calentrance',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3devdays_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_sponsor' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationCal2CalentranceEggrollFree( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.0
+   * @since   0.0.1
+   */
+  private function relationCal2CalentranceEggrollFree()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_cal',
+      'table_foreign' => 'tx_org_calentrance',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_eggroll_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_entranceFree' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationCal2CalentranceEggrollMortal( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.0
+   * @since   0.0.1
+   */
+  private function relationCal2CalentranceEggrollMortal()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_cal',
+      'table_foreign' => 'tx_org_calentrance',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_eggroll_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_mereMortals' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationCal2CalentranceEggrollSponsor( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.0
+   * @since   0.0.1
+   */
+  private function relationCal2CalentranceEggrollSponsor()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_cal',
+      'table_foreign' => 'tx_org_calentrance',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_eggroll_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_calentrance_title_sponsor' ],
     );
 
@@ -2494,7 +2612,7 @@ class tx_orginstaller_pi1_org
   }
 
   /**
-   * relationCal2CalentranceT3OrganiserSponsors( )
+   * relationCal2CalentranceT3OrganiserSponsor( )
    *
    * @return	void
    * @access private
@@ -2613,6 +2731,7 @@ class tx_orginstaller_pi1_org
 
     $records = array
       (
+      $this->relationCal2LocationEggrollPresident(),
       $this->relationCal2LocationT3DevdaysT3Devdays(),
       $this->relationCal2LocationT3OrganiserNetzmacher()
     );
@@ -2657,6 +2776,27 @@ class tx_orginstaller_pi1_org
       'table_foreign' => 'tx_org_location',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_t3organiser_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_location_netzmacher_title' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationCal2LocationEggrollPresident( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.0
+   * @since   0.0.1
+   */
+  private function relationCal2LocationEggrollPresident()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_cal',
+      'table_foreign' => 'tx_org_location',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_cal_eggroll_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_location_president_title' ],
     );
 
     return $record;

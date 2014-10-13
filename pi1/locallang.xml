@@ -223,86 +223,175 @@
       <label index="content_pageOrgLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
       <label index="content_pageOrgLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
       <label index="content_pageOrg_header">TYPO3 Integrators</label>
-      <label index="content_pageOrg_bodytext"><![CDATA[
-<ul class="csc-menu csc-menu-3">
-  <li class="csc-section">Congratulations</li>
-  <li class="csc-section">Using a proper jQuery</li>
-  <li class="csc-section">Using Flip it!</li>
-  <li class="csc-section">Using Radial Search (German: Umkreissuche)</li>
-</ul>
-<h2>Congratulations</h2>
-<p class="bodytext">
-  Congratulations! Installation of the TYPO3 Organiser was successful.
-</p>
-<p class="bodytext">
-  Below you find a list of the next possible steps.
-</p>
-<h2>
-  Using a proper jQuery
-</h2>
-<p class="bodytext">
-  Please use on jQuery library. It is recommended to use t3jquery.
-</p>
-<ul>
-  <li>Please compile your t3jquery after the installation of the Organiser.</li>
-</ul>
-<h2>
-  Using Flip it!
-</h2>
-<p class="bodytext">
-  TYPO3 Flip it! enables to page flip in PDF files like in real magazines.
-  The visitor of your website needs an internet browser with a flash plugin only.
-</p>
-<p class="bodytext">
-  If your Organiser installation should move PDF files to SWF files automatically,
-  you have to install the SWF Tools. See:
-</p>
-<ul>
-  <li>
-    English:http://typo3-flipit.de/en/swf-tools/
-  </li>
-  <li>
-    German: <a href="http://typo3-flipit.de/swf-tools/" >typo3-flipit.de/swf-tools/</a>
-  </li>
-</ul>
-<p class="bodytext">
-  In TYPO3 6.x you should not run the fancybox. The fancybox doesn't work.
-</p>
-<p class="bodytext">
-  You find a Flip it! example at
-</p>
-<ul>
-  <li>
-    <a href="index.php?id=%pageOrgDocuments_title%">Documents »</a>
-  </li>
-</ul>
-<p class="bodytext">
-  Please select a single document.
-</p>
-<h2>
-  Using Radial Search (German: Umkreissuche)
-</h2>
-<p class="bodytext">
-  If you like to use Radial Search (German: Umkreissuche), you have to import the needed postal data first. See
-</p>
-<ul>
-  <li>
-    <a href="http://typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf" >typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf</a><br />
-    Look for the section<br />
-    Import Postal Code Data
-  </li>
-</ul>
-<p class="bodytext">
-  The search won't find any match without postal data.
-</p>
-<p class="bodytext">
-  You find a Radial Search example at
-</p>
-<ul>
-  <li>
-    <a href="index.php?id=%pageOrgHeadquarters_title%">Headquarters »</a>
-  </li>
-</ul>]]></label>
+      <label index="content_pageOrg_bodytext"><![CDATA[<div class="row">
+  <div class="large-12 columns">
+    <h1>Welcome to TYPO3 Organiser</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="panel">
+      <h3>Responsive and ready-to-use. Installation with one mouse-click.</h3>
+      <div class="row">
+        <div class="large-4 medium-4 columns">
+          <p>
+            <a href="index.php?id=%pageOrgCalCal_title%">Responsive &raquo;</a><br />
+            The Organiser is optimised for desktops, tablets and smartphones.
+            Test it: go to the ticket shop and vary the size of your browser window.
+          </p>
+        </div>
+        <div class="large-4 medium-4 columns">
+          <p>
+            <a href="http://typo3-organiser.de/en/one-click" target="_blank">Ready-to-use &raquo;</a><br />
+            You are welcome to install the Organiser with one mouse-click &ndash; responsive and ready-to-use.
+            You need: TYPO3, the Organiser and a mouse.
+          </p>
+        </div>
+        <div class="large-4 medium-4 columns">
+          <p>
+            <a href="http://die-netzmacher.de/kontakt/" target="_blank">Professional service &raquo;</a><br />
+            You don't like to adapt the Organiser to your individual needs by yourself?
+            Take the professional service supported from the developers: Die Netzmacher.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns">
+    <h3>Organiser: TYPO3 for the lobby and the organisers</h3>
+    <p>
+      The Organiser is easy: easy to use, easy to configure, easy to handle.
+      TYPO3 integrators can install the Organiser with minimum costs.
+      You can manage a calendar, events, companies, documents, news, jobs and staff.
+      You can sell tickets and items.
+    </p>
+    <p>
+      The Organiser is the solution for a small budget and for small-scale enterprises,
+      which make low demands on e-commerce.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 columns">
+    <div class="panel">
+      <h3>Test it now!</h3>
+      <div class="row">
+        <div class="columns">
+          <p>
+            <a href="index.php?id=%pageOrgCalCal_title%">Buy a ticket! &raquo;</a><br />
+            Test the Organiser! Buy a ticket. Check the workflow. Taste it!
+            You don't need to pay nothing.
+          </p>
+          <p>
+            <a href="index.php?id=%pageOrgDocumentsDocuments_title%">Page flip! &raquo;</a><br />
+            Page flip in PDF files like in real magazines. You need nothing
+            but an internet browser with a flash plugin.
+          </p>
+          <p>
+            <a href="index.php?id=%pageOrgHeadquarters_title%">Radial search &raquo;</a><br />
+            Look for entries by a radial search.
+          </p>
+        </div>
+      </div>
+    </div>
+    <h3>Install it!</h3>
+    <div class="row">
+      <div class="columns">
+        <p>
+          <a href="https://typo3.org/extensions/repository/view/organiser/" target="_blank">Available on typo3.org &raquo;</a><br />
+          The Organiser is 100% Open Source and free of charge. Download it on typo3.org!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="large-6 columns">
+    <h3>Features</h3>
+    <!-- Grid Example -->
+    <ul>
+      <li>
+        E-payment
+      </li>
+      <li>
+        Image gallery by default
+      </li>
+      <li>
+        Localisation
+      </li>
+      <li>
+        Modular
+        <ul>
+          <li>
+            Formular management, spam protection: Powermail
+          </li>
+          <li>
+            Online catalogues: Flip it!
+          </li>
+          <li>
+            Responsive framework: Foundation
+          </li>
+          <li>
+            Shopping cart: Caddy
+          </li>
+          <li>
+            TYPO3-frontend-engine: Browser &ndash; TYPO3 without PHP
+          </li>
+        </ul>
+      </li>
+      <li>
+        One-Click-Installation
+      </li>
+      <li>
+        Optimised for search Engines (SEO)
+      </li>
+      <li>
+        PDF attachments
+      </li>
+      <li>
+        Radial Search
+      </li>
+      <li>
+        Responsive
+      </li>
+      <li>
+        Simplified variants
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns">
+    <h3>Any question?</h3>
+    <p>
+      Visit our <a href="http://typo3-organiser.de/en/" target="_blank">homepage &raquo;</a>
+      Or send us your <a href="http://die-netzmacher.de/kontakt/" target="_blank">request &raquo;</a>.
+      Or post your concern in the <a href="http://typo3-organiser.de/en/forum/" target="_blank">Organiser Forum &raquo;</a>.
+    </p>
+    <h3>For Integrators only: Your next steps after the installation</h3>
+    <div class="row">
+      <div class="large-6 columns">
+        <p class="bodytext">
+          <a href="" title="">Set up jQuery &raquo;</a><br />
+          We recommend to use t3jquery. Please set it up.
+        </p>
+      </div>
+      <div class="large-6 columns">
+        <p class="bodytext">
+          <a href="http://typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf" title="">Import postal data &raquo;</a><br />
+          A proper radial search needs postal data. Import it.
+          See section &quot;Import Postal Code Data&quot; in the manual.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+]]></label>
       <label index="end_button">Reload this page</label>
       <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Organiser Installer, if you don't need it any longer.</label>
       <label index="end_header">Finish the installation</label>

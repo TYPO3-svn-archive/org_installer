@@ -199,8 +199,10 @@ class tx_orginstaller_pi1_content
     $llHeader = $this->pObj->pi_getLL( 'content_pageOrg_header' );
     $this->pObj->arr_contentUids[ 'content_pageOrg_header' ] = $uid;
     $bodytext = $this->pObj->pi_getLL( 'content_pageOrg_bodytext' );
-    $pageOrgDocuments_title = $this->pObj->arr_pageUids[ 'pageOrgDocuments_title' ];
-    $bodytext = str_replace( '%pageOrgDocuments_title%', $pageOrgDocuments_title, $bodytext );
+    $pageOrgCalCal_title = $this->pObj->arr_pageUids[ 'pageOrgCalCal_title' ];
+    $bodytext = str_replace( '%pageOrgCalCal_title%', $pageOrgCalCal_title, $bodytext );
+    $pageOrgDocumentsDocuments_title = $this->pObj->arr_pageUids[ 'pageOrgDocumentsDocuments_title' ];
+    $bodytext = str_replace( '%pageOrgDocumentsDocuments_title%', $pageOrgDocumentsDocuments_title, $bodytext );
     $pageOrgHeadquarters_title = $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ];
     $bodytext = str_replace( '%pageOrgHeadquarters_title%', $pageOrgHeadquarters_title, $bodytext );
 

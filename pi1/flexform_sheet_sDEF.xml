@@ -77,10 +77,10 @@
           </config>
         </TCEforms>
       </mail_subject>
-      <mail_default_sender>
+      <mail_default_recipient>
         <TCEforms>
           <exclude>1</exclude>
-          <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.mail_default_sender</label>
+          <label>LLL:EXT:org_installer/pi1/flexform_locallang.php:sheet_install.mail_default_recipient</label>
           <displayCond>FIELD:install_case:=:install_all,install_org</displayCond>
           <config>
             <type>input</type>
@@ -89,6 +89,7 @@
             <default>mail@my-domain.com</default>
           </config>
         </TCEforms>
-      </mail_default_sender>    </el>
+      </mail_default_recipient>
+    </el>
   </ROOT>
 </T3DataStructure>

@@ -10,7 +10,7 @@ $LOCAL_LANG = array(
     'sheet_install.install_case.2'          => 'Organiser only',
     'sheet_install.backend_user'            => 'Backend user (owner of the new pages and sysfolders)',
     'sheet_install.mail_subject'            => 'Subject of confirmation mails - required',
-    'sheet_install.mail_default_sender'     => 'E-mail-address of the sender (to customers) - required',
+    'sheet_install.mail_default_recipient'  => 'E-mail-address of the shop provider (receives e-mails) - required',
   ),
   'de' => array(
     'sheet_install'                         => 'Installation',
@@ -23,7 +23,7 @@ $LOCAL_LANG = array(
     'sheet_install.install_case.2'          => 'Organiser',
     'sheet_install.backend_user'            => 'Backend User (Eigentuemer der neuen Seiten und Verzeichnisse)',
     'sheet_install.mail_subject'            => 'Betreff der Bestaetigungs-Mails - Pflichtfeld',
-    'sheet_install.mail_default_sender'     => 'Mail-Adresse des Website-Betreibers (an Kunden) - Pflichtfeld',
+    'sheet_install.mail_default_recipient'  => 'Mail-Adresse des Website-Betreibers (bekommt E-Mails) - Pflichtfeld',
   ),
 );
 ?>

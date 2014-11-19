@@ -481,6 +481,9 @@ class tx_orginstaller_pi1_content
 
     $llHeader = $this->pObj->pi_getLL( 'content_pageOrgJobs_header' );
     $this->pObj->arr_contentUids[ 'content_pageOrgJobs_header' ] = $uid;
+    $bodytext = $this->pObj->pi_getLL( 'content_pageOrgJobs_bodytext' );
+    $pageOrgCalCal_title = $this->pObj->arr_pageUids[ 'pageOrgCalCal_title' ];
+    $bodytext = str_replace( '%pageOrgCalCal_title%', $pageOrgCalCal_title, $bodytext );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgJobs_title' ];
@@ -490,7 +493,7 @@ class tx_orginstaller_pi1_content
     $record[ 'sorting' ] = 256 * 1;
     $record[ 'CType' ] = 'text';
     $record[ 'header' ] = $llHeader;
-    $record[ 'bodytext' ] = $this->pObj->pi_getLL( 'content_pageOrgJobs_bodytext' );
+    $record[ 'bodytext' ] = $bodytext;
     $record[ 'sectionIndex' ] = 1;
 
     return $record;
@@ -884,6 +887,9 @@ class tx_orginstaller_pi1_content
 
     $llHeader = $this->pObj->pi_getLL( 'content_pageOrgService_header' );
     $this->pObj->arr_contentUids[ 'content_pageOrgService_header' ] = $uid;
+    $bodytext = $this->pObj->pi_getLL( 'content_pageOrgService_bodytext' );
+    $pageOrgCalCal_title = $this->pObj->arr_pageUids[ 'pageOrgCalCal_title' ];
+    $bodytext = str_replace( '%pageOrgCalCal_title%', $pageOrgCalCal_title, $bodytext );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgService_title' ];
@@ -893,7 +899,7 @@ class tx_orginstaller_pi1_content
     $record[ 'sorting' ] = 256 * 1;
     $record[ 'CType' ] = 'text';
     $record[ 'header' ] = $llHeader;
-    $record[ 'bodytext' ] = $this->pObj->pi_getLL( 'content_pageOrgService_bodytext' );
+    $record[ 'bodytext' ] = $bodytext;
     $record[ 'sectionIndex' ] = 1;
 
     return $record;

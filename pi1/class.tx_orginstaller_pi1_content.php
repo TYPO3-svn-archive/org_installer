@@ -56,7 +56,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 6.0.0
+ * @version 6.0.1
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_content
@@ -114,6 +114,9 @@ class tx_orginstaller_pi1_content
     $uid = $this->pObj->zz_getMaxDbUid( 'tt_content' );
 
     $uid = $uid + 1;
+    $records[ $uid ] = $this->pageOrg( $uid );
+
+    $uid = $uid + 1;
     $records[ $uid ] = $this->pageOrgCalCaddy( $uid );
     $uid = $uid + 1;
     $records[ $uid ] = $this->pageOrgCalDelivery( $uid );
@@ -147,6 +150,9 @@ class tx_orginstaller_pi1_content
     // SWITCH : install case
 
     $uid = $uid + 1;
+    $records[ $uid ] = $this->pageOrgJobs( $uid );
+
+    $uid = $uid + 1;
     $records[ $uid ] = $this->pageOrgLegalinfo( $uid );
 
     $uid = $uid + 1;
@@ -178,7 +184,7 @@ class tx_orginstaller_pi1_content
     $records[ $uid ] = $this->pageOrgLibraryFooter( $uid );
 
     $uid = $uid + 1;
-    $records[ $uid ] = $this->pageOrg( $uid );
+    $records[ $uid ] = $this->pageOrgService( $uid );
 
     return $records;
   }
@@ -455,6 +461,36 @@ class tx_orginstaller_pi1_content
     $record[ 'CType' ] = 'text';
     $record[ 'header' ] = $llHeader;
     $record[ 'bodytext' ] = $this->pObj->pi_getLL( 'content_pageOrgDocumentsTerms_bodytext' );
+    $record[ 'sectionIndex' ] = 1;
+
+    return $record;
+  }
+
+  /**
+   * pageOrgJobs( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 6.0.1
+   * @since   6.0.1
+   */
+  private function pageOrgJobs( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgJobs_header' );
+    $this->pObj->arr_contentUids[ 'content_pageOrgJobs_header' ] = $uid;
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgJobs_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 1;
+    $record[ 'CType' ] = 'text';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'bodytext' ] = $this->pObj->pi_getLL( 'content_pageOrgJobs_bodytext' );
     $record[ 'sectionIndex' ] = 1;
 
     return $record;
@@ -829,6 +865,36 @@ class tx_orginstaller_pi1_content
     $record[ 'image_zoom' ] = 1;
     $record[ 'imageorient' ] = 2;  // 2: left
     $record[ 'spaceBefore' ] = 60; // 2: left
+
+    return $record;
+  }
+
+  /**
+   * pageOrgService( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @version 6.0.1
+   * @since   6.0.1
+   */
+  private function pageOrgService( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgService_header' );
+    $this->pObj->arr_contentUids[ 'content_pageOrgService_header' ] = $uid;
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgService_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 1;
+    $record[ 'CType' ] = 'text';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'bodytext' ] = $this->pObj->pi_getLL( 'content_pageOrgService_bodytext' );
+    $record[ 'sectionIndex' ] = 1;
 
     return $record;
   }

@@ -671,10 +671,11 @@ TCEMAIN {
 //    unset( $name );
 //    $senderEmail      = 'noreply@' . $domain;
     // #i0016, 140926, dwildt, 3-
-    $providerEmail = $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ];
-    list( $name, $domain) = explode( '@', $providerEmail );
-    unset( $name );
-    $noreplyEmail = 'noreply@' . $domain;
+//    $providerEmail = $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ];
+//    list( $name, $domain) = explode( '@', $providerEmail );
+//    unset( $name );
+//    $noreplyEmail = 'noreply@' . $domain;
+    $senderEmail = $this->pObj->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ];
     $senderSubject = $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_subject_s2x' );
     $senderBody = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_body_s2x' ) );
     $thxBody = htmlspecialchars( $this->pObj->pi_getLL( 'pluginPowermailPageOrgCaddy_thanks2x' ) );
@@ -700,7 +701,7 @@ TCEMAIN {
                     <value index="vDEF">{billingaddressfirstname} {billingaddresslastname}</value>
                 </field>
                 <field index="settings.flexform.receiver.email">
-                    <value index="vDEF">' . $providerEmail . '</value>
+                    <value index="vDEF">' . $senderEmail . '</value>
                 </field>
                 <field index="settings.flexform.receiver.subject">
                     <value index="vDEF">' . $receiverSubject . '</value>
@@ -717,7 +718,7 @@ TCEMAIN {
                     <value index="vDEF">Organiser</value>
                 </field>
                 <field index="settings.flexform.sender.email">
-                    <value index="vDEF">' . $noreplyEmail . '</value>
+                    <value index="vDEF">' . $senderEmail . '</value>
                 </field>
                 <field index="settings.flexform.sender.subject">
                     <value index="vDEF">' . $senderSubject . '</value>
@@ -1677,7 +1678,6 @@ page.10.subparts.menue.10 >
     {
       case( 'install_org' ):
         return;
-        break;
       case( 'install_all' ):
         // follow the workflow
         break;

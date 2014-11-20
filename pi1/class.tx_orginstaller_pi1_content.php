@@ -121,7 +121,7 @@ class tx_orginstaller_pi1_content
     $uid = $uid + 1;
     $records[ $uid ] = $this->pageOrgCalDelivery( $uid );
     $uid = $uid + 1;
-    $records[ $uid ] = $this->pageOrgCalEvent( $uid );
+    $records[ $uid ] = $this->pageOrgCalEvents( $uid );
     $uid = $uid + 1;
     $records[ $uid ] = $this->pageOrgCalRevocation( $uid );
     $uid = $uid + 1;
@@ -289,7 +289,7 @@ class tx_orginstaller_pi1_content
   }
 
   /**
-   * pageOrgCalEvent( )
+   * pageOrgCalEvents( )
    *
    * @param	integer		$uid: uid of the current plugin
    * @return	array		$record : the plugin record
@@ -297,18 +297,18 @@ class tx_orginstaller_pi1_content
    * @version 6.0.1
    * @since   6.0.1
    */
-  private function pageOrgCalEvent( $uid )
+  private function pageOrgCalEvents( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCalEvent_header' );
-    $this->pObj->arr_contentUids[ 'content_pageOrgCalEvent_header' ] = $uid;
-    $bodytext = $this->pObj->pi_getLL( 'content_pageOrgCalEvent_bodytext' );
+    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCalEvents_header' );
+    $this->pObj->arr_contentUids[ 'content_pageOrgCalEvents_header' ] = $uid;
+    $bodytext = $this->pObj->pi_getLL( 'content_pageOrgCalEvents_bodytext' );
     $pageOrgCalCal_title = $this->pObj->arr_pageUids[ 'pageOrgCalCal_title' ];
     $bodytext = str_replace( '%pageOrgCalCal_title%', $pageOrgCalCal_title, $bodytext );
 
     $record[ 'uid' ] = $uid;
-    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCalEvent_title' ];
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCalEvents_title' ];
     $record[ 'tstamp' ] = time();
     $record[ 'crdate' ] = time();
     $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];

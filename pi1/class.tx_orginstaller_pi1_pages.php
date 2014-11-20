@@ -1332,7 +1332,8 @@ mod {
 mod {
   web_list {
     allowedNewTables (
-      tx_org_location
+      tx_org_location,
+      tx_org_locationcat
     )
   }
 }

@@ -165,7 +165,7 @@ class tx_orginstaller_pi1_org
    *
    * @return	array		$records : the fieldset records
    * @access private
-   * @version 3.0.0
+   * @version 6.0.2
    * @since   0.0.1
    */
   private function category()
@@ -174,6 +174,7 @@ class tx_orginstaller_pi1_org
     $this->categoryDownloadscat();
     $this->categoryDownloadsmedia();
     $this->categoryHeadquarters();
+    $this->categoryLocation();
     $this->categoryNews();
   }
 
@@ -898,6 +899,85 @@ class tx_orginstaller_pi1_org
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDataHeadquarters_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'title' ] = $llTitle;
+
+    return $record;
+  }
+
+  /**
+   * categoryLocation( )
+   *
+   * @return	array		$records : the fieldset records
+   * @access private
+   * @version 6.0.2
+   * @since   6.0.2
+   */
+  private function categoryLocation()
+  {
+    $table = 'tx_org_headquarterscat';
+    $records = array();
+    $uid = $this->pObj->zz_getMaxDbUid( $table );
+
+    // category education
+    $uid = $uid + 1;
+    $records[ $uid ] = $this->categoryLocationEducation( $uid );
+
+    // category entertainment
+    $uid = $uid + 1;
+    $records[ $uid ] = $this->categoryLocationEntertainment( $uid );
+
+    $this->sqlInsert( $records, $table );
+  }
+
+  /**
+   * categoryLocationEducation( )
+   *
+   * @param	integer		$uid      : uid of the current fieldset
+   * @return	array		$record   : the plugin record
+   * @access private
+   * @version 6.0.2
+   * @since   6.0.2
+   */
+  private function categoryLocationEducation( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_locationcat_title_education';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDataLocation_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'title' ] = $llTitle;
+
+    return $record;
+  }
+
+  /**
+   * categoryLocationEntertainment( )
+   *
+   * @param	integer		$uid      : uid of the current fieldset
+   * @return	array		$record   : the plugin record
+   * @access private
+   * @version 6.0.2
+   * @since   6.0.2
+   */
+  private function categoryLocationEntertainment( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_tx_org_locationcat_title_entertainment';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDataLocation_title' ];
     $record[ 'tstamp' ] = time();
     $record[ 'crdate' ] = time();
     $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
@@ -2409,6 +2489,7 @@ class tx_orginstaller_pi1_org
     $this->relationDownloads2Downloadsmedia();
     $this->relationHeadquarters2Headquarterscat();
     $this->relationHeadquarters2Staff();
+    $this->relationLocation2Locationcat();
     $this->relationNews2Headquarters();
     $this->relationNews2Newscat();
     $this->relationNews2Staff();
@@ -3360,6 +3441,90 @@ class tx_orginstaller_pi1_org
       'table_foreign' => 'tx_org_staff',
       'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_headquarters_typo3_title' ],
       'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_staff_sschaffstein_title' ],
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationLocation2Locationcat( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.2
+   * @since   6.0.2
+   */
+  private function relationLocation2Locationcat()
+  {
+    $table = 'tx_org_mm_all';
+
+    $records = array
+      (
+      $this->relationLocation2LocationcatNetzmacherEducation(),
+      $this->relationLocation2LocationcatPresidentEntertainment(),
+      $this->relationLocation2LocationcatT3DevdaysEducation()
+    );
+
+    $this->sqlInsert( $records, $table );
+  }
+
+  /**
+   * relationLocation2LocationcatNetzmacherEducation( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.2
+   * @since   6.0.2
+   */
+  private function relationLocation2LocationcatNetzmacherEducation()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_location',
+      'table_foreign' => 'tx_org_locationcat',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_location_netzmacher_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_locationcat_title_education' ]
+    );
+
+    return $record;
+  }
+
+  /**
+   * relationLocation2LocationcatPresidentEntertainment( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.2
+   * @since   6.0.2
+   */
+  private function relationLocation2LocationcatPresidentEntertainment()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_location',
+      'table_foreign' => 'tx_org_locationcat',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_location_president_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_locationcat_title_entertainment' ],
+    );
+
+    return $record;
+  }
+  /**
+   * relationLocation2LocationcatT3DevdaysEducation( )
+   *
+   * @return	void
+   * @access private
+   * @version 6.0.2
+   * @since   6.0.2
+   */
+  private function relationLocation2LocationcatT3DevdaysEducation()
+  {
+    $record = array
+      (
+      'table_local' => 'tx_org_location',
+      'table_foreign' => 'tx_org_locationcat',
+      'uid_local' => $this->pObj->arr_recordUids[ 'record_tx_org_location_t3devdays_title' ],
+      'uid_foreign' => $this->pObj->arr_recordUids[ 'record_tx_org_locationcat_title_education' ],
     );
 
     return $record;

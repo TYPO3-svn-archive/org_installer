@@ -226,7 +226,6 @@
       <label index="content_pageOrgLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
       <label index="content_pageOrgLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
       <label index="content_pageOrgService_header">Services</label>
-      <label index="content_pageOrgService_header">Dienstleistungen</label>
       <label index="content_pageOrgService_bodytext"><![CDATA[<p>Sorry, there isn't any sample data for services.</p>
 <p>You can test the Organiser with the <a href="index.php?id=%pageOrgCalCal_title%">Calendar &raquo;</a> among others.</p>]]></label>
       <label index="content_pageOrg_header">Welcome to the TYPO3 Organiser</label>
@@ -246,6 +245,7 @@
             <a href="index.php?id=%pageOrgCalCal_title%">Responsive &raquo;</a><br />
             The Organiser is optimised for desktops, tablets and smartphones.
             Test it: go to the ticket shop and vary the size of your browser window.
+            <strong>Flip it! and maps aren't responsive.</strong>
           </p>
         </div>
         <div class="large-4 medium-4 columns">
@@ -325,10 +325,16 @@
         E-payment
       </li>
       <li>
+        Georeferenced data
+      </li>
+      <li>
         Image gallery by default
       </li>
       <li>
         Localisation
+      </li>
+      <li>
+        Maps (Google Map, Open Street Map)
       </li>
       <li>
         Modular
@@ -363,7 +369,7 @@
         Radial Search
       </li>
       <li>
-        Responsive
+        Responsive <strong>but Flip it! and maps</strong>
       </li>
       <li>
         Simplified variants
@@ -1154,6 +1160,8 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_location_t3devdays_documentscaption">Situationsplan</label>
       <label index="record_tx_org_location_t3devdays_documentslayout">2</label>
       <label index="record_tx_org_location_t3devdays_documentssize">1</label>
+      <label index="record_tx_org_locationcat_title_education">Education</label>
+      <label index="record_tx_org_locationcat_title_entertainment">Entertainment</label>
       <label index="record_tx_org_news_flow_type">record</label>
       <label index="record_tx_org_news_flow_title">Get into the TYPO3 FLOW!</label>
       <label index="record_tx_org_news_flow_datetime">1301523660</label>
@@ -1551,7 +1559,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
           <p>
             <a href="index.php?id=%pageOrgCalCal_title%">Responsive &raquo;</a><br />
             Der Organiser ist optimiert für Desktops, Tablets und Smartphones.
-            Probier es aus:  Kauf ein Ticket und verändere dabei die Größe Deines Browserfensters.
+            Probier es aus:  Kauf ein Ticket und verändere die Größe des Browserfensters.
+            <strong>Flip it! und Karten sind nicht responsive.</strong>
           </p>
         </div>
         <div class="large-4 medium-4 columns">
@@ -1636,6 +1645,12 @@ He was elected the 44th President of the United States on November 4,  2008, and
         E-Payment
       </li>
       <li>
+        Georeferenzierung
+      </li>
+      <li>
+        Karten (Google Maps, Open Street Map)
+      </li>
+      <li>
         Mehrsprachig
       </li>
       <li>
@@ -1665,7 +1680,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
         PDF-Anhänge
       </li>
       <li>
-        Responsive
+        Responsive <strong>bis auf Flip it! und Karten</strong>
       </li>
       <li>
         Vereinfachte Varianten
@@ -2317,6 +2332,8 @@ P.S.: <link record:tx_org_staff:%bobama% - internal-link>Barack Obama</link> hat
       <label index="record_tx_org_headquarterscat_title_policy">Politik</label>
       <label index="record_tx_org_headquarterscat_title_society">Gesellschaft</label>
       <label index="record_tx_org_headquarterscat_title_typo3">TYPO3</label>
+      <label index="record_tx_org_locationcat_title_education">Bildung</label>
+      <label index="record_tx_org_locationcat_title_entertainment">Unterhaltung</label>
       <label index="record_tx_org_newscat_title_policy">Politik</label>
       <label index="record_tx_org_newscat_title_society">Gesellschaft</label>
       <label index="record_tx_org_newscat_title_typo3">TYPO3</label>

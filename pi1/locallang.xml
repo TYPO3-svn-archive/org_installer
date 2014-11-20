@@ -101,6 +101,9 @@
       <label index="content_pageOrgCalDelivery_header">Delivery</label>
       <label index="content_pageOrgCalDelivery_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
 <ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
+      <label index="content_pageOrgCalEvents_header">Events</label>
+      <label index="content_pageOrgCalEvents_bodytext"><![CDATA[<p>Sorry, there isn't any sample data for events.</p>
+<p>You can test the Organiser with the <a href="index.php?id=%pageOrgCalCal_title%">Calendar &raquo;</a> among others.</p>]]></label>
       <label index="content_pageOrgCalRevocation_header">Power of Revocation</label>
       <label index="content_pageOrgCalRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
 <h2>Good to know</h2>
@@ -457,7 +460,7 @@
       <label index="pageOrgDocumentsCaddyCaddymini_title">Caddy mini</label>
       <label index="pageOrgDocumentsRevocation_title">Revocation</label>
       <label index="pageOrgDocumentsTerms_title">Terms</label>
-      <label index="pageOrgCalEvents_title">Events</label>
+      <label index="pageOrgCalEvents_title">[Events]</label>
       <label index="pageOrgCalLocations_title">Locations</label>
       <label index="pageOrgHeadquarters_title">Companies</label>
       <label index="pageOrgJobs_title">[Jobs]</label>
@@ -1416,6 +1419,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="content_pageOrgCalDelivery_header">Versand</label>
       <label index="content_pageOrgCalDelivery_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
 <ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
+      <label index="content_pageOrgCalEvents_header">Veranstaltungen</label>
+      <label index="content_pageOrgCalEvents_bodytext"><![CDATA[<p>Sorry, für Veranstaltungen sind keine Beispiel-Daten hinterlegt.</p>
+<p>Du kannst den Organiser unter anderem testen mit dem <a href="index.php?id=%pageOrgCalCal_title%">Kalender &raquo;</a></p>]]></label>
       <label index="content_pageOrgCalRevocation_header">Widerrufsrecht</label>
       <label index="content_pageOrgCalRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
 <h2>Gut zu wissen</h2>
@@ -1755,7 +1761,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgCalDelivery_title">Versand</label>
       <label index="pageOrgCalRevocation_title">Widerrufsrecht</label>
       <label index="pageOrgCalTerms_title">AGB</label>
-      <label index="pageOrgCalEvents_title">Veranstaltungen</label>
+      <label index="pageOrgCalEvents_title">[Veranstaltungen]</label>
       <label index="pageOrgCalLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgData_title">Daten</label>
       <label index="pageOrgDataCal_title">Kalender</label>

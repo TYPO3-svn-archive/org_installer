@@ -363,6 +363,7 @@ class tx_orginstaller_pi1_plugins
     $record[ 'tstamp' ] = time();
     $record[ 'crdate' ] = time();
     $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'hidden' ] = 1;
     $record[ 'sorting' ] = 128;
     $record[ 'CType' ] = 'list';
     $record[ 'list_type' ] = 'browser_pi1';

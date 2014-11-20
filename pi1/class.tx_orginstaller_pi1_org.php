@@ -917,7 +917,7 @@ class tx_orginstaller_pi1_org
    */
   private function categoryLocation()
   {
-    $table = 'tx_org_headquarterscat';
+    $table = 'tx_org_locationcat';
     $records = array();
     $uid = $this->pObj->zz_getMaxDbUid( $table );
 

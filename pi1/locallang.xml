@@ -632,9 +632,13 @@
     * Views: [Configured]
     * Views: Display only views of the current template (recommended) [X]
     * Views: Enabled list views ...: 701: +Org Locations
+  * [Single View]
+    * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
+  * [jQuery & AJAX]
+    * AJAX: [disabled]
   * [Social Media]
     * Social Bookmarks: [enabled (I'm using my own HTML template)]
     * Bookmarks in list views
@@ -1944,9 +1948,13 @@ He was elected the 44th President of the United States on November 4,  2008, and
     * Views: [Konfiguriert]
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
     * Views: Listen, die ... verarbeitet werden: 701: +Org Locations
+  * [Detailansicht]
+    * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Browser: Main (browser) ]
-    * CSS jQuery UI (User Interface): [UI: Blitzer]
+    * HTML-Vorlage: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
+  * [jQuery & AJAX]
+    * AJAX: [deaktiviert]
   * [Social Media]
     * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
     * Bookmarks in der Listenansicht

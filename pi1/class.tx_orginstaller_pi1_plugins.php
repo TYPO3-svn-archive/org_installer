@@ -392,15 +392,16 @@ class tx_orginstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalLocations_header' );
     $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgCalLocations_header' ] = $uid;
 
-    $ffJavascript = 'list_and_single';
-    $ffjQueryUi = 'blitzer';
+    $ffJavascript = 'disabled';
+    $ffjQueryUi = 'z_none';
     $ffMode = 701;
     $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalLocations_ffMycomment' ) );
     $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalLocations_ffListTitle' ) );
     $ffTableField = 'tx_org_location.title';
     $ffDownloads = 'no';
     $ffStatistics = 'no';
-    $ffRecBrowser = 'by_flexform';
+    $ffRecBrowser = 'disabled';
+    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -412,6 +413,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCalLocations_title' ];

@@ -241,7 +241,7 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="panel">
-      <h3>Responsive and ready-to-use. Installation with one mouse-click.</h3>
+      <h3>Responsive. Installation with one mouse-click.</h3>
       <div class="row">
         <div class="large-4 medium-4 columns">
           <p>
@@ -253,9 +253,10 @@
         </div>
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="http://typo3-organiser.de/en/one-click" target="_blank">Ready-to-use &raquo;</a><br />
-            You are welcome to install the Organiser with one mouse-click &ndash; responsive and ready-to-use.
-            You need: TYPO3, the Organiser and a mouse.
+            <a href="http://typo3-organiser.de/en/one-click" target="_blank">Installation with one click &raquo;</a><br />
+            You are welcome to install the Organiser with one mouse-click.
+            But <strong>not all features aren't ready-to-use.</strong>
+            See section "What's not ready?" at the bottom.
           </p>
         </div>
         <div class="large-4 medium-4 columns">
@@ -272,7 +273,7 @@
 
 <div class="row">
   <div class="columns">
-    <h3>Organiser: TYPO3 for the lobby and the organisers</h3>
+    <h3>Organiser: TYPO3 for the lobbies and the organisers</h3>
     <p>
       The Organiser is easy: easy to use, easy to configure, easy to handle.
       TYPO3 integrators can install the Organiser with minimum costs.
@@ -383,6 +384,14 @@
 
 <div class="row">
   <div class="columns">
+    <h3>What's not ready?</h3>
+    <p>
+      Events, Jobs and Services hasn't any sample data and hasn't any prepaired TypoScript.
+      Tax rate for tickets can't configured, the rate is 0%. Documents haven't any field for a price.<br />
+      TYPO3 Editors can't change this behaviour. TYPO3 Integrators can change it,
+      but they must be familiar with TCA, TypoScript and the Browser &ndash; TYPO3 without PHP.<br />
+      We would like to solve the open issues, but we need contracts.
+    </p>
     <h3>Any question?</h3>
     <p>
       Visit our <a href="http://typo3-organiser.de/en/" target="_blank">homepage &raquo;</a>
@@ -1094,7 +1103,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_netzmacher_telephone">++49 8507 9237053</label>
       <label index="record_tx_org_headquarters_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_headquarters_netzmacher_image">die_netzmacher_600px_timestamp.jpg</label>
-      <label index="record_tx_org_headquarters_netzmacher_imageseo">Die Netzmacher TYPO3 - published by the Organiser, TYPO3 for the lobby and the organisers</label>
+      <label index="record_tx_org_headquarters_netzmacher_imageseo">Die Netzmacher TYPO3 - published by the Organiser, TYPO3 for the lobbies and the organisers</label>
       <label index="record_tx_org_headquarters_netzmacher_imageorient">0</label>
       <label index="record_tx_org_headquarters_president_title">The White House</label>
       <label index="record_tx_org_headquarters_president_mail_street">1600 Pennsylvania Avenue Northwest</label>
@@ -1105,7 +1114,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_president_telephone">++1 202-456-1111</label>
       <label index="record_tx_org_headquarters_president_email">barack.obama@whitehouse.gov</label>
       <label index="record_tx_org_headquarters_president_image">white_house_timestamp.jpg</label>
-      <label index="record_tx_org_headquarters_president_imageseo">White House - published by the Organiser, TYPO3 for the lobby and the organisers</label>
+      <label index="record_tx_org_headquarters_president_imageseo">White House - published by the Organiser, TYPO3 for the lobbies and the organisers</label>
       <label index="record_tx_org_headquarters_president_imageorient">26</label>
       <label index="record_tx_org_headquarters_president_imagewidth">140</label>
       <label index="record_tx_org_headquarters_typo3_title">TYPO3 Association</label>
@@ -1117,7 +1126,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_headquarters_typo3_fax">+41 41 511 00 39</label>
       <label index="record_tx_org_headquarters_typo3_email">info@typo3.org</label>
       <label index="record_tx_org_headquarters_typo3_image">typo3_logo_timestamp.jpg</label>
-      <label index="record_tx_org_headquarters_typo3_imageseo">TYPO3 Association - published by the Organiser, TYPO3 for the lobby and the organisers</label>
+      <label index="record_tx_org_headquarters_typo3_imageseo">TYPO3 Association - published by the Organiser, TYPO3 for the lobbies and the organisers</label>
       <label index="record_tx_org_headquarters_typo3_imageorient">0</label>
       <label index="record_tx_org_headquarters_typo3_imagewidth"></label>
       <label index="record_tx_org_headquarterscat_title_policy">policy</label>
@@ -1133,7 +1142,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_location_netzmacher_telephone">++49 8507 9237053</label>
       <label index="record_tx_org_location_netzmacher_email">info@die-netzmacher.de</label>
       <label index="record_tx_org_location_netzmacher_image">die_netzmacher_600px_01_timestamp.jpg</label>
-      <label index="record_tx_org_location_netzmacher_imageseo">Die Netzmacher TYPO3 - published by the Organiser, TYPO3 for the lobby and the organisers</label>
+      <label index="record_tx_org_location_netzmacher_imageseo">Die Netzmacher TYPO3 - published by the Organiser, TYPO3 for the lobbies and the organisers</label>
       <label index="record_tx_org_location_netzmacher_imageorient">26</label>
       <label index="record_tx_org_location_netzmacher_imagewidth">140</label>
       <label index="record_tx_org_location_netzmacher_image_link">http://die-netzmacher.de/</label>
@@ -1146,7 +1155,7 @@ Du kannst hier das Handbuch herunterladen (Demo-Version) oder per Post bestellen
       <label index="record_tx_org_location_president_telephone">++1 202-456-1111</label>
       <label index="record_tx_org_location_president_email">barack.obama@whitehouse.gov</label>
       <label index="record_tx_org_location_president_image">white_house_timestamp.jpg</label>
-      <label index="record_tx_org_location_president_imageseo">White House - published by the Organiser, TYPO3 for the lobby and the organisers</label>
+      <label index="record_tx_org_location_president_imageseo">White House - published by the Organiser, TYPO3 for the lobbies and the organisers</label>
       <label index="record_tx_org_location_president_imageorient">26</label>
       <label index="record_tx_org_location_president_imagewidth">140</label>
       <label index="record_tx_org_location_t3devdays_title">Campus Sursee</label>
@@ -1182,7 +1191,7 @@ FLOW3 brings new concepts to the PHP world. Domain-Driven Design, Dependency Inj
 It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]></label>
       <label index="record_tx_org_news_flow_image">BlogExampleWithAnnotation-320px_02_timestamp.png</label>
       <label index="record_tx_org_news_flow_imagecaption">FLOW3 Blogexample</label>
-      <label index="record_tx_org_news_flow_imageseo">FLOW3 Blogexample - published by the Organiser, TYPO3 for the lobby and the organisers</label>
+      <label index="record_tx_org_news_flow_imageseo">FLOW3 Blogexample - published by the Organiser, TYPO3 for the lobbies and the organisers</label>
       <label index="record_tx_org_news_flow_imageorient">26</label>
       <label index="record_tx_org_news_flow_imagewidth">140</label>
       <label index="record_tx_org_news_flow_image_link"></label>
@@ -1194,7 +1203,7 @@ It's about efficiency. It's about the beauty of code. And it's a lot of fun.]]><
       <label index="record_tx_org_news_organiser_teaser_short"><![CDATA[Der TYPO3-Organiser kommt am 1. April 2011. Das haben heute die Entwickler angekündigt und auch erstmals Screenshots von Frontend, Backend und dem Extension-Manager veröffentlicht. ]]></label>
       <label index="record_tx_org_news_organiser_image">t3n_timestamp.png</label>
       <label index="record_tx_org_news_organiser_imagecaption">FLOW3 Blogexample</label>
-      <label index="record_tx_org_news_organiser_imageseo">t3n Magazin - published by the Organiser, TYPO3 for the lobby and the organisers</label>
+      <label index="record_tx_org_news_organiser_imageseo">t3n Magazin - published by the Organiser, TYPO3 for the lobbies and the organisers</label>
       <label index="record_tx_org_news_organiser_imageorient">0</label>
       <label index="record_tx_org_news_organiser_imagewidth"></label>
       <label index="record_tx_org_news_organiser_image_link">http://t3n.de/socialnews/TYPO3/TYPO3-Organiser-kommt-am-1-April-Alles-aus-einer-Hand/</label>
@@ -1259,7 +1268,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_tx_org_staff_bobama_url">http://www.whitehouse.gov/</label>
       <label index="record_tx_org_staff_bobama_image">barack.obama_timestamp.jpg</label>
       <label index="record_tx_org_staff_bobama_imagecaption">Barack O.</label>
-      <label index="record_tx_org_staff_bobama_imageseo">Barack Obama: US President - published by the Organiser, TYPO3 for the lobby and the organisers</label>
+      <label index="record_tx_org_staff_bobama_imageseo">Barack Obama: US President - published by the Organiser, TYPO3 for the lobbies and the organisers</label>
       <label index="record_tx_org_staff_dwildt_name_first">Dirk</label>
       <label index="record_tx_org_staff_dwildt_name_last">Wildt</label>
       <label index="record_tx_org_staff_dwildt_contact_phone">++49 8507 9237053</label>
@@ -1268,7 +1277,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_tx_org_staff_dwildt_url">http://wildt.at.die-netzmacher.de/</label>
       <label index="record_tx_org_staff_dwildt_image">dirk.wildt_timestamp.jpg</label>
       <label index="record_tx_org_staff_dwildt_imagecaption">Dirk W.</label>
-      <label index="record_tx_org_staff_dwildt_imageseo">Dirk Wildt - published by the Organiser, TYPO3 for the lobby and the organisers</label>
+      <label index="record_tx_org_staff_dwildt_imageseo">Dirk Wildt - published by the Organiser, TYPO3 for the lobbies and the organisers</label>
       <label index="record_tx_org_staff_dwildt_vita"><![CDATA[2009|Gesellschafter<br /><a title="Die Netzmacher" href="http://die-netzmacher.de">Die Netzmacher GbR</a><br />Internetdienstleistungen||
 2002 - 2008|Einzelunternehmer<br /><a target="blank" title="think-visually" href="http://think-visually.com">think visually!</a><br />Internetdienstleistungen||
 2000 - 2002|Finanzcontroller<br /><a target="blank" title="g.e.b.b." href="http://www.gebb.de">g.e.b.b.</a><br />Verteidigungsindustrie / Militär||
@@ -1285,7 +1294,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="record_tx_org_staff_sschaffstein_url">http://association.typo3.org/press/press-contact/</label>
       <label index="record_tx_org_staff_sschaffstein_image">soeren.schaffstein_timestamp.gif</label>
       <label index="record_tx_org_staff_sschaffstein_imagecaption"><![CDATA[Sören Sch.]]></label>
-      <label index="record_tx_org_staff_sschaffstein_imageseo">Sören Schaffstein TYPO3 press - published by the Organiser, TYPO3 for the lobby and the organisers></label>
+      <label index="record_tx_org_staff_sschaffstein_imageseo">Sören Schaffstein TYPO3 press - published by the Organiser, TYPO3 for the lobbies and the organisers></label>
       <label index="record_tx_org_staffgroup_title_policy">policy</label>
       <label index="record_tx_org_staffgroup_title_society">society</label>
       <label index="record_tx_org_staffgroup_title_typo3">TYPO3</label>
@@ -1563,7 +1572,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
 <div class="row">
   <div class="large-12 columns">
     <div class="panel">
-      <h3>Responsive und schlüsselfertig. Installation mit einem Maus-Klick.</h3>
+      <h3>Responsive. Installation mit einem Maus-Klick.</h3>
       <div class="row">
         <div class="large-4 medium-4 columns">
           <p>
@@ -1575,9 +1584,10 @@ He was elected the 44th President of the United States on November 4,  2008, and
         </div>
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="http://typo3-organiser.de/en/one-click" target="_blank">Schlüsselfertig &raquo;</a><br />
-            Du kannst den Organiser mit einem Maus-Klick installieren &ndash; responsive und schlüsselfertig.
-            Du brauchst: TYPO3, den Organiser und eine Maus.
+            <a href="http://typo3-organiser.de/en/one-click" target="_blank">Installation mit einem Klick &raquo;</a><br />
+            Du kannst den Organiser mit einem Maus-Klick installieren.
+            Aber <strong>nicht alle Features sind schlüsselfertig.</strong>
+            Siehe unten "Was fehlt?"
           </p>
         </div>
         <div class="large-4 medium-4 columns">
@@ -1599,7 +1609,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       Der Organiser ist einfach: einfach zu nutzen, einfach einzurichten, einfach zu pflegen.
       TYPO3-Integratoren können den Organiser mit einem Minimum an Aufwand installieren.
       Du kannst Dokumente, Firmen, Jobs, einen Kalender, Nachrichten, Personen und Veranstaltungen verwalten.
-      Du kannst Tickets und Dokumente verkaufen.
+      Du kannst Tickets verkaufen und Dokumente zum Versand anbieten.
     </p>
     <p>
       Der Organiser ist eine Lösung für kleine Budgets und kleine Unternehmen,
@@ -1617,7 +1627,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
           <p>
             <a href="index.php?id=%pageOrgCalCal_title%">Kauf ein Ticket! &raquo;</a><br />
             Teste den Organiser! Kauf ein Ticket. Sieh Dir den Ablauf an. Mach eine Kostprobe!
-          Du brauchst für nichts zu bezahlen.
+            Du brauchst für nichts zu bezahlen.
           </p>
           <p>
             <a href="index.php?id=%pageOrgDocumentsDocuments_title%">Online blättern! &raquo;</a><br />
@@ -1704,6 +1714,14 @@ He was elected the 44th President of the United States on November 4,  2008, and
 
 <div class="row">
   <div class="columns">
+    <h3>Was fehlt?</h3>
+    <p>
+      Zu Dienstleistungen, Jobs und Veranstaltungen gibt es keine Beispieldaten und kein vorbereitetes TypoScript.
+      Der MwSt-Satz für Tickets kann nicht eingestellt werden, er ist 0%. Dokumenteen fehlt ein Preis-Feld.<br />
+      TYPO3-Redakteure können das nicht ändern. TYPO3-Integratoren können dies ändern, müssen sich aber gut mit
+      TCA, TypoScript und dem Browser &ndash; TYPO3 ohne PHP &ndash; auskennen.<br />
+      Wir würden die offenen Punkte gerne erledigen, bräuchten dafür aber Aufträge.
+    </p>
     <h3>Noch 'ne Frage?</h3>
     <p>
       Besuche uns auf unserer <a href="http://typo3-organiser.de/en/" target="_blank">Homepage &raquo;</a>.

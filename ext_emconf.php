@@ -3,9 +3,9 @@
 $EM_CONF[$_EXTKEY] = array(
   'title' => 'Organiser Installer',
   'description' => 'This is the installer for the Organiser, TYPO3 for the lobbies and the organisers. '
-  . 'The Organiser provides a lot of features for handle news, events, staff, headquarters, '
-  . 'locations and a calendar. Sell your tickets with the integrated shop. '
-  . 'The installer enables you to install the Organiser with one mouse click! Sample data is included.'
+  . 'The Organiser provides a lot of features for handle calendar, companies, events, locations, news and people '
+  . 'among others. Sell your tickets with the integrated shop. '
+  . 'The installer enables you to install the Organiser with one mouse click! Sample data is included. '
   . 'See: http://typo3-organiser.de/'
   ,
   'category' => 'plugin',
@@ -30,7 +30,7 @@ $EM_CONF[$_EXTKEY] = array(
   'constraints' => array(
     'depends' => array(
       'css_styled_content' => '',
-      'org' => '',
+      'org' => '6.0.0-6.9.99',
       'typo3' => '4.5.0-6.2.99',
     ),
     'conflicts' => array(

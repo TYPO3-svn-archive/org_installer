@@ -38,7 +38,7 @@
                 * class.tx_orginstaller_pi1.php
             * #61666: SQL-ERROR: pages 'perms_userid' cannot be null
   Bugfix
-  * #i0016: powermail plugin git the wrong receiver e-mail address
+  * #i0016: powermail plugin got the wrong receiver e-mail address
             Is fixed for Powermail 2x only!
 
 4.0.4

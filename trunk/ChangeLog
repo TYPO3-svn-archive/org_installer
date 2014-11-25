@@ -1,0 +1,189 @@
+6.0.2
+  14-11-20
+  Improvements
+  * #63111: Categories for location
+
+6.0.1
+  14-11-17
+  Improvements
+  * #i0018: Content elements for pages jobs and services
+
+6.0.0
+  14-10-03
+  Major Features
+  * #i0017: responsive site structure
+  * #62018: * removed:
+              * tx_org_downloads_mm_tx_org_downloadscat
+              * tx_org_downloads_mm_tx_org_downloadsmedia
+  * #61867: Caddy + Foundation 5.x
+  * #61838: +   Cal page
+            ./. TYPO3integrators page
+  * #61825: +Events
+  * #61779: +Job, +Service
+            * pi1
+              * class.tx_orginstaller_pi1_pages.php
+              * class.tx_orginstaller_pi1_typoscript.php
+              * locallang.xml
+  * #61710: Remove import for department table
+  * #61703: Integrate jobs, services, staff
+  * #61693: Integration of Foundation Top Bar
+  * #61624: Upgrade TYPO3 6.2
+            * remove require_once
+              Effected files:
+              * pi1
+                * class.tx_orginstaller_pi1.php
+            * #61663/#61664: &cHash comparison failed / cHashExcludedParameters / pageNotFoundOnCHashError
+              Effected files:
+              * pi1
+                * class.tx_orginstaller_pi1.php
+            * #61666: SQL-ERROR: pages 'perms_userid' cannot be null
+  Bugfix
+  * #i0016: powermail plugin got the wrong receiver e-mail address
+            Is fixed for Powermail 2x only!
+
+4.0.4
+  14-06-24
+  Bugfix
+  * Bug #59856: cHash comparison failed
+
+4.0.3
+  14-06-12
+  Bugfix
+  * #59519: Files can't installed, if directory uploads/tx_org is mising
+  * #i0015: SQL-ERROR tx_org_news_mm_tx_org_newscat. Column 'uid_local' cannot be null.
+  * #i0014: SQL-ERROR pages. Column 'perms_userid' cannot be null.
+
+4.0.2
+  14-06-12
+  Bugfix
+  * #59512: Extension Manager Form: Took params from quickshop installer
+
+4.0.1
+  14-05-17
+  Bugfix
+  * #i0013: mod.web_list.allowedNewTables.tx_org_headquarterscat was missing
+
+4.0.0
+  14-04-29
+  Improvement
+  * #58340: Fit it into TYPO3 6.1
+
+3.3.5
+  13-09-27
+  Update
+  * #i0012: manual
+  Bugfix
+  * #i0011: siteroot
+  * #i0010: locallang.xml
+
+3.3.4
+  13-09-12
+  Improvement
+  * #i0008: Page news should have an disbaled AJAX because of tree-view filter
+  Bugfix
+  * #i0009: Powermail 1x fieldsets where linked with plugin powermail caddy only
+
+3.3.3
+  13-09-11
+  Improvement
+  * #i0007: lat and lon added to headquarter records
+  * #i0006: extension check: seo_dynamic_tag
+
+3.3.2
+  13-07-31
+  Feature
+  * #i0005: Simplify SEO. Integration of seo_dynamic_tag 2.0.
+  * #i0004: Simplify LinkHandlerConfiguration. Integration of linkhandlerconf.
+
+3.3.1
+  13-07-30
+  Improvement
+  * #i0003: imgaes need click_enlarge in case of a link and realUrl
+
+3.3.0
+  13-07-27
+  Improvement
+  * #i0002: Version is set to the corresponding version of the Organiser (org)
+
+3.2.0
+  13-07-27
+  Feature
+  * #50490: Simplify LinkHandlerConfiguration
+            mod.tx_linkhandler is removed completely
+
+3.1.0
+  2013-07-23
+  Feature
+  * i0001: Exchange wt_cart into caddy
+
+3.0.1
+  2012-12-18
+  Improvement
+  * #44137: Update for Organiser 3.0.1 +++ Removed Org HTML templates
+            Effected file:
+            class.tx_orginstaller_pi1.php
+
+3.0.0
+  2012-12-12
+  Improvement
+  * #43690: Update for TYPo3 4.7, Browser 4.2 and Organiser 3.0
+            Effected file:
+            class.tx_orginstaller_pi1.php
+  * #00000: page is wrpped with <div id="content">|</div>
+            Effected file:
+            class.tx_orginstaller_pi1.php
+  Bugfix
+  * #34952: Powermail buggy constant
+
+2.1.2
+  2012-12-30
+  Improvement
+  * #32167: Update for Organiser 2.1.7
+            Update for the download module
+
+2.1.1
+  2012-06-13
+  * #00000: Ext-Manager reads $_POST['data']
+            Effected file: lib/class.tx_orginstaller_extmanager.php
+  * #00000: $ICON_TYPES -> t3lib_SpriteManager::addTcaTypeIcon( ... )
+            Effected file: ext_tables.php
+
+2.1.0
+  2012-05-31
+  Improvement
+  * #00000: Update for Browser version 3.7.9 (record browser)
+            Effected file:
+            class.tx_orginstaller_pi1.php
+            * createPlugins
+            * createTyposcript
+
+2.0.11
+  11-12-12
+  * #00000: Bugfix: If flexform wasn't saved, init flexform value
+
+2.0.10
+  11-12-01
+  * #00000: Bugfix: Records of downloads categories didn't have any type
+
+2.0.9
+  11-11-30
+  * #32167: Update for Organiser version 2.1
+            Data and configuration for download module are added
+
+2.0.1
+  11-08-14
+  New Feature
+  * page TSconfig with configuration for fe_groups relations. Needed for Organiser 2.0.1
+  Bugfixes
+  * Stuff
+    * Obama got the Wildt vita
+    * Wildt hasn't any vita
+  * Tax:
+    * tax localization has wrong values
+      * Changing:0.07 -> 7.00; 0.19 -> 19.00
+    * tax values allocated tax titles
+
+1.0.1
+  11-03-29
+  Initial release
+  Dirk Wildt  http://wildt.at.die-netzmacher.de

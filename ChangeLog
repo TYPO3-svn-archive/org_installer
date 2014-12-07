@@ -1,3 +1,9 @@
+6.0.3
+  14-12-06
+  Improvements
+  * #i0020: Check for needed extension radialserach
+  * #i0019: Adding section "needed extensions" to the manual
+
 6.0.2
   14-11-20
   Improvements

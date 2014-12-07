@@ -821,6 +821,14 @@ class tx_orginstaller_pi1 extends tslib_pibase
       $success = false;
     }
 
+    // #i0020, 141506, dwildt, +
+    $key = 'radialsearch';
+    $title = 'Radial Search (German: Umkreissuche)';
+    if ( !$this->extensionCheckExtension( $key, $title ) )
+    {
+      $success = false;
+    }
+
     // #i0006, 130911, dwildt, +
     $key = 'seo_dynamic_tag';
     $title = 'SEO Dynamic Tag';

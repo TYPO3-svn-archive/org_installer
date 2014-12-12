@@ -223,7 +223,7 @@ class tx_orginstaller_pi1_plugins
     //$ffRecBrowser = 'by_flexform';
     // #61819, 140923, dwildt, 2+
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_01.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -236,7 +236,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
     // #61819, 140923, dwildt, 1+
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
 
     $record[ 'uid' ] = $uid;
@@ -283,7 +283,7 @@ class tx_orginstaller_pi1_plugins
     $ffStatistics = 'no';
     $ffTableField = 'tx_org_cal.title';
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_01.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -295,7 +295,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
 
     $record[ 'uid' ] = $uid;
@@ -343,7 +343,7 @@ class tx_orginstaller_pi1_plugins
     $ffStatistics = 'no';
     $ffRecBrowser = 'disabled';
     // #61696, 140920, dwildt, 1+
-    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_01.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -356,7 +356,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
     // #61696, 140920, dwildt, 1+
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCalEvents_title' ];
@@ -402,7 +402,7 @@ class tx_orginstaller_pi1_plugins
     $ffDownloads = 'no';
     $ffStatistics = 'no';
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_01.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -414,7 +414,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCalLocations_title' ];
@@ -465,7 +465,7 @@ class tx_orginstaller_pi1_plugins
     //$ffRecBrowser = 'by_flexform';
     // #62018, 141003, dwildt, 2+
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/res/html/foundation/main_02.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_03.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -478,7 +478,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
     // #62018, 141003, dwildt, 1+
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgDocumentsDocuments_title' ];
@@ -526,7 +526,7 @@ class tx_orginstaller_pi1_plugins
     $ffStatistics = 'no';
     $ffRecBrowser = 'disabled';
     // #61696, 140920, dwildt, 1+
-    $ffTemplate = 'EXT:browser/res/html/foundation/main_01.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_01.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -539,7 +539,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
     // #61696, 140920, dwildt, 1+
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgHeadquarters_title' ];
@@ -588,7 +588,7 @@ class tx_orginstaller_pi1_plugins
     //$ffRecBrowser = 'by_flexform';
     // #61696, 140920, dwildt, 2+
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/res/html/foundation/table_01.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/table_01.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -601,7 +601,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
     // #61696, 140920, dwildt, 1+
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgJobs_title' ];
@@ -654,7 +654,7 @@ class tx_orginstaller_pi1_plugins
     //$ffRecBrowser = 'by_flexform';
     // #61696, 140918, dwildt, 2+
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/res/html/foundation/main_02.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_02.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -667,7 +667,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
     // #61696, 140918, dwildt, 1+
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgNews_title' ];
@@ -716,7 +716,7 @@ class tx_orginstaller_pi1_plugins
     //$ffRecBrowser = 'by_flexform';
     // #61696, 140920, dwildt, 2+
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/res/html/foundation/main_02.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_02.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -729,7 +729,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
     // #61696, 140920, dwildt, 1+
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgService_title' ];
@@ -782,7 +782,7 @@ class tx_orginstaller_pi1_plugins
     //$ffRecBrowser = 'by_flexform';
     // #61696, 140920, dwildt, 2+
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/res/html/foundation/main_02.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_02.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -795,7 +795,7 @@ class tx_orginstaller_pi1_plugins
     $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
     $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
     // #61696, 140920, dwildt, 1+
-    $pi_flexform = str_replace( 'EXT:browser/res/html/main.tmpl', $ffTemplate, $pi_flexform );
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ];
@@ -1476,7 +1476,7 @@ class tx_orginstaller_pi1_plugins
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
+                    <value index="vDEF">EXT:browser/Resources/Private/Templates/HTML/main.tmpl</value>
                 </field>
                 <field index="css.jqui">
                     <value index="vDEF">%cssJqueryUi%</value>

@@ -1011,12 +1011,12 @@ plugin.tx_seodynamictag {
     $record['root'] = 1;
     $record['clear'] = 3;  // Clear all
     $record['include_static_file'] = 'EXT:css_styled_content/static/,'
-            . 'EXT:browser/static/Foundation/Framework/,'
+            . 'EXT:browser/Configuration/TypoScript/Foundation/Framework/,'
             . 'EXT:baseorg/static/,'
             . 'EXT:radialsearch/static/,'
             . 'EXT:radialsearch/static/properties/de/,'
-            . 'EXT:browser/static/,'
-            . 'EXT:browser/static/Foundation/Templating/,'
+            . 'EXT:browser/Configuration/TypoScript/,'
+            . 'EXT:browser/Configuration/TypoScript/Foundation/Templating/,'
             . 'EXT:caddy/Configuration/TypoScript/Basis/,'
             . 'EXT:caddy/Configuration/TypoScript/Foundation/5x/,'      // #61867, 140925, dwildt, 1+
             . 'EXT:caddy/Configuration/TypoScript/Properties/de/,'
@@ -1430,7 +1430,7 @@ page {
     $record['include_static_file'] = ''
             . 'EXT:radialsearch/static/,'
             . 'EXT:radialsearch/static/properties/de/,'
-            . 'EXT:browser/static/,'
+            . 'EXT:browser/Configuration/TypoScript/,'
             . 'EXT:caddy/Configuration/TypoScript/Basis/,'
             . 'EXT:caddy/Configuration/TypoScript/Foundation/5x/,'      // #61867, 140925, dwildt, 1+
             . 'EXT:caddy/Configuration/TypoScript/Properties/de/,'

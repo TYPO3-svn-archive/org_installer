@@ -28,7 +28,7 @@
       <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="content_pageOrgCalCaddy_header">[fade_deliveryorderaddress.jss]</label>
       <label index="content_pageOrgCalCaddy_bodytext"><![CDATA[
-<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="typo3conf/ext/browser/Resources/Public/JavaScript/jQuery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   /**
@@ -115,7 +115,7 @@
 <ul><li>The shop demonstrates the workflow of Organiser.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>]]></label>
       <label index="content_pageOrgDocumentsCaddy_header">[fade_deliveryorderaddress.jss]</label>
       <label index="content_pageOrgDocumentsCaddy_bodytext"><![CDATA[
-<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="typo3conf/ext/browser/Resources/Public/JavaScript/jQuery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   /**
@@ -509,7 +509,7 @@
     * Views: Display only views of the current template (recommended) [X]
     * Views: Enabled list views ...: 201: +Org Calendar
   * [Templating]
-    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -539,7 +539,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML: [Foundation - Main 3: Title, Searchform, Map, Browser, Content
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -566,7 +566,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * HTML: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -593,7 +593,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * HTML: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -647,7 +647,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * HTML: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -674,7 +674,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -701,7 +701,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -728,7 +728,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -758,11 +758,11 @@
       <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Dear TYPO3-Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Dear TYPO3-Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Dear TYPO3-Organiser-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the power of revocation</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}<br />The client sent these data:<br />{powermail_all}</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_body_s1x"><![CDATA[<p>Dear customer,<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Organiser.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Organiser.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by the Organiser and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Subsidise Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}<br />You sent these data:<br />{powermail_all}</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_header">[Powermail for Caddy]</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r1x">[TEST] New Organiser order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r2x">[TEST] New Organiser order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
@@ -1355,7 +1355,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
       <label index="content_pageOrgCalCaddy_header">[fade_Lieferadresse.jss]</label>
       <label index="content_pageOrgCalCaddy_bodytext"><![CDATA[
-<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="typo3conf/ext/browser/Resources/Public/JavaScript/jQuery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   /**
@@ -1442,7 +1442,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
 <ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>]]></label>
       <label index="content_pageOrgDocumentsCaddy_header">[fade_Lieferadresse.jss]</label>
       <label index="content_pageOrgDocumentsCaddy_bodytext"><![CDATA[
-<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="typo3conf/ext/browser/Resources/Public/JavaScript/jQuery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   /**
@@ -1838,7 +1838,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
     * Views: Listen, die ... verarbeitet werden: 201: +Org Kalender
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1867,7 +1867,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1894,7 +1894,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1921,7 +1921,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1948,7 +1948,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1975,7 +1975,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 1: Title // Searchform / Map, Browser, Order, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -2002,7 +2002,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -2029,7 +2029,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -2056,7 +2056,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -2089,11 +2089,11 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pluginPowermailPageOrgCaddy_body_r1x"><![CDATA[<p>Lieber TYPO3-Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Lieber TYPO3-Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_r2x"><![CDATA[<p>Lieber TYPO3-Organiser-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de<br />{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}<br />Der Kunde hat folgende Daten gesendet:<br />{powermail_all}</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_body_s1x"><![CDATA[Hallo,<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul>
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
-      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
+      <label index="pluginPowermailPageOrgCaddy_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Organiser interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Organiser funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Organiser gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-organiser.de/sponsoring/">Unterstütze Organiser! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}Du hast folgende Daten gesendet:<br />{powermail_all}</p>]]></label>
       <label index="pluginPowermailPageOrgCaddy_header">[Powermail für Caddy]</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r1x">[TEST] Neue Organiser-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="pluginPowermailPageOrgCaddy_subject_r2x">[TEST] Neue Organiser-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>

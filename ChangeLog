@@ -1,6 +1,8 @@
 6.0.7
   14-12-12
   Update for Browser 6.0.7
+  * #i0027: moved: Constant pages.headquarter to pages.headquarters
+  * #i0026: moved: Constant sysfolder.headquarter to sysfolder.headquarters
   * #i0025: moved: browser/res/js/jquery to browser/Resources/Public/JavaScript/jQuery
   * #i0024: moved: browser/Resources/Private/Templates/HTML/foundation to browser/Resources/Private/Templates/HTML/Foundation
   * #i0023: moved: browser/res/html to browser/Resources/Private/Templates/HTML

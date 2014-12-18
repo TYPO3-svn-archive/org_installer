@@ -1382,14 +1382,15 @@ class tx_orginstaller_pi1_plugins
    */
   private function sqlInsert( $records )
   {
-    // #i0028, 141218, dwildt, +
-    if ( empty( $records ) )
-    {
-      return;
-    }
-
     foreach ( $records as $record )
     {
+      // #i0028, 141218, dwildt, +
+      if ( empty( $record ) )
+      {
+        //var_dump(__METHOD__, __LINE__, $records );
+        continue;
+      }
+
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
       $GLOBALS[ 'TYPO3_DB' ]->exec_INSERTquery( 'tt_content', $record );
       $error = $GLOBALS[ 'TYPO3_DB' ]->sql_error();

@@ -497,6 +497,7 @@ class tx_orginstaller_pi1_plugins
 
     return $record;
   }
+
   /**
    * browserPageOrgHeadquarters( )
    *
@@ -1381,6 +1382,12 @@ class tx_orginstaller_pi1_plugins
    */
   private function sqlInsert( $records )
   {
+    // #i0028, 141218, dwildt, +
+    if ( empty( $records ) )
+    {
+      return;
+    }
+
     foreach ( $records as $record )
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );

@@ -1014,7 +1014,7 @@ plugin.tx_browser_pi1 {
         }
         4 {
             // Location
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgLocation_title'] . '
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgCalLocations_title'] . '
         }
       }
     }

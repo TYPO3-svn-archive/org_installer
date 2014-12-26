@@ -1377,7 +1377,7 @@ class tx_orginstaller_pi1_plugins
    * @param	array		$records : TypoScript records for pages
    * @return	void
    * @access private
-   * @version 3.0.0
+   * @version 6.0.7
    * @since   0.0.1
    */
   private function sqlInsert( $records )

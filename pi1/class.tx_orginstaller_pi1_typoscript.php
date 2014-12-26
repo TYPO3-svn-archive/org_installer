@@ -253,7 +253,6 @@ class tx_orginstaller_pi1_typoscript
   // INDEX
   //
   // plugin.caddy
-  // plugin.tx_browser_pi1
   // plugin.tx_seodynamictag
 
 
@@ -275,34 +274,6 @@ plugin.caddy {
   }
 }
   // plugin.caddy
-
-
-
-  ////////////////////////////////////////
-  //
-  // plugin.tx_browser_pi1
-
-plugin.tx_browser_pi1 {
-  templates {
-    listview {
-      url {
-        1 {
-            // News
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
-        }
-        2 {
-            // Location
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgLocation_title'] . '
-        }
-        3 {
-            // Staff
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
-        }
-      }
-    }
-  }
-}
-  // plugin.tx_browser_pi1
 
 
 
@@ -397,16 +368,6 @@ plugin.tx_browser_pi1 {
         0 {
           height  =  90c
           width   = 220c
-        }
-      }
-      url {
-        1 {
-            // News
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
-        }
-        2 {
-            // Staff
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
         }
       }
     }
@@ -543,44 +504,6 @@ plugin.tx_seodynamictag {
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = $includeStaticFile;
     $record['constants'] = '
-  ////////////////////////////////////////
-  //
-  // INDEX
-
-  // plugin.tx_browser_pi1
-  // plugin.tx_seodynamictag
-
-
-
-  ////////////////////////////////////////
-  //
-  // plugin.tx_browser_pi1
-
-plugin.tx_browser_pi1 {
-  templates {
-    listview {
-      url {
-        1 {
-            // News
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
-        }
-        2 {
-            // Staff
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
-        }
-      }
-    }
-  }
-}
-  // plugin.tx_browser_pi1
-
-
-
-  ////////////////////////////////////////
-  //
-  // plugin.tx_seodynamictag
-
-  // plugin.tx_seodynamictag
 plugin.tx_seodynamictag {
   condition {
     single {
@@ -588,7 +511,6 @@ plugin.tx_seodynamictag {
     }
   }
 }
-  // plugin.tx_seodynamictag
 ';
     $record['config'] = null;
 
@@ -642,30 +564,6 @@ plugin.tx_seodynamictag {
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = $includeStaticFile;
     $record['constants'] = '
-  // plugin.tx_browser_pi1
-  // plugin.tx_seodynamictag
-
-
-  // plugin.tx_browser_pi1
-plugin.tx_browser_pi1 {
-  templates {
-    listview {
-      url {
-        1 {
-            // News
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
-        }
-        2 {
-            // Headquarters
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
-        }
-      }
-    }
-  }
-}
-  // plugin.tx_browser_pi1
-
-  // plugin.tx_seodynamictag
 plugin.tx_seodynamictag {
   condition {
     single {
@@ -673,7 +571,6 @@ plugin.tx_seodynamictag {
     }
   }
 }
-  // plugin.tx_seodynamictag
 ';
     $record['config'] = null;
 
@@ -768,30 +665,6 @@ plugin.tx_seodynamictag {
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = $includeStaticFile;
     $record['constants'] = '
-  // plugin.tx_browser_pi1
-  // plugin.tx_seodynamictag
-
-
-  // plugin.tx_browser_pi1
-plugin.tx_browser_pi1 {
-  templates {
-    listview {
-      url {
-        1 {
-            // Staff
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
-        }
-        2 {
-            // Headquarters
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
-        }
-      }
-    }
-  }
-}
-  // plugin.tx_browser_pi1
-
-  // plugin.tx_seodynamictag
 plugin.tx_seodynamictag {
   condition {
     single {
@@ -799,7 +672,6 @@ plugin.tx_seodynamictag {
     }
   }
 }
-  // plugin.tx_seodynamictag
 ';
     $record['config'] = null;
 
@@ -852,30 +724,6 @@ plugin.tx_seodynamictag {
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = $includeStaticFile;
     $record['constants'] = '
-  // plugin.tx_browser_pi1
-  // plugin.tx_seodynamictag
-
-
-  // plugin.tx_browser_pi1
-plugin.tx_browser_pi1 {
-  templates {
-    listview {
-      url {
-        1 {
-            // News
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
-        }
-        2 {
-            // Headquarters
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
-        }
-      }
-    }
-  }
-}
-  // plugin.tx_browser_pi1
-
-  // plugin.tx_seodynamictag
 plugin.tx_seodynamictag {
   condition {
     single {
@@ -883,7 +731,6 @@ plugin.tx_seodynamictag {
     }
   }
 }
-  // plugin.tx_seodynamictag
 ';
     $record['config'] = null;
 
@@ -937,30 +784,6 @@ plugin.tx_seodynamictag {
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = $includeStaticFile;
     $record['constants'] = '
-  // plugin.tx_browser_pi1
-  // plugin.tx_seodynamictag
-
-
-  // plugin.tx_browser_pi1
-plugin.tx_browser_pi1 {
-  templates {
-    listview {
-      url {
-        1 {
-            // News
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
-        }
-        2 {
-            // Headquarters
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
-        }
-      }
-    }
-  }
-}
-  // plugin.tx_browser_pi1
-
-  // plugin.tx_seodynamictag
 plugin.tx_seodynamictag {
   condition {
     single {
@@ -968,7 +791,6 @@ plugin.tx_seodynamictag {
     }
   }
 }
-  // plugin.tx_seodynamictag
 ';
     $record['config'] = null;
 
@@ -1175,8 +997,31 @@ plugin.tx_browser_pi1 {
       }
     }
   }
+  templates {
+    listview {
+      url {
+        1 {
+            // Staff
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
+        }
+        2 {
+            // Headquarters
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+        }
+        3 {
+            // News
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+        }
+        4 {
+            // Location
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgLocation_title'] . '
+        }
+      }
+    }
+  }
 }
   // plugin.tx_browser_pi1
+
 
 
   ////////////////////////////////////////

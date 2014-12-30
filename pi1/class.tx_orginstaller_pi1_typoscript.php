@@ -951,23 +951,23 @@ plugin.baseorg {
 plugin.org {
   host = ' . $this->pObj->markerArray['###HOST###'] . '/
   sysfolder {
-    calendar    = ' . $this->pObj->arr_pageUids['pageOrgDataCal_title'] . '
-    downloads   = ' . $this->pObj->arr_pageUids['pageOrgDataDownloads_title'] . '
-    event       = ' . $this->pObj->arr_pageUids['pageOrgDataEvents_title'] . '
-    headquarters = ' . $this->pObj->arr_pageUids['pageOrgDataHeadquarters_title'] . '
-    job         = ' . $this->pObj->arr_pageUids['pageOrgDataJobs_title'] . '
-    location    = ' . $this->pObj->arr_pageUids['pageOrgDataLocations_title'] . '
-    news        = ' . $this->pObj->arr_pageUids['pageOrgDataNews_title'] . '
-    service     = ' . $this->pObj->arr_pageUids['pageOrgDataService_title'] . '
-    staff       = ' . $this->pObj->arr_pageUids['pageOrgDataStaff_title'] . '
+    calendar      = ' . $this->pObj->arr_pageUids['pageOrgDataCal_title'] . '
+    downloads     = ' . $this->pObj->arr_pageUids['pageOrgDataDownloads_title'] . '
+    event         = ' . $this->pObj->arr_pageUids['pageOrgDataEvents_title'] . '
+    headquarters  = ' . $this->pObj->arr_pageUids['pageOrgDataHeadquarters_title'] . '
+    job           = ' . $this->pObj->arr_pageUids['pageOrgDataJobs_title'] . '
+    location      = ' . $this->pObj->arr_pageUids['pageOrgDataLocations_title'] . '
+    news          = ' . $this->pObj->arr_pageUids['pageOrgDataNews_title'] . '
+    service       = ' . $this->pObj->arr_pageUids['pageOrgDataService_title'] . '
+    staff         = ' . $this->pObj->arr_pageUids['pageOrgDataStaff_title'] . '
   }
   pages {
-    calendar                = ' . $this->pObj->arr_pageUids['pageOrgCal_title'] . '
+    calendar                = ' . $this->pObj->arr_pageUids['pageOrgCalCal_title'] . '
     downloads               = ' . $this->pObj->arr_pageUids['pageOrgDocuments_title'] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyCaddymini_title'] . '
     event                   = ' . $this->pObj->arr_pageUids['pageOrgCalEvents_title'] . '
-    headquarters             = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+    headquarters            = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
     job                     = ' . $this->pObj->arr_pageUids['pageOrgJobs_title'] . '
     jobApply                = ' . $this->pObj->arr_pageUids['pageOrgJobsApply_title'] . '
     location                = ' . $this->pObj->arr_pageUids['pageOrgCalLocations_title'] . '
@@ -1033,7 +1033,7 @@ plugin.tx_browser_pi1 {
         }
         5 {
             // Calendar
-          singlePid = ' . $this->pObj->arr_pageUids['pageOrgCal_title'] . '
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgCalCal_title'] . '
         }
       }
     }

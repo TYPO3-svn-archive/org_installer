@@ -2002,7 +2002,7 @@ class tx_orginstaller_pi1_org
     $record[ 'imageseo' ] = $this->pObj->pi_getLL( 'record_tx_org_location_t3devdays_imageseo' );
     $record[ 'imagewidth' ] = $this->pObj->pi_getLL( 'record_tx_org_location_t3devdays_imagewidth' );
     $record[ 'image_link' ] = $this->pObj->pi_getLL( 'record_tx_org_location_t3devdays_image_link' );
-    $record[ 'imagecols' ] = '1';
+    $record[ 'imagecols' ] = '3';
     $record[ 'image_zoom' ] = '1';
     $record[ 'image_noRows' ] = '1';
     $record[ 'documents' ] = $llFileWiTimestamp;

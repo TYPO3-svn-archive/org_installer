@@ -442,6 +442,15 @@ plugin.tx_seodynamictag {
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = $includeStaticFile;
     $record['constants'] = '
+  /////////////////////////////////
+  //
+  // INDEX
+  //
+  // globalVar plugin.tx_browser_pi1
+  // plugin.tx_seodynamictag
+
+
+
   // plugin.tx_seodynamictag
 plugin.tx_seodynamictag {
   condition {
@@ -451,6 +460,12 @@ plugin.tx_seodynamictag {
   }
 }
   // plugin.tx_seodynamictag
+
+  // globalVar plugin.tx_browser_pi1
+[globalVar = GP:tx_browser_pi1|locationUid > 0]
+  plugin.tx_browser_pi1.map.design.width = 970
+[global]
+  // globalVar plugin.tx_browser_pi1
 ';
 
     $record['config'] = null;
@@ -1016,6 +1031,10 @@ plugin.tx_browser_pi1 {
             // Location
           singlePid = ' . $this->pObj->arr_pageUids['pageOrgCalLocations_title'] . '
         }
+        5 {
+            // Calendar
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgCal_title'] . '
+        }
       }
     }
   }
@@ -1174,6 +1193,9 @@ page {
     headerComment (
         TYPO3 Organiser is brought to you by die-netzmacher.de
     )
+  }
+  includeCSS {
+    baseorgFoundation >
   }
 }
   // page

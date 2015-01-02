@@ -1,6 +1,7 @@
 6.0.7
-  14-12-15
+  15-01-02
   Update for Browser 6.0.7
+  * #i0029: moved: typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf to typo3conf/ext/org/Resources/Public/Files/typo3-organiser_for_caddy.pdf
   * #i0027: moved: Constant pages.headquarter to pages.headquarters
   * #i0026: moved: Constant sysfolder.headquarter to sysfolder.headquarters
   * #i0025: moved: browser/res/js/jquery to browser/Resources/Public/JavaScript/jQuery

@@ -849,6 +849,7 @@ plugin.tx_seodynamictag {
     $record['clear'] = 3;  // Clear all
     $record['include_static_file'] = 'EXT:css_styled_content/static/,'
             . 'EXT:browser/Configuration/TypoScript/Foundation/Framework/,'
+            . 'EXT:browser/Configuration/TypoScript/Foundation/Framework/page/jss/modernizr/,'
             . 'EXT:baseorg/static/,'
             . 'EXT:radialsearch/static/,'
             . 'EXT:radialsearch/static/properties/de/,'

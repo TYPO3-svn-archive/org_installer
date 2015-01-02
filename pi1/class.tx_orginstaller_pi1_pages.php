@@ -1154,7 +1154,8 @@ TCAdefaults {
 mod {
   web_list {
     allowedNewTables (
-      tx_org_event
+      tx_org_event,
+      tx_org_eventcat
     )
   }
 }

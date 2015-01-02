@@ -560,16 +560,16 @@ TCEMAIN {
         <sheet index="paths">
             <language index="lDEF">
                 <field index="terms">
-                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/Resources/Public/Files/typo3-organiser_for_caddy.pdf</value>
                 </field>
                 <field index="revocation">
-                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/Resources/Public/Files/typo3-organiser_for_caddy.pdf</value>
                 </field>
                 <field index="invoice">
-                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/Resources/Public/Files/typo3-organiser_for_caddy.pdf</value>
                 </field>
                 <field index="deliveryorder">
-                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/Resources/Public/Files/typo3-organiser_for_caddy.pdf</value>
                 </field>
             </language>
         </sheet>
@@ -1231,16 +1231,16 @@ page.10.subparts.menue.10 >
         <sheet index="paths">
             <language index="lDEF">
                 <field index="terms">
-                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/Resources/Public/Files/typo3-organiser_for_caddy.pdf</value>
                 </field>
                 <field index="revocation">
-                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/Resources/Public/Files/typo3-organiser_for_caddy.pdf</value>
                 </field>
                 <field index="invoice">
-                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/Resources/Public/Files/typo3-organiser_for_caddy.pdf</value>
                 </field>
                 <field index="deliveryorder">
-                    <value index="vDEF">typo3conf/ext/org/res/pdf/typo3-organiser_for_caddy.pdf</value>
+                    <value index="vDEF">typo3conf/ext/org/Resources/Public/Files/typo3-organiser_for_caddy.pdf</value>
                 </field>
             </language>
         </sheet>

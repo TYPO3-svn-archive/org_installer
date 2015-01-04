@@ -121,8 +121,8 @@ class tx_orginstaller_pi1_content
     $uid = $uid + 1;
     $records[ $uid ] = $this->pageOrgCalDelivery( $uid );
     $uid = $uid + 1;
-    $records[ $uid ] = $this->pageOrgCalEvents( $uid );
-    $uid = $uid + 1;
+//    $records[ $uid ] = $this->pageOrgCalEvents( $uid );
+//    $uid = $uid + 1;
     $records[ $uid ] = $this->pageOrgCalRevocation( $uid );
     $uid = $uid + 1;
     $records[ $uid ] = $this->pageOrgCalTerms( $uid );
@@ -301,22 +301,22 @@ class tx_orginstaller_pi1_content
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCalEvents_header' );
-    $this->pObj->arr_contentUids[ 'content_pageOrgCalEvents_header' ] = $uid;
-    $bodytext = $this->pObj->pi_getLL( 'content_pageOrgCalEvents_bodytext' );
-    $pageOrgCalCal_title = $this->pObj->arr_pageUids[ 'pageOrgCalCal_title' ];
-    $bodytext = str_replace( '%pageOrgCalCal_title%', $pageOrgCalCal_title, $bodytext );
-
-    $record[ 'uid' ] = $uid;
-    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCalEvents_title' ];
-    $record[ 'tstamp' ] = time();
-    $record[ 'crdate' ] = time();
-    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
-    $record[ 'sorting' ] = 256 * 1;
-    $record[ 'CType' ] = 'text';
-    $record[ 'header' ] = $llHeader;
-    $record[ 'bodytext' ] = $bodytext;
-    $record[ 'sectionIndex' ] = 1;
+//    $llHeader = $this->pObj->pi_getLL( 'content_pageOrgCalEvents_header' );
+//    $this->pObj->arr_contentUids[ 'content_pageOrgCalEvents_header' ] = $uid;
+//    $bodytext = $this->pObj->pi_getLL( 'content_pageOrgCalEvents_bodytext' );
+//    $pageOrgCalCal_title = $this->pObj->arr_pageUids[ 'pageOrgCalCal_title' ];
+//    $bodytext = str_replace( '%pageOrgCalCal_title%', $pageOrgCalCal_title, $bodytext );
+//
+//    $record[ 'uid' ] = $uid;
+//    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgCalEvents_title' ];
+//    $record[ 'tstamp' ] = time();
+//    $record[ 'crdate' ] = time();
+//    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+//    $record[ 'sorting' ] = 256 * 1;
+//    $record[ 'CType' ] = 'text';
+//    $record[ 'header' ] = $llHeader;
+//    $record[ 'bodytext' ] = $bodytext;
+//    $record[ 'sectionIndex' ] = 1;
 
     return $record;
   }

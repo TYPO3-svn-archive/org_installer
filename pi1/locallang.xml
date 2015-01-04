@@ -469,7 +469,7 @@
       <label index="pageOrgDocumentsCaddyCaddymini_title">Caddy mini</label>
       <label index="pageOrgDocumentsRevocation_title">Revocation</label>
       <label index="pageOrgDocumentsTerms_title">Terms</label>
-      <label index="pageOrgCalEvents_title">[Events]</label>
+      <label index="pageOrgCalEvents_title">Events</label>
       <label index="pageOrgCalLocations_title">Locations</label>
       <label index="pageOrgHeadquarters_title">Companies</label>
       <label index="pageOrgJobs_title">[Jobs]</label>
@@ -1779,7 +1779,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgCalDelivery_title">Versand</label>
       <label index="pageOrgCalRevocation_title">Widerrufsrecht</label>
       <label index="pageOrgCalTerms_title">AGB</label>
-      <label index="pageOrgCalEvents_title">[Veranstaltungen]</label>
+      <label index="pageOrgCalEvents_title">Veranstaltungen</label>
       <label index="pageOrgCalLocations_title">Veranstaltungsorte</label>
       <label index="pageOrgData_title">Daten</label>
       <label index="pageOrgDataCal_title">Kalender</label>

@@ -335,7 +335,7 @@ class tx_orginstaller_pi1_plugins
 
     $ffJavascript = 'disabled';
     $ffjQueryUi = 'z_none';
-    $ffMode = 61825;
+    $ffMode = 61826;
     $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalEvents_ffMycomment' ) );
     $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgCalEvents_ffListTitle' ) );
     $ffTableField = 'tx_org_event.title';
@@ -363,7 +363,7 @@ class tx_orginstaller_pi1_plugins
     $record[ 'tstamp' ] = time();
     $record[ 'crdate' ] = time();
     $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
-    $record[ 'hidden' ] = 1;
+    $record[ 'hidden' ] = 0;
     $record[ 'sorting' ] = 128;
     $record[ 'CType' ] = 'list';
     $record[ 'list_type' ] = 'browser_pi1';

@@ -356,10 +356,8 @@ plugin.tx_seodynamictag {
 
 plugin.tx_browser_pi1 {
   map {
-    aliases {
-      showUid {
-        marker = eventsUid
-      }
+    controlling {
+      enabled = disabled
     }
   }
   templates {
@@ -368,6 +366,13 @@ plugin.tx_browser_pi1 {
         0 {
           height  =  90c
           width   = 220c
+        }
+      }
+    }
+    singleview {
+      image {
+        0 {
+          widthDefault =  240
         }
       }
     }
@@ -385,7 +390,7 @@ plugin.tx_browser_pi1 {
 plugin.tx_seodynamictag {
   condition {
     single {
-      begin = globalVar = GP:tx_browser_pi1|eventsUid > 0] && [globalVar = TSFE:id = ' . $pid . '
+      begin = globalVar = GP:tx_browser_pi1|eventUid > 0] && [globalVar = TSFE:id = ' . $pid . '
     }
   }
 }

@@ -3,7 +3,7 @@
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+ *  (c) 2013-2015 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -589,7 +589,7 @@ class tx_orginstaller_pi1_plugins
     //$ffRecBrowser = 'by_flexform';
     // #61696, 140920, dwildt, 2+
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/table_01.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_01.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -609,7 +609,7 @@ class tx_orginstaller_pi1_plugins
     $record[ 'tstamp' ] = time();
     $record[ 'crdate' ] = time();
     $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
-    $record[ 'hidden' ] = 1;
+    //$record[ 'hidden' ] = 1;
     $record[ 'sorting' ] = 128;
     $record[ 'CType' ] = 'list';
     $record[ 'list_type' ] = 'browser_pi1';

@@ -472,8 +472,8 @@
       <label index="pageOrgCalEvents_title">Events</label>
       <label index="pageOrgCalLocations_title">Locations</label>
       <label index="pageOrgHeadquarters_title">Companies</label>
-      <label index="pageOrgJobs_title">[Jobs]</label>
-      <label index="pageOrgJobsJobs_title">[Jobs]</label>
+      <label index="pageOrgJobs_title">Jobs</label>
+      <label index="pageOrgJobsJobs_title">Jobs</label>
       <label index="pageOrgJobsJobsApply_title">Application</label>
       <label index="pageOrgLegalinfo_title">Legal info</label>
       <label index="pageOrgLibrary_title">Libraries</label>
@@ -1801,8 +1801,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgDocumentsRevocation_title">Widerrufsrecht</label>
       <label index="pageOrgDocumentsTerms_title">AGB</label>
       <label index="pageOrgHeadquarters_title">Firmen</label>
-      <label index="pageOrgJobs_title">[Jobs]</label>
-      <label index="pageOrgJobsJobs_title">[Jobs]</label>
+      <label index="pageOrgJobs_title">Jobs</label>
+      <label index="pageOrgJobsJobs_title">Jobs</label>
       <label index="pageOrgJobsJobsApply_title">Bewerbung</label>
       <label index="pageOrgLegalinfo_title">Impressum</label>
       <label index="pageOrgLibrary_title">Bibliotheken</label>

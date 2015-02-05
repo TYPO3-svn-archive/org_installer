@@ -1,6 +1,7 @@
 6.0.8
-  15-02-03
+  15-02-05
   Bugfix
+  * #i0032: enabled: [Jobs] -> Jobs
   * #i0031: pageOrgDataJob_title > pageOrgDataJobs_title
   * #i0030: SQL errors
             * Column 'config' cannot be null

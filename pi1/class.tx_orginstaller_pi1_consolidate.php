@@ -1822,8 +1822,8 @@ TCEFORM {
       PAGE_TSCONFIG_ID      = %pageOrgDataLocations_title%
     }
     tx_org_job {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataJob_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataJob_title%
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataJobs_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataJobs_title%
     }
     tx_org_jobcat < .tx_org_job
     tx_org_news {

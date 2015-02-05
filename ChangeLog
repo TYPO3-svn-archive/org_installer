@@ -1,3 +1,11 @@
+6.0.8
+  15-02-03
+  Bugfix
+  * #i0031: pageOrgDataJob_title > pageOrgDataJobs_title
+  * #i0030: SQL errors
+            * Column 'config' cannot be null
+            * Column 'TSconfig' cannot be null
+
 6.0.7
   15-01-02
   Update for Browser 6.0.7

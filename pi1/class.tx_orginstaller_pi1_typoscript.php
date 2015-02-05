@@ -396,7 +396,7 @@ plugin.tx_seodynamictag {
 }
   // plugin.tx_seodynamictag
 ';
-    $record['config'] = null;
+    $record['config'] = '';
 
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
@@ -473,7 +473,7 @@ plugin.tx_seodynamictag {
   // globalVar plugin.tx_browser_pi1
 ';
 
-    $record['config'] = null;
+    $record['config'] = '';
 
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
@@ -532,7 +532,7 @@ plugin.tx_seodynamictag {
   }
 }
 ';
-    $record['config'] = null;
+    $record['config'] = '';
 
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
@@ -592,7 +592,7 @@ plugin.tx_seodynamictag {
   }
 }
 ';
-    $record['config'] = null;
+    $record['config'] = '';
 
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
@@ -693,7 +693,7 @@ plugin.tx_seodynamictag {
   }
 }
 ';
-    $record['config'] = null;
+    $record['config'] = '';
 
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
@@ -752,7 +752,7 @@ plugin.tx_seodynamictag {
   }
 }
 ';
-    $record['config'] = null;
+    $record['config'] = '';
 
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
@@ -812,7 +812,7 @@ plugin.tx_seodynamictag {
   }
 }
 ';
-    $record['config'] = null;
+    $record['config'] = '';
 
     $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
 
@@ -1351,6 +1351,7 @@ page {
   // INDEX
   //
   // plugin.org
+  // plugin.tx_browser_pi1
   // plugin.tx_radialsearch_pi1
   // plugin.tx_seodynamictag_pi1
 
@@ -1403,6 +1404,42 @@ plugin.org {
   }
 }
   // organiser
+
+
+
+  /////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  templates {
+    listview {
+      url {
+        1 {
+            // Staff
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
+        }
+        2 {
+            // Headquarters
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+        }
+        3 {
+            // News
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgNews_title'] . '
+        }
+        4 {
+            // Location
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgCalLocations_title'] . '
+        }
+        5 {
+            // Calendar
+          singlePid = ' . $this->pObj->arr_pageUids['pageOrgCalCal_title'] . '
+        }
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
 
 
 

@@ -971,7 +971,7 @@ class tx_orginstaller_pi1_pages
       'module' => 'org',
       'urlType' => 1,
       'sorting' => $sorting,
-      'TSconfig' => null // Will set while consolidation
+      'TSconfig' => '' // Will set while consolidation
     );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
@@ -1276,7 +1276,8 @@ mod {
       tx_org_job,
       tx_org_jobcat,
       tx_org_jobsector,
-      tx_org_jobworkinghours    )
+      tx_org_jobworkinghours
+)
   }
 }
 

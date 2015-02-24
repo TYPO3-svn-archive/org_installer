@@ -1470,7 +1470,7 @@ class tx_orginstaller_pi1_plugins
                     <value index="vDEF">%listtitle%</value>
                 </field>
                 <field index="titleWrap">
-                    <value index="vDEF">&lt;h1 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h1gt;</value>
+                    <value index="vDEF">&lt;h1 class=&quot;csc-firstHeader&quot;&gt;|&lt;/h1&gt;</value>
                 </field>
             </language>
         </sheet>

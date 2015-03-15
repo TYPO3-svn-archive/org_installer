@@ -283,7 +283,7 @@ class tx_orginstaller_pi1_plugins
     $ffStatistics = 'no';
     $ffTableField = 'tx_org_cal.title';
     $ffRecBrowser = 'disabled';
-    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_01.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_03.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
@@ -527,7 +527,7 @@ class tx_orginstaller_pi1_plugins
     $ffStatistics = 'no';
     $ffRecBrowser = 'disabled';
     // #61696, 140920, dwildt, 1+
-    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_01.html';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/Foundation/main_04.html';
 
     $pi_flexform = $this->zzGetFlexformBrowser();
     $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );

@@ -245,18 +245,17 @@
       <div class="row">
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="index.php?id=%pageOrgCalCal_title%">Responsive &raquo;</a><br />
+            <a href="index.php?id=%pageOrgHeadquarters_title%">Responsive &raquo;</a><br />
             The Organiser is optimised for desktops, tablets and smartphones.
-            Test it: go to the ticket shop and vary the size of your browser window.
-            <strong>Flip it! and maps aren't responsive.</strong>
+            Test it: Visit several pages and <strong>vary the size of your browser window.</strong>
           </p>
         </div>
         <div class="large-4 medium-4 columns">
           <p>
             <a href="http://typo3-organiser.de/en/one-click" target="_blank">Installation with one click &raquo;</a><br />
             You are welcome to install the Organiser with one mouse-click.
-            But <strong>not all features aren't ready-to-use.</strong>
-            See section "What's not ready?" at the bottom.
+            <strong>A lot of features are ready-to-use</strong>
+            like interactive maps or the booking of tickets.
           </p>
         </div>
         <div class="large-4 medium-4 columns">
@@ -314,7 +313,7 @@
     <div class="row">
       <div class="columns">
         <p>
-          <a href="https://typo3.org/extensions/repository/view/organiser/" target="_blank">Available on typo3.org &raquo;</a><br />
+          <a href="https://typo3.org/extensions/repository/view/organiser/" target="_blank">Without any fee on typo3.org &raquo;</a><br />
           The Organiser is 100% Open Source and free of charge. Download it on typo3.org!
         </p>
       </div>
@@ -347,7 +346,10 @@
             Formular management, spam protection: Powermail
           </li>
           <li>
-            Online catalogues: Flip it!
+            Interactive map: Leaflet
+          </li>
+          <li>
+            Online catalogues: Flip it! (not responsive)
           </li>
           <li>
             Responsive framework: Foundation
@@ -373,10 +375,7 @@
         Radial Search
       </li>
       <li>
-        Responsive <strong>but Flip it! and maps</strong>
-      </li>
-      <li>
-        Simplified variants
+        Responsive
       </li>
     </ul>
   </div>
@@ -386,7 +385,7 @@
   <div class="columns">
     <h3>What's not ready?</h3>
     <p>
-      Events, Jobs and Services hasn't any sample data and hasn't any prepaired TypoScript.
+      Events, Jobs and Services hasn't any sample data and some TypoScripts aren't prepaired.
       Tax rate for tickets can't configured, the rate is 0%. Documents haven't any field for a price.<br />
       TYPO3 Editors can't change this behaviour. TYPO3 Integrators can change it,
       but they must be familiar with TCA, TypoScript and the Browser &ndash; TYPO3 without PHP.<br />
@@ -509,7 +508,7 @@
     * Views: Display only views of the current template (recommended) [X]
     * Views: Enabled list views ...: 201: +Org Calendar
   * [Templating]
-    * HTML: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML: [Foundation 3: one column]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -539,7 +538,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation - Main 3: Title, Searchform, Map, Browser, Content
+    * HTML: [Foundation 3: one column]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -566,7 +565,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
+    * HTML: [Foundation 1: two columns, map above the list]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -593,7 +592,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
+    * HTML: [Foundation 4: two columns for map and searchform, one column for the list]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -647,7 +646,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
+    * HTML: [Foundation 1: two columns, map above the list]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -674,7 +673,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML: [Foundation 2: two columns, map above the search form]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -701,7 +700,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML: [Foundation 2: two columns, map above the search form]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -728,7 +727,7 @@
   * [Single View]
     * Record Browser: [disabled]
   * [Templating]
-    * HTML: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML: [Foundation 2: two columns, map above the search form]
     * CSS jQuery UI (User Interface): [Don't embed it!]
   * [jQuery & AJAX]
     * AJAX: [disabled]
@@ -1576,25 +1575,25 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <div class="row">
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="index.php?id=%pageOrgCalCal_title%">Responsive &raquo;</a><br />
+            <a href="index.php?id=%pageOrgHeadquarters_title%">Responsive &raquo;</a><br />
             Der Organiser ist optimiert für Desktops, Tablets und Smartphones.
-            Probier es aus:  Kauf ein Ticket und verändere die Größe des Browserfensters.
-            <strong>Flip it! und Karten sind nicht responsive.</strong>
+            Probier's aus: Guck' Dir die verschiedenen Seiten an
+            und <strong>verändere die Größe Deines Browserfensters.</strong>
           </p>
         </div>
         <div class="large-4 medium-4 columns">
           <p>
             <a href="http://typo3-organiser.de/en/one-click" target="_blank">Installation mit einem Klick &raquo;</a><br />
             Du kannst den Organiser mit einem Maus-Klick installieren.
-            Aber <strong>nicht alle Features sind schlüsselfertig.</strong>
-            Siehe unten "Was fehlt?"
+            <strong>Viele Features sind sofort schlüsselfertig eingerichtet</strong>
+            wie etwa interaktive Karten oder die Ticket-Reservierung.
           </p>
         </div>
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="http://die-netzmacher.de/kontakt/" target="_blank">Professioneller Support</a><br />
+            <a href="http://die-netzmacher.de/kontakt/" target="_blank">Professioneller Support &raquo;</a><br />
             Du willst den Organiser nicht selbst an Deine Bedürfnisse anpassen?
-            Hol Dir professionelle Unterstützung von den Entwicklern: Die Netzmacher.
+            Hol Dir <strong>professionelle Unterstützung</strong> von den Entwicklern: Die Netzmacher.
           </p>
         </div>
       </div>
@@ -1645,7 +1644,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
     <div class="row">
       <div class="columns">
         <p>
-          <a href="https://typo3.org/extensions/repository/view/organiser/" target="_blank">Erhältlich auf typo3.org &raquo;</a><br />
+          <a href="https://typo3.org/extensions/repository/view/organiser/" target="_blank">Kostenlos auf typo3.org &raquo;</a><br />
           Der Organiser ist 100% Open-Source und komplett kostenlos. Lade ihn von typo3.org herunter.        </p>
       </div>
     </div>
@@ -1680,7 +1679,10 @@ He was elected the 44th President of the United States on November 4,  2008, and
             Formular-Management und Spam-Schutz: Powermail
           </li>
           <li>
-            Online in Katalogen blättern: Flip it!
+            Interaktive Karten: Leaflet
+          </li>
+          <li>
+            Online in Katalogen blättern: Flip it! (nicht responsive)
           </li>
           <li>
             Responsive Framework: Foundation
@@ -1700,10 +1702,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
         PDF-Anhänge
       </li>
       <li>
-        Responsive <strong>bis auf Flip it! und Karten</strong>
-      </li>
-      <li>
-        Vereinfachte Varianten
+        Responsive
       </li>
       <li>
         Umkreissuche
@@ -1716,8 +1715,8 @@ He was elected the 44th President of the United States on November 4,  2008, and
   <div class="columns">
     <h3>Was fehlt?</h3>
     <p>
-      Zu Dienstleistungen, Jobs und Veranstaltungen gibt es keine Beispieldaten und kein vorbereitetes TypoScript.
-      Der MwSt-Satz für Tickets kann nicht eingestellt werden, er ist 0%. Dokumenteen fehlt ein Preis-Feld.<br />
+      Zu Dienstleistungen, Jobs und Veranstaltungen gibt es keine Beispieldaten und teilweise kein vorbereitetes TypoScript.
+      Der MwSt-Satz für Tickets kann nicht eingestellt werden, er ist 0%. Dokumenten fehlt ein Preis-Feld.<br />
       TYPO3-Redakteure können das nicht ändern. TYPO3-Integratoren können dies ändern, müssen sich aber gut mit
       TCA, TypoScript und dem Browser &ndash; TYPO3 ohne PHP &ndash; auskennen.<br />
       Wir würden die offenen Punkte gerne erledigen, bräuchten dafür aber Aufträge.
@@ -1838,7 +1837,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
     * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
     * Views: Listen, die ... verarbeitet werden: 201: +Org Kalender
   * [Templating]
-    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML-Vorlage: [Foundation 3: one column]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1867,7 +1866,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML-Vorlage: [Foundation 2: two columns, map above the search form]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1894,7 +1893,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
+    * HTML-Vorlage: [Foundation 1: two columns, map above the list]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1921,7 +1920,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
+    * HTML-Vorlage: [Foundation 4: two columns for map and searchform, one column for the list]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1948,7 +1947,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML-Vorlage: [Foundation 2: two columns, map above the search form]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -1975,7 +1974,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation with own HTML snippet - 1: 1st row: Title. 2nd row:  Searchform | Map, Browser, Order, Content]
+    * HTML-Vorlage: [Foundation 1: two columns, map above the list]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -2002,7 +2001,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML-Vorlage: [Foundation 2: two columns, map above the search form]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -2029,7 +2028,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML-Vorlage: [Foundation 2: two columns, map above the search form]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]
@@ -2056,7 +2055,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
   * [Detailansicht]
     * Datensatz-Browser: [deaktiviert]
   * [Templating]
-    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
+    * HTML-Vorlage: [Foundation 2: two columns, map above the search form]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * AJAX: [deaktiviert]

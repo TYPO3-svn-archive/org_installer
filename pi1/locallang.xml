@@ -313,7 +313,7 @@
     <div class="row">
       <div class="columns">
         <p>
-          <a href="https://typo3.org/extensions/repository/view/organiser/" target="_blank">Without any fee on typo3.org &raquo;</a><br />
+          <a href="https://typo3.org/extensions/repository/view/org/" target="_blank">Without any fee on typo3.org &raquo;</a><br />
           The Organiser is 100% Open Source and free of charge. Download it on typo3.org!
         </p>
       </div>
@@ -485,6 +485,7 @@
       <label index="pageOrgNews_title">News</label>
       <label index="pageOrgService_title">[Services]</label>
       <label index="pageOrgStaff_title">People</label>
+      <label index="pageOrgStaffVcard_title">vCard</label>
       <label index="pageOrg_title">TYPO3 Organiser</label>
       <label index="pageOrgDevider_title"><![CDATA[[--------]]]></label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
@@ -739,6 +740,25 @@
     * Bookmarks in single views
       * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgStaffVcard_header">[Browser for Organiser vCard]</label>
+      <label index="pluginBrowserPageOrgStaffVcard_ffListTitle">Organiser vCard</label>
+      <label index="pluginBrowserPageOrgStaffVcard_ffMycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Data
+  * Recursiv: Infinite
+* [Plugin]
+  * [General]
+    * Views: [Configured]
+    * Views: Display only views of the current template (recommended) [X]
+    * Views: Enabled list views ...: 120: +Org People vCard
+  * [Single View]
+    * Record Browser: [disabled]
+  * [Templating]
+    * HTML: [Browser: Main (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
+  * [jQuery & AJAX]
+    * AJAX: [disabled]
       ]]></label>
       <label index="pluginCaddyPageOrgCaddy_header">Caddy</label>
       <label index="pluginCaddyPageOrgCaddy_note_1x"></label>
@@ -1583,7 +1603,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
         </div>
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="http://typo3-organiser.de/en/one-click" target="_blank">Installation mit einem Klick &raquo;</a><br />
+            <a href="http://typo3-organiser.de/ein-click" target="_blank">Installation mit einem Klick &raquo;</a><br />
             Du kannst den Organiser mit einem Maus-Klick installieren.
             <strong>Viele Features sind sofort schlüsselfertig eingerichtet</strong>
             wie etwa interaktive Karten oder die Ticket-Reservierung.
@@ -1644,7 +1664,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
     <div class="row">
       <div class="columns">
         <p>
-          <a href="https://typo3.org/extensions/repository/view/organiser/" target="_blank">Kostenlos auf typo3.org &raquo;</a><br />
+          <a href="https://typo3.org/extensions/repository/view/org/" target="_blank">Kostenlos auf typo3.org &raquo;</a><br />
           Der Organiser ist 100% Open-Source und komplett kostenlos. Lade ihn von typo3.org herunter.        </p>
       </div>
     </div>
@@ -1723,9 +1743,9 @@ He was elected the 44th President of the United States on November 4,  2008, and
     </p>
     <h3>Noch 'ne Frage?</h3>
     <p>
-      Besuche uns auf unserer <a href="http://typo3-organiser.de/en/" target="_blank">Homepage &raquo;</a>.
+      Besuche uns auf unserer <a href="http://typo3-organiser.de/" target="_blank">Homepage &raquo;</a>.
       Oder sende uns Dein <a href="http://die-netzmacher.de/kontakt/" target="_blank">Anliegen &raquo;</a>.
-      Oder veröffentliche Deine Frage im <a href="http://typo3-organiser.de/en/forum/" target="_blank">Organiser Forum &raquo;</a>.
+      Oder veröffentliche Deine Frage im <a href="http://typo3-organiser.de/forum/" target="_blank">Organiser Forum &raquo;</a>.
     </p>
     <h3>Nur für Integratoren: Die nächsten Schritte nach der Installation</h3>
     <div class="row">
@@ -1814,6 +1834,7 @@ He was elected the 44th President of the United States on November 4,  2008, and
       <label index="pageOrgNews_title">Nachrichten</label>
       <label index="pageOrgService_title">[Dienstleistungen]</label>
       <label index="pageOrgStaff_title">Personen</label>
+      <label index="pageOrgStaffVcard_title">vCard</label>
       <label index="pageOrg_title">TYPO3 Organiser</label>
       <label index="pageOrgDevider_title"><![CDATA[[--------]]]></label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
@@ -2067,6 +2088,25 @@ He was elected the 44th President of the United States on November 4,  2008, and
     * Bookmarks in der Detailansicht
       * table.field: tx_org_staff.title
       * Bookmarks: Facebook, google.com, Twitter
+      ]]></label>
+      <label index="pluginBrowserPageOrgStaffVcard_header">[Browser für Organiser vCard]</label>
+      <label index="pluginBrowserPageOrgStaffVcard_ffListTitle">Organiser vCard</label>
+      <label index="pluginBrowserPageOrgStaffVcard_ffMycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Allgemein]
+    * Views: [Konfiguriert]
+    * Views: Zeige nur Views des aktuell gewaehlten Templates an [X]
+    * Views: Listen, die ... verarbeitet werden: 120: +Org People vCard
+  * [Detailansicht]
+    * Datensatz-Browser: [deaktiviert]
+  * [Templating]
+    * HTML-Vorlage: [Browser: Main (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
+  * [jQuery & AJAX]
+    * AJAX: [deaktiviert]
       ]]></label>
       <label index="pluginCaddyPageOrgCaddy_header">Warenkorb</label>
       <label index="pluginCaddyPageOrgDocumentsCaddy_header">Warenkorb</label>

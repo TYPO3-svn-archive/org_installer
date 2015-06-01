@@ -1,3 +1,26 @@
+7.2.0
+  15-05-31
+  Major Feature
+  * #67210: vCard
+            * NEW
+              * new page staff > vCard
+            * UPDATE
+              * Root template includes
+                EXT:browser/Configuration/TypoScript/Foundation/FoundationIcons/
+  Improvement
+  * #i0037: Root template includes
+            * EXT:browser/Configuration/TypoScript/Foundation/Framework/page/css/normalize/
+            * EXT:browser/Configuration/TypoScript/Foundation/Framework/page/jss/jQuery/
+
+
+7.0.2
+  15-04-27
+  Improvement
+  * #i0035: CI: all library folders got the icon library
+  * #i0034: Localisation of URL startpage
+  Bugfix
+  * #i0036: Unproper URL for organiser in the TER
+
 7.0.1
   15-03-15
   Improvement

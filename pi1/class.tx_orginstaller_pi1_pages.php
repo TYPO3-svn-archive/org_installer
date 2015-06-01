@@ -84,7 +84,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 6.0.0
+ * @version 7.2.0
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_pages
@@ -162,7 +162,7 @@ class tx_orginstaller_pi1_pages
    * @param $pageUid
    * @return	integer		$pageUid: latest page uid
    * @access private
-   * @version 6.0.0
+   * @version 7.2.0
    * @since 6.0.0
    */
   private function orderEnglish( $pageUid )
@@ -303,6 +303,10 @@ class tx_orginstaller_pi1_pages
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgStaff( $pageUid, $sorting );
 
+    // People vCard
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgStaffVcard( $pageUid, $sorting );
+
     // Service
     // #61779, 140921, dwildt, 2+
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
@@ -361,7 +365,7 @@ class tx_orginstaller_pi1_pages
    * @param $pageUid
    * @return	integer		$pageUid: latest page uid
    * @access private
-   * @version 6.0.0
+   * @version 7.2.0
    * @since 6.0.0
    */
   private function orderGerman( $pageUid )
@@ -504,6 +508,10 @@ class tx_orginstaller_pi1_pages
     // Personen
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[ $pageUid ] = $this->pageOrgStaff( $pageUid, $sorting );
+
+    // Personen vCard
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[ $pageUid ] = $this->pageOrgStaffVcard( $pageUid, $sorting );
 
     // SWITCH : install case
     $installCase = $this->pObj->markerArray[ '###INSTALL_CASE###' ];
@@ -2089,6 +2097,7 @@ TCEMAIN {
       'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
       'perms_user' => 31, // 31: Full access
       'perms_group' => 31, // 31: Full access
+      'module' => 'library',
       'urlType' => 1,
       'sorting' => $sorting
     );
@@ -2128,6 +2137,7 @@ TCEMAIN {
       'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
       'perms_user' => 31, // 31: Full access
       'perms_group' => 31, // 31: Full access
+      'module' => 'library',
       'urlType' => 1,
       'sorting' => $sorting
     );
@@ -2167,6 +2177,7 @@ TCEMAIN {
       'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
       'perms_user' => 31, // 31: Full access
       'perms_group' => 31, // 31: Full access
+      'module' => 'org',
       'urlType' => 1,
       'sorting' => $sorting
     );
@@ -2206,6 +2217,7 @@ TCEMAIN {
       'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
       'perms_user' => 31, // 31: Full access
       'perms_group' => 31, // 31: Full access
+      'module' => 'library',
       'urlType' => 1,
       'sorting' => $sorting
     );
@@ -2393,6 +2405,47 @@ TCEMAIN {
       'dokType' => 1, // 1: page
       'crdate' => time(),
       'tstamp' => time(),
+      'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
+      'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
+      'perms_user' => 31, // 31: Full access
+      'perms_group' => 31, // 31: Full access
+      'urlType' => 1,
+      'sorting' => $sorting
+    );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
+
+    return $page;
+  }
+
+  /**
+   * pageOrgStaffVcard( ) :
+   *
+   * @param	integer		$pageUid            : uid of the current page
+   * @param	integer		$sorting            : sorting value
+   * @return	array		$page               : current page record
+   * @access private
+   * @internal #67210
+   * @version 7.2.0
+   * @since 7.2.0
+   */
+  private function pageOrgStaffVcard( $pageUid, $sorting )
+  {
+    $pageTitle = 'pageOrgStaffVcard_title';
+    $llPageTitle = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle = 'pageOrgStaff_title';
+    $pid = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+      (
+      'uid' => $pageUid,
+      'pid' => $pid,
+      'title' => $llPageTitle,
+      'dokType' => 1, // 1: page
+      'crdate' => time(),
+      'tstamp' => time(),
+      'nav_hide' => 1, // Don't display in menus
       'perms_userid' => $this->pObj->markerArray[ '###BE_USER###' ],
       'perms_groupid' => $this->pObj->markerArray[ '###GROUP_UID###' ],
       'perms_user' => 31, // 31: Full access

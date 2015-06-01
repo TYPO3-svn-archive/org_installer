@@ -65,7 +65,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 6.0.0
+ * @version 7.2.0
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_typoscript
@@ -114,7 +114,7 @@ class tx_orginstaller_pi1_typoscript
    *
    * @return	array		$records : the TypoScript records
    * @access private
-   * @version 6.0.0
+   * @version 7.2.0
    * @since   3.0.0
    */
   private function page()
@@ -165,6 +165,10 @@ class tx_orginstaller_pi1_typoscript
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageOrgStaff($uid);
+
+    // #67210, 150531, dwildt, 2+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageOrgStaffVcard($uid);
 
     return $records;
   }
@@ -760,6 +764,47 @@ plugin.tx_seodynamictag {
   }
 
   /**
+   * pageOrgStaffVcard( )
+   *
+   * @param	integer		$uid: uid of the new record
+   * @return	array		$record : the TypoScript record
+   * @access private
+   * @version 7.2.0
+   * @since   3.1.1
+   */
+  private function pageOrgStaffVcard($uid)
+  {
+    $record = null;
+
+    $strUid = sprintf('%03d', $uid);
+    $title = 'pageOrgStaffVcard_title';
+    $llTitle = strtolower($this->pObj->pi_getLL($title));
+    $llTitle = str_replace(' ', null, $llTitle);
+    $llTitle = '+page_' . $llTitle . '_' . $strUid;
+    $pid = $this->pObj->arr_pageUids[$title];
+
+    $this->pObj->arr_tsUids[$title] = $uid;
+    $this->pObj->arr_tsTitles[$uid] = $title;
+
+    $includeStaticFile = 'EXT:org/Configuration/TypoScript/staff/vCard/120/';
+
+    $record['title'] = $llTitle;
+    $record['uid'] = $uid;
+    $record['pid'] = $pid;
+    $record['tstamp'] = time();
+    $record['sorting'] = 256;
+    $record['crdate'] = time();
+    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file'] = $includeStaticFile;
+    $record['constants'] = '';
+    $record['config'] = '';
+
+    $record['description'] = '// Created by ORGANISER INSTALLER at ' . date('Y-m-d G:i:s');
+
+    return $record;
+  }
+
+  /**
    * pageOrgService( )
    *
    * @param	integer		$uid: uid of the new record
@@ -854,7 +899,10 @@ plugin.tx_seodynamictag {
     $record['clear'] = 3;  // Clear all
     $record['include_static_file'] = 'EXT:css_styled_content/static/,'
             . 'EXT:browser/Configuration/TypoScript/Foundation/Framework/,'
+            . 'EXT:browser/Configuration/TypoScript/Foundation/Framework/page/css/normalize/,'  // #i0037, 150531, dwildt, 1+
+            . 'EXT:browser/Configuration/TypoScript/Foundation/Framework/page/jss/jQuery/,'     // #i0037, 150531, dwildt, 1+
             . 'EXT:browser/Configuration/TypoScript/Foundation/Framework/page/jss/modernizr/,'
+            . 'EXT:browser/Configuration/TypoScript/Foundation/FoundationIcons/,'               // #67210, 150531, dwildt, 1+
             . 'EXT:baseorg/static/,'
             . 'EXT:radialsearch/static/,'
             . 'EXT:radialsearch/static/properties/de/,'
@@ -982,6 +1030,7 @@ plugin.org {
     shopping_cart           = ' . $this->pObj->arr_pageUids['pageOrgCalCaddy_title'] . '
     shopping_cart_downloads = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     staff                   = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
+    vCard                   = ' . $this->pObj->arr_pageUids['pageOrgStaffVcard_title'] . '
   }
   url {
     default {
@@ -1380,7 +1429,7 @@ plugin.org {
     downloadsCaddy          = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyCaddymini_title'] . '
     event                   = ' . $this->pObj->arr_pageUids['pageOrgCalEvents_title'] . '
-    headquarters             = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
+    headquarters            = ' . $this->pObj->arr_pageUids['pageOrgHeadquarters_title'] . '
     job                     = ' . $this->pObj->arr_pageUids['pageOrgJobs_title'] . '
     jobApply                = ' . $this->pObj->arr_pageUids['pageOrgJobsApply_title'] . '
     location                = ' . $this->pObj->arr_pageUids['pageOrgCalLocations_title'] . '
@@ -1389,6 +1438,7 @@ plugin.org {
     shopping_cart           = ' . $this->pObj->arr_pageUids['pageOrgCalCaddy_title'] . '
     shopping_cart_downloads = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     staff                   = ' . $this->pObj->arr_pageUids['pageOrgStaff_title'] . '
+    vCard                   = ' . $this->pObj->arr_pageUids['pageOrgStaffVcard_title'] . '
   }
   url {
     default {

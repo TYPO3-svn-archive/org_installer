@@ -72,7 +72,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 6.0.0
+ * @version 7.2.0
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_plugins
@@ -156,6 +156,10 @@ class tx_orginstaller_pi1_plugins
 
     $uid = $uid + 1;
     $records[ $uid ] = $this->browserPageOrgStaff( $uid );
+
+    // #67210, 150531, dwildt, 2+
+    $uid = $uid + 1;
+    $records[ $uid ] = $this->browserPageOrgStaffVcard( $uid );
 
     $uid = $uid + 1;
     $records[ $uid ] = $this->caddyPageOrgCaddy( $uid );
@@ -800,6 +804,69 @@ class tx_orginstaller_pi1_plugins
 
     $record[ 'uid' ] = $uid;
     $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgStaff_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 128;
+    $record[ 'CType' ] = 'list';
+    $record[ 'list_type' ] = 'browser_pi1';
+    $record[ 'header' ] = $llHeader;
+    $record[ 'header_layout' ] = 100;  // hidden
+    $record[ 'pages' ] = $this->pObj->arr_pageUids[ 'pageOrgData_title' ];
+    $record[ 'recursive' ] = 250;
+    $record[ 'sectionIndex' ] = 1;
+    $record[ 'pi_flexform' ] = $pi_flexform;
+
+    return $record;
+  }
+
+  /**
+   * browserPageOrgStaffVcard( )
+   *
+   * @param	integer		$uid: uid of the current plugin
+   * @return	array		$record : the plugin record
+   * @access private
+   * @internal #67210
+   * @version 7.2.0
+   * @since   7.2.0
+   */
+  private function browserPageOrgStaffVcard( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaffVcard_header' );
+    $this->pObj->arr_pluginUids[ 'pluginBrowserPageOrgStaffVcard_header' ] = $uid;
+
+    // #61696, 140920, dwildt, 2-
+    //$ffJavascript = 'list_and_single';
+    //$ffjQueryUi   = 'blitzer';
+    // #61696, 140920, dwildt, 2+
+    $ffJavascript = 'disabled';
+    $ffjQueryUi = 'z_none';
+    $ffMode = 120;
+    $ffMycomment = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaffVcard_ffMycomment' ) );
+    $ffListTitle = htmlspecialchars( $this->pObj->pi_getLL( 'pluginBrowserPageOrgStaffVcard_ffListTitle' ) );
+    $ffTableField = 'tx_org_staff.title';
+    $ffDownloads = 'no';
+    $ffStatistics = 'no';
+    $ffRecBrowser = 'disabled';
+    $ffTemplate = 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl';
+
+    $pi_flexform = $this->zzGetFlexformBrowser();
+    $pi_flexform = str_replace( '%cssJqueryUi%', $ffjQueryUi, $pi_flexform );
+    $pi_flexform = str_replace( '%downloads%', $ffDownloads, $pi_flexform );
+    $pi_flexform = str_replace( '%javascript%', $ffJavascript, $pi_flexform );
+    $pi_flexform = str_replace( '%mode%', $ffMode, $pi_flexform );
+    $pi_flexform = str_replace( '%mycomment%', $ffMycomment, $pi_flexform );
+    $pi_flexform = str_replace( '%listtitle%', $ffListTitle, $pi_flexform );
+    $pi_flexform = str_replace( '%recordbrowser%', $ffRecBrowser, $pi_flexform );
+    $pi_flexform = str_replace( '%socialMediaTableFieldList%', $ffTableField, $pi_flexform );
+    $pi_flexform = str_replace( '%statistics%', $ffStatistics, $pi_flexform );
+    // #61696, 140920, dwildt, 1+
+    $pi_flexform = str_replace( 'EXT:browser/Resources/Private/Templates/HTML/main.tmpl', $ffTemplate, $pi_flexform );
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageOrgStaffVcard_title' ];
     $record[ 'tstamp' ] = time();
     $record[ 'crdate' ] = time();
     $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];

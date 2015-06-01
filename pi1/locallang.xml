@@ -397,15 +397,9 @@
       Or send us your <a href="http://die-netzmacher.de/kontakt/" target="_blank">request &raquo;</a>.
       Or post your concern in the <a href="http://typo3-organiser.de/en/forum/" target="_blank">Organiser Forum &raquo;</a>.
     </p>
-    <h3>For Integrators only: Your next steps after the installation</h3>
+    <h3>For Integrators only: Your next step after the installation</h3>
     <div class="row">
-      <div class="large-6 columns">
-        <p class="bodytext">
-          <a href="" title="">Set up jQuery &raquo;</a><br />
-          We recommend to use t3jquery. Please set it up.
-        </p>
-      </div>
-      <div class="large-6 columns">
+      <div class="large-12 columns">
         <p class="bodytext">
           <a href="http://typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf" title="">Import postal data &raquo;</a><br />
           A proper radial search needs postal data. Import it.
@@ -1747,15 +1741,10 @@ He was elected the 44th President of the United States on November 4,  2008, and
       Oder sende uns Dein <a href="http://die-netzmacher.de/kontakt/" target="_blank">Anliegen &raquo;</a>.
       Oder veröffentliche Deine Frage im <a href="http://typo3-organiser.de/forum/" target="_blank">Organiser Forum &raquo;</a>.
     </p>
-    <h3>Nur für Integratoren: Die nächsten Schritte nach der Installation</h3>
+    <h3>Nur für Integratoren: Der nächste Schritt
+ nach der Installation</h3>
     <div class="row">
-      <div class="large-6 columns">
-        <p class="bodytext">
-          <a href="" title="">Richte jQuery ein &raquo;</a><br />
-          Wir empfehlen t3jquery. Richte es ein.
-        </p>
-      </div>
-      <div class="large-6 columns">
+      <div class="columns">
         <p class="bodytext">
           <a href="http://typo3-route.de/typo3conf/ext/radialsearch/doc/manual.pdf" title="">Importiere Postleitzahlen &raquo;</a><br />
           Eine Umkreissuche basiert auf Postleitzahlen. Importiere die Daten.

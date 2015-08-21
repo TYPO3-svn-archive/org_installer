@@ -1799,7 +1799,6 @@ TCEFORM {
       PAGE_TSCONFIG_ID      = %pageOrgDataCal_title%
     }
     tx_org_calentrance < .tx_org_cal
-    tx_org_calspecial  < .tx_org_cal
     tx_org_caltype     < .tx_org_cal
     tx_org_downloads {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataDownloads_title%
@@ -1817,15 +1816,18 @@ TCEFORM {
       PAGE_TSCONFIG_ID      = %pageOrgDataHeadquarters_title%
     }
     tx_org_headquarterscat < .tx_org_headquarters
-    tx_org_location {
-      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataLocations_title%
-      PAGE_TSCONFIG_ID      = %pageOrgDataLocations_title%
-    }
     tx_org_job {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataJobs_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataJobs_title%
     }
     tx_org_jobcat < .tx_org_job
+    tx_org_jobsector < .tx_org_job
+    tx_org_jobworkinghours < .tx_org_job
+    tx_org_location {
+      PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataLocations_title%
+      PAGE_TSCONFIG_ID      = %pageOrgDataLocations_title%
+    }
+    tx_org_locationcat < .tx_org_location
     tx_org_news {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataNews_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
@@ -1836,30 +1838,38 @@ TCEFORM {
       PAGE_TSCONFIG_ID      = %pageOrgDataService_title%
     }
     tx_org_servicecat < .tx_org_service
+    tx_org_servicesector < .tx_org_service
+    tx_org_servicetargetgroup < .tx_org_service
     tx_org_staff {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataStaff_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataStaff_title%
     }
     tx_org_staffcat < .tx_org_staff
   }
-  tx_org_cal            < .tx_org_cal_all_tables
-  tx_org_calentrance    < .tx_org_cal_all_tables
-  tx_org_calspecial     < .tx_org_cal_all_tables
-  tx_org_caltype        < .tx_org_cal_all_tables
-  tx_org_downloads      < .tx_org_cal_all_tables
-  tx_org_downloadscat   < .tx_org_cal_all_tables
-  tx_org_downloadsmedia < .tx_org_cal_all_tables
-  tx_org_event          < .tx_org_cal_all_tables
-  tx_org_headquarters   < .tx_org_cal_all_tables
-  tx_org_location       < .tx_org_cal_all_tables
-  tx_org_job            < .tx_org_cal_all_tables
-  tx_org_jobcat         < .tx_org_cal_all_tables
-  tx_org_news           < .tx_org_cal_all_tables
-  tx_org_newscat        < .tx_org_cal_all_tables
-  tx_org_service        < .tx_org_cal_all_tables
-  tx_org_servicecat     < .tx_org_cal_all_tables
-  tx_org_staff          < .tx_org_cal_all_tables
-  tx_org_staffcat       < .tx_org_cal_all_tables
+  tx_org_cal                < .tx_org_cal_all_tables
+  tx_org_calentrance        < .tx_org_cal_all_tables
+  tx_org_caltype            < .tx_org_cal_all_tables
+  tx_org_downloads          < .tx_org_cal_all_tables
+  tx_org_downloadscat       < .tx_org_cal_all_tables
+  tx_org_downloadsmedia     < .tx_org_cal_all_tables
+  tx_org_event              < .tx_org_cal_all_tables
+  tx_org_eventcat           < .tx_org_cal_all_tables
+  tx_org_headquarters       < .tx_org_cal_all_tables
+  tx_org_headquarterscat    < .tx_org_cal_all_tables
+  tx_org_job                < .tx_org_cal_all_tables
+  tx_org_jobcat             < .tx_org_cal_all_tables
+  tx_org_jobsector          < .tx_org_cal_all_tables
+  tx_org_jobworkinghours    < .tx_org_cal_all_tables
+  tx_org_location           < .tx_org_cal_all_tables
+  tx_org_locationcat        < .tx_org_cal_all_tables
+  tx_org_news               < .tx_org_cal_all_tables
+  tx_org_newscat            < .tx_org_cal_all_tables
+  tx_org_service            < .tx_org_cal_all_tables
+  tx_org_servicecat         < .tx_org_cal_all_tables
+  tx_org_servicesector      < .tx_org_cal_all_tables
+  tx_org_servicetargetgroup < .tx_org_cal_all_tables
+  tx_org_staff              < .tx_org_cal_all_tables
+  tx_org_staffgroup         < .tx_org_cal_all_tables
 }
   // organiser tables
   // TCEFORM

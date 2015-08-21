@@ -10,7 +10,7 @@ $EM_CONF[$_EXTKEY] = array(
   ,
   'category' => 'plugin',
   'shy' => 0,
-  'version' => '7.2.1',
+  'version' => '7.2.2',
   'dependencies' => 'css_styled_content,org',
   'conflicts' => '',
   'priority' => '',

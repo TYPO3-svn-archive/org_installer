@@ -1,3 +1,18 @@
+7.2.2
+  15-08-22
+  Bugfix
+  * #i0039: Page TSconf
+            Is removed
+            * tx_org_calspecial
+            * tx_org_staffcat
+            Is added
+            * tx_org_jobsector
+            * tx_org_jobworkinghours
+            * tx_org_locationcat
+            * tx_org_servicesector
+            * tx_org_servicetargetgroup
+            * tx_org_staffgroup
+
 7.2.1
   15-06-01
   Improvement

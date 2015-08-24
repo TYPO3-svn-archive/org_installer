@@ -1,3 +1,20 @@
+7.4.0
+  15-08-23
+  Feature
+  * #69272: Group table for news
+            Effected files:
+            * pi1
+              * class.tx_orginstaller_pi1_consolidate.php
+              * class.tx_orginstaller_pi1_pages.php
+            Page TSconf
+            * Is added
+              * tx_org_newsgroup
+  15-08-24
+  Bugfix
+  * #i0040: Page TSconf comment within an statement
+            Effected file:
+            * pi1/class.tx_orginstaller_pi1_pages.php
+
 7.2.2
   15-08-22
   Bugfix

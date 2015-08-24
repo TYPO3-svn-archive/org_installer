@@ -1403,7 +1403,8 @@ mod {
   web_list {
     allowedNewTables (
       tx_org_news,
-      tx_org_newscat
+      tx_org_newscat,
+      tx_org_newsgroup
     )
   }
 }
@@ -1520,13 +1521,14 @@ mod {
 
 // Created by ORGANISER INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
+// #i0040, dwildt: comment is moved from statement below to here
+// #61703, dwildt: fe_users and fe_groups are removed
+// #61703, dwildt: tx_org_staff and tx_org_staffgroup are added
+
+
 mod {
   web_list {
     allowedNewTables (
-      // #61703, dwildt, 2-
-      //fe_users,
-      //fe_groups
-      // #61703, dwildt, 2+
       tx_org_staff,
       tx_org_staffgroup
     )

@@ -1833,6 +1833,7 @@ TCEFORM {
       PAGE_TSCONFIG_ID      = %pageOrgDataNews_title%
     }
     tx_org_newscat < .tx_org_news
+    tx_org_newsgroup < .tx_org_news
     tx_org_service {
       PAGE_TSCONFIG_IDLIST  = ' . $uid . ',%pageOrgDataService_title%
       PAGE_TSCONFIG_ID      = %pageOrgDataService_title%
@@ -1864,6 +1865,7 @@ TCEFORM {
   tx_org_locationcat        < .tx_org_cal_all_tables
   tx_org_news               < .tx_org_cal_all_tables
   tx_org_newscat            < .tx_org_cal_all_tables
+  tx_org_newsgroup            < .tx_org_cal_all_tables
   tx_org_service            < .tx_org_cal_all_tables
   tx_org_servicecat         < .tx_org_cal_all_tables
   tx_org_servicesector      < .tx_org_cal_all_tables

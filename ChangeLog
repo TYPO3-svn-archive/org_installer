@@ -1,3 +1,24 @@
+7.4.3
+  15-11-30
+  Improvement
+  * #i0044: Upgrade for Caddy 6.3.0
+  Bugfix
+  * #i0043: Proper uid for documents page. See
+            * pi1
+              * class.tx_orginstaller_pi1_pages.php
+              * class.tx_orginstaller_pi1_typoscript.php
+
+7.4.2
+  15-10-22
+  Improvement
+  * #i0042: TypoScript comments
+
+7.4.1
+  15-09-22
+  Bugfix
+  * #i0041: Page TSconf
+            * tx_org_calentrance < .tx_org_cal_all_tables
+
 7.4.0
   15-08-23
   Feature

@@ -1787,8 +1787,10 @@ page.10.subparts.menue.10 >
   //    [%pageOrgDataDownloads_title%] downloads
   //    [%pageOrgDataEvents_title%] events
   //    [%pageOrgDataHeadquarters_title%] headquarters
+  //    [%pageOrgDataJobs_title%] jobs
   //    [%pageOrgDataLocations_title%] locations
   //    [%pageOrgDataNews_title%] news
+  //    [%pageOrgDataService_title%] services
   //    [%pageOrgDataStaff_title%] staff
 
   // organiser tables
@@ -1849,6 +1851,7 @@ TCEFORM {
   }
   tx_org_cal                < .tx_org_cal_all_tables
   tx_org_calentrance        < .tx_org_cal_all_tables
+  tx_org_calspecial         < .tx_org_cal_all_tables
   tx_org_caltype            < .tx_org_cal_all_tables
   tx_org_downloads          < .tx_org_cal_all_tables
   tx_org_downloadscat       < .tx_org_cal_all_tables
@@ -1865,7 +1868,7 @@ TCEFORM {
   tx_org_locationcat        < .tx_org_cal_all_tables
   tx_org_news               < .tx_org_cal_all_tables
   tx_org_newscat            < .tx_org_cal_all_tables
-  tx_org_newsgroup            < .tx_org_cal_all_tables
+  tx_org_newsgroup          < .tx_org_cal_all_tables
   tx_org_service            < .tx_org_cal_all_tables
   tx_org_servicecat         < .tx_org_cal_all_tables
   tx_org_servicesector      < .tx_org_cal_all_tables

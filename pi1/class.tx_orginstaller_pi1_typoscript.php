@@ -65,7 +65,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_orginstaller
- * @version 7.2.0
+ * @version 7.4.3
  * @since 3.0.0
  */
 class tx_orginstaller_pi1_typoscript
@@ -1017,7 +1017,7 @@ plugin.org {
   }
   pages {
     calendar                = ' . $this->pObj->arr_pageUids['pageOrgCalCal_title'] . '
-    downloads               = ' . $this->pObj->arr_pageUids['pageOrgDocuments_title'] . '
+    downloads               = ' . $this->pObj->arr_pageUids['pageOrgDocumentsDocuments_title'] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyCaddymini_title'] . '
     event                   = ' . $this->pObj->arr_pageUids['pageOrgCalEvents_title'] . '
@@ -1425,7 +1425,7 @@ plugin.org {
   }
   pages {
     calendar                = ' . $this->pObj->arr_pageUids['pageOrgCal_title'] . '
-    downloads               = ' . $this->pObj->arr_pageUids['pageOrgDocuments_title'] . '
+    downloads               = ' . $this->pObj->arr_pageUids['pageOrgDocumentsDocuments_title'] . '
     downloadsCaddy          = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddy_title'] . '
     downloadsCaddyCaddymini = ' . $this->pObj->arr_pageUids['pageOrgDocumentsCaddyCaddymini_title'] . '
     event                   = ' . $this->pObj->arr_pageUids['pageOrgCalEvents_title'] . '
@@ -1652,7 +1652,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.default
 //    $includeStaticFile = $includeStaticFile
 //            . ',EXT:powermail/Configuration/TypoScript/Main'
 //            . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/'
-//            . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/Foundation_5x/'
+//            . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/Foundation/5x/'
 //    ;
 
     $record['title'] = $llTitle;
@@ -2096,7 +2096,7 @@ plugin.tx_powermail {
    *
    * @return	string		$staticFiles  : the list of static files
    * @access private
-   * @version 6.0.0
+   * @version 7.4.3
    * @since   3.0.0
    */
   private function zzOrgCaddyStaticFilesPowermail2x()
@@ -2105,7 +2105,7 @@ plugin.tx_powermail {
     $staticFiles = ''
             . 'EXT:powermail/Configuration/TypoScript/Main'
             . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/'
-            . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/Foundation_5x/'
+            . ',EXT:caddy/Configuration/TypoScript/Powermail/2x/Foundation/5x/'
     ;
 
     return $staticFiles;
